@@ -34,10 +34,16 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   async.parallelLimit(keys.map(key => {
     return acb => {
       acbNoError = err => {
+        if (!acb) {
+          console.log('acb called a second time!', key, new Error().stack.split('\n').join('|'));
+        }
         if (err) {
           console.log("Error when addding " + key, err);
         }
-        acb();
+        if (acb) {
+          acb();
+          acb = null;
+        }
       }
       let {name, provider} = getName(key);
       names.push(name);
