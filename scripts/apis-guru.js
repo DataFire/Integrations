@@ -33,14 +33,20 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   let names = [];
   async.parallelLimit(keys.map(key => {
     return acb => {
+      acbNoError = err => {
+        if (err) {
+          console.log("Error when addding " + key, err);
+        }
+        acb();
+      }
       let {name, provider} = getName(key);
       names.push(name);
       let info = body[key];
       let api = info.versions[info.preferred];
       if (args.info_only) {
-        updateSpec(name, api.swaggerUrl, true, acb)
+        updateSpec(name, api.swaggerUrl, true, acbNoError)
       } else if (args.spec_only) {
-        updateSpec(name, api.swaggerUrl, false, acb)
+        updateSpec(name, api.swaggerUrl, false, acbNoError)
       } else {
         let opts = {
           name,
@@ -53,13 +59,13 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
           opts.openapi = api.swaggerUrl;
         }
         integrate(opts, err => {
-          if (err) return acb(err);
+          if (err) return acbNoError(err);
           try {
             fs.unlinkSync(path.join(OUT_DIR, name, 'details.json'));
           } catch (e) {
             console.log('Error deleting details.json for ' + name, e);
           }
-          acb();
+          acbNoError();
         });
       }
     }
