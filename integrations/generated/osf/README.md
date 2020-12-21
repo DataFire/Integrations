@@ -9,7 +9,7 @@ npm install --save @datafire/osf
 ```js
 let osf = require('@datafire/osf').create();
 
-osf.base_read(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -79,7 +79,7 @@ A log can have one of many actions. The complete list of loggable actions (in th
 
 * `updated_fields`: One or more of a Node's fields are changed
 
-* `external_ids_added`: An external identifier is added to a Node (e.g. DOI, ARK)
+* `external_ids_added`: An external identifier is added to a Node (e.g. the DOI)
 ---
 
 * `view_only_link_added`: A view-only link was added to a Node
@@ -173,11 +173,11 @@ A log can have one of many actions. The complete list of loggable actions (in th
 * `registration_cancelled`: A proposed Registration is cancelled
 ---
 
-* `preprint_initiated`: A preprint is made from the node
+* `preprint_initiated`: A preprint is made from the node (deprecated log, preprints are no longer made from nodes)
 
-* `preprint_license_updated`: A license is added or updated to the preprint
+* `preprint_license_updated`: A license is added or updated to the preprint (deprecated log, preprint actions are no longer logged on the node)
 
-* `preprint_file_updated`: The primary file of a preprint is updated
+* `preprint_file_updated`: The primary file of a preprint is updated (deprecated log, this action is now logged on the preprint)
 
 
 ```js
@@ -389,13 +389,42 @@ Retrieves the details of a file (or folder)
 
 #### Returns
 
-Returns a JSON object with a `data` key containing the representation of the requested file, if the request was successful.
+Returns a JSON object with a `data` key containing the metadata for the requested file or folder. If a metadata request is issued against a folder, the request will return the metadata for every object in the folder. If the ?info= query parameter is present for a request against a folder, the response will contain the metadata for the folder itself instead of the metadata for the objects in the folder.
 
 If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
 
 ### Waterbutler API actions
 
 Files can be modified via the Waterbutler URLs found in the `links` key of the response (new_folder, move, upload, download, and delete). Further information about how to interact with files can be found in the [Waterbutler API documentation](https://waterbutler.readthedocs.io/en/latest/api.html#v1-api).
+
+
+#### Download (files)
+
+To download a file, issue a GET request against the download link. The response will have the Content-Disposition header set, which will will trigger a download in a browser.
+
+#### Create Subfolder (folders)
+
+You can create a subfolder of an existing folder by issuing a PUT request against the new_folder link. The ?kind=folder portion of the query parameter is already included in the new_folder link. The name of the new subfolder should be provided in the name query parameter. The response will contain a WaterButler folder entity. If a folder with that name already exists in the parent directory, the server will return a 409 Conflict error response.
+
+#### Upload New File (folders)
+
+
+  To upload a file to a folder, issue a PUT request to the folder's upload link with the raw file data in the request body, and the kind and name query parameters set to 'file' and the desired name of the file. The response will contain a WaterButler file entity that describes the new file. If a file with the same name already exists in the folder, the server will return a 409 Conflict error response.
+
+
+#### Update Existing File (file)
+
+To update an existing file, issue a PUT request to the file's upload link with the raw file data in the request body and the kind query parameter set to "file". The update action will create a new version of the file. The response will contain a WaterButler file entity that describes the updated file.
+
+#### Rename (files, folders)
+
+To rename a file or folder, issue a POST request to the move link with the action body parameter set to "rename" and the rename body parameter set to the desired name. The response will contain either a folder entity or file entity with the new name.
+
+#### Move & Copy (files, folders)
+
+Move and copy actions both use the same request structure, a POST to the move url, but with different values for the action body parameters. The path parameter is also required and should be the OSF path attribute of the folder being written to. The rename and conflict parameters are optional. If you wish to change the name of the file or folder at its destination, set the rename parameter to the new name. The conflict param governs how name clashes are resolved. Possible values are replace and keep. replace is the default and will overwrite the file that already exists in the target folder. keep will attempt to keep both by adding a suffix to the new file's name until it no longer conflicts. The suffix will be ' (x)' where x is a increasing integer starting from 1. This behavior is intended to mimic that of the OS X Finder. The response will contain either a folder entity or file entity with the new name.
+Files and folders can also be moved between nodes and providers. The resource parameter is the id of the node under which the file/folder should be moved. It must agree with the path parameter, that is the path must identify a valid folder under the node identified by resource. Likewise, the provider parameter may be used to move the file/folder to another storage provider, but both the resource and path parameters must belong to a node and folder already extant on that provider. Both resource and provider default to the current node and providers.
+If a moved/copied file is overwriting an existing file, a 200 OK response will be returned. Otherwise, a 201 Created will be returned.
 
 
 ```js
@@ -433,9 +462,11 @@ osf.files_detail({
     * links `object`: Links to alternative representations of the file entity.
       * delete `string`: The Waterbutler API route for file deletions.
       * download `string`: The Waterbutler API route for file downloads.
+      * html `string`: A link to the file on the OSF.
       * info `string`: A link to the page to view a file's information or a folder's contents.
       * move `string`: The Waterbutler API route for file moves.
       * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+      * render `string`: A Waterbutler API route for rendering the file.
       * self `string`: A link to the detail page for the file.
       * upload `string`: The Waterbutler API route for file uploads.
     * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -501,7 +532,9 @@ osf.files_versions({
       * size `integer`: Size of the file in bytes.
     * id `string`: The identifier of the file version.
     * links `object`: Links to alternative representations of the file version entity.
+      * download `string`: The Waterbutler API route for downloading the version.
       * html `string`: A link to the html version page.
+      * render `string`: A Waterbutler API route for rendering the version.
       * self `string`: A link to the detail page for a file version.
     * type `string`: The type identifier of the file versions entity (`file_versions`).
 
@@ -536,9 +569,402 @@ osf.files_version_detail({
       * size `integer`: Size of the file in bytes.
     * id `string`: The identifier of the file version.
     * links `object`: Links to alternative representations of the file version entity.
+      * download `string`: The Waterbutler API route for downloading the version.
       * html `string`: A link to the html version page.
+      * render `string`: A Waterbutler API route for rendering the version.
       * self `string`: A link to the detail page for a file version.
     * type `string`: The type identifier of the file versions entity (`file_versions`).
+
+### groups_list
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+A paginated list of groups.  Only groups the logged-in user belongs to will be returned. The returned groups are sorted by their `date_modified`, with the most recently updated groups appearing first.
+
+#### Returns
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 groups. Each resource in the array is a separate group object and contains the full representation of the group, meaning additional requests to a group's detail view are not necessary.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+#### Filtering
+
+You can optionally request that the response only include groups that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/groups/5c0571f4b146c900085f39a3/?filter[name]=lab.
+
+Groups may be filtered by their `name`.
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.groups_list(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes **required** `object`: The properties of the group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name **required** `string`: The name of the group.
+    * id `string`: The unique identifier of the group entity.
+    * links `object`: URLs to alternative representations of the group entity.
+      * html `string`: A link to the group's page on the OSF.
+      * self `string`: A link to the canonical API endpoint of this group.
+    * relationships `object`: URLs to other entities or entity collections that have a relationship to the group entity.
+      * members `string`: A link to the list of the members of this group.
+    * type **required** `string`: The type identifier of the group entity (`groups`).
+
+### groups
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Creates a new group.
+On the OSF, a group is a collection of users; examples are a lab group or a class. Users can add other users to groups, and then allow that group to access a project or several projects.
+#### Required
+Required fields for creating a group include:
+
+&nbsp;&nbsp;&nbsp;&nbsp;`name`
+
+Note: The creator is automatically made a manager of the group.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the created group, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.groups({
+  "body": {
+    "type": "",
+    "attributes": {
+      "name": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * body **required** `object`
+    * attributes **required** `object`: The properties of the group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name **required** `string`: The name of the group.
+    * id `string`: The unique identifier of the group entity.
+    * links `object`: URLs to alternative representations of the group entity.
+      * html `string`: A link to the group's page on the OSF.
+      * self `string`: A link to the canonical API endpoint of this group.
+    * relationships `object`: URLs to other entities or entity collections that have a relationship to the group entity.
+      * members `string`: A link to the list of the members of this group.
+    * type **required** `string`: The type identifier of the group entity (`groups`).
+
+#### Output
+*Output schema unknown*
+
+### groups_delete
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Permanently deletes a group. This action cannot be undone.
+
+#### Permissions
+
+Only group managers may delete a group. Attempting to delete a group for which you are not a manager will result in a **403 Forbidden** response.
+
+#### Returns
+
+If the request is successful, no content is returned.
+
+If the request is unsuccessful, a JSON object with an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.groups_delete({
+  "group_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+
+#### Output
+*Output schema unknown*
+
+### groups_read
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Retrieves the details of a given group
+#### Permissions
+Any user can retrieve a group.
+Authentication is not required to view the details of a specific group.
+#### Returns
+Returns a JSON object with a data key that has a representation of the serialized group.
+
+
+```js
+osf.groups_read({
+  "group_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+
+#### Output
+* output `object`
+  * attributes **required** `object`: The properties of the group entity.
+    * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+    * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+    * name **required** `string`: The name of the group.
+  * id `string`: The unique identifier of the group entity.
+  * links `object`: URLs to alternative representations of the group entity.
+    * html `string`: A link to the group's page on the OSF.
+    * self `string`: A link to the canonical API endpoint of this group.
+  * relationships `object`: URLs to other entities or entity collections that have a relationship to the group entity.
+    * members `string`: A link to the list of the members of this group.
+  * type **required** `string`: The type identifier of the group entity (`groups`).
+
+### group_partial_update
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Updates a group by setting the values of the attributes specified in the request body. Any unspecified attributes will be left unchanged.
+
+Groups can be updated with either a **PUT** or **PATCH** request. The `name` field is mandatory in a **PUT** request, and optional in a **PATCH**.
+
+#### Permissions
+Only managers of a group may update the group. Attempting to update a group for which you do not have manager access will result in a **403 Forbidden** response.
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the new representation of the updated node, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.group_partial_update({
+  "group_id": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+  * body **required** `object`
+
+#### Output
+*Output schema unknown*
+
+### group_members_list
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+A paginated list of the group members.
+Groups are collections of users. A user can either be a group member or a group manager. Group managers can update group membership. All group members can be added as a unit to a project or several projects.
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 members. Each resource in the array contains the full representation of the member, meaning additional requests to a member's detail view are not necessary. The user's role in the group and full_name are top-level attributes. Additionally, if a member hasn't yet claimed their OSF account, they will have an unregistered_member attribute.  To see more details about the user in the group, follow the `users` relationship.
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+#### Filtering
+You can optionally request that the response only include members that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/groups/5c0571f4b146c900085f39a3/members/?filter[role]=manager.
+
+Contributors may be filtered by their `role` and `full_name` attributes.
+
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.group_members_list({
+  "group_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the contributor entity.
+      * email `string`: The unregistered user email. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * full_name `string`: The full name of the user, used for display on the OSF. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * role `string` (values: manager, member): The permission level of the group member. The default value is 'member'.
+      * unregistered_member `string`: The assigned name of the group member if the member has not yet claimed their account.
+    * id `string`: The identifier of the group member entity. Member identifiers have the form {group_id}-{user_id}.
+    * links `object`: URLs to alternative representations of the group member entity.
+      * self `string`: A link to the the canonical API endpoint for the group member.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the group member entity.
+      * user **required** `string`: A relationship to the user object
+    * type **required** `string`: The type identifier of the group member entity (`group-members`).
+
+### group_members_create
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Adds a member to a group, effectively creating a relationship between the group and a user.
+Groups are collections of users. A user can either be a group member or a group manager. Group managers can update group membership. All group members can be added as a unit to a project or several projects.
+#### Permissions
+Only a group manager can add a member to the group.
+#### Required
+A relationship object with a `data` key, containing the `users` type and valid user ID is required.  You can specify the member's role with the `role` attribute. Default role is `member`.  To add an unregistered member to a group, specify a `full_name` and `email` combination under `attributes`.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the new group member, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.group_members_create({
+  "group_id": "",
+  "body": {
+    "type": "",
+    "relationships": {
+      "user": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+  * body **required** `object`
+    * attributes `object`: The properties of the contributor entity.
+      * email `string`: The unregistered user email. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * full_name `string`: The full name of the user, used for display on the OSF. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * role `string` (values: manager, member): The permission level of the group member. The default value is 'member'.
+      * unregistered_member `string`: The assigned name of the group member if the member has not yet claimed their account.
+    * id `string`: The identifier of the group member entity. Member identifiers have the form {group_id}-{user_id}.
+    * links `object`: URLs to alternative representations of the group member entity.
+      * self `string`: A link to the the canonical API endpoint for the group member.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the group member entity.
+      * user **required** `string`: A relationship to the user object
+    * type **required** `string`: The type identifier of the group member entity (`group-members`).
+
+#### Output
+*Output schema unknown*
+
+### group_members_delete
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Removes a member from a group. This request only removes the relationship between the group and the user, it does not delete the user itself.
+
+A group must always have at least one manager, and attempting to remove the only manager from a group will result in a **400 Bad Request** response.
+#### Permissions
+A user can remove themselves as a member. Otherwise, only project managers can remove members.
+#### Returns
+If the request is successful, no content is returned.
+
+If the request is unsuccessful, a JSON object with an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.group_members_delete({
+  "group_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+  * user_id **required** `string`: The unique identifier of the user.
+
+#### Output
+*Output schema unknown*
+
+### group_members_read
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Retrieves the details of a given group member.
+
+Groups are collections of users that can be added to a project or several projects.  Group members either have a `manager` or `member` role.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the requested contributor, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.group_members_read({
+  "group_id": "",
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+  * user_id **required** `string`: The unique identifier of the user.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the contributor entity.
+    * email `string`: The unregistered user email. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+    * full_name `string`: The full name of the user, used for display on the OSF. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+    * role `string` (values: manager, member): The permission level of the group member. The default value is 'member'.
+    * unregistered_member `string`: The assigned name of the group member if the member has not yet claimed their account.
+  * id `string`: The identifier of the group member entity. Member identifiers have the form {group_id}-{user_id}.
+  * links `object`: URLs to alternative representations of the group member entity.
+    * self `string`: A link to the the canonical API endpoint for the group member.
+  * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the group member entity.
+    * user **required** `string`: A relationship to the user object
+  * type **required** `string`: The type identifier of the group member entity (`group-members`).
+
+### group_members_partial_update
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Updates a group member by setting the values of the attributes specified in the request body. Any unspecified attributes will be left unchanged.
+
+Group members can be updated with either a **PUT** or **PATCH** request. Since this endpoint has no mandatory attributes, PUT and PATCH are functionally the same.
+#### Permissions
+Only group managers can update group membership.
+#### Returns
+Returns a JSON object with a `data` key containing the new representation of the updated contributor, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+If the given user is not already in the member list, a 404 Not Found error will be returned. A group must always have at least one manager, and any attempt to downgrade the permissions of a sole manager will result in a 400 Bad Request error.
+
+
+```js
+osf.group_members_partial_update({
+  "group_id": "",
+  "user_id": "",
+  "body": {
+    "type": "",
+    "relationships": {
+      "user": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * group_id **required** `string`: The unique identifier of the group.
+  * user_id **required** `string`: The unique identifier of the user.
+  * body **required** `object`
+    * attributes `object`: The properties of the contributor entity.
+      * email `string`: The unregistered user email. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * full_name `string`: The full name of the user, used for display on the OSF. Writeable when adding an unregistered member to your group, instead of an existing OSF user.
+      * role `string` (values: manager, member): The permission level of the group member. The default value is 'member'.
+      * unregistered_member `string`: The assigned name of the group member if the member has not yet claimed their account.
+    * id `string`: The identifier of the group member entity. Member identifiers have the form {group_id}-{user_id}.
+    * links `object`: URLs to alternative representations of the group member entity.
+      * self `string`: A link to the the canonical API endpoint for the group member.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the group member entity.
+      * user **required** `string`: A relationship to the user object
+    * type **required** `string`: The type identifier of the group member entity (`group-members`).
+
+#### Output
+*Output schema unknown*
 
 ### institutions_list
 A paginated list of all verified institutions.
@@ -573,12 +999,15 @@ osf.institutions_list(null, context)
 * output `array`
   * items `object`
     * attributes `object`: The properties of the institution entity.
+      * assets `object`: Assets belonging to a specific institution
+        * logo `string`: Static path to the institution specific normal logo
+        * logo_rounded `string`: Static path to the institution specific rounded logo
       * auth_url `string`: Url used to authenticate institution specific login.
       * description `string`: Description of the institution.
-      * logo_path `string`: Static path to the institution specific logo.
       * name `string`: Full name of the institution.
     * id `string`: The identifier of the institution entity.
     * links `object`: URLs to alternative representations of the institutions entity.
+      * html `string`: A link to the detail page for the institution on the OSF.
       * self `string`: A link to the detail page for the institution.
     * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
       * nodes `string`: A relationship to the nodes affiliated with the institution.
@@ -610,12 +1039,15 @@ osf.institutions_detail({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the institution entity.
+      * assets `object`: Assets belonging to a specific institution
+        * logo `string`: Static path to the institution specific normal logo
+        * logo_rounded `string`: Static path to the institution specific rounded logo
       * auth_url `string`: Url used to authenticate institution specific login.
       * description `string`: Description of the institution.
-      * logo_path `string`: Static path to the institution specific logo.
       * name `string`: Full name of the institution.
     * id `string`: The identifier of the institution entity.
     * links `object`: URLs to alternative representations of the institutions entity.
+      * html `string`: A link to the detail page for the institution on the OSF.
       * self `string`: A link to the detail page for the institution.
     * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
       * nodes `string`: A relationship to the nodes affiliated with the institution.
@@ -674,13 +1106,14 @@ osf.institutions_node_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -695,13 +1128,14 @@ osf.institutions_node_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -785,6 +1219,23 @@ osf.institutions_users_list({
       * given_name `string`: The given name of the user, used for bibliographic citations.
       * locale `string`: The user's locale, e.g. 'en_US'.
       * middle_names `string`: The middle names of the user, used for bibliographic citations.
+      * social `object`: The social fields associated with a user.
+        * academiaProfileID `string`: The academiaProfileID for the given user.
+        * baiduScholar `string`: The baiduScholar for the given user.
+        * github `array`: The github usernames for the given user.
+          * items `string`
+        * impactStory `string`: The impactStory for the given user.
+        * linkedIn `array`: The linkedIn profiles for the given user.
+          * items `string`
+        * orcid `string`: The orcid for the given user.
+        * profileWebsites `array`: The profileWebsites for the given user.
+          * items `string`
+        * researchGate `string`: The researchGate for the given user.
+        * researcherId `string`: The researcherId for the given user.
+        * scholar `string`: The google scholar for the given user.
+        * ssrn `string`: The ssrn for the given user.
+        * twitter `array`: The twitter handles for the given user.
+          * items `string`
       * suffix `string`: The suffix of the user, used for bibliographic citations.
       * timezone `string`: The user's timezone, e.g. 'Etc/UTC'.
     * id **required** `string`: The unique identifier of the user entity.
@@ -792,6 +1243,8 @@ osf.institutions_users_list({
       * html `string`: A link to the user's profile page on the OSF.
       * profile_image `string`: A link to the user's profile image.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the user entity.
+      * default_region `string`: The storage region where the user's files will be stored by default.
+      * groups `string`: A link to the list of groups that a user belongs to.
       * institutions `string`: A link to the list of institutions the user is affiliated with.
       * nodes `string`: A link to the list of nodes the user is a contributor to.
     * type **required** `string`: The type identifier of the user entity (`users`).
@@ -913,7 +1366,7 @@ osf.logs_read({
       * forward_url `string`: URL that the connected node forwards to.
       * github_repo `string`: The github repository involved with the action represented by this node log.
       * github_user `string`: The github user involved with the action represented by this node log.
-      * identifiers `string`: Dictionary containing the DOI and ARK ID for a preprint associated with the log.
+      * identifiers `string`: Dictionary containing the DOI for a preprint associated with the log.
       * institution `string`: Dictionary containing the ID and Name of the institution associated with the log.
       * kind `string`: Kind of the object associated with the log.
       * license `string`: License for the associated node.
@@ -952,7 +1405,6 @@ osf.logs_read({
 
 ### metaschemas_list
 A paginated list of all active metaschemas.
-
 Metaschemas describe the supplemental questions that accompany a registration.
 
 #### Returns
@@ -984,6 +1436,82 @@ osf.metaschemas_list(null, context)
     * links **required** `object`: URLs to alternative representations of the metaschema entity.
       * self `string`: A link to the detail page for a metaschema.
     * type **required** `string`: The type identifier of the metaschema entity (`metaschemas`).
+
+### registration_metaschemas_list
+A paginated list of all active registration metaschemas.
+
+Registration metaschemas describe the supplemental questions that accompany a registration.
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 registration metaschemas. Each resource in the array is a separate registration metaschema object.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+This request should never return an error.
+
+#### Filtering
+
+You can optionally request that the response only include schemas that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/schemas/registrations/?filter[active]=true.
+
+Schemas may be filtered by their `active` attribute only.
+
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.registration_metaschemas_list(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes **required** `object`: The properties of the metaschema entity.
+      * name `string`: The name of the metaschema
+      * schema `object`: The details of the metaschema which contains the supplemental questions to accompany a registration
+      * schema_version `integer`: The latest version of the schema
+    * id **required** `string`: The unique identifier of the metaschema entity.
+    * links **required** `object`: URLs to alternative representations of the metaschema entity.
+      * self `string`: A link to the detail page for a metaschema.
+    * type **required** `string`: The type identifier of the metaschema entity (`metaschemas`).
+
+### registration_metaschemas_read
+Retrieves the details of a given registration metaschema.
+
+Registration metaschemas describe the supplemental questions that accompany a registration.
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the representation of the requested registration metaschema, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.registration_metaschemas_read({
+  "metaschema_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * metaschema_id **required** `string`: The unique identifier of the registration metaschema.
+
+#### Output
+* output `object`
+  * attributes **required** `object`: The properties of the metaschema entity.
+    * name `string`: The name of the metaschema
+    * schema `object`: The details of the metaschema which contains the supplemental questions to accompany a registration
+    * schema_version `integer`: The latest version of the schema
+  * id **required** `string`: The unique identifier of the metaschema entity.
+  * links **required** `object`: URLs to alternative representations of the metaschema entity.
+    * self `string`: A link to the detail page for a metaschema.
+  * type **required** `string`: The type identifier of the metaschema entity (`metaschemas`).
 
 ### metaschemas_read
 Retrieves the details of a given metaschema.
@@ -1070,13 +1598,14 @@ osf.nodes_list(null, context)
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -1091,13 +1620,14 @@ osf.nodes_list(null, context)
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -1152,13 +1682,14 @@ osf.nodes_create({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -1173,13 +1704,14 @@ osf.nodes_create({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -1257,13 +1789,14 @@ osf.nodes_read({
     * fork `boolean`: Whether or not this node represents a fork of another node.
     * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
     * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-    * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+    * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
     * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
     * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
     * tags `array`: A list of strings that describe this node, as entered by project contributors.
       * items `string`
     * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
     * title **required** `string`: The title of the node.
+    * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
   * id `string`: The unique identifier of the node entity.
   * links `object`: URLs to alternative representations of the node entity.
     * html `string`: A link to the node's page on the OSF.
@@ -1278,13 +1811,14 @@ osf.nodes_read({
     * files `string`: A link to the list of storage providers that have been enabled on this node.
     * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
     * forks `string`: A link to the list of nodes that are forks of this node.
-    * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+    * groups `string`: A link to the list of groups that have permissions to the node.
+    * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
     * license `string`: A link to the license that has been applied to this node.
     * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
     * logs `string`: A link to the list of log actions pertaining to this node.
     * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
     * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-    * preprints `string`: A link to the list of preprints that this node relates to.
+    * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
     * registrations `string`: A link to the list of registrations that have been created from this node.
     * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
     * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -1529,13 +2063,14 @@ osf.nodes_children_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -1550,13 +2085,14 @@ osf.nodes_children_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -1619,13 +2155,14 @@ osf.nodes_children_create({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -1640,13 +2177,14 @@ osf.nodes_children_create({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -1655,7 +2193,55 @@ osf.nodes_children_create({
     * type **required** `string`: The type identifier of the node entity (`nodes`).
 
 #### Output
-*Output schema unknown*
+* output `object`
+  * attributes **required** `object`: The properties of the node entity.
+    * category **required** `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the node, as selected by project contributors.
+    * collection `boolean`: Whether or not this node represents a collection. This value should always be `false`. This field may be deprecated in future versions.
+    * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this node. Comments on nodes can be set to allow all users to comment (if public) or restricted to only allow comments from contributors.
+    * current_user_permissions `array`: A list of strings representing the permissions for the current user on this node. Valid permissions are "admin", "read", and "write".
+      * items `string`
+    * date_created `string`: The time at which the node was created, as an iso8601 formatted timestamp.
+    * date_modified `string`: The time at which the node was last modified, as an iso8601 formatted timestamp.
+    * description `string`: The description of the node.
+    * fork `boolean`: Whether or not this node represents a fork of another node.
+    * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
+    * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
+    * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
+    * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
+    * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
+    * tags `array`: A list of strings that describe this node, as entered by project contributors.
+      * items `string`
+    * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
+    * title **required** `string`: The title of the node.
+    * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
+  * id `string`: The unique identifier of the node entity.
+  * links `object`: URLs to alternative representations of the node entity.
+    * html `string`: A link to the node's page on the OSF.
+    * self `string`: A link to the canonical API endpoint of this node.
+  * relationships `object`: URLs to other entities or entity collections that have a relationship to the node entity.
+    * affiliated_institutions `string`: A link to the list of institutions this node is affiliated with.
+    * children `string`: A link to the list of this node's children (components).
+    * citation `string`: A link to the citation details of this node.
+    * comments `string`: A link to the list of comments on this node.
+    * contributors `string`: A link to the list of contributors on this node.
+    * draft_registrations `string`: A link to the list of registrations that have been initiated from this node and are still in a draft state.
+    * files `string`: A link to the list of storage providers that have been enabled on this node.
+    * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
+    * forks `string`: A link to the list of nodes that are forks of this node.
+    * groups `string`: A link to the list of groups that have permissions to the node.
+    * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
+    * license `string`: A link to the license that has been applied to this node.
+    * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
+    * logs `string`: A link to the list of log actions pertaining to this node.
+    * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
+    * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
+    * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
+    * registrations `string`: A link to the list of registrations that have been created from this node.
+    * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
+    * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
+    * view_only_links `string`: A link to the list of view only links that have been created for this node.
+    * wikis `string`: A link to the list of wiki pages for this node.
+  * type **required** `string`: The type identifier of the node entity (`nodes`).
 
 ### nodes_citation_list
 The citation details for a node, in CSL format.
@@ -1680,7 +2266,7 @@ osf.nodes_citation_list({
   * attributes `object`: The properties of the citation entity.
     * author `string`: The list of bibliographic authors, represented as dictionaries of their given and family names, for the entitiy being cited.
     * doi `string`: The DOI for the entity being cited, if one exists.
-    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is the 'Open Science Framework'. For preprints, the publisher is the same as the preprint provider.
+    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is 'OSF'. For preprints, the publisher is the same as the preprint provider.
     * title `string`: The title of the entity being cited.
   * id `string`: The identifier of the entity being cited.
   * links `object`: URLs to alternative representations of the citation entity.
@@ -2101,7 +2687,6 @@ osf.nodes_draft_registrations_list({
       * datetime_initiated **required** `string`: The time at which the draft registration was first initiated, as an iso8601 formatted timestamp.
       * datetime_updated **required** `string`: The time at which the draft registration was last updated, as an iso8601 formatted timestamp.
       * registration_metadata `string`: A dictionary of question IDs and responses from the registration schema.
-      * registration_supplement **required** `string`: The ID of an active registration schema that this registration will conform to.
     * id **required** `string`: The unique identifier of the draft registration entity.
     * links **required** `object`: URLs to alternative representations of the draft registration entity.
       * html **required** `string`: A link to the draft registration's page on the OSF.
@@ -2125,7 +2710,7 @@ Only project administrators may create draft registrations.
 #### Required
 Required fields for creating a draft registration include:
 
-&nbsp;&nbsp;&nbsp;&nbsp;`registration_supplement`
+&nbsp;&nbsp;&nbsp;&nbsp;`registration_schema`
 #### Returns
 Returns a JSON object with a `data` key containing the representation of the created draft registration, if the request is successful.
 
@@ -2140,8 +2725,7 @@ osf.nodes_draft_registrations_create({
     "type": "",
     "attributes": {
       "datetime_initiated": "",
-      "datetime_updated": "",
-      "registration_supplement": ""
+      "datetime_updated": ""
     },
     "relationships": {
       "branched_from": "",
@@ -2163,7 +2747,6 @@ osf.nodes_draft_registrations_create({
       * datetime_initiated **required** `string`: The time at which the draft registration was first initiated, as an iso8601 formatted timestamp.
       * datetime_updated **required** `string`: The time at which the draft registration was last updated, as an iso8601 formatted timestamp.
       * registration_metadata `string`: A dictionary of question IDs and responses from the registration schema.
-      * registration_supplement **required** `string`: The ID of an active registration schema that this registration will conform to.
     * id **required** `string`: The unique identifier of the draft registration entity.
     * links **required** `object`: URLs to alternative representations of the draft registration entity.
       * html **required** `string`: A link to the draft registration's page on the OSF.
@@ -2237,7 +2820,6 @@ osf.nodes_draft_registrations_read({
     * datetime_initiated **required** `string`: The time at which the draft registration was first initiated, as an iso8601 formatted timestamp.
     * datetime_updated **required** `string`: The time at which the draft registration was last updated, as an iso8601 formatted timestamp.
     * registration_metadata `string`: A dictionary of question IDs and responses from the registration schema.
-    * registration_supplement **required** `string`: The ID of an active registration schema that this registration will conform to.
   * id **required** `string`: The unique identifier of the draft registration entity.
   * links **required** `object`: URLs to alternative representations of the draft registration entity.
     * html **required** `string`: A link to the draft registration's page on the OSF.
@@ -2250,9 +2832,9 @@ osf.nodes_draft_registrations_read({
 ### nodes_draft_registrations_partial_update
 Update a draft registration by answering the supplemental registration questions. This is the second step in creating a registration. The answers will go under registration_metadata. Registration_metadata must be a dictionary with keys as question ids in the registration form, and values as nested dictionaries matching the specific format in the registration metaschema.
 
-[To view all active registration schemas](#operation/metaschemas_list)
+[To view all active registration schemas](#operation/registration_metaschemas_list)
 
-[To retrieve the format of a certain registration schema](#operation/metaschemas_read)
+[To retrieve the format of a certain registration schema](#operation/registration_metaschemas_read)
 
 If a question is multiple-choice, the question response must exactly match one of the possible choices.
 
@@ -2275,9 +2857,7 @@ osf.nodes_draft_registrations_partial_update({
   "body": {
     "id": "",
     "type": "",
-    "attributes": {
-      "registration_supplement": ""
-    }
+    "attributes": {}
   }
 }, context)
 ```
@@ -2289,7 +2869,6 @@ osf.nodes_draft_registrations_partial_update({
   * body **required** `object`
     * attributes **required** `object`: The properties of the draft registration entity.
       * registration_metadata `string`: A dictionary of question IDs and responses from the registration schema.
-      * registration_supplement **required** `string`: The ID of an active registration schema that this registration will conform to.
     * id **required** `string`: The unique identifier of the draft registration entity.
     * type **required** `string`: The type identifier of the draft registration entity (`draft_registrations`).
 
@@ -2348,9 +2927,11 @@ osf.nodes_providers_list({
     * links `object`: Links to alternative representations of the file entity.
       * delete `string`: The Waterbutler API route for file deletions.
       * download `string`: The Waterbutler API route for file downloads.
+      * html `string`: A link to the file on the OSF.
       * info `string`: A link to the page to view a file's information or a folder's contents.
       * move `string`: The Waterbutler API route for file moves.
       * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+      * render `string`: A Waterbutler API route for rendering the file.
       * self `string`: A link to the detail page for the file.
       * upload `string`: The Waterbutler API route for file uploads.
     * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -2406,9 +2987,11 @@ osf.nodes_providers_read({
   * links `object`: Links to alternative representations of the file entity.
     * delete `string`: The Waterbutler API route for file deletions.
     * download `string`: The Waterbutler API route for file downloads.
+    * html `string`: A link to the file on the OSF.
     * info `string`: A link to the page to view a file's information or a folder's contents.
     * move `string`: The Waterbutler API route for file moves.
     * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+    * render `string`: A Waterbutler API route for rendering the file.
     * self `string`: A link to the detail page for the file.
     * upload `string`: The Waterbutler API route for file uploads.
   * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -2433,7 +3016,7 @@ The `links` key contains a dictionary of links that can be used for [pagination]
 
 You can optionally request that the response only include files that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/nodes/ezcuj/files/osfstorage/?filter[kind]=file
 
-Node files may be filtered by `id`, `name`, `node`, `kind`, `path`, `provider`, `size`, and `last_touched`.
+Node files may be filtered by `id`, `name`, `kind`, `path`, `provider`, `size`, and `last_touched`.
 
 You can learn more about advanced filtering features [here](#tag/Filtering).
 
@@ -2479,9 +3062,11 @@ osf.nodes_files_list({
     * links `object`: Links to alternative representations of the file entity.
       * delete `string`: The Waterbutler API route for file deletions.
       * download `string`: The Waterbutler API route for file downloads.
+      * html `string`: A link to the file on the OSF.
       * info `string`: A link to the page to view a file's information or a folder's contents.
       * move `string`: The Waterbutler API route for file moves.
       * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+      * render `string`: A Waterbutler API route for rendering the file.
       * self `string`: A link to the detail page for the file.
       * upload `string`: The Waterbutler API route for file uploads.
     * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -2539,9 +3124,11 @@ osf.nodes_files_read({
   * links `object`: Links to alternative representations of the file entity.
     * delete `string`: The Waterbutler API route for file deletions.
     * download `string`: The Waterbutler API route for file downloads.
+    * html `string`: A link to the file on the OSF.
     * info `string`: A link to the page to view a file's information or a folder's contents.
     * move `string`: The Waterbutler API route for file moves.
     * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+    * render `string`: A Waterbutler API route for rendering the file.
     * self `string`: A link to the detail page for the file.
     * upload `string`: The Waterbutler API route for file uploads.
   * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -2591,13 +3178,14 @@ osf.nodes_forks_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -2612,13 +3200,14 @@ osf.nodes_forks_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -2677,13 +3266,14 @@ osf.nodes_forks_create({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -2698,19 +3288,232 @@ osf.nodes_forks_create({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
       * view_only_links `string`: A link to the list of view only links that have been created for this node.
       * wikis `string`: A link to the list of wiki pages for this node.
     * type **required** `string`: The type identifier of the node entity (`nodes`).
+
+#### Output
+*Output schema unknown*
+
+### node_groups_list
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+A paginated list of the groups that have permissions to the node, sorted by their date_modified.
+
+Groups are collections of users that can be added to a node.  All members of the group will be granted the same permission to the node.
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 groups. Each resource in the array contains the full representation of the group, meaning additional requests to a group's detail view are not necessary.
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+#### Filtering
+
+You can optionally request that the response only include groups that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/nodes/y9jdt/groups/?filter[admin]=true.
+
+Node Groups may be filtered by their `name` and `permission` attributes.
+
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.node_groups_list({
+  "node_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the node group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name `string`: The name of the group that has permission to the node.
+      * permission `string` (values: read, write, admin): The permission level of the node group. The default value is 'write'.
+    * id `string`: The identifier of the node_group entity. Node group identifiers have the form {node_id}-{group_id}.
+    * links `object`: URLs to alternative representations of the node group entity.
+      * self `string`: A link to the the canonical API endpoint for the node group.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the contributor entity.
+      * group **required** `string`: A relationship to the group that has permission to the node.
+    * type **required** `string`: The type identifier of the node group entity (`node_groups`).
+
+### node_groups_create_create
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Adds a group to a node, effectively creating a relationship between the node and a group.
+
+Groups are collections of users that can be added to a node.  All members of the group will be granted the same permission to the node.
+#### Permissions
+Only group managers that also have admin permissions to a node, can add a group to a node.
+#### Required
+A relationship object with a `data` key, containing the `groups` type and valid group ID is required.
+
+All attributes describing the relationship between the group and the node are optional.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the new node group, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.node_groups_create_create({
+  "node_id": "",
+  "body": {
+    "type": "",
+    "relationships": {
+      "group": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+  * body **required** `object`
+    * attributes `object`: The properties of the node group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name `string`: The name of the group that has permission to the node.
+      * permission `string` (values: read, write, admin): The permission level of the node group. The default value is 'write'.
+    * id `string`: The identifier of the node_group entity. Node group identifiers have the form {node_id}-{group_id}.
+    * links `object`: URLs to alternative representations of the node group entity.
+      * self `string`: A link to the the canonical API endpoint for the node group.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the contributor entity.
+      * group **required** `string`: A relationship to the group that has permission to the node.
+    * type **required** `string`: The type identifier of the node group entity (`node_groups`).
+
+#### Output
+*Output schema unknown*
+
+### nodes_groups_delete
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Removes a group from a node. This request only removes the relationship between the node and the group, it does not delete the group itself.
+
+A node must always have at least one admin, and attempting to remove the only admin from a node will result in a **400 Bad Request** response.
+#### Permissions
+A manager of the group or a project administrator can remove the group from the node.
+
+#### Returns
+If the request is successful, no content is returned.
+
+If the request is unsuccessful, a JSON object with an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.nodes_groups_delete({
+  "node_id": "",
+  "group_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+  * group_id **required** `string`: The unique identifier of the group.
+
+#### Output
+*Output schema unknown*
+
+### nodes_groups_read
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Retrieves the details of a given node group.
+
+Groups are collections of users that can be added to a node.  All members of the group will be granted the same permission to the node.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the requested contributor, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.nodes_groups_read({
+  "node_id": "",
+  "group_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+  * group_id **required** `string`: The unique identifier of the group.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the node group entity.
+    * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+    * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+    * name `string`: The name of the group that has permission to the node.
+    * permission `string` (values: read, write, admin): The permission level of the node group. The default value is 'write'.
+  * id `string`: The identifier of the node_group entity. Node group identifiers have the form {node_id}-{group_id}.
+  * links `object`: URLs to alternative representations of the node group entity.
+    * self `string`: A link to the the canonical API endpoint for the node group.
+  * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the contributor entity.
+    * group **required** `string`: A relationship to the group that has permission to the node.
+  * type **required** `string`: The type identifier of the node group entity (`node_groups`).
+
+### nodes_groups_partial_update
+*NOTE* This feature is experimental and subject to change at any time. It may only be available on certain environments.
+
+Updates the permission the group has to the node.
+Node groups can be updated with either a **PUT** or **PATCH** request. Since this endpoint has no mandatory attributes, PUT and PATCH are functionally the same.
+#### Permissions
+Only project administrators can update the permissions a group has to the node.
+#### Returns
+Returns a JSON object with a `data` key containing the new representation of the updated contributor, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+If the given group is not already in the group list, a 404 Not Found error will be returned.
+
+
+```js
+osf.nodes_groups_partial_update({
+  "node_id": "",
+  "group_id": "",
+  "body": {
+    "type": "",
+    "relationships": {
+      "group": ""
+    }
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+  * group_id **required** `string`: The unique identifier of the group.
+  * body **required** `object`
+    * attributes `object`: The properties of the node group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name `string`: The name of the group that has permission to the node.
+      * permission `string` (values: read, write, admin): The permission level of the node group. The default value is 'write'.
+    * id `string`: The identifier of the node_group entity. Node group identifiers have the form {node_id}-{group_id}.
+    * links `object`: URLs to alternative representations of the node group entity.
+      * self `string`: A link to the the canonical API endpoint for the node group.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the contributor entity.
+      * group **required** `string`: A relationship to the group that has permission to the node.
+    * type **required** `string`: The type identifier of the node group entity (`node_groups`).
 
 #### Output
 *Output schema unknown*
@@ -2728,9 +3531,9 @@ The `links` key contains a dictionary of links that can be used for [pagination]
 
 #### Filtering
 
-You can optionally request that the response only include nodes that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/nodes/ezcuj/identifiers/?filter[category]=ark
+You can optionally request that the response only include nodes that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/nodes/ezcuj/identifiers/?filter[category]=doi
 
-Identifiers may be filtered by their `category` e.g `ark` or `doi`.
+Identifiers may be filtered by their `category` e.g `doi`.
 
 You can learn more about advanced filtering features [here](#tag/Filtering).
 
@@ -2749,7 +3552,42 @@ osf.nodes_identifiers_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the identifier entity.
-      * category `string` (values: ark, doi): The category of the identifier
+      * category `string` (values: doi): The category of the identifier
+      * value `string`: The identifier value itself
+    * id `string`: The identifier of the identifier entity.
+    * links `object`: URLs to alternative representations of the identifier entity.
+      * self `string`: A link to the detail page for the identifier.
+    * relationships `object`: URLs to other entities or entity collections that have a relationship to the identifier entity.
+      * referent `string`: A relationship to the node the identifier refers to.
+    * type `string`: The type identifier of the identifier entity (`identifiers`).
+
+### nodes_identifiers_create
+Create an identifier for a given node - can only mint DOI's at this time.  Send a POST request with a `category` attribute with a value of 'doi'.
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains the created identifier object.
+
+
+```js
+osf.nodes_identifiers_create({
+  "node_id": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+  * body **required** `object`
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the identifier entity.
+      * category `string` (values: doi): The category of the identifier
       * value `string`: The identifier value itself
     * id `string`: The identifier of the identifier entity.
     * links `object`: URLs to alternative representations of the identifier entity.
@@ -2784,12 +3622,15 @@ osf.nodes_institutions_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the institution entity.
+      * assets `object`: Assets belonging to a specific institution
+        * logo `string`: Static path to the institution specific normal logo
+        * logo_rounded `string`: Static path to the institution specific rounded logo
       * auth_url `string`: Url used to authenticate institution specific login.
       * description `string`: Description of the institution.
-      * logo_path `string`: Static path to the institution specific logo.
       * name `string`: Full name of the institution.
     * id `string`: The identifier of the institution entity.
     * links `object`: URLs to alternative representations of the institutions entity.
+      * html `string`: A link to the detail page for the institution on the OSF.
       * self `string`: A link to the detail page for the institution.
     * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
       * nodes `string`: A relationship to the nodes affiliated with the institution.
@@ -2842,13 +3683,14 @@ osf.nodes_linked_nodes_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -2863,13 +3705,14 @@ osf.nodes_linked_nodes_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -2933,7 +3776,7 @@ osf.nodes_logs_list({
         * forward_url `string`: URL that the connected node forwards to.
         * github_repo `string`: The github repository involved with the action represented by this node log.
         * github_user `string`: The github user involved with the action represented by this node log.
-        * identifiers `string`: Dictionary containing the DOI and ARK ID for a preprint associated with the log.
+        * identifiers `string`: Dictionary containing the DOI for a preprint associated with the log.
         * institution `string`: Dictionary containing the ID and Name of the institution associated with the log.
         * kind `string`: Kind of the object associated with the log.
         * license `string`: License for the associated node.
@@ -2971,7 +3814,7 @@ osf.nodes_logs_list({
     * type **required** `string`: The type identifier of the log (`logs`)
 
 ### nodes_preprints_list
-A paginated list of preprints related to a given node. The returned preprints are sorted by their creation date, with the most recent preprints appearing first.
+A paginated list of preprints for which the given node contains supplemental materials. The returned preprints are sorted by their creation date, with the most recent preprints appearing first.
 
 **Note: This API endpoint is under active development, and is subject to change in the future.**
 
@@ -2998,14 +3841,27 @@ osf.nodes_preprints_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the preprint entity.
+      * current_user_permissions `array`: The logged-in user's permissions to the preprint
+        * items `string`
       * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+      * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
       * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
       * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+      * date_withdrawn `string`: The date when the preprint was withdrawn
+      * description `string`: The description of the preprint
       * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
       * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+      * is_published `boolean`: Whether or not a preprint is published
       * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+      * original_publication_date `string`: User-entered, the date when the preprint was originally published
+      * preprint_doi_created `string`: The date when the doi was minted for the preprint
+      * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+      * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
       * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
         * items `string`
+      * tags `array`: A list of the preprint's tags.
+        * items `string`
+      * title **required** `string`: The title of the preprint
     * id `string`: The identifier of the preprint entity.
     * links `object`: URLs to alternative representations of the preprint entity.
       * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
@@ -3014,10 +3870,12 @@ osf.nodes_preprints_list({
       * self `string`: A link to the detail page for the preprint.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
       * citation `string`: A relationship to the citation of the preprint.
+      * contributors `string`: A relationship to the preprint authors
+      * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
       * identifiers `string`: A relationship to the identifiers associated with the preprint.
       * license `string`: A relationship to the license that has been applied to the preprint.
-      * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-      * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+      * node `string`: A relationship to the project containing supplemental materials for the preprints.
+      * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
       * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
     * type **required** `string`: The type identifier of the preprint entity (`preprints`).
 
@@ -3055,17 +3913,21 @@ osf.nodes_registrations_list({
 * output `array`
   * items `object`
     * attributes **required** `object`: The properties of the registration entity.
+      * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
       * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+      * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+        * items `string`
       * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
       * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
       * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
         * items `string`
+      * custom_citation `string`: User-entered custom registration citation
       * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
       * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
       * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
       * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
       * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+      * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
       * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
       * fork `boolean`: Whether or not this registration represents a fork of another node.
       * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -3077,12 +3939,13 @@ osf.nodes_registrations_list({
       * public `boolean`: Whether or not the registration is publicly visible.
       * registered_meta `string`: A dictionary with supplemental registration questions and responses.
       * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+      * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
       * registration_supplement `string`: The title of the registration schema this registration conforms to.
       * tags `array`: A list of strings that describe the registered node.
         * items `string`
       * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
       * title `string`: The title of the registered node.
+      * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
       * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
       * withdrawn `boolean`: Whether or not this registration has been withdrawn.
     * id **required** `string`: The unique identifier of the registration.
@@ -3097,7 +3960,8 @@ osf.nodes_registrations_list({
       * contributors `string`: A link to the list of contributors on this registration.
       * files `string`: A link to the list of storage providers that have been enabled on this registration.
       * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+      * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+      * license `string`: A relationship to the license that has been applied to the registration.
       * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
       * logs `string`: A link to the list of log actions pertaining to this registration.
       * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -3128,6 +3992,8 @@ Required fields for creating a registration include:
 &nbsp;&nbsp;&nbsp;&nbsp;`registration_choice`
 
 &nbsp;&nbsp;&nbsp;&nbsp;`lift_embargo` (Only required when `registration_choice` is "embargo")
+#### Optional
+&nbsp;&nbsp;&nbsp;&nbsp;`children` (If left unspecified all children will be registered)
 
 #### Returns
 Returns a JSON object with a `data` key containing the representation of the created registration, if the request is successful.
@@ -3138,16 +4004,7 @@ If the request is unsuccessful, an `errors` key containing information about the
 ```js
 osf.nodes_registrations_create({
   "node_id": "",
-  "body": {
-    "id": "",
-    "type": "",
-    "attributes": {
-      "draft_registration": "",
-      "registration_choice": ""
-    },
-    "relationships": {},
-    "links": {}
-  }
+  "body": {}
 }, context)
 ```
 
@@ -3155,64 +4012,91 @@ osf.nodes_registrations_create({
 * input `object`
   * node_id **required** `string`: The unique identifier of the node.
   * body **required** `object`
-    * attributes **required** `object`: The properties of the registration entity.
-      * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
-      * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
-      * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
-      * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
-        * items `string`
-      * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
-      * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
-      * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
-      * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
-      * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
-      * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
-      * fork `boolean`: Whether or not this registration represents a fork of another node.
-      * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
-      * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the registered node license (required for certain license types).
-      * pending_embargo_approval `boolean`: Whether or not the embargo associated with this registration is pending approval from project administrators.
-      * pending_registration_approval `boolean`: Whether or not the registration is pending approval from project administrators.
-      * pending_withdrawal `boolean`: Whether or not the registration is pending approval for withdrawal from project administrators.
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
-      * public `boolean`: Whether or not the registration is publicly visible.
-      * registered_meta `string`: A dictionary with supplemental registration questions and responses.
-      * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
-      * registration_supplement `string`: The title of the registration schema this registration conforms to.
-      * tags `array`: A list of strings that describe the registered node.
-        * items `string`
-      * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
-      * title `string`: The title of the registered node.
-      * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
-      * withdrawn `boolean`: Whether or not this registration has been withdrawn.
-    * id **required** `string`: The unique identifier of the registration.
-    * links **required** `object`: URLs to alternative representations of the registrations entity.
-      * html `string`: A link to the registration's page on the OSF.
-      * self `string`: A link to the canonical API endpoint of this registration.
-    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the registration entity.
-      * affiliated_institutions `string`: A link to the list of institutions this registration is affiliated with.
-      * children `string`: A link to the list of the registered node's children (components).
-      * citation `string`: A link to the citation details of this registration.
-      * comments `string`: A link to the list of comments on this registration.
-      * contributors `string`: A link to the list of contributors on this registration.
-      * files `string`: A link to the list of storage providers that have been enabled on this registration.
-      * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
-      * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
-      * logs `string`: A link to the list of log actions pertaining to this registration.
-      * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
-      * parent `string`: A link to the node that is the direct parent of the current registration, if the current registration is a child registration.
-      * registered_by `string`: A link to the user that initiated this registration.
-      * registered_from `string`: A link to the node that this registration was registered from.
-      * registration_schema `string`: A link to the metaschema that this registration conforms to.
-      * root `string`: A link to the node that is the top-level parent of the current registration. If the current registration is the top-level node, the root is the current registration.
-      * view_only_links `string`: A link to the list of view only links that have been created for this registration.
-      * wikis `string`: A link to the list of wiki pages for this registration.
-    * type **required** `string`: The type identifier of the registration entity (`registrations`).
 
 #### Output
 *Output schema unknown*
+
+### node_settings_detail
+Retrieves the details of settings related to the node.
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the representation of the requested node settings, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+#### Permissions
+
+Settings for a node are readable by users that are contributors on the node. Most fields are writeable only by users that are administrators on the node. The fields for determining redirect links are writable by a contributor who has read/write permissions on the node.
+
+
+```js
+osf.node_settings_detail({
+  "node_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the node settings entity.
+    * access_requests_enabled `string`: A boolean value indicating if access requests are allowed for the connected node.
+    * anyone_can_comment `string`: A boolean value indicating if public comments are enabled on the connected node.
+    * anyone_can_edit_wiki `string`: A boolean value indicating if public editing is enabled on the connected wiki.
+    * redirect_link_enabled `string`: A boolean value indicating that there is a redirect link activated for when a user visits the associated node.
+    * redirect_link_label `string`: The label for the redirect URL that has been configured for the associated node.
+    * redirect_link_url `string`: The redirect URL that has been configured for the associated node.
+    * wiki_enabled `string`: A boolean value indicating that there is a wiki connected to the associated node.
+  * id `string`: The identifier of the node that the current settings are for.
+  * links `object`: URLs to alternative representations of the node settings entity.
+    * self `string`: A link to the node settings entity.
+  * relationships `object`: URLs to other entities or entity collections that have a relationship to the node settings entity.
+    * view_only_links `string`: A link to the list of view only links that have been created for the connected node.
+  * type `string`: The type identifier for node settings. Should be node-settings.
+
+### node_settings_partial_update
+Updates the details of settings related to the node.
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the updated representation of the requested node settings, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+#### Permissions
+
+Most fields on the node settings entity are writeable only by users that are administrators on the node. The fields for determining redirect links are writable by a contributor who has read/write permissions on the node.
+
+
+```js
+osf.node_settings_partial_update({
+  "node_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * node_id **required** `string`: The unique identifier of the node.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the node settings entity.
+    * access_requests_enabled `string`: A boolean value indicating if access requests are allowed for the connected node.
+    * anyone_can_comment `string`: A boolean value indicating if public comments are enabled on the connected node.
+    * anyone_can_edit_wiki `string`: A boolean value indicating if public editing is enabled on the connected wiki.
+    * redirect_link_enabled `string`: A boolean value indicating that there is a redirect link activated for when a user visits the associated node.
+    * redirect_link_label `string`: The label for the redirect URL that has been configured for the associated node.
+    * redirect_link_url `string`: The redirect URL that has been configured for the associated node.
+    * wiki_enabled `string`: A boolean value indicating that there is a wiki connected to the associated node.
+  * id `string`: The identifier of the node that the current settings are for.
+  * links `object`: URLs to alternative representations of the node settings entity.
+    * self `string`: A link to the node settings entity.
+  * relationships `object`: URLs to other entities or entity collections that have a relationship to the node settings entity.
+    * view_only_links `string`: A link to the list of view only links that have been created for the connected node.
+  * type `string`: The type identifier for node settings. Should be node-settings.
 
 ### nodes_view_only_links_list
 List of view only links on a node.
@@ -3353,19 +4237,19 @@ osf.nodes_wikis_list({
       * info `string`: A link to the detail page for the wiki.
       * self `string`: A link to the detail page for the wiki.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the wiki.
-      * comments **required** `string`: A relationship to the comments related to this wiki.
-      * node **required** `string`: A relationship to the associated node.
-      * user **required** `string`: A relationship to the user associated with this wiki.
-      * versions **required** `string`: A relationship to the versions related to this wiki.
+      * comments `string`: A relationship to the comments related to this wiki.
+      * node `string`: A relationship to the associated node.
+      * user `string`: A relationship to the user associated with this wiki.
+      * versions `string`: A relationship to the versions related to this wiki.
     * type **required** `string`: The type identifier of the wiki (`wikis`).
 
 ### nodes_wikis_list_create
 Creates a new wiki page on the given node.
-
 `name` is the only required field when creating a new wiki page. The `content` of the wiki page may optionally be included.
 
-Returns a JSON object with a `data` key containing the representation of the created wiki, if the request is successful.
+This POST request creates a wiki page, and then creates a first version for the wiki - adding your content to the first version. For subsequent updates to this wiki page, POST to the versions relationship.  This will create new versions of this wiki. For more information, see [Update a wiki](#operation/wiki_versions_create).
 
+Returns a JSON object with a `data` key containing the representation of the created wiki, if the request is successful.
 If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
 
 
@@ -3373,12 +4257,7 @@ If the request is unsuccessful, an `errors` key containing information about the
 osf.nodes_wikis_list_create({
   "body": {
     "type": "",
-    "relationships": {
-      "node": "",
-      "user": "",
-      "comments": "",
-      "versions": ""
-    }
+    "relationships": {}
   },
   "node_id": ""
 }, context)
@@ -3403,302 +4282,15 @@ osf.nodes_wikis_list_create({
       * info `string`: A link to the detail page for the wiki.
       * self `string`: A link to the detail page for the wiki.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the wiki.
-      * comments **required** `string`: A relationship to the comments related to this wiki.
-      * node **required** `string`: A relationship to the associated node.
-      * user **required** `string`: A relationship to the user associated with this wiki.
-      * versions **required** `string`: A relationship to the versions related to this wiki.
+      * comments `string`: A relationship to the comments related to this wiki.
+      * node `string`: A relationship to the associated node.
+      * user `string`: A relationship to the user associated with this wiki.
+      * versions `string`: A relationship to the versions related to this wiki.
     * type **required** `string`: The type identifier of the wiki (`wikis`).
   * node_id **required** `string`: The unique identifier of the node.
 
 #### Output
 *Output schema unknown*
-
-### preprint_provider_list
-A paginated list of all preprint providers.
-
-The returned preprint providers are sorted by their creation date, with the most recent preprints appearing first.
-
-#### Returns
-
-Returns a JSON object containing `data` and `links` keys.
-
-The `data` key contains an array of 10 preprint providers.
-
-Each resource in the array is a separate preprint provider object.
-
-The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
-
-This request should never return an error.
-
-#### Filtering
-
-You can optionally request that the response only include preprint providers that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/preprint_providers/?filter[id]=osf.
-
-Preprint Providers may be filtered by their `id`, `name`,  and `description`
-
-You can learn more about advanced filtering features [here](#tag/Filtering).
-
-
-```js
-osf.preprint_provider_list(null, context)
-```
-
-#### Input
-*This action has no parameters*
-
-#### Output
-* output `object`
-  * attributes `object`: The properties of the preprint provider entity.
-    * advisory_board `string`: The HTML representation of the preprint provider's advisory board.
-    * banner_path `string`: A static path to the preprint provider's banner image. This field is deprecated as of verson 2.4.
-    * description `string`: The description of the preprint provider.
-    * domain `string`: The preprint provider's domain, if the provider is using a domain to for their preprint service.
-    * domain_redirect_enabled `boolean`: Whether or not redirects are enabled for the provider's domain.
-    * email_contact `string`: The preprint provider's contact email address. This field is deprecated as of verson 2.4.
-    * email_support `string`: The preprint providers's support email address.
-    * example `string`: The GUID for an example preprint from this preprint provider.
-    * logo_path `string`: A static path to the preprint provider's logo image. This field is deprecated as of verson 2.4.
-    * name `string`: The name of the preprint provider.
-    * social_facebook `string`: The preprint provider's Facebook account ID. This field is deprecated as of verson 2.4.
-    * social_instagram `string`: The preprint provider's Instagram account ID. This field is deprecated as of verson 2.4.
-    * subjects_acceptable `string`: A nested array structure defining allowed subjects for this preprint provider, in the BePress taxonomy.
-  * id `string`: The identifier of the preprint provider entity.
-  * links `object`: Links to alternative representations of the preprint entity.
-    * external_url `string`: A link to the external website for the preprint provider.
-    * preprints `string`: A link to the preprint list page for the preprint provider.
-    * self `string`: A link to the detail page for the preprint provider.
-  * relationships `object`: Links to other entities or entity collections that have a relationship to the preprint provider.
-    * licenses_acceptable `string`: A link to licenses the preprint provider allows.
-    * preprints `string`: A link to the preprint list page for the preprint provider.
-    * taxonomies `string`: A link to the taxonomies the preprint provider allows.
-  * type `string`: The type identifier of the preprint provider entity (`preprint_providers`).
-
-### preprint_provider_detail
-Retrieves the details of a preprint provider.
-
-#### Returns
-
-Returns a JSON object with a `data` key containing the representation of the requested preprint provider, if the request is successful.
-
-If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
-
-#### Acceptable Subjects Structure
-
-Each preprint provider specifies acceptable subjects.
-
-`subjects_acceptable` is an array found in `attributes`.
-
-Subjects consist of general parent subjects (e.g., Engineering), more specific child subjects (e.g., Aerospace Engineering), and even more specific grandchild subjects (e.g., Aerodynamics and Fluid Mechanics). Subjects can only be nested 3 deep.
-
-
-    "subjects_acceptable": [
-        [
-            [
-                # Parent Subject:
-                # Architecture
-                "584240d954be81056ceca9e5",
-
-                # Child Subject:
-                # Architectural Engineering
-                "584240da54be81056cecac87"
-            ],
-            # Include all Architectural Engineering's children:
-            true
-        ],
-        [
-            [
-                # Parent Subject:
-                # Engineering
-                "584240da54be81056cecaca9",
-
-                # Child Subject:
-                # Aerospace Engineering
-                "584240db54be81056cecacd6",
-
-                # Grandchild Subject:
-                # Aerodynamics and Fluid Mechanics
-                "584240da54be81056cecaa74"
-            ],
-            # All nestings 3 deep must be false
-            false
-        ]
-    ]
-
-
-The above structure would allow Architecture, Architectural Engineering, all of Architectural Engineering's children, Engineering, Aerospace Engineering, and Aerodynamics and Fluid Mechanics.
-
-
-```js
-osf.preprint_provider_detail({
-  "preprint_provider_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
-
-#### Output
-* output `object`
-  * attributes `object`: The properties of the preprint provider entity.
-    * advisory_board `string`: The HTML representation of the preprint provider's advisory board.
-    * banner_path `string`: A static path to the preprint provider's banner image. This field is deprecated as of verson 2.4.
-    * description `string`: The description of the preprint provider.
-    * domain `string`: The preprint provider's domain, if the provider is using a domain to for their preprint service.
-    * domain_redirect_enabled `boolean`: Whether or not redirects are enabled for the provider's domain.
-    * email_contact `string`: The preprint provider's contact email address. This field is deprecated as of verson 2.4.
-    * email_support `string`: The preprint providers's support email address.
-    * example `string`: The GUID for an example preprint from this preprint provider.
-    * logo_path `string`: A static path to the preprint provider's logo image. This field is deprecated as of verson 2.4.
-    * name `string`: The name of the preprint provider.
-    * social_facebook `string`: The preprint provider's Facebook account ID. This field is deprecated as of verson 2.4.
-    * social_instagram `string`: The preprint provider's Instagram account ID. This field is deprecated as of verson 2.4.
-    * subjects_acceptable `string`: A nested array structure defining allowed subjects for this preprint provider, in the BePress taxonomy.
-  * id `string`: The identifier of the preprint provider entity.
-  * links `object`: Links to alternative representations of the preprint entity.
-    * external_url `string`: A link to the external website for the preprint provider.
-    * preprints `string`: A link to the preprint list page for the preprint provider.
-    * self `string`: A link to the detail page for the preprint provider.
-  * relationships `object`: Links to other entities or entity collections that have a relationship to the preprint provider.
-    * licenses_acceptable `string`: A link to licenses the preprint provider allows.
-    * preprints `string`: A link to the preprint list page for the preprint provider.
-    * taxonomies `string`: A link to the taxonomies the preprint provider allows.
-  * type `string`: The type identifier of the preprint provider entity (`preprint_providers`).
-
-### preprint_provider_licenses_list
-A paginated list of the licenses allowed bya preprint provider.
-
-#### Returns
-
-Returns a JSON object containing `data` and `links` keys.
-
-The `data` key contains an array of 10 preprint providers. Each resource in the array is a separate preprint provider object.
-
-The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
-
-If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
-
-
-```js
-osf.preprint_provider_licenses_list({
-  "preprint_provider_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
-
-#### Output
-* output `object`
-  * attributes `object`: The properties of the license.
-    * name `string`: Name of the license.
-    * required_fields `array`: Fields required for this license (provided to help front-end validators). Maps to properties on the NodeLicense model.
-      * items `string`: Individual fields required by this license.
-    * text `string`: Full text of the license.
-  * id `string`: The identifier of the license.
-  * links `object`: URLs to alternative representations of the license.
-    * self `string`: A link to the detail page for the license.
-  * type `string`: The type identifier of the license (`license`).
-
-### preprint_providers_preprints_list
-A paginated list of preprints from the specified preprint provider. The returned preprints are sorted by their creation date, with the most recent preprints appearing first.
-
-#### Returns
-
-Returns a JSON object containing `data` and `links` keys.
-
-The `data` key contains an array of 10 preprints. Each resource in the array is a separate preprint object.
-
-The `links` key contains a dictionary with keys that can be used for [pagination](#tag/Pagination).
-
-If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
-
-#### Filtering
-
-You can optionally request that the response only include preprints that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/preprint_providers/osf/preprints/?filter[is_published]=true.
-
-Preprints may be filtered by their `id`, `is_published`, `date_created`, `date_modified`, and `provider`.
-
-You can learn more about advanced filtering features [here](#tag/Filtering).
-
-
-```js
-osf.preprint_providers_preprints_list({
-  "preprint_provider_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
-
-#### Output
-* output `array`
-  * items `object`
-    * attributes `object`: The properties of the preprint entity.
-      * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
-      * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
-      * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
-      * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
-      * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
-      * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
-      * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
-        * items `string`
-    * id `string`: The identifier of the preprint entity.
-    * links `object`: URLs to alternative representations of the preprint entity.
-      * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
-      * html `string`: A link to the project on the OSF that was created for the preprint, or from which the preprint was created.
-      * preprint_doi `string`: The URL representation of the OSF assigned DOI for the preprint.
-      * self `string`: A link to the detail page for the preprint.
-    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
-      * citation `string`: A relationship to the citation of the preprint.
-      * identifiers `string`: A relationship to the identifiers associated with the preprint.
-      * license `string`: A relationship to the license that has been applied to the preprint.
-      * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-      * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
-      * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
-    * type **required** `string`: The type identifier of the preprint entity (`preprints`).
-
-### preprint_provider_taxonomies_list
-A paginated list of the taxonomies for a preprint provider.
-
-The returned preprint providers taxonomies are sorted by their creation date, with the most recent preprints appearing first.
-
-#### Returns
-
-Returns a JSON object containing `data` and `links` keys.
-
-The `data` key contains an array of 10 preprint providers. Each resource in the array is a separate preprint provider object.
-
-The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
-
-If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
-
-
-```js
-osf.preprint_provider_taxonomies_list({
-  "preprint_provider_id": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
-
-#### Output
-* output `object`
-  * attributes `object`: The properties of the taxonomy entity.
-    * child_count `integer`: The number of children this taxonomy contains.
-    * parents `array`: An array of JSON objects containing keys for `text` (name) and `id` (unique identifier) of this taxonomy's parents
-      * items `string`
-    * text `string`: The text name of the taxonomy
-  * id `string`: The identifier of the taxonomy entity.
-  * links `object`: URLs to alternative representations of the taxonomy entity.
-    * parents `array`: An array of links to to this taxonomy's parents. This field is deprecated as of verson 2.4.
-      * items `string`
-    * self `string`: A link to the detail page for the taxonomy.
-  * type `string`: The type identifier of the taxonomy entity (`taxonomies`).
 
 ### preprints_list
 A paginated list of preprints from all preprint providers. The returned preprints are sorted by their creation date, with the most recent preprints appearing first.
@@ -3733,14 +4325,27 @@ osf.preprints_list(null, context)
 * output `array`
   * items `object`
     * attributes `object`: The properties of the preprint entity.
+      * current_user_permissions `array`: The logged-in user's permissions to the preprint
+        * items `string`
       * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+      * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
       * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
       * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+      * date_withdrawn `string`: The date when the preprint was withdrawn
+      * description `string`: The description of the preprint
       * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
       * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+      * is_published `boolean`: Whether or not a preprint is published
       * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+      * original_publication_date `string`: User-entered, the date when the preprint was originally published
+      * preprint_doi_created `string`: The date when the doi was minted for the preprint
+      * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+      * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
       * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
         * items `string`
+      * tags `array`: A list of the preprint's tags.
+        * items `string`
+      * title **required** `string`: The title of the preprint
     * id `string`: The identifier of the preprint entity.
     * links `object`: URLs to alternative representations of the preprint entity.
       * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
@@ -3749,15 +4354,44 @@ osf.preprints_list(null, context)
       * self `string`: A link to the detail page for the preprint.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
       * citation `string`: A relationship to the citation of the preprint.
+      * contributors `string`: A relationship to the preprint authors
+      * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
       * identifiers `string`: A relationship to the identifiers associated with the preprint.
       * license `string`: A relationship to the license that has been applied to the preprint.
-      * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-      * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+      * node `string`: A relationship to the project containing supplemental materials for the preprints.
+      * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
       * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
     * type **required** `string`: The type identifier of the preprint entity (`preprints`).
 
 ### preprints_create
-Creates a new preprint.
+Creates a new preprint.  Initial request to start the preprint requires a title and a provider.
+
+After you've created the preprint, you will need to upload a file to the preprint or copy a file from an existing OSF project, which will be a waterbutler request.
+
+To upload a new file to the preprint -
+
+    1. Make a request to the preprint files' relationship to get the preprint's upload link.
+    2. Issue a PUT request to the preprint's upload link
+
+    curl -X "PUT" "https://files.us.osf.io/v1/resources/<preprint_id>/providers/osfstorage/?kind=file&name=my_preprint_file.txt" \
+        --
+        -H "Authorization: Bearer your-token-goes-here" \
+        -H "Content-Type: text/plain" \
+        -d "Contents of my preprint file go here"
+
+To copy an existing file from a project to your preprint -
+
+    1. Make a request to the node file's list endpoint GET http://api.osf.io/v2/nodes/node_id/files/osfstorage/
+    2. Locate the "move" relationship link for the file you wish to copy from the node to the preprint
+    3. Issue a POST request to the file's move link, where the resource is the preprint id, the action is copy, and the provider is osfstorage.
+
+    curl -X "POST" "https://files.us.osf.io/v1/resources/<node_id>/providers/osfstorage/<file_id>" \
+        --
+        -H "Authorization: Bearer your-token-goes-here " \
+        -H "Content-Type: application/json" \
+        -d '{"action": "copy", "path": "/", "resource": "<preprint_id>", "provider": "osfstorage", "conflict": "replace"}'
+
+
 #### Returns
 Returns a JSON object with a `data` key containing the representation of the created preprint, if the request is successful.
 
@@ -3769,8 +4403,6 @@ osf.preprints_create({
   "data": {
     "type": "",
     "relationships": {
-      "node": "",
-      "primary_file": "",
       "provider": ""
     }
   }
@@ -3781,14 +4413,27 @@ osf.preprints_create({
 * input `object`
   * data **required** `object`
     * attributes `object`: The properties of the preprint entity.
+      * current_user_permissions `array`: The logged-in user's permissions to the preprint
+        * items `string`
       * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+      * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
       * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
       * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+      * date_withdrawn `string`: The date when the preprint was withdrawn
+      * description `string`: The description of the preprint
       * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
       * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+      * is_published `boolean`: Whether or not a preprint is published
       * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+      * original_publication_date `string`: User-entered, the date when the preprint was originally published
+      * preprint_doi_created `string`: The date when the doi was minted for the preprint
+      * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+      * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
       * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
         * items `string`
+      * tags `array`: A list of the preprint's tags.
+        * items `string`
+      * title **required** `string`: The title of the preprint
     * id `string`: The identifier of the preprint entity.
     * links `object`: URLs to alternative representations of the preprint entity.
       * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
@@ -3797,10 +4442,12 @@ osf.preprints_create({
       * self `string`: A link to the detail page for the preprint.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
       * citation `string`: A relationship to the citation of the preprint.
+      * contributors `string`: A relationship to the preprint authors
+      * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
       * identifiers `string`: A relationship to the identifiers associated with the preprint.
       * license `string`: A relationship to the license that has been applied to the preprint.
-      * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-      * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+      * node `string`: A relationship to the project containing supplemental materials for the preprints.
+      * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
       * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
     * type **required** `string`: The type identifier of the preprint entity (`preprints`).
 
@@ -3830,14 +4477,27 @@ osf.preprints_read({
 #### Output
 * output `object`
   * attributes `object`: The properties of the preprint entity.
+    * current_user_permissions `array`: The logged-in user's permissions to the preprint
+      * items `string`
     * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+    * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
     * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
     * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+    * date_withdrawn `string`: The date when the preprint was withdrawn
+    * description `string`: The description of the preprint
     * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
     * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+    * is_published `boolean`: Whether or not a preprint is published
     * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+    * original_publication_date `string`: User-entered, the date when the preprint was originally published
+    * preprint_doi_created `string`: The date when the doi was minted for the preprint
+    * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+    * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
     * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
       * items `string`
+    * tags `array`: A list of the preprint's tags.
+      * items `string`
+    * title **required** `string`: The title of the preprint
   * id `string`: The identifier of the preprint entity.
   * links `object`: URLs to alternative representations of the preprint entity.
     * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
@@ -3846,15 +4506,26 @@ osf.preprints_read({
     * self `string`: A link to the detail page for the preprint.
   * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
     * citation `string`: A relationship to the citation of the preprint.
+    * contributors `string`: A relationship to the preprint authors
+    * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
     * identifiers `string`: A relationship to the identifiers associated with the preprint.
     * license `string`: A relationship to the license that has been applied to the preprint.
-    * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-    * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+    * node `string`: A relationship to the project containing supplemental materials for the preprints.
+    * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
     * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
   * type **required** `string`: The type identifier of the preprint entity (`preprints`).
 
 ### preprints_partial_update
 Updates the specified preprint by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
+
+The file that you either uploaded to the preprint or copied from an OSF project to the preprint will need to be set as the primary file before the preprint can be published.
+
+To remove a supplemental project from a preprint will be a separate PATCH request to the node self relationship link.
+
+PATCH /v2/preprints/<preprint_id>/relationships/node/
+
+{data: null}
+
 #### Returns
 Returns a JSON object with a `data` key containing the new representation of the updated preprint, if the request is successful.
 
@@ -3899,7 +4570,7 @@ osf.preprints_citation_list({
   * attributes `object`: The properties of the citation entity.
     * author `string`: The list of bibliographic authors, represented as dictionaries of their given and family names, for the entitiy being cited.
     * doi `string`: The DOI for the entity being cited, if one exists.
-    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is the 'Open Science Framework'. For preprints, the publisher is the same as the preprint provider.
+    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is 'OSF'. For preprints, the publisher is the same as the preprint provider.
     * title `string`: The title of the entity being cited.
   * id `string`: The identifier of the entity being cited.
   * links `object`: URLs to alternative representations of the citation entity.
@@ -3932,6 +4603,263 @@ osf.preprints_citation_read({
     * citation `string`: The complete entity citation in the requested style.
   * id `string`: The identifier of the citation style, e.g. APA.
   * type `string`: The type identifier of the citation style entity (`styled-citations`).
+
+### preprint_provider_list
+A paginated list of all preprint providers.
+
+The returned preprint providers are sorted by their creation date, with the most recent preprints appearing first.
+
+_< v2.8 use `preprint_providers` instead of `providers/preprints`_
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 preprint providers.
+
+Each resource in the array is a separate preprint provider object.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+This request should never return an error.
+
+#### Filtering
+
+You can optionally request that the response only include preprint providers that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/providers/preprints/?filter[id]=osf.
+
+Preprint Providers may be filtered by their `id`, `name`,  and `description`
+
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.preprint_provider_list(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the preprint provider entity.
+    * advisory_board `string`: The HTML representation of the preprint provider's advisory board.
+    * description `string`: The description of the preprint provider.
+    * domain `string`: The preprint provider's domain, if the provider is using a domain to for their preprint service.
+    * domain_redirect_enabled `boolean`: Whether or not redirects are enabled for the provider's domain.
+    * email_support `string`: The preprint providers's support email address.
+    * example `string`: The GUID for an example preprint from this preprint provider.
+    * name `string`: The name of the preprint provider.
+  * id `string`: The identifier of the preprint provider entity.
+  * links `object`: Links to alternative representations of the preprint entity.
+    * external_url `string`: A link to the external website for the preprint provider.
+    * preprints `string`: A link to the preprint list page for the preprint provider.
+    * self `string`: A link to the detail page for the preprint provider.
+  * relationships `object`: Links to other entities or entity collections that have a relationship to the preprint provider.
+    * licenses_acceptable `string`: A link to licenses the preprint provider allows.
+    * preprints `string`: A link to the preprint list page for the preprint provider.
+    * taxonomies `string`: A link to the taxonomies the preprint provider allows.
+  * type `string`: The type identifier of the preprint provider entity (`preprint_providers`).
+
+### preprint_provider_detail
+Retrieves the details of a preprint provider.
+
+_< v2.8 use `preprint_providers` instead of `providers/preprints`_
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the representation of the requested preprint provider, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.preprint_provider_detail({
+  "preprint_provider_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the preprint provider entity.
+    * advisory_board `string`: The HTML representation of the preprint provider's advisory board.
+    * description `string`: The description of the preprint provider.
+    * domain `string`: The preprint provider's domain, if the provider is using a domain to for their preprint service.
+    * domain_redirect_enabled `boolean`: Whether or not redirects are enabled for the provider's domain.
+    * email_support `string`: The preprint providers's support email address.
+    * example `string`: The GUID for an example preprint from this preprint provider.
+    * name `string`: The name of the preprint provider.
+  * id `string`: The identifier of the preprint provider entity.
+  * links `object`: Links to alternative representations of the preprint entity.
+    * external_url `string`: A link to the external website for the preprint provider.
+    * preprints `string`: A link to the preprint list page for the preprint provider.
+    * self `string`: A link to the detail page for the preprint provider.
+  * relationships `object`: Links to other entities or entity collections that have a relationship to the preprint provider.
+    * licenses_acceptable `string`: A link to licenses the preprint provider allows.
+    * preprints `string`: A link to the preprint list page for the preprint provider.
+    * taxonomies `string`: A link to the taxonomies the preprint provider allows.
+  * type `string`: The type identifier of the preprint provider entity (`preprint_providers`).
+
+### preprint_provider_licenses_list
+A paginated list of the licenses allowed bya preprint provider.
+
+_< v2.8 use `preprint_providers` instead of `providers/preprints`_
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 preprint providers. Each resource in the array is a separate preprint provider object.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.preprint_provider_licenses_list({
+  "preprint_provider_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the license.
+    * name `string`: Name of the license.
+    * required_fields `array`: Fields required for this license (provided to help front-end validators). Maps to properties on the NodeLicense model.
+      * items `string`: Individual fields required by this license.
+    * text `string`: Full text of the license.
+  * id `string`: The identifier of the license.
+  * links `object`: URLs to alternative representations of the license.
+    * self `string`: A link to the detail page for the license.
+  * type `string`: The type identifier of the license (`license`).
+
+### preprint_providers_preprints_list
+A paginated list of preprints from the specified preprint provider. The returned preprints are sorted by their creation date, with the most recent preprints appearing first.
+
+_< v2.8 use `preprint_providers` instead of `providers/preprints`_
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 preprints. Each resource in the array is a separate preprint object.
+
+The `links` key contains a dictionary with keys that can be used for [pagination](#tag/Pagination).
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+#### Filtering
+
+You can optionally request that the response only include preprints that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/providers/preprints/osf/preprints/?filter[is_published]=true.
+
+Preprints may be filtered by their `id`, `is_published`, `date_created`, `date_modified`, and `provider`.
+
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.preprint_providers_preprints_list({
+  "preprint_provider_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the preprint entity.
+      * current_user_permissions `array`: The logged-in user's permissions to the preprint
+        * items `string`
+      * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+      * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
+      * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
+      * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+      * date_withdrawn `string`: The date when the preprint was withdrawn
+      * description `string`: The description of the preprint
+      * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
+      * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+      * is_published `boolean`: Whether or not a preprint is published
+      * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+      * original_publication_date `string`: User-entered, the date when the preprint was originally published
+      * preprint_doi_created `string`: The date when the doi was minted for the preprint
+      * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+      * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
+      * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
+        * items `string`
+      * tags `array`: A list of the preprint's tags.
+        * items `string`
+      * title **required** `string`: The title of the preprint
+    * id `string`: The identifier of the preprint entity.
+    * links `object`: URLs to alternative representations of the preprint entity.
+      * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
+      * html `string`: A link to the project on the OSF that was created for the preprint, or from which the preprint was created.
+      * preprint_doi `string`: The URL representation of the OSF assigned DOI for the preprint.
+      * self `string`: A link to the detail page for the preprint.
+    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
+      * citation `string`: A relationship to the citation of the preprint.
+      * contributors `string`: A relationship to the preprint authors
+      * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
+      * identifiers `string`: A relationship to the identifiers associated with the preprint.
+      * license `string`: A relationship to the license that has been applied to the preprint.
+      * node `string`: A relationship to the project containing supplemental materials for the preprints.
+      * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+      * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
+    * type **required** `string`: The type identifier of the preprint entity (`preprints`).
+
+### preprint_provider_taxonomies_list
+A paginated list of the taxonomies for a preprint provider.
+
+The returned preprint providers taxonomies are sorted by their creation date, with the most recent preprints appearing first.
+
+
+ _< v2.8 use `preprint_providers` instead of `providers/preprints`_
+
+
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 preprint providers. Each resource in the array is a separate preprint provider object.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.preprint_provider_taxonomies_list({
+  "preprint_provider_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * preprint_provider_id **required** `string`: The unique identifier of the preprint provider.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the taxonomy entity.
+    * child_count `integer`: The number of children this taxonomy contains.
+    * parents `array`: An array of JSON objects containing keys for `text` (name) and `id` (unique identifier) of this taxonomy's parents
+      * items `string`
+    * text `string`: The text name of the taxonomy
+  * id `string`: The identifier of the taxonomy entity.
+  * links `object`: URLs to alternative representations of the taxonomy entity.
+    * parents `array`: An array of links to to this taxonomy's parents. This field is deprecated as of verson 2.4.
+      * items `string`
+    * self `string`: A link to the detail page for the taxonomy.
+  * type `string`: The type identifier of the taxonomy entity (`taxonomies`).
 
 ### registrations_list
 A paginated list of registrations on the OSF to which the user has access.
@@ -3980,17 +4908,21 @@ osf.registrations_list(null, context)
 * output `array`
   * items `object`
     * attributes **required** `object`: The properties of the registration entity.
+      * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
       * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+      * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+        * items `string`
       * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
       * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
       * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
         * items `string`
+      * custom_citation `string`: User-entered custom registration citation
       * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
       * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
       * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
       * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
       * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+      * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
       * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
       * fork `boolean`: Whether or not this registration represents a fork of another node.
       * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -4002,12 +4934,13 @@ osf.registrations_list(null, context)
       * public `boolean`: Whether or not the registration is publicly visible.
       * registered_meta `string`: A dictionary with supplemental registration questions and responses.
       * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+      * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
       * registration_supplement `string`: The title of the registration schema this registration conforms to.
       * tags `array`: A list of strings that describe the registered node.
         * items `string`
       * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
       * title `string`: The title of the registered node.
+      * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
       * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
       * withdrawn `boolean`: Whether or not this registration has been withdrawn.
     * id **required** `string`: The unique identifier of the registration.
@@ -4022,7 +4955,8 @@ osf.registrations_list(null, context)
       * contributors `string`: A link to the list of contributors on this registration.
       * files `string`: A link to the list of storage providers that have been enabled on this registration.
       * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+      * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+      * license `string`: A relationship to the license that has been applied to the registration.
       * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
       * logs `string`: A link to the list of log actions pertaining to this registration.
       * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -4076,17 +5010,21 @@ osf.registrations_read({
 #### Output
 * output `object`
   * attributes **required** `object`: The properties of the registration entity.
+    * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
     * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+    * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+      * items `string`
     * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
     * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
     * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
       * items `string`
+    * custom_citation `string`: User-entered custom registration citation
     * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
     * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
     * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
     * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
     * description `string`: The description of the registered node.
-    * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+    * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
     * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
     * fork `boolean`: Whether or not this registration represents a fork of another node.
     * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -4098,12 +5036,13 @@ osf.registrations_read({
     * public `boolean`: Whether or not the registration is publicly visible.
     * registered_meta `string`: A dictionary with supplemental registration questions and responses.
     * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-    * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+    * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
     * registration_supplement `string`: The title of the registration schema this registration conforms to.
     * tags `array`: A list of strings that describe the registered node.
       * items `string`
     * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
     * title `string`: The title of the registered node.
+    * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
     * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
     * withdrawn `boolean`: Whether or not this registration has been withdrawn.
   * id **required** `string`: The unique identifier of the registration.
@@ -4118,7 +5057,8 @@ osf.registrations_read({
     * contributors `string`: A link to the list of contributors on this registration.
     * files `string`: A link to the list of storage providers that have been enabled on this registration.
     * forks `string`: A link to the list of nodes that are forks of this registration.
-    * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+    * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+    * license `string`: A relationship to the license that has been applied to the registration.
     * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
     * logs `string`: A link to the list of log actions pertaining to this registration.
     * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -4132,13 +5072,12 @@ osf.registrations_read({
   * type **required** `string`: The type identifier of the registration entity (`registrations`).
 
 ### registrations_partial_update
-Updates a registration's privacy from **private** to **public**.
+Registrations can be updated with either a **PUT** or **PATCH** request. There are a handful of fields that can be edited by registration administrators, and a few fields by users with write permissions.
+Note - one of the fields you can edit is `public`. Registrations can only be turned from private to public, not vice versa.
 
-Registrations can be updated with either a **PUT** or **PATCH** request. The `public` field is the only field that can be modified on a registration
-
-Registrations can only be turned from private to public, not vice versa.
+You may request a registration to be withdrawn by providing a truthy value for `pending_withdrawal` in the data payload, along with an optional `withdrawal_justification`.
 #### Permissions
-Only project administrators may update a registration.
+Only project administrators may update most fields on a registration, but write contributors can edit certain fields like tags.
 #### Returns
 Returns a JSON object with a `data` key containing the new representation of the updated registration, if the request is successful.
 
@@ -4148,16 +5087,7 @@ If the request is unsuccessful, an `errors` key containing information about the
 ```js
 osf.registrations_partial_update({
   "registration_id": "",
-  "body": {
-    "id": "",
-    "type": "",
-    "attributes": {
-      "draft_registration": "",
-      "registration_choice": ""
-    },
-    "relationships": {},
-    "links": {}
-  }
+  "body": {}
 }, context)
 ```
 
@@ -4165,64 +5095,70 @@ osf.registrations_partial_update({
 * input `object`
   * registration_id **required** `string`: The unique identifier of the registration.
   * body **required** `object`
-    * attributes **required** `object`: The properties of the registration entity.
-      * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
-      * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
-      * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
-      * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
-        * items `string`
-      * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
-      * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
-      * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
-      * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
-      * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
-      * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
-      * fork `boolean`: Whether or not this registration represents a fork of another node.
-      * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
-      * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the registered node license (required for certain license types).
-      * pending_embargo_approval `boolean`: Whether or not the embargo associated with this registration is pending approval from project administrators.
-      * pending_registration_approval `boolean`: Whether or not the registration is pending approval from project administrators.
-      * pending_withdrawal `boolean`: Whether or not the registration is pending approval for withdrawal from project administrators.
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
-      * public `boolean`: Whether or not the registration is publicly visible.
-      * registered_meta `string`: A dictionary with supplemental registration questions and responses.
-      * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
-      * registration_supplement `string`: The title of the registration schema this registration conforms to.
-      * tags `array`: A list of strings that describe the registered node.
-        * items `string`
-      * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
-      * title `string`: The title of the registered node.
-      * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
-      * withdrawn `boolean`: Whether or not this registration has been withdrawn.
-    * id **required** `string`: The unique identifier of the registration.
-    * links **required** `object`: URLs to alternative representations of the registrations entity.
-      * html `string`: A link to the registration's page on the OSF.
-      * self `string`: A link to the canonical API endpoint of this registration.
-    * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the registration entity.
-      * affiliated_institutions `string`: A link to the list of institutions this registration is affiliated with.
-      * children `string`: A link to the list of the registered node's children (components).
-      * citation `string`: A link to the citation details of this registration.
-      * comments `string`: A link to the list of comments on this registration.
-      * contributors `string`: A link to the list of contributors on this registration.
-      * files `string`: A link to the list of storage providers that have been enabled on this registration.
-      * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
-      * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
-      * logs `string`: A link to the list of log actions pertaining to this registration.
-      * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
-      * parent `string`: A link to the node that is the direct parent of the current registration, if the current registration is a child registration.
-      * registered_by `string`: A link to the user that initiated this registration.
-      * registered_from `string`: A link to the node that this registration was registered from.
-      * registration_schema `string`: A link to the metaschema that this registration conforms to.
-      * root `string`: A link to the node that is the top-level parent of the current registration. If the current registration is the top-level node, the root is the current registration.
-      * view_only_links `string`: A link to the list of view only links that have been created for this registration.
-      * wikis `string`: A link to the list of wiki pages for this registration.
-    * type **required** `string`: The type identifier of the registration entity (`registrations`).
 
 #### Output
-*Output schema unknown*
+* output `object`
+  * attributes **required** `object`: The properties of the registration entity.
+    * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
+    * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+    * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+      * items `string`
+    * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
+    * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
+    * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
+      * items `string`
+    * custom_citation `string`: User-entered custom registration citation
+    * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
+    * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
+    * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
+    * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
+    * description `string`: The description of the registered node.
+    * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
+    * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
+    * fork `boolean`: Whether or not this registration represents a fork of another node.
+    * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
+    * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the registered node license (required for certain license types).
+    * pending_embargo_approval `boolean`: Whether or not the embargo associated with this registration is pending approval from project administrators.
+    * pending_registration_approval `boolean`: Whether or not the registration is pending approval from project administrators.
+    * pending_withdrawal `boolean`: Whether or not the registration is pending approval for withdrawal from project administrators.
+    * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+    * public `boolean`: Whether or not the registration is publicly visible.
+    * registered_meta `string`: A dictionary with supplemental registration questions and responses.
+    * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
+    * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+    * registration_supplement `string`: The title of the registration schema this registration conforms to.
+    * tags `array`: A list of strings that describe the registered node.
+      * items `string`
+    * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
+    * title `string`: The title of the registered node.
+    * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
+    * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
+    * withdrawn `boolean`: Whether or not this registration has been withdrawn.
+  * id **required** `string`: The unique identifier of the registration.
+  * links **required** `object`: URLs to alternative representations of the registrations entity.
+    * html `string`: A link to the registration's page on the OSF.
+    * self `string`: A link to the canonical API endpoint of this registration.
+  * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the registration entity.
+    * affiliated_institutions `string`: A link to the list of institutions this registration is affiliated with.
+    * children `string`: A link to the list of the registered node's children (components).
+    * citation `string`: A link to the citation details of this registration.
+    * comments `string`: A link to the list of comments on this registration.
+    * contributors `string`: A link to the list of contributors on this registration.
+    * files `string`: A link to the list of storage providers that have been enabled on this registration.
+    * forks `string`: A link to the list of nodes that are forks of this registration.
+    * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+    * license `string`: A relationship to the license that has been applied to the registration.
+    * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
+    * logs `string`: A link to the list of log actions pertaining to this registration.
+    * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
+    * parent `string`: A link to the node that is the direct parent of the current registration, if the current registration is a child registration.
+    * registered_by `string`: A link to the user that initiated this registration.
+    * registered_from `string`: A link to the node that this registration was registered from.
+    * registration_schema `string`: A link to the metaschema that this registration conforms to.
+    * root `string`: A link to the node that is the top-level parent of the current registration. If the current registration is the top-level node, the root is the current registration.
+    * view_only_links `string`: A link to the list of view only links that have been created for this registration.
+    * wikis `string`: A link to the list of wiki pages for this registration.
+  * type **required** `string`: The type identifier of the registration entity (`registrations`).
 
 ### registrations_children_list
 A paginated list of children of a registration.
@@ -4264,17 +5200,21 @@ osf.registrations_children_list({
 * output `array`
   * items `object`
     * attributes **required** `object`: The properties of the registration entity.
+      * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
       * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+      * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+        * items `string`
       * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
       * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
       * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
         * items `string`
+      * custom_citation `string`: User-entered custom registration citation
       * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
       * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
       * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
       * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
       * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+      * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
       * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
       * fork `boolean`: Whether or not this registration represents a fork of another node.
       * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -4286,12 +5226,13 @@ osf.registrations_children_list({
       * public `boolean`: Whether or not the registration is publicly visible.
       * registered_meta `string`: A dictionary with supplemental registration questions and responses.
       * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+      * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
       * registration_supplement `string`: The title of the registration schema this registration conforms to.
       * tags `array`: A list of strings that describe the registered node.
         * items `string`
       * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
       * title `string`: The title of the registered node.
+      * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
       * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
       * withdrawn `boolean`: Whether or not this registration has been withdrawn.
     * id **required** `string`: The unique identifier of the registration.
@@ -4306,7 +5247,8 @@ osf.registrations_children_list({
       * contributors `string`: A link to the list of contributors on this registration.
       * files `string`: A link to the list of storage providers that have been enabled on this registration.
       * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+      * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+      * license `string`: A relationship to the license that has been applied to the registration.
       * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
       * logs `string`: A link to the list of log actions pertaining to this registration.
       * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -4386,7 +5328,7 @@ osf.registrations_citation_read({
   * attributes `object`: The properties of the citation entity.
     * author `string`: The list of bibliographic authors, represented as dictionaries of their given and family names, for the entitiy being cited.
     * doi `string`: The DOI for the entity being cited, if one exists.
-    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is the 'Open Science Framework'. For preprints, the publisher is the same as the preprint provider.
+    * publisher `string`: The publisher of the entity being cited. For nodes and registrations, the publisher is 'OSF'. For preprints, the publisher is the same as the preprint provider.
     * title `string`: The title of the entity being cited.
   * id `string`: The identifier of the entity being cited.
   * links `object`: URLs to alternative representations of the citation entity.
@@ -4607,9 +5549,11 @@ osf.registrations_providers_list({
     * links `object`: Links to alternative representations of the file entity.
       * delete `string`: The Waterbutler API route for file deletions.
       * download `string`: The Waterbutler API route for file downloads.
+      * html `string`: A link to the file on the OSF.
       * info `string`: A link to the page to view a file's information or a folder's contents.
       * move `string`: The Waterbutler API route for file moves.
       * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+      * render `string`: A Waterbutler API route for rendering the file.
       * self `string`: A link to the detail page for the file.
       * upload `string`: The Waterbutler API route for file uploads.
     * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -4634,7 +5578,7 @@ The `links` key contains a dictionary of links that can be used for [pagination]
 
 You can optionally request that the response only include files that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/registrations/wucr8/files/osfstorage/?filter[kind]=file
 
-Files may be filtered by `id`, `name`, `node`, `kind`, `path`, `provider`, `size`, and `last_touched`.
+Files may be filtered by `id`, `name`, `kind`, `path`, `provider`, `size`, and `last_touched`.
 
 You can learn more about advanced filtering features [here](#tag/Filtering).
 
@@ -4676,9 +5620,11 @@ osf.registrations_files_list({
     * links `object`: Links to alternative representations of the file entity.
       * delete `string`: The Waterbutler API route for file deletions.
       * download `string`: The Waterbutler API route for file downloads.
+      * html `string`: A link to the file on the OSF.
       * info `string`: A link to the page to view a file's information or a folder's contents.
       * move `string`: The Waterbutler API route for file moves.
       * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+      * render `string`: A Waterbutler API route for rendering the file.
       * self `string`: A link to the detail page for the file.
       * upload `string`: The Waterbutler API route for file uploads.
     * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -4736,9 +5682,11 @@ osf.registrations_files_read({
   * links `object`: Links to alternative representations of the file entity.
     * delete `string`: The Waterbutler API route for file deletions.
     * download `string`: The Waterbutler API route for file downloads.
+    * html `string`: A link to the file on the OSF.
     * info `string`: A link to the page to view a file's information or a folder's contents.
     * move `string`: The Waterbutler API route for file moves.
     * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+    * render `string`: A Waterbutler API route for rendering the file.
     * self `string`: A link to the detail page for the file.
     * upload `string`: The Waterbutler API route for file uploads.
   * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
@@ -4778,17 +5726,21 @@ osf.registrations_forks_list({
 * output `array`
   * items `object`
     * attributes **required** `object`: The properties of the registration entity.
+      * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
       * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+      * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+        * items `string`
       * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
       * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
       * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
         * items `string`
+      * custom_citation `string`: User-entered custom registration citation
       * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
       * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
       * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
       * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
       * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+      * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
       * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
       * fork `boolean`: Whether or not this registration represents a fork of another node.
       * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -4800,12 +5752,13 @@ osf.registrations_forks_list({
       * public `boolean`: Whether or not the registration is publicly visible.
       * registered_meta `string`: A dictionary with supplemental registration questions and responses.
       * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+      * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
       * registration_supplement `string`: The title of the registration schema this registration conforms to.
       * tags `array`: A list of strings that describe the registered node.
         * items `string`
       * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
       * title `string`: The title of the registered node.
+      * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
       * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
       * withdrawn `boolean`: Whether or not this registration has been withdrawn.
     * id **required** `string`: The unique identifier of the registration.
@@ -4820,7 +5773,8 @@ osf.registrations_forks_list({
       * contributors `string`: A link to the list of contributors on this registration.
       * files `string`: A link to the list of storage providers that have been enabled on this registration.
       * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+      * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+      * license `string`: A relationship to the license that has been applied to the registration.
       * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
       * logs `string`: A link to the list of log actions pertaining to this registration.
       * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -4871,17 +5825,21 @@ osf.registrations_forks_create({
   * registration_id **required** `string`: The unique identifier of the registration.
   * body **required** `object`
     * attributes **required** `object`: The properties of the registration entity.
+      * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
       * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+      * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+        * items `string`
       * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
       * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
       * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
         * items `string`
+      * custom_citation `string`: User-entered custom registration citation
       * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
       * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
       * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
       * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
       * description `string`: The description of the registered node.
-      * draft_registration **required** `string`: The ID of the draft registration from which the registration will be created.
+      * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
       * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
       * fork `boolean`: Whether or not this registration represents a fork of another node.
       * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
@@ -4893,12 +5851,13 @@ osf.registrations_forks_create({
       * public `boolean`: Whether or not the registration is publicly visible.
       * registered_meta `string`: A dictionary with supplemental registration questions and responses.
       * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
-      * registration_choice **required** `string`: Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+      * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
       * registration_supplement `string`: The title of the registration schema this registration conforms to.
       * tags `array`: A list of strings that describe the registered node.
         * items `string`
       * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
       * title `string`: The title of the registered node.
+      * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
       * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
       * withdrawn `boolean`: Whether or not this registration has been withdrawn.
     * id **required** `string`: The unique identifier of the registration.
@@ -4913,7 +5872,8 @@ osf.registrations_forks_create({
       * contributors `string`: A link to the list of contributors on this registration.
       * files `string`: A link to the list of storage providers that have been enabled on this registration.
       * forks `string`: A link to the list of nodes that are forks of this registration.
-      * identifiers `string`: A link to the list of identifiers for this registration (i.e. ARK and DOI identifiers).
+      * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+      * license `string`: A relationship to the license that has been applied to the registration.
       * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
       * logs `string`: A link to the list of log actions pertaining to this registration.
       * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
@@ -4942,9 +5902,9 @@ The `links` key contains a dictionary of links that can be used for [pagination]
 
 #### Filtering
 
-You can optionally request that the response only include registrations that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/registrations/wucr8/identifiers/?filter[category]=ark
+You can optionally request that the response only include registrations that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/registrations/wucr8/identifiers/?filter[category]=doi
 
-Identifiers may be filtered by their `category` e.g `ark` or `doi`.
+Identifiers may be filtered by their `category` e.g `doi`.
 
 You can learn more about advanced filtering features [here](#tag/Filtering).
 
@@ -4963,7 +5923,41 @@ osf.registrations_identifiers_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the identifier entity.
-      * category `string` (values: ark, doi): The category of the identifier
+      * category `string` (values: doi): The category of the identifier
+      * value `string`: The identifier value itself
+    * id `string`: The identifier of the identifier entity.
+    * links `object`: URLs to alternative representations of the identifier entity.
+      * self `string`: A link to the detail page for the identifier.
+    * relationships `object`: URLs to other entities or entity collections that have a relationship to the identifier entity.
+      * referent `string`: A relationship to the node the identifier refers to.
+    * type `string`: The type identifier of the identifier entity (`identifiers`).
+
+### registrations_identifiers_create
+Create an identifier for a given registration - can only mint DOI's at this time.  Send a POST request with a `category` attribute with a value of 'doi'.
+#### Returns
+
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains the created identifier object.
+
+
+```js
+osf.registrations_identifiers_create({
+  "registration_id": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * registration_id **required** `string`: The unique identifier of the registration.
+  * body **required** `object`
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the identifier entity.
+      * category `string` (values: doi): The category of the identifier
       * value `string`: The identifier value itself
     * id `string`: The identifier of the identifier entity.
     * links `object`: URLs to alternative representations of the identifier entity.
@@ -4998,12 +5992,15 @@ osf.registrations_institutions_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the institution entity.
+      * assets `object`: Assets belonging to a specific institution
+        * logo `string`: Static path to the institution specific normal logo
+        * logo_rounded `string`: Static path to the institution specific rounded logo
       * auth_url `string`: Url used to authenticate institution specific login.
       * description `string`: Description of the institution.
-      * logo_path `string`: Static path to the institution specific logo.
       * name `string`: Full name of the institution.
     * id `string`: The identifier of the institution entity.
     * links `object`: URLs to alternative representations of the institutions entity.
+      * html `string`: A link to the detail page for the institution on the OSF.
       * self `string`: A link to the detail page for the institution.
     * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
       * nodes `string`: A relationship to the nodes affiliated with the institution.
@@ -5056,13 +6053,14 @@ osf.registrations_linked_nodes_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -5077,13 +6075,14 @@ osf.registrations_linked_nodes_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -5145,7 +6144,7 @@ osf.registrations_logs_list({
         * forward_url `string`: URL that the connected node forwards to.
         * github_repo `string`: The github repository involved with the action represented by this node log.
         * github_user `string`: The github user involved with the action represented by this node log.
-        * identifiers `string`: Dictionary containing the DOI and ARK ID for a preprint associated with the log.
+        * identifiers `string`: Dictionary containing the DOI for a preprint associated with the log.
         * institution `string`: Dictionary containing the ID and Name of the institution associated with the log.
         * kind `string`: Kind of the object associated with the log.
         * license `string`: License for the associated node.
@@ -5320,11 +6319,518 @@ osf.registrations_wikis_list({
       * info `string`: A link to the detail page for the wiki.
       * self `string`: A link to the detail page for the wiki.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the wiki.
-      * comments **required** `string`: A relationship to the comments related to this wiki.
-      * node **required** `string`: A relationship to the associated node.
-      * user **required** `string`: A relationship to the user associated with this wiki.
-      * versions **required** `string`: A relationship to the versions related to this wiki.
+      * comments `string`: A relationship to the comments related to this wiki.
+      * node `string`: A relationship to the associated node.
+      * user `string`: A relationship to the user associated with this wiki.
+      * versions `string`: A relationship to the versions related to this wiki.
     * type **required** `string`: The type identifier of the wiki (`wikis`).
+
+### search.get
+OSF search returns JSON serialized objects (including projects, components, registrations, users, files,
+ and institutions) that have been found by the given Elasticsearch query. Each object is serialized with the
+ appropriate serializer for its type (files are serialized as files, users are serialized as users, etc.) and
+ returned collectively.
+
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restract their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`: The search results; each item in this list will be serialized according to its type.
+    * items `object`
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`: Extra information about the request.
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+  * search_fields `object`: URLs and total counts for different filtered searches.
+    * components `object`: The components returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+    * files `object`: The files returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+    * institutions `object`: The institutions returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+    * projects `object`: The project returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+    * registrations `object`: The registrations returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+    * users `object`: The users returned by the search.
+      * related `object`
+        * href `string`
+        * meta `object`
+          * total `integer`
+
+### search.components.get
+This endpoint returns components that have been found by the given Elasticsearch query. All components returned are serialized as components.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restrict their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.components.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes **required** `object`: The properties of the node entity.
+        * category **required** `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the node, as selected by project contributors.
+        * collection `boolean`: Whether or not this node represents a collection. This value should always be `false`. This field may be deprecated in future versions.
+        * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this node. Comments on nodes can be set to allow all users to comment (if public) or restricted to only allow comments from contributors.
+        * current_user_permissions `array`: A list of strings representing the permissions for the current user on this node. Valid permissions are "admin", "read", and "write".
+          * items `string`
+        * date_created `string`: The time at which the node was created, as an iso8601 formatted timestamp.
+        * date_modified `string`: The time at which the node was last modified, as an iso8601 formatted timestamp.
+        * description `string`: The description of the node.
+        * fork `boolean`: Whether or not this node represents a fork of another node.
+        * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
+        * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
+        * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
+        * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
+        * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
+        * tags `array`: A list of strings that describe this node, as entered by project contributors.
+          * items `string`
+        * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
+        * title **required** `string`: The title of the node.
+        * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
+      * id `string`: The unique identifier of the node entity.
+      * links `object`: URLs to alternative representations of the node entity.
+        * html `string`: A link to the node's page on the OSF.
+        * self `string`: A link to the canonical API endpoint of this node.
+      * relationships `object`: URLs to other entities or entity collections that have a relationship to the node entity.
+        * affiliated_institutions `string`: A link to the list of institutions this node is affiliated with.
+        * children `string`: A link to the list of this node's children (components).
+        * citation `string`: A link to the citation details of this node.
+        * comments `string`: A link to the list of comments on this node.
+        * contributors `string`: A link to the list of contributors on this node.
+        * draft_registrations `string`: A link to the list of registrations that have been initiated from this node and are still in a draft state.
+        * files `string`: A link to the list of storage providers that have been enabled on this node.
+        * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
+        * forks `string`: A link to the list of nodes that are forks of this node.
+        * groups `string`: A link to the list of groups that have permissions to the node.
+        * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
+        * license `string`: A link to the license that has been applied to this node.
+        * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
+        * logs `string`: A link to the list of log actions pertaining to this node.
+        * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
+        * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
+        * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
+        * registrations `string`: A link to the list of registrations that have been created from this node.
+        * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
+        * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
+        * view_only_links `string`: A link to the list of view only links that have been created for this node.
+        * wikis `string`: A link to the list of wiki pages for this node.
+      * type **required** `string`: The type identifier of the node entity (`nodes`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+
+### search.files.get
+This endpoint returns files that have been found by the given Elasticsearch query. All files returned are serialized as files.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restract their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.files.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes `object`: The properties of the file entity.
+        * checkout `string`: SOON TO BE DEPRECATED, see relationships checkout.
+        * current_user_can_comment `boolean`: Whether or not the current user is allowed to post comments.
+        * current_version `integer`: Version number of the file.
+        * date_created `string`: The time at which the file was created, as an iso8601 formatted timestamp.
+        * date_modified `string`: The time at which the file was last modified, as an iso8601 formatted timestamp.
+        * delete_allowed `boolean`: Whether or not deletion of the file is allowed.
+        * extra `object`: Extra information, contains `hashes` (`sha256`, `md5`) and `downloads` count.
+        * guid `string`: Global unique identifier (GUID) for this file (if one has been assigned).
+        * kind `string`: The kind of files object it is (`file` or `folder`).
+        * last_touched `string`: The time at which the file external metadata was last retrieved as an iso8601 formatted timestamp (does not apply to OSF Storage files).
+        * materialized_path `string`: Unix-style path to the file relative to the provider root.
+        * name `string`: Name of the file
+        * path `string`: The unique identifier for this file entity for this project and storage provider.
+        * provider `string`: The id of the file provider (e.g., `osfstorage`)
+        * size `integer`: Size of the file in bytes.
+        * tags `array`: A list of strings that describe this file, as entered by project contributors.
+          * items `string`
+      * id `string`: The identifier of the file entity.
+      * links `object`: Links to alternative representations of the file entity.
+        * delete `string`: The Waterbutler API route for file deletions.
+        * download `string`: The Waterbutler API route for file downloads.
+        * html `string`: A link to the file on the OSF.
+        * info `string`: A link to the page to view a file's information or a folder's contents.
+        * move `string`: The Waterbutler API route for file moves.
+        * new_folder `string`: The Waterbutler API route for creating a new subfolder (does not exist for files).
+        * render `string`: A Waterbutler API route for rendering the file.
+        * self `string`: A link to the detail page for the file.
+        * upload `string`: The Waterbutler API route for file uploads.
+      * relationships `object`: Links to other entities or entity collections that have a relationship to the file entity.
+        * checkout `string`: A link to the user who checked out the file.
+        * comments `string`: A link to the comments on the file.
+        * node `string`: A link to the node the file is on.
+        * versions `string`: A link to the versions of the file.
+      * type `string`: The type identifier of the file entity (`files`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+
+### search.institutions.get
+This endpoint returns institutions which are utilitizing OSF and that have been found by the given Elasticsearch query. All institutions returned are serialized as institutions.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restrict their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.institutions.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes `object`: The properties of the institution entity.
+        * assets `object`: Assets belonging to a specific institution
+          * logo `string`: Static path to the institution specific normal logo
+          * logo_rounded `string`: Static path to the institution specific rounded logo
+        * auth_url `string`: Url used to authenticate institution specific login.
+        * description `string`: Description of the institution.
+        * name `string`: Full name of the institution.
+      * id `string`: The identifier of the institution entity.
+      * links `object`: URLs to alternative representations of the institutions entity.
+        * html `string`: A link to the detail page for the institution on the OSF.
+        * self `string`: A link to the detail page for the institution.
+      * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
+        * nodes `string`: A relationship to the nodes affiliated with the institution.
+        * registrations `string`: A relationship to the registrations affiliated with the institution.
+        * users `string`: A relationship to the users affiliated with the institution.
+      * type `string`: The type identifier of the institution entity (`institutions`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+
+### search.projects.get
+This endpoint returns projects that have been found by the given Elasticsearch query. All projects returned are serialized as projects.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restrict their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.projects.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes **required** `object`: The properties of the node entity.
+        * category **required** `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the node, as selected by project contributors.
+        * collection `boolean`: Whether or not this node represents a collection. This value should always be `false`. This field may be deprecated in future versions.
+        * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this node. Comments on nodes can be set to allow all users to comment (if public) or restricted to only allow comments from contributors.
+        * current_user_permissions `array`: A list of strings representing the permissions for the current user on this node. Valid permissions are "admin", "read", and "write".
+          * items `string`
+        * date_created `string`: The time at which the node was created, as an iso8601 formatted timestamp.
+        * date_modified `string`: The time at which the node was last modified, as an iso8601 formatted timestamp.
+        * description `string`: The description of the node.
+        * fork `boolean`: Whether or not this node represents a fork of another node.
+        * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
+        * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
+        * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
+        * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
+        * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
+        * tags `array`: A list of strings that describe this node, as entered by project contributors.
+          * items `string`
+        * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
+        * title **required** `string`: The title of the node.
+        * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
+      * id `string`: The unique identifier of the node entity.
+      * links `object`: URLs to alternative representations of the node entity.
+        * html `string`: A link to the node's page on the OSF.
+        * self `string`: A link to the canonical API endpoint of this node.
+      * relationships `object`: URLs to other entities or entity collections that have a relationship to the node entity.
+        * affiliated_institutions `string`: A link to the list of institutions this node is affiliated with.
+        * children `string`: A link to the list of this node's children (components).
+        * citation `string`: A link to the citation details of this node.
+        * comments `string`: A link to the list of comments on this node.
+        * contributors `string`: A link to the list of contributors on this node.
+        * draft_registrations `string`: A link to the list of registrations that have been initiated from this node and are still in a draft state.
+        * files `string`: A link to the list of storage providers that have been enabled on this node.
+        * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
+        * forks `string`: A link to the list of nodes that are forks of this node.
+        * groups `string`: A link to the list of groups that have permissions to the node.
+        * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
+        * license `string`: A link to the license that has been applied to this node.
+        * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
+        * logs `string`: A link to the list of log actions pertaining to this node.
+        * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
+        * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
+        * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
+        * registrations `string`: A link to the list of registrations that have been created from this node.
+        * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
+        * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
+        * view_only_links `string`: A link to the list of view only links that have been created for this node.
+        * wikis `string`: A link to the list of wiki pages for this node.
+      * type **required** `string`: The type identifier of the node entity (`nodes`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+
+### search.registrations.get
+This endpoint returns registrations that have been found by the given Elasticsearch query. All registrations returned are serialized as registrations.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restrict their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.registrations.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes **required** `object`: The properties of the registration entity.
+        * article_doi `string`: The DOI of the associated journal article, as entered by the user, if the resource is published.
+        * category `string` (values: analysis, communication, data, hypothesis, instrumentation, methods and measures, procedure, project, software, other): The category of the registered node.
+        * children `array`: A list of guids for children of nodes to be registered. All children must have parents being registered.
+          * items `string`
+        * collection `boolean`: Whether or not this registration represents a collection. This value should always be `false`. This field may be deprecated in future versions.
+        * current_user_can_comment `boolean`: Whether or not the current user has permission to post comments on this registration. Comments on registrations can be set to allow all users to comment or restricted to only contributors.
+        * current_user_permissions `array`: A list of strings representing the permissions for the current user on this registration. Valid permissions are "admin", "read", and "write".
+          * items `string`
+        * custom_citation `string`: User-entered custom registration citation
+        * date_created `string`: The time at which the registered node was created, as an iso8601 formatted timestamp.
+        * date_modified `string`: The time at which the registered node was last modified, as an iso8601 formatted timestamp.
+        * date_registered `string`: The time at which this registration was created, as an iso8601 formatted timestamp.
+        * date_withdrawn `string`: The time at which this registration was withdrawn, as an iso8601 formatted timestamp.
+        * description `string`: The description of the registered node.
+        * draft_registration **required** `string`: Required on POST. The ID of the draft registration from which the registration will be created.
+        * embargo_end_date `string`: The time at which the embargo on this registration will be lifted and the registration will become public, as an iso8601 formatted timestamp.
+        * fork `boolean`: Whether or not this registration represents a fork of another node.
+        * lift_embargo `string`: A future datetime when the registration will become public. This field should be set when "registration_choice" is set to "embargo" in the range from 2 days to 4 years.
+        * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the registered node license (required for certain license types).
+        * pending_embargo_approval `boolean`: Whether or not the embargo associated with this registration is pending approval from project administrators.
+        * pending_registration_approval `boolean`: Whether or not the registration is pending approval from project administrators.
+        * pending_withdrawal `boolean`: Whether or not the registration is pending approval for withdrawal from project administrators.
+        * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+        * public `boolean`: Whether or not the registration is publicly visible.
+        * registered_meta `string`: A dictionary with supplemental registration questions and responses.
+        * registration `boolean`: Whether or not this is a registration. This value should always be `true`. This field may be deprecated in future versions.
+        * registration_choice **required** `string`: Required on POST. Describes when the registration will become public, either "immediate" or "embargo". If this field is "embargo", you will need to supply a datetime in the "lift_embargo" field.
+        * registration_supplement `string`: The title of the registration schema this registration conforms to.
+        * tags `array`: A list of strings that describe the registered node.
+          * items `string`
+        * template_from `string`: The unique ID of the node from which the registered node was templated, if the registered node was created from a template.
+        * title `string`: The title of the registered node.
+        * wiki_enabled `boolean`: Whether or not the registration has its wiki enabled.
+        * withdrawal_justification `string`: The reasoning for why this registration was withdrawn, as entered by the administrator that initiated the withdrawal.
+        * withdrawn `boolean`: Whether or not this registration has been withdrawn.
+      * id **required** `string`: The unique identifier of the registration.
+      * links **required** `object`: URLs to alternative representations of the registrations entity.
+        * html `string`: A link to the registration's page on the OSF.
+        * self `string`: A link to the canonical API endpoint of this registration.
+      * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the registration entity.
+        * affiliated_institutions `string`: A link to the list of institutions this registration is affiliated with.
+        * children `string`: A link to the list of the registered node's children (components).
+        * citation `string`: A link to the citation details of this registration.
+        * comments `string`: A link to the list of comments on this registration.
+        * contributors `string`: A link to the list of contributors on this registration.
+        * files `string`: A link to the list of storage providers that have been enabled on this registration.
+        * forks `string`: A link to the list of nodes that are forks of this registration.
+        * identifiers `string`: A link to the list of identifiers for this registration (i.e. DOI identifiers).
+        * license `string`: A relationship to the license that has been applied to the registration.
+        * linked_nodes `string`: A link to the list of nodes that are linked to this registration.
+        * logs `string`: A link to the list of log actions pertaining to this registration.
+        * node_links `string`: A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.
+        * parent `string`: A link to the node that is the direct parent of the current registration, if the current registration is a child registration.
+        * registered_by `string`: A link to the user that initiated this registration.
+        * registered_from `string`: A link to the node that this registration was registered from.
+        * registration_schema `string`: A link to the metaschema that this registration conforms to.
+        * root `string`: A link to the node that is the top-level parent of the current registration. If the current registration is the top-level node, the root is the current registration.
+        * view_only_links `string`: A link to the list of view only links that have been created for this registration.
+        * wikis `string`: A link to the list of wiki pages for this registration.
+      * type **required** `string`: The type identifier of the registration entity (`registrations`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
+
+### search.users.get
+This endpoint returns users that have been found by the given Elasticsearch query. All users returned are serialized as users.
+#### Permissions
+All accessible public materials are returned.
+#### Filtering
+The following query params allows the user to restrict their search.
+
+  - `?q=<Str>` -- Query to search projects, components, registrations, users, and files for.
+  - `?page=<Int>` -- page number of results to view, default 1
+
+
+```js
+osf.search.users.get(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output `object`
+  * data `array`
+    * items `object`
+      * attributes **required** `object`: The properties of the user entity.
+        * active **required** `boolean`: Whether or not the user is an active user.
+        * date_registered **required** `string`: The time at which the user registered their account, as an iso8601 formatted timestamp.
+        * family_name `string`: The family name of the user, used for bibliographic citations.
+        * full_name **required** `string`: The full name of the user, used for display on the OSF.
+        * given_name `string`: The given name of the user, used for bibliographic citations.
+        * locale `string`: The user's locale, e.g. 'en_US'.
+        * middle_names `string`: The middle names of the user, used for bibliographic citations.
+        * social `object`: The social fields associated with a user.
+          * academiaProfileID `string`: The academiaProfileID for the given user.
+          * baiduScholar `string`: The baiduScholar for the given user.
+          * github `array`: The github usernames for the given user.
+          * impactStory `string`: The impactStory for the given user.
+          * linkedIn `array`: The linkedIn profiles for the given user.
+          * orcid `string`: The orcid for the given user.
+          * profileWebsites `array`: The profileWebsites for the given user.
+          * researchGate `string`: The researchGate for the given user.
+          * researcherId `string`: The researcherId for the given user.
+          * scholar `string`: The google scholar for the given user.
+          * ssrn `string`: The ssrn for the given user.
+          * twitter `array`: The twitter handles for the given user.
+        * suffix `string`: The suffix of the user, used for bibliographic citations.
+        * timezone `string`: The user's timezone, e.g. 'Etc/UTC'.
+      * id **required** `string`: The unique identifier of the user entity.
+      * links **required** `object`: URLs to alternative representations of the user entity.
+        * html `string`: A link to the user's profile page on the OSF.
+        * profile_image `string`: A link to the user's profile image.
+      * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the user entity.
+        * default_region `string`: The storage region where the user's files will be stored by default.
+        * groups `string`: A link to the list of groups that a user belongs to.
+        * institutions `string`: A link to the list of institutions the user is affiliated with.
+        * nodes `string`: A link to the list of nodes the user is a contributor to.
+      * type **required** `string`: The type identifier of the user entity (`users`).
+  * links `object`: URLs to alternative representations of the search results.
+    * first **required** `string`: A link to the first page of search results.
+    * last **required** `string`: A link to the last page of search results.
+    * next **required** `string`: A link to the next page of search results.
+    * prev **required** `string`: A link to the previous page of search results.
+    * self **required** `string`: A link to the detail page for the log.
+  * meta `object`
+    * per_page `integer`: The number of results returned on a single page.
+    * total `integer`: The total number of items returned by the search.
+    * version `integer`: The API version of OSF being used.
 
 ### taxonomies_list
 A paginated list of all [bepress disciplines taxonomies](https://www.bepress.com/wp-content/uploads/2016/12/Digital-Commons-Disciplines-taxonomy-2017-01.pdf).
@@ -5452,6 +6958,23 @@ osf.users_list(null, context)
       * given_name `string`: The given name of the user, used for bibliographic citations.
       * locale `string`: The user's locale, e.g. 'en_US'.
       * middle_names `string`: The middle names of the user, used for bibliographic citations.
+      * social `object`: The social fields associated with a user.
+        * academiaProfileID `string`: The academiaProfileID for the given user.
+        * baiduScholar `string`: The baiduScholar for the given user.
+        * github `array`: The github usernames for the given user.
+          * items `string`
+        * impactStory `string`: The impactStory for the given user.
+        * linkedIn `array`: The linkedIn profiles for the given user.
+          * items `string`
+        * orcid `string`: The orcid for the given user.
+        * profileWebsites `array`: The profileWebsites for the given user.
+          * items `string`
+        * researchGate `string`: The researchGate for the given user.
+        * researcherId `string`: The researcherId for the given user.
+        * scholar `string`: The google scholar for the given user.
+        * ssrn `string`: The ssrn for the given user.
+        * twitter `array`: The twitter handles for the given user.
+          * items `string`
       * suffix `string`: The suffix of the user, used for bibliographic citations.
       * timezone `string`: The user's timezone, e.g. 'Etc/UTC'.
     * id **required** `string`: The unique identifier of the user entity.
@@ -5459,12 +6982,14 @@ osf.users_list(null, context)
       * html `string`: A link to the user's profile page on the OSF.
       * profile_image `string`: A link to the user's profile image.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the user entity.
+      * default_region `string`: The storage region where the user's files will be stored by default.
+      * groups `string`: A link to the list of groups that a user belongs to.
       * institutions `string`: A link to the list of institutions the user is affiliated with.
       * nodes `string`: A link to the list of nodes the user is a contributor to.
     * type **required** `string`: The type identifier of the user entity (`users`).
 
 ### users_read
-Retrieves the details of a given users.
+Retrieves the details for a given user.
 
 The returned information includes the user's bibliographic information and the date the user was registered.
 
@@ -5499,6 +7024,23 @@ osf.users_read({
     * given_name `string`: The given name of the user, used for bibliographic citations.
     * locale `string`: The user's locale, e.g. 'en_US'.
     * middle_names `string`: The middle names of the user, used for bibliographic citations.
+    * social `object`: The social fields associated with a user.
+      * academiaProfileID `string`: The academiaProfileID for the given user.
+      * baiduScholar `string`: The baiduScholar for the given user.
+      * github `array`: The github usernames for the given user.
+        * items `string`
+      * impactStory `string`: The impactStory for the given user.
+      * linkedIn `array`: The linkedIn profiles for the given user.
+        * items `string`
+      * orcid `string`: The orcid for the given user.
+      * profileWebsites `array`: The profileWebsites for the given user.
+        * items `string`
+      * researchGate `string`: The researchGate for the given user.
+      * researcherId `string`: The researcherId for the given user.
+      * scholar `string`: The google scholar for the given user.
+      * ssrn `string`: The ssrn for the given user.
+      * twitter `array`: The twitter handles for the given user.
+        * items `string`
     * suffix `string`: The suffix of the user, used for bibliographic citations.
     * timezone `string`: The user's timezone, e.g. 'Etc/UTC'.
   * id **required** `string`: The unique identifier of the user entity.
@@ -5506,6 +7048,8 @@ osf.users_read({
     * html `string`: A link to the user's profile page on the OSF.
     * profile_image `string`: A link to the user's profile image.
   * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the user entity.
+    * default_region `string`: The storage region where the user's files will be stored by default.
+    * groups `string`: A link to the list of groups that a user belongs to.
     * institutions `string`: A link to the list of institutions the user is affiliated with.
     * nodes `string`: A link to the list of nodes the user is a contributor to.
   * type **required** `string`: The type identifier of the user entity (`users`).
@@ -5551,6 +7095,23 @@ osf.users_partial_update({
       * given_name `string`: The given name of the user, used for bibliographic citations.
       * locale `string`: The user's locale, e.g. 'en_US'.
       * middle_names `string`: The middle names of the user, used for bibliographic citations.
+      * social `object`: The social fields associated with a user.
+        * academiaProfileID `string`: The academiaProfileID for the given user.
+        * baiduScholar `string`: The baiduScholar for the given user.
+        * github `array`: The github usernames for the given user.
+          * items `string`
+        * impactStory `string`: The impactStory for the given user.
+        * linkedIn `array`: The linkedIn profiles for the given user.
+          * items `string`
+        * orcid `string`: The orcid for the given user.
+        * profileWebsites `array`: The profileWebsites for the given user.
+          * items `string`
+        * researchGate `string`: The researchGate for the given user.
+        * researcherId `string`: The researcherId for the given user.
+        * scholar `string`: The google scholar for the given user.
+        * ssrn `string`: The ssrn for the given user.
+        * twitter `array`: The twitter handles for the given user.
+          * items `string`
       * suffix `string`: The suffix of the user, used for bibliographic citations.
       * timezone `string`: The user's timezone, e.g. 'Etc/UTC'.
     * id **required** `string`: The unique identifier of the user entity.
@@ -5558,6 +7119,8 @@ osf.users_partial_update({
       * html `string`: A link to the user's profile page on the OSF.
       * profile_image `string`: A link to the user's profile image.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the user entity.
+      * default_region `string`: The storage region where the user's files will be stored by default.
+      * groups `string`: A link to the list of groups that a user belongs to.
       * institutions `string`: A link to the list of institutions the user is affiliated with.
       * nodes `string`: A link to the list of nodes the user is a contributor to.
     * type **required** `string`: The type identifier of the user entity (`users`).
@@ -5723,6 +7286,105 @@ osf.Users_addon_accounts_read({
     * self `string`: The canonical api endpoint of this addon account
   * type **required** `string`: The type identifier of the addon account entity (`external_accounts`).
 
+### users_groups_list
+A paginated list of groups that a user belongs to. The returned groups are sorted by their `date_modified`, with the most recently updated groups appearing first.
+If the user ID in the path is the same as the logged-in user, all groups will be returned. Otherwise, only the groups that the logged-in user and the requested user both belong to will be returned.
+#### Returns
+Returns a JSON object containing `data` and `links` keys.
+
+The `data` key contains an array of 10 groups. Each resource in the array is a separate group object and contains the full representation of the group, meaning additional requests to a group's detail view are not necessary.
+
+The `links` key contains a dictionary of links that can be used for [pagination](#tag/Pagination).
+
+#### Filtering
+
+You can optionally request that the response only include groups that match your filters by utilizing the `filter` query parameter, e.g. https://api.osf.io/v2/users/cdi38/groups/?filter[name]=lab.
+
+Groups may be filtered by their `name`.
+You can learn more about advanced filtering features [here](#tag/Filtering).
+
+
+```js
+osf.users_groups_list({
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes **required** `object`: The properties of the group entity.
+      * date_created `string`: The time at which the group was created, as an iso8601 formatted timestamp.
+      * date_modified `string`: The time at which the group was last modified, as an iso8601 formatted timestamp.
+      * name **required** `string`: The name of the group.
+    * id `string`: The unique identifier of the group entity.
+    * links `object`: URLs to alternative representations of the group entity.
+      * html `string`: A link to the group's page on the OSF.
+      * self `string`: A link to the canonical API endpoint of this group.
+    * relationships `object`: URLs to other entities or entity collections that have a relationship to the group entity.
+      * members `string`: A link to the list of the members of this group.
+    * type **required** `string`: The type identifier of the group entity (`groups`).
+
+### external_identities_delete
+Deletes  the specified external identity.
+#### Permissions
+External identities may only be deleted by the user they belong to.
+#### Returns
+If the request is successful, no content is returned.
+
+If the request is unsuccessful, a JSON object with an errors key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.external_identities_delete({
+  "user_id": "",
+  "identities_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+  * identities_id **required** `string`: The unique identifier of a user's external identity.
+
+#### Output
+*Output schema unknown*
+
+### external_identities_detail
+Retrieves the specified external identity, e.g. ORCID.
+#### Permissions
+External identities may only be viewed by the user they belong to.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the requested external identities, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.external_identities_detail({
+  "user_id": "",
+  "identities_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+  * identities_id **required** `string`: The unique identifier of a user's external identity.
+
+#### Output
+* output `object`
+  * attributes `object`: The properties of the  external identity entity.
+    * external_id `string`: The identifier for the user associated with that external identity.
+    * status `string`: The status of the external identity e.g LINK or VERIFIED.
+  * id `string`: The identifier of the external identity provider e.g. ORCID.
+  * links `object`: URLs to alternative representations of the external identity.
+  * type `string`: The type identifier of the external identity entity (`external-identities`).
+
 ### users_institutions_list
 A paginated list of institutions that the user is affiliated with.
 
@@ -5749,12 +7411,15 @@ osf.users_institutions_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the institution entity.
+      * assets `object`: Assets belonging to a specific institution
+        * logo `string`: Static path to the institution specific normal logo
+        * logo_rounded `string`: Static path to the institution specific rounded logo
       * auth_url `string`: Url used to authenticate institution specific login.
       * description `string`: Description of the institution.
-      * logo_path `string`: Static path to the institution specific logo.
       * name `string`: Full name of the institution.
     * id `string`: The identifier of the institution entity.
     * links `object`: URLs to alternative representations of the institutions entity.
+      * html `string`: A link to the detail page for the institution on the OSF.
       * self `string`: A link to the detail page for the institution.
     * relationships `object`: URLs to other entities or entity collections that have a relationship to the institution entity.
       * nodes `string`: A relationship to the nodes affiliated with the institution.
@@ -5811,13 +7476,14 @@ osf.users_nodes_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -5832,13 +7498,14 @@ osf.users_nodes_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -5880,14 +7547,27 @@ osf.users_preprints_list({
 * output `array`
   * items `object`
     * attributes `object`: The properties of the preprint entity.
+      * current_user_permissions `array`: The logged-in user's permissions to the preprint
+        * items `string`
       * date_created `string`: The time at which the preprint was created, as an iso8601 formatted timestamp.
+      * date_last_transitioned `string`: The time at which the preprint's reviews state was last changed. For example, the time at which a preprint's reviews state was moved from "pending" to "accepted".
       * date_modified `string`: The time at which the preprint was last modified, as an iso8601 formatted timestamp.
       * date_published `string`: The time at which the preprint was published, as an iso8601 formatted timestamp.
+      * date_withdrawn `string`: The date when the preprint was withdrawn
+      * description `string`: The description of the preprint
       * doi `string`: The DOI of the associated journal article, as entered by the user, if the preprint is published.
       * is_preprint_orphan `boolean`: Whether or not the preprint is orphaned. A preprint can be orphaned if it's primary file was removed from the preprint node. This field may be deprecated in future versions.
+      * is_published `boolean`: Whether or not a preprint is published
       * license_record `string`: The metadata (copyright year and holder) associated with a license, required for certain licenses.
+      * original_publication_date `string`: User-entered, the date when the preprint was originally published
+      * preprint_doi_created `string`: The date when the doi was minted for the preprint
+      * public `boolean`: Whether a preprint has been marked as public.  This is not a user-facing setting.  Legacy preprints or spammy preprints may be marked as private
+      * reviews_state `string`: The preprint's review status, e.g. pending, accepted, rejected, etc.
       * subjects `array`: A nested array structure that describe subjects related to the preprint, in the BePress taxonomy. Each dictionary contains the text and ID of a subject.
         * items `string`
+      * tags `array`: A list of the preprint's tags.
+        * items `string`
+      * title **required** `string`: The title of the preprint
     * id `string`: The identifier of the preprint entity.
     * links `object`: URLs to alternative representations of the preprint entity.
       * doi `string`: The URL representation of the DOI entered by the user for the preprint manuscript.
@@ -5896,10 +7576,12 @@ osf.users_preprints_list({
       * self `string`: A link to the detail page for the preprint.
     * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the preprint entity.
       * citation `string`: A relationship to the citation of the preprint.
+      * contributors `string`: A relationship to the preprint authors
+      * files `string`: A relationship to the storage providers to the preprint - in this case, preprints are restricted to having just the OsfStorage provider.
       * identifiers `string`: A relationship to the identifiers associated with the preprint.
       * license `string`: A relationship to the license that has been applied to the preprint.
-      * node **required** `string`: A relationship to the node that was created for the preprint, or from which the preprint was created.
-      * primary_file **required** `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
+      * node `string`: A relationship to the project containing supplemental materials for the preprints.
+      * primary_file `string`: A relationship to the file that is designated as the preprint's primary file, or the manuscript of the preprint.
       * provider **required** `string`: A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.).
     * type **required** `string`: The type identifier of the preprint entity (`preprints`).
 
@@ -5939,6 +7621,102 @@ osf.users_registrations_list({
 
 #### Output
 *Output schema unknown*
+
+### users_settings_read
+Retrieves a user's settings.
+
+#### Permissions
+
+A user's settings are only visible to that user.
+
+#### Returns
+
+Returns a JSON object with a `data` key containing the representation of the requested user addon, if the request was successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.users_settings_read({
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+
+#### Output
+*Output schema unknown*
+
+### user_settings_partial_update
+Updates a user's settings by setting the values of the attributes specified in the request body. Any unspecified attributes will be left unchanged.
+User settings can be updated with either a **PUT** or **PATCH** request.
+
+#### Permissions
+Attempting to update any user settings but your own will result in a **403 Forbidden** response.
+
+#### Returns
+Returns a JSON object with a `data` key containing the new representation of the updated node, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.user_settings_partial_update({
+  "user_id": "",
+  "body": {
+    "id": "",
+    "type": "",
+    "attributes": {}
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+  * body **required** `object`
+    * attributes **required** `object`: The properties of the user settings
+      * subscribe_osf_general_email `boolean`: Whether you are subscribed to general OSF notifications.
+      * subscribe_osf_help_email `boolean`: Whether you are subscribed to tips on how to make the most of the OSF.
+      * two_factor_enabled `boolean`: Whether or not two-factor authentication has been enabled.
+      * two_factor_verification `integer`: Write only, enter 6 six-digit verification code.  two_factor_enabled must be set to true.
+    * id **required** `string`: The unique identifier of the logged in user
+    * type **required** `string`: The type identifier of the draft registration entity (`user-settings`).
+
+#### Output
+*Output schema unknown*
+
+### external_identities_list
+Retrieves a list of a user's external identities.
+#### Permissions
+External identities may only be viewed by the user they belong to.
+#### Returns
+Returns a JSON object with a `data` key containing the representation of the requested external identities, if the request is successful.
+
+If the request is unsuccessful, an `errors` key containing information about the failure will be returned. Refer to the [list of error codes](#tag/Errors-and-Error-Codes) to understand why this request may have failed.
+
+
+```js
+osf.external_identities_list({
+  "user_id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * user_id **required** `string`: The unique identifier of the user.
+
+#### Output
+* output `array`
+  * items `object`
+    * attributes `object`: The properties of the  external identity entity.
+      * external_id `string`: The identifier for the user associated with that external identity.
+      * status `string`: The status of the external identity e.g LINK or VERIFIED.
+    * id `string`: The identifier of the external identity provider e.g. ORCID.
+    * links `object`: URLs to alternative representations of the external identity.
+    * type `string`: The type identifier of the external identity entity (`external-identities`).
 
 ### view_only_links_read
 Retrieves details about a specific view only link.
@@ -6020,13 +7798,14 @@ osf.view_only_links_node_list({
       * fork `boolean`: Whether or not this node represents a fork of another node.
       * forked_date `string`: If this node is a fork of another node, the time at which the node was created, as an iso8601 formatted timestamp.
       * node_license `string`: A dictionary containing the metadata (copyright year and holder) associated with the node license (required for certain license types).
-      * preprint `boolean`: Whether or not a preprint has been created from this node, or if this node was created for a preprint.
+      * preprint `boolean`: Whether or not the node contains supplemental material for a preprint.
       * public `boolean`: Whether or not the node is publicly visible. This field is only editable by project administrators.
       * registration `boolean`: Whether or not the node represents a registration. This value should always be `false`. This field may be deprecated in future versions.
       * tags `array`: A list of strings that describe this node, as entered by project contributors.
         * items `string`
       * template_from `string`: The unique ID of the node from which this node was templated, if this node was created from a template.
       * title **required** `string`: The title of the node.
+      * wiki_enabled `boolean`: Whether or not the node has its wiki enabled.
     * id `string`: The unique identifier of the node entity.
     * links `object`: URLs to alternative representations of the node entity.
       * html `string`: A link to the node's page on the OSF.
@@ -6041,13 +7820,14 @@ osf.view_only_links_node_list({
       * files `string`: A link to the list of storage providers that have been enabled on this node.
       * forked_from `string`: A link to the node which this node was forked from, if this node is a fork.
       * forks `string`: A link to the list of nodes that are forks of this node.
-      * identifiers `string`: A link to the list of identifiers for this node (i.e. ARK and DOI identifiers).
+      * groups `string`: A link to the list of groups that have permissions to the node.
+      * identifiers `string`: A link to the list of identifiers for this node (i.e. DOI identifiers).
       * license `string`: A link to the license that has been applied to this node.
       * linked_nodes `string`: A link to the list of nodes that are linked to the current node.
       * logs `string`: A link to the list of log actions pertaining to this node.
       * node_links `string`: A link to the list of nodes that are linked to the current node. This field has been deprecated as of verson 2.1; use the linked_nodes link instead.
       * parent `string`: A link to the node that is the direct parent of the current node, if the current node is a child node.
-      * preprints `string`: A link to the list of preprints that this node relates to.
+      * preprints `string`: A link to the list of preprints for which this node contains supplemental materials.
       * registrations `string`: A link to the list of registrations that have been created from this node.
       * root `string`: A link to the node that is the top-level parent of the current node. If the current node is the top-level node, the root is the current node.
       * template_node `string`: A link to the node that the current node was templated from, if the current node was created from a template.
@@ -6119,10 +7899,10 @@ osf.wiki_read({
     * info `string`: A link to the detail page for the wiki.
     * self `string`: A link to the detail page for the wiki.
   * relationships **required** `object`: URLs to other entities or entity collections that have a relationship to the wiki.
-    * comments **required** `string`: A relationship to the comments related to this wiki.
-    * node **required** `string`: A relationship to the associated node.
-    * user **required** `string`: A relationship to the user associated with this wiki.
-    * versions **required** `string`: A relationship to the versions related to this wiki.
+    * comments `string`: A relationship to the comments related to this wiki.
+    * node `string`: A relationship to the associated node.
+    * user `string`: A relationship to the user associated with this wiki.
+    * versions `string`: A relationship to the versions related to this wiki.
   * type **required** `string`: The type identifier of the wiki (`wikis`).
 
 ### wiki_partial_update
@@ -6213,6 +7993,8 @@ osf.wiki_versions_list({
 Updates the content of the given wiki page by creating a new wiki version.
 
 `content` is the only required field when updating a wiki page.
+
+For information on creating a wiki for a node, see [Create a wiki](#operation/nodes_wikis_list_create).
 
 Returns a JSON object with a `data` key containing the representation of the created wiki version, if the request is successful.
 

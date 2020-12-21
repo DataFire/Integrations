@@ -1,0 +1,5516 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Well-Architected Tool</fullname> <p>This is the <i>AWS Well-Architected Tool API Reference</i>.</p> <p>The AWS Well-Architected Tool API provides programmatic access to the <a href=\"http://aws.amazon.com/well-architected-tool\">AWS Well-Architected Tool</a> in the <a href=\"https://console.aws.amazon.com/wellarchitected\">AWS Management Console</a>.</p> <p> <b>Managing workloads:</b> </p> <ul> <li> <p> <a>CreateWorkload</a>: Define a new workload.</p> </li> <li> <p> <a>ListWorkloads</a>: List workloads.</p> </li> <li> <p> <a>GetWorkload</a>: Get the properties of a workload.</p> </li> <li> <p> <a>UpdateWorkload</a>: Update the properties of a workload.</p> </li> <li> <p> <a>DeleteWorkload</a>: Delete a workload.</p> </li> </ul> <p> <b>Managing milestones:</b> </p> <ul> <li> <p> <a>CreateMilestone</a>: Create a milestone.</p> </li> <li> <p> <a>ListMilestones</a>: List milestones.</p> </li> <li> <p> <a>GetMilestone</a>: Get the properties of a milestone.</p> </li> </ul> <p> <b>Managing lenses:</b> </p> <ul> <li> <p> <a>ListLenses</a>: List the available lenses.</p> </li> <li> <p> <a>AssociateLenses</a>: Add one or more lenses to a workload.</p> </li> <li> <p> <a>DisassociateLenses</a>: Remove one or more lenses from a workload.</p> </li> <li> <p> <a>ListNotifications</a>: List lens notifications for a workload.</p> </li> <li> <p> <a>GetLensVersionDifference</a>: Get the differences between the version of a lens used in a workload and the latest version.</p> </li> <li> <p> <a>UpgradeLensReview</a>: Upgrade a workload to use the latest version of a lens.</p> </li> </ul> <p> <b>Managing reviews:</b> </p> <ul> <li> <p> <a>ListLensReviews</a>: List reviews associated with a workload.</p> </li> <li> <p> <a>GetLensReview</a>: Get pillar and risk data associated with a workload review.</p> </li> <li> <p> <a>GetLensReviewReport</a>: Get the report associated with a workload review.</p> </li> <li> <p> <a>UpdateLensReview</a>: Update the notes associated with a workload review.</p> </li> <li> <p> <a>ListAnswers</a>: List the questions and answers in a workload review.</p> </li> <li> <p> <a>UpdateAnswer</a>: Update the answer to a specific question in a workload review.</p> </li> <li> <p> <a>ListLensReviewImprovements</a>: List the improvement plan associated with a workload review.</p> </li> </ul> <p> <b>Managing workload shares:</b> </p> <ul> <li> <p> <a>ListWorkloadShares</a>: List the workload shares associated with a workload.</p> </li> <li> <p> <a>CreateWorkloadShare</a>: Create a workload share.</p> </li> <li> <p> <a>UpdateWorkloadShare</a>: Update a workload share.</p> </li> <li> <p> <a>DeleteWorkloadShare</a>: Delete a workload share.</p> </li> </ul> <p> <b>Managing workload share invitations:</b> </p> <ul> <li> <p> <a>ListShareInvitations</a>: List workload share invitations.</p> </li> <li> <p> <a>UpdateShareInvitation</a>: Update a workload share invitation.</p> </li> </ul> <p>For information about the AWS Well-Architected Tool, see the <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html\">AWS Well-Architected Tool User Guide</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Well-Architected Tool",
+    "version": "2020-03-31",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/wellarchitected-2020-03-31.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "wellarchitected",
+    "x-datafire": {
+      "name": "amazonaws_wellarchitected",
+      "type": "openapi"
+    }
+  },
+  "host": "wellarchitected.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/lenses": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLensesOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List the available lenses.",
+        "operationId": "ListLenses"
+      }
+    },
+    "/lenses/{LensAlias}/versionDifference#BaseLensVersion": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The base version of the lens.",
+            "in": "query",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "BaseLensVersion",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLensVersionDifferenceOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get lens version differences.",
+        "operationId": "GetLensVersionDifference"
+      }
+    },
+    "/notifications": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of results to return for this request.",
+                  "maximum": 50,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The token to use to retrieve the next set of results.",
+                  "type": "string"
+                },
+                "WorkloadId": {
+                  "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+                  "pattern": "[0-9a-f]{32}",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNotificationsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List lens notifications.",
+        "operationId": "ListNotifications"
+      }
+    },
+    "/shareInvitations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "An optional string added to the beginning of each workload name returned in the results.",
+            "in": "query",
+            "maxLength": 100,
+            "name": "WorkloadNamePrefix",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListShareInvitationsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List the workload invitations.",
+        "operationId": "ListShareInvitations"
+      }
+    },
+    "/shareInvitations/{ShareInvitationId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the share invitation.",
+            "in": "path",
+            "name": "ShareInvitationId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ShareInvitationAction": {
+                  "description": "Share invitation action taken by contributor.",
+                  "enum": [
+                    "ACCEPT",
+                    "REJECT"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ShareInvitationAction"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateShareInvitationOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Update a workload invitation.",
+        "operationId": "UpdateShareInvitation"
+      }
+    },
+    "/workloads": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AccountIds": {
+                  "description": "The list of AWS account IDs associated with the workload.",
+                  "items": {
+                    "$ref": "#/definitions/AwsAccountId"
+                  },
+                  "maxItems": 100,
+                  "type": "array"
+                },
+                "ArchitecturalDesign": {
+                  "description": "The URL of the architectural design for the workload.",
+                  "maxLength": 2048,
+                  "type": "string"
+                },
+                "AwsRegions": {
+                  "description": "The list of AWS Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.",
+                  "items": {
+                    "$ref": "#/definitions/AwsRegion"
+                  },
+                  "maxItems": 50,
+                  "type": "array"
+                },
+                "ClientRequestToken": {
+                  "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "The description for the workload.",
+                  "maxLength": 250,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "Environment": {
+                  "description": "The environment for the workload.",
+                  "enum": [
+                    "PRODUCTION",
+                    "PREPRODUCTION"
+                  ],
+                  "type": "string"
+                },
+                "Industry": {
+                  "description": "The industry for the workload.",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "IndustryType": {
+                  "description": "<p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "Lenses": {
+                  "description": "The list of lenses associated with the workload. Each lens is identified by its <a>LensSummary$LensAlias</a>.",
+                  "items": {
+                    "$ref": "#/definitions/LensAlias"
+                  },
+                  "type": "array"
+                },
+                "NonAwsRegions": {
+                  "description": " The list of non-AWS Regions associated with the workload.",
+                  "items": {
+                    "$ref": "#/definitions/WorkloadNonAwsRegion"
+                  },
+                  "maxItems": 5,
+                  "type": "array"
+                },
+                "Notes": {
+                  "description": "The notes associated with the workload.",
+                  "maxLength": 2084,
+                  "type": "string"
+                },
+                "PillarPriorities": {
+                  "description": "The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.",
+                  "items": {
+                    "$ref": "#/definitions/PillarId"
+                  },
+                  "type": "array"
+                },
+                "ReviewOwner": {
+                  "description": "The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.",
+                  "maxLength": 255,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "WorkloadName": {
+                  "description": "<p>The name of the workload.</p> <p>The name must be unique within an account within a Region. Spaces and capitalization are ignored when checking for uniqueness.</p>",
+                  "maxLength": 100,
+                  "minLength": 3,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "WorkloadName",
+                "Description",
+                "Environment",
+                "ReviewOwner",
+                "Lenses",
+                "ClientRequestToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateWorkloadOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Create a new workload.</p> <p>The owner of a workload can share the workload with other AWS accounts and IAM users in the same AWS Region. Only the owner of a workload can delete it.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html\">Defining a Workload</a> in the <i>AWS Well-Architected Tool User Guide</i>.</p>",
+        "operationId": "CreateWorkload"
+      }
+    },
+    "/workloads/{WorkloadId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetWorkloadOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get an existing workload.",
+        "operationId": "GetWorkload"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AccountIds": {
+                  "description": "The list of AWS account IDs associated with the workload.",
+                  "items": {
+                    "$ref": "#/definitions/AwsAccountId"
+                  },
+                  "maxItems": 100,
+                  "type": "array"
+                },
+                "ArchitecturalDesign": {
+                  "description": "The URL of the architectural design for the workload.",
+                  "maxLength": 2048,
+                  "type": "string"
+                },
+                "AwsRegions": {
+                  "description": "The list of AWS Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.",
+                  "items": {
+                    "$ref": "#/definitions/AwsRegion"
+                  },
+                  "maxItems": 50,
+                  "type": "array"
+                },
+                "Description": {
+                  "description": "The description for the workload.",
+                  "maxLength": 250,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "Environment": {
+                  "description": "The environment for the workload.",
+                  "enum": [
+                    "PRODUCTION",
+                    "PREPRODUCTION"
+                  ],
+                  "type": "string"
+                },
+                "ImprovementStatus": {
+                  "description": "The improvement status for a workload.",
+                  "enum": [
+                    "NOT_APPLICABLE",
+                    "NOT_STARTED",
+                    "IN_PROGRESS",
+                    "COMPLETE",
+                    "RISK_ACKNOWLEDGED"
+                  ],
+                  "type": "string"
+                },
+                "Industry": {
+                  "description": "The industry for the workload.",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "IndustryType": {
+                  "description": "<p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>",
+                  "maxLength": 100,
+                  "type": "string"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                  "description": "<p>Flag indicating whether the workload owner has acknowledged that the <i>Review owner</i> field is required.</p> <p>If a <b>Review owner</b> is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.</p>",
+                  "type": "boolean"
+                },
+                "NonAwsRegions": {
+                  "description": " The list of non-AWS Regions associated with the workload.",
+                  "items": {
+                    "$ref": "#/definitions/WorkloadNonAwsRegion"
+                  },
+                  "maxItems": 5,
+                  "type": "array"
+                },
+                "Notes": {
+                  "description": "The notes associated with the workload.",
+                  "maxLength": 2084,
+                  "type": "string"
+                },
+                "PillarPriorities": {
+                  "description": "The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.",
+                  "items": {
+                    "$ref": "#/definitions/PillarId"
+                  },
+                  "type": "array"
+                },
+                "ReviewOwner": {
+                  "description": "The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.",
+                  "maxLength": 255,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "WorkloadName": {
+                  "description": "<p>The name of the workload.</p> <p>The name must be unique within an account within a Region. Spaces and capitalization are ignored when checking for uniqueness.</p>",
+                  "maxLength": 100,
+                  "minLength": 3,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateWorkloadOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Update an existing workload.",
+        "operationId": "UpdateWorkload"
+      }
+    },
+    "/workloads/{WorkloadId}#ClientRequestToken": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+            "in": "query",
+            "name": "ClientRequestToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Delete an existing workload.",
+        "operationId": "DeleteWorkload"
+      }
+    },
+    "/workloads/{WorkloadId}/associateLenses": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "LensAliases": {
+                  "description": "<p>List of lens aliases to associate or disassociate with a workload.</p> <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>",
+                  "items": {
+                    "$ref": "#/definitions/LensAlias"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "LensAliases"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Associate a lens to a workload.",
+        "operationId": "AssociateLenses"
+      }
+    },
+    "/workloads/{WorkloadId}/disassociateLenses": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "LensAliases": {
+                  "description": "<p>List of lens aliases to associate or disassociate with a workload.</p> <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>",
+                  "items": {
+                    "$ref": "#/definitions/LensAlias"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "LensAliases"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Disassociate a lens from a workload.</p> <note> <p>The AWS Well-Architected Framework lens (<code>wellarchitected</code>) cannot be removed from a workload.</p> </note>",
+        "operationId": "DisassociateLenses"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLensReviewsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List lens reviews.",
+        "operationId": "ListLensReviews"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLensReviewOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get lens review.",
+        "operationId": "GetLensReview"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "LensNotes": {
+                  "description": "The notes associated with the workload.",
+                  "maxLength": 2084,
+                  "type": "string"
+                },
+                "PillarNotes": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/Notes"
+                  },
+                  "description": "List of pillar notes of a lens review in a workload.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLensReviewOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Update lens review.",
+        "operationId": "UpdateLensReview"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "PillarId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAnswersOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List of answers.",
+        "operationId": "ListAnswers"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the question.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "QuestionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAnswerOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get lens review.",
+        "operationId": "GetAnswer"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the question.",
+            "in": "path",
+            "maxLength": 128,
+            "minLength": 1,
+            "name": "QuestionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "IsApplicable": {
+                  "description": "Defines whether this question is applicable to a lens review.",
+                  "type": "boolean"
+                },
+                "Notes": {
+                  "description": "The notes associated with the workload.",
+                  "maxLength": 2084,
+                  "type": "string"
+                },
+                "SelectedChoices": {
+                  "description": "List of selected choice IDs in a question answer.",
+                  "items": {
+                    "$ref": "#/definitions/ChoiceId"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAnswerOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Update the answer.",
+        "operationId": "UpdateAnswer"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>",
+            "in": "query",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "PillarId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLensReviewImprovementsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List lens review improvements.",
+        "operationId": "ListLensReviewImprovements"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLensReviewReportOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get lens review report.",
+        "operationId": "GetLensReviewReport"
+      }
+    },
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 1,
+            "name": "LensAlias",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+                  "type": "string"
+                },
+                "MilestoneName": {
+                  "description": "<p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>",
+                  "maxLength": 100,
+                  "minLength": 3,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "MilestoneName"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Upgrade lens review.",
+        "operationId": "UpgradeLensReview"
+      }
+    },
+    "/workloads/{WorkloadId}/milestones": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+                  "type": "string"
+                },
+                "MilestoneName": {
+                  "description": "<p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>",
+                  "maxLength": 100,
+                  "minLength": 3,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "MilestoneName",
+                "ClientRequestToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateMilestoneOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Create a milestone for an existing workload.",
+        "operationId": "CreateMilestone"
+      }
+    },
+    "/workloads/{WorkloadId}/milestones/{MilestoneNumber}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+            "in": "path",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "MilestoneNumber",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMilestoneOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Get a milestone for an existing workload.",
+        "operationId": "GetMilestone"
+      }
+    },
+    "/workloads/{WorkloadId}/milestonesSummaries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of results to return for this request.",
+                  "maximum": 50,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The token to use to retrieve the next set of results.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMilestonesOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List all milestones for an existing workload.",
+        "operationId": "ListMilestones"
+      }
+    },
+    "/workloads/{WorkloadId}/shares": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The AWS account ID or IAM role with which the workload is shared.",
+            "in": "query",
+            "maxLength": 100,
+            "name": "SharedWithPrefix",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The token to use to retrieve the next set of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return for this request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListWorkloadSharesOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List the workload shares associated with the workload.",
+        "operationId": "ListWorkloadShares"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ClientRequestToken": {
+                  "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+                  "type": "string"
+                },
+                "PermissionType": {
+                  "description": "Permission granted on a workload share.",
+                  "enum": [
+                    "READONLY",
+                    "CONTRIBUTOR"
+                  ],
+                  "type": "string"
+                },
+                "SharedWith": {
+                  "description": "The AWS account ID or IAM role with which the workload is shared.",
+                  "maxLength": 2048,
+                  "minLength": 12,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "SharedWith",
+                "PermissionType",
+                "ClientRequestToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateWorkloadShareOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p>Create a workload share.</p> <p>The owner of a workload can share it with other AWS accounts and IAM users in the same AWS Region. Shared access to a workload is not removed until the workload invitation is deleted.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html\">Sharing a Workload</a> in the <i>AWS Well-Architected Tool User Guide</i>.</p>",
+        "operationId": "CreateWorkloadShare"
+      }
+    },
+    "/workloads/{WorkloadId}/shares/{ShareId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID associated with the workload share.",
+            "in": "path",
+            "name": "ShareId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "PermissionType": {
+                  "description": "Permission granted on a workload share.",
+                  "enum": [
+                    "READONLY",
+                    "CONTRIBUTOR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "PermissionType"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateWorkloadShareOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Update a workload share.",
+        "operationId": "UpdateWorkloadShare"
+      }
+    },
+    "/workloads/{WorkloadId}/shares/{ShareId}#ClientRequestToken": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID associated with the workload share.",
+            "in": "path",
+            "name": "ShareId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+            "in": "path",
+            "name": "WorkloadId",
+            "pattern": "[0-9a-f]{32}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+            "in": "query",
+            "name": "ClientRequestToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "Delete a workload share.",
+        "operationId": "DeleteWorkloadShare"
+      }
+    },
+    "/workloadsSummaries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of results to return for this request.",
+                  "maximum": 50,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The token to use to retrieve the next set of results.",
+                  "type": "string"
+                },
+                "WorkloadNamePrefix": {
+                  "description": "An optional string added to the beginning of each workload name returned in the results.",
+                  "maxLength": 100,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListWorkloadsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "List workloads. Paginated.",
+        "operationId": "ListWorkloads"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "Answer": {
+      "description": "An answer of the question.",
+      "properties": {
+        "Choices": {
+          "$ref": "#/definitions/Choices"
+        },
+        "HelpfulResourceUrl": {
+          "$ref": "#/definitions/HelpfulResourceUrl"
+        },
+        "ImprovementPlanUrl": {
+          "$ref": "#/definitions/ImprovementPlanUrl"
+        },
+        "IsApplicable": {
+          "$ref": "#/definitions/IsApplicable"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarId": {
+          "$ref": "#/definitions/PillarId"
+        },
+        "QuestionDescription": {
+          "$ref": "#/definitions/QuestionDescription"
+        },
+        "QuestionId": {
+          "$ref": "#/definitions/QuestionId"
+        },
+        "QuestionTitle": {
+          "$ref": "#/definitions/QuestionTitle"
+        },
+        "Risk": {
+          "$ref": "#/definitions/Risk"
+        },
+        "SelectedChoices": {
+          "$ref": "#/definitions/SelectedChoices"
+        }
+      },
+      "type": "object"
+    },
+    "AnswerSummaries": {
+      "description": "List of answer summaries of lens review in a workload.",
+      "items": {
+        "$ref": "#/definitions/AnswerSummary"
+      },
+      "type": "array"
+    },
+    "AnswerSummary": {
+      "description": "An answer summary of a lens review in a workload.",
+      "properties": {
+        "Choices": {
+          "$ref": "#/definitions/Choices"
+        },
+        "IsApplicable": {
+          "$ref": "#/definitions/IsApplicable"
+        },
+        "PillarId": {
+          "$ref": "#/definitions/PillarId"
+        },
+        "QuestionId": {
+          "$ref": "#/definitions/QuestionId"
+        },
+        "QuestionTitle": {
+          "$ref": "#/definitions/QuestionTitle"
+        },
+        "Risk": {
+          "$ref": "#/definitions/Risk"
+        },
+        "SelectedChoices": {
+          "$ref": "#/definitions/SelectedChoices"
+        }
+      },
+      "type": "object"
+    },
+    "AssociateLensesInput": {
+      "description": "Input to associate lens reviews.",
+      "properties": {
+        "LensAliases": {
+          "$ref": "#/definitions/LensAliases"
+        }
+      },
+      "required": [
+        "LensAliases"
+      ],
+      "title": "AssociateLensesInput",
+      "type": "object"
+    },
+    "AwsAccountId": {
+      "description": "An AWS account ID.",
+      "pattern": "[0-9]{12}",
+      "type": "string"
+    },
+    "AwsRegion": {
+      "description": "An AWS Region, for example, <code>us-west-2</code> or <code>ap-northeast-1</code>.",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "Base64String": {
+      "description": "<p>The Base64-encoded string representation of a lens review report.</p> <p>This data can be used to create a PDF file.</p>",
+      "type": "string"
+    },
+    "Choice": {
+      "description": "A choice available to answer question.",
+      "properties": {
+        "ChoiceId": {
+          "$ref": "#/definitions/ChoiceId"
+        },
+        "Description": {
+          "$ref": "#/definitions/ChoiceDescription"
+        },
+        "Title": {
+          "$ref": "#/definitions/ChoiceTitle"
+        }
+      },
+      "type": "object"
+    },
+    "ChoiceDescription": {
+      "description": "The description of a choice.",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ChoiceId": {
+      "description": "The ID of a choice.",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ChoiceTitle": {
+      "description": "The title of a choice.",
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Choices": {
+      "description": "List of choices available for a question.",
+      "items": {
+        "$ref": "#/definitions/Choice"
+      },
+      "type": "array"
+    },
+    "ClientRequestToken": {
+      "description": "<p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after it has completed successfully, the result of the original request is returned. </p> <important> <p>This token is listed as required, however, if you do not specify it, the AWS SDKs automatically generate one for you. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the request will fail.</p> </important>",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "Count": {
+      "description": "A non-negative integer that denotes how many.",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "CreateMilestoneInput": {
+      "description": "Input for milestone creation.",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken"
+        },
+        "MilestoneName": {
+          "$ref": "#/definitions/MilestoneName"
+        }
+      },
+      "required": [
+        "MilestoneName",
+        "ClientRequestToken"
+      ],
+      "title": "CreateMilestoneInput",
+      "type": "object"
+    },
+    "CreateMilestoneOutput": {
+      "description": "Output of a create milestone call.",
+      "properties": {
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "CreateWorkloadInput": {
+      "description": "Input for workload creation.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/WorkloadAccountIds"
+        },
+        "ArchitecturalDesign": {
+          "$ref": "#/definitions/WorkloadArchitecturalDesign"
+        },
+        "AwsRegions": {
+          "$ref": "#/definitions/WorkloadAwsRegions"
+        },
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken"
+        },
+        "Description": {
+          "$ref": "#/definitions/WorkloadDescription"
+        },
+        "Environment": {
+          "$ref": "#/definitions/WorkloadEnvironment"
+        },
+        "Industry": {
+          "$ref": "#/definitions/WorkloadIndustry"
+        },
+        "IndustryType": {
+          "$ref": "#/definitions/WorkloadIndustryType"
+        },
+        "Lenses": {
+          "$ref": "#/definitions/WorkloadLenses"
+        },
+        "NonAwsRegions": {
+          "$ref": "#/definitions/WorkloadNonAwsRegions"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarPriorities": {
+          "$ref": "#/definitions/WorkloadPillarPriorities"
+        },
+        "ReviewOwner": {
+          "$ref": "#/definitions/WorkloadReviewOwner"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "required": [
+        "WorkloadName",
+        "Description",
+        "Environment",
+        "ReviewOwner",
+        "Lenses",
+        "ClientRequestToken"
+      ],
+      "title": "CreateWorkloadInput",
+      "type": "object"
+    },
+    "CreateWorkloadOutput": {
+      "description": "Output of a create workload call.",
+      "properties": {
+        "WorkloadArn": {
+          "$ref": "#/definitions/WorkloadArn"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "CreateWorkloadShareInput": {
+      "description": "Input for Create Workload Share",
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken"
+        },
+        "PermissionType": {
+          "$ref": "#/definitions/PermissionType"
+        },
+        "SharedWith": {
+          "$ref": "#/definitions/SharedWith"
+        }
+      },
+      "required": [
+        "SharedWith",
+        "PermissionType",
+        "ClientRequestToken"
+      ],
+      "title": "CreateWorkloadShareInput",
+      "type": "object"
+    },
+    "CreateWorkloadShareOutput": {
+      "description": "Input for Create Workload Share",
+      "properties": {
+        "ShareId": {
+          "$ref": "#/definitions/ShareId"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteWorkloadInput": {
+      "description": "Input for workload deletion.",
+      "properties": {},
+      "title": "DeleteWorkloadInput",
+      "type": "object"
+    },
+    "DeleteWorkloadShareInput": {
+      "description": "Input for Delete Workload Share",
+      "properties": {},
+      "title": "DeleteWorkloadShareInput",
+      "type": "object"
+    },
+    "DifferenceStatus": {
+      "enum": [
+        "UPDATED",
+        "NEW",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "DisassociateLensesInput": {
+      "description": "Input to disassociate lens reviews.",
+      "properties": {
+        "LensAliases": {
+          "$ref": "#/definitions/LensAliases"
+        }
+      },
+      "required": [
+        "LensAliases"
+      ],
+      "title": "DisassociateLensesInput",
+      "type": "object"
+    },
+    "GetAnswerInput": {
+      "description": "Input to get answer.",
+      "properties": {},
+      "title": "GetAnswerInput",
+      "type": "object"
+    },
+    "GetAnswerOutput": {
+      "description": "Output of a get answer call.",
+      "properties": {
+        "Answer": {
+          "$ref": "#/definitions/Answer"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "GetLensReviewInput": {
+      "description": "Input to get lens review.",
+      "properties": {},
+      "title": "GetLensReviewInput",
+      "type": "object"
+    },
+    "GetLensReviewOutput": {
+      "description": "Output of a get lens review call.",
+      "properties": {
+        "LensReview": {
+          "$ref": "#/definitions/LensReview"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "GetLensReviewReportInput": {
+      "description": "Input to get lens review report.",
+      "properties": {},
+      "title": "GetLensReviewReportInput",
+      "type": "object"
+    },
+    "GetLensReviewReportOutput": {
+      "description": "Output of a get lens review report call.",
+      "properties": {
+        "LensReviewReport": {
+          "$ref": "#/definitions/LensReviewReport"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "GetLensVersionDifferenceInput": {
+      "properties": {},
+      "title": "GetLensVersionDifferenceInput",
+      "type": "object"
+    },
+    "GetLensVersionDifferenceOutput": {
+      "properties": {
+        "BaseLensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The base version of the lens."
+            }
+          ]
+        },
+        "LatestLensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The latest version of the lens."
+            }
+          ]
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "VersionDifferences": {
+          "$ref": "#/definitions/VersionDifferences"
+        }
+      },
+      "type": "object"
+    },
+    "GetMilestoneInput": {
+      "description": "Input to get a milestone.",
+      "properties": {},
+      "title": "GetMilestoneInput",
+      "type": "object"
+    },
+    "GetMilestoneOutput": {
+      "description": "Output of a get milestone call.",
+      "properties": {
+        "Milestone": {
+          "$ref": "#/definitions/Milestone"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "GetWorkloadInput": {
+      "description": "Input to get a workload.",
+      "properties": {},
+      "title": "GetWorkloadInput",
+      "type": "object"
+    },
+    "GetWorkloadOutput": {
+      "description": "Output of a get workload call.",
+      "properties": {
+        "Workload": {
+          "$ref": "#/definitions/Workload"
+        }
+      },
+      "type": "object"
+    },
+    "HelpfulResourceUrl": {
+      "description": "The helpful resource URL for a question.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImprovementPlanUrl": {
+      "description": "The improvement plan URL for a question.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImprovementSummaries": {
+      "description": "List of improvement summaries of lens review in a workload.",
+      "items": {
+        "$ref": "#/definitions/ImprovementSummary"
+      },
+      "type": "array"
+    },
+    "ImprovementSummary": {
+      "description": "An improvement summary of a lens review in a workload.",
+      "properties": {
+        "ImprovementPlanUrl": {
+          "$ref": "#/definitions/ImprovementPlanUrl"
+        },
+        "PillarId": {
+          "$ref": "#/definitions/PillarId"
+        },
+        "QuestionId": {
+          "$ref": "#/definitions/QuestionId"
+        },
+        "QuestionTitle": {
+          "$ref": "#/definitions/QuestionTitle"
+        },
+        "Risk": {
+          "$ref": "#/definitions/Risk"
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerException": {},
+    "IsApplicable": {
+      "description": "Defines whether this question is applicable to a lens review.",
+      "type": "boolean"
+    },
+    "IsReviewOwnerUpdateAcknowledged": {
+      "type": "boolean"
+    },
+    "LensAlias": {
+      "description": "<p>The alias of the lens, for example, <code>serverless</code>.</p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "LensAliases": {
+      "description": "<p>List of lens aliases to associate or disassociate with a workload.</p> <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>",
+      "items": {
+        "$ref": "#/definitions/LensAlias"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "LensDescription": {
+      "description": "The description of the lens.",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "LensName": {
+      "description": "The full name of the lens.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "LensReview": {
+      "description": "A lens review of a question.",
+      "properties": {
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "LensName": {
+          "$ref": "#/definitions/LensName"
+        },
+        "LensStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensStatus"
+            },
+            {
+              "description": "The status of the lens."
+            }
+          ]
+        },
+        "LensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The version of the lens."
+            }
+          ]
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarReviewSummaries": {
+          "$ref": "#/definitions/PillarReviewSummaries"
+        },
+        "RiskCounts": {
+          "$ref": "#/definitions/RiskCounts"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/Timestamp"
+        }
+      },
+      "type": "object"
+    },
+    "LensReviewReport": {
+      "description": "A report of a lens review.",
+      "properties": {
+        "Base64String": {
+          "$ref": "#/definitions/Base64String"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        }
+      },
+      "type": "object"
+    },
+    "LensReviewSummaries": {
+      "description": "List of lens summaries of lens reviews of a workload.",
+      "items": {
+        "$ref": "#/definitions/LensReviewSummary"
+      },
+      "type": "array"
+    },
+    "LensReviewSummary": {
+      "description": "A lens review summary of a workload.",
+      "properties": {
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "LensName": {
+          "$ref": "#/definitions/LensName"
+        },
+        "LensStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensStatus"
+            },
+            {
+              "description": "The status of the lens."
+            }
+          ]
+        },
+        "LensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The version of the lens."
+            }
+          ]
+        },
+        "RiskCounts": {
+          "$ref": "#/definitions/RiskCounts"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/Timestamp"
+        }
+      },
+      "type": "object"
+    },
+    "LensStatus": {
+      "enum": [
+        "CURRENT",
+        "NOT_CURRENT",
+        "DEPRECATED"
+      ],
+      "type": "string"
+    },
+    "LensSummaries": {
+      "description": "List of lens summaries of available lenses.",
+      "items": {
+        "$ref": "#/definitions/LensSummary"
+      },
+      "type": "array"
+    },
+    "LensSummary": {
+      "description": "A lens summary of a lens.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/LensDescription"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "LensName": {
+          "$ref": "#/definitions/LensName"
+        },
+        "LensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The version of the lens."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LensUpgradeSummary": {
+      "description": "Lens upgrade summary return object.",
+      "properties": {
+        "CurrentLensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The current version of the lens."
+            }
+          ]
+        },
+        "LatestLensVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensVersion"
+            },
+            {
+              "description": "The latest version of the lens."
+            }
+          ]
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "type": "object"
+    },
+    "LensVersion": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ListAnswersInput": {
+      "description": "Input to list answers.",
+      "properties": {},
+      "title": "ListAnswersInput",
+      "type": "object"
+    },
+    "ListAnswersMaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListAnswersOutput": {
+      "description": "Output of a list answers call.",
+      "properties": {
+        "AnswerSummaries": {
+          "$ref": "#/definitions/AnswerSummaries"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "ListLensReviewImprovementsInput": {
+      "description": "Input to list lens review improvements.",
+      "properties": {},
+      "title": "ListLensReviewImprovementsInput",
+      "type": "object"
+    },
+    "ListLensReviewImprovementsMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListLensReviewImprovementsOutput": {
+      "description": "Output of a list lens review improvements call.",
+      "properties": {
+        "ImprovementSummaries": {
+          "$ref": "#/definitions/ImprovementSummaries"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "ListLensReviewsInput": {
+      "description": "Input to list lens reviews.",
+      "properties": {},
+      "title": "ListLensReviewsInput",
+      "type": "object"
+    },
+    "ListLensReviewsOutput": {
+      "description": "Output of a list lens reviews call.",
+      "properties": {
+        "LensReviewSummaries": {
+          "$ref": "#/definitions/LensReviewSummaries"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "ListLensesInput": {
+      "description": "Input to list lenses.",
+      "properties": {},
+      "title": "ListLensesInput",
+      "type": "object"
+    },
+    "ListLensesOutput": {
+      "description": "Output of a list lenses call.",
+      "properties": {
+        "LensSummaries": {
+          "$ref": "#/definitions/LensSummaries"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "type": "object"
+    },
+    "ListMilestonesInput": {
+      "description": "Input to list all milestones for a workload.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        }
+      },
+      "title": "ListMilestonesInput",
+      "type": "object"
+    },
+    "ListMilestonesOutput": {
+      "description": "Output of a list milestones call.",
+      "properties": {
+        "MilestoneSummaries": {
+          "$ref": "#/definitions/MilestoneSummaries"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "ListNotificationsInput": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListNotificationsMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return for this request."
+            }
+          ]
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "title": "ListNotificationsInput",
+      "type": "object"
+    },
+    "ListNotificationsMaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListNotificationsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "NotificationSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationSummaries"
+            },
+            {
+              "description": "List of lens notification summaries in a workload."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListShareInvitationsInput": {
+      "description": "Input for List Share Invitations",
+      "properties": {},
+      "title": "ListShareInvitationsInput",
+      "type": "object"
+    },
+    "ListShareInvitationsMaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListShareInvitationsOutput": {
+      "description": "Input for List Share Invitations",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "ShareInvitationSummaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareInvitationSummaries"
+            },
+            {
+              "description": "List of share invitation summaries in a workload."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListWorkloadSharesInput": {
+      "description": "Input for List Workload Share",
+      "properties": {},
+      "title": "ListWorkloadSharesInput",
+      "type": "object"
+    },
+    "ListWorkloadSharesMaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListWorkloadSharesOutput": {
+      "description": "Input for List Workload Share",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadShareSummaries": {
+          "$ref": "#/definitions/WorkloadShareSummaries"
+        }
+      },
+      "type": "object"
+    },
+    "ListWorkloadsInput": {
+      "description": "Input to list all workloads.",
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListWorkloadsMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return for this request."
+            }
+          ]
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadNamePrefix": {
+          "$ref": "#/definitions/WorkloadNamePrefix"
+        }
+      },
+      "title": "ListWorkloadsInput",
+      "type": "object"
+    },
+    "ListWorkloadsMaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListWorkloadsOutput": {
+      "description": "Output of a list workloads call.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "WorkloadSummaries": {
+          "$ref": "#/definitions/WorkloadSummaries"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "description": "The maximum number of results to return for this request.",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Milestone": {
+      "description": "A milestone return object.",
+      "properties": {
+        "MilestoneName": {
+          "$ref": "#/definitions/MilestoneName"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "RecordedAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "Workload": {
+          "$ref": "#/definitions/Workload"
+        }
+      },
+      "type": "object"
+    },
+    "MilestoneName": {
+      "description": "<p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>",
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string"
+    },
+    "MilestoneNumber": {
+      "description": "<p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>",
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MilestoneSummaries": {
+      "description": "A list of milestone summaries.",
+      "items": {
+        "$ref": "#/definitions/MilestoneSummary"
+      },
+      "type": "array"
+    },
+    "MilestoneSummary": {
+      "description": "A milestone summary return object.",
+      "properties": {
+        "MilestoneName": {
+          "$ref": "#/definitions/MilestoneName"
+        },
+        "MilestoneNumber": {
+          "$ref": "#/definitions/MilestoneNumber"
+        },
+        "RecordedAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "WorkloadSummary": {
+          "$ref": "#/definitions/WorkloadSummary"
+        }
+      },
+      "type": "object"
+    },
+    "NextToken": {
+      "description": "The token to use to retrieve the next set of results.",
+      "type": "string"
+    },
+    "Notes": {
+      "description": "The notes associated with the workload.",
+      "maxLength": 2084,
+      "type": "string"
+    },
+    "NotificationSummaries": {
+      "items": {
+        "$ref": "#/definitions/NotificationSummary"
+      },
+      "type": "array"
+    },
+    "NotificationSummary": {
+      "description": "A notification summary return object.",
+      "properties": {
+        "LensUpgradeSummary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LensUpgradeSummary"
+            },
+            {
+              "description": "Summary of lens upgrade."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationType"
+            },
+            {
+              "description": "The type of notification."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NotificationType": {
+      "enum": [
+        "LENS_VERSION_UPGRADED",
+        "LENS_VERSION_DEPRECATED"
+      ],
+      "type": "string"
+    },
+    "PermissionType": {
+      "description": "Permission granted on a workload share.",
+      "enum": [
+        "READONLY",
+        "CONTRIBUTOR"
+      ],
+      "type": "string"
+    },
+    "PillarDifference": {
+      "description": "A pillar difference return object.",
+      "properties": {
+        "DifferenceStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DifferenceStatus"
+            },
+            {
+              "description": "Indicates the type of change to the pillar."
+            }
+          ]
+        },
+        "PillarId": {
+          "$ref": "#/definitions/PillarId"
+        },
+        "QuestionDifferences": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QuestionDifferences"
+            },
+            {
+              "description": "List of question differences."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PillarDifferences": {
+      "items": {
+        "$ref": "#/definitions/PillarDifference"
+      },
+      "type": "array"
+    },
+    "PillarId": {
+      "description": "<p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PillarName": {
+      "description": "The name of the pillar.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PillarNotes": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Notes"
+      },
+      "description": "List of pillar notes of a lens review in a workload.",
+      "type": "object"
+    },
+    "PillarReviewSummaries": {
+      "description": "List of pillar review summaries of lens review in a workload.",
+      "items": {
+        "$ref": "#/definitions/PillarReviewSummary"
+      },
+      "type": "array"
+    },
+    "PillarReviewSummary": {
+      "description": "A pillar review summary of a lens review.",
+      "properties": {
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarId": {
+          "$ref": "#/definitions/PillarId"
+        },
+        "PillarName": {
+          "$ref": "#/definitions/PillarName"
+        },
+        "RiskCounts": {
+          "$ref": "#/definitions/RiskCounts"
+        }
+      },
+      "type": "object"
+    },
+    "QuestionDescription": {
+      "description": "The description of the question.",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "QuestionDifference": {
+      "description": "A question difference return object.",
+      "properties": {
+        "DifferenceStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DifferenceStatus"
+            },
+            {
+              "description": "Indicates the type of change to the question."
+            }
+          ]
+        },
+        "QuestionId": {
+          "$ref": "#/definitions/QuestionId"
+        },
+        "QuestionTitle": {
+          "$ref": "#/definitions/QuestionTitle"
+        }
+      },
+      "type": "object"
+    },
+    "QuestionDifferences": {
+      "items": {
+        "$ref": "#/definitions/QuestionDifference"
+      },
+      "type": "array"
+    },
+    "QuestionId": {
+      "description": "The ID of the question.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "QuestionTitle": {
+      "description": "The title of the question.",
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "Risk": {
+      "description": "The risk for a given workload, lens review, pillar, or question.",
+      "enum": [
+        "UNANSWERED",
+        "HIGH",
+        "MEDIUM",
+        "NONE",
+        "NOT_APPLICABLE"
+      ],
+      "type": "string"
+    },
+    "RiskCounts": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Count"
+      },
+      "description": "A map from risk names to the count of how questions have that rating.",
+      "type": "object"
+    },
+    "SelectedChoices": {
+      "description": "List of selected choice IDs in a question answer.",
+      "items": {
+        "$ref": "#/definitions/ChoiceId"
+      },
+      "type": "array"
+    },
+    "ServiceQuotaExceededException": {},
+    "ShareId": {
+      "description": "The ID associated with the workload share.",
+      "pattern": "[0-9a-f]{32}",
+      "type": "string"
+    },
+    "ShareInvitation": {
+      "description": "The share invitation.",
+      "properties": {
+        "ShareInvitationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareInvitationId"
+            },
+            {
+              "description": "The ID assigned to the share invitation."
+            }
+          ]
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "ShareInvitationAction": {
+      "description": "Share invitation action taken by contributor.",
+      "enum": [
+        "ACCEPT",
+        "REJECT"
+      ],
+      "type": "string"
+    },
+    "ShareInvitationId": {
+      "pattern": "[0-9a-f]{32}",
+      "type": "string"
+    },
+    "ShareInvitationSummaries": {
+      "items": {
+        "$ref": "#/definitions/ShareInvitationSummary"
+      },
+      "type": "array"
+    },
+    "ShareInvitationSummary": {
+      "description": "A share invitation summary return object.",
+      "properties": {
+        "PermissionType": {
+          "$ref": "#/definitions/PermissionType"
+        },
+        "ShareInvitationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareInvitationId"
+            },
+            {
+              "description": "The ID assigned to the share invitation."
+            }
+          ]
+        },
+        "SharedBy": {
+          "$ref": "#/definitions/AwsAccountId"
+        },
+        "SharedWith": {
+          "$ref": "#/definitions/SharedWith"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "type": "object"
+    },
+    "ShareStatus": {
+      "description": "The status of a workload share.",
+      "enum": [
+        "ACCEPTED",
+        "REJECTED",
+        "PENDING",
+        "REVOKED",
+        "EXPIRED"
+      ],
+      "type": "string"
+    },
+    "SharedWith": {
+      "description": "The AWS account ID or IAM role with which the workload is shared.",
+      "maxLength": 2048,
+      "minLength": 12,
+      "type": "string"
+    },
+    "SharedWithPrefix": {
+      "maxLength": 100,
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "description": "The date and time recorded.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateAnswerInput": {
+      "description": "Input to update answer.",
+      "properties": {
+        "IsApplicable": {
+          "$ref": "#/definitions/IsApplicable"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "SelectedChoices": {
+          "$ref": "#/definitions/SelectedChoices"
+        }
+      },
+      "title": "UpdateAnswerInput",
+      "type": "object"
+    },
+    "UpdateAnswerOutput": {
+      "description": "Output of a update answer call.",
+      "properties": {
+        "Answer": {
+          "$ref": "#/definitions/Answer"
+        },
+        "LensAlias": {
+          "$ref": "#/definitions/LensAlias"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateLensReviewInput": {
+      "description": "Input for update lens review.",
+      "properties": {
+        "LensNotes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarNotes": {
+          "$ref": "#/definitions/PillarNotes"
+        }
+      },
+      "title": "UpdateLensReviewInput",
+      "type": "object"
+    },
+    "UpdateLensReviewOutput": {
+      "description": "Output of a update lens review call.",
+      "properties": {
+        "LensReview": {
+          "$ref": "#/definitions/LensReview"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateShareInvitationInput": {
+      "description": "Input for Update Share Invitation",
+      "properties": {
+        "ShareInvitationAction": {
+          "$ref": "#/definitions/ShareInvitationAction"
+        }
+      },
+      "required": [
+        "ShareInvitationAction"
+      ],
+      "title": "UpdateShareInvitationInput",
+      "type": "object"
+    },
+    "UpdateShareInvitationOutput": {
+      "properties": {
+        "ShareInvitation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareInvitation"
+            },
+            {
+              "description": "The updated workload share invitation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateWorkloadInput": {
+      "description": "Input to update a workload.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/WorkloadAccountIds"
+        },
+        "ArchitecturalDesign": {
+          "$ref": "#/definitions/WorkloadArchitecturalDesign"
+        },
+        "AwsRegions": {
+          "$ref": "#/definitions/WorkloadAwsRegions"
+        },
+        "Description": {
+          "$ref": "#/definitions/WorkloadDescription"
+        },
+        "Environment": {
+          "$ref": "#/definitions/WorkloadEnvironment"
+        },
+        "ImprovementStatus": {
+          "$ref": "#/definitions/WorkloadImprovementStatus"
+        },
+        "Industry": {
+          "$ref": "#/definitions/WorkloadIndustry"
+        },
+        "IndustryType": {
+          "$ref": "#/definitions/WorkloadIndustryType"
+        },
+        "IsReviewOwnerUpdateAcknowledged": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsReviewOwnerUpdateAcknowledged"
+            },
+            {
+              "description": "<p>Flag indicating whether the workload owner has acknowledged that the <i>Review owner</i> field is required.</p> <p>If a <b>Review owner</b> is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.</p>"
+            }
+          ]
+        },
+        "NonAwsRegions": {
+          "$ref": "#/definitions/WorkloadNonAwsRegions"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "PillarPriorities": {
+          "$ref": "#/definitions/WorkloadPillarPriorities"
+        },
+        "ReviewOwner": {
+          "$ref": "#/definitions/WorkloadReviewOwner"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "title": "UpdateWorkloadInput",
+      "type": "object"
+    },
+    "UpdateWorkloadOutput": {
+      "description": "Output of an update workload call.",
+      "properties": {
+        "Workload": {
+          "$ref": "#/definitions/Workload"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateWorkloadShareInput": {
+      "description": "Input for Update Workload Share",
+      "properties": {
+        "PermissionType": {
+          "$ref": "#/definitions/PermissionType"
+        }
+      },
+      "required": [
+        "PermissionType"
+      ],
+      "title": "UpdateWorkloadShareInput",
+      "type": "object"
+    },
+    "UpdateWorkloadShareOutput": {
+      "description": "Input for Update Workload Share",
+      "properties": {
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadShare": {
+          "$ref": "#/definitions/WorkloadShare"
+        }
+      },
+      "type": "object"
+    },
+    "UpgradeLensReviewInput": {
+      "properties": {
+        "ClientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken"
+        },
+        "MilestoneName": {
+          "$ref": "#/definitions/MilestoneName"
+        }
+      },
+      "required": [
+        "MilestoneName"
+      ],
+      "title": "UpgradeLensReviewInput",
+      "type": "object"
+    },
+    "ValidationException": {},
+    "VersionDifferences": {
+      "description": "The differences between the base and latest versions of the lens.",
+      "properties": {
+        "PillarDifferences": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PillarDifferences"
+            },
+            {
+              "description": "The differences between the base and latest versions of the lens."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Workload": {
+      "description": "A workload return object.",
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/WorkloadAccountIds"
+        },
+        "ArchitecturalDesign": {
+          "$ref": "#/definitions/WorkloadArchitecturalDesign"
+        },
+        "AwsRegions": {
+          "$ref": "#/definitions/WorkloadAwsRegions"
+        },
+        "Description": {
+          "$ref": "#/definitions/WorkloadDescription"
+        },
+        "Environment": {
+          "$ref": "#/definitions/WorkloadEnvironment"
+        },
+        "ImprovementStatus": {
+          "$ref": "#/definitions/WorkloadImprovementStatus"
+        },
+        "Industry": {
+          "$ref": "#/definitions/WorkloadIndustry"
+        },
+        "IndustryType": {
+          "$ref": "#/definitions/WorkloadIndustryType"
+        },
+        "IsReviewOwnerUpdateAcknowledged": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IsReviewOwnerUpdateAcknowledged"
+            },
+            {
+              "description": "<p>Flag indicating whether the workload owner has acknowledged that the <i>Review owner</i> field is required.</p> <p>If a <b>Review owner</b> is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.</p>"
+            }
+          ]
+        },
+        "Lenses": {
+          "$ref": "#/definitions/WorkloadLenses"
+        },
+        "NonAwsRegions": {
+          "$ref": "#/definitions/WorkloadNonAwsRegions"
+        },
+        "Notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "Owner": {
+          "$ref": "#/definitions/AwsAccountId"
+        },
+        "PillarPriorities": {
+          "$ref": "#/definitions/WorkloadPillarPriorities"
+        },
+        "ReviewOwner": {
+          "$ref": "#/definitions/WorkloadReviewOwner"
+        },
+        "ReviewRestrictionDate": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "RiskCounts": {
+          "$ref": "#/definitions/RiskCounts"
+        },
+        "ShareInvitationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareInvitationId"
+            },
+            {
+              "description": "The ID assigned to the share invitation."
+            }
+          ]
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "WorkloadArn": {
+          "$ref": "#/definitions/WorkloadArn"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadAccountIds": {
+      "description": "The list of AWS account IDs associated with the workload.",
+      "items": {
+        "$ref": "#/definitions/AwsAccountId"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "WorkloadArchitecturalDesign": {
+      "description": "The URL of the architectural design for the workload.",
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "WorkloadArn": {
+      "description": "The ARN for the workload.",
+      "type": "string"
+    },
+    "WorkloadAwsRegions": {
+      "description": "The list of AWS Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.",
+      "items": {
+        "$ref": "#/definitions/AwsRegion"
+      },
+      "maxItems": 50,
+      "type": "array"
+    },
+    "WorkloadDescription": {
+      "description": "The description for the workload.",
+      "maxLength": 250,
+      "minLength": 3,
+      "type": "string"
+    },
+    "WorkloadEnvironment": {
+      "description": "The environment for the workload.",
+      "enum": [
+        "PRODUCTION",
+        "PREPRODUCTION"
+      ],
+      "type": "string"
+    },
+    "WorkloadId": {
+      "description": "The ID assigned to the workload. This ID is unique within an AWS Region.",
+      "pattern": "[0-9a-f]{32}",
+      "type": "string"
+    },
+    "WorkloadImprovementStatus": {
+      "description": "The improvement status for a workload.",
+      "enum": [
+        "NOT_APPLICABLE",
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "COMPLETE",
+        "RISK_ACKNOWLEDGED"
+      ],
+      "type": "string"
+    },
+    "WorkloadIndustry": {
+      "description": "The industry for the workload.",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "WorkloadIndustryType": {
+      "description": "<p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "WorkloadLenses": {
+      "description": "The list of lenses associated with the workload. Each lens is identified by its <a>LensSummary$LensAlias</a>.",
+      "items": {
+        "$ref": "#/definitions/LensAlias"
+      },
+      "type": "array"
+    },
+    "WorkloadName": {
+      "description": "<p>The name of the workload.</p> <p>The name must be unique within an account within a Region. Spaces and capitalization are ignored when checking for uniqueness.</p>",
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string"
+    },
+    "WorkloadNamePrefix": {
+      "description": "An optional string added to the beginning of each workload name returned in the results.",
+      "maxLength": 100,
+      "type": "string"
+    },
+    "WorkloadNonAwsRegion": {
+      "maxLength": 25,
+      "minLength": 3,
+      "type": "string"
+    },
+    "WorkloadNonAwsRegions": {
+      "description": " The list of non-AWS Regions associated with the workload.",
+      "items": {
+        "$ref": "#/definitions/WorkloadNonAwsRegion"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "WorkloadPillarPriorities": {
+      "description": "The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.",
+      "items": {
+        "$ref": "#/definitions/PillarId"
+      },
+      "type": "array"
+    },
+    "WorkloadReviewOwner": {
+      "description": "The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.",
+      "maxLength": 255,
+      "minLength": 3,
+      "type": "string"
+    },
+    "WorkloadShare": {
+      "description": "A workload share return object.",
+      "properties": {
+        "PermissionType": {
+          "$ref": "#/definitions/PermissionType"
+        },
+        "ShareId": {
+          "$ref": "#/definitions/ShareId"
+        },
+        "SharedBy": {
+          "$ref": "#/definitions/AwsAccountId"
+        },
+        "SharedWith": {
+          "$ref": "#/definitions/SharedWith"
+        },
+        "Status": {
+          "$ref": "#/definitions/ShareStatus"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadShareSummaries": {
+      "description": "A list of workload share summaries.",
+      "items": {
+        "$ref": "#/definitions/WorkloadShareSummary"
+      },
+      "type": "array"
+    },
+    "WorkloadShareSummary": {
+      "description": "A workload share summary return object.",
+      "properties": {
+        "PermissionType": {
+          "$ref": "#/definitions/PermissionType"
+        },
+        "ShareId": {
+          "$ref": "#/definitions/ShareId"
+        },
+        "SharedWith": {
+          "$ref": "#/definitions/SharedWith"
+        },
+        "Status": {
+          "$ref": "#/definitions/ShareStatus"
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadSummaries": {
+      "description": "A list of workload summaries.",
+      "items": {
+        "$ref": "#/definitions/WorkloadSummary"
+      },
+      "type": "array"
+    },
+    "WorkloadSummary": {
+      "description": "A workload summary return object.",
+      "properties": {
+        "ImprovementStatus": {
+          "$ref": "#/definitions/WorkloadImprovementStatus"
+        },
+        "Lenses": {
+          "$ref": "#/definitions/WorkloadLenses"
+        },
+        "Owner": {
+          "$ref": "#/definitions/AwsAccountId"
+        },
+        "RiskCounts": {
+          "$ref": "#/definitions/RiskCounts"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "WorkloadArn": {
+          "$ref": "#/definitions/WorkloadArn"
+        },
+        "WorkloadId": {
+          "$ref": "#/definitions/WorkloadId"
+        },
+        "WorkloadName": {
+          "$ref": "#/definitions/WorkloadName"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/wellarchitected/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

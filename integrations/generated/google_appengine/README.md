@@ -1,6 +1,6 @@
 # @datafire/google_appengine
 
-Client library for App Engine Admin
+Client library for App Engine Admin API
 
 ## Installation and Usage
 ```bash
@@ -15,14 +15,14 @@ let google_appengine = require('@datafire/google_appengine').create({
   redirect_uri: ""
 });
 
-google_appengine.apps.create({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-The App Engine Admin API enables developers to provision and manage their App Engine applications.
+Provisions and manages developers' App Engine applications.
 
 ## Actions
 
@@ -67,14 +67,12 @@ google_appengine.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### apps.create
-Creates an App Engine application for a Google Cloud Platform project. Required fields:
-id - The ID of the target Cloud Platform project.
-location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).
+### appengine.apps.create
+Creates an App Engine application for a Google Cloud Platform project. Required fields: id - The ID of the target Cloud Platform project. location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).
 
 
 ```js
-google_appengine.apps.create({}, context)
+google_appengine.appengine.apps.create({}, context)
 ```
 
 #### Input
@@ -83,26 +81,24 @@ google_appengine.apps.create({}, context)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.get
+### appengine.apps.get
 Gets information about an application.
 
 
 ```js
-google_appengine.apps.get({
+google_appengine.appengine.apps.get({
   "appsId": ""
 }, context)
 ```
@@ -113,28 +109,24 @@ google_appengine.apps.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Application](#application)
 
-### apps.patch
-Updates the specified Application resource. You can update the following fields:
-auth_domain - Google authentication domain for controlling user access to the application.
-default_cookie_expiration - Cookie expiration policy for the application.
+### appengine.apps.patch
+Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application.
 
 
 ```js
-google_appengine.apps.patch({
+google_appengine.appengine.apps.patch({
   "appsId": ""
 }, context)
 ```
@@ -142,31 +134,29 @@ google_appengine.apps.patch({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the Application resource to update. Example: apps/myapp.
-  * body [Application](#application)
   * updateMask `string`: Standard field mask for the set of fields to be updated.
+  * body [Application](#application)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.authorizedCertificates.list
+### appengine.apps.authorizedCertificates.list
 Lists all SSL certificates the user is authorized to administer.
 
 
 ```js
-google_appengine.apps.authorizedCertificates.list({
+google_appengine.appengine.apps.authorizedCertificates.list({
   "appsId": ""
 }, context)
 ```
@@ -180,26 +170,24 @@ google_appengine.apps.authorizedCertificates.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListAuthorizedCertificatesResponse](#listauthorizedcertificatesresponse)
 
-### apps.authorizedCertificates.create
+### appengine.apps.authorizedCertificates.create
 Uploads the specified SSL certificate.
 
 
 ```js
-google_appengine.apps.authorizedCertificates.create({
+google_appengine.appengine.apps.authorizedCertificates.create({
   "appsId": ""
 }, context)
 ```
@@ -211,26 +199,24 @@ google_appengine.apps.authorizedCertificates.create({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AuthorizedCertificate](#authorizedcertificate)
 
-### apps.authorizedCertificates.delete
+### appengine.apps.authorizedCertificates.delete
 Deletes the specified SSL certificate.
 
 
 ```js
-google_appengine.apps.authorizedCertificates.delete({
+google_appengine.appengine.apps.authorizedCertificates.delete({
   "appsId": "",
   "authorizedCertificatesId": ""
 }, context)
@@ -243,26 +229,24 @@ google_appengine.apps.authorizedCertificates.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Empty](#empty)
 
-### apps.authorizedCertificates.get
+### appengine.apps.authorizedCertificates.get
 Gets the specified SSL certificate.
 
 
 ```js
-google_appengine.apps.authorizedCertificates.get({
+google_appengine.appengine.apps.authorizedCertificates.get({
   "appsId": "",
   "authorizedCertificatesId": ""
 }, context)
@@ -276,26 +260,24 @@ google_appengine.apps.authorizedCertificates.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AuthorizedCertificate](#authorizedcertificate)
 
-### apps.authorizedCertificates.patch
+### appengine.apps.authorizedCertificates.patch
 Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.
 
 
 ```js
-google_appengine.apps.authorizedCertificates.patch({
+google_appengine.appengine.apps.authorizedCertificates.patch({
   "appsId": "",
   "authorizedCertificatesId": ""
 }, context)
@@ -305,31 +287,29 @@ google_appengine.apps.authorizedCertificates.patch({
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource to update. Example: apps/myapp/authorizedCertificates/12345.
   * authorizedCertificatesId **required** `string`: Part of `name`. See documentation of `appsId`.
-  * body [AuthorizedCertificate](#authorizedcertificate)
   * updateMask `string`: Standard field mask for the set of fields to be updated. Updates are only supported on the certificate_raw_data and display_name fields.
+  * body [AuthorizedCertificate](#authorizedcertificate)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [AuthorizedCertificate](#authorizedcertificate)
 
-### apps.authorizedDomains.list
+### appengine.apps.authorizedDomains.list
 Lists all domains the user is authorized to administer.
 
 
 ```js
-google_appengine.apps.authorizedDomains.list({
+google_appengine.appengine.apps.authorizedDomains.list({
   "appsId": ""
 }, context)
 ```
@@ -342,26 +322,24 @@ google_appengine.apps.authorizedDomains.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListAuthorizedDomainsResponse](#listauthorizeddomainsresponse)
 
-### apps.domainMappings.list
+### appengine.apps.domainMappings.list
 Lists the domain mappings on an application.
 
 
 ```js
-google_appengine.apps.domainMappings.list({
+google_appengine.appengine.apps.domainMappings.list({
   "appsId": ""
 }, context)
 ```
@@ -374,26 +352,24 @@ google_appengine.apps.domainMappings.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListDomainMappingsResponse](#listdomainmappingsresponse)
 
-### apps.domainMappings.create
+### appengine.apps.domainMappings.create
 Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains.
 
 
 ```js
-google_appengine.apps.domainMappings.create({
+google_appengine.appengine.apps.domainMappings.create({
   "appsId": ""
 }, context)
 ```
@@ -401,31 +377,29 @@ google_appengine.apps.domainMappings.create({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `parent`. Name of the parent Application resource. Example: apps/myapp.
-  * body [DomainMapping](#domainmapping)
   * overrideStrategy `string` (values: UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY, STRICT, OVERRIDE): Whether the domain creation should override any existing mappings for this domain. By default, overrides are rejected.
+  * body [DomainMapping](#domainmapping)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.domainMappings.delete
+### appengine.apps.domainMappings.delete
 Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource.
 
 
 ```js
-google_appengine.apps.domainMappings.delete({
+google_appengine.appengine.apps.domainMappings.delete({
   "appsId": "",
   "domainMappingsId": ""
 }, context)
@@ -438,26 +412,24 @@ google_appengine.apps.domainMappings.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.domainMappings.get
+### appengine.apps.domainMappings.get
 Gets the specified domain mapping.
 
 
 ```js
-google_appengine.apps.domainMappings.get({
+google_appengine.appengine.apps.domainMappings.get({
   "appsId": "",
   "domainMappingsId": ""
 }, context)
@@ -470,26 +442,24 @@ google_appengine.apps.domainMappings.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [DomainMapping](#domainmapping)
 
-### apps.domainMappings.patch
+### appengine.apps.domainMappings.patch
 Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource.
 
 
 ```js
-google_appengine.apps.domainMappings.patch({
+google_appengine.appengine.apps.domainMappings.patch({
   "appsId": "",
   "domainMappingsId": ""
 }, context)
@@ -498,32 +468,30 @@ google_appengine.apps.domainMappings.patch({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource to update. Example: apps/myapp/domainMappings/example.com.
-  * body [DomainMapping](#domainmapping)
   * domainMappingsId **required** `string`: Part of `name`. See documentation of `appsId`.
   * updateMask `string`: Standard field mask for the set of fields to be updated.
+  * body [DomainMapping](#domainmapping)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.firewall.ingressRules.list
+### appengine.apps.firewall.ingressRules.list
 Lists the firewall rules of an application.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.list({
+google_appengine.appengine.apps.firewall.ingressRules.list({
   "appsId": ""
 }, context)
 ```
@@ -537,26 +505,24 @@ google_appengine.apps.firewall.ingressRules.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListIngressRulesResponse](#listingressrulesresponse)
 
-### apps.firewall.ingressRules.create
+### appengine.apps.firewall.ingressRules.create
 Creates a firewall rule for the application.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.create({
+google_appengine.appengine.apps.firewall.ingressRules.create({
   "appsId": ""
 }, context)
 ```
@@ -568,26 +534,24 @@ google_appengine.apps.firewall.ingressRules.create({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [FirewallRule](#firewallrule)
 
-### apps.firewall.ingressRules.delete
+### appengine.apps.firewall.ingressRules.delete
 Deletes the specified firewall rule.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.delete({
+google_appengine.appengine.apps.firewall.ingressRules.delete({
   "appsId": "",
   "ingressRulesId": ""
 }, context)
@@ -600,26 +564,24 @@ google_appengine.apps.firewall.ingressRules.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Empty](#empty)
 
-### apps.firewall.ingressRules.get
+### appengine.apps.firewall.ingressRules.get
 Gets the specified firewall rule.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.get({
+google_appengine.appengine.apps.firewall.ingressRules.get({
   "appsId": "",
   "ingressRulesId": ""
 }, context)
@@ -632,26 +594,24 @@ google_appengine.apps.firewall.ingressRules.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [FirewallRule](#firewallrule)
 
-### apps.firewall.ingressRules.patch
+### appengine.apps.firewall.ingressRules.patch
 Updates the specified firewall rule.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.patch({
+google_appengine.appengine.apps.firewall.ingressRules.patch({
   "appsId": "",
   "ingressRulesId": ""
 }, context)
@@ -660,32 +620,30 @@ google_appengine.apps.firewall.ingressRules.patch({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the Firewall resource to update. Example: apps/myapp/firewall/ingressRules/100.
-  * body [FirewallRule](#firewallrule)
   * ingressRulesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * updateMask `string`: Standard field mask for the set of fields to be updated.
+  * body [FirewallRule](#firewallrule)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [FirewallRule](#firewallrule)
 
-### apps.firewall.ingressRules.batchUpdate
+### appengine.apps.firewall.ingressRules.batchUpdate
 Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list.
 
 
 ```js
-google_appengine.apps.firewall.ingressRules.batchUpdate({
+google_appengine.appengine.apps.firewall.ingressRules.batchUpdate({
   "appsId": ""
 }, context)
 ```
@@ -697,26 +655,24 @@ google_appengine.apps.firewall.ingressRules.batchUpdate({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [BatchUpdateIngressRulesResponse](#batchupdateingressrulesresponse)
 
-### apps.locations.list
+### appengine.apps.locations.list
 Lists information about the supported locations for this service.
 
 
 ```js
-google_appengine.apps.locations.list({
+google_appengine.appengine.apps.locations.list({
   "appsId": ""
 }, context)
 ```
@@ -730,26 +686,24 @@ google_appengine.apps.locations.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListLocationsResponse](#listlocationsresponse)
 
-### apps.locations.get
+### appengine.apps.locations.get
 Gets information about a location.
 
 
 ```js
-google_appengine.apps.locations.get({
+google_appengine.appengine.apps.locations.get({
   "appsId": "",
   "locationsId": ""
 }, context)
@@ -762,26 +716,24 @@ google_appengine.apps.locations.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Location](#location)
 
-### apps.operations.list
+### appengine.apps.operations.list
 Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding allows API services to override the binding to use different resource name schemes, such as users/*/operations. To override the binding, API services can add a binding such as "/v1/{name=users/*}/operations" to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.
 
 
 ```js
-google_appengine.apps.operations.list({
+google_appengine.appengine.apps.operations.list({
   "appsId": ""
 }, context)
 ```
@@ -795,26 +747,24 @@ google_appengine.apps.operations.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListOperationsResponse](#listoperationsresponse)
 
-### apps.operations.get
+### appengine.apps.operations.get
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 
 
 ```js
-google_appengine.apps.operations.get({
+google_appengine.appengine.apps.operations.get({
   "appsId": "",
   "operationsId": ""
 }, context)
@@ -827,26 +777,24 @@ google_appengine.apps.operations.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.list
+### appengine.apps.services.list
 Lists all the services in the application.
 
 
 ```js
-google_appengine.apps.services.list({
+google_appengine.appengine.apps.services.list({
   "appsId": ""
 }, context)
 ```
@@ -859,26 +807,24 @@ google_appengine.apps.services.list({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListServicesResponse](#listservicesresponse)
 
-### apps.services.delete
+### appengine.apps.services.delete
 Deletes the specified service and all enclosed versions.
 
 
 ```js
-google_appengine.apps.services.delete({
+google_appengine.appengine.apps.services.delete({
   "appsId": "",
   "servicesId": ""
 }, context)
@@ -891,26 +837,24 @@ google_appengine.apps.services.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.get
+### appengine.apps.services.get
 Gets the current configuration of the specified service.
 
 
 ```js
-google_appengine.apps.services.get({
+google_appengine.appengine.apps.services.get({
   "appsId": "",
   "servicesId": ""
 }, context)
@@ -923,26 +867,24 @@ google_appengine.apps.services.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Service](#service)
 
-### apps.services.patch
+### appengine.apps.services.patch
 Updates the configuration of the specified service.
 
 
 ```js
-google_appengine.apps.services.patch({
+google_appengine.appengine.apps.services.patch({
   "appsId": "",
   "servicesId": ""
 }, context)
@@ -951,33 +893,31 @@ google_appengine.apps.services.patch({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource to update. Example: apps/myapp/services/default.
-  * body [Service](#service)
-  * migrateTraffic `boolean`: Set to true to gradually shift traffic to one or more versions that you specify. By default, traffic is shifted immediately. For gradual traffic migration, the target versions must be located within instances that are configured for both warmup requests (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#inboundservicetype) and automatic scaling (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#automaticscaling). You must specify the shardBy (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services#shardby) field in the Service resource. Gradual traffic migration is not supported in the App Engine flexible environment. For examples, see Migrating and Splitting Traffic (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-traffic).
   * servicesId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * migrateTraffic `boolean`: Set to true to gradually shift traffic to one or more versions that you specify. By default, traffic is shifted immediately. For gradual traffic migration, the target versions must be located within instances that are configured for both warmup requests (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#InboundServiceType) and automatic scaling (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#AutomaticScaling). You must specify the shardBy (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services#ShardBy) field in the Service resource. Gradual traffic migration is not supported in the App Engine flexible environment. For examples, see Migrating and Splitting Traffic (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-traffic).
   * updateMask `string`: Standard field mask for the set of fields to be updated.
+  * body [Service](#service)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.versions.list
+### appengine.apps.services.versions.list
 Lists the versions of a service.
 
 
 ```js
-google_appengine.apps.services.versions.list({
+google_appengine.appengine.apps.services.versions.list({
   "appsId": "",
   "servicesId": ""
 }, context)
@@ -986,33 +926,31 @@ google_appengine.apps.services.versions.list({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `parent`. Name of the parent Service resource. Example: apps/myapp/services/default.
+  * servicesId **required** `string`: Part of `parent`. See documentation of `appsId`.
   * pageSize `integer`: Maximum results to return per page.
   * pageToken `string`: Continuation token for fetching the next page of results.
-  * servicesId **required** `string`: Part of `parent`. See documentation of `appsId`.
   * view `string` (values: BASIC, FULL): Controls the set of fields returned in the List response.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListVersionsResponse](#listversionsresponse)
 
-### apps.services.versions.create
+### appengine.apps.services.versions.create
 Deploys code and resource files to a new version.
 
 
 ```js
-google_appengine.apps.services.versions.create({
+google_appengine.appengine.apps.services.versions.create({
   "appsId": "",
   "servicesId": ""
 }, context)
@@ -1021,31 +959,29 @@ google_appengine.apps.services.versions.create({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `parent`. Name of the parent resource to create this version under. Example: apps/myapp/services/default.
-  * body [Version](#version)
   * servicesId **required** `string`: Part of `parent`. See documentation of `appsId`.
+  * body [Version](#version)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.versions.delete
+### appengine.apps.services.versions.delete
 Deletes an existing Version resource.
 
 
 ```js
-google_appengine.apps.services.versions.delete({
+google_appengine.appengine.apps.services.versions.delete({
   "appsId": "",
   "servicesId": "",
   "versionsId": ""
@@ -1060,26 +996,24 @@ google_appengine.apps.services.versions.delete({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.versions.get
+### appengine.apps.services.versions.get
 Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource.
 
 
 ```js
-google_appengine.apps.services.versions.get({
+google_appengine.appengine.apps.services.versions.get({
   "appsId": "",
   "servicesId": "",
   "versionsId": ""
@@ -1095,39 +1029,24 @@ google_appengine.apps.services.versions.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Version](#version)
 
-### apps.services.versions.patch
-Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment
-instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment:
-automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
-automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment:
-serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible environment
-serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment:
-automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
-automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
+### appengine.apps.services.versions.patch
+Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment: automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling) automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment: serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.serving_status) manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#manualscaling)Flexible environment serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment: automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#Version.FIELDS.automatic_scaling)manual scaling in the flexible environment: manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#manualscaling)
 
 
 ```js
-google_appengine.apps.services.versions.patch({
+google_appengine.appengine.apps.services.versions.patch({
   "appsId": "",
   "servicesId": "",
   "versionsId": ""
@@ -1137,33 +1056,31 @@ google_appengine.apps.services.versions.patch({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource to update. Example: apps/myapp/services/default/versions/1.
-  * body [Version](#version)
   * servicesId **required** `string`: Part of `name`. See documentation of `appsId`.
-  * updateMask `string`: Standard field mask for the set of fields to be updated.
   * versionsId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * updateMask `string`: Standard field mask for the set of fields to be updated.
+  * body [Version](#version)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.versions.instances.list
+### appengine.apps.services.versions.instances.list
 Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
 
 
 ```js
-google_appengine.apps.services.versions.instances.list({
+google_appengine.appengine.apps.services.versions.instances.list({
   "appsId": "",
   "servicesId": "",
   "versionsId": ""
@@ -1173,142 +1090,134 @@ google_appengine.apps.services.versions.instances.list({
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `parent`. Name of the parent Version resource. Example: apps/myapp/services/default/versions/v1.
-  * pageSize `integer`: Maximum results to return per page.
-  * pageToken `string`: Continuation token for fetching the next page of results.
   * servicesId **required** `string`: Part of `parent`. See documentation of `appsId`.
   * versionsId **required** `string`: Part of `parent`. See documentation of `appsId`.
+  * pageSize `integer`: Maximum results to return per page.
+  * pageToken `string`: Continuation token for fetching the next page of results.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [ListInstancesResponse](#listinstancesresponse)
 
-### apps.services.versions.instances.delete
-Stops a running instance.
+### appengine.apps.services.versions.instances.delete
+Stops a running instance.The instance might be automatically recreated based on the scaling settings of the version. For more information, see "How Instances are Managed" (standard environment (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed) | flexible environment (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To ensure that instances are not re-created and avoid getting billed, you can stop all instances within the target version by changing the serving status of the version to STOPPED with the apps.services.versions.patch (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch) method.
 
 
 ```js
-google_appengine.apps.services.versions.instances.delete({
+google_appengine.appengine.apps.services.versions.instances.delete({
   "appsId": "",
-  "instancesId": "",
   "servicesId": "",
-  "versionsId": ""
+  "versionsId": "",
+  "instancesId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1.
-  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * servicesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * versionsId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.services.versions.instances.get
+### appengine.apps.services.versions.instances.get
 Gets instance information.
 
 
 ```js
-google_appengine.apps.services.versions.instances.get({
+google_appengine.appengine.apps.services.versions.instances.get({
   "appsId": "",
-  "instancesId": "",
   "servicesId": "",
-  "versionsId": ""
+  "versionsId": "",
+  "instancesId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1.
-  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * servicesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * versionsId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Instance](#instance)
 
-### apps.services.versions.instances.debug
+### appengine.apps.services.versions.instances.debug
 Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.
 
 
 ```js
-google_appengine.apps.services.versions.instances.debug({
+google_appengine.appengine.apps.services.versions.instances.debug({
   "appsId": "",
-  "instancesId": "",
   "servicesId": "",
-  "versionsId": ""
+  "versionsId": "",
+  "instancesId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * appsId **required** `string`: Part of `name`. Name of the resource requested. Example: apps/myapp/services/default/versions/v1/instances/instance-1.
-  * body [DebugInstanceRequest](#debuginstancerequest)
-  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * servicesId **required** `string`: Part of `name`. See documentation of `appsId`.
   * versionsId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * instancesId **required** `string`: Part of `name`. See documentation of `appsId`.
+  * body [DebugInstanceRequest](#debuginstancerequest)
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### apps.repair
-Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account.
+### appengine.apps.repair
+Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log.
 
 
 ```js
-google_appengine.apps.repair({
+google_appengine.appengine.apps.repair({
   "appsId": ""
 }, context)
 ```
@@ -1320,16 +1229,14 @@ google_appengine.apps.repair({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
@@ -1354,10 +1261,11 @@ google_appengine.apps.repair({
 * Application `object`: An Application resource contains the top-level configuration of an App Engine application.
   * authDomain `string`: Google Apps authentication domain that controls which users can access this application.Defaults to open access for any Google Account.
   * codeBucket `string`: Google Cloud Storage bucket that can be used for storing files associated with this application. This bucket is associated with the application and can be used by the gcloud deployment commands.@OutputOnly
+  * databaseType `string` (values: DATABASE_TYPE_UNSPECIFIED, CLOUD_DATASTORE, CLOUD_FIRESTORE, CLOUD_DATASTORE_COMPATIBILITY): The type of the Cloud Firestore or Cloud Datastore database associated with this application.
   * defaultBucket `string`: Google Cloud Storage bucket that can be used by this application to store content.@OutputOnly
   * defaultCookieExpiration `string`: Cookie expiration policy for this application.
   * defaultHostname `string`: Hostname used to reach this application, as resolved by App Engine.@OutputOnly
-  * dispatchRules `array`: HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported.@OutputOnly
+  * dispatchRules `array`: HTTP path dispatch rules for requests to the application that do not explicitly target a service or version. Rules are order-dependent. Up to 20 dispatch rules can be supported.
     * items [UrlDispatchRule](#urldispatchrule)
   * featureSettings [FeatureSettings](#featuresettings)
   * gcrDomain `string`: The Google Container Registry domain used for storing managed build docker images for this application.
@@ -1376,6 +1284,7 @@ google_appengine.apps.repair({
     * items `string`
   * expireTime `string`: The time when this certificate expires. To update the renewal time on this certificate, upload an SSL certificate with a different expiration time using AuthorizedCertificates.UpdateAuthorizedCertificate.@OutputOnly
   * id `string`: Relative name of the certificate. This is a unique value autogenerated on AuthorizedCertificate resource creation. Example: 12345.@OutputOnly
+  * managedCertificate [ManagedCertificate](#managedcertificate)
   * name `string`: Full path to the AuthorizedCertificate resource in the API. Example: apps/myapp/authorizedCertificates/12345.@OutputOnly
   * visibleDomainMappings `array`: The full paths to user visible Domain Mapping resources that have this certificate mapped. Example: apps/myapp/domainMappings/example.com.This may not represent the full list of mapped domain mappings if the user does not have VIEWER permissions on all of the applications that have this certificate mapped. See domain_mappings_count for a complete count.Only returned by GET or LIST requests when specifically requested by the view=FULL_CERTIFICATE option.@OutputOnly
     * items `string`
@@ -1387,8 +1296,10 @@ google_appengine.apps.repair({
 
 ### AutomaticScaling
 * AutomaticScaling `object`: Automatic scaling is based on request rate, response latencies, and other application metrics.
-  * coolDownPeriod `string`: Amount of time that the Autoscaler (https://cloud.google.com/compute/docs/autoscaler/) should wait between changes to the number of virtual machines. Only applicable in the App Engine flexible environment.
+  * coolDownPeriod `string`: The time period that the Autoscaler (https://cloud.google.com/compute/docs/autoscaler/) should wait before it starts collecting information from a new instance. This prevents the autoscaler from collecting information when the instance is initializing, during which the collected usage would not be reliable. Only applicable in the App Engine flexible environment.
   * cpuUtilization [CpuUtilization](#cpuutilization)
+  * customMetrics `array`: Target scaling by user-provided metrics. Only applicable in the App Engine flexible environment.
+    * items [CustomMetric](#custommetric)
   * diskUtilization [DiskUtilization](#diskutilization)
   * maxConcurrentRequests `integer`: Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.Defaults to a runtime-specific value.
   * maxIdleInstances `integer`: Maximum number of idle instances that should be maintained for this version.
@@ -1416,10 +1327,14 @@ google_appengine.apps.repair({
   * ingressRules `array`: The full list of ingress FirewallRules for this application.
     * items [FirewallRule](#firewallrule)
 
+### BuildInfo
+* BuildInfo `object`: Google Cloud Build information.
+  * cloudBuildId `string`: The Google Cloud Build id. Example: "f966068f-08b2-42c8-bdfe-74137dff2bf9"
+
 ### CertificateRawData
 * CertificateRawData `object`: An SSL certificate obtained from a certificate authority.
-  * privateKey `string`: Unencrypted PEM encoded RSA private key. This field is set once on certificate creation and then encrypted. The key size must be 2048 bits or fewer. Must include the header and footer. Example: <pre> -----BEGIN RSA PRIVATE KEY----- <unencrypted_key_value> -----END RSA PRIVATE KEY----- </pre> @InputOnly
-  * publicCertificate `string`: PEM encoded x.509 public key certificate. This field is set once on certificate creation. Must include the header and footer. Example: <pre> -----BEGIN CERTIFICATE----- <certificate_value> -----END CERTIFICATE----- </pre>
+  * privateKey `string`: Unencrypted PEM encoded RSA private key. This field is set once on certificate creation and then encrypted. The key size must be 2048 bits or fewer. Must include the header and footer. Example: -----BEGIN RSA PRIVATE KEY----- -----END RSA PRIVATE KEY----- @InputOnly
+  * publicCertificate `string`: PEM encoded x.509 public key certificate. This field is set once on certificate creation. Must include the header and footer. Example: -----BEGIN CERTIFICATE----- -----END CERTIFICATE----- 
 
 ### CloudBuildOptions
 * CloudBuildOptions `object`: Options for the build operations performed as a part of the version deployment. Only applicable for App Engine flexible environment when creating a version using source code directly.
@@ -1447,12 +1362,21 @@ google_appengine.apps.repair({
 * CreateVersionMetadataV1Beta `object`: Metadata for the given google.longrunning.Operation during a google.appengine.v1beta.CreateVersionRequest.
   * cloudBuildId `string`: The Cloud Build ID if one was created as part of the version create. @OutputOnly
 
+### CustomMetric
+* CustomMetric `object`: Allows autoscaling based on Stackdriver metrics.
+  * filter `string`: Allows filtering on the metric's fields.
+  * metricName `string`: The name of the metric.
+  * singleInstanceAssignment `number`: May be used instead of target_utilization when an instance can handle a specific amount of work/resources and the metric value is equal to the current amount of work remaining. The autoscaler will try to keep the number of instances equal to the metric value divided by single_instance_assignment.
+  * targetType `string`: The type of the metric. Must be a string representing a Stackdriver metric type e.g. GAGUE, DELTA_PER_SECOND, etc.
+  * targetUtilization `number`: The target value for the metric.
+
 ### DebugInstanceRequest
 * DebugInstanceRequest `object`: Request message for Instances.DebugInstance.
-  * sshKey `string`: Public SSH key to add to the instance. Examples:
+  * sshKey `string`: Public SSH key to add to the instance. Examples: [USERNAME]:ssh-rsa [KEY_VALUE] [USERNAME] [USERNAME]:ssh-rsa [KEY_VALUE] google-ssh {"userName":"[USERNAME]","expireOn":"[EXPIRE_TIME]"}For more information, see Adding and Removing SSH Keys (https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys).
 
 ### Deployment
 * Deployment `object`: Code and application artifacts used to deploy a version to App Engine.
+  * build [BuildInfo](#buildinfo)
   * cloudBuildOptions [CloudBuildOptions](#cloudbuildoptions)
   * container [ContainerInfo](#containerinfo)
   * files `object`: Manifest of the files stored in Google Cloud Storage that are included as part of this version. All files must be readable using the credentials supplied with this call.
@@ -1474,12 +1398,18 @@ google_appengine.apps.repair({
   * sslSettings [SslSettings](#sslsettings)
 
 ### Empty
-* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance:
+* Empty `object`: A generic empty message that you can re-use to avoid defining duplicated empty messages in your APIs. A typical example is to use it as the request or the response type of an API method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON representation for Empty is empty JSON object {}.
 
 ### EndpointsApiService
 * EndpointsApiService `object`: Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The Endpoints API Service provides tooling for serving Open API and gRPC endpoints via an NGINX proxy. Only valid for App Engine Flexible environment deployments.The fields here refer to the name and configuration ID of a "service" resource in the Service Management API (https://cloud.google.com/service-management/overview).
   * configId `string`: Endpoints service configuration ID as specified by the Service Management API. For example "2016-09-19r1".By default, the rollout strategy for Endpoints is RolloutStrategy.FIXED. This means that Endpoints starts up with a particular configuration ID. When a new configuration is rolled out, Endpoints must be given the new configuration ID. The config_id field is used to give the configuration ID and is required in this case.Endpoints also has a rollout strategy called RolloutStrategy.MANAGED. When using this, Endpoints fetches the latest configuration and does not need the configuration ID. In this case, config_id must be omitted.
+  * disableTraceSampling `boolean`: Enable or disable trace sampling. By default, this is set to false for enabled.
   * name `string`: Endpoints service name which is the name of the "service" resource in the Service Management API. For example "myapi.endpoints.myproject.cloud.goog"
+  * rolloutStrategy `string` (values: UNSPECIFIED_ROLLOUT_STRATEGY, FIXED, MANAGED): Endpoints rollout strategy. If FIXED, config_id must be specified. If MANAGED, config_id must be omitted.
+
+### Entrypoint
+* Entrypoint `object`: The entrypoint for the application.
+  * shell `string`: The format should be a shell command that can be fed to bash -c.
 
 ### ErrorHandler
 * ErrorHandler `object`: Custom static error page to be served when an error occurs.
@@ -1490,26 +1420,27 @@ google_appengine.apps.repair({
 ### FeatureSettings
 * FeatureSettings `object`: The feature specific settings to be used in the application. These define behaviors that are user configurable.
   * splitHealthChecks `boolean`: Boolean value indicating if split health checks should be used instead of the legacy health checks. At an app.yaml level, this means defaulting to 'readiness_check' and 'liveness_check' values instead of 'health_check' ones. Once the legacy 'health_check' behavior is deprecated, and this value is always true, this setting can be removed.
+  * useContainerOptimizedOs `boolean`: If true, use Container-Optimized OS (https://cloud.google.com/container-optimized-os/) base image for VMs, rather than a base Debian image.
 
 ### FileInfo
 * FileInfo `object`: Single source file that is part of the version to be deployed. Each source file that is deployed must be specified separately.
   * mimeType `string`: The MIME type of the file.Defaults to the value from Google Cloud Storage.
   * sha1Sum `string`: The SHA1 hash of the file, in hex.
-  * sourceUrl `string`: URL source to use to fetch this file. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com/<bucket>/<object>'.
+  * sourceUrl `string`: URL source to use to fetch this file. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com//'.
 
 ### FirewallRule
 * FirewallRule `object`: A single firewall rule that is evaluated against incoming traffic and provides an action to take on matched requests.
   * action `string` (values: UNSPECIFIED_ACTION, ALLOW, DENY): The action to take on matched requests.
   * description `string`: An optional string description of this rule. This field has a maximum length of 100 characters.
   * priority `integer`: A positive integer between 1, Int32.MaxValue-1 that defines the order of rule evaluation. Rules with the lowest priority are evaluated first.A default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic when no previous rule matches. Only the action of this rule can be modified by the user.
-  * sourceRange `string`: IP address or range, defined using CIDR notation, of requests that this rule applies to. You can use the wildcard character "*" to match all IPs equivalent to "0/0" and "::/0" together. Examples: 192.168.1.1 or 192.168.0.0/16 or 2001:db8::/32  or 2001:0db8:0000:0042:0000:8a2e:0370:7334.<p>Truncation will be silently performed on addresses which are not properly truncated. For example, 1.2.3.4/24 is accepted as the same address as 1.2.3.0/24. Similarly, for IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
+  * sourceRange `string`: IP address or range, defined using CIDR notation, of requests that this rule applies to. You can use the wildcard character "*" to match all IPs equivalent to "0/0" and "::/0" together. Examples: 192.168.1.1 or 192.168.0.0/16 or 2001:db8::/32 or 2001:0db8:0000:0042:0000:8a2e:0370:7334. Truncation will be silently performed on addresses which are not properly truncated. For example, 1.2.3.4/24 is accepted as the same address as 1.2.3.0/24. Similarly, for IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
 
 ### HealthCheck
 * HealthCheck `object`: Health checking configuration for VM instances. Unhealthy instances are killed and replaced with new instances. Only applicable for instances in App Engine flexible environment.
+  * host `string`: Host header to send when performing an HTTP health check. Example: "myapp.appspot.com"
   * checkInterval `string`: Interval between health checks.
   * disableHealthCheck `boolean`: Whether to explicitly disable health checks for this instance.
   * healthyThreshold `integer`: Number of consecutive successful health checks required before receiving traffic.
-  * host `string`: Host header to send when performing an HTTP health check. Example: "myapp.appspot.com"
   * restartThreshold `integer`: Number of consecutive failed health checks required before an instance is restarted.
   * timeout `string`: Time before the health check is considered failed.
   * unhealthyThreshold `integer`: Number of consecutive failed health checks required before removing traffic.
@@ -1523,22 +1454,23 @@ google_appengine.apps.repair({
 
 ### Instance
 * Instance `object`: An Instance resource is the computing unit that App Engine uses to automatically scale an application.
-  * appEngineRelease `string`: App Engine release this instance is running on.@OutputOnly
-  * availability `string` (values: UNSPECIFIED, RESIDENT, DYNAMIC): Availability of the instance.@OutputOnly
-  * averageLatency `integer`: Average latency (ms) over the last minute.@OutputOnly
-  * errors `integer`: Number of errors since this instance was started.@OutputOnly
-  * id `string`: Relative name of the instance within the version. Example: instance-1.@OutputOnly
-  * memoryUsage `string`: Total memory in use (bytes).@OutputOnly
-  * name `string`: Full path to the Instance resource in the API. Example: apps/myapp/services/default/versions/v1/instances/instance-1.@OutputOnly
-  * qps `number`: Average queries per second (QPS) over the last minute.@OutputOnly
-  * requests `integer`: Number of requests since this instance was started.@OutputOnly
-  * startTime `string`: Time that this instance was started.@OutputOnly
-  * vmDebugEnabled `boolean`: Whether this instance is in debug mode. Only applicable for instances in App Engine flexible environment.@OutputOnly
-  * vmId `string`: Virtual machine ID of this instance. Only applicable for instances in App Engine flexible environment.@OutputOnly
-  * vmIp `string`: The IP address of this instance. Only applicable for instances in App Engine flexible environment.@OutputOnly
-  * vmName `string`: Name of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment.@OutputOnly
-  * vmStatus `string`: Status of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment.@OutputOnly
-  * vmZoneName `string`: Zone where the virtual machine is located. Only applicable for instances in App Engine flexible environment.@OutputOnly
+  * appEngineRelease `string`: Output only. App Engine release this instance is running on.
+  * availability `string` (values: UNSPECIFIED, RESIDENT, DYNAMIC): Output only. Availability of the instance.
+  * averageLatency `integer`: Output only. Average latency (ms) over the last minute.
+  * errors `integer`: Output only. Number of errors since this instance was started.
+  * id `string`: Output only. Relative name of the instance within the version. Example: instance-1.
+  * memoryUsage `string`: Output only. Total memory in use (bytes).
+  * name `string`: Output only. Full path to the Instance resource in the API. Example: apps/myapp/services/default/versions/v1/instances/instance-1.
+  * qps `number`: Output only. Average queries per second (QPS) over the last minute.
+  * requests `integer`: Output only. Number of requests since this instance was started.
+  * startTime `string`: Output only. Time that this instance was started.@OutputOnly
+  * vmDebugEnabled `boolean`: Output only. Whether this instance is in debug mode. Only applicable for instances in App Engine flexible environment.
+  * vmId `string`: Output only. Virtual machine ID of this instance. Only applicable for instances in App Engine flexible environment.
+  * vmIp `string`: Output only. The IP address of this instance. Only applicable for instances in App Engine flexible environment.
+  * vmLiveness `string` (values: LIVENESS_STATE_UNSPECIFIED, UNKNOWN, HEALTHY, UNHEALTHY, DRAINING, TIMEOUT): Output only. The liveness health check of this instance. Only applicable for instances in App Engine flexible environment.
+  * vmName `string`: Output only. Name of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment.
+  * vmStatus `string`: Output only. Status of the virtual machine where this instance lives. Only applicable for instances in App Engine flexible environment.
+  * vmZoneName `string`: Output only. Zone where the virtual machine is located. Only applicable for instances in App Engine flexible environment.
 
 ### Library
 * Library `object`: Third-party Python runtime library that is required by the application.
@@ -1601,9 +1533,9 @@ google_appengine.apps.repair({
 
 ### LivenessCheck
 * LivenessCheck `object`: Health checking configuration for VM instances. Unhealthy instances are killed and replaced with new instances.
+  * host `string`: Host header to send when performing a HTTP Liveness check. Example: "myapp.appspot.com"
   * checkInterval `string`: Interval between health checks.
   * failureThreshold `integer`: Number of consecutive failed checks required before considering the VM unhealthy.
-  * host `string`: Host header to send when performing a HTTP Liveness check. Example: "myapp.appspot.com"
   * initialDelay `string`: The initial delay before starting to execute the checks.
   * path `string`: The request path.
   * successThreshold `integer`: Number of consecutive successful checks required before considering the VM healthy.
@@ -1612,7 +1544,7 @@ google_appengine.apps.repair({
 ### Location
 * Location `object`: A resource that represents Google Cloud Platform location.
   * displayName `string`: The friendly name for this location, typically a nearby city name. For example, "Tokyo".
-  * labels `object`: Cross-service attributes for the location. For example
+  * labels `object`: Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} 
   * locationId `string`: The canonical id for this location. For example: "us-east1".
   * metadata `object`: Service-specific metadata. For example the available capacity at the given location.
   * name `string`: Resource name for the location, which may vary between implementations. For example: "projects/example-project/locations/us-east1"
@@ -1621,6 +1553,11 @@ google_appengine.apps.repair({
 * LocationMetadata `object`: Metadata for the given google.cloud.location.Location.
   * flexibleEnvironmentAvailable `boolean`: App Engine flexible environment is available in the given location.@OutputOnly
   * standardEnvironmentAvailable `boolean`: App Engine standard environment is available in the given location.@OutputOnly
+
+### ManagedCertificate
+* ManagedCertificate `object`: A certificate managed by App Engine.
+  * lastRenewalTime `string`: Time at which the certificate was last renewed. The renewal process is fully managed. Certificate renewal will automatically occur before the certificate expires. Renewal errors can be tracked via ManagementStatus.@OutputOnly
+  * status `string` (values: MANAGEMENT_STATUS_UNSPECIFIED, OK, PENDING, FAILED_RETRYING_NOT_VISIBLE, FAILED_PERMANENT, FAILED_RETRYING_CAA_FORBIDDEN, FAILED_RETRYING_CAA_CHECKING): Status of certificate management. Refers to the most recent certificate acquisition or renewal attempt.@OutputOnly
 
 ### ManualScaling
 * ManualScaling `object`: A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of its memory over time.
@@ -1632,7 +1569,12 @@ google_appengine.apps.repair({
     * items `string`
   * instanceTag `string`: Tag to apply to the instance during creation. Only applicable in the App Engine flexible environment.
   * name `string`: Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.Defaults to default.
-  * subnetworkName `string`: Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.If a subnetwork name is specified, a network name will also be required unless it is for the default network.
+  * sessionAffinity `boolean`: Enable session affinity. Only applicable in the App Engine flexible environment.
+  * subnetworkName `string`: Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.If a subnetwork name is specified, a network name will also be required unless it is for the default network. If the network that the instance is being created in is a Legacy network, then the IP address is allocated from the IPv4Range. If the network that the instance is being created in is an auto Subnet Mode Network, then only network name should be specified (not the subnetwork_name) and the IP address is created from the IPCidrRange of the subnetwork that exists in that zone for that network. If the network that the instance is being created in is a custom Subnet Mode Network, then the subnetwork_name must be specified and the IP address is created from the IPCidrRange of the subnetwork.If specified, the subnetwork must exist in the same region as the App Engine flexible environment application.
+
+### NetworkSettings
+* NetworkSettings `object`: A NetworkSettings resource is a container for ingress settings for a version or service.
+  * ingressTrafficAllowed `string` (values: INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED, INGRESS_TRAFFIC_ALLOWED_ALL, INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY, INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB): The ingress settings for version or service.
 
 ### NetworkUtilization
 * NetworkUtilization `object`: Target scaling by network usage. Only applicable in the App Engine flexible environment.
@@ -1646,17 +1588,8 @@ google_appengine.apps.repair({
   * done `boolean`: If the value is false, it means the operation is still in progress. If true, the operation is completed, and either error or response is available.
   * error [Status](#status)
   * metadata `object`: Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
-  * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should have the format of operations/some/unique/name.
+  * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending with operations/{unique_id}.
   * response `object`: The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
-
-### OperationMetadata
-* OperationMetadata `object`: Metadata for the given google.longrunning.Operation.
-  * endTime `string`: Timestamp that this operation completed.@OutputOnly
-  * insertTime `string`: Timestamp that this operation was created.@OutputOnly
-  * method `string`: API method that initiated this operation. Example: google.appengine.v1beta4.Version.CreateVersion.@OutputOnly
-  * operationType `string`: Type of this operation. Deprecated, use method field instead. Example: "create_version".@OutputOnly
-  * target `string`: Name of the resource that this operation is acting on. Example: apps/myapp/modules/default.@OutputOnly
-  * user `string`: User who requested this operation.@OutputOnly
 
 ### OperationMetadataV1
 * OperationMetadataV1 `object`: Metadata for the given google.longrunning.Operation.
@@ -1694,20 +1627,12 @@ google_appengine.apps.repair({
   * warning `array`: Durable messages that persist on every operation poll. @OutputOnly
     * items `string`
 
-### OperationMetadataV1Beta5
-* OperationMetadataV1Beta5 `object`: Metadata for the given google.longrunning.Operation.
-  * endTime `string`: Timestamp that this operation completed.@OutputOnly
-  * insertTime `string`: Timestamp that this operation was created.@OutputOnly
-  * method `string`: API method name that initiated this operation. Example: google.appengine.v1beta5.Version.CreateVersion.@OutputOnly
-  * target `string`: Name of the resource that this operation is acting on. Example: apps/myapp/services/default.@OutputOnly
-  * user `string`: User who requested this operation.@OutputOnly
-
 ### ReadinessCheck
 * ReadinessCheck `object`: Readiness checking configuration for VM instances. Unhealthy instances are removed from traffic rotation.
+  * host `string`: Host header to send when performing a HTTP Readiness check. Example: "myapp.appspot.com"
   * appStartTimeout `string`: A maximum time limit on application initialization, measured from moment the application successfully replies to a healthcheck until it is ready to serve traffic.
   * checkInterval `string`: Interval between health checks.
   * failureThreshold `integer`: Number of consecutive failed checks required before removing traffic.
-  * host `string`: Host header to send when performing a HTTP Readiness check. Example: "myapp.appspot.com"
   * path `string`: The request path.
   * successThreshold `integer`: Number of consecutive successful checks required before receiving traffic.
   * timeout `string`: Time before the check is considered failed.
@@ -1724,12 +1649,13 @@ google_appengine.apps.repair({
 * ResourceRecord `object`: A DNS resource record.
   * name `string`: Relative name of the object affected by this record. Only applicable for CNAME records. Example: 'www'.
   * rrdata `string`: Data for this record. Values vary by record type, as defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1).
-  * type `string` (values: RECORD_TYPE_UNSPECIFIED, A, AAAA, CNAME): Resource record type. Example: AAAA.
+  * type `string` (values: A, AAAA, CNAME): Resource record type. Example: AAAA.
 
 ### Resources
 * Resources `object`: Machine resources for a version.
   * cpu `number`: Number of CPU cores needed.
   * diskGb `number`: Disk size (GB) needed.
+  * kmsKeyReference `string`: The name of the encryption key that is stored in Google Cloud KMS. Only should be used by Cloud Composer to encrypt the vm disk
   * memoryGb `number`: Memory (GB) needed.
   * volumes `array`: User specified volumes.
     * items [Volume](#volume)
@@ -1742,11 +1668,14 @@ google_appengine.apps.repair({
 * Service `object`: A Service resource is a logical component of an application that can share state and communicate in a secure fashion with other services. For example, an application that handles customer requests might include separate services to handle tasks such as backend data analysis or API requests from mobile devices. Each service has a collection of versions that define a specific set of code used to implement the functionality of that service.
   * id `string`: Relative name of the service within the application. Example: default.@OutputOnly
   * name `string`: Full path to the Service resource in the API. Example: apps/myapp/services/default.@OutputOnly
+  * networkSettings [NetworkSettings](#networksettings)
   * split [TrafficSplit](#trafficsplit)
 
 ### SslSettings
 * SslSettings `object`: SSL configuration for a DomainMapping resource.
-  * certificateId `string`: ID of the AuthorizedCertificate resource configuring SSL for the application. Clearing this field will remove SSL support. Example: 12345.
+  * certificateId `string`: ID of the AuthorizedCertificate resource configuring SSL for the application. Clearing this field will remove SSL support.By default, a managed certificate is automatically created for every domain mapping. To omit SSL support or to configure SSL manually, specify SslManagementType.MANUAL on a CREATE or UPDATE request. You must be authorized to administer the AuthorizedCertificate resource to manually map it to a DomainMapping resource. Example: 12345.
+  * pendingManagedCertificateId `string`: ID of the managed AuthorizedCertificate resource currently being provisioned, if applicable. Until the new managed certificate has been successfully provisioned, the previous SSL state will be preserved. Once the provisioning process completes, the certificate_id field will reflect the new managed certificate and this field will be left empty. To remove SSL support while there is still a pending managed certificate, clear the certificate_id field with an UpdateDomainMappingRequest.@OutputOnly
+  * sslManagementType `string` (values: AUTOMATIC, MANUAL): SSL management type for this domain. If AUTOMATIC, a managed certificate is automatically provisioned. If MANUAL, certificate_id must be manually specified in order to configure SSL for this domain.
 
 ### StandardSchedulerSettings
 * StandardSchedulerSettings `object`: Scheduler settings for standard environment.
@@ -1766,7 +1695,7 @@ google_appengine.apps.repair({
   * uploadPathRegex `string`: Regular expression that matches the file paths for all files that should be referenced by this handler.
 
 ### Status
-* Status `object`: The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). The error model is designed to be:
+* Status `object`: The Status type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by gRPC (https://github.com/grpc). Each Status message contains three pieces of data: error code, error message, and error details.You can find out more about this error model and how to work with it in the API Design Guide (https://cloud.google.com/apis/design/errors).
   * code `integer`: The status code, which should be an enum value of google.rpc.Code.
   * details `array`: A list of messages that carry the error details. There is a common set of message types for APIs to use.
     * items `object`
@@ -1787,7 +1716,7 @@ google_appengine.apps.repair({
 * UrlMap `object`: URL pattern and description of how the URL should be handled. App Engine can handle URLs by executing application code or by serving static files uploaded with the version, such as images, CSS, or JavaScript.
   * apiEndpoint [ApiEndpointHandler](#apiendpointhandler)
   * authFailAction `string` (values: AUTH_FAIL_ACTION_UNSPECIFIED, AUTH_FAIL_ACTION_REDIRECT, AUTH_FAIL_ACTION_UNAUTHORIZED): Action to take when users access resources that require authentication. Defaults to redirect.
-  * login `string` (values: LOGIN_UNSPECIFIED, LOGIN_OPTIONAL, LOGIN_ADMIN, LOGIN_REQUIRED): Level of login required to access this resource.
+  * login `string` (values: LOGIN_UNSPECIFIED, LOGIN_OPTIONAL, LOGIN_ADMIN, LOGIN_REQUIRED): Level of login required to access this resource. Not supported for Node.js in the App Engine standard environment.
   * redirectHttpResponseCode `string` (values: REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED, REDIRECT_HTTP_RESPONSE_CODE_301, REDIRECT_HTTP_RESPONSE_CODE_302, REDIRECT_HTTP_RESPONSE_CODE_303, REDIRECT_HTTP_RESPONSE_CODE_307): 30x code to use when performing redirects for the secure field. Defaults to 302.
   * script [ScriptHandler](#scripthandler)
   * securityLevel `string` (values: SECURE_UNSPECIFIED, SECURE_DEFAULT, SECURE_NEVER, SECURE_OPTIONAL, SECURE_ALWAYS): Security (HTTPS) enforcement for this URL.
@@ -1797,15 +1726,18 @@ google_appengine.apps.repair({
 ### Version
 * Version `object`: A Version resource is a specific set of source code and configuration files that are deployed into a service.
   * apiConfig [ApiConfigHandler](#apiconfighandler)
+  * appEngineApis `boolean`: app_engine_apis allows Second Generation runtimes to access the App Engine APIs.
   * automaticScaling [AutomaticScaling](#automaticscaling)
   * basicScaling [BasicScaling](#basicscaling)
   * betaSettings `object`: Metadata settings that are supplied to this version to enable beta runtime features.
+  * buildEnvVariables `object`: Environment variables available to the build environment.Only returned in GET requests if view=FULL is set.
   * createTime `string`: Time that this version was created.@OutputOnly
   * createdBy `string`: Email address of the user who created this version.@OutputOnly
-  * defaultExpiration `string`: Duration that static files should be cached by web proxies and browsers. Only applicable if the corresponding StaticFilesHandler (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#staticfileshandler) does not specify its own expiration time.Only returned in GET requests if view=FULL is set.
+  * defaultExpiration `string`: Duration that static files should be cached by web proxies and browsers. Only applicable if the corresponding StaticFilesHandler (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1beta/apps.services.versions#StaticFilesHandler) does not specify its own expiration time.Only returned in GET requests if view=FULL is set.
   * deployment [Deployment](#deployment)
   * diskUsageBytes `string`: Total size in bytes of all the files that are included in this version and currently hosted on the App Engine disk.@OutputOnly
   * endpointsApiService [EndpointsApiService](#endpointsapiservice)
+  * entrypoint [Entrypoint](#entrypoint)
   * env `string`: App Engine execution environment for this version.Defaults to standard.
   * envVariables `object`: Environment variables available to the application.Only returned in GET requests if view=FULL is set.
   * errorHandlers `array`: Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set.
@@ -1816,7 +1748,7 @@ google_appengine.apps.repair({
   * id `string`: Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any name with the prefix "ah-".
   * inboundServices `array`: Before an application can receive email or XMPP messages, the application must be configured to enable the service.
     * items `string` (values: INBOUND_SERVICE_UNSPECIFIED, INBOUND_SERVICE_MAIL, INBOUND_SERVICE_MAIL_BOUNCE, INBOUND_SERVICE_XMPP_ERROR, INBOUND_SERVICE_XMPP_MESSAGE, INBOUND_SERVICE_XMPP_SUBSCRIBE, INBOUND_SERVICE_XMPP_PRESENCE, INBOUND_SERVICE_CHANNEL_PRESENCE, INBOUND_SERVICE_WARMUP)
-  * instanceClass `string`: Instance class that is used to run this version. Valid values are:
+  * instanceClass `string`: Instance class that is used to run this version. Valid values are: AutomaticScaling: F1, F2, F4, F4_1G ManualScaling or BasicScaling: B1, B2, B4, B8, B4_1GDefaults to F1 for AutomaticScaling and B1 for ManualScaling or BasicScaling.
   * libraries `array`: Configuration for third-party Python runtime libraries that are required by the application.Only returned in GET requests if view=FULL is set.
     * items [Library](#library)
   * livenessCheck [LivenessCheck](#livenesscheck)
@@ -1827,13 +1759,15 @@ google_appengine.apps.repair({
   * readinessCheck [ReadinessCheck](#readinesscheck)
   * resources [Resources](#resources)
   * runtime `string`: Desired runtime. Example: python27.
-  * runtimeApiVersion `string`: The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at https://cloud.google.com/appengine/docs/standard/<language>/config/appref
+  * runtimeApiVersion `string`: The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at https://cloud.google.com/appengine/docs/standard//config/appref
   * runtimeChannel `string`: The channel of the runtime to use. Only available for some runtimes. Defaults to the default channel.
+  * runtimeMainExecutablePath `string`: The path or name of the app's main executable.
   * servingStatus `string` (values: SERVING_STATUS_UNSPECIFIED, SERVING, STOPPED): Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an invalid value. Defaults to SERVING.
   * threadsafe `boolean`: Whether multiple requests can be dispatched to this version at once.
   * versionUrl `string`: Serving URL for this version. Example: "https://myversion-dot-myservice-dot-myapp.appspot.com"@OutputOnly
   * vm `boolean`: Whether to deploy this version in a container on a virtual machine.
-  * zones `array`: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment.
+  * vpcAccessConnector [VpcAccessConnector](#vpcaccessconnector)
+  * zones `array`: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.
     * items `string`
 
 ### Volume
@@ -1842,9 +1776,13 @@ google_appengine.apps.repair({
   * sizeGb `number`: Volume size in gigabytes.
   * volumeType `string`: Underlying volume type, e.g. 'tmpfs'.
 
+### VpcAccessConnector
+* VpcAccessConnector `object`: VPC access connector specification.
+  * name `string`: Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
+
 ### ZipInfo
 * ZipInfo `object`: The zip file information for a zip deployment.
   * filesCount `integer`: An estimate of the number of files in a zip for a zip deployment. If set, must be greater than or equal to the actual number of files. Used for optimizing performance; if not provided, deployment may be slow.
-  * sourceUrl `string`: URL of the zip file to deploy from. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com/<bucket>/<object>'.
+  * sourceUrl `string`: URL of the zip file to deploy from. Must be a URL to a resource in Google Cloud Storage in the form 'http(s)://storage.googleapis.com//'.
 
 

@@ -11,9 +11,7 @@ let brex = require('@datafire/brex').create({
   user_key: ""
 });
 
-brex.api.v1.company.announcement.id.get({
-  "id": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

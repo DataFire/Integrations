@@ -1,6 +1,6 @@
 # @datafire/bbc
 
-Client library for BBC Nitro
+Client library for BBC Nitro API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let bbc = require('@datafire/bbc').create({
   api_key: ""
 });
 
-bbc.listVersions({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,12 +48,12 @@ bbc.listAvailability({}, context)
 * input `object`
   * sort `string` (values: scheduled_start): Sorts:
   * sort_direction `string` (values: ascending, descending): Sort direction
-  * availability `array` (values: available): filter for subset of availabilities
+  * availability `array`: filter for subset of availabilities
   * descendants_of `array`: filter for subset of availabilities that have PID as ancestor
   * media_set `array`: filter for subset of availabilities with media set
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
-  * territory `array` (values: uk, nonuk, world): filter for availabilities in given territory
+  * territory `array`: filter for availabilities in given territory
   * debug `boolean`: Turn on debug information (undocumented)
 
 #### Output
@@ -71,7 +71,7 @@ bbc.listBroadcasts({}, context)
 * input `object`
   * sort `string` (values: start_date): Sorts:
   * sort_direction `string` (values: ascending, descending): Sort direction
-  * mixin `array` (values: titles): Mixins:
+  * mixin `array`: Mixins:
   * authority `array`: filter for subset of broadcasts that have given authority
   * descendants_of `array`: filter for subset of broadcasts that are descendants of the given programme PID
   * end_from `string`: filter for subset of broadcasts that end on or later than the specified datetime
@@ -109,11 +109,11 @@ bbc.listGroups({}, context)
 * input `object`
   * sort `string` (values: pid): Sorts:
   * sort_direction `string` (values: descending): Sort direction
-  * mixin `array` (values: alternate_images, group_for, images, related_links): Mixins:
+  * mixin `array`: Mixins:
   * for_descendants_of `string`: filter for groups related to given programme or its descendants
   * for_programme `string`: filter for subset of groups directly related to a given programme
   * group `string`: filter for subset of groups which belong to the given group pid
-  * group_type `array` (values: collection, franchise, gallery, season): filter for subset of groups that have the given group type
+  * group_type `array`: filter for subset of groups that have the given group type
   * member `string`: filter for subset of groups which contain an entity with the given pid as a member
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
@@ -139,7 +139,7 @@ bbc.listImages({}, context)
   * sort `string` (values: group_position, pid): Sorts:
   * sort_direction `string` (values: ascending, descending): Sort direction
   * group `string`: filter for images belonging to the given group (i.e. Gallery)
-  * image_type `array` (values: standard, podcast, store, portrait, letterbox): filter for images by type
+  * image_type `array`: filter for images by type
   * is_alternate_image_for `string`: filter for alternate images by entity PID
   * is_image_for `string`: filter for images by entity PID
   * page `integer`: which page of results to return
@@ -165,11 +165,11 @@ bbc.listItems({}, context)
 * input `object`
   * sort `string` (values: pid): Sorts:
   * sort_direction `string` (values: descending): Sort direction
-  * mixin `array` (values: contributions, images, offset, play_event): Mixins:
+  * mixin `array`: Mixins:
   * authority `string`: filter for subset of items that have an ID issued by the given authority
   * id `array`: filter for subset of items having given ID
   * id_type `string`: filter for subset of items that have given an ID of the given type
-  * item_type `array` (values: chapter, highlight, music, speech, other): filter for specific type(s) of items
+  * item_type `array`: filter for specific type(s) of items
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
   * partner_id `array`: filter for items by partner ID
@@ -195,7 +195,7 @@ bbc.listMasterbrands({}, context)
 * input `object`
   * sort `string` (values: mid): Sorts:
   * sort_direction `string` (values: ascending): Sort direction
-  * mixin `array` (values: images): Mixins:
+  * mixin `array`: Mixins:
   * mid `array`: filter for subset of masterbrands that have given identifier
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
@@ -217,7 +217,7 @@ bbc.listPeople({}, context)
 #### Input
 * input `object`
   * authority `string`: filter for subset of people that have an ID issued by the given authority
-  * has_external_id `array` (values: true, false): filter for people who have an external identifier
+  * has_external_id `array`: filter for people who have an external identifier
   * id `array`: filter for subset of people having given ID
   * id_type `string`: filter for subset of people that have given an ID of the given type
   * page `integer`: which page of results to return
@@ -278,16 +278,16 @@ bbc.listProgrammes({}, context)
 * input `object`
   * sort `string` (values: group_position, pid, position, promotion, release_date, relevance, scheduled_start, strict_title, title, tree): Sorts:
   * sort_direction `string` (values: ascending, descending): Sort direction
-  * mixin `array` (values: alternate_images, ancestor_titles, availability, available_simulcasts, available_versions, available_webcasts, contributions, duration, genre_groupings, genre_groups, images, is_embeddable, previous_next, programme_type, related_links, titles, versions_availability): Mixins:
-  * audio_described `array` (values: true, false): filter for subset of programmes that are audio-described
-  * availability `array` (values: available, pending): filter for subset of programmes that have availability
-  * availability_entity_type `array` (values: episode, clip): additional filter when availability=available
+  * mixin `array`: Mixins:
+  * audio_described `array`: filter for subset of programmes that are audio-described
+  * availability `array`: filter for subset of programmes that have availability
+  * availability_entity_type `array`: additional filter when availability=available
   * availability_from `string`: filter for subset of programmes that are available after or at the specified datetime
-  * availability_type `array` (values: ondemand, webcast, simulcast): filter for a subset of programmes that are available for a given type
+  * availability_type `array`: filter for a subset of programmes that are available for a given type
   * children_of `array`: filter for subset of programmes that have PID as immediate parent
   * descendants_of `array`: filter for subset of programmes that have PID as ancestor
-  * duration `array` (values: short, medium, long): filter for subset of programmes that have given duration
-  * entity_type `array` (values: brand, series, episode, clip): filter for subset of programmes that have given entity type
+  * duration `array`: filter for subset of programmes that have given duration
+  * entity_type `array`: filter for subset of programmes that have given entity type
   * format `array`: filter for subset of programmes with format
   * genre `array`: filter for subset of programmes with genre
   * group `string`: filter for subset of programmes which belong to the given group pid
@@ -298,20 +298,20 @@ bbc.listProgrammes({}, context)
   * item `array`: filter for subset of programmes with linked to versions which have the given item pids
   * master_brand `array`: filter for subset of programmes with master_brand
   * media_set `string`: filter for subset of programmes with media set
-  * media_type `array` (values: audio, audio_video): filter for subset of programmes with media type
+  * media_type `array`: filter for subset of programmes with media type
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
   * partner_id `array`: filter for programmes by partner ID
   * partner_pid `array`: filter for programmes by partner PID
-  * payment_type `array` (values: free, bbcstore, uscansvod): filter for a subset of programmes that are of the given payment_type
+  * payment_type `array`: filter for a subset of programmes that are of the given payment_type
   * people `string`: filter for subset of programmes with contributions by given people PID
   * pid `array`: filter for subset of programmes having given PID
   * promoted_for `string`: filter for subset of programmes which are promoted for given service
   * q `string`: filter for subset of programmes matching supplied keyword/phrase (boolean operators permitted)
-  * signed `array` (values: exclusive, inclusive, exclude): filter for subset of programmes that are signed
+  * signed `array`: filter for subset of programmes that are signed
   * tag_name `string`: filter for subset of programmes with tag
   * tag_scheme `string`: filter for subset of programmes with a tag
-  * tleo `array` (values: true, false): filter for subset of programmes that are TLEOs
+  * tleo `array`: filter for subset of programmes that are TLEOs
   * version `array`: filter for subset of programmes with given PID as one of their versions
   * embargoed `string` (values: include, exclude, only): Control return of embargoed items (undocumented)
 
@@ -328,7 +328,7 @@ bbc.listPromotions({}, context)
 
 #### Input
 * input `object`
-  * mixin `array` (values: related_links): Mixins:
+  * mixin `array`: Mixins:
   * context `string`: filter for subset of promotions belonging to a given context
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
@@ -338,7 +338,7 @@ bbc.listPromotions({}, context)
   * promoted_by `array`: filter for subset of promotions having given promoted by
   * promoted_for `array`: filter for subset of promotions having given promoted for
   * q `string`: filter for subset of promotions matching supplied keyword/phrase (boolean operators permitted)
-  * status `array` (values: current): filter for subset of promotions with status
+  * status `array`: filter for subset of promotions with status
 
 #### Output
 * output [nitro](#nitro)
@@ -355,7 +355,7 @@ bbc.listSchedules({}, context)
 * input `object`
   * sort `string` (values: start_date): Sorts:
   * sort_direction `string` (values: ascending, descending): Sort direction
-  * mixin `array` (values: ancestor_titles, images, titles): Mixins:
+  * mixin `array`: Mixins:
   * authority `array`: filter for subset of broadcasts and webcasts that have given authority
   * descendants_of `array`: filter for subset of broadcasts and webcasts that are descendants of the given programme PID
   * end_from `string`: filter for subset of broadcasts and webcasts that end on or later than the specified datetime
@@ -418,7 +418,7 @@ bbc.listServices({}, context)
   * partner_id `array`: filter for services by partner ID
   * partner_pid `array`: filter for services by partner PID
   * q `string`: filter for subset of services matching supplied keyword/phrase (boolean operators permitted)
-  * service_type `array` (values: Interactive, Local Radio, Master Brand Only, National Radio, On Demand, Regional Radio, Simulcast, TV, Web Only, Webcast): filter for specified type of linear services
+  * service_type `array`: filter for specified type of linear services
   * sid `array`: filter for specified linear service
   * start_from `string`: Return services that start on or later than the specified datetime
   * start_to `string`: Return services that start earlier than the specified datetime
@@ -589,14 +589,14 @@ bbc.listVersions({}, context)
 
 #### Input
 * input `object`
-  * availability `array` (values: available): filter for subset of versions that have availability
+  * availability `array`: filter for subset of versions that have availability
   * descendants_of `array`: filter for subset of versions having given programme PID
   * media_set `array`: filter for subset of versions with availability in the given media set
   * page `integer`: which page of results to return
   * page_size `integer`: number of results in each page
   * partner_id `array`: filter for versions by partner ID
   * partner_pid `array`: filter for versions by partner PID
-  * payment_type `array` (values: free, bbcstore, uscansvod): filter for a subset of versions that are of the given payment_type
+  * payment_type `array`: filter for a subset of versions that are of the given payment_type
   * pid `array`: filter for subset of versions having given PID
   * embargoed `string` (values: include, exclude, only): Control return of embargoed items (undocumented)
 
@@ -644,10 +644,6 @@ bbc.listVersions({}, context)
       * items `object`
         * alternate_images **required** `object`
           * alternate_image `array`
-            * items `object`
-              * href `string`
-              * template_url **required** `string`
-              * type `string`
         * href `string`
         * template_url **required** `string`
         * type `string`
@@ -739,28 +735,6 @@ bbc.listVersions({}, context)
       * version_types **required** `object`
         * version_type **required** `array`
           * items `object`
-            * end `string`
-            * id `string`
-            * start `string`
-            * version_type **required** `array`
-              * items `object`
-                * availability `array`
-                  * items `object`
-                    * status **required** [status](#status)
-                    * version_types **required** `object`
-                      * version_type **required** `array`
-                        * items `object`
-                          * end `string`
-                          * id `string`
-                          * start `string`
-                          * version_type **required** `array`
-                            * items `object`
-                              * end `string`
-                              * id `string`
-                              * start `string`
-                * end `string`
-                * id `string`
-                * start `string`
 
 ### availability_of
 * availability_of `object`
@@ -780,8 +754,6 @@ bbc.listVersions({}, context)
         * #text `string`
         * media_sets `object`
           * media_set **required** `array`
-            * items `object`
-              * #text `string`
 
 ### available_mixins
 * available_mixins `object`
@@ -836,7 +808,6 @@ bbc.listVersions({}, context)
       * types **required** `array`
         * items `object`
           * type `array`
-            * items `string`
       * version `array`
         * items `object`
           * available_mixins [available_mixins](#available_mixins)
@@ -845,9 +816,6 @@ bbc.listVersions({}, context)
           * guidance_warnings [guidance_warnings](#guidance_warnings)
           * pid [pid](#pid)
           * types **required** `array`
-            * items `object`
-              * type `array`
-                * items `string`
 
 ### available_versions_media_sets
 * available_versions_media_sets `object`
@@ -858,15 +826,7 @@ bbc.listVersions({}, context)
         * name **required** `string`
         * territories `object`
           * media_sets `object`
-            * media_set **required** `array`
-              * items `object`
-                * actual_start `string`
-                * name **required** `string`
-                * territories `object`
-                  * territory `array`
-                    * items `string`
           * territory `array`
-            * items `string`
 
 ### available_webcasts
 * available_webcasts `object`
@@ -1416,8 +1376,6 @@ bbc.listVersions({}, context)
         * image `object`
           * href `string`
           * inherited_from `object`
-            * href `string`
-            * result_type `string`
           * template_url **required** `string`
           * type `string`
       * inherited_from `object`
@@ -2031,8 +1989,6 @@ bbc.listVersions({}, context)
         * id `string`
         * types **required** `object`
           * type **required** `array`
-            * items `object`
-              * id `string`
 
 ### unstable_filters
 * unstable_filters `object`
@@ -2081,7 +2037,6 @@ bbc.listVersions({}, context)
       * availabilities `array`
         * items `object`
           * version_availability **required** `array`
-            * items [version_availability](#version_availability)
       * competition_warning `string`
       * duration `string`
       * guidance_warnings [guidance_warnings](#guidance_warnings)
@@ -2089,21 +2044,14 @@ bbc.listVersions({}, context)
       * types **required** `array`
         * items `object`
           * type `array`
-            * items `string`
       * version `array`
         * items `object`
           * availabilities `array`
-            * items `object`
-              * version_availability **required** `array`
-                * items [version_availability](#version_availability)
           * competition_warning `string`
           * duration `string`
           * guidance_warnings [guidance_warnings](#guidance_warnings)
           * pid [pid](#pid)
           * types **required** `array`
-            * items `object`
-              * type `array`
-                * items `string`
 
 ### version_group
 * version_group `object`
@@ -2143,8 +2091,6 @@ bbc.listVersions({}, context)
         * id `string`
         * version_types **required** `object`
           * version_type **required** `array`
-            * items `object`
-              * id `string`
 
 ### versions
 * versions `object`

@@ -7,7 +7,7 @@
   "info": {
     "description": "The HDInsight Management Client.",
     "title": "HDInsightManagementClient",
-    "version": "2015-03-01-preview",
+    "version": "2018-06-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/preview/2015-03-01-preview/scriptActions.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/scriptActions.json",
         "version": "2.0"
       }
     ],
@@ -65,6 +65,38 @@
       "required": true,
       "type": "string"
     },
+    "ClusterNameParameter": {
+      "description": "The name of the cluster.",
+      "in": "path",
+      "name": "clusterName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "description": "The name of the resource group.",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptExecutionIdParameter": {
+      "description": "The script execution Id",
+      "in": "path",
+      "name": "scriptExecutionId",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptNameParameter": {
+      "description": "The name of the script.",
+      "in": "path",
+      "name": "scriptName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "SubscriptionIdParameter": {
       "description": "The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
       "in": "path",
@@ -80,18 +112,16 @@
         "operationId": "Clusters_ExecuteScriptActions",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "description": "The parameters for executing script actions.",
@@ -148,12 +178,6 @@
                 "persistOnSuccess"
               ]
             }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -162,6 +186,23 @@
           },
           "202": {
             "description": "OK response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -170,7 +211,7 @@
         "x-ms-examples": {
           "Execute script action on HDInsight cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "parameters": {
                 "persistOnSuccess": false,
@@ -205,27 +246,19 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptActions": {
       "get": {
         "description": "Lists all the persisted script actions for the specified cluster.",
-        "operationId": "ScriptActions_ListPersistedScripts",
+        "operationId": "ScriptActions_ListByCluster",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -233,6 +266,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/ScriptActionsList"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -242,7 +292,7 @@
         "x-ms-examples": {
           "List all persisted script actions for the given cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
@@ -277,36 +327,41 @@
         "operationId": "ScriptActions_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The name of the script.",
-            "in": "path",
-            "name": "scriptName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ScriptNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "OK response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -315,7 +370,7 @@
         "x-ms-examples": {
           "Delete a script action on HDInsight cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "scriptName": "scriptName",
@@ -331,27 +386,19 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/scriptExecutionHistory": {
       "get": {
         "description": "Lists all scripts' execution history for the specified cluster.",
-        "operationId": "ScriptExecutionHistory_List",
+        "operationId": "ScriptExecutionHistory_ListByCluster",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -359,6 +406,23 @@
             "description": "OK response definition.",
             "schema": {
               "$ref": "#/definitions/ScriptActionExecutionHistoryList"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
           }
         },
@@ -368,7 +432,7 @@
         "x-ms-examples": {
           "Get Script Execution History List": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "scriptExecutionId": "391145124054712",
@@ -427,31 +491,19 @@
         "operationId": "ScriptActions_GetExecutionDetail",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The script execution Id",
-            "in": "path",
-            "name": "scriptExecutionId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ScriptExecutionIdParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -552,6 +604,23 @@
               ],
               "description": "The execution details of a script action."
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -560,7 +629,7 @@
         "x-ms-examples": {
           "Get script execution history by script id": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "scriptExecutionId": "391145124054712",
@@ -597,37 +666,41 @@
         "operationId": "ScriptExecutionHistory_Promote",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The name of the cluster.",
-            "in": "path",
-            "name": "clusterName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "The script execution ID.",
-            "format": "int64",
-            "in": "path",
-            "name": "scriptExecutionId",
-            "required": true,
-            "type": "integer"
+            "$ref": "#/parameters/ClusterNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ScriptExecutionIdParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "OK response definition."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Describes the format of Error response.",
+              "properties": {
+                "code": {
+                  "description": "Error code",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": [
@@ -636,7 +709,7 @@
         "x-ms-examples": {
           "Promote a script action on HDInsight cluster": {
             "parameters": {
-              "api-version": "2015-03-01-preview",
+              "api-version": "2018-06-01-preview",
               "clusterName": "cluster1",
               "resourceGroupName": "rg1",
               "scriptExecutionId": "391145124054712",

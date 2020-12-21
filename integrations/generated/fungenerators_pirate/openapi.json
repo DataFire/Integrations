@@ -1,0 +1,215 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "Fun Generators",
+      "url": "http://fungenerators.com/api/pirate/"
+    },
+    "description": "Ahoy matey! We help the landlubbers to get to know about the seamen way! You can generate pirate names, get some real pirate insults and pirate filler text. Oh you can translate to pirate lingo as well. [Click here to subscribe](http://fungenerators.com/api/pirate/) \n",
+    "termsOfService": "https://fungenerators.com/terms",
+    "title": "Pirates API",
+    "version": "1.5",
+    "x-apisguru-categories": [
+      "text"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://fungenerators.com/yaml/pirate.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "fungenerators.com",
+    "x-serviceName": "pirate",
+    "x-datafire": {
+      "name": "fungenerators_pirate",
+      "type": "openapi"
+    }
+  },
+  "host": "api.fungenerators.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/pirate/generate/insult": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "No of insults to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate random pirate insults."
+      }
+    },
+    "/pirate/generate/lorem-ipsum": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Type of element to generate `paragraphs/sentences/words`.",
+            "format": "string",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "No of elements to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate pirate lorem ipsum."
+      }
+    },
+    "/pirate/generate/name": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Variation to generate `male/female`.",
+            "format": "string",
+            "in": "query",
+            "name": "variation",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "No of names to generate",
+            "format": "integer",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Generation"
+        ],
+        "description": "Generate random pirate names."
+      }
+    },
+    "/pirate/translate": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Text to translate to pirate lingo.",
+            "format": "string",
+            "in": "query",
+            "name": "text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200  response"
+          },
+          "401": {
+            "description": "401  response"
+          }
+        },
+        "security": [
+          {
+            "X-Fungenerators-Api-Secret": []
+          }
+        ],
+        "tags": [
+          "Translation"
+        ],
+        "description": "Translate from English to pirate."
+      }
+    }
+  },
+  "securityDefinitions": {
+    "X-Fungenerators-Api-Secret": {
+      "in": "header",
+      "name": "X-Fungenerators-Api-Secret",
+      "type": "apiKey"
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/pirate/"
+      },
+      "description": "Generate names, insults, lorem ipsum etc",
+      "name": "Generation"
+    },
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://fungenerators.com/api/pirate/"
+      },
+      "description": "Translate to pirate lingo",
+      "name": "Translation"
+    }
+  ],
+  "x-components": {}
+}

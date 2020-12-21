@@ -15,13 +15,7 @@ let azure_cdn = require('@datafire/azure_cdn').create({
   redirect_uri: ""
 });
 
-azure_cdn.CheckNameAvailability({
-  "checkNameAvailabilityInput": {
-    "name": "",
-    "type": ""
-  },
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -87,6 +81,30 @@ azure_cdn.Operations_List({
 
 #### Output
 * output [OperationsListResult](#operationslistresult)
+
+### CheckNameAvailabilityWithSubscription
+Check the availability of a resource name. This is needed for resources where name is globally unique, such as a CDN endpoint.
+
+
+```js
+azure_cdn.CheckNameAvailabilityWithSubscription({
+  "checkNameAvailabilityInput": {
+    "name": "",
+    "type": ""
+  },
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * checkNameAvailabilityInput **required** [CheckNameAvailabilityInput](#checknameavailabilityinput)
+  * subscriptionId **required** `string`: Azure Subscription ID.
+  * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-02.
+
+#### Output
+* output [CheckNameAvailabilityOutput](#checknameavailabilityoutput)
 
 ### ResourceUsage_List
 Check the quota and actual usage of the CDN profiles under the given subscription.
@@ -496,7 +514,7 @@ azure_cdn.CustomDomains_Delete({
 *Output schema unknown*
 
 ### CustomDomains_Get
-Gets an exisitng custom domain within an endpoint.
+Gets an existing custom domain within an endpoint.
 
 
 ```js
@@ -599,6 +617,7 @@ azure_cdn.CustomDomains_EnableCustomHttps({
   * profileName **required** `string`: Name of the CDN profile which is unique within the resource group.
   * endpointName **required** `string`: Name of the endpoint under the profile which is unique globally.
   * customDomainName **required** `string`: Name of the custom domain within an endpoint.
+  * customDomainHttpsParameters [CustomDomainHttpsParameters](#customdomainhttpsparameters)
   * subscriptionId **required** `string`: Azure Subscription ID.
   * api-version **required** `string`: Version of the API to be used with the client request. Current version is 2017-04-02.
 
@@ -824,7 +843,7 @@ azure_cdn.Endpoints_ValidateCustomDomain({
 * output [ValidateCustomDomainOutput](#validatecustomdomainoutput)
 
 ### Profiles_GenerateSsoUri
-Generates a dynamic SSO URI used to sign in to the CDN supplemental portal. Supplemnetal portal is used to configure advanced feature capabilities that are not yet available in the Azure portal, such as core reports in a standard profile; rules engine, advanced HTTP reports, and real-time stats and alerts in a premium profile. The SSO URI changes approximately every 10 minutes.
+Generates a dynamic SSO URI used to sign in to the CDN supplemental portal. Supplemental portal is used to configure advanced feature capabilities that are not yet available in the Azure portal, such as core reports in a standard profile; rules engine, advanced HTTP reports, and real-time stats and alerts in a premium profile. The SSO URI changes approximately every 10 minutes.
 
 
 ```js
@@ -873,6 +892,31 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 
 ## Definitions
 
+### CacheExpirationActionParameters
+* CacheExpirationActionParameters `object`: Defines the parameters for the cache expiration action.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters)
+  * cacheBehavior **required** `string` (values: BypassCache, Override, SetIfMissing): Caching behavior for the requests
+  * cacheDuration `string`: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+  * cacheType **required** `string` (values: All): The level at which the content needs to be cached.
+
+### CacheKeyQueryStringActionParameters
+* CacheKeyQueryStringActionParameters `object`: Defines the parameters for the cache-key query string action.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleCacheKeyQueryStringBehaviorActionParameters)
+  * queryParameters `string`: query parameters to include or exclude (comma separated).
+  * queryStringBehavior **required** `string` (values: Include, IncludeAll, Exclude, ExcludeAll): Caching behavior for the requests
+
+### CdnCertificateSourceParameters
+* CdnCertificateSourceParameters `object`: Defines the parameters for using CDN managed certificate for securing custom domain.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.CdnCertificateSourceParameters)
+  * certificateType **required** `string` (values: Shared, Dedicated): Type of certificate used
+
+### CdnManagedHttpsParameters
+* CdnManagedHttpsParameters `object`: Defines the certificate source parameters using CDN managed certificate for enabling SSL.
+  * certificateSourceParameters **required** [CdnCertificateSourceParameters](#cdncertificatesourceparameters)
+  * certificateSource **required** `string` (values: AzureKeyVault, Cdn): Defines the source of the SSL certificate.
+  * minimumTlsVersion `string` (values: None, TLS10, TLS12): TLS protocol version that will be used for Https
+  * protocolType **required** `string` (values: ServerNameIndication, IPBased): Defines the TLS extension protocol that is used for secure delivery.
+
 ### CheckNameAvailabilityInput
 * CheckNameAvailabilityInput `object`: Input of CheckNameAvailability API.
   * name **required** `string`: The resource name to validate.
@@ -884,12 +928,29 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * nameAvailable `boolean`: Indicates whether the name is available.
   * reason `string`: The reason why the name is not available.
 
+### CookiesMatchConditionParameters
+* CookiesMatchConditionParameters `object`: Defines the parameters for Cookies match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * selector **required** `string`: Name of Cookies to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
 ### CustomDomain
-* CustomDomain `object`: Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.consoto.com.
+* CustomDomain `object`: Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
   * properties [CustomDomainProperties](#customdomainproperties)
   * id `string`: Resource ID.
   * name `string`: Resource name.
   * type `string`: Resource type.
+
+### CustomDomainHttpsParameters
+* CustomDomainHttpsParameters `object`: The JSON object that contains the properties to secure a custom domain.
+  * certificateSource **required** `string` (values: AzureKeyVault, Cdn): Defines the source of the SSL certificate.
+  * minimumTlsVersion `string` (values: None, TLS10, TLS12): TLS protocol version that will be used for Https
+  * protocolType **required** `string` (values: ServerNameIndication, IPBased): Defines the TLS extension protocol that is used for secure delivery.
 
 ### CustomDomainListResult
 * CustomDomainListResult `object`: Result of the request to list custom domains. It contains a list of custom domain objects and a URL link to get the next set of results.
@@ -903,6 +964,7 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 
 ### CustomDomainProperties
 * CustomDomainProperties `object`: The JSON object that contains the properties of the custom domain to create.
+  * customHttpsParameters [CustomDomainHttpsParameters](#customdomainhttpsparameters)
   * customHttpsProvisioningState `string` (values: Enabling, Enabled, Disabling, Disabled, Failed): Provisioning status of Custom Https of the custom domain.
   * customHttpsProvisioningSubstate `string` (values: SubmittingDomainControlValidationRequest, PendingDomainControlValidationREquestApproval, DomainControlValidationRequestApproved, DomainControlValidationRequestRejected, DomainControlValidationRequestTimedOut, IssuingCertificate, DeployingCertificate, CertificateDeployed, DeletingCertificate, CertificateDeleted): Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
   * hostName **required** `string`: The host name of the custom domain. Must be a domain name.
@@ -924,6 +986,113 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * hostName **required** `string`: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
   * httpPort `integer`: The value of the HTTP port. Must be between 1 and 65535
   * httpsPort `integer`: The value of the HTTPS port. Must be between 1 and 65535
+
+### DeliveryRule
+* DeliveryRule `object`: A rule that specifies a set of actions and conditions
+  * actions **required** `array`: A list of actions that are executed when all the conditions of a rule are satisfied.
+    * items [DeliveryRuleAction](#deliveryruleaction)
+  * conditions `array`: A list of conditions that must be matched for the actions to be executed
+    * items [DeliveryRuleCondition](#deliveryrulecondition)
+  * name `string`: Name of the rule
+  * order **required** `integer`: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+
+### DeliveryRuleAction
+* DeliveryRuleAction `object`: An action for the delivery rule.
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### DeliveryRuleCacheExpirationAction
+* DeliveryRuleCacheExpirationAction `object`: Defines the cache expiration action for the delivery rule.
+  * parameters **required** [CacheExpirationActionParameters](#cacheexpirationactionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### DeliveryRuleCacheKeyQueryStringAction
+* DeliveryRuleCacheKeyQueryStringAction `object`: Defines the cache-key query string action for the delivery rule.
+  * parameters **required** [CacheKeyQueryStringActionParameters](#cachekeyquerystringactionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### DeliveryRuleCondition
+* DeliveryRuleCondition `object`: A condition for the delivery rule.
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleCookiesCondition
+* DeliveryRuleCookiesCondition `object`: Defines the Cookies condition for the delivery rule.
+  * parameters **required** [CookiesMatchConditionParameters](#cookiesmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleHttpVersionCondition
+* DeliveryRuleHttpVersionCondition `object`: Defines the HttpVersion condition for the delivery rule.
+  * parameters **required** [HttpVersionMatchConditionParameters](#httpversionmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleIsDeviceCondition
+* DeliveryRuleIsDeviceCondition `object`: Defines the IsDevice condition for the delivery rule.
+  * parameters **required** [IsDeviceMatchConditionParameters](#isdevicematchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRulePostArgsCondition
+* DeliveryRulePostArgsCondition `object`: Defines the PostArgs condition for the delivery rule.
+  * parameters **required** [PostArgsMatchConditionParameters](#postargsmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleQueryStringCondition
+* DeliveryRuleQueryStringCondition `object`: Defines the QueryString condition for the delivery rule.
+  * parameters **required** [QueryStringMatchConditionParameters](#querystringmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRemoteAddressCondition
+* DeliveryRuleRemoteAddressCondition `object`: Defines the RemoteAddress condition for the delivery rule.
+  * parameters **required** [RemoteAddressMatchConditionParameters](#remoteaddressmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRequestBodyCondition
+* DeliveryRuleRequestBodyCondition `object`: Defines the RequestBody condition for the delivery rule.
+  * parameters **required** [RequestBodyMatchConditionParameters](#requestbodymatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRequestHeaderAction
+* DeliveryRuleRequestHeaderAction `object`: Defines the request header action for the delivery rule.
+  * parameters **required** [HeaderActionParameters](#headeractionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### DeliveryRuleRequestHeaderCondition
+* DeliveryRuleRequestHeaderCondition `object`: Defines the RequestHeader condition for the delivery rule.
+  * parameters **required** [RequestHeaderMatchConditionParameters](#requestheadermatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRequestMethodCondition
+* DeliveryRuleRequestMethodCondition `object`: Defines the RequestMethod condition for the delivery rule.
+  * parameters **required** [RequestMethodMatchConditionParameters](#requestmethodmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRequestSchemeCondition
+* DeliveryRuleRequestSchemeCondition `object`: Defines the RequestScheme condition for the delivery rule.
+  * parameters **required** [RequestSchemeMatchConditionParameters](#requestschemematchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleRequestUriCondition
+* DeliveryRuleRequestUriCondition `object`: Defines the RequestUri condition for the delivery rule.
+  * parameters **required** [RequestUriMatchConditionParameters](#requesturimatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleResponseHeaderAction
+* DeliveryRuleResponseHeaderAction `object`: Defines the response header action for the delivery rule.
+  * parameters **required** [HeaderActionParameters](#headeractionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### DeliveryRuleUrlFileExtensionCondition
+* DeliveryRuleUrlFileExtensionCondition `object`: Defines the UrlFileExtension condition for the delivery rule.
+  * parameters **required** [UrlFileExtensionMatchConditionParameters](#urlfileextensionmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleUrlFileNameCondition
+* DeliveryRuleUrlFileNameCondition `object`: Defines the UrlFileName condition for the delivery rule.
+  * parameters **required** [UrlFileNameMatchConditionParameters](#urlfilenamematchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
+
+### DeliveryRuleUrlPathCondition
+* DeliveryRuleUrlPathCondition `object`: Defines the UrlPath condition for the delivery rule.
+  * parameters **required** [UrlPathMatchConditionParameters](#urlpathmatchconditionparameters)
+  * name **required** `string` (values: RemoteAddress, RequestMethod, QueryString, PostArgs, RequestUri, RequestHeader, RequestBody, RequestScheme, UrlPath, UrlFileExtension, UrlFileName, HttpVersion, Cookies, IsDevice): The name of the condition for the delivery rule.
 
 ### EdgeNode
 * EdgeNode `object`: Edgenode is a global Point of Presence (POP) location used to deliver CDN content to end users.
@@ -953,45 +1122,57 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * type `string`: Resource type.
 
 ### EndpointListResult
-* EndpointListResult `object`: Result of the request to list endpoints. It contains a list of endpoint objects and a URL link to get the the next set of results.
+* EndpointListResult `object`: Result of the request to list endpoints. It contains a list of endpoint objects and a URL link to get the next set of results.
   * nextLink `string`: URL to get the next set of endpoint objects if there is any.
   * value `array`: List of CDN endpoints within a profile
     * items [Endpoint](#endpoint)
 
 ### EndpointProperties
 * EndpointProperties `object`: The JSON object that contains the properties required to create an endpoint.
-  * hostName `string`: The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. consoto.azureedge.net
+  * hostName `string`: The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
   * origins **required** `array`: The source of the content being delivered via CDN.
     * items [DeepCreatedOrigin](#deepcreatedorigin)
   * provisioningState `string`: Provisioning status of the endpoint.
   * resourceState `string` (values: Creating, Deleting, Running, Starting, Stopped, Stopping): Resource status of the endpoint.
   * contentTypesToCompress `array`: List of content types on which compression applies. The value should be a valid MIME type.
     * items `string`
-  * geoFilters `array`: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an acess rule to a specified path or content, e.g. block APAC for path /pictures/
+  * deliveryPolicy `object`: A policy that specifies the delivery rules to be used for an endpoint.
+    * description `string`: User-friendly description of the policy.
+    * rules **required** `array`: A list of the delivery rules.
+      * items [DeliveryRule](#deliveryrule)
+  * geoFilters `array`: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
     * items [GeoFilter](#geofilter)
   * isCompressionEnabled `boolean`: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
   * isHttpAllowed `boolean`: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
   * isHttpsAllowed `boolean`: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
   * optimizationType [OptimizationType](#optimizationtype)
   * originHostHeader `string`: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-  * originPath `string`: A directory path on the origin that CDN can use to retreive content from, e.g. contoso.cloudapp.net/originpath.
+  * originPath `string`: A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
   * probePath `string`: Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
   * queryStringCachingBehavior [QueryStringCachingBehavior](#querystringcachingbehavior)
+  * webApplicationFirewallPolicyLink `object`: Defines the Web Application Firewall policy for the endpoint (if applicable)
+    * id `string`: Resource ID.
 
 ### EndpointPropertiesUpdateParameters
 * EndpointPropertiesUpdateParameters `object`: The JSON object containing endpoint update parameters.
   * contentTypesToCompress `array`: List of content types on which compression applies. The value should be a valid MIME type.
     * items `string`
-  * geoFilters `array`: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an acess rule to a specified path or content, e.g. block APAC for path /pictures/
+  * deliveryPolicy `object`: A policy that specifies the delivery rules to be used for an endpoint.
+    * description `string`: User-friendly description of the policy.
+    * rules **required** `array`: A list of the delivery rules.
+      * items [DeliveryRule](#deliveryrule)
+  * geoFilters `array`: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
     * items [GeoFilter](#geofilter)
   * isCompressionEnabled `boolean`: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
   * isHttpAllowed `boolean`: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
   * isHttpsAllowed `boolean`: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
   * optimizationType [OptimizationType](#optimizationtype)
   * originHostHeader `string`: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-  * originPath `string`: A directory path on the origin that CDN can use to retreive content from, e.g. contoso.cloudapp.net/originpath.
+  * originPath `string`: A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
   * probePath `string`: Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
   * queryStringCachingBehavior [QueryStringCachingBehavior](#querystringcachingbehavior)
+  * webApplicationFirewallPolicyLink `object`: Defines the Web Application Firewall policy for the endpoint (if applicable)
+    * id `string`: Resource ID.
 
 ### EndpointUpdateParameters
 * EndpointUpdateParameters `object`: Properties required to create or update an endpoint.
@@ -999,7 +1180,7 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * tags `object`: Endpoint tags.
 
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates CDN service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates CDN service is not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 
@@ -1010,6 +1191,21 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
     * items `string`
   * relativePath **required** `string`: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
 
+### HeaderActionParameters
+* HeaderActionParameters `object`: Defines the parameters for the request header action.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters)
+  * headerAction **required** `string` (values: Append, Overwrite, Delete): Action to perform
+  * headerName **required** `string`: Name of the header to modify
+  * value `string`: Value for the specified action
+
+### HttpVersionMatchConditionParameters
+* HttpVersionMatchConditionParameters `object`: Defines the parameters for HttpVersion match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Equal): Describes operator to be matched
+
 ### IpAddressGroup
 * IpAddressGroup `object`: CDN Ip address group
   * deliveryRegion `string`: The delivery region of the ip address group
@@ -1017,6 +1213,27 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
     * items [cidrIpAddress](#cidripaddress)
   * ipv6Addresses `array`: The list of ip v6 addresses.
     * items [cidrIpAddress](#cidripaddress)
+
+### IsDeviceMatchConditionParameters
+* IsDeviceMatchConditionParameters `object`: Defines the parameters for IsDevice match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string` (values: Mobile, Desktop)
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Equal): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### KeyVaultCertificateSourceParameters
+* KeyVaultCertificateSourceParameters `object`: Describes the parameters for using a user's KeyVault certificate for securing custom domain.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.KeyVaultCertificateSourceParameters)
+  * deleteRule **required** `string` (values: NoAction): Describes the action that shall be taken when the certificate is removed from Key Vault.
+  * resourceGroupName **required** `string`: Resource group of the user's Key Vault containing the SSL certificate
+  * secretName **required** `string`: The name of Key Vault Secret (representing the full certificate PFX) in Key Vault.
+  * secretVersion **required** `string`: The version(GUID) of Key Vault Secret in Key Vault.
+  * subscriptionId **required** `string`: Subscription Id of the user's Key Vault containing the SSL certificate
+  * updateRule **required** `string` (values: NoAction): Describes the action that shall be taken when the certificate is updated in Key Vault.
+  * vaultName **required** `string`: The name of the user's Key Vault containing the SSL certificate
 
 ### LoadParameters
 * LoadParameters `object`: Parameters required for content load.
@@ -1073,6 +1290,17 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 * OriginUpdateParameters `object`: Origin properties needed for origin creation or update.
   * properties [OriginPropertiesParameters](#originpropertiesparameters)
 
+### PostArgsMatchConditionParameters
+* PostArgsMatchConditionParameters `object`: Defines the parameters for PostArgs match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * selector **required** `string`: Name of PostArg to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
 ### Profile
 * Profile `object`: CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
   * properties [ProfileProperties](#profileproperties)
@@ -1084,7 +1312,7 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * type `string`: Resource type.
 
 ### ProfileListResult
-* ProfileListResult `object`: Result of the request to list profiles. It contains a list of profile objects and a URL link to get the the next set of results.
+* ProfileListResult `object`: Result of the request to list profiles. It contains a list of profile objects and a URL link to get the next set of results.
   * nextLink `string`: URL to get the next set of profile objects if there are any.
   * value `array`: List of CDN profiles within a resource group.
     * items [Profile](#profile)
@@ -1112,6 +1340,73 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 ### QueryStringCachingBehavior
 * QueryStringCachingBehavior `string` (values: IgnoreQueryString, BypassCaching, UseQueryString, NotSet): Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 
+### QueryStringMatchConditionParameters
+* QueryStringMatchConditionParameters `object`: Defines the parameters for QueryString match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### RemoteAddressMatchConditionParameters
+* RemoteAddressMatchConditionParameters `object`: Defines the parameters for RemoteAddress match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters)
+  * matchValues **required** `array`: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, IPMatch, GeoMatch): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### RequestBodyMatchConditionParameters
+* RequestBodyMatchConditionParameters `object`: Defines the parameters for RequestBody match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### RequestHeaderMatchConditionParameters
+* RequestHeaderMatchConditionParameters `object`: Defines the parameters for RequestHeader match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * selector **required** `string`: Name of Header to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### RequestMethodMatchConditionParameters
+* RequestMethodMatchConditionParameters `object`: Defines the parameters for RequestMethod match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string` (values: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE)
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Equal): Describes operator to be matched
+
+### RequestSchemeMatchConditionParameters
+* RequestSchemeMatchConditionParameters `object`: Defines the parameters for RequestScheme match conditions 
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string` (values: HTTP, HTTPS)
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Equal): Describes operator to be matched
+
+### RequestUriMatchConditionParameters
+* RequestUriMatchConditionParameters `object`: Defines the parameters for RequestUri match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
 ### Resource
 * Resource `object`: The core properties of ARM resources
   * id `string`: Resource ID.
@@ -1136,7 +1431,7 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 
 ### Sku
 * Sku `object`: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-  * name `string` (values: Standard_Verizon, Premium_Verizon, Custom_Verizon, Standard_Akamai, Standard_ChinaCdn): Name of the pricing tier.
+  * name `string` (values: Standard_Verizon, Premium_Verizon, Custom_Verizon, Standard_Akamai, Standard_ChinaCdn, Standard_Microsoft, Premium_ChinaCdn): Name of the pricing tier.
 
 ### SsoUri
 * SsoUri `object`: The URI required to login to the supplemental portal from the Azure portal.
@@ -1154,6 +1449,70 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
   * id `string`: Resource ID.
   * name `string`: Resource name.
   * type `string`: Resource type.
+
+### UrlFileExtensionMatchConditionParameters
+* UrlFileExtensionMatchConditionParameters `object`: Defines the parameters for UrlFileExtension match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### UrlFileNameMatchConditionParameters
+* UrlFileNameMatchConditionParameters `object`: Defines the parameters for UrlFilename match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### UrlPathMatchConditionParameters
+* UrlPathMatchConditionParameters `object`: Defines the parameters for UrlPath match conditions
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters)
+  * matchValues **required** `array`: The match value for the condition of the delivery rule
+    * items `string`
+  * negateCondition `boolean`: Describes if this is negate condition or not
+  * operator **required** `string` (values: Any, Equal, Contains, BeginsWith, EndsWith, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual, Wildcard): Describes operator to be matched
+  * transforms `array`: List of transforms
+    * items [transform](#transform)
+
+### UrlRedirectAction
+* UrlRedirectAction `object`: Defines the url redirect action for the delivery rule.
+  * parameters **required** [UrlRedirectActionParameters](#urlredirectactionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### UrlRedirectActionParameters
+* UrlRedirectActionParameters `object`: Defines the parameters for the url redirect action.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters)
+  * customFragment `string`: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+  * customHostname `string`: Host to redirect. Leave empty to use the incoming host as the destination host.
+  * customPath `string`: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+  * customQueryString `string`: The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+  * destinationProtocol `string` (values: MatchRequest, Http, Https): Protocol to use for the redirect. The default value is MatchRequest
+  * redirectType **required** `string` (values: Moved, Found, TemporaryRedirect, PermanentRedirect): The redirect type the rule will use when redirecting traffic.
+
+### UrlRewriteAction
+* UrlRewriteAction `object`: Defines the url rewrite action for the delivery rule.
+  * parameters **required** [UrlRewriteActionParameters](#urlrewriteactionparameters)
+  * name **required** `string` (values: CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, UrlRedirect, UrlRewrite): The name of the action for the delivery rule.
+
+### UrlRewriteActionParameters
+* UrlRewriteActionParameters `object`: Defines the parameters for the url rewrite action.
+  * @odata.type **required** `string` (values: #Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters)
+  * destination **required** `string`: Define the destination path for be used in the rewrite. This will overwrite the source pattern 
+  * preserveUnmatchedPath `boolean`: If True, the remaining path after the source pattern will be appended to the new destination path.  
+  * sourcePattern **required** `string`: define a request URI pattern that identifies the type of requests that may be rewritten. Currently, source pattern uses a prefix-based match. To match all URL paths, use "/" as the source pattern value. To match only the root directory and re-write this path, use the origin path field
+
+### UserManagedHttpsParameters
+* UserManagedHttpsParameters `object`: Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
+  * certificateSourceParameters **required** [KeyVaultCertificateSourceParameters](#keyvaultcertificatesourceparameters)
+  * certificateSource **required** `string` (values: AzureKeyVault, Cdn): Defines the source of the SSL certificate.
+  * minimumTlsVersion `string` (values: None, TLS10, TLS12): TLS protocol version that will be used for Https
+  * protocolType **required** `string` (values: ServerNameIndication, IPBased): Defines the TLS extension protocol that is used for secure delivery.
 
 ### ValidateCustomDomainInput
 * ValidateCustomDomainInput `object`: Input of the custom domain to be validated for DNS mapping.
@@ -1177,7 +1536,10 @@ azure_cdn.Profiles_ListSupportedOptimizationTypes({
 
 ### cidrIpAddress
 * cidrIpAddress `object`: CIDR Ip address
-  * baseIpAddress `string`: Ip adress itself.
+  * baseIpAddress `string`: Ip address itself.
   * prefixLength `integer`: The length of the prefix of the ip address.
+
+### transform
+* transform `string` (values: Lowercase, Uppercase): Describes what transforms are applied before matching
 
 

@@ -15,13 +15,7 @@ let azure_applicationinsights_componentapikeys_api = require('@datafire/azure_ap
   redirect_uri: ""
 });
 
-azure_applicationinsights_componentapikeys_api.APIKeys_Delete({
-  "resourceGroupName": "",
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceName": "",
-  "keyId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -48,9 +42,9 @@ azure_applicationinsights_componentapikeys_api.APIKeys_Delete({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * keyId **required** `string`: The API Key ID. This is unique within a Application Insights component.
 
@@ -73,9 +67,9 @@ azure_applicationinsights_componentapikeys_api.APIKeys_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * keyId **required** `string`: The API Key ID. This is unique within a Application Insights component.
 
@@ -97,9 +91,9 @@ azure_applicationinsights_componentapikeys_api.APIKeys_List({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
 
 #### Output
@@ -121,9 +115,9 @@ azure_applicationinsights_componentapikeys_api.APIKeys_Create({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * resourceName **required** `string`: The name of the Application Insights component resource.
   * APIKeyProperties **required** [APIKeyRequest](#apikeyrequest)
 
@@ -135,7 +129,7 @@ azure_applicationinsights_componentapikeys_api.APIKeys_Create({
 ## Definitions
 
 ### APIKeyRequest
-* APIKeyRequest `object`: An Application Insights component API Key createion request definition.
+* APIKeyRequest `object`: An Application Insights component API Key creation request definition.
   * linkedReadProperties `array`: The read access rights of this API Key.
     * items `string`
   * linkedWriteProperties `array`: The write access rights of this API Key.
@@ -146,7 +140,7 @@ azure_applicationinsights_componentapikeys_api.APIKeys_Create({
 * ApplicationInsightsComponentAPIKey `object`: Properties that define an API key of an Application Insights Component.
   * apiKey `string`: The API key value. It will be only return once when the API Key was created.
   * createdDate `string`: The create date of this API key.
-  * id `string`: The unique ID of the API key inside an Applciation Insights component. It is auto generated when the API key is created.
+  * id `string`: The unique ID of the API key inside an Application Insights component. It is auto generated when the API key is created.
   * linkedReadProperties `array`: The read access rights of this API Key.
     * items `string`
   * linkedWriteProperties `array`: The write access rights of this API Key.

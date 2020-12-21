@@ -1,6 +1,6 @@
 # @datafire/gov_bc_ca_bcdc
 
-Client library for BC Data Catalogue
+Client library for BC Data Catalogue API
 
 ## Installation and Usage
 ```bash
@@ -16,7 +16,7 @@ let gov_bc_ca_bcdc = require('@datafire/gov_bc_ca_bcdc').create({
   internalApiKey: ""
 });
 
-gov_bc_ca_bcdc.action.tag_list.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

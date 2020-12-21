@@ -9,7 +9,7 @@ npm install --save @datafire/google_partners
 ```js
 let google_partners = require('@datafire/google_partners').create();
 
-google_partners.users.updateProfile({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

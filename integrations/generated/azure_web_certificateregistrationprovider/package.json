@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_web_certificateregistrationprovider",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for CertificateRegistrationProvider API Client",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/web-CertificateRegistrationProvider/2015-08-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/web-CertificateRegistrationProvider/2018-02-01/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

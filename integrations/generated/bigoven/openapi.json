@@ -13,7 +13,7 @@
       "url": "http://api2.bigoven.com/web/console"
     },
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_bigoven_profile_image.jpeg"
     },
     "x-origin": [
       {
@@ -273,7 +273,7 @@
         "operationId": "Glossary_Get",
         "parameters": [
           {
-            "description": "identifier of article to retrieve",
+            "description": "identifier of  article to retrieve",
             "format": "int32",
             "in": "path",
             "name": "id",
@@ -1036,6 +1036,86 @@
         ]
       }
     },
+    "/recipe/get/saved/step": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_GetStep",
+        "parameters": [
+          {
+            "description": "",
+            "in": "query",
+            "name": "userName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "recipeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "stepId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Gets recipe single step as text",
+        "tags": [
+          "Recipe"
+        ]
+      }
+    },
+    "/recipe/get/step/number": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_GetStepNumber",
+        "parameters": [
+          {
+            "description": "",
+            "in": "query",
+            "name": "userName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "recipeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/System.Web.Mvc.JsonResult"
+            }
+          }
+        },
+        "summary": "Returns stored step number and number of steps in recipe",
+        "tags": [
+          "Recipe"
+        ]
+      }
+    },
     "/recipe/photos/pending": {
       "get": {
         "consumes": [],
@@ -1052,6 +1132,50 @@
         "summary": "Gets the pending by user.",
         "tags": [
           "Images"
+        ]
+      }
+    },
+    "/recipe/post/step": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_GetSteps",
+        "parameters": [
+          {
+            "description": "",
+            "in": "query",
+            "name": "userName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "recipeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "stepId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/System.Web.Mvc.JsonResult"
+            }
+          }
+        },
+        "summary": "Stores recipe step number",
+        "tags": [
+          "Recipe"
         ]
       }
     },
@@ -1328,6 +1452,41 @@
           }
         },
         "summary": "POST an image as a new RecipeScan request\r\n                1)  Fetch the filename -- DONE\r\n                2)  Copy it to the pics/scan folder - ENSURE NO NAMING COLLISIONS -- DONE\r\n                3)  Create 120 thumbnail size  in pics/scan/120 -- DONE\r\n                4)  Insert the CloudTasks record\r\n                5)  Create the HIT\r\n                6)  Update the CloudTasks record with the HIT ID\r\n                7)  Email the requesing user\r\n                8)  Call out to www.bigoven.com to fetch the image and re-create the thumbnail",
+        "tags": [
+          "Recipe"
+        ]
+      }
+    },
+    "/recipe/steps/{id}": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_GetRecipeWithSteps",
+        "parameters": [
+          {
+            "description": "the Recipe ID to retrieve",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "prefetch",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BigOven.Model.API2.Recipe"
+            }
+          }
+        },
+        "summary": "Return full Recipe detail with steps. Returns 403 if the recipe is owned by someone else.",
         "tags": [
           "Recipe"
         ]
@@ -2532,6 +2691,305 @@
           }
         },
         "summary": "Get a list of recipes that the authenticated user has most recently viewed",
+        "tags": [
+          "Recipe"
+        ]
+      }
+    },
+    "/recipes/top25random": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_RecipeSearchRandom",
+        "parameters": [
+          {
+            "description": "Search anywhere in the recipe for the keyword",
+            "in": "query",
+            "name": "any_kw",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Search in a specific folder name for the authenticated user",
+            "in": "query",
+            "name": "folder",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Limit to a collection ID number",
+            "format": "int32",
+            "in": "query",
+            "name": "coll",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "optionally set to either \"myrecipes\", \"try\", \"favorites\",\"added\" to filter to just the authenticated user's recipe set",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Search just in the recipe title for the keyword",
+            "in": "query",
+            "name": "title_kw",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Set the target userid to search their public recipes",
+            "format": "int32",
+            "in": "query",
+            "name": "userId",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Set the target username to search their public recipes",
+            "in": "query",
+            "name": "username",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "if set to true, limit search results to photos only",
+            "in": "query",
+            "name": "photos",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "if set to true, boost my own recipes in my folders so they show up high in the list (at the expense of other sort orders)",
+            "in": "query",
+            "name": "boostmine",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "integer of the subcategory you'd like to limit searches to (see the /recipe/categories endpoint for available id numbers). For instance, 58 is \"Main Dish &gt; Casseroles\".",
+            "in": "query",
+            "name": "include_cat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "like include_cat, set this to an integer to exclude a specific category",
+            "in": "query",
+            "name": "exclude_cat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "csv indicating up to three top-level categories -- valid values are [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]",
+            "in": "query",
+            "name": "include_primarycat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "csv indicating integer values for up to 3 top-level categories -- valid values are 1...11 [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]",
+            "in": "query",
+            "name": "exclude_primarycat",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken",
+            "in": "query",
+            "name": "include_ing",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "A CSV representing up to 3 ingredients to exclude  (Powersearch-capable plan required)",
+            "in": "query",
+            "name": "exclude_ing",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Limit to a specific cuisine. Cooks can enter anything free-form, but the few dozen preconfigured values are Afghan,African,American,American-South,Asian,Australian,Brazilian,Cajun,Canadian,Caribbean,Chinese,Croatian,Cuban,Dessert,Eastern European,English,French,German,Greek,Hawaiian,Hungarian,India,Indian,Irish,Italian,Japanese,Jewish,Korean,Latin,Mediterranean,Mexican,Middle Eastern,Moroccan,Polish,Russian,Scandanavian,Seafood,Southern,Southwestern,Spanish,Tex-Mex,Thai,Vegan,Vegetarian,Vietnamese",
+            "in": "query",
+            "name": "cuisine",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "in": "query",
+            "name": "db",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "If set to a given username, it'll force the search to filter to just that username",
+            "in": "query",
+            "name": "userset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Limit to yield of a given number size or greater. Note that cooks usually enter recipes by Servings, but sometimes they are posted by \"dozen\", etc. This parameter simply specifies the minimum number for that value entered in \"yield.\"",
+            "format": "double",
+            "in": "query",
+            "name": "servingsMin",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that can be made in {totalMins} or less. (Convert \"1 hour, 15 minutes\" to 75 before passing in.)",
+            "format": "int32",
+            "in": "query",
+            "name": "totalMins",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that can be made with {maxIngredients} ingredients or less",
+            "format": "int32",
+            "in": "query",
+            "name": "maxIngredients",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that have at least {minIngredients}",
+            "format": "int32",
+            "in": "query",
+            "name": "minIngredients",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to vegetarian (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "vtn",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to vegan (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "vgn",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to contains-cheese (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "chs",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to gluten-free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "glf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to nut-free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "ntf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to dairy-free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "dyf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to seafood-free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "sff",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to shellfish-free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "slf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to tree-nut free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "tnf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to white-meat free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "wmf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, limit to red-meat free (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "rmf",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "when set to 1, recipe contains pasta, set to 0 means contains no pasta (Powersearch-capable plan required)",
+            "format": "int32",
+            "in": "query",
+            "name": "cps",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "optional. When set to 1, this will limit search results to \"best of\" recipes as determined by various internal editorial and programmatic algorithms. For the most comprehensive results, don't include this parameter.",
+            "format": "int32",
+            "in": "query",
+            "name": "champion",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "optional, default is false. When set to true, BigOven will attempt to apply synonyms in search (e.g., excluding pork will also exclude bacon)",
+            "in": "query",
+            "name": "synonyms",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
+            }
+          }
+        },
+        "summary": "Search for recipes. There are many parameters that you can apply. Starting with the most common, use title_kw to search within a title.\r\n            Use any_kw to search across the entire recipe.\r\n            If you'd like to limit by course, set the parameter \"include_primarycat\" to one of (appetizers,bread,breakfast,dessert,drinks,maindish,salad,sidedish,soup,marinades,other).\r\n            If you'd like to exclude a category, set exclude_cat to one or more (comma-separated) list of those categories to exclude.\r\n            If you'd like to include a category, set include_cat to one or more (comma-separated) of those categories to include.\r\n            To explicitly include an ingredient in your search, set the parameter \"include_ing\" to a CSV of up to three ingredients, e.g.:include_ing=mustard,chicken,beef%20tips\r\n            To explicitly exclude an ingredient in your search, set the parameter \"exclude_ing\" to a CSV of up to three ingredients.\r\n            All searches must contain the paging parameters pg and rpp, which are integers, and represent the page number (1-based) and results per page (rpp).\r\n            So, to get the third page of a result set paged with 25 recipes per page, you'd pass pg=3&amp;rpp=25\r\n            If you'd like to target searches to just a single target user's recipes, set userId=the target userId (number).\r\n            Or, you can set username=theirusername\r\n            vtn;vgn;chs;glf;ntf;dyf;sff;slf;tnf;wmf;rmf;cps\r\n            cuisine\r\n            photos\r\n            filter=added,try,favorites,myrecipes\\r\\n\\r\\n\r\n            folder=FolderNameCaseSensitive\r\n            coll=ID of Collection",
         "tags": [
           "Recipe"
         ]
@@ -4027,6 +4485,12 @@
           "format": "double",
           "type": "number"
         },
+        "Steps": {
+          "items": {
+            "$ref": "#/definitions/BigOven.Model.InstructionStep"
+          },
+          "type": "array"
+        },
         "Subcategory": {
           "type": "string"
         },
@@ -4310,6 +4774,22 @@
       },
       "type": "object"
     },
+    "BigOven.Model.InstructionStep": {
+      "properties": {
+        "EndGantt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartGantt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Text": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "BigOven.Model.RecipeCategory": {
       "properties": {
         "Category": {
@@ -4457,6 +4937,117 @@
     },
     "System.Object": {
       "properties": {},
+      "type": "object"
+    },
+    "System.Text.DecoderFallback": {
+      "properties": {
+        "MaxCharCount": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "System.Text.EncoderFallback": {
+      "properties": {
+        "MaxCharCount": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "System.Text.Encoding": {
+      "properties": {
+        "BodyName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "CodePage": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "DecoderFallback": {
+          "$ref": "#/definitions/System.Text.DecoderFallback"
+        },
+        "EncoderFallback": {
+          "$ref": "#/definitions/System.Text.EncoderFallback"
+        },
+        "EncodingName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "HeaderName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "IsBrowserDisplay": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsBrowserSave": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsMailNewsDisplay": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsMailNewsSave": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsReadOnly": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "IsSingleByte": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "WebName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "WindowsCodePage": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "System.Web.Mvc.JsonResult": {
+      "properties": {
+        "ContentEncoding": {
+          "$ref": "#/definitions/System.Text.Encoding"
+        },
+        "ContentType": {
+          "type": "string"
+        },
+        "Data": {
+          "$ref": "#/definitions/System.Object"
+        },
+        "JsonRequestBehavior": {
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "MaxJsonLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RecursionLimit": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
       "type": "object"
     }
   }

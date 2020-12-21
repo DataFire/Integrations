@@ -15,12 +15,7 @@ let azure_sql_serverkeys = require('@datafire/azure_sql_serverkeys').create({
   redirect_uri: ""
 });
 
-azure_sql_serverkeys.ServerKeys_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

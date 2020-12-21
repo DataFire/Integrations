@@ -9,7 +9,7 @@ npm install --save @datafire/deutschebahn_flinkster
 ```js
 let deutschebahn_flinkster = require('@datafire/deutschebahn_flinkster').create();
 
-deutschebahn_flinkster.listBookingProposals({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

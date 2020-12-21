@@ -10,13 +10,13 @@
       "x-twitter": "PhiladelphiaGov"
     },
     "description": "\nThis data set contains the list of polling places. It can be organized by ward/division, accessibility rating, or type of building.\n\nThis list is used to assign poll workers, send the machines and necessary accessibility materials, etc.\n\n**Endpoint:** http://api.phila.gov/polling-places/v1\n",
-    "title": "Polling Places",
+    "title": "Polling Places API",
     "version": "1.0",
     "x-apisguru-categories": [
       "open_data"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_PhiladelphiaGov_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_PhiladelphiaGov_profile_image.png"
     },
     "x-origin": [
       {
@@ -33,9 +33,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "paths": {
     "/": {
       "get": {
@@ -63,6 +60,9 @@
             "required": false,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

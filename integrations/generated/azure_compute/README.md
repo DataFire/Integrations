@@ -15,9 +15,7 @@ let azure_compute = require('@datafire/azure_compute').create({
   redirect_uri: ""
 });
 
-azure_compute.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -44,6 +42,45 @@ azure_compute.Operations_List({
 
 #### Output
 * output [ComputeOperationListResult](#computeoperationlistresult)
+
+### AvailabilitySets_ListBySubscription
+Lists all availability sets in a subscription.
+
+
+```js
+azure_compute.AvailabilitySets_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * $expand `string`: The expand expression to apply to the operation.
+
+#### Output
+* output [AvailabilitySetListResult](#availabilitysetlistresult)
+
+### DedicatedHostGroups_ListBySubscription
+Lists all of the dedicated host groups in the subscription. Use the nextLink property in the response to get the next page of dedicated host groups.
+
+
+```js
+azure_compute.DedicatedHostGroups_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostGroupListResult](#dedicatedhostgrouplistresult)
 
 ### Images_List
 Gets the list of Images in the subscription. Use nextLink property in the response to get the next page of Images. Do this till nextLink is null to fetch all the Images.
@@ -343,8 +380,29 @@ azure_compute.Usage_List({
 #### Output
 * output [ListUsagesResult](#listusagesresult)
 
+### VirtualMachines_ListByLocation
+Gets all the virtual machines under the specified subscription for the specified location.
+
+
+```js
+azure_compute.VirtualMachines_ListByLocation({
+  "location": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * location **required** `string`: The location for which virtual machines under the subscription are queried.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [VirtualMachineListResult](#virtualmachinelistresult)
+
 ### VirtualMachineSizes_List
-Lists all available virtual machine sizes for a subscription in a location.
+This API is deprecated. Use [Resources Skus](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list)
 
 
 ```js
@@ -363,6 +421,25 @@ azure_compute.VirtualMachineSizes_List({
 
 #### Output
 * output [VirtualMachineSizeListResult](#virtualmachinesizelistresult)
+
+### ProximityPlacementGroups_ListBySubscription
+Lists all proximity placement groups in a subscription.
+
+
+```js
+azure_compute.ProximityPlacementGroups_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ProximityPlacementGroupListResult](#proximityplacementgrouplistresult)
 
 ### VirtualMachineScaleSets_ListAll
 Gets a list of all VM Scale Sets in the subscription, regardless of the associated resource group. Use nextLink property in the response to get the next page of VM Scale Sets. Do this till nextLink is null to fetch all the VM Scale Sets.
@@ -444,7 +521,7 @@ azure_compute.AvailabilitySets_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### AvailabilitySets_Get
 Retrieves information about an availability set.
@@ -542,6 +619,251 @@ azure_compute.AvailabilitySets_ListAvailableSizes({
 #### Output
 * output [VirtualMachineSizeListResult](#virtualmachinesizelistresult)
 
+### DedicatedHostGroups_ListByResourceGroup
+Lists all of the dedicated host groups in the specified resource group. Use the nextLink property in the response to get the next page of dedicated host groups.
+
+
+```js
+azure_compute.DedicatedHostGroups_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostGroupListResult](#dedicatedhostgrouplistresult)
+
+### DedicatedHostGroups_Delete
+Delete a dedicated host group.
+
+
+```js
+azure_compute.DedicatedHostGroups_Delete({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### DedicatedHostGroups_Get
+Retrieves information about a dedicated host group.
+
+
+```js
+azure_compute.DedicatedHostGroups_Get({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostGroup](#dedicatedhostgroup)
+
+### DedicatedHostGroups_Update
+Update an dedicated host group.
+
+
+```js
+azure_compute.DedicatedHostGroups_Update({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * parameters **required** [DedicatedHostGroupUpdate](#dedicatedhostgroupupdate)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostGroup](#dedicatedhostgroup)
+
+### DedicatedHostGroups_CreateOrUpdate
+Create or update a dedicated host group. For details of Dedicated Host and Dedicated Host Groups please see [Dedicated Host Documentation] (https://go.microsoft.com/fwlink/?linkid=2082596)
+
+
+```js
+azure_compute.DedicatedHostGroups_CreateOrUpdate({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * parameters **required** [DedicatedHostGroup](#dedicatedhostgroup)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostGroup](#dedicatedhostgroup)
+
+### DedicatedHosts_ListByHostGroup
+Lists all of the dedicated hosts in the specified dedicated host group. Use the nextLink property in the response to get the next page of dedicated hosts.
+
+
+```js
+azure_compute.DedicatedHosts_ListByHostGroup({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHostListResult](#dedicatedhostlistresult)
+
+### DedicatedHosts_Delete
+Delete a dedicated host.
+
+
+```js
+azure_compute.DedicatedHosts_Delete({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "hostName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * hostName **required** `string`: The name of the dedicated host.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### DedicatedHosts_Get
+Retrieves information about a dedicated host.
+
+
+```js
+azure_compute.DedicatedHosts_Get({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "hostName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * hostName **required** `string`: The name of the dedicated host.
+  * $expand `string` (values: instanceView): The expand expression to apply on the operation.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHost](#dedicatedhost)
+
+### DedicatedHosts_Update
+Update an dedicated host .
+
+
+```js
+azure_compute.DedicatedHosts_Update({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "hostName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * hostName **required** `string`: The name of the dedicated host .
+  * parameters **required** [DedicatedHostUpdate](#dedicatedhostupdate)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHost](#dedicatedhost)
+
+### DedicatedHosts_CreateOrUpdate
+Create or update a dedicated host .
+
+
+```js
+azure_compute.DedicatedHosts_CreateOrUpdate({
+  "resourceGroupName": "",
+  "hostGroupName": "",
+  "hostName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * hostGroupName **required** `string`: The name of the dedicated host group.
+  * hostName **required** `string`: The name of the dedicated host .
+  * parameters **required** [DedicatedHost](#dedicatedhost)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DedicatedHost](#dedicatedhost)
+
 ### Images_ListByResourceGroup
 Gets the list of images under a resource group.
 
@@ -584,7 +906,7 @@ azure_compute.Images_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### Images_Get
 Gets an image.
@@ -660,6 +982,123 @@ azure_compute.Images_CreateOrUpdate({
 #### Output
 * output [Image](#image)
 
+### ProximityPlacementGroups_ListByResourceGroup
+Lists all proximity placement groups in a resource group.
+
+
+```js
+azure_compute.ProximityPlacementGroups_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ProximityPlacementGroupListResult](#proximityplacementgrouplistresult)
+
+### ProximityPlacementGroups_Delete
+Delete a proximity placement group.
+
+
+```js
+azure_compute.ProximityPlacementGroups_Delete({
+  "resourceGroupName": "",
+  "proximityPlacementGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * proximityPlacementGroupName **required** `string`: The name of the proximity placement group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
+### ProximityPlacementGroups_Get
+Retrieves information about a proximity placement group .
+
+
+```js
+azure_compute.ProximityPlacementGroups_Get({
+  "resourceGroupName": "",
+  "proximityPlacementGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * proximityPlacementGroupName **required** `string`: The name of the proximity placement group.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ProximityPlacementGroup](#proximityplacementgroup)
+
+### ProximityPlacementGroups_Update
+Update a proximity placement group.
+
+
+```js
+azure_compute.ProximityPlacementGroups_Update({
+  "resourceGroupName": "",
+  "proximityPlacementGroupName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * proximityPlacementGroupName **required** `string`: The name of the proximity placement group.
+  * parameters **required** [ProximityPlacementGroupUpdate](#proximityplacementgroupupdate)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ProximityPlacementGroup](#proximityplacementgroup)
+
+### ProximityPlacementGroups_CreateOrUpdate
+Create or update a proximity placement group.
+
+
+```js
+azure_compute.ProximityPlacementGroups_CreateOrUpdate({
+  "resourceGroupName": "",
+  "proximityPlacementGroupName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * proximityPlacementGroupName **required** `string`: The name of the proximity placement group.
+  * parameters **required** [ProximityPlacementGroup](#proximityplacementgroup)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ProximityPlacementGroup](#proximityplacementgroup)
+
 ### VirtualMachineScaleSets_List
 Gets a list of all VM scale sets under a resource group.
 
@@ -728,7 +1167,7 @@ azure_compute.VirtualMachineScaleSets_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_Get
 Display information about a virtual machine scale set.
@@ -803,6 +1242,29 @@ azure_compute.VirtualMachineScaleSets_CreateOrUpdate({
 #### Output
 * output [VirtualMachineScaleSet](#virtualmachinescaleset)
 
+### VirtualMachineScaleSets_ConvertToSinglePlacementGroup
+Converts SinglePlacementGroup property to false for a existing virtual machine scale set.
+
+
+```js
+azure_compute.VirtualMachineScaleSets_ConvertToSinglePlacementGroup({
+  "resourceGroupName": "",
+  "vmScaleSetName": "",
+  "parameters": null,
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * vmScaleSetName **required** `string`: The name of the virtual machine scale set to create or update.
+  * parameters **required** [VMScaleSetConvertToSinglePlacementGroupInput](#vmscalesetconverttosingleplacementgroupinput)
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
+
 ### VirtualMachineScaleSets_Deallocate
 Deallocates specific virtual machines in a VM scale set. Shuts down the virtual machines and releases the compute resources. You are not billed for the compute resources that this virtual machine scale set deallocates.
 
@@ -825,7 +1287,7 @@ azure_compute.VirtualMachineScaleSets_Deallocate({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_DeleteInstances
 Deletes virtual machines in a VM scale set.
@@ -850,7 +1312,30 @@ azure_compute.VirtualMachineScaleSets_DeleteInstances({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
+
+### VirtualMachineScaleSetRollingUpgrades_StartExtensionUpgrade
+Starts a rolling upgrade to move all extensions for all virtual machine scale set instances to the latest available extension version. Instances which are already running the latest extension versions are not affected.
+
+
+```js
+azure_compute.VirtualMachineScaleSetRollingUpgrades_StartExtensionUpgrade({
+  "resourceGroupName": "",
+  "vmScaleSetName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * vmScaleSetName **required** `string`: The name of the VM scale set.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
 
 ### VirtualMachineScaleSetExtensions_List
 Gets a list of all extensions in a VM scale set.
@@ -898,7 +1383,7 @@ azure_compute.VirtualMachineScaleSetExtensions_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetExtensions_Get
 The operation to get the extension.
@@ -1024,7 +1509,7 @@ azure_compute.VirtualMachineScaleSets_UpdateInstances({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetRollingUpgrades_StartOSUpgrade
 Starts a rolling upgrade to move all virtual machine scale set instances to the latest available Platform Image OS version. Instances which are already running the latest available OS version are not affected.
@@ -1047,7 +1532,7 @@ azure_compute.VirtualMachineScaleSetRollingUpgrades_StartOSUpgrade({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_GetOSUpgradeHistory
 Gets list of OS upgrades on a VM scale set instance.
@@ -1073,7 +1558,7 @@ azure_compute.VirtualMachineScaleSets_GetOSUpgradeHistory({
 * output [VirtualMachineScaleSetListOSUpgradeHistory](#virtualmachinescalesetlistosupgradehistory)
 
 ### VirtualMachineScaleSets_PerformMaintenance
-Perform maintenance on one or more virtual machines in a VM scale set.
+Perform maintenance on one or more virtual machines in a VM scale set. Operation on instances which are not eligible for perform maintenance will be failed. Please refer to best practices for more details: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications
 
 
 ```js
@@ -1094,7 +1579,7 @@ azure_compute.VirtualMachineScaleSets_PerformMaintenance({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_PowerOff
 Power off (stop) one or more virtual machines in a VM scale set. Note that resources are still attached and you are getting charged for the resources. Instead, use deallocate to release resources and avoid charges.
@@ -1114,14 +1599,15 @@ azure_compute.VirtualMachineScaleSets_PowerOff({
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmScaleSetName **required** `string`: The name of the VM scale set.
   * vmInstanceIDs [VirtualMachineScaleSetVMInstanceIDs](#virtualmachinescalesetvminstanceids)
+  * skipShutdown `boolean`: The parameter to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Default value for this flag is false if not specified
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_Redeploy
-Redeploy one or more virtual machines in a VM scale set.
+Shuts down all the virtual machines in the virtual machine scale set, moves them to a new node, and powers them back on.
 
 
 ```js
@@ -1142,10 +1628,10 @@ azure_compute.VirtualMachineScaleSets_Redeploy({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_Reimage
-Reimages (upgrade the operating system) one or more virtual machines in a VM scale set.
+Reimages (upgrade the operating system) one or more virtual machines in a VM scale set which don't have a ephemeral OS disk, for virtual machines who have a ephemeral OS disk the virtual machine is reset to initial state.
 
 
 ```js
@@ -1161,12 +1647,12 @@ azure_compute.VirtualMachineScaleSets_Reimage({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmScaleSetName **required** `string`: The name of the VM scale set.
-  * vmInstanceIDs [VirtualMachineScaleSetVMInstanceIDs](#virtualmachinescalesetvminstanceids)
+  * vmScaleSetReimageInput [VirtualMachineScaleSetReimageParameters](#virtualmachinescalesetreimageparameters)
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_ReimageAll
 Reimages all the disks ( including data disks ) in the virtual machines in a VM scale set. This operation is only supported for managed disks.
@@ -1190,7 +1676,7 @@ azure_compute.VirtualMachineScaleSets_ReimageAll({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSets_Restart
 Restarts one or more virtual machines in a VM scale set.
@@ -1214,7 +1700,7 @@ azure_compute.VirtualMachineScaleSets_Restart({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetRollingUpgrades_Cancel
 Cancels the current virtual machine scale set rolling upgrade.
@@ -1237,7 +1723,7 @@ azure_compute.VirtualMachineScaleSetRollingUpgrades_Cancel({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetRollingUpgrades_GetLatest
 Gets the status of the latest virtual machine scale set rolling upgrade.
@@ -1307,7 +1793,7 @@ azure_compute.VirtualMachineScaleSets_Start({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Delete
 Deletes a virtual machine from a VM scale set.
@@ -1332,7 +1818,7 @@ azure_compute.VirtualMachineScaleSetVMs_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Get
 Gets a virtual machine from a VM scale set.
@@ -1353,6 +1839,7 @@ azure_compute.VirtualMachineScaleSetVMs_Get({
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmScaleSetName **required** `string`: The name of the VM scale set.
   * instanceId **required** `string`: The instance ID of the virtual machine.
+  * $expand `string` (values: instanceView): The expand expression to apply on the operation.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -1409,7 +1896,7 @@ azure_compute.VirtualMachineScaleSetVMs_Deallocate({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_GetInstanceView
 Gets the status of a virtual machine from a VM scale set.
@@ -1459,7 +1946,7 @@ azure_compute.VirtualMachineScaleSetVMs_PerformMaintenance({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_PowerOff
 Power off (stop) a virtual machine in a VM scale set. Note that resources are still attached and you are getting charged for the resources. Instead, use deallocate to release resources and avoid charges.
@@ -1480,14 +1967,15 @@ azure_compute.VirtualMachineScaleSetVMs_PowerOff({
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmScaleSetName **required** `string`: The name of the VM scale set.
   * instanceId **required** `string`: The instance ID of the virtual machine.
+  * skipShutdown `boolean`: The parameter to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Default value for this flag is false if not specified
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Redeploy
-Redeploys a virtual machine in a VM scale set.
+Shuts down the virtual machine in the virtual machine scale set, moves it to a new node, and powers it back on.
 
 
 ```js
@@ -1509,7 +1997,7 @@ azure_compute.VirtualMachineScaleSetVMs_Redeploy({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Reimage
 Reimages (upgrade the operating system) a specific virtual machine in a VM scale set.
@@ -1530,11 +2018,12 @@ azure_compute.VirtualMachineScaleSetVMs_Reimage({
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmScaleSetName **required** `string`: The name of the VM scale set.
   * instanceId **required** `string`: The instance ID of the virtual machine.
+  * vmScaleSetVMReimageInput [VirtualMachineScaleSetVMReimageParameters](#virtualmachinescalesetvmreimageparameters)
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_ReimageAll
 Allows you to re-image all the disks ( including data disks ) in the a VM scale set instance. This operation is only supported for managed disks.
@@ -1559,7 +2048,7 @@ azure_compute.VirtualMachineScaleSetVMs_ReimageAll({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Restart
 Restarts a virtual machine in a VM scale set.
@@ -1584,7 +2073,7 @@ azure_compute.VirtualMachineScaleSetVMs_Restart({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineScaleSetVMs_Start
 Starts a virtual machine in a VM scale set.
@@ -1609,7 +2098,7 @@ azure_compute.VirtualMachineScaleSetVMs_Start({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_List
 Lists all of the virtual machines in the specified resource group. Use the nextLink property in the response to get the next page of virtual machines.
@@ -1653,7 +2142,7 @@ azure_compute.VirtualMachines_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_Get
 Retrieves information about the model view or the instance view of a virtual machine.
@@ -1775,7 +2264,7 @@ azure_compute.VirtualMachines_ConvertToManagedDisks({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_Deallocate
 Shuts down the virtual machine and releases the compute resources. You are not billed for the compute resources that this virtual machine uses.
@@ -1798,14 +2287,14 @@ azure_compute.VirtualMachines_Deallocate({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
-### VirtualMachines_GetExtensions
+### VirtualMachineExtensions_List
 The operation to get all extensions of a Virtual Machine.
 
 
 ```js
-azure_compute.VirtualMachines_GetExtensions({
+azure_compute.VirtualMachineExtensions_List({
   "resourceGroupName": "",
   "vmName": "",
   "api-version": "",
@@ -1847,7 +2336,7 @@ azure_compute.VirtualMachineExtensions_Delete({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachineExtensions_Get
 The operation to get the extension.
@@ -1950,7 +2439,7 @@ azure_compute.VirtualMachines_Generalize({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_InstanceView
 Retrieves information about the run-time state of a virtual machine.
@@ -1996,7 +2485,7 @@ azure_compute.VirtualMachines_PerformMaintenance({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_PowerOff
 The operation to power off (stop) a virtual machine. The virtual machine can be restarted with the same provisioned resources. You are still charged for this virtual machine.
@@ -2015,14 +2504,15 @@ azure_compute.VirtualMachines_PowerOff({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * vmName **required** `string`: The name of the virtual machine.
+  * skipShutdown `boolean`: The parameter to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Default value for this flag is false if not specified
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_Redeploy
-The operation to redeploy a virtual machine.
+Shuts down the virtual machine, moves it to a new node, and powers it back on.
 
 
 ```js
@@ -2042,7 +2532,31 @@ azure_compute.VirtualMachines_Redeploy({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
+
+### VirtualMachines_Reimage
+Reimages the virtual machine which has an ephemeral OS disk back to its initial state.
+
+
+```js
+azure_compute.VirtualMachines_Reimage({
+  "resourceGroupName": "",
+  "vmName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * vmName **required** `string`: The name of the virtual machine.
+  * parameters [VirtualMachineReimageParameters](#virtualmachinereimageparameters)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+*Output schema unknown*
 
 ### VirtualMachines_Restart
 The operation to restart a virtual machine.
@@ -2065,7 +2579,7 @@ azure_compute.VirtualMachines_Restart({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_Start
 The operation to start a virtual machine.
@@ -2088,7 +2602,7 @@ azure_compute.VirtualMachines_Start({
   * subscriptionId **required** `string`: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output [OperationStatusResponse](#operationstatusresponse)
+*Output schema unknown*
 
 ### VirtualMachines_ListAvailableSizes
 Lists all available virtual machine sizes to which the specified virtual machine can be resized.
@@ -2117,6 +2631,10 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ## Definitions
 
+### AdditionalCapabilities
+* AdditionalCapabilities `object`: Enables or disables a capability on the virtual machine or virtual machine scale set.
+  * ultraSSDEnabled `boolean`: The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+
 ### AdditionalUnattendContent
 * AdditionalUnattendContent `object`: Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
   * componentName `string` (values: Microsoft-Windows-Shell-Setup): The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
@@ -2126,7 +2644,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### ApiEntityReference
 * ApiEntityReference `object`: The API entity reference.
-  * id `string`: The ARM resource id in the form of /subscriptions/{SubcriptionId}/resourceGroups/{ResourceGroupName}/...
+  * id `string`: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 
 ### ApiError
 * ApiError `object`: Api error.
@@ -2143,12 +2661,17 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * message `string`: The error message.
   * target `string`: The target of the particular error.
 
-### AutoOSUpgradePolicy
-* AutoOSUpgradePolicy `object`: The configuration parameters used for performing automatic OS upgrade.
-  * disableAutoRollback `boolean`: Whether OS image rollback feature should be disabled. Default value is false.
+### AutomaticOSUpgradePolicy
+* AutomaticOSUpgradePolicy `object`: The configuration parameters used for performing automatic OS upgrade.
+  * disableAutomaticRollback `boolean`: Whether OS image rollback feature should be disabled. Default value is false.
+  * enableAutomaticOSUpgrade `boolean`: Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. Default value is false. <br><br> If this is set to true for Windows based scale sets, [enableAutomaticUpdates](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.windowsconfiguration.enableautomaticupdates?view=azure-dotnet) is automatically set to false and cannot be set to true.
+
+### AutomaticOSUpgradeProperties
+* AutomaticOSUpgradeProperties `object`: Describes automatic OS upgrade properties on the image.
+  * automaticOSUpgradeSupported **required** `boolean`: Specifies whether automatic OS upgrade is supported on the image.
 
 ### AvailabilitySet
-* AvailabilitySet `object`: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintainance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+* AvailabilitySet `object`: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
   * properties [AvailabilitySetProperties](#availabilitysetproperties)
   * sku [Sku](#sku)
   * id `string`: Resource Id
@@ -2159,17 +2682,22 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### AvailabilitySetListResult
 * AvailabilitySetListResult `object`: The List Availability Set operation response.
-  * value `array`: The list of availability sets
+  * nextLink `string`: The URI to fetch the next page of AvailabilitySets. Call ListNext() with this URI to fetch the next page of AvailabilitySets.
+  * value **required** `array`: The list of availability sets
     * items [AvailabilitySet](#availabilityset)
 
 ### AvailabilitySetProperties
 * AvailabilitySetProperties `object`: The instance view of a resource.
   * platformFaultDomainCount `integer`: Fault Domain count.
   * platformUpdateDomainCount `integer`: Update Domain count.
+  * proximityPlacementGroup [SubResource](#subresource)
   * statuses `array`: The resource status information.
     * items [InstanceViewStatus](#instanceviewstatus)
   * virtualMachines `array`: A list of references to all virtual machines in the availability set.
     * items [SubResource](#subresource)
+
+### AvailabilitySetSkuType
+* AvailabilitySetSkuType `string` (values: Classic, Aligned): Specifies the sku of an Availability Set. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
 
 ### AvailabilitySetUpdate
 * AvailabilitySetUpdate `object`: Specifies information about the availability set that the virtual machine should be assigned to. Only tags may be updated.
@@ -2177,8 +2705,12 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * sku [Sku](#sku)
   * tags `object`: Resource tags
 
+### BillingProfile
+* BillingProfile `object`: Specifies the billing related details of a low priority VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
+  * maxPrice `number`: Specifies the maximum price you are willing to pay for a low priority VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current low priority price for the VM size. Also, the prices are compared at the time of create/update of low priority VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current low priority price. <br><br> The maxPrice will also be used for evicting a low priority VM/VMSS if the current low priority price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: $0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the low priority VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
+
 ### BootDiagnostics
-* BootDiagnostics `object`: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> For Linux Virtual Machines, you can easily view the output of your console log. <br><br> For both Windows and Linux virtual machines, Azure also enables you to see a screenshot of the VM from the hypervisor.
+* BootDiagnostics `object`: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
   * enabled `boolean`: Whether boot diagnostics should be enabled on the Virtual Machine.
   * storageUri `string`: Uri of the storage account to use for placing the console output and screenshot.
 
@@ -2186,13 +2718,10 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * BootDiagnosticsInstanceView `object`: The instance view of a virtual machine boot diagnostics.
   * consoleScreenshotBlobUri `string`: The console screenshot blob URI.
   * serialConsoleLogBlobUri `string`: The Linux serial console log blob Uri.
+  * status [InstanceViewStatus](#instanceviewstatus)
 
 ### Caching
 * Caching `string` (values: None, ReadOnly, ReadWrite): Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-
-### ComputeLongRunningOperationProperties
-* ComputeLongRunningOperationProperties `object`: Compute-specific operation properties, including output
-  * output `object`: Operation output data (raw JSON)
 
 ### ComputeOperationListResult
 * ComputeOperationListResult `object`: The List Compute Operation operation response.
@@ -2213,17 +2742,18 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * resource `string`: The display name of the resource the operation applies to.
 
 ### CreateOption
-* CreateOption `string` (values: FromImage, Empty, Attach): Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach**  This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage**  This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+* CreateOption `string` (values: FromImage, Empty, Attach): Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 
 ### DataDisk
 * DataDisk `object`: Describes a data disk.
   * caching [Caching](#caching)
   * createOption **required** [CreateOption](#createoption)
-  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
   * image [VirtualHardDisk](#virtualharddisk)
   * lun **required** `integer`: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
   * managedDisk [ManagedDiskParameters](#manageddiskparameters)
   * name `string`: The disk name.
+  * toBeDetached `boolean`: Specifies whether the data disk is in process of detachment from the VirtualMachine/VirtualMachineScaleset
   * vhd [VirtualHardDisk](#virtualharddisk)
   * writeAcceleratorEnabled `boolean`: Specifies whether writeAccelerator should be enabled or disabled on the disk.
 
@@ -2231,9 +2761,99 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * DataDiskImage `object`: Contains the data disk images information.
   * lun `integer`: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
 
+### DedicatedHost
+* DedicatedHost `object`: Specifies information about the Dedicated host.
+  * properties [DedicatedHostProperties](#dedicatedhostproperties)
+  * sku **required** [Sku](#sku)
+  * id `string`: Resource Id
+  * location **required** `string`: Resource location
+  * name `string`: Resource name
+  * tags `object`: Resource tags
+  * type `string`: Resource type
+
+### DedicatedHostAllocatableVM
+* DedicatedHostAllocatableVM `object`: Represents the dedicated host unutilized capacity in terms of a specific VM size.
+  * count `number`: Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
+  * vmSize `string`: VM size in terms of which the unutilized capacity is represented.
+
+### DedicatedHostAvailableCapacity
+* DedicatedHostAvailableCapacity `object`: Dedicated host unutilized capacity.
+  * allocatableVMs `array`: The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+    * items [DedicatedHostAllocatableVM](#dedicatedhostallocatablevm)
+
+### DedicatedHostGroup
+* DedicatedHostGroup `object`: Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+  * properties [DedicatedHostGroupProperties](#dedicatedhostgroupproperties)
+  * zones `array`: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+    * items `string`
+  * id `string`: Resource Id
+  * location **required** `string`: Resource location
+  * name `string`: Resource name
+  * tags `object`: Resource tags
+  * type `string`: Resource type
+
+### DedicatedHostGroupListResult
+* DedicatedHostGroupListResult `object`: The List Dedicated Host Group with resource group response.
+  * nextLink `string`: The URI to fetch the next page of Dedicated Host Groups. Call ListNext() with this URI to fetch the next page of Dedicated Host Groups.
+  * value **required** `array`: The list of dedicated host groups
+    * items [DedicatedHostGroup](#dedicatedhostgroup)
+
+### DedicatedHostGroupProperties
+* DedicatedHostGroupProperties `object`: Dedicated Host Group Properties.
+  * hosts `array`: A list of references to all dedicated hosts in the dedicated host group.
+    * items [SubResourceReadOnly](#subresourcereadonly)
+  * platformFaultDomainCount **required** `integer`: Number of fault domains that the host group can span.
+
+### DedicatedHostGroupUpdate
+* DedicatedHostGroupUpdate `object`: Specifies information about the dedicated host group that the dedicated host should be assigned to. Only tags may be updated.
+  * properties [DedicatedHostGroupProperties](#dedicatedhostgroupproperties)
+  * zones `array`: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+    * items `string`
+  * tags `object`: Resource tags
+
+### DedicatedHostInstanceView
+* DedicatedHostInstanceView `object`: The instance view of a dedicated host.
+  * assetId `string`: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+  * availableCapacity [DedicatedHostAvailableCapacity](#dedicatedhostavailablecapacity)
+  * statuses `array`: The resource status information.
+    * items [InstanceViewStatus](#instanceviewstatus)
+
+### DedicatedHostLicenseType
+* DedicatedHostLicenseType `string` (values: None, Windows_Server_Hybrid, Windows_Server_Perpetual): Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+
+### DedicatedHostListResult
+* DedicatedHostListResult `object`: The list dedicated host operation response.
+  * nextLink `string`: The URI to fetch the next page of dedicated hosts. Call ListNext() with this URI to fetch the next page of dedicated hosts.
+  * value **required** `array`: The list of dedicated hosts
+    * items [DedicatedHost](#dedicatedhost)
+
+### DedicatedHostProperties
+* DedicatedHostProperties `object`: Properties of the dedicated host.
+  * autoReplaceOnFailure `boolean`: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+  * hostId `string`: A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+  * instanceView [DedicatedHostInstanceView](#dedicatedhostinstanceview)
+  * licenseType [DedicatedHostLicenseType](#dedicatedhostlicensetype)
+  * platformFaultDomain `integer`: Fault domain of the dedicated host within a dedicated host group.
+  * provisioningState `string`: The provisioning state, which only appears in the response.
+  * provisioningTime `string`: The date when the host was first provisioned.
+  * virtualMachines `array`: A list of references to all virtual machines in the Dedicated Host.
+    * items [SubResourceReadOnly](#subresourcereadonly)
+
+### DedicatedHostUpdate
+* DedicatedHostUpdate `object`: Specifies information about the dedicated host. Only tags, autoReplaceOnFailure and licenseType may be updated.
+  * properties [DedicatedHostProperties](#dedicatedhostproperties)
+  * tags `object`: Resource tags
+
 ### DiagnosticsProfile
 * DiagnosticsProfile `object`: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
   * bootDiagnostics [BootDiagnostics](#bootdiagnostics)
+
+### DiffDiskOption
+* DiffDiskOption `string` (values: Local): Specifies the ephemeral disk option for operating system disk.
+
+### DiffDiskSettings
+* DiffDiskSettings `object`: Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
+  * option [DiffDiskOption](#diffdiskoption)
 
 ### DiskEncryptionSettings
 * DiskEncryptionSettings `object`: Describes a Encryption Settings for a Disk
@@ -2252,6 +2872,9 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 ### HardwareProfile
 * HardwareProfile `object`: Specifies the hardware settings for the virtual machine.
   * vmSize `string` (values: Basic_A0, Basic_A1, Basic_A2, Basic_A3, Basic_A4, Standard_A0, Standard_A1, Standard_A2, Standard_A3, Standard_A4, Standard_A5, Standard_A6, Standard_A7, Standard_A8, Standard_A9, Standard_A10, Standard_A11, Standard_A1_v2, Standard_A2_v2, Standard_A4_v2, Standard_A8_v2, Standard_A2m_v2, Standard_A4m_v2, Standard_A8m_v2, Standard_B1s, Standard_B1ms, Standard_B2s, Standard_B2ms, Standard_B4ms, Standard_B8ms, Standard_D1, Standard_D2, Standard_D3, Standard_D4, Standard_D11, Standard_D12, Standard_D13, Standard_D14, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2, Standard_D5_v2, Standard_D2_v3, Standard_D4_v3, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D2s_v3, Standard_D4s_v3, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D11_v2, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS1, Standard_DS2, Standard_DS3, Standard_DS4, Standard_DS11, Standard_DS12, Standard_DS13, Standard_DS14, Standard_DS1_v2, Standard_DS2_v2, Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_DS11_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_DS13-4_v2, Standard_DS13-2_v2, Standard_DS14-8_v2, Standard_DS14-4_v2, Standard_E2_v3, Standard_E4_v3, Standard_E8_v3, Standard_E16_v3, Standard_E32_v3, Standard_E64_v3, Standard_E2s_v3, Standard_E4s_v3, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_E32-16_v3, Standard_E32-8s_v3, Standard_E64-32s_v3, Standard_E64-16s_v3, Standard_F1, Standard_F2, Standard_F4, Standard_F8, Standard_F16, Standard_F1s, Standard_F2s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_F2s_v2, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_G1, Standard_G2, Standard_G3, Standard_G4, Standard_G5, Standard_GS1, Standard_GS2, Standard_GS3, Standard_GS4, Standard_GS5, Standard_GS4-8, Standard_GS4-4, Standard_GS5-16, Standard_GS5-8, Standard_H8, Standard_H16, Standard_H8m, Standard_H16m, Standard_H16r, Standard_H16mr, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_M64s, Standard_M64ms, Standard_M128s, Standard_M128ms, Standard_M64-32ms, Standard_M64-16ms, Standard_M128-64ms, Standard_M128-32ms, Standard_NC6, Standard_NC12, Standard_NC24, Standard_NC24r, Standard_NC6s_v2, Standard_NC12s_v2, Standard_NC24s_v2, Standard_NC24rs_v2, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_NC24rs_v3, Standard_ND6s, Standard_ND12s, Standard_ND24s, Standard_ND24rs, Standard_NV6, Standard_NV12, Standard_NV24): Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+
+### HyperVGenerationType
+* HyperVGenerationType `string` (values: V1, V2): Specifies the HyperVGeneration Type
 
 ### Image
 * Image `object`: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -2291,6 +2914,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### ImageProperties
 * ImageProperties `object`: Describes the properties of an Image.
+  * hyperVGeneration [HyperVGenerationType](#hypervgenerationtype)
   * provisioningState `string`: The provisioning state.
   * sourceVirtualMachine [SubResource](#subresource)
   * storageProfile [ImageStorageProfile](#imagestorageprofile)
@@ -2341,6 +2965,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 ### LinuxConfiguration
 * LinuxConfiguration `object`: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   * disablePasswordAuthentication `boolean`: Specifies whether password authentication should be disabled.
+  * provisionVMAgent `boolean`: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
   * ssh [SshConfiguration](#sshconfiguration)
 
 ### ListUsagesResult
@@ -2353,7 +2978,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * LogAnalyticsInputBase `object`: Api input base class for LogAnalytics Api.
   * blobContainerSasUri **required** `string`: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
   * fromTime **required** `string`: From time of the query
-  * groupByOperationName `boolean`: Group query result by  by Operation Name.
+  * groupByOperationName `boolean`: Group query result by Operation Name.
   * groupByResourceName `boolean`: Group query result by Resource Name.
   * groupByThrottlePolicy `boolean`: Group query result by Throttle Policy applied.
   * toTime **required** `string`: To time of the query
@@ -2361,11 +2986,6 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 ### LogAnalyticsOperationResult
 * LogAnalyticsOperationResult `object`: LogAnalytics operation status response
   * properties [LogAnalyticsOutput](#loganalyticsoutput)
-  * endTime `string`: End time of the operation
-  * error [ApiError](#apierror)
-  * name `string`: Operation ID
-  * startTime `string`: Start time of the operation
-  * status `string`: Operation status
 
 ### LogAnalyticsOutput
 * LogAnalyticsOutput `object`: LogAnalytics output properties
@@ -2404,7 +3024,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * OSDisk `object`: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * caching [Caching](#caching)
   * createOption **required** [CreateOption](#createoption)
-  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+  * diffDiskSettings [DiffDiskSettings](#diffdisksettings)
+  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
   * encryptionSettings [DiskEncryptionSettings](#diskencryptionsettings)
   * image [VirtualHardDisk](#virtualharddisk)
   * managedDisk [ManagedDiskParameters](#manageddiskparameters)
@@ -2421,20 +3042,13 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * OSProfile `object`: Specifies the operating system settings for the virtual machine.
   * adminPassword `string`: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
   * adminUsername `string`: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  * computerName `string`: Specifies the host OS name of the virtual machine. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+  * allowExtensionOperations `boolean`: Specifies whether extension operations should be allowed on the virtual machine. <br><br>This may only be set to False when no extensions are present on the virtual machine.
+  * computerName `string`: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
   * customData `string`: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   * linuxConfiguration [LinuxConfiguration](#linuxconfiguration)
   * secrets `array`: Specifies set of certificates that should be installed onto the virtual machine.
     * items [VaultSecretGroup](#vaultsecretgroup)
   * windowsConfiguration [WindowsConfiguration](#windowsconfiguration)
-
-### OperationStatusResponse
-* OperationStatusResponse `object`: Operation status response
-  * endTime `string`: End time of the operation
-  * error [ApiError](#apierror)
-  * name `string`: Operation ID
-  * startTime `string`: Start time of the operation
-  * status `string`: Operation status
 
 ### Plan
 * Plan `object`: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -2442,6 +3056,35 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * product `string`: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
   * promotionCode `string`: The promotion code.
   * publisher `string`: The publisher ID.
+
+### ProximityPlacementGroup
+* ProximityPlacementGroup `object`: Specifies information about the proximity placement group.
+  * properties [ProximityPlacementGroupProperties](#proximityplacementgroupproperties)
+  * id `string`: Resource Id
+  * location **required** `string`: Resource location
+  * name `string`: Resource name
+  * tags `object`: Resource tags
+  * type `string`: Resource type
+
+### ProximityPlacementGroupListResult
+* ProximityPlacementGroupListResult `object`: The List Proximity Placement Group operation response.
+  * nextLink `string`: The URI to fetch the next page of proximity placement groups.
+  * value **required** `array`: The list of proximity placement groups
+    * items [ProximityPlacementGroup](#proximityplacementgroup)
+
+### ProximityPlacementGroupProperties
+* ProximityPlacementGroupProperties `object`: Describes the properties of a Proximity Placement Group.
+  * availabilitySets `array`: A list of references to all availability sets in the proximity placement group.
+    * items [SubResource](#subresource)
+  * proximityPlacementGroupType `string` (values: Standard, Ultra): Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+  * virtualMachineScaleSets `array`: A list of references to all virtual machine scale sets in the proximity placement group.
+    * items [SubResource](#subresource)
+  * virtualMachines `array`: A list of references to all virtual machines in the proximity placement group.
+    * items [SubResource](#subresource)
+
+### ProximityPlacementGroupUpdate
+* ProximityPlacementGroupUpdate: Specifies information about the proximity placement group.
+  * tags `object`: Resource tags
 
 ### PurchasePlan
 * PurchasePlan `object`: Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
@@ -2459,7 +3102,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * intervalLength **required** `string` (values: ThreeMins, FiveMins, ThirtyMins, SixtyMins): Interval value in minutes used to create LogAnalytics call rate logs.
   * blobContainerSasUri **required** `string`: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
   * fromTime **required** `string`: From time of the query
-  * groupByOperationName `boolean`: Group query result by  by Operation Name.
+  * groupByOperationName `boolean`: Group query result by Operation Name.
   * groupByResourceName `boolean`: Group query result by Resource Name.
   * groupByThrottlePolicy `boolean`: Group query result by Throttle Policy applied.
   * toTime **required** `string`: To time of the query
@@ -2473,7 +3116,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * type `string`: Resource type
 
 ### RollbackStatusInfo
-* RollbackStatusInfo `object`: Information about rollback on failed VM instances after a OS Upgrade operation
+* RollbackStatusInfo `object`: Information about rollback on failed VM instances after a OS Upgrade operation.
   * failedRolledbackInstanceCount `integer`: The number of instances which failed to rollback.
   * rollbackError [ApiError](#apierror)
   * successfullyRolledbackInstanceCount `integer`: The number of instances which have been successfully rolled back.
@@ -2515,6 +3158,15 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * progress [RollingUpgradeProgressInfo](#rollingupgradeprogressinfo)
   * runningStatus [RollingUpgradeRunningStatus](#rollingupgraderunningstatus)
 
+### ScaleInPolicy
+* ScaleInPolicy `object`: Describes a scale-in policy for a virtual machine scale set.
+  * rules `array`: The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
+    * items `string` (values: Default, OldestVM, NewestVM)
+
+### ScheduledEventsProfile
+* ScheduledEventsProfile `object`
+  * terminateNotificationProfile [TerminateNotificationProfile](#terminatenotificationprofile)
+
 ### Sku
 * Sku `object`: Describes a virtual machine scale set sku.
   * capacity `integer`: Specifies the number of virtual machines in the scale set.
@@ -2532,7 +3184,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * path `string`: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 
 ### StorageAccountType
-* StorageAccountType `string` (values: Standard_LRS, Premium_LRS): Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+* StorageAccountType `string` (values: Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS): Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 
 ### StorageProfile
 * StorageProfile `object`: Specifies the storage settings for the virtual machine disks.
@@ -2549,11 +3201,16 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * SubResourceReadOnly `object`
   * id `string`: Resource Id
 
+### TerminateNotificationProfile
+* TerminateNotificationProfile `object`
+  * enable `boolean`: Specifies whether the Terminate Scheduled event is enabled or disabled.
+  * notBeforeTimeout `string`: Configurable length of time a Virtual Machine being deleted will have to potentially approve the Terminate Scheduled Event before the event is auto approved (timed out). The configuration must be specified in ISO 8601 format, the default value is 5 minutes (PT5M)
+
 ### ThrottledRequestsInput
 * ThrottledRequestsInput: Api request input for LogAnalytics getThrottledRequests Api.
   * blobContainerSasUri **required** `string`: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
   * fromTime **required** `string`: From time of the query
-  * groupByOperationName `boolean`: Group query result by  by Operation Name.
+  * groupByOperationName `boolean`: Group query result by Operation Name.
   * groupByResourceName `boolean`: Group query result by Resource Name.
   * groupByThrottlePolicy `boolean`: Group query result by Throttle Policy applied.
   * toTime **required** `string`: To time of the query
@@ -2585,8 +3242,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### UpgradePolicy
 * UpgradePolicy `object`: Describes an upgrade policy - automatic, manual, or rolling.
-  * autoOSUpgradePolicy [AutoOSUpgradePolicy](#autoosupgradepolicy)
-  * automaticOSUpgrade `boolean`: Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.
+  * automaticOSUpgradePolicy [AutomaticOSUpgradePolicy](#automaticosupgradepolicy)
   * mode `string` (values: Automatic, Manual, Rolling): Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
   * rollingUpgradePolicy [RollingUpgradePolicy](#rollingupgradepolicy)
 
@@ -2602,9 +3258,13 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * localizedValue `string`: The localized name of the resource.
   * value `string`: The name of the resource.
 
+### VMScaleSetConvertToSinglePlacementGroupInput
+* VMScaleSetConvertToSinglePlacementGroupInput `object`
+  * activePlacementGroupId `string`: Id of the placement group in which you want future virtual machine instances to be placed. To query placement group Id, please use Virtual Machine Scale Set VMs - Get API. If not provided, the platform will choose one with maximum number of virtual machine instances.
+
 ### VaultCertificate
 * VaultCertificate `object`: Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
-  * certificateStore `string`: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbpring>.prv for private key. Both of these files are .pem formatted.
+  * certificateStore `string`: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
   * certificateUrl `string`: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 
 ### VaultSecretGroup
@@ -2647,13 +3307,13 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * vhdPrefix **required** `string`: The captured virtual hard disk's name prefix.
 
 ### VirtualMachineCaptureResult
-* VirtualMachineCaptureResult `object`: Resource Id.
-  * properties [VirtualMachineCaptureResultProperties](#virtualmachinecaptureresultproperties)
+* VirtualMachineCaptureResult `object`: Output of virtual machine capture operation.
+  * $schema `string`: the schema of the captured virtual machine
+  * contentVersion `string`: the version of the content
+  * parameters `object`: parameters of the captured virtual machine
+  * resources `array`: a list of resource items of the captured virtual machine
+    * items `object`: resource item
   * id `string`: Resource Id
-
-### VirtualMachineCaptureResultProperties
-* VirtualMachineCaptureResultProperties `object`: Compute-specific operation properties, including output
-  * output `object`: Operation output data (raw JSON)
 
 ### VirtualMachineExtension
 * VirtualMachineExtension `object`: Describes a Virtual Machine Extension.
@@ -2735,11 +3395,10 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineIdentity
 * VirtualMachineIdentity `object`: Identity for the virtual machine.
-  * identityIds `array`: The list of user identities associated with the Virtual Machine. The user identity references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/identities/{identityName}'.
-    * items `string`
   * principalId `string`: The principal id of virtual machine identity. This property will only be provided for a system assigned identity.
   * tenantId `string`: The tenant id associated with the virtual machine. This property will only be provided for a system assigned identity.
   * type `string` (values: SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None): The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+  * userAssignedIdentities `object`: The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
 ### VirtualMachineImage
 * VirtualMachineImage `object`: Describes a Virtual Machine Image.
@@ -2751,8 +3410,10 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineImageProperties
 * VirtualMachineImageProperties `object`: Describes the properties of a Virtual Machine Image.
+  * automaticOSUpgradeProperties [AutomaticOSUpgradeProperties](#automaticosupgradeproperties)
   * dataDiskImages `array`
     * items [DataDiskImage](#datadiskimage)
+  * hyperVGeneration [HyperVGenerationType](#hypervgenerationtype)
   * osDiskImage [OSDiskImage](#osdiskimage)
   * plan [PurchasePlan](#purchaseplan)
 
@@ -2771,6 +3432,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
     * items [DiskInstanceView](#diskinstanceview)
   * extensions `array`: The extensions information.
     * items [VirtualMachineExtensionInstanceView](#virtualmachineextensioninstanceview)
+  * hyperVGeneration `string` (values: V1, V2): Specifies the HyperVGeneration Type associated with a resource
   * maintenanceRedeployStatus [MaintenanceRedeployStatus](#maintenanceredeploystatus)
   * osName `string`: The Operating System running on the virtual machine.
   * osVersion `string`: The version of Operating System running on the virtual machine.
@@ -2789,16 +3451,27 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineProperties
 * VirtualMachineProperties `object`: Describes the properties of a Virtual Machine.
+  * additionalCapabilities [AdditionalCapabilities](#additionalcapabilities)
   * availabilitySet [SubResource](#subresource)
+  * billingProfile [BillingProfile](#billingprofile)
   * diagnosticsProfile [DiagnosticsProfile](#diagnosticsprofile)
+  * evictionPolicy `string` (values: Deallocate, Delete): Specifies the eviction policy for the low priority virtual machine. Only supported value is 'Deallocate'. <br><br>Minimum api-version: 2019-03-01
   * hardwareProfile [HardwareProfile](#hardwareprofile)
+  * host [SubResource](#subresource)
   * instanceView [VirtualMachineInstanceView](#virtualmachineinstanceview)
   * licenseType `string`: Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
   * networkProfile [NetworkProfile](#networkprofile)
   * osProfile [OSProfile](#osprofile)
+  * priority `string` (values: Regular, Low): Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
   * provisioningState `string`: The provisioning state, which only appears in the response.
+  * proximityPlacementGroup [SubResource](#subresource)
   * storageProfile [StorageProfile](#storageprofile)
+  * virtualMachineScaleSet [SubResource](#subresource)
   * vmId `string`: Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
+
+### VirtualMachineReimageParameters
+* VirtualMachineReimageParameters `object`: Parameters for Reimaging Virtual Machine. NOTE: Virtual Machine OS disk will always be reimaged
+  * tempDisk `boolean`: Specifies whether to reimage temp disk. Default value: false. Note: This temp disk reimage parameter is only supported for VM/VMSS with Ephemeral OS disk.
 
 ### VirtualMachineScaleSet
 * VirtualMachineScaleSet `object`: Describes a Virtual Machine Scale Set.
@@ -2818,7 +3491,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetDataDisk `object`: Describes a virtual machine scale set data disk.
   * caching [Caching](#caching)
   * createOption **required** [CreateOption](#createoption)
-  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+  * diskSizeGB `integer`: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
   * lun **required** `integer`: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
   * managedDisk [VirtualMachineScaleSetManagedDiskParameters](#virtualmachinescalesetmanageddiskparameters)
   * name `string`: The disk name.
@@ -2846,6 +3519,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * autoUpgradeMinorVersion `boolean`: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
   * forceUpdateTag `string`: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
   * protectedSettings `object`: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+  * provisionAfterExtensions `array`: Collection of extension names after which this extension needs to be provisioned.
+    * items `string`
   * provisioningState `string`: The provisioning state, which only appears in the response.
   * publisher `string`: The name of the extension handler publisher.
   * settings `object`: Json formatted public settings for the extension.
@@ -2862,6 +3537,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetIPConfigurationProperties `object`: Describes a virtual machine scale set network profile's IP configuration properties.
   * applicationGatewayBackendAddressPools `array`: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
     * items [SubResource](#subresource)
+  * applicationSecurityGroups `array`: Specifies an array of references to application security group.
+    * items [SubResource](#subresource)
   * loadBalancerBackendAddressPools `array`: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
     * items [SubResource](#subresource)
   * loadBalancerInboundNatPools `array`: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
@@ -2873,11 +3550,10 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineScaleSetIdentity
 * VirtualMachineScaleSetIdentity `object`: Identity for the virtual machine scale set.
-  * identityIds `array`: The list of user identities associated with the virtual machine scale set. The user identity references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/identities/{identityName}'.
-    * items `string`
   * principalId `string`: The principal id of virtual machine scale set identity. This property will only be provided for a system assigned identity.
   * tenantId `string`: The tenant id associated with the virtual machine scale set. This property will only be provided for a system assigned identity.
   * type `string` (values: SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None): The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+  * userAssignedIdentities `object`: The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
 ### VirtualMachineScaleSetInstanceView
 * VirtualMachineScaleSetInstanceView `object`: The instance view of a virtual machine scale set.
@@ -2891,6 +3567,11 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetInstanceViewStatusesSummary `object`: Instance view statuses summary for virtual machines of a virtual machine scale set.
   * statusesSummary `array`: The extensions information.
     * items [VirtualMachineStatusCodeCount](#virtualmachinestatuscodecount)
+
+### VirtualMachineScaleSetIpTag
+* VirtualMachineScaleSetIpTag `object`: Contains the IP tag associated with the public IP address.
+  * ipTagType `string`: IP tag type. Example: FirstPartyUsage.
+  * tag `string`: IP tag associated with the public IP. Example: SQL, Storage etc.
 
 ### VirtualMachineScaleSetListOSUpgradeHistory
 * VirtualMachineScaleSetListOSUpgradeHistory `object`: List of Virtual Machine Scale Set OS Upgrade History operation response.
@@ -2951,6 +3632,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetOSDisk `object`: Describes a virtual machine scale set operating system disk.
   * caching [Caching](#caching)
   * createOption **required** [CreateOption](#createoption)
+  * diffDiskSettings [DiffDiskSettings](#diffdisksettings)
+  * diskSizeGB `integer`: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
   * image [VirtualHardDisk](#virtualharddisk)
   * managedDisk [VirtualMachineScaleSetManagedDiskParameters](#virtualmachinescalesetmanageddiskparameters)
   * name `string`: The disk name.
@@ -2972,14 +3655,18 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineScaleSetProperties
 * VirtualMachineScaleSetProperties `object`: Describes the properties of a Virtual Machine Scale Set.
+  * additionalCapabilities [AdditionalCapabilities](#additionalcapabilities)
+  * doNotRunExtensionsOnOverprovisionedVMs `boolean`: When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
   * overprovision `boolean`: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
   * platformFaultDomainCount `integer`: Fault Domain count for each placement group.
   * provisioningState `string`: The provisioning state, which only appears in the response.
+  * proximityPlacementGroup [SubResource](#subresource)
+  * scaleInPolicy [ScaleInPolicy](#scaleinpolicy)
   * singlePlacementGroup `boolean`: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
   * uniqueId `string`: Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
   * upgradePolicy [UpgradePolicy](#upgradepolicy)
   * virtualMachineProfile [VirtualMachineScaleSetVMProfile](#virtualmachinescalesetvmprofile)
-  * zoneBalance `boolean`: Whether to force stictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+  * zoneBalance `boolean`: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 
 ### VirtualMachineScaleSetPublicIPAddressConfiguration
 * VirtualMachineScaleSetPublicIPAddressConfiguration `object`: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
@@ -2994,6 +3681,15 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetPublicIPAddressConfigurationProperties `object`: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
   * dnsSettings [VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings](#virtualmachinescalesetpublicipaddressconfigurationdnssettings)
   * idleTimeoutInMinutes `integer`: The idle timeout of the public IP address.
+  * ipTags `array`: The list of IP tags associated with the public IP address.
+    * items [VirtualMachineScaleSetIpTag](#virtualmachinescalesetiptag)
+  * publicIPPrefix [SubResource](#subresource)
+
+### VirtualMachineScaleSetReimageParameters
+* VirtualMachineScaleSetReimageParameters `object`: Describes a Virtual Machine Scale Set VM Reimage Parameters.
+  * instanceIds `array`: The virtual machine scale set instance ids. Omitting the virtual machine scale set instance ids will result in the operation being performed on all virtual machines in the virtual machine scale set.
+    * items `string`
+  * tempDisk `boolean`: Specifies whether to reimage temp disk. Default value: false. Note: This temp disk reimage parameter is only supported for VM/VMSS with Ephemeral OS disk.
 
 ### VirtualMachineScaleSetSku
 * VirtualMachineScaleSetSku `object`: Describes an available virtual machine scale set sku.
@@ -3033,6 +3729,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * VirtualMachineScaleSetUpdateIPConfigurationProperties `object`: Describes a virtual machine scale set network profile's IP configuration properties.
   * applicationGatewayBackendAddressPools `array`: The application gateway backend address pools.
     * items [SubResource](#subresource)
+  * applicationSecurityGroups `array`: Specifies an array of references to application security group.
+    * items [SubResource](#subresource)
   * loadBalancerBackendAddressPools `array`: The load balancer backend address pools.
     * items [SubResource](#subresource)
   * loadBalancerInboundNatPools `array`: The load balancer inbound nat pools.
@@ -3066,6 +3764,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 ### VirtualMachineScaleSetUpdateOSDisk
 * VirtualMachineScaleSetUpdateOSDisk `object`: Describes virtual machine scale set operating system disk Update Object. This should be used for Updating VMSS OS Disk.
   * caching [Caching](#caching)
+  * diskSizeGB `integer`: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
   * image [VirtualHardDisk](#virtualharddisk)
   * managedDisk [VirtualMachineScaleSetManagedDiskParameters](#virtualmachinescalesetmanageddiskparameters)
   * vhdContainers `array`: The list of virtual hard disk container uris.
@@ -3082,7 +3781,9 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineScaleSetUpdateProperties
 * VirtualMachineScaleSetUpdateProperties `object`: Describes the properties of a Virtual Machine Scale Set.
+  * additionalCapabilities [AdditionalCapabilities](#additionalcapabilities)
   * overprovision `boolean`: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+  * scaleInPolicy [ScaleInPolicy](#scaleinpolicy)
   * singlePlacementGroup `boolean`: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
   * upgradePolicy [UpgradePolicy](#upgradepolicy)
   * virtualMachineProfile [VirtualMachineScaleSetUpdateVMProfile](#virtualmachinescalesetupdatevmprofile)
@@ -3106,11 +3807,13 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 
 ### VirtualMachineScaleSetUpdateVMProfile
 * VirtualMachineScaleSetUpdateVMProfile `object`: Describes a virtual machine scale set virtual machine profile.
+  * billingProfile [BillingProfile](#billingprofile)
   * diagnosticsProfile [DiagnosticsProfile](#diagnosticsprofile)
   * extensionProfile [VirtualMachineScaleSetExtensionProfile](#virtualmachinescalesetextensionprofile)
   * licenseType `string`: The license type, which is for bring your own license scenario.
   * networkProfile [VirtualMachineScaleSetUpdateNetworkProfile](#virtualmachinescalesetupdatenetworkprofile)
   * osProfile [VirtualMachineScaleSetUpdateOSProfile](#virtualmachinescalesetupdateosprofile)
+  * scheduledEventsProfile [ScheduledEventsProfile](#scheduledeventsprofile)
   * storageProfile [VirtualMachineScaleSetUpdateStorageProfile](#virtualmachinescalesetupdatestorageprofile)
 
 ### VirtualMachineScaleSetVM
@@ -3121,6 +3824,8 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * resources `array`: The virtual machine child extension resources.
     * items [VirtualMachineExtension](#virtualmachineextension)
   * sku [Sku](#sku)
+  * zones `array`: The virtual machine zones.
+    * items `string`
   * id `string`: Resource Id
   * location **required** `string`: Resource location
   * name `string`: Resource name
@@ -3166,8 +3871,14 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * value **required** `array`: The list of virtual machine scale sets VMs.
     * items [VirtualMachineScaleSetVM](#virtualmachinescalesetvm)
 
+### VirtualMachineScaleSetVMNetworkProfileConfiguration
+* VirtualMachineScaleSetVMNetworkProfileConfiguration `object`: Describes a virtual machine scale set VM network profile.
+  * networkInterfaceConfigurations `array`: The list of network configurations.
+    * items [VirtualMachineScaleSetNetworkConfiguration](#virtualmachinescalesetnetworkconfiguration)
+
 ### VirtualMachineScaleSetVMProfile
 * VirtualMachineScaleSetVMProfile `object`: Describes a virtual machine scale set virtual machine profile.
+  * billingProfile [BillingProfile](#billingprofile)
   * diagnosticsProfile [DiagnosticsProfile](#diagnosticsprofile)
   * evictionPolicy `string` (values: Deallocate, Delete): Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
   * extensionProfile [VirtualMachineScaleSetExtensionProfile](#virtualmachinescalesetextensionprofile)
@@ -3175,21 +3886,35 @@ azure_compute.VirtualMachines_ListAvailableSizes({
   * networkProfile [VirtualMachineScaleSetNetworkProfile](#virtualmachinescalesetnetworkprofile)
   * osProfile [VirtualMachineScaleSetOSProfile](#virtualmachinescalesetosprofile)
   * priority `string` (values: Regular, Low): Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+  * scheduledEventsProfile [ScheduledEventsProfile](#scheduledeventsprofile)
   * storageProfile [VirtualMachineScaleSetStorageProfile](#virtualmachinescalesetstorageprofile)
 
 ### VirtualMachineScaleSetVMProperties
 * VirtualMachineScaleSetVMProperties `object`: Describes the properties of a virtual machine scale set virtual machine.
+  * additionalCapabilities [AdditionalCapabilities](#additionalcapabilities)
   * availabilitySet [SubResource](#subresource)
   * diagnosticsProfile [DiagnosticsProfile](#diagnosticsprofile)
   * hardwareProfile [HardwareProfile](#hardwareprofile)
-  * instanceView [VirtualMachineInstanceView](#virtualmachineinstanceview)
+  * instanceView [VirtualMachineScaleSetVMInstanceView](#virtualmachinescalesetvminstanceview)
   * latestModelApplied `boolean`: Specifies whether the latest model has been applied to the virtual machine.
   * licenseType `string`: Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+  * modelDefinitionApplied `string`: Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
   * networkProfile [NetworkProfile](#networkprofile)
+  * networkProfileConfiguration [VirtualMachineScaleSetVMNetworkProfileConfiguration](#virtualmachinescalesetvmnetworkprofileconfiguration)
   * osProfile [OSProfile](#osprofile)
+  * protectionPolicy [VirtualMachineScaleSetVMProtectionPolicy](#virtualmachinescalesetvmprotectionpolicy)
   * provisioningState `string`: The provisioning state, which only appears in the response.
   * storageProfile [StorageProfile](#storageprofile)
   * vmId `string`: Azure VM unique ID.
+
+### VirtualMachineScaleSetVMProtectionPolicy
+* VirtualMachineScaleSetVMProtectionPolicy `object`: The protection policy of a virtual machine scale set VM.
+  * protectFromScaleIn `boolean`: Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
+  * protectFromScaleSetActions `boolean`: Indicates that model updates or actions (including scale-in) initiated on the virtual machine scale set should not be applied to the virtual machine scale set VM.
+
+### VirtualMachineScaleSetVMReimageParameters
+* VirtualMachineScaleSetVMReimageParameters: Describes a Virtual Machine Scale Set VM Reimage Parameters.
+  * tempDisk `boolean`: Specifies whether to reimage temp disk. Default value: false. Note: This temp disk reimage parameter is only supported for VM/VMSS with Ephemeral OS disk.
 
 ### VirtualMachineSize
 * VirtualMachineSize `object`: Describes the properties of a VM size.
@@ -3233,7 +3958,7 @@ azure_compute.VirtualMachines_ListAvailableSizes({
 * WindowsConfiguration `object`: Specifies Windows operating system settings on the virtual machine.
   * additionalUnattendContent `array`: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
     * items [AdditionalUnattendContent](#additionalunattendcontent)
-  * enableAutomaticUpdates `boolean`: Indicates whether virtual machine is enabled for automatic updates.
+  * enableAutomaticUpdates `boolean`: Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
   * provisionVMAgent `boolean`: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
   * timeZone `string`: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
   * winRM [WinRMConfiguration](#winrmconfiguration)

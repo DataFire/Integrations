@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_replicapool",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Google Compute Engine Instance Group Manager",
+  "description": "DataFire integration for Replica Pool",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/googleapis.com/replicapool/v1beta2/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/googleapis.com/replicapool/v1beta1/openapi.json",
+    "type": "openapi_3"
   },
   "dependencies": {
     "datafire": "^2.0.0"

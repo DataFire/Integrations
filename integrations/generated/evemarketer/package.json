@@ -1,8 +1,8 @@
 {
   "name": "@datafire/evemarketer",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for EVEMarketer Marketstat",
+  "description": "DataFire integration for EVEMarketer Marketstat API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

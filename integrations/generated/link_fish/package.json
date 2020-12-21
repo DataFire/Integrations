@@ -1,8 +1,8 @@
 {
   "name": "@datafire/link_fish",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for link.fish",
+  "description": "DataFire integration for link.fish API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/link.fish/2017-12-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/link.fish/2018-07-05/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -1,0 +1,2715 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT devices during device software development. Device Advisor provides pre-built tests that you can use to validate IoT devices for reliable and secure connectivity with AWS IoT Core before deploying devices to production. By using Device Advisor, you can confirm that your devices can connect to AWS IoT Core, follow security best practices and, if applicable, receive software updates from IoT Device Management. You can also download signed qualification reports to submit to the AWS Partner Network to get your device qualified for the AWS Partner Device Catalog without the need to send your device in and wait for it to be tested.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS IoT Core Device Advisor",
+    "version": "2020-09-18",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iotdeviceadvisor-2020-09-18.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "iotdeviceadvisor",
+    "x-datafire": {
+      "name": "amazonaws_iotdeviceadvisor",
+      "type": "openapi"
+    }
+  },
+  "host": "api.iotdeviceadvisor.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/suiteDefinitions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Request the list of all the Device Advisor test suites.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Requests the Device Advisor test suites next token.",
+            "in": "query",
+            "maxLength": 2000,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSuiteDefinitionsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the Device Advisor test suites you have created.",
+        "operationId": "ListSuiteDefinitions"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String256"
+                  },
+                  "description": "The tags to be attached to the suite definition.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "suiteDefinitionConfiguration": {
+                  "description": "Gets Suite Definition Configuration.",
+                  "properties": {
+                    "devicePermissionRoleArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AmazonResourceName"
+                        },
+                        {
+                          "description": "Gets device permission arn."
+                        }
+                      ]
+                    },
+                    "devices": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeviceUnderTestList"
+                        },
+                        {
+                          "description": "Gets the devices configured."
+                        }
+                      ]
+                    },
+                    "intendedForQualification": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/IntendedForQualificationBoolean"
+                        },
+                        {
+                          "description": "Gets the tests intended for qualification in a suite."
+                        }
+                      ]
+                    },
+                    "rootGroup": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/RootGroup"
+                        },
+                        {
+                          "description": "Gets test suite root group."
+                        }
+                      ]
+                    },
+                    "suiteDefinitionName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SuiteDefinitionName"
+                        },
+                        {
+                          "description": "Gets Suite Definition Configuration name."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSuiteDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a Device Advisor test suite.",
+        "operationId": "CreateSuiteDefinition"
+      }
+    },
+    "/suiteDefinitions/{suiteDefinitionId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Deletes a Device Advisor test suite with defined suite Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSuiteDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes a Device Advisor test suite.",
+        "operationId": "DeleteSuiteDefinition"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Requests suite definition Id with GetSuiteDefinition API call.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Requests the suite definition version of a test suite.",
+            "in": "query",
+            "maxLength": 255,
+            "minLength": 2,
+            "name": "suiteDefinitionVersion",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSuiteDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets information about a Device Advisor test suite.",
+        "operationId": "GetSuiteDefinition"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Updates a Device Advisor test suite with suite definition id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "suiteDefinitionConfiguration": {
+                  "description": "Gets Suite Definition Configuration.",
+                  "properties": {
+                    "devicePermissionRoleArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/AmazonResourceName"
+                        },
+                        {
+                          "description": "Gets device permission arn."
+                        }
+                      ]
+                    },
+                    "devices": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeviceUnderTestList"
+                        },
+                        {
+                          "description": "Gets the devices configured."
+                        }
+                      ]
+                    },
+                    "intendedForQualification": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/IntendedForQualificationBoolean"
+                        },
+                        {
+                          "description": "Gets the tests intended for qualification in a suite."
+                        }
+                      ]
+                    },
+                    "rootGroup": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/RootGroup"
+                        },
+                        {
+                          "description": "Gets test suite root group."
+                        }
+                      ]
+                    },
+                    "suiteDefinitionName": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SuiteDefinitionName"
+                        },
+                        {
+                          "description": "Gets Suite Definition Configuration name."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateSuiteDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates a Device Advisor test suite.",
+        "operationId": "UpdateSuiteDefinition"
+      }
+    },
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Request to start suite run based on suite definition Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String256"
+                  },
+                  "description": "The tags to be attached to the suite run.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                },
+                "suiteDefinitionVersion": {
+                  "description": "Request to start suite run based on suite definition version.",
+                  "maxLength": 255,
+                  "minLength": 2,
+                  "type": "string"
+                },
+                "suiteRunConfiguration": {
+                  "description": "Gets suite run configuration.",
+                  "properties": {
+                    "primaryDevice": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeviceUnderTest"
+                        },
+                        {
+                          "description": "Gets the primary device for suite run."
+                        }
+                      ]
+                    },
+                    "secondaryDevice": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DeviceUnderTest"
+                        },
+                        {
+                          "description": "Gets the secondary device for suite run."
+                        }
+                      ]
+                    },
+                    "selectedTestList": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SelectedTestList"
+                        },
+                        {
+                          "description": "Gets test case list."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartSuiteRunResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Starts a Device Advisor test suite run.",
+        "operationId": "StartSuiteRun"
+      }
+    },
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Requests the information about Device Advisor test suite run based on suite definition Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Requests the information about Device Advisor test suite run based on suite run Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteRunId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSuiteRunResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets information about a Device Advisor test suite run.",
+        "operationId": "GetSuiteRun"
+      }
+    },
+    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Device Advisor suite definition Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Device Advisor suite run Id.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteRunId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSuiteRunReportResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets a report download link for a successful Device Advisor qualifying test suite run.",
+        "operationId": "GetSuiteRunReport"
+      }
+    },
+    "/suiteRuns": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Lists the runs of the specified Device Advisor test suite based on suite definition Id.",
+            "in": "query",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "suiteDefinitionId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Lists the runs of the specified Device Advisor test suite based on suite definition version.",
+            "in": "query",
+            "maxLength": 255,
+            "minLength": 2,
+            "name": "suiteDefinitionVersion",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "MaxResults for list suite run API request.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Next pagination token for list suite run request.",
+            "in": "query",
+            "maxLength": 2000,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSuiteRunsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the runs of the specified Device Advisor test suite. You can list all runs of the test suite, or the runs of a specific version of the test suite.",
+        "operationId": "ListSuiteRuns"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ARN of the IoT Device Advisor resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 20,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists the tags attached to an IoT Device Advisor resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The resource ARN of an IoT Device Advisor resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 20,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/String256"
+                  },
+                  "description": "The tags to be attached to the IoT Device Advisor resource.",
+                  "maxProperties": 50,
+                  "minProperties": 0,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Adds to and modifies existing tags of an IoT Device Advisor resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The resource ARN of an IoT Device Advisor resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 20,
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "List of tag keys to remove from the IoT Device Advisor resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String128"
+            },
+            "maxItems": 50,
+            "minItems": 0,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes tags from an IoT Device Advisor resource.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/testCases": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Lists all the qualification test cases in the test suite.",
+            "in": "query",
+            "name": "intendedForQualification",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Requests the test cases max results.",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Requests the test cases next token.",
+            "in": "query",
+            "maxLength": 2000,
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTestCasesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all the test cases in the test suite.",
+        "operationId": "ListTestCases"
+      }
+    }
+  },
+  "definitions": {
+    "AmazonResourceName": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
+    },
+    "CategoryName": {
+      "type": "string"
+    },
+    "ConfigString": {
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateSuiteDefinitionRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags to be attached to the suite definition."
+            }
+          ]
+        },
+        "suiteDefinitionConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionConfiguration"
+            },
+            {
+              "description": "Creates a Device Advisor test suite with suite definition configuration."
+            }
+          ]
+        }
+      },
+      "title": "CreateSuiteDefinitionRequest",
+      "type": "object"
+    },
+    "CreateSuiteDefinitionResponse": {
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Creates a Device Advisor test suite with TimeStamp of when it was created."
+            }
+          ]
+        },
+        "suiteDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Creates a Device Advisor test suite with Amazon Resource name."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Creates a Device Advisor test suite with suite UUID."
+            }
+          ]
+        },
+        "suiteDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionName"
+            },
+            {
+              "description": "Creates a Device Advisor test suite with suite definition name."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteSuiteDefinitionRequest": {
+      "properties": {},
+      "title": "DeleteSuiteDefinitionRequest",
+      "type": "object"
+    },
+    "DeleteSuiteDefinitionResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeviceUnderTest": {
+      "description": "Lists all the devices under test",
+      "properties": {
+        "certificateArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Lists devices certificate arn"
+            }
+          ]
+        },
+        "thingArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Lists devices thing arn"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeviceUnderTestList": {
+      "items": {
+        "$ref": "#/definitions/DeviceUnderTest"
+      },
+      "maxItems": 2,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ErrorReason": {
+      "type": "string"
+    },
+    "Failure": {
+      "type": "string"
+    },
+    "GetSuiteDefinitionRequest": {
+      "properties": {},
+      "title": "GetSuiteDefinitionRequest",
+      "type": "object"
+    },
+    "GetSuiteDefinitionResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "Tags attached to the suite definition."
+            }
+          ]
+        },
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Gets the timestamp of the time suite was created with GetSuiteDefinition API call."
+            }
+          ]
+        },
+        "lastModifiedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Gets the timestamp of the time suite was modified with GetSuiteDefinition API call."
+            }
+          ]
+        },
+        "latestVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Gets latest suite definition version with GetSuiteDefinition API call."
+            }
+          ]
+        },
+        "suiteDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the suite definition."
+            }
+          ]
+        },
+        "suiteDefinitionConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionConfiguration"
+            },
+            {
+              "description": "Gets the suite configuration with GetSuiteDefinition API call."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Gets suite definition Id with GetSuiteDefinition API call."
+            }
+          ]
+        },
+        "suiteDefinitionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Gets suite definition version with GetSuiteDefinition API call."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSuiteRunReportRequest": {
+      "properties": {},
+      "title": "GetSuiteRunReportRequest",
+      "type": "object"
+    },
+    "GetSuiteRunReportResponse": {
+      "properties": {
+        "qualificationReportDownloadUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/QualificationReportDownloadUrl"
+            },
+            {
+              "description": "Gets the download URL of the qualification report."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSuiteRunRequest": {
+      "properties": {},
+      "title": "GetSuiteRunRequest",
+      "type": "object"
+    },
+    "GetSuiteRunResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags attached to the suite run."
+            }
+          ]
+        },
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on end time."
+            }
+          ]
+        },
+        "errorReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ErrorReason"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on error."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on start time."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunStatus"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on its status."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on suite definition Id."
+            }
+          ]
+        },
+        "suiteDefinitionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on suite definition version."
+            }
+          ]
+        },
+        "suiteRunArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The ARN of the suite run."
+            }
+          ]
+        },
+        "suiteRunConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunConfiguration"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on suite configuration."
+            }
+          ]
+        },
+        "suiteRunId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on suite run Id."
+            }
+          ]
+        },
+        "testResult": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestResult"
+            },
+            {
+              "description": "Gets the information about Device Advisor test suite run based on test case runs."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroupName": {
+      "type": "string"
+    },
+    "GroupResult": {
+      "description": "Show Group Result.",
+      "properties": {
+        "groupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Show Group Result Id."
+            }
+          ]
+        },
+        "groupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupName"
+            },
+            {
+              "description": "Show Group Result Name."
+            }
+          ]
+        },
+        "tests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseRuns"
+            },
+            {
+              "description": "Show Group Result."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GroupResultList": {
+      "description": "how Group Result list.",
+      "items": {
+        "$ref": "#/definitions/GroupResult"
+      },
+      "type": "array"
+    },
+    "IntendedForQualificationBoolean": {
+      "type": "boolean"
+    },
+    "InternalServerException": {},
+    "ListSuiteDefinitionsRequest": {
+      "properties": {},
+      "title": "ListSuiteDefinitionsRequest",
+      "type": "object"
+    },
+    "ListSuiteDefinitionsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "Creates a Device Advisor test suite."
+            }
+          ]
+        },
+        "suiteDefinitionInformationList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionInformationList"
+            },
+            {
+              "description": "Lists test suite information using List suite definition."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListSuiteRunsRequest": {
+      "properties": {},
+      "title": "ListSuiteRunsRequest",
+      "type": "object"
+    },
+    "ListSuiteRunsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "Next pagination token for list suite run response."
+            }
+          ]
+        },
+        "suiteRunsList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunsList"
+            },
+            {
+              "description": "Lists the runs of the specified Device Advisor test suite."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags attached to the IoT Device Advisor resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTestCasesRequest": {
+      "properties": {},
+      "title": "ListTestCasesRequest",
+      "type": "object"
+    },
+    "ListTestCasesResponse": {
+      "properties": {
+        "categories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCategory"
+            },
+            {
+              "description": "Gets the category of test case."
+            }
+          ]
+        },
+        "groupConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestConfiguration"
+            },
+            {
+              "description": "Gets the configuration of test group."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "Test cases next token response."
+            }
+          ]
+        },
+        "rootGroupConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestConfiguration"
+            },
+            {
+              "description": "Gets the configuration of root test group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogUrl": {
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "QualificationReportDownloadUrl": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "RootGroup": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SelectedTestList": {
+      "items": {
+        "$ref": "#/definitions/UUID"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "StartSuiteRunRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags to be attached to the suite run."
+            }
+          ]
+        },
+        "suiteDefinitionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Request to start suite run based on suite definition version."
+            }
+          ]
+        },
+        "suiteRunConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunConfiguration"
+            },
+            {
+              "description": "Request to start suite run based on suite configuration."
+            }
+          ]
+        }
+      },
+      "title": "StartSuiteRunRequest",
+      "type": "object"
+    },
+    "StartSuiteRunResponse": {
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Starts a Device Advisor test suite run based on suite create time."
+            }
+          ]
+        },
+        "suiteRunArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Starts a Device Advisor test suite run based on suite run arn."
+            }
+          ]
+        },
+        "suiteRunId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Starts a Device Advisor test suite run based on suite Run Id."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "CANCELED",
+        "PENDING",
+        "RUNNING",
+        "PASS_WITH_WARNINGS",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "String128": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "String256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SuiteDefinitionConfiguration": {
+      "description": "Gets Suite Definition Configuration.",
+      "properties": {
+        "devicePermissionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Gets device permission arn."
+            }
+          ]
+        },
+        "devices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceUnderTestList"
+            },
+            {
+              "description": "Gets the devices configured."
+            }
+          ]
+        },
+        "intendedForQualification": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntendedForQualificationBoolean"
+            },
+            {
+              "description": "Gets the tests intended for qualification in a suite."
+            }
+          ]
+        },
+        "rootGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RootGroup"
+            },
+            {
+              "description": "Gets test suite root group."
+            }
+          ]
+        },
+        "suiteDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionName"
+            },
+            {
+              "description": "Gets Suite Definition Configuration name."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SuiteDefinitionInformation": {
+      "description": "Get suite definition information.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Gets the information of when the test suite was created."
+            }
+          ]
+        },
+        "defaultDevices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceUnderTestList"
+            },
+            {
+              "description": "Specifies the devices under test."
+            }
+          ]
+        },
+        "intendedForQualification": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntendedForQualificationBoolean"
+            },
+            {
+              "description": "Gets the test suites which will be used for qualification."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Get suite definition Id."
+            }
+          ]
+        },
+        "suiteDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionName"
+            },
+            {
+              "description": "Get test suite name."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SuiteDefinitionInformationList": {
+      "items": {
+        "$ref": "#/definitions/SuiteDefinitionInformation"
+      },
+      "type": "array"
+    },
+    "SuiteDefinitionName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SuiteDefinitionVersion": {
+      "maxLength": 255,
+      "minLength": 2,
+      "type": "string"
+    },
+    "SuiteRunConfiguration": {
+      "description": "Gets suite run configuration.",
+      "properties": {
+        "primaryDevice": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceUnderTest"
+            },
+            {
+              "description": "Gets the primary device for suite run."
+            }
+          ]
+        },
+        "secondaryDevice": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceUnderTest"
+            },
+            {
+              "description": "Gets the secondary device for suite run."
+            }
+          ]
+        },
+        "selectedTestList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SelectedTestList"
+            },
+            {
+              "description": "Gets test case list."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SuiteRunInformation": {
+      "description": "Get suite run information.",
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Get suite run information based on time suite was created."
+            }
+          ]
+        },
+        "endAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Get suite run information based on end time of the run."
+            }
+          ]
+        },
+        "failed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunResultCount"
+            },
+            {
+              "description": "Get suite run information based on result of the test suite run."
+            }
+          ]
+        },
+        "passed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunResultCount"
+            },
+            {
+              "description": "Get suite run information based on result of the test suite run."
+            }
+          ]
+        },
+        "startedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Get suite run information based on start time of the run."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteRunStatus"
+            },
+            {
+              "description": "Get suite run information based on test run status."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Get suite run information based on suite definition Id."
+            }
+          ]
+        },
+        "suiteDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionName"
+            },
+            {
+              "description": "Get suite run information based on suite definition name."
+            }
+          ]
+        },
+        "suiteDefinitionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Get suite run information based on suite definition version."
+            }
+          ]
+        },
+        "suiteRunId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Get suite run information based on suite run Id."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SuiteRunResultCount": {
+      "maximum": 500,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "SuiteRunStatus": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "CANCELED",
+        "PENDING",
+        "RUNNING",
+        "PASS_WITH_WARNINGS",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "SuiteRunsList": {
+      "items": {
+        "$ref": "#/definitions/SuiteRunInformation"
+      },
+      "type": "array"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/String128"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/String256"
+      },
+      "maxProperties": 50,
+      "minProperties": 0,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags to be attached to the IoT Device Advisor resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TestCase": {
+      "description": "Shows tests in a test group.",
+      "properties": {
+        "configuration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestConfiguration"
+            },
+            {
+              "description": "Shows test case configuration."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseName"
+            },
+            {
+              "description": "Shows test case name."
+            }
+          ]
+        },
+        "test": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseDefinition"
+            },
+            {
+              "description": "Specifies a test."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TestCaseCategory": {
+      "description": "Gets the test case category.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CategoryName"
+            },
+            {
+              "description": "Lists all the tests name in the specified category."
+            }
+          ]
+        },
+        "tests": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseList"
+            },
+            {
+              "description": "Lists all the tests in the specified category."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TestCaseDefinition": {
+      "description": "Provides test case definition.",
+      "properties": {
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseName"
+            },
+            {
+              "description": "Provides test case definition Id."
+            }
+          ]
+        },
+        "testCaseVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseVersion"
+            },
+            {
+              "description": "Provides test case definition version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TestCaseDefinitionName": {
+      "type": "string"
+    },
+    "TestCaseList": {
+      "items": {
+        "$ref": "#/definitions/TestCase"
+      },
+      "type": "array"
+    },
+    "TestCaseName": {
+      "type": "string"
+    },
+    "TestCaseRun": {
+      "description": "Provides test case run.",
+      "properties": {
+        "endTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Provides test case run end time."
+            }
+          ]
+        },
+        "failure": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Failure"
+            },
+            {
+              "description": "Provides test case run failure result."
+            }
+          ]
+        },
+        "logUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogUrl"
+            },
+            {
+              "description": "Provides test case run log Url."
+            }
+          ]
+        },
+        "startTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Provides test case run start time."
+            }
+          ]
+        },
+        "status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "Provides test case run status."
+            }
+          ]
+        },
+        "testCaseDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Provides test case run definition Id."
+            }
+          ]
+        },
+        "testCaseDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TestCaseDefinitionName"
+            },
+            {
+              "description": "Provides test case run definition Name."
+            }
+          ]
+        },
+        "testCaseRunId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Provides test case run Id."
+            }
+          ]
+        },
+        "warnings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Warnings"
+            },
+            {
+              "description": "Provides test case run warnings."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TestCaseRuns": {
+      "description": "Show each group result.",
+      "items": {
+        "$ref": "#/definitions/TestCaseRun"
+      },
+      "type": "array"
+    },
+    "TestCaseVersion": {
+      "type": "string"
+    },
+    "TestCategory": {
+      "items": {
+        "$ref": "#/definitions/TestCaseCategory"
+      },
+      "type": "array"
+    },
+    "TestConfiguration": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ConfigString"
+      },
+      "type": "object"
+    },
+    "TestResult": {
+      "description": "Show each group result.",
+      "properties": {
+        "groups": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GroupResultList"
+            },
+            {
+              "description": "Show each group of test results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Token": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "UUID": {
+      "maxLength": 36,
+      "minLength": 36,
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateSuiteDefinitionRequest": {
+      "properties": {
+        "suiteDefinitionConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionConfiguration"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with suite definition configuration."
+            }
+          ]
+        }
+      },
+      "title": "UpdateSuiteDefinitionRequest",
+      "type": "object"
+    },
+    "UpdateSuiteDefinitionResponse": {
+      "properties": {
+        "createdAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with TimeStamp of when it was created."
+            }
+          ]
+        },
+        "lastUpdatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with TimeStamp of when it was updated."
+            }
+          ]
+        },
+        "suiteDefinitionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with Amazon Resource name."
+            }
+          ]
+        },
+        "suiteDefinitionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with suite UUID."
+            }
+          ]
+        },
+        "suiteDefinitionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionName"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with suite definition name."
+            }
+          ]
+        },
+        "suiteDefinitionVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SuiteDefinitionVersion"
+            },
+            {
+              "description": "Updates a Device Advisor test suite with suite definition version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationException": {},
+    "Warnings": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/iotdeviceadvisor/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

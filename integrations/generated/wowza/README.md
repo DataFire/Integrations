@@ -12,7 +12,7 @@ let wowza = require('@datafire/wowza').create({
   "wsc-api-key": ""
 });
 
-wowza.usageTimeTranscodersIndex({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

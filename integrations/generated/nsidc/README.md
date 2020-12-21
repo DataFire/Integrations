@@ -9,7 +9,7 @@ npm install --save @datafire/nsidc
 ```js
 let nsidc = require('@datafire/nsidc').create();
 
-nsidc.OpenSearch.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -64,6 +64,7 @@
         "read_profile": "",
         "write_feedback": "",
         "write_listings": "",
+        "write_listings_for_others": "",
         "write_lists": "",
         "write_messages": "",
         "write_offers": "",
@@ -453,6 +454,10 @@
                 "quantity": {
                   "type": "string"
                 },
+                "recipient_id": {
+                  "description": "ID of the recipient of the offer. Required if you are the seller pushing an offer to a buyer.",
+                  "type": "string"
+                },
                 "region_code": {
                   "type": "string"
                 },
@@ -606,6 +611,58 @@
         "operationId": "csps.categories.get"
       }
     },
+    "/csps/find": {
+      "get": {
+        "description": "Show comparison shopping page",
+        "parameters": [
+          {
+            "description": "ID of the comparison shopping page",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Slug of the comparison shopping page",
+            "in": "query",
+            "name": "slug",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "summary": "Show comparison shopping page",
+        "tags": [
+          "csps"
+        ],
+        "operationId": "csps.find.get"
+      }
+    },
+    "/csps/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "tags": [
+          "csps"
+        ],
+        "operationId": "csps.id.get"
+      }
+    },
     "/curated_sets/{slug}": {
       "get": {
         "parameters": [
@@ -720,7 +777,7 @@
             "type": "string"
           },
           {
-            "description": "Condition: all,new,b-stock,used,non-functioning",
+            "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
             "in": "query",
             "items": {
               "type": "string"
@@ -911,6 +968,13 @@
             "name": "not_ids",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "Only items that offer local pickup",
+            "in": "query",
+            "name": "local_pickup",
+            "required": false,
+            "type": "boolean"
           },
           {
             "default": 1,
@@ -994,7 +1058,7 @@
             "type": "string"
           },
           {
-            "description": "Condition: all,new,b-stock,used,non-functioning",
+            "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
             "in": "query",
             "items": {
               "type": "string"
@@ -1185,6 +1249,13 @@
             "name": "not_ids",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "Only items that offer local pickup",
+            "in": "query",
+            "name": "local_pickup",
+            "required": false,
+            "type": "boolean"
           },
           {
             "default": 1,
@@ -1314,6 +1385,10 @@
                   "description": "ex: Stratocaster, SG",
                   "type": "string"
                 },
+                "multi_item": {
+                  "description": "Specifies if the listing is a bundle of multiple individual items",
+                  "type": "boolean"
+                },
                 "offers_enabled": {
                   "description": "Whether the listing accepts negotiated offers (default: true)",
                   "type": "boolean"
@@ -1328,6 +1403,31 @@
                     "type": "string"
                   },
                   "type": "array"
+                },
+                "preorder_info": {
+                  "description": "Create or update a preorder listing. Requires opt-in. Please contact sales@reverb.com if you would like to activate this feature.",
+                  "properties": {
+                    "lead_time": {
+                      "description": "The amount of time before the item will be ready to ship. When lead_time is submitted it is converted into days and added to the current date to produce `estimated_ship_date` in the response body of the request.",
+                      "type": "integer"
+                    },
+                    "lead_time_unit": {
+                      "description": "The unit of time which lead_time is measured in",
+                      "enum": [
+                        "days",
+                        "weeks"
+                      ],
+                      "type": "string"
+                    },
+                    "ship_date": {
+                      "description": "The date the item will be available to ship. In the response body of the request, `estimated_ship_date`, will be the same as ship_date. Date must be ISO8601 format - e.g: 2015-04-09T10:52:23-00:00.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "lead_time_unit"
+                  ],
+                  "type": "object"
                 },
                 "price": {
                   "properties": {
@@ -1355,6 +1455,10 @@
                     "currency"
                   ],
                   "type": "object"
+                },
+                "prop_65_warning": {
+                  "description": "If your listing contains chemicals that are required to be reported under California Prop 65, please provide your warning statement. We will add the required 'Warning' label and link to California's information page, so you only need to provide the body of the warning. For more information, see https://www.p65warnings.ca.gov/new-proposition-65-warnings",
+                  "type": "string"
                 },
                 "publish": {
                   "description": "Publish your listing if draft",
@@ -1455,7 +1559,7 @@
                 },
                 "upc_does_not_apply": {
                   "description": "True if a brand new product has no UPC code, ie for a handmade or custom item",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "videos": {
                   "description": "List of YouTube video urls. Note: ONLY ONE ALLOWED",
@@ -1490,7 +1594,8 @@
         "security": [
           {
             "oauth2": [
-              "write_listings"
+              "write_listings",
+              "write_listings_for_others"
             ]
           }
         ],
@@ -1535,7 +1640,7 @@
             "type": "string"
           },
           {
-            "description": "Condition: all,new,b-stock,used,non-functioning",
+            "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
             "in": "query",
             "items": {
               "type": "string"
@@ -1726,6 +1831,13 @@
             "name": "not_ids",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "Only items that offer local pickup",
+            "in": "query",
+            "name": "local_pickup",
+            "required": false,
+            "type": "boolean"
           },
           {
             "default": 1,
@@ -2243,6 +2355,10 @@
                   "description": "ex: Stratocaster, SG",
                   "type": "string"
                 },
+                "multi_item": {
+                  "description": "Specifies if the listing is a bundle of multiple individual items",
+                  "type": "boolean"
+                },
                 "offers_enabled": {
                   "description": "Whether the listing accepts negotiated offers (default: true)",
                   "type": "boolean"
@@ -2257,6 +2373,31 @@
                     "type": "string"
                   },
                   "type": "array"
+                },
+                "preorder_info": {
+                  "description": "Create or update a preorder listing. Requires opt-in. Please contact sales@reverb.com if you would like to activate this feature.",
+                  "properties": {
+                    "lead_time": {
+                      "description": "The amount of time before the item will be ready to ship. When lead_time is submitted it is converted into days and added to the current date to produce `estimated_ship_date` in the response body of the request.",
+                      "type": "integer"
+                    },
+                    "lead_time_unit": {
+                      "description": "The unit of time which lead_time is measured in",
+                      "enum": [
+                        "days",
+                        "weeks"
+                      ],
+                      "type": "string"
+                    },
+                    "ship_date": {
+                      "description": "The date the item will be available to ship. In the response body of the request, `estimated_ship_date`, will be the same as ship_date. Date must be ISO8601 format - e.g: 2015-04-09T10:52:23-00:00.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "lead_time_unit"
+                  ],
+                  "type": "object"
                 },
                 "price": {
                   "properties": {
@@ -2284,6 +2425,10 @@
                     "currency"
                   ],
                   "type": "object"
+                },
+                "prop_65_warning": {
+                  "description": "If your listing contains chemicals that are required to be reported under California Prop 65, please provide your warning statement. We will add the required 'Warning' label and link to California's information page, so you only need to provide the body of the warning. For more information, see https://www.p65warnings.ca.gov/new-proposition-65-warnings",
+                  "type": "string"
                 },
                 "publish": {
                   "description": "Publish your listing if draft",
@@ -2384,7 +2529,7 @@
                 },
                 "upc_does_not_apply": {
                   "description": "True if a brand new product has no UPC code, ie for a handmade or custom item",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "videos": {
                   "description": "List of YouTube video urls. Note: ONLY ONE ALLOWED",
@@ -2616,6 +2761,10 @@
                   "description": "The last name of the account holder",
                   "type": "string"
                 },
+                "locale_code": {
+                  "description": "The locale code for the account",
+                  "type": "string"
+                },
                 "shipping_region_code": {
                   "description": "The shipping region preference for the account",
                   "type": "string"
@@ -2828,6 +2977,10 @@
                 "recipient_id": {
                   "description": "The id of the user you are trying to contact",
                   "type": "integer"
+                },
+                "recipient_uuid": {
+                  "description": "The uuid of the user you are trying to contact",
+                  "type": "string"
                 },
                 "shop_id": {
                   "description": "The id of the shop you are trying to contact",
@@ -3508,6 +3661,36 @@
         "operationId": "my.follows.categories.identifier.post"
       }
     },
+    "/my/follows/categories/{uuid}": {
+      "post": {
+        "description": "Follow a category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Unexpected error"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "write_lists"
+            ]
+          }
+        ],
+        "summary": "Follow a category",
+        "tags": [
+          "my"
+        ],
+        "operationId": "my.follows.categories.uuid.post"
+      }
+    },
     "/my/follows/collections/{slug}": {
       "delete": {
         "description": "Unfollow a collection",
@@ -3728,13 +3911,20 @@
                   "type": "string"
                 },
                 "conditions": {
-                  "description": "Condition: all,new,b-stock,used,non-functioning",
+                  "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
                   "enum": [
                     "all",
                     "new",
                     "b-stock",
                     "used",
-                    "non-functioning"
+                    "non-functioning",
+                    "all-but-new",
+                    "poor",
+                    "fair",
+                    "good",
+                    "very-good",
+                    "excellent",
+                    "mint"
                   ],
                   "items": {
                     "type": "string"
@@ -3751,7 +3941,17 @@
                     "AUD",
                     "JPY",
                     "NZD",
-                    "MXN"
+                    "MXN",
+                    "DKK",
+                    "SEK",
+                    "CHF",
+                    "ARS",
+                    "BRL",
+                    "HKD",
+                    "NOK",
+                    "PHP",
+                    "PLN",
+                    "RUB"
                   ],
                   "type": "string"
                 },
@@ -3794,6 +3994,10 @@
                     "offers"
                   ],
                   "type": "string"
+                },
+                "local_pickup": {
+                  "description": "Only items that offer local pickup",
+                  "type": "boolean"
                 },
                 "make": {
                   "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array.",
@@ -4077,7 +4281,7 @@
             "type": "string"
           },
           {
-            "description": "Condition: all,new,b-stock,used,non-functioning",
+            "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
             "in": "query",
             "items": {
               "type": "string"
@@ -4268,6 +4472,13 @@
             "name": "not_ids",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "Only items that offer local pickup",
+            "in": "query",
+            "name": "local_pickup",
+            "required": false,
+            "type": "boolean"
           },
           {
             "default": "live",
@@ -4338,7 +4549,7 @@
             "type": "string"
           },
           {
-            "description": "Condition: all,new,b-stock,used,non-functioning",
+            "description": "Condition: all,new,b-stock,used,non-functioning,all-but-new,poor,fair,good,very-good,excellent,mint",
             "in": "query",
             "items": {
               "type": "string"
@@ -4529,6 +4740,13 @@
             "name": "not_ids",
             "required": false,
             "type": "array"
+          },
+          {
+            "description": "Only items that offer local pickup",
+            "in": "query",
+            "name": "local_pickup",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -4861,6 +5079,10 @@
                   "type": "object"
                 },
                 "quantity": {
+                  "type": "string"
+                },
+                "recipient_id": {
+                  "description": "ID of the recipient of the offer. Required if you are the seller pushing an offer to a buyer.",
                   "type": "string"
                 },
                 "region_code": {
@@ -5303,7 +5525,7 @@
             "schema": {
               "properties": {
                 "provider": {
-                  "description": "Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD, Other",
+                  "description": "Shipping provider: One of UPS, USPS, FedEx, DHL Deutschland, DHLExpress, DHLGlobalMail, DHL, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Interlogistica, Correos España, Ukraine Post, DPD Germany, DPD UK, DPD France, Other",
                   "type": "string"
                 },
                 "send_notification": {
@@ -6243,7 +6465,6 @@
                     "CN",
                     "CO",
                     "CR",
-                    "CU",
                     "CV",
                     "CW",
                     "CX",
@@ -6300,7 +6521,6 @@
                     "IN",
                     "IO",
                     "IQ",
-                    "IR",
                     "IS",
                     "IT",
                     "JE",
@@ -6313,7 +6533,6 @@
                     "KI",
                     "KM",
                     "KN",
-                    "KP",
                     "KR",
                     "KW",
                     "KY",
@@ -6387,7 +6606,6 @@
                     "SA",
                     "SB",
                     "SC",
-                    "SD",
                     "SE",
                     "SG",
                     "SH",
@@ -6403,7 +6621,6 @@
                     "ST",
                     "SV",
                     "SX",
-                    "SY",
                     "SZ",
                     "TC",
                     "TD",

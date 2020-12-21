@@ -1,6 +1,6 @@
 # @datafire/geodesystems
 
-Client library for RAMADDA
+Client library for geodesystems.com:443
 
 ## Installation and Usage
 ```bash
@@ -12,7 +12,7 @@ let geodesystems = require('@datafire/geodesystems').create({
   password: ""
 });
 
-geodesystems.search_wikipage({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,12 +23,12 @@ Search for data in lots of places - manage your documents, photos and critical b
 
 ## Actions
 
-### gps.teqc.qc
-API to call: View GPS QC
+### media_tabular_extractsheet
+API to call: Extract sheets
 
 
 ```js
-geodesystems.gps.teqc.qc({
+geodesystems.media_tabular_extractsheet({
   "output": "",
   "entryid": ""
 }, context)
@@ -38,6 +38,7 @@ geodesystems.gps.teqc.qc({
 * input `object`
   * output **required** `string`: Output type  -don't change
   * entryid **required** `string`: Entry ID
+  * arg1 `string`: Sheets
 
 #### Output
 *Output schema unknown*
@@ -775,24 +776,23 @@ geodesystems.search_bolder_rental_housing({}, context)
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
   * search.db_bolder_rental_housing.propaddr1 `string`: Property Address
-  * search.db_bolder_rental_housing.name `string`: Name
-  * search.db_bolder_rental_housing.company `string`: Company
-  * search.db_bolder_rental_housing.persontype `string`: Person Type
-  * search.db_bolder_rental_housing.licenseexp `string`: Expiration Date
-  * search.db_bolder_rental_housing.asrid `number`: Asrid
-  * search.db_bolder_rental_housing.licensenum `string`: Licensenum
-  * search.db_bolder_rental_housing.neighbrhd `string`: Neighborhood
   * search.db_bolder_rental_housing.rentaltype `string`: Rental Type
-  * search.db_bolder_rental_housing.complexnm `string`: Complex Name
   * search.db_bolder_rental_housing.bldgtype `string`: Building Type
   * search.db_bolder_rental_housing.dwellunits `integer`: Dwelling Units
   * search.db_bolder_rental_housing.roomunits `integer`: Room Units
+  * search.db_bolder_rental_housing.neighbrhd `string`: Neighborhood
+  * search.db_bolder_rental_housing.complexnm `string`: Complex Name
+  * search.db_bolder_rental_housing.name `string`: Name
+  * search.db_bolder_rental_housing.persontype `string`: Person Type
+  * search.db_bolder_rental_housing.company `string`: Company
   * search.db_bolder_rental_housing.engcompl `string`: Engcompl
-  * search.db_bolder_rental_housing.person_1 `string`: Person 1
+  * search.db_bolder_rental_housing.licenseexp `string`: Expiration Date
+  * search.db_bolder_rental_housing.licensenum `string`: Licensenum
   * search.db_bolder_rental_housing.ppl1_coname `string`: Ppl1 Coname
+  * search.db_bolder_rental_housing.person_1 `string`: Person 1
   * search.db_bolder_rental_housing.ppl1_role `string`: Ppl1 Role
-  * search.db_bolder_rental_housing.person_2 `string`: Person 2
   * search.db_bolder_rental_housing.ppl2_coname `string`: Ppl2 Coname
+  * search.db_bolder_rental_housing.person_2 `string`: Person 2
   * search.db_bolder_rental_housing.ppl2_role `string`: Ppl2 Role
   * search.db_bolder_rental_housing.location `string`: Location
 
@@ -830,6 +830,49 @@ geodesystems.search_bookmarks({}, context)
   * search.db_bookmarks.url `string`: URL
   * search.db_bookmarks.category `string`: Category
   * search.db_bookmarks.date `string`: Date
+
+#### Output
+*Output schema unknown*
+
+### search_boston_crime
+API to search for entries of type Boston Crime
+
+
+```js
+geodesystems.search_boston_crime({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_boston_crime.offense `string`: Offense
+  * search.db_boston_crime.offense_code_group `string`: Offense Code Group
+  * search.db_boston_crime.offense_description `string`: Offense Description
+  * search.db_boston_crime.district `string`: District
+  * search.db_boston_crime.reporting_area `string`: Reporting Area
+  * search.db_boston_crime.shooting `string`: Shooting
+  * search.db_boston_crime.year `number`: Year
+  * search.db_boston_crime.month `number`: Month
+  * search.db_boston_crime.day_of_week `string`: Day Of Week
+  * search.db_boston_crime.hour `number`: Hour
+  * search.db_boston_crime.street `string`: Street
+  * search.db_boston_crime.location `string`: Location
 
 #### Output
 *Output schema unknown*
@@ -875,6 +918,56 @@ geodesystems.search_boulder_2017_election_contributions({}, context)
   * search.db_boulder_2017_election_contributions.match_amount `number`: Match Amount
   * search.db_boulder_2017_election_contributions.ytd_amount `number`: Ytd Amount
   * search.db_boulder_2017_election_contributions.location `string`: Location
+
+#### Output
+*Output schema unknown*
+
+### search_boulder_campaign_contributions
+API to search for entries of type Boulder Campaign Contributions
+
+
+```js
+geodesystems.search_boulder_campaign_contributions({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_boulder_campaign_contributions.committee `string`: Committee
+  * search.db_boulder_campaign_contributions.type `string`: Type
+  * search.db_boulder_campaign_contributions.committee_num `string`: Committee Num
+  * search.db_boulder_campaign_contributions.candidate `string`: Candidate
+  * search.db_boulder_campaign_contributions.filing_date `string`: Filing Date
+  * search.db_boulder_campaign_contributions.amended_date `string`: Amended Date
+  * search.db_boulder_campaign_contributions.official_filing `string`: Official Filing
+  * search.db_boulder_campaign_contributions.transaction_date `string`: Transaction Date
+  * search.db_boulder_campaign_contributions.last_name `string`: Last Name
+  * search.db_boulder_campaign_contributions.first_name `string`: First Name
+  * search.db_boulder_campaign_contributions.street `string`: Street
+  * search.db_boulder_campaign_contributions.city `string`: City
+  * search.db_boulder_campaign_contributions.state `string`: State
+  * search.db_boulder_campaign_contributions.zip `string`: Zip
+  * search.db_boulder_campaign_contributions.contribution `number`: Contribution
+  * search.db_boulder_campaign_contributions.contribution_type `string`: Contribution Type
+  * search.db_boulder_campaign_contributions.anonymous `string`: Anonymous
+  * search.db_boulder_campaign_contributions.from_candidate `string`: From Candidate
+  * search.db_boulder_campaign_contributions.match `number`: Match
 
 #### Output
 *Output schema unknown*
@@ -1006,6 +1099,82 @@ geodesystems.search_boulder_crimes({}, context)
 #### Output
 *Output schema unknown*
 
+### search_boulder_emails
+API to search for entries of type Boulder Council Emails
+
+
+```js
+geodesystems.search_boulder_emails({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_boulder_emails.sent_from `string`: Sent From
+  * search.db_boulder_emails.sent_to `string`: Sent To
+  * search.db_boulder_emails.sent_cc `string`: Sent Cc
+  * search.db_boulder_emails.received_date `string`: Received Date
+  * search.db_boulder_emails.email_subject `string`: Email Subject
+  * search.db_boulder_emails.plain_text_body `string`: Email Body
+
+#### Output
+*Output schema unknown*
+
+### search_boulder_employee_salaries
+API to search for entries of type Boulder Employee Salaries
+
+
+```js
+geodesystems.search_boulder_employee_salaries({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_boulder_employee_salaries.position_description `string`: Position Description
+  * search.db_boulder_employee_salaries.department `string`: Department
+  * search.db_boulder_employee_salaries.employee_flsa_exempt_y_n `string`: Employee Flsa Exempt Y N
+  * search.db_boulder_employee_salaries.pay_range_min `number`: Pay Range Min
+  * search.db_boulder_employee_salaries.pay_range_max `number`: Pay Range Max
+  * search.db_boulder_employee_salaries.employee_hourly_pay_rate `number`: Employee Hourly Pay Rate
+  * search.db_boulder_employee_salaries.employee_fte_in_this_position `number`: Employee Fte In This Position
+  * search.db_boulder_employee_salaries.employee_annual_base_salary `number`: Employee Annual Base Salary
+
+#### Output
+*Output schema unknown*
+
 ### search_calendar
 API to search for entries of type Calendar
 
@@ -1033,6 +1202,91 @@ geodesystems.search_calendar({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_campaign_donors
+API to search for entries of type Campaign Donors
+
+
+```js
+geodesystems.search_campaign_donors({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_campaign_donors.committee `string`: Committee
+  * search.db_campaign_donors.amount `number`: Amount
+  * search.db_campaign_donors.party `string`: Party
+  * search.db_campaign_donors.donor `string`: Donor
+  * search.db_campaign_donors.gender `string`: Gender
+  * search.db_campaign_donors.city `string`: City
+  * search.db_campaign_donors.state `string`: State
+  * search.db_campaign_donors.zip_code `string`: Zip Code
+  * search.db_campaign_donors.employer `string`: Employer
+  * search.db_campaign_donors.occupation `string`: Occupation
+  * search.db_campaign_donors.date `string`: Date
+  * search.db_campaign_donors.location `string`: Location
+
+#### Output
+*Output schema unknown*
+
+### search_campaign_expenditures
+API to search for entries of type Campaign Expenditures
+
+
+```js
+geodesystems.search_campaign_expenditures({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_campaign_expenditures.committee `string`: Committee
+  * search.db_campaign_expenditures.amount `number`: Amount
+  * search.db_campaign_expenditures.party `string`: Party
+  * search.db_campaign_expenditures.recipient `string`: Recipient
+  * search.db_campaign_expenditures.city `string`: City
+  * search.db_campaign_expenditures.state `string`: State
+  * search.db_campaign_expenditures.zip_code `string`: Zip Code
+  * search.db_campaign_expenditures.transaction_date `string`: Transaction Date
+  * search.db_campaign_expenditures.purpose `string`: Purpose
+  * search.db_campaign_expenditures.memo_text `string`: Memo Text
+  * search.db_campaign_expenditures.location `string`: Location
 
 #### Output
 *Output schema unknown*
@@ -1099,12 +1353,12 @@ geodesystems.search_cdm_grid({}, context)
 #### Output
 *Output schema unknown*
 
-### search_community_case
-API to search for entries of type Development Review Case
+### search_chatroom
+API to search for entries of type Chat Room
 
 
 ```js
-geodesystems.search_community_case({}, context)
+geodesystems.search_chatroom({}, context)
 ```
 
 #### Input
@@ -1126,10 +1380,126 @@ geodesystems.search_community_case({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.community_case.applicant `string`: Applicant
-  * search.community_case.address `string`: Address
-  * search.community_case.case_type `string`: Case Type
-  * search.community_case.contact `string`: Staff Contact
+
+#### Output
+*Output schema unknown*
+
+### search_colorado_water_rights
+API to search for entries of type Colorado Water Rights
+
+
+```js
+geodesystems.search_colorado_water_rights({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_colorado_water_rights.structure_name `string`: Structure Name
+  * search.db_colorado_water_rights.structure_type `string`: Structure Type
+  * search.db_colorado_water_rights.water_source `string`: Water Source
+  * search.db_colorado_water_rights.county `string`: County
+  * search.db_colorado_water_rights.adjudication_date `string`: Adjudication Date
+  * search.db_colorado_water_rights.appropriation_date `string`: Appropriation Date
+  * search.db_colorado_water_rights.priority_no `string`: Priority No
+  * search.db_colorado_water_rights.decreed_uses `string`: Decreed Uses
+  * search.db_colorado_water_rights.net_absolute `number`: Net Absolute
+  * search.db_colorado_water_rights.net_conditional `number`: Net Conditional
+  * search.db_colorado_water_rights.net_apex_absolute `number`: Net Apex Absolute
+  * search.db_colorado_water_rights.net_apex_conditional `number`: Net Apex Conditional
+  * search.db_colorado_water_rights.decreed_units `string`: Decreed Units
+  * search.db_colorado_water_rights.seasonal_limits `string`: Seasonal Limits
+  * search.db_colorado_water_rights.comments `string`: Comments
+  * search.db_colorado_water_rights.more_information `string`: More Information
+  * search.db_colorado_water_rights.location `string`: Location
+
+#### Output
+*Output schema unknown*
+
+### search_committee_donations
+API to search for entries of type Committee Donations
+
+
+```js
+geodesystems.search_committee_donations({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_committee_donations.committee `string`: Committee
+  * search.db_committee_donations.amount `number`: Amount
+  * search.db_committee_donations.recipient `string`: Recipient
+  * search.db_committee_donations.date `string`: Date
+  * search.db_committee_donations.city `string`: City
+  * search.db_committee_donations.state `string`: State
+  * search.db_committee_donations.zip_code `string`: Zip Code
+  * search.db_committee_donations.employer `string`: Employer
+  * search.db_committee_donations.occupation `string`: Occupation
+  * search.db_committee_donations.location `string`: Location
+
+#### Output
+*Output schema unknown*
+
+### search_community_datahub
+API to search for entries of type Data Hub
+
+
+```js
+geodesystems.search_community_datahub({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -1340,70 +1710,6 @@ geodesystems.search_earth_satellite_landsat({}, context)
 #### Output
 *Output schema unknown*
 
-### search_earth_wrf_namelist
-API to search for entries of type WRF Namelist File
-
-
-```js
-geodesystems.search_earth_wrf_namelist({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_exercise
-API to search for entries of type Exercise
-
-
-```js
-geodesystems.search_exercise({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.db_exercise.type `string`: Type
-  * search.db_exercise.date `string`: Date
-
-#### Output
-*Output schema unknown*
-
 ### search_faq
 API to search for entries of type FAQ
 
@@ -1431,6 +1737,108 @@ geodesystems.search_faq({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_fec_pacs
+API to search for entries of type FEC PACs
+
+
+```js
+geodesystems.search_fec_pacs({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_fec_pacs.committee `string`: Committee
+  * search.db_fec_pacs.total_receipts `number`: Total Receipts
+  * search.db_fec_pacs.beginning_cash `number`: Beginning Cash
+  * search.db_fec_pacs.ending_cash `number`: Ending Cash
+  * search.db_fec_pacs.contributions_from_individuals `number`: Contributions From Individuals
+  * search.db_fec_pacs.contributions_from_other_committees `number`: Contributions From Other Committees
+  * search.db_fec_pacs.trans_from_affiliates `number`: Trans From Affiliates
+  * search.db_fec_pacs.contributions_to_other_committee `number`: Contributions To Other Committee
+  * search.db_fec_pacs.contributions_from_candidate `number`: Contributions From Candidate
+  * search.db_fec_pacs.loans_from_candidate `number`: Loans From Candidate
+  * search.db_fec_pacs.total_loans_received `number`: Total Loans Received
+  * search.db_fec_pacs.total_distributions `number`: Total Distributions
+  * search.db_fec_pacs.transfers_to_affiliates `number`: Transfers To Affiliates
+  * search.db_fec_pacs.refunds_to_individuals `number`: Refunds To Individuals
+  * search.db_fec_pacs.refends_to_othercommittees `number`: Refends To Othercommittees
+  * search.db_fec_pacs.candidate_loan_repayments `number`: Candidate Loan Repayments
+  * search.db_fec_pacs.loan_repayments `number`: Loan Repayments
+
+#### Output
+*Output schema unknown*
+
+### search_feccandidates
+API to search for entries of type Candidates
+
+
+```js
+geodesystems.search_feccandidates({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_feccandidates.name `string`: Name
+  * search.db_feccandidates.party `string`: Party
+  * search.db_feccandidates.state `string`: State
+  * search.db_feccandidates.district `string`: District
+  * search.db_feccandidates.gender `string`: Gender
+  * search.db_feccandidates.beginning_cash `number`: Beginning Cash
+  * search.db_feccandidates.ending_cash `number`: Ending Cash
+  * search.db_feccandidates.total_receipts `number`: Total Receipts
+  * search.db_feccandidates.total_indivual_contributions `number`: Total Indivual Contributions
+  * search.db_feccandidates.transfers_from_committees `number`: Transfers From Committees
+  * search.db_feccandidates.transfers_to_committees `number`: Transfers To Committees
+  * search.db_feccandidates.total_disbursements `number`: Total Disbursements
+  * search.db_feccandidates.contributions_from_candidate `number`: Contributions From Candidate
+  * search.db_feccandidates.loans_from_candidates `number`: Loans From Candidates
+  * search.db_feccandidates.other_loans `number`: Other Loans
+  * search.db_feccandidates.candidate_loan_repayments `number`: Candidate Loan Repayments
+  * search.db_feccandidates.other_loan_repayments `number`: Other Loan Repayments
+  * search.db_feccandidates.debts_owed_by `number`: Debts Owed By
+  * search.db_feccandidates.contributions_from_other_committees `number`: Contributions From Other Committees
+  * search.db_feccandidates.contributions_from_party_committees `number`: Contributions From Party Committees
+  * search.db_feccandidates.coverage_end_date `string`: Coverage End Date
+  * search.db_feccandidates.individual_refunds `number`: Individual Refunds
+  * search.db_feccandidates.committee_refunds `number`: Committee Refunds
 
 #### Output
 *Output schema unknown*
@@ -1531,74 +1939,12 @@ geodesystems.search_fits_data({}, context)
 #### Output
 *Output schema unknown*
 
-### search_frames
-API to search for entries of type IFrames
-
-
-```js
-geodesystems.search_frames({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
 ### search_ftp
 API to search for entries of type Remote FTP File View
 
 
 ```js
 geodesystems.search_ftp({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_gadgets_clock
-API to search for entries of type Clock
-
-
-```js
-geodesystems.search_gadgets_clock({}, context)
 ```
 
 #### Input
@@ -1796,43 +2142,12 @@ geodesystems.search_gazeteer_counties({}, context)
 #### Output
 *Output schema unknown*
 
-### search_gdata_docs
-API to search for entries of type Google Docs View
+### search_geo_geojson
+API to search for entries of type GeoJson File
 
 
 ```js
-geodesystems.search_gdata_docs({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_gdata_photos
-API to search for entries of type Google Web Albums View
-
-
-```js
-geodesystems.search_gdata_photos({}, context)
+geodesystems.search_geo_geojson({}, context)
 ```
 
 #### Input
@@ -1994,6 +2309,37 @@ API to search for entries of type Shapefile
 
 ```js
 geodesystems.search_geo_shapefile({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_geo_shapefile_fips
+API to search for entries of type Shapefile with FIPS Code
+
+
+```js
+geodesystems.search_geo_shapefile_fips({}, context)
 ```
 
 #### Input
@@ -2208,12 +2554,12 @@ geodesystems.search_incident({}, context)
 #### Output
 *Output schema unknown*
 
-### search_incident_basement
-API to search for entries of type Basement Flooding
+### search_jeopardy
+API to search for entries of type Jeopardy
 
 
 ```js
-geodesystems.search_incident_basement({}, context)
+geodesystems.search_jeopardy({}, context)
 ```
 
 #### Input
@@ -2235,227 +2581,17 @@ geodesystems.search_incident_basement({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.incident_location.state `string`: State
-  * search.incident_basement.type `string`: Type of flooding
-  * search.incident_basement.depth `integer`: Water Depth
-  * search.incident_basement.duration `integer`: Duration
-  * search.incident_basement.cost `integer`: Estimated Cost
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_case
-API to search for entries of type Investigation
-
-
-```js
-geodesystems.search_investigation_case({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_cellphonelog
-API to search for entries of type Cell Phone Log
-
-
-```js
-geodesystems.search_investigation_cellphonelog({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.db_investigation_cellphonelog.from_name `string`: From Name
-  * search.db_investigation_cellphonelog.from_number `string`: From Number
-  * search.db_investigation_cellphonelog.to_name `string`: To Name
-  * search.db_investigation_cellphonelog.to_number `string`: To Number
-  * search.db_investigation_cellphonelog.time `string`: Date
-  * search.db_investigation_cellphonelog.duration `number`: Duration
-  * search.db_investigation_cellphonelog.type `string`: Direction
-  * search.db_investigation_cellphonelog.location `string`: Location
-  * search.db_investigation_cellphonelog.tower_city `string`: City
-  * search.db_investigation_cellphonelog.tower_state `string`: State
-  * search.db_investigation_cellphonelog.tower_zipcode `string`: Zip Code
-  * search.db_investigation_cellphonelog.tag `string`: Tag
-  * search.db_investigation_cellphonelog.notes `string`: Notes
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_event
-API to search for entries of type Event
-
-
-```js
-geodesystems.search_investigation_event({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_oldphonelog
-API to search for entries of type Old Phone Log
-
-
-```js
-geodesystems.search_investigation_oldphonelog({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.db_investigation_oldphonelog.time `string`: Date
-  * search.db_investigation_oldphonelog.from_name `string`: From Name
-  * search.db_investigation_oldphonelog.from_number `string`: From Number
-  * search.db_investigation_oldphonelog.from_city `string`: From City
-  * search.db_investigation_oldphonelog.from_state `string`: From State
-  * search.db_investigation_oldphonelog.to_name `string`: To Name
-  * search.db_investigation_oldphonelog.to_number `string`: To Number
-  * search.db_investigation_oldphonelog.to_city `string`: To City
-  * search.db_investigation_oldphonelog.to_state `string`: To State
-  * search.db_investigation_oldphonelog.tag `string`: Tag
-  * search.db_investigation_oldphonelog.notes `string`: Notes
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_person
-API to search for entries of type Person
-
-
-```js
-geodesystems.search_investigation_person({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_investigation_thing
-API to search for entries of type Thing
-
-
-```js
-geodesystems.search_investigation_thing({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
+  * search.db_jeopardy.question `string`: Question
+  * search.db_jeopardy.answer `string`: Answer
+  * search.db_jeopardy.round `string`: Round
+  * search.db_jeopardy.category `string`: Category
+  * search.db_jeopardy.air_date `string`: Air Date
 
 #### Output
 *Output schema unknown*
 
 ### search_latlonimage
-API to search for entries of type WMS Image
+API to search for entries of type Lat-Lon Image
 
 
 ```js
@@ -2491,37 +2627,6 @@ API to search for entries of type LiDAR Collection
 
 ```js
 geodesystems.search_lidar_collection({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_lidar_glas
-API to search for entries of type GLAS Lidar Data
-
-
-```js
-geodesystems.search_lidar_glas({}, context)
 ```
 
 #### Input
@@ -2922,77 +3027,44 @@ geodesystems.search_media_youtubevideo({}, context)
 #### Output
 *Output schema unknown*
 
-### search_multisearch
-API to search for entries of type Multiple Search
-
-
-```js
-geodesystems.search_multisearch({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_nga_tracks
-API to search for entries of type NGA Tracks
-
-
-```js
-geodesystems.search_nga_tracks({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.db_nga_tracks.track_id `string`: Track ID
-  * search.db_nga_tracks.timestamp `string`: Timestamp
-  * search.db_nga_tracks.location `string`: Location
-
-#### Output
-*Output schema unknown*
-
 ### search_notes
 API to search for entries of type Notes
 
 
 ```js
 geodesystems.search_notes({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_notes.note `string`: Note
+
+#### Output
+*Output schema unknown*
+
+### search_notes_jsonfile
+API to search for entries of type Json File
+
+
+```js
+geodesystems.search_notes_jsonfile({}, context)
 ```
 
 #### Input
@@ -3024,6 +3096,68 @@ API to search for entries of type Note
 
 ```js
 geodesystems.search_notes_note({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_notes_notebook
+API to search for entries of type Notebook
+
+
+```js
+geodesystems.search_notes_notebook({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_nwsfeed
+API to search for entries of type NWS Forecast Feed
+
+
+```js
+geodesystems.search_nwsfeed({}, context)
 ```
 
 #### Input
@@ -3200,6 +3334,44 @@ geodesystems.search_point_text({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_police_stop_data
+API to search for entries of type Police Stop Data
+
+
+```js
+geodesystems.search_police_stop_data({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_police_stop_data.race `string`: Race
+  * search.db_police_stop_data.ethnicity `string`: Ethnicity
+  * search.db_police_stop_data.sex `string`: Sex
+  * search.db_police_stop_data.minutes `integer`: Minutes
+  * search.db_police_stop_data.date `string`: Date
+  * search.db_police_stop_data.address `string`: Address
+  * search.db_police_stop_data.resident `string`: Resident
 
 #### Output
 *Output schema unknown*
@@ -4160,49 +4332,6 @@ geodesystems.search_python_notebook({}, context)
 #### Output
 *Output schema unknown*
 
-### search_registrations
-API to search for entries of type Registrations
-
-
-```js
-geodesystems.search_registrations({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.db_registrations.date `string`: Date
-  * search.db_registrations.type `string`: Type
-  * search.db_registrations.name `string`: Name
-  * search.db_registrations.email `string`: Email
-  * search.db_registrations.organization `string`: Organization
-  * search.db_registrations.country `string`: Country
-  * search.db_registrations.state_province `string`: State or Province
-  * search.db_registrations.postal_code `string`: Postal Code
-  * search.db_registrations.url `string`: RAMADDA Site URL
-  * search.db_registrations.users `integer`: # users
-  * search.db_registrations.organization_type `string`: Organization type
-  * search.db_registrations.support_tier `string`: Support tier
-
-#### Output
-*Output schema unknown*
-
 ### search_slack_team
 API to search for entries of type Slack Team
 
@@ -4263,6 +4392,37 @@ geodesystems.search_statusboard({}, context)
   * skip `integer`: Number to skip
   * search.db_statusboard.what `string`: What
   * search.db_statusboard.status `string`: Status
+
+#### Output
+*Output schema unknown*
+
+### search_sunrisesunset
+API to search for entries of type Sunrise/Sunset Display
+
+
+```js
+geodesystems.search_sunrisesunset({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -4545,41 +4705,6 @@ geodesystems.search_trip_trip({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_artists_space
-API to search for entries of type Artists Space
-
-
-```js
-geodesystems.search_type_artists_space({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.type_artists_space.address `string`: Address
-  * search.type_artists_space.sqft `integer`: Area
-  * search.type_artists_space.occupancy `integer`: Occupancy
-  * search.type_artists_space.use `string`: Use
-
-#### Output
-*Output schema unknown*
-
 ### search_type_awc_metar
 API to search for entries of type AWC Weather Observations
 
@@ -4612,74 +4737,81 @@ geodesystems.search_type_awc_metar({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_awhere_farm
-API to search for entries of type aWhere Farm
-
-
-```js
-geodesystems.search_type_awhere_farm({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_type_awhere_field
-API to search for entries of type aWhere Field
-
-
-```js
-geodesystems.search_type_awhere_field({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
 ### search_type_biz_stockseries
 API to search for entries of type Stock Ticker Data
 
 
 ```js
 geodesystems.search_type_biz_stockseries({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_type_bls_series
+API to search for entries of type BLS Series
+
+
+```js
+geodesystems.search_type_bls_series({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.type_bls_series.survey_name `string`: Survey Name
+  * search.type_bls_series.measure_data_type `string`: Measure Data Type
+  * search.type_bls_series.industry `string`: Industry
+  * search.type_bls_series.sector `string`: Sector
+  * search.type_bls_series.area `string`: Area
+  * search.type_bls_series.item `string`: Item
+  * search.type_bls_series.seasonality `string`: Seasonality
+
+#### Output
+*Output schema unknown*
+
+### search_type_bls_survey
+API to search for entries of type BLS Survey
+
+
+```js
+geodesystems.search_type_bls_survey({}, context)
 ```
 
 #### Input
@@ -4736,6 +4868,37 @@ geodesystems.search_type_census_acs({}, context)
   * search.type_census_acs.for_type `string`: For
   * search.type_census_acs.in_type1 `string`: In
   * search.type_census_acs.in_type2 `string`: In #2
+
+#### Output
+*Output schema unknown*
+
+### search_type_daymet
+API to search for entries of type Daymet Daily Weather
+
+
+```js
+geodesystems.search_type_daymet({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -4803,7 +4966,7 @@ geodesystems.search_type_document_csv({}, context)
 *Output schema unknown*
 
 ### search_type_document_doc
-API to search for entries of type Microsoft Word File
+API to search for entries of type Word File
 
 
 ```js
@@ -4896,7 +5059,7 @@ geodesystems.search_type_document_pdf({}, context)
 *Output schema unknown*
 
 ### search_type_document_ppt
-API to search for entries of type Microsoft Powerpoint File
+API to search for entries of type Powerpoint File
 
 
 ```js
@@ -4927,7 +5090,7 @@ geodesystems.search_type_document_ppt({}, context)
 *Output schema unknown*
 
 ### search_type_document_xls
-API to search for entries of type Microsoft Excel File
+API to search for entries of type Excel File
 
 
 ```js
@@ -5367,6 +5530,39 @@ geodesystems.search_type_esri_restservice({}, context)
 #### Output
 *Output schema unknown*
 
+### search_type_extremes
+API to search for entries of type NOAA Extremes Data
+
+
+```js
+geodesystems.search_type_extremes({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.type_extremes.region `string`: US Climate Region
+  * search.type_extremes.variable `string`: Variable
+
+#### Output
+*Output schema unknown*
+
 ### search_type_fred_category
 API to search for entries of type FRED Category
 
@@ -5783,6 +5979,37 @@ geodesystems.search_type_image_airport({}, context)
 #### Output
 *Output schema unknown*
 
+### search_type_image_webcam
+API to search for entries of type Webcam
+
+
+```js
+geodesystems.search_type_image_webcam({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
 ### search_type_mb
 API to search for entries of type MB Bathymetry
 
@@ -5876,39 +6103,8 @@ geodesystems.search_type_mb_point_basic({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_metameta_collection
-API to search for entries of type Data Dictionary: Metadata Collection
-
-
-```js
-geodesystems.search_type_metameta_collection({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
 ### search_type_metameta_dictionary
-API to search for entries of type Data Dictionary: Metadata Dictionary
+API to search for entries of type Metadata Dictionary
 
 
 ```js
@@ -5947,7 +6143,7 @@ geodesystems.search_type_metameta_dictionary({}, context)
 *Output schema unknown*
 
 ### search_type_metameta_field
-API to search for entries of type Data Dictionary: Metadata Field
+API to search for entries of type Metadata Field
 
 
 ```js
@@ -5985,78 +6181,12 @@ geodesystems.search_type_metameta_field({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_nist_constant
-API to search for entries of type CODATA Fundamental Physical Constants
+### search_type_nasaames
+API to search for entries of type NASA AMES File
 
 
 ```js
-geodesystems.search_type_nist_constant({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.type_nist_constant.unit `string`: Unit
-
-#### Output
-*Output schema unknown*
-
-### search_type_nist_energy
-API to search for entries of type NIST Ionization Energy Data
-
-
-```js
-geodesystems.search_type_nist_energy({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.type_nist_energy.energy `string`: Ionization Energy (eV)
-  * search.type_nist_energy.shells `string`: Ground Shells
-  * search.type_nist_energy.level `string`: Ground Level
-
-#### Output
-*Output schema unknown*
-
-### search_type_nist_isotope
-API to search for entries of type NIST Isotope
-
-
-```js
-geodesystems.search_type_nist_isotope({}, context)
+geodesystems.search_type_nasaames({}, context)
 ```
 
 #### Input
@@ -6082,12 +6212,12 @@ geodesystems.search_type_nist_isotope({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_nist_janaffile
-API to search for entries of type NIST JANAF Thermochemical Table
+### search_type_ncss
+API to search for entries of type NetCDF Point Subset
 
 
 ```js
-geodesystems.search_type_nist_janaffile({}, context)
+geodesystems.search_type_ncss({}, context)
 ```
 
 #### Input
@@ -6243,37 +6373,6 @@ geodesystems.search_type_point_amrc_freewave({}, context)
   * search.type_point_amrc_freewave.format `string`: File Format
   * search.type_point_amrc_freewave.datalogger_model `string`: Data Logger Model
   * search.type_point_amrc_freewave.datalogger_serial `string`: Data Logger Serial
-
-#### Output
-*Output schema unknown*
-
-### search_type_point_collection
-API to search for entries of type Point Data Collection
-
-
-```js
-geodesystems.search_type_point_collection({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -6571,6 +6670,37 @@ API to search for entries of type IDV Point File
 
 ```js
 geodesystems.search_type_point_idv({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_type_point_inline
+API to search for entries of type Inline Point File
+
+
+```js
+geodesystems.search_type_point_inline({}, context)
 ```
 
 #### Input
@@ -7048,6 +7178,41 @@ geodesystems.search_type_point_ocean_ooi_dmgx({}, context)
 #### Output
 *Output schema unknown*
 
+### search_type_point_openaq
+API to search for entries of type Open AQ Air Quality
+
+
+```js
+geodesystems.search_type_point_openaq({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.type_point_openaq.location `string`: Location
+  * search.type_point_openaq.country `string`: Country
+  * search.type_point_openaq.city `string`: City
+  * search.type_point_openaq.hours_offset `integer`: Offset Hours
+
+#### Output
+*Output schema unknown*
+
 ### search_type_point_pbo_position_time_series
 API to search for entries of type PBO Position Time Series
 
@@ -7080,6 +7245,37 @@ geodesystems.search_type_point_pbo_position_time_series({}, context)
   * search.type_point_pbo_position_time_series.reference_frame `string`: Reference Frame
   * search.type_point_pbo_position_time_series.format_version `string`: Format Version
   * search.type_point_pbo_position_time_series.processing_center `string`: Processing Center
+
+#### Output
+*Output schema unknown*
+
+### search_type_point_simple_records
+API to search for entries of type Simple Records
+
+
+```js
+geodesystems.search_type_point_simple_records({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -7117,6 +7313,37 @@ geodesystems.search_type_point_snotel({}, context)
   * search.type_point_snotel.network `string`: Network
   * search.type_point_snotel.huc_name `string`: HUC Name
   * search.type_point_snotel.huc_id `string`: HUC ID
+
+#### Output
+*Output schema unknown*
+
+### search_type_point_text
+API to search for entries of type Record Text File
+
+
+```js
+geodesystems.search_type_point_text({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -7193,109 +7420,6 @@ API to search for entries of type QUANDL Series
 
 ```js
 geodesystems.search_type_quandl_series({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-
-#### Output
-*Output schema unknown*
-
-### search_type_resilience_assessment
-API to search for entries of type Resiliency Assessment
-
-
-```js
-geodesystems.search_type_resilience_assessment({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.type_resilience_assessment.organization `string`: Organization
-  * search.type_resilience_assessment.country `string`: Country
-  * search.type_resilience_assessment.location `string`: Location
-  * search.type_resilience_assessment.bioregion `string`: Bioregion
-  * search.type_resilience_assessment.assessment_type `string`: Type
-  * search.type_resilience_assessment.resilience_definition `string`: Resilience definition
-  * search.type_resilience_assessment.theory_development `string`: Theory development
-
-#### Output
-*Output schema unknown*
-
-### search_type_resilience_project
-API to search for entries of type Resiliency Project
-
-
-```js
-geodesystems.search_type_resilience_project({}, context)
-```
-
-#### Input
-* input `object`
-  * text `string`: Search text
-  * name `string`: Search name
-  * description `string`: Search description
-  * fromdate `string`: From date
-  * todate `string`: To date
-  * createdate.from `string`: Archive create date from
-  * createdate.to `string`: Archive create date to
-  * changedate.from `string`: Archive change date from
-  * changedate.to `string`: Archive change date to
-  * group `string`: Parent entry
-  * filesuffix `string`: File suffix
-  * maxlatitude `number`: Northern bounds of search
-  * minlongitude `number`: Western bounds of search
-  * minlatitude `number`: Southern bounds of search
-  * maxlongitude `number`: Eastern bounds of search
-  * max `integer`: Max number of results
-  * skip `integer`: Number to skip
-  * search.type_resilience_project.status `string`: Status
-  * search.type_resilience_project.project_type `string`: Project Type
-  * search.type_resilience_project.country `string`: Country
-
-#### Output
-*Output schema unknown*
-
-### search_type_reuters_document
-API to search for entries of type Reuters Document
-
-
-```js
-geodesystems.search_type_reuters_document({}, context)
 ```
 
 #### Input
@@ -7414,12 +7538,12 @@ geodesystems.search_type_socrata_series({}, context)
 #### Output
 *Output schema unknown*
 
-### search_type_urbaninstitute_employment
-API to search for entries of type MetroTrends Employment Data
+### search_type_sounding_cod
+API to search for entries of type COD Sounding
 
 
 ```js
-geodesystems.search_type_urbaninstitute_employment({}, context)
+geodesystems.search_type_sounding_cod({}, context)
 ```
 
 #### Input
@@ -7441,17 +7565,16 @@ geodesystems.search_type_urbaninstitute_employment({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.type_urbaninstitute_employment.region `string`: Region
 
 #### Output
 *Output schema unknown*
 
-### search_type_usda_arms_crop
-API to search for entries of type USDA ARMS Crop Data
+### search_type_sounding_frd
+API to search for entries of type FRD Sounding
 
 
 ```js
-geodesystems.search_type_usda_arms_crop({}, context)
+geodesystems.search_type_sounding_frd({}, context)
 ```
 
 #### Input
@@ -7473,19 +7596,16 @@ geodesystems.search_type_usda_arms_crop({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.type_usda_arms_crop.report `string`: Report
-  * search.type_usda_arms_crop.subject `string`: Subject
-  * search.type_usda_arms_crop.state `string`: State
 
 #### Output
 *Output schema unknown*
 
-### search_type_usda_arms_finance
-API to search for entries of type USDA ARMS Finance Data
+### search_type_sounding_gsd
+API to search for entries of type GSD Sounding
 
 
 ```js
-geodesystems.search_type_usda_arms_finance({}, context)
+geodesystems.search_type_sounding_gsd({}, context)
 ```
 
 #### Input
@@ -7507,19 +7627,16 @@ geodesystems.search_type_usda_arms_finance({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.type_usda_arms_finance.report `string`: Report
-  * search.type_usda_arms_finance.subject `string`: Subject
-  * search.type_usda_arms_finance.state `string`: State
 
 #### Output
 *Output schema unknown*
 
-### search_type_usda_nass
-API to search for entries of type USDA NASS Data
+### search_type_sounding_wyoming
+API to search for entries of type UW Sounding
 
 
 ```js
-geodesystems.search_type_usda_nass({}, context)
+geodesystems.search_type_sounding_wyoming({}, context)
 ```
 
 #### Input
@@ -7541,9 +7658,99 @@ geodesystems.search_type_usda_nass({}, context)
   * maxlongitude `number`: Eastern bounds of search
   * max `integer`: Max number of results
   * skip `integer`: Number to skip
-  * search.type_usda_nass.source `string`: Source
-  * search.type_usda_nass.commodity `string`: Commodities
-  * search.type_usda_nass.state `string`: State
+
+#### Output
+*Output schema unknown*
+
+### search_type_tmy
+API to search for entries of type NREL TMY Data
+
+
+```js
+geodesystems.search_type_tmy({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_type_tweet
+API to search for entries of type Tweet
+
+
+```js
+geodesystems.search_type_tweet({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+
+#### Output
+*Output schema unknown*
+
+### search_type_usgs_gauge
+API to search for entries of type USGS Stream Gauge
+
+
+```js
+geodesystems.search_type_usgs_gauge({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
 
 #### Output
 *Output schema unknown*
@@ -7679,6 +7886,43 @@ geodesystems.search_ufo_sightings({}, context)
   * search.db_ufo_sightings.date_posted `string`: Date Posted
   * search.db_ufo_sightings.latitude `number`: Latitude
   * search.db_ufo_sightings.longitude `number`: Longitude
+
+#### Output
+*Output schema unknown*
+
+### search_us_places
+API to search for entries of type US Places
+
+
+```js
+geodesystems.search_us_places({}, context)
+```
+
+#### Input
+* input `object`
+  * text `string`: Search text
+  * name `string`: Search name
+  * description `string`: Search description
+  * fromdate `string`: From date
+  * todate `string`: To date
+  * createdate.from `string`: Archive create date from
+  * createdate.to `string`: Archive create date to
+  * changedate.from `string`: Archive change date from
+  * changedate.to `string`: Archive change date to
+  * group `string`: Parent entry
+  * filesuffix `string`: File suffix
+  * maxlatitude `number`: Northern bounds of search
+  * minlongitude `number`: Western bounds of search
+  * minlatitude `number`: Southern bounds of search
+  * maxlongitude `number`: Eastern bounds of search
+  * max `integer`: Max number of results
+  * skip `integer`: Number to skip
+  * search.db_us_places.feature_name `string`: Place Name
+  * search.db_us_places.feature_class `string`: Place Type
+  * search.db_us_places.state_alpha `string`: State
+  * search.db_us_places.county_name `string`: County Name
+  * search.db_us_places.location `string`: Location
+  * search.db_us_places.elev_in_ft `number`: Elev In Ft
 
 #### Output
 *Output schema unknown*

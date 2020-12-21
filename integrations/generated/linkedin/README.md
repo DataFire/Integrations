@@ -15,7 +15,7 @@ let linkedin = require('@datafire/linkedin').create({
   redirect_uri: ""
 });
 
-linkedin.companies.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

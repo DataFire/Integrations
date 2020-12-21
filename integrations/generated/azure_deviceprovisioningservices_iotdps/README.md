@@ -15,9 +15,7 @@ let azure_deviceprovisioningservices_iotdps = require('@datafire/azure_devicepro
   redirect_uri: ""
 });
 
-azure_deviceprovisioningservices_iotdps.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -231,7 +229,7 @@ azure_deviceprovisioningservices_iotdps.DpsCertificate_List({
 * output [CertificateListDescription](#certificatelistdescription)
 
 ### DpsCertificate_Delete
-Deletes the specified certificate assosciated with the Provisioning Service
+Deletes the specified certificate associated with the Provisioning Service
 
 
 ```js
@@ -526,10 +524,10 @@ azure_deviceprovisioningservices_iotdps.IotDpsResource_listValidSkus({
 
 ### ErrorDetails
 * ErrorDetails `object`: Error details.
-  * Code `string`: The error code.
-  * Details `string`: The error details.
-  * HttpStatusCode `string`: The HTTP status code.
-  * Message `string`: The error message.
+  * code `string`: The error code.
+  * details `string`: The error details.
+  * httpStatusCode `string`: The HTTP status code.
+  * message `string`: The error message.
 
 ### ErrorMesssage
 * ErrorMesssage `object`: Error response containing message and code.
@@ -538,45 +536,45 @@ azure_deviceprovisioningservices_iotdps.IotDpsResource_listValidSkus({
   * message `string`: standard error description
 
 ### IotDpsPropertiesDescription
-* IotDpsPropertiesDescription `object`: the service specific properties of a provisoning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+* IotDpsPropertiesDescription `object`: the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
   * allocationPolicy `string` (values: Hashed, GeoLatency, Static): Allocation policy to be used by this provisioning service.
   * authorizationPolicies `array`: List of authorization keys for a provisioning service.
     * items [SharedAccessSignatureAuthorizationRule[AccessRightsDescription]](#sharedaccesssignatureauthorizationrule[accessrightsdescription])
   * deviceProvisioningHostName `string`: Device endpoint for this provisioning service.
   * idScope `string`: Unique identifier of this provisioning service.
-  * iotHubs `array`: List of IoT hubs assosciated with this provisioning service.
+  * iotHubs `array`: List of IoT hubs associated with this provisioning service.
     * items [IotHubDefinitionDescription](#iothubdefinitiondescription)
   * provisioningState `string`: The ARM provisioning state of the provisioning service.
   * serviceOperationsHostName `string`: Service endpoint for provisioning service.
   * state `string` (values: Activating, Active, Deleting, Deleted, ActivationFailed, DeletionFailed, Transitioning, Suspending, Suspended, Resuming, FailingOver, FailoverFailed): Current state of the provisioning service.
 
 ### IotDpsSkuDefinition
-* IotDpsSkuDefinition `object`: Available SKU's of tier and units.
-  * name `string` (values: S1): SKU name.
+* IotDpsSkuDefinition `object`: Available SKUs of tier and units.
+  * name `string` (values: S1): Sku name.
 
 ### IotDpsSkuDefinitionListResult
 * IotDpsSkuDefinitionListResult `object`: List of available SKUs.
   * nextLink `string`: The next link.
-  * value `array`: The list of SKU's
+  * value `array`: The list of SKUs
     * items [IotDpsSkuDefinition](#iotdpsskudefinition)
 
 ### IotDpsSkuInfo
-* IotDpsSkuInfo `object`: List of possible provisoning service SKUs.
+* IotDpsSkuInfo `object`: List of possible provisioning service SKUs.
   * capacity `integer`: The number of units to provision
   * name `string` (values: S1): Sku name.
   * tier `string`: Pricing tier name of the provisioning service.
 
 ### IotHubDefinitionDescription
 * IotHubDefinitionDescription `object`: Description of the IoT hub.
-  * allocationWeight `integer`: Weight to apply for a given IoT hub.
-  * applyAllocationPolicy `boolean`: Flag for applying allocationPolicy or not for a given IoT hub.
-  * connectionString **required** `string`: Connection string of the IoT hub.
+  * allocationWeight `integer`: weight to apply for a given iot h.
+  * applyAllocationPolicy `boolean`: flag for applying allocationPolicy or not for a given iot hub.
+  * connectionString **required** `string`: Connection string og the IoT hub.
   * location **required** `string`: ARM region of the IoT hub.
   * name `string`: Host name of the IoT hub.
 
 ### NameAvailabilityInfo
 * NameAvailabilityInfo `object`: Description of name availability.
-  * message `string`: message containing a etailed reason name is unavailable
+  * message `string`: message containing a detailed reason name is unavailable
   * nameAvailable `boolean`: specifies if a name is available or not
   * reason `string` (values: Invalid, AlreadyExists): specifies the reason a name is unavailable
 

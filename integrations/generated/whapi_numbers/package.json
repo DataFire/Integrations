@@ -1,8 +1,8 @@
 {
   "name": "@datafire/whapi_numbers",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Numbers",
+  "description": "DataFire integration for Numbers API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

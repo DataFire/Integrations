@@ -15,7 +15,7 @@ let tumblr = require('@datafire/tumblr').create({
   redirect_uri: ""
 });
 
-tumblr.user.following.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

@@ -1,6 +1,6 @@
 # @datafire/google_speech
 
-Client library for Cloud Speech
+Client library for Cloud Speech-to-Text API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_speech = require('@datafire/google_speech').create({
   redirect_uri: ""
 });
 
-google_speech.speech.recognize({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,14 +67,12 @@ google_speech.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### operations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
+### speech.projects.locations.operations.get
+Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 
 
 ```js
-google_speech.operations.get({
+google_speech.speech.projects.locations.operations.get({
   "name": ""
 }, context)
 ```
@@ -85,152 +83,106 @@ google_speech.operations.get({
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
 * output [Operation](#operation)
 
-### speech.longrunningrecognize
-Performs asynchronous speech recognition: receive results via the
-google.longrunning.Operations interface. Returns either an
-`Operation.error` or an `Operation.response` which contains
-a `LongRunningRecognizeResponse` message.
+### speech.projects.locations.operations.list
+Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to override the binding to use different resource name schemes, such as `users/*/operations`. To override the binding, API services can add a binding such as `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.
 
 
 ```js
-google_speech.speech.longrunningrecognize({}, context)
+google_speech.speech.projects.locations.operations.list({
+  "name": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * body [LongRunningRecognizeRequest](#longrunningrecognizerequest)
+  * name **required** `string`: The name of the operation's parent resource.
+  * filter `string`: The standard list filter.
+  * pageSize `integer`: The standard list page size.
+  * pageToken `string`: The standard list page token.
   * $.xgafv `string` (values: 1, 2): V1 error format.
   * access_token `string`: OAuth access token.
   * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
   * callback `string`: JSONP
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
   * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
   * prettyPrint `boolean`: Returns response with indentations and line breaks.
   * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
   * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
+  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
 
 #### Output
-* output [Operation](#operation)
-
-### speech.recognize
-Performs synchronous speech recognition: receive results after all audio
-has been sent and processed.
-
-
-```js
-google_speech.speech.recognize({}, context)
-```
-
-#### Input
-* input `object`
-  * body [RecognizeRequest](#recognizerequest)
-  * $.xgafv `string` (values: 1, 2): V1 error format.
-  * access_token `string`: OAuth access token.
-  * alt `string` (values: json, media, proto): Data format for response.
-  * bearer_token `string`: OAuth bearer token.
-  * callback `string`: JSONP
-  * fields `string`: Selector specifying which fields to include in a partial response.
-  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-  * oauth_token `string`: OAuth 2.0 token for the current user.
-  * pp `boolean`: Pretty-print response.
-  * prettyPrint `boolean`: Returns response with indentations and line breaks.
-  * quotaUser `string`: Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-  * uploadType `string`: Legacy upload protocol for media (e.g. "media", "multipart").
-  * upload_protocol `string`: Upload protocol for media (e.g. "raw", "multipart").
-
-#### Output
-* output [RecognizeResponse](#recognizeresponse)
+* output [ListOperationsResponse](#listoperationsresponse)
 
 
 
 ## Definitions
 
-### LongRunningRecognizeRequest
-* LongRunningRecognizeRequest `object`: The top-level message sent by the client for the `LongRunningRecognize`
-  * audio [RecognitionAudio](#recognitionaudio)
-  * config [RecognitionConfig](#recognitionconfig)
+### ListOperationsResponse
+* ListOperationsResponse `object`: The response message for Operations.ListOperations.
+  * nextPageToken `string`: The standard List next-page token.
+  * operations `array`: A list of operations that matches the specified filter in the request.
+    * items [Operation](#operation)
 
-### Operation
-* Operation `object`: This resource represents a long-running operation that is the result of a
-  * done `boolean`: If the value is `false`, it means the operation is still in progress.
-  * error [Status](#status)
-  * metadata `object`: Service-specific metadata associated with the operation.  It typically
-  * name `string`: The server-assigned name, which is only unique within the same service that
-  * response `object`: The normal response of the operation in case of success.  If the original
+### LongRunningRecognizeMetadata
+* LongRunningRecognizeMetadata `object`: Describes the progress of a long-running `LongRunningRecognize` call. It is included in the `metadata` field of the `Operation` returned by the `GetOperation` call of the `google::longrunning::Operations` service.
+  * lastUpdateTime `string`: Output only. Time of the most recent processing update.
+  * progressPercent `integer`: Output only. Approximate percentage of audio processed thus far. Guaranteed to be 100 when the audio is fully processed and the results are available.
+  * startTime `string`: Output only. Time when the request was received.
+  * uri `string`: The URI of the audio file being transcribed. Empty if the audio was sent as byte content.
 
-### RecognitionAudio
-* RecognitionAudio `object`: Contains audio data in the encoding specified in the `RecognitionConfig`.
-  * content `string`: The audio data bytes encoded as specified in
-  * uri `string`: URI that points to a file that contains audio data bytes as specified in
-
-### RecognitionConfig
-* RecognitionConfig `object`: Provides information to the recognizer that specifies how to process the
-  * enableWordTimeOffsets `boolean`: *Optional* If `true`, the top result includes a list of words and
-  * encoding `string` (values: ENCODING_UNSPECIFIED, LINEAR16, FLAC, MULAW, AMR, AMR_WB, OGG_OPUS, SPEEX_WITH_HEADER_BYTE): Encoding of audio data sent in all `RecognitionAudio` messages.
-  * languageCode `string`: *Required* The language of the supplied audio as a
-  * maxAlternatives `integer`: *Optional* Maximum number of recognition hypotheses to be returned.
-  * profanityFilter `boolean`: *Optional* If set to `true`, the server will attempt to filter out
-  * sampleRateHertz `integer`: Sample rate in Hertz of the audio data sent in all
-  * speechContexts `array`: *Optional* A means to provide context to assist the speech recognition.
-    * items [SpeechContext](#speechcontext)
-
-### RecognizeRequest
-* RecognizeRequest `object`: The top-level message sent by the client for the `Recognize` method.
-  * audio [RecognitionAudio](#recognitionaudio)
-  * config [RecognitionConfig](#recognitionconfig)
-
-### RecognizeResponse
-* RecognizeResponse `object`: The only message returned to the client by the `Recognize` method. It
-  * results `array`: Output only. Sequential list of transcription results corresponding to
+### LongRunningRecognizeResponse
+* LongRunningRecognizeResponse `object`: The only message returned to the client by the `LongRunningRecognize` method. It contains the result as zero or more sequential SpeechRecognitionResult messages. It is included in the `result.response` field of the `Operation` returned by the `GetOperation` call of the `google::longrunning::Operations` service.
+  * results `array`: Output only. Sequential list of transcription results corresponding to sequential portions of audio.
     * items [SpeechRecognitionResult](#speechrecognitionresult)
 
-### SpeechContext
-* SpeechContext `object`: Provides "hints" to the speech recognizer to favor specific words and phrases
-  * phrases `array`: *Optional* A list of strings containing words and phrases "hints" so that
-    * items `string`
+### Operation
+* Operation `object`: This resource represents a long-running operation that is the result of a network API call.
+  * done `boolean`: If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.
+  * error [Status](#status)
+  * metadata `object`: Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+  * name `string`: The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`.
+  * response `object`: The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
 
 ### SpeechRecognitionAlternative
 * SpeechRecognitionAlternative `object`: Alternative hypotheses (a.k.a. n-best list).
-  * confidence `number`: Output only. The confidence estimate between 0.0 and 1.0. A higher number
+  * confidence `number`: Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for the top alternative of a non-streaming result or, of a streaming result where `is_final=true`. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
   * transcript `string`: Output only. Transcript text representing the words that the user spoke.
-  * words `array`: Output only. A list of word-specific information for each recognized word.
+  * words `array`: Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is true, you will see all the words from the beginning of the audio.
     * items [WordInfo](#wordinfo)
 
 ### SpeechRecognitionResult
 * SpeechRecognitionResult `object`: A speech recognition result corresponding to a portion of the audio.
-  * alternatives `array`: Output only. May contain one or more recognition hypotheses (up to the
+  * alternatives `array`: Output only. May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
     * items [SpeechRecognitionAlternative](#speechrecognitionalternative)
+  * channelTag `integer`: Output only. For multi-channel audio, this is the channel number corresponding to the recognized result for the audio from that channel. For `audio_channel_count` = N, its output values can range from `1` to `N`.
+  * languageCode `string`: Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of being spoken in the audio.
 
 ### Status
-* Status `object`: The `Status` type defines a logical error model that is suitable for different
+* Status `object`: The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).
   * code `integer`: The status code, which should be an enum value of google.rpc.Code.
-  * details `array`: A list of messages that carry the error details.  There is a common set of
+  * details `array`: A list of messages that carry the error details. There is a common set of message types for APIs to use.
     * items `object`
-  * message `string`: A developer-facing error message, which should be in English. Any
+  * message `string`: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.
 
 ### WordInfo
 * WordInfo `object`: Word-specific information for recognized words.
-  * endTime `string`: Output only. Time offset relative to the beginning of the audio,
-  * speakerTag `integer`: Output only. A distinct integer value is assigned for every speaker within
-  * startTime `string`: Output only. Time offset relative to the beginning of the audio,
+  * confidence `number`: Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for the top alternative of a non-streaming result or, of a streaming result where `is_final=true`. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+  * endOffset `string`: Output only. Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+  * speakerTag `integer`: Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value ranges from `1` to `diarization_config.max_speaker_count` . `speaker_tag` is set if `diarization_config.enable_speaker_diarization` = `true` and only in the top alternative.
+  * startOffset `string`: Output only. Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
   * word `string`: Output only. The word corresponding to this set of information.
 
 

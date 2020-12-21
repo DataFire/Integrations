@@ -11,9 +11,7 @@ let core_ac_uk = require('@datafire/core_ac_uk').create({
   apiKey: ""
 });
 
-core_ac_uk.getArticleByCoreIdBatch({
-  "body": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -43,7 +41,7 @@ core_ac_uk.getArticleByCoreIdBatch({
     The query can be a simple string or it can be built using terms and operators described in Elasticsearch
     <a href="http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax">documentation</a>.
     The usable field names are <strong>title</strong>, <strong>description</strong>, <strong>fullText</strong>, 
-    <strong>authorsString</strong>, <strong>publisher</strong>, <strong>repositories.id</strong>, <strong>repositories.name</strong>, 
+    <strong>authors</strong>, <strong>publisher</strong>, <strong>repositories.id</strong>, <strong>repositories.name</strong>, 
     <strong>doi</strong>, <strong>oai</strong>, <strong>identifiers</strong> (which is a list of article identifiers including OAI, URL, etc.), <strong>language.name</strong> 
     and <strong>year</strong>. Some example queries:
 </p>
@@ -78,6 +76,27 @@ core_ac_uk.getArticleByCoreIdBatch({
 <h2>API methods</h2>
 
 ## Actions
+
+### nearDuplicateArticles
+Method accepts values for several parameters and retrieves a JSON array of articles which have near duplicate content matching the input parameters' values. The response array contains ids of the near duplicate articles along with their relevance scores.
+
+
+```js
+core_ac_uk.nearDuplicateArticles({}, context)
+```
+
+#### Input
+* input `object`
+  * doi `string`: The DOI for which the duplicates will be identified
+  * title `string`: Title to match when looking for duplicate articles. Only useful when either value for @year or @description is supplied.
+  * year `string`: Year the article was published. Only useful when value for @title is supplied. 
+  * description `string`: Abstract for an article based on which its duplicates will be found. Only useful when value for @title is supplied.
+  * fulltext `string`: Full text for an article based on which its duplicates will be found.
+  * identifier `string`: Article identifier for which the duplicates will be identified. Only useful when either values for @doi or (@title and @year) or (@title and @abstract) or @fulltext are supplied.
+  * repositoryId `string`: Limit the duplicates search to particular repository id. 
+
+#### Output
+* output [ArticleDedupResponse](#articlededupresponse)
 
 ### getArticleByCoreIdBatch
 Method accepts a JSON array of CORE IDs and retrieves a list of articles. The response array is ordered based on the order of the IDs in the request array.
@@ -331,6 +350,8 @@ core_ac_uk.getRepositoryByIdBatch({
   * body **required** `array`
     * items `integer`
   * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
+  * depositHistory `boolean`: Returns deposit history over time
+  * depositHistoryCumulative `boolean`: Returns deposit history over time
 
 #### Output
 * output `array`
@@ -350,6 +371,8 @@ core_ac_uk.getRepositoryById({
 * input `object`
   * repositoryId **required** `integer`: CORE repository ID of the article that needs to be fetched.
   * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
+  * depositHistory `boolean`: Returns deposit history over time
+  * depositHistoryCumulative `boolean`: Returns deposit history over time
 
 #### Output
 * output [RepositoryResponse](#repositoryresponse)
@@ -369,6 +392,8 @@ core_ac_uk.repositories.search.post({
   * body **required** `array`
     * items [SearchRequest](#searchrequest)
   * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
+  * depositHistory `boolean`: Returns deposit history over time
+  * depositHistoryCumulative `boolean`: Returns deposit history over time
 
 #### Output
 * output [RepositorySearchResponse](#repositorysearchresponse)
@@ -389,6 +414,8 @@ core_ac_uk.repositories.search.query.get({
   * page `integer`: Which page of the search results should be retrieved. Can be any number betwen 1 and 100, default is 1 (first page).
   * pageSize `integer`: The number of results to return per page. Can be any number between 10 and 100, default is 10.
   * stats `boolean`: Whether to retrieve statistics about the repository. The default value is false
+  * depositHistory `boolean`: Returns deposit history over time
+  * depositHistoryCumulative `boolean`: Returns deposit history over time
 
 #### Output
 * output [RepositorySearchResponse](#repositorysearchresponse)
@@ -476,6 +503,9 @@ core_ac_uk.search.query.get({
     * items `string`
   * year `integer`: Year the article was published
 
+### ArticleDedupResponse
+
+
 ### ArticleHistoryResponse
 * ArticleHistoryResponse `object`
   * data `array`: List of article versions
@@ -539,8 +569,16 @@ core_ac_uk.search.query.get({
 
 ### Language
 * Language `object`
-  * code `string`
-  * name `string`
+  * deletedStatus `integer`: The deleted status of the document: 0 for allowed, 1 for deleted, 2 for disabled
+  * depositedDate `string`: The date the item was deposited in the Data Provider (repository/Journal)
+  * indexed `integer`: The index status of the document: 0 for not indexed, 1 for indexed
+  * metadataUpdated `string`: The last date metadata of this article were updated
+  * pdfOrigin `string`: The remote URL where we aquired the PDF
+  * pdfSize `integer`: The size of pdf in bytes
+  * pdfStatus `integer`: The pdf status flag of article: 0 no pdf, 1 pdf exists
+  * tdmOnly `boolean`: The tdmOnly flag of the article: 0 normal, 1 tdm only
+  * textStatus `integer`: The text status flag of article: 0 does not exist, 1 exists
+  * timestamp `string`: The date of article as given by the repository
 
 ### RawRecordXml
 * RawRecordXml `object`
@@ -549,11 +587,30 @@ core_ac_uk.search.query.get({
 
 ### Repository
 * Repository `object`
+  * dataProviderSourceStats `array`: Statistics based on the Data Provider/repository rather than data processed and filtered by CORE. This array is in beta and may change in the future
+  * history `array`: The number of deposits in the repository per date. This field is in beta and may change in the future
+  * historyCumulative `array`: The number of deposits in the repository per date over time (cumulative). This field is in beta and may change in the future
   * id `integer`: CORE repository ID
+  * lastSeen `string`: The time the repository was last harvested by CORE. This field is in beta and may change in the future
   * name `string`: Repository name
+  * openDoarId `integer`: ID of the repository in Open DOAR
+  * repositoryLocation [RepositoryLocation](#repositorylocation)
+  * repositoryStats [RepositoryStats](#repositorystats)
+  * uri `string`: Repository URI
+  * urlHomepage `string`: Repository homepage
+  * urlOaipmh `string`: Repository OAI-PMH endpoint
 
 ### RepositoryDocument
 
+
+### RepositoryLocation
+* RepositoryLocation `object`
+  * country `string`: Country name
+  * countryCode `string`: Two letter country code
+  * id `integer`: CORE repository ID
+  * latitude `integer`
+  * longitude `integer`
+  * repositoryName `string`: Repository name
 
 ### RepositoryResponse
 * RepositoryResponse `object`
@@ -566,6 +623,12 @@ core_ac_uk.search.query.get({
     * items [Repository](#repository)
   * status **required** `string` (values: OK, Not found, Too many queries, Missing parameter, Invalid parameter, Parameter out of bounds): Operation status
   * totalHits **required** `integer`: Total number of repositories matching the search criteria
+
+### RepositoryStats
+* RepositoryStats `object`
+  * countFulltext `integer`: Repository fulltext count
+  * countMetadata `integer`: Repository metadata count
+  * dateLastProcessed `string`: Last repository processing date
 
 ### Resource
 * Resource `object`

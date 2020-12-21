@@ -13,16 +13,14 @@ let amazonaws_macie = require('@datafire/amazonaws_macie').create({
   region: ""
 });
 
-amazonaws_macie.AssociateMemberAccount({
-  "memberAccountId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Macie</fullname> <p>Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. Macie recognizes sensitive data such as personally identifiable information (PII) or intellectual property, and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Macie User Guide</a>. </p>
+<fullname>Amazon Macie Classic</fullname> <p>Amazon Macie Classic is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS. Macie Classic recognizes sensitive data such as personally identifiable information (PII) or intellectual property, and provides you with dashboards and alerts that give visibility into how this data is being accessed or moved. For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Amazon Macie Classic User Guide</a>. </p> <p>A new Amazon Macie is now available with significant design improvements and additional features, at a lower price and in most AWS Regions. We encourage you to explore and use the new and improved features, and benefit from the reduced cost. To learn about features and pricing for the new Amazon Macie, see <a href="https://aws.amazon.com/macie/">Amazon Macie</a>.</p>
 
 ## Actions
 
@@ -32,13 +30,13 @@ amazonaws_macie.AssociateMemberAccount({
 
 ```js
 amazonaws_macie.AssociateMemberAccount({
-  "memberAccountId": ""
+  "memberAccountId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * memberAccountId **required** [AWSAccountId](#awsaccountid)
+  * memberAccountId **required**
 
 #### Output
 *Output schema unknown*
@@ -49,14 +47,15 @@ amazonaws_macie.AssociateMemberAccount({
 
 ```js
 amazonaws_macie.AssociateS3Resources({
-  "s3Resources": []
+  "s3Resources": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * s3Resources **required** [S3ResourcesClassification](#s3resourcesclassification)
+  * memberAccountId
+  * s3Resources **required**
+    * items [S3ResourceClassification](#s3resourceclassification)
 
 #### Output
 * output [AssociateS3ResourcesResult](#associates3resourcesresult)
@@ -67,13 +66,13 @@ amazonaws_macie.AssociateS3Resources({
 
 ```js
 amazonaws_macie.DisassociateMemberAccount({
-  "memberAccountId": ""
+  "memberAccountId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * memberAccountId **required** [AWSAccountId](#awsaccountid)
+  * memberAccountId **required**
 
 #### Output
 *Output schema unknown*
@@ -84,14 +83,15 @@ amazonaws_macie.DisassociateMemberAccount({
 
 ```js
 amazonaws_macie.DisassociateS3Resources({
-  "associatedS3Resources": []
+  "associatedS3Resources": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * associatedS3Resources **required** [S3Resources](#s3resources)
-  * memberAccountId [AWSAccountId](#awsaccountid)
+  * associatedS3Resources **required**
+    * items [S3Resource](#s3resource)
+  * memberAccountId
 
 #### Output
 * output [DisassociateS3ResourcesResult](#disassociates3resourcesresult)
@@ -108,8 +108,8 @@ amazonaws_macie.ListMemberAccounts({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListMemberAccountsResult](#listmemberaccountsresult)
@@ -126,9 +126,9 @@ amazonaws_macie.ListS3Resources({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * memberAccountId
+  * nextToken
 
 #### Output
 * output [ListS3ResourcesResult](#lists3resourcesresult)
@@ -139,14 +139,15 @@ amazonaws_macie.ListS3Resources({}, context)
 
 ```js
 amazonaws_macie.UpdateS3Resources({
-  "s3ResourcesUpdate": []
+  "s3ResourcesUpdate": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * s3ResourcesUpdate **required** [S3ResourcesClassificationUpdate](#s3resourcesclassificationupdate)
+  * memberAccountId
+  * s3ResourcesUpdate **required**
+    * items [S3ResourceClassificationUpdate](#s3resourceclassificationupdate)
 
 #### Output
 * output [UpdateS3ResourcesResult](#updates3resourcesresult)
@@ -159,48 +160,50 @@ amazonaws_macie.UpdateS3Resources({
 * AWSAccountId `string`
 
 ### AccessDeniedException
-* AccessDeniedException `object`: You do not have required permissions to access the requested resource.
-  * message [ExceptionMessage](#exceptionmessage)
-  * resourceType [ResourceType](#resourcetype)
+
 
 ### AssociateMemberAccountRequest
 * AssociateMemberAccountRequest `object`
-  * memberAccountId **required** [AWSAccountId](#awsaccountid)
+  * memberAccountId **required**
 
 ### AssociateS3ResourcesRequest
 * AssociateS3ResourcesRequest `object`
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * s3Resources **required** [S3ResourcesClassification](#s3resourcesclassification)
+  * memberAccountId
+  * s3Resources **required**
+    * items [S3ResourceClassification](#s3resourceclassification)
 
 ### AssociateS3ResourcesResult
 * AssociateS3ResourcesResult `object`
-  * failedS3Resources [FailedS3Resources](#faileds3resources)
+  * failedS3Resources
+    * items [FailedS3Resource](#faileds3resource)
 
 ### BucketName
 * BucketName `string`
 
 ### ClassificationType
-* ClassificationType `object`: The classification type that Amazon Macie applies to the associated S3 resources. 
-  * continuous **required** [S3ContinuousClassificationType](#s3continuousclassificationtype)
-  * oneTime **required** [S3OneTimeClassificationType](#s3onetimeclassificationtype)
+* ClassificationType `object`: The classification type that Amazon Macie Classic applies to the associated S3 resources. 
+  * continuous **required**
+  * oneTime **required**
 
 ### ClassificationTypeUpdate
-* ClassificationTypeUpdate `object`: The classification type that Amazon Macie applies to the associated S3 resources. At least one of the classification types (oneTime or continuous) must be specified. 
-  * continuous [S3ContinuousClassificationType](#s3continuousclassificationtype)
-  * oneTime [S3OneTimeClassificationType](#s3onetimeclassificationtype)
+* ClassificationTypeUpdate `object`: The classification type that Amazon Macie Classic applies to the associated S3 resources. At least one of the classification types (oneTime or continuous) must be specified. 
+  * continuous
+  * oneTime
 
 ### DisassociateMemberAccountRequest
 * DisassociateMemberAccountRequest `object`
-  * memberAccountId **required** [AWSAccountId](#awsaccountid)
+  * memberAccountId **required**
 
 ### DisassociateS3ResourcesRequest
 * DisassociateS3ResourcesRequest `object`
-  * associatedS3Resources **required** [S3Resources](#s3resources)
-  * memberAccountId [AWSAccountId](#awsaccountid)
+  * associatedS3Resources **required**
+    * items [S3Resource](#s3resource)
+  * memberAccountId
 
 ### DisassociateS3ResourcesResult
 * DisassociateS3ResourcesResult `object`
-  * failedS3Resources [FailedS3Resources](#faileds3resources)
+  * failedS3Resources
+    * items [FailedS3Resource](#faileds3resource)
 
 ### ErrorCode
 * ErrorCode `string`: Error code for the exception
@@ -210,61 +213,54 @@ amazonaws_macie.UpdateS3Resources({
 
 ### FailedS3Resource
 * FailedS3Resource `object`: Includes details about the failed S3 resources.
-  * errorCode [ErrorCode](#errorcode)
-  * errorMessage [ExceptionMessage](#exceptionmessage)
-  * failedItem [S3Resource](#s3resource)
+  * errorCode
+  * errorMessage
+  * failedItem
+    * bucketName **required**
+    * prefix
 
 ### FailedS3Resources
 * FailedS3Resources `array`
   * items [FailedS3Resource](#faileds3resource)
 
-### FieldName
-* FieldName `string`: Field that has invalid input
-
 ### InternalException
-* InternalException `object`: Internal server error.
-  * errorCode [ErrorCode](#errorcode)
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### InvalidInputException
-* InvalidInputException `object`: The request was rejected because an invalid or out-of-range value was supplied for an input parameter. 
-  * errorCode [ErrorCode](#errorcode)
-  * fieldName [FieldName](#fieldname)
-  * message [ExceptionMessage](#exceptionmessage)
+
 
 ### LimitExceededException
-* LimitExceededException `object`: The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded. 
-  * errorCode [ErrorCode](#errorcode)
-  * message [ExceptionMessage](#exceptionmessage)
-  * resourceType [ResourceType](#resourcetype)
+
 
 ### ListMemberAccountsRequest
 * ListMemberAccountsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * nextToken
 
 ### ListMemberAccountsResult
 * ListMemberAccountsResult `object`
-  * memberAccounts [MemberAccounts](#memberaccounts)
-  * nextToken [NextToken](#nexttoken)
+  * memberAccounts
+    * items [MemberAccount](#memberaccount)
+  * nextToken
 
 ### ListS3ResourcesRequest
 * ListS3ResourcesRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * nextToken [NextToken](#nexttoken)
+  * maxResults
+  * memberAccountId
+  * nextToken
 
 ### ListS3ResourcesResult
 * ListS3ResourcesResult `object`
-  * nextToken [NextToken](#nexttoken)
-  * s3Resources [S3ResourcesClassification](#s3resourcesclassification)
+  * nextToken
+  * s3Resources
+    * items [S3ResourceClassification](#s3resourceclassification)
 
 ### MaxResults
 * MaxResults `integer`
 
 ### MemberAccount
-* MemberAccount `object`: Contains information about the Amazon Macie member account.
-  * accountId [AWSAccountId](#awsaccountid)
+* MemberAccount `object`: Contains information about the Amazon Macie Classic member account.
+  * accountId
 
 ### MemberAccounts
 * MemberAccounts `array`
@@ -276,9 +272,6 @@ amazonaws_macie.UpdateS3Resources({
 ### Prefix
 * Prefix `string`
 
-### ResourceType
-* ResourceType `string`: Resource type that caused the exception
-
 ### S3ContinuousClassificationType
 * S3ContinuousClassificationType `string` (values: FULL)
 
@@ -287,20 +280,24 @@ amazonaws_macie.UpdateS3Resources({
 
 ### S3Resource
 * S3Resource `object`: Contains information about the S3 resource. This data type is used as a request parameter in the DisassociateS3Resources action and can be used as a response parameter in the AssociateS3Resources and UpdateS3Resources actions. 
-  * bucketName **required** [BucketName](#bucketname)
-  * prefix [Prefix](#prefix)
+  * bucketName **required**
+  * prefix
 
 ### S3ResourceClassification
-* S3ResourceClassification `object`: The S3 resources that you want to associate with Amazon Macie for monitoring and data classification. This data type is used as a request parameter in the AssociateS3Resources action and a response parameter in the ListS3Resources action. 
-  * bucketName **required** [BucketName](#bucketname)
-  * classificationType **required** [ClassificationType](#classificationtype)
-  * prefix [Prefix](#prefix)
+* S3ResourceClassification `object`: The S3 resources that you want to associate with Amazon Macie Classic for monitoring and data classification. This data type is used as a request parameter in the AssociateS3Resources action and a response parameter in the ListS3Resources action. 
+  * bucketName **required**
+  * classificationType **required**
+    * continuous **required**
+    * oneTime **required**
+  * prefix
 
 ### S3ResourceClassificationUpdate
 * S3ResourceClassificationUpdate `object`: The S3 resources whose classification types you want to update. This data type is used as a request parameter in the UpdateS3Resources action. 
-  * bucketName **required** [BucketName](#bucketname)
-  * classificationTypeUpdate **required** [ClassificationTypeUpdate](#classificationtypeupdate)
-  * prefix [Prefix](#prefix)
+  * bucketName **required**
+  * classificationTypeUpdate **required**
+    * continuous
+    * oneTime
+  * prefix
 
 ### S3Resources
 * S3Resources `array`
@@ -316,11 +313,13 @@ amazonaws_macie.UpdateS3Resources({
 
 ### UpdateS3ResourcesRequest
 * UpdateS3ResourcesRequest `object`
-  * memberAccountId [AWSAccountId](#awsaccountid)
-  * s3ResourcesUpdate **required** [S3ResourcesClassificationUpdate](#s3resourcesclassificationupdate)
+  * memberAccountId
+  * s3ResourcesUpdate **required**
+    * items [S3ResourceClassificationUpdate](#s3resourceclassificationupdate)
 
 ### UpdateS3ResourcesResult
 * UpdateS3ResourcesResult `object`
-  * failedS3Resources [FailedS3Resources](#faileds3resources)
+  * failedS3Resources
+    * items [FailedS3Resource](#faileds3resource)
 
 

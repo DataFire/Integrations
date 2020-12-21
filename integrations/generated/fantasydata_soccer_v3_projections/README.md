@@ -12,11 +12,7 @@ let fantasydata_soccer_v3_projections = require('@datafire/fantasydata_soccer_v3
   apiKeyQuery: ""
 });
 
-fantasydata_soccer_v3_projections.ProjectedPlayerGameStatsByCompetitionWDfsSalaries({
-  "format": "",
-  "competition": "",
-  "date": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

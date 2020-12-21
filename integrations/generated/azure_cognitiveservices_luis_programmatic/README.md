@@ -11,7 +11,7 @@ let azure_cognitiveservices_luis_programmatic = require('@datafire/azure_cogniti
   apiKeyHeader: ""
 });
 
-azure_cognitiveservices_luis_programmatic.Apps_List({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

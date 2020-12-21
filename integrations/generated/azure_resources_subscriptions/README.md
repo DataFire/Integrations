@@ -15,9 +15,7 @@ let azure_resources_subscriptions = require('@datafire/azure_resources_subscript
   redirect_uri: ""
 });
 
-azure_resources_subscriptions.Subscriptions_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -27,6 +25,23 @@ azure_resources_subscriptions.Subscriptions_List({
 All resource groups and resources exist within subscriptions. These operation enable you get information about your subscriptions and tenants. A tenant is a dedicated instance of Azure Active Directory (Azure AD) for your organization.
 
 ## Actions
+
+### Operations_List
+Lists all of the available Microsoft.Resources REST API operations.
+
+
+```js
+azure_resources_subscriptions.Operations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the operation.
+
+#### Output
+* output [OperationListResult](#operationlistresult)
 
 ### Subscriptions_List
 Gets all subscriptions for a tenant.
@@ -118,14 +133,36 @@ azure_resources_subscriptions.Tenants_List({
   * value `array`: An array of locations.
     * items [Location](#location)
 
+### ManagedByTenant
+* ManagedByTenant `object`: Information about a tenant managing the subscription.
+  * tenantId `string`: The tenant ID of the managing tenant. This is a GUID.
+
+### Operation
+* Operation `object`: Microsoft.Resources operation
+  * display `object`: The object that represents the operation.
+    * description `string`: Description of the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.Resources
+    * resource `string`: Resource on which the operation is performed: Profile, endpoint, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}
+
+### OperationListResult
+* OperationListResult `object`: Result of the request to list Microsoft.Resources operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of Microsoft.Resources operations.
+    * items [Operation](#operation)
+
 ### Subscription
 * Subscription `object`: Subscription information.
   * authorizationSource `string`: The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'.
   * displayName `string`: The subscription display name.
   * id `string`: The fully qualified ID for the subscription. For example, /subscriptions/00000000-0000-0000-0000-000000000000.
+  * managedByTenants `array`: An array containing the tenants managing the subscription.
+    * items [ManagedByTenant](#managedbytenant)
   * state `string` (values: Enabled, Warned, PastDue, Disabled, Deleted): The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
   * subscriptionId `string`: The subscription ID.
   * subscriptionPolicies [SubscriptionPolicies](#subscriptionpolicies)
+  * tenantId `string`: The subscription tenant ID.
 
 ### SubscriptionListResult
 * SubscriptionListResult `object`: Subscription list operation response.

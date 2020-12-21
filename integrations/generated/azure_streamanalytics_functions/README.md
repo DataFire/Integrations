@@ -15,12 +15,7 @@ let azure_streamanalytics_functions = require('@datafire/azure_streamanalytics_f
   redirect_uri: ""
 });
 
-azure_streamanalytics_functions.Functions_ListByStreamingJob({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "jobName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -46,7 +41,7 @@ azure_streamanalytics_functions.Functions_ListByStreamingJob({
 
 #### Input
 * input `object`
-  * $select `string`: The $select OData query parameter. This is a comma-separated list of structural properties to include in the response, or “*” to include all properties. By default, all properties are returned except diagnostics. Currently only accepts '*' as a valid value.
+  * $select `string`: The $select OData query parameter. This is a comma-separated list of structural properties to include in the response, or "*" to include all properties. By default, all properties are returned except diagnostics. Currently only accepts '*' as a valid value.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -123,7 +118,7 @@ azure_streamanalytics_functions.Functions_Update({
 #### Input
 * input `object`
   * function **required** [Function](#function)
-  * If-Match `string`: The ETag of the function. Omit this value to always overwrite the current function. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the function. Omit this value to always overwrite the current function. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -151,7 +146,7 @@ azure_streamanalytics_functions.Functions_CreateOrReplace({
 #### Input
 * input `object`
   * function **required** [Function](#function)
-  * If-Match `string`: The ETag of the function. Omit this value to always overwrite the current function. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the function. Omit this value to always overwrite the current function. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * If-None-Match `string`: Set to '*' to allow a new function to be created, but to prevent updating an existing function. Other values will result in a 412 Pre-condition Failed response.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.

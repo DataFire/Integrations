@@ -1,6 +1,6 @@
 # @datafire/microsoft_cognitiveservices_entitysearch
 
-Client library for Entity Search
+Client library for Entity Search Client
 
 ## Installation and Usage
 ```bash
@@ -11,10 +11,7 @@ let microsoft_cognitiveservices_entitysearch = require('@datafire/microsoft_cogn
   apiKeyHeader: ""
 });
 
-microsoft_cognitiveservices_entitysearch.Entities_Search({
-  "X-BingApis-SDK": "",
-  "q": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -462,7 +459,7 @@ microsoft_cognitiveservices_entitysearch.Entities_Search({
   * addressRegion `string`: The state or province code where the street address is located. This could be the two-letter code. For example, WA, or the full name , Washington.
   * addressRegionAbbreviation `string`: Region Abbreviation. For example, WA.
   * addressSubregion `string`
-  * countryIso `string`: The two letter ISO code of this countr. For example, US.
+  * countryIso `string`: The two letter ISO code of this country. For example, US.
   * neighborhood `string`: The neighborhood where the street address is located. For example, Westlake.
   * postOfficeBoxNumber `string`
   * postalCode `string`: The zip code or postal code where the street address is located. For example, 98052.

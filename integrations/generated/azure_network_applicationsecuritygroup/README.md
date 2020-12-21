@@ -15,10 +15,7 @@ let azure_network_applicationsecuritygroup = require('@datafire/azure_network_ap
   redirect_uri: ""
 });
 
-azure_network_applicationsecuritygroup.ApplicationSecurityGroups_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -115,6 +112,32 @@ azure_network_applicationsecuritygroup.ApplicationSecurityGroups_Get({
 #### Output
 * output [ApplicationSecurityGroup](#applicationsecuritygroup)
 
+### ApplicationSecurityGroups_UpdateTags
+Updates an application security group's tags.
+
+
+```js
+azure_network_applicationsecuritygroup.ApplicationSecurityGroups_UpdateTags({
+  "resourceGroupName": "",
+  "applicationSecurityGroupName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * applicationSecurityGroupName **required** `string`: The name of the application security group.
+  * parameters **required** `object`: Tags object for patch operations.
+    * tags `object`: Resource tags.
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [ApplicationSecurityGroup](#applicationsecuritygroup)
+
 ### ApplicationSecurityGroups_CreateOrUpdate
 Creates or updates an application security group.
 
@@ -162,7 +185,7 @@ azure_network_applicationsecuritygroup.ApplicationSecurityGroups_CreateOrUpdate(
 
 ### ApplicationSecurityGroupPropertiesFormat
 * ApplicationSecurityGroupPropertiesFormat `object`: Application security group properties.
-  * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
 
 

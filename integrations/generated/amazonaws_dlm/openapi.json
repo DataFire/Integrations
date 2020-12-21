@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "dlm.amazonaws.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -13,7 +7,7 @@
       "url": "https://github.com/mermade/aws2openapi",
       "x-twitter": "PermittedSoc"
     },
-    "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+    "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -29,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -39,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/dlm-2018-01-12.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -51,99 +45,123 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/dlm/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "dlm.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
     "/policies": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
-        "operationId": "GetLifecyclePolicies",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetLifecyclePoliciesRequest"
-            }
+            "collectionFormat": "multi",
+            "description": "The identifiers of the data lifecycle policies.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/PolicyId"
+            },
+            "name": "policyIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The activation state.",
+            "enum": [
+              "ENABLED",
+              "DISABLED",
+              "ERROR"
+            ],
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The resource type.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/ResourceTypeValues"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "name": "resourceTypes",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "<p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagFilter"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "name": "targetTags",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "<p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagFilter"
+            },
+            "maxItems": 50,
+            "minItems": 0,
+            "name": "tagsToAdd",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -177,47 +195,139 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
+        },
+        "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+        "operationId": "GetLifecyclePolicies"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/Action"
-        },
-        {
-          "$ref": "#/parameters/Version"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Date"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Algorithm"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Credential"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
-        }
-      ],
       "post": {
-        "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
-        "operationId": "CreateLifecyclePolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateLifecyclePolicyRequest"
+              "properties": {
+                "Description": {
+                  "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.",
+                  "maxLength": 500,
+                  "minLength": 0,
+                  "pattern": "[0-9A-Za-z _-]+",
+                  "type": "string"
+                },
+                "ExecutionRoleArn": {
+                  "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                  "maxLength": 2048,
+                  "minLength": 0,
+                  "pattern": "arn:aws(-[a-z]{1,3}){0,2}:iam::\\d+:role/.*",
+                  "type": "string"
+                },
+                "PolicyDetails": {
+                  "description": "Specifies the configuration of a lifecycle policy.",
+                  "properties": {
+                    "Actions": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ActionList"
+                        },
+                        {
+                          "description": "<p>The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.</p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "EventSource": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventSource"
+                        },
+                        {
+                          "description": "<p>The event that triggers the event-based policy. </p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "Parameters": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Parameters"
+                        },
+                        {
+                          "description": "<p>A set of optional parameters for snapshot and AMI lifecycle policies. </p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "PolicyType": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/PolicyTypeValues"
+                        },
+                        {
+                          "description": "<p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p> <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>"
+                        }
+                      ]
+                    },
+                    "ResourceTypes": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ResourceTypeValuesList"
+                        },
+                        {
+                          "description": "<p>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "Schedules": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ScheduleList"
+                        },
+                        {
+                          "description": "<p>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "TargetTags": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/TargetTagList"
+                        },
+                        {
+                          "description": "<p>The single tag that identifies targeted resources for this policy.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "State": {
+                  "description": "The desired activation state of the lifecycle policy after creation.",
+                  "enum": [
+                    "ENABLED",
+                    "DISABLED"
+                  ],
+                  "type": "string"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The tags to apply to the lifecycle policy during creation.",
+                  "maxProperties": 200,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ExecutionRoleArn",
+                "Description",
+                "State",
+                "PolicyDetails"
+              ],
+              "type": "object"
             }
           }
         ],
@@ -246,56 +356,181 @@
               "$ref": "#/definitions/InternalServerException"
             }
           }
-        }
+        },
+        "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+        "operationId": "CreateLifecyclePolicy"
       }
     },
     "/policies/{policyId}": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "patch": {
-        "description": "Updates the specified lifecycle policy.",
-        "operationId": "UpdateLifecyclePolicy",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The identifier of the lifecycle policy.",
+            "in": "path",
+            "maxLength": 64,
+            "minLength": 0,
+            "name": "policyId",
+            "pattern": "policy-[A-Za-z0-9]+",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateLifecyclePolicyRequest"
+              "properties": {
+                "Description": {
+                  "description": "A description of the lifecycle policy.",
+                  "maxLength": 500,
+                  "minLength": 0,
+                  "pattern": "[0-9A-Za-z _-]+",
+                  "type": "string"
+                },
+                "ExecutionRoleArn": {
+                  "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                  "maxLength": 2048,
+                  "minLength": 0,
+                  "pattern": "arn:aws(-[a-z]{1,3}){0,2}:iam::\\d+:role/.*",
+                  "type": "string"
+                },
+                "PolicyDetails": {
+                  "description": "Specifies the configuration of a lifecycle policy.",
+                  "properties": {
+                    "Actions": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ActionList"
+                        },
+                        {
+                          "description": "<p>The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.</p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "EventSource": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventSource"
+                        },
+                        {
+                          "description": "<p>The event that triggers the event-based policy. </p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "Parameters": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Parameters"
+                        },
+                        {
+                          "description": "<p>A set of optional parameters for snapshot and AMI lifecycle policies. </p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "PolicyType": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/PolicyTypeValues"
+                        },
+                        {
+                          "description": "<p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p> <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>"
+                        }
+                      ]
+                    },
+                    "ResourceTypes": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ResourceTypeValuesList"
+                        },
+                        {
+                          "description": "<p>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "Schedules": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ScheduleList"
+                        },
+                        {
+                          "description": "<p>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    },
+                    "TargetTags": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/TargetTagList"
+                        },
+                        {
+                          "description": "<p>The single tag that identifies targeted resources for this policy.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "State": {
+                  "description": "The desired activation state of the lifecycle policy after creation.",
+                  "enum": [
+                    "ENABLED",
+                    "DISABLED"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
             }
-          },
-          {
-            "in": "path",
-            "name": "policyId",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -329,25 +564,68 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
+        },
+        "description": "Updates the specified lifecycle policy.",
+        "operationId": "UpdateLifecyclePolicy"
       }
     },
     "/policies/{policyId}/": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
-        "operationId": "DeleteLifecyclePolicy",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DeleteLifecyclePolicyRequest"
-            }
-          },
-          {
+            "description": "The identifier of the lifecycle policy.",
             "in": "path",
+            "maxLength": 64,
+            "minLength": 0,
             "name": "policyId",
+            "pattern": "policy-[A-Za-z0-9]+",
             "required": true,
             "type": "string"
           }
@@ -377,23 +655,22 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
+        },
+        "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+        "operationId": "DeleteLifecyclePolicy"
       },
       "get": {
-        "description": "Gets detailed information about the specified lifecycle policy.",
-        "operationId": "GetLifecyclePolicy",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetLifecyclePolicyRequest"
-            }
-          },
-          {
+            "description": "The identifier of the lifecycle policy.",
             "in": "path",
+            "maxLength": 64,
+            "minLength": 0,
             "name": "policyId",
+            "pattern": "policy-[A-Za-z0-9]+",
             "required": true,
             "type": "string"
           }
@@ -423,40 +700,354 @@
               "$ref": "#/definitions/LimitExceededException"
             }
           }
-        }
-      },
+        },
+        "description": "Gets detailed information about the specified lifecycle policy.",
+        "operationId": "GetLifecyclePolicy"
+      }
+    },
+    "/tags/{resourceArn}": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
-      ]
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 0,
+            "name": "resourceArn",
+            "pattern": "^arn:aws(-[a-z]{1,3}){0,2}:dlm:[A-Za-z0-9_/.-]{0,63}:\\d+:policy/[0-9A-Za-z_-]{1,128}$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Lists the tags for the specified resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 0,
+            "name": "resourceArn",
+            "pattern": "^arn:aws(-[a-z]{1,3}){0,2}:dlm:[A-Za-z0-9_/.-]{0,63}:\\d+:policy/[0-9A-Za-z_-]{1,128}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "One or more tags.",
+                  "maxProperties": 200,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Adds the specified tags to the specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 0,
+            "name": "resourceArn",
+            "pattern": "^arn:aws(-[a-z]{1,3}){0,2}:dlm:[A-Za-z0-9_/.-]{0,63}:\\d+:policy/[0-9A-Za-z_-]{1,128}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The tag keys.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "maxItems": 200,
+            "minItems": 1,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes the specified tags from the specified resource.",
+        "operationId": "UntagResource"
+      }
     }
   },
   "definitions": {
+    "Action": {
+      "description": "Specifies an action for an event-based policy.",
+      "properties": {
+        "CrossRegionCopy": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CrossRegionCopyActionList"
+            },
+            {
+              "description": "The rule for copying shared snapshots across Regions."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ActionName"
+            },
+            {
+              "description": "A descriptive name for the action."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "CrossRegionCopy"
+      ],
+      "type": "object"
+    },
+    "ActionList": {
+      "items": {
+        "$ref": "#/definitions/Action"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ActionName": {
+      "maxLength": 120,
+      "minLength": 0,
+      "pattern": "[0-9A-Za-z _-]+",
+      "type": "string"
+    },
+    "AvailabilityZone": {
+      "maxLength": 16,
+      "minLength": 0,
+      "pattern": "([a-z]+-){2,3}\\d[a-z]",
+      "type": "string"
+    },
+    "AvailabilityZoneList": {
+      "items": {
+        "$ref": "#/definitions/AvailabilityZone"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AwsAccountId": {
+      "maxLength": 12,
+      "minLength": 12,
+      "pattern": "^[0-9]{12}$",
+      "type": "string"
+    },
+    "CmkArn": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "arn:aws(-[a-z]{1,3}){0,2}:kms:([a-z]+-){2,3}\\d:\\d+:key/.*",
+      "type": "string"
+    },
+    "CopyTags": {
+      "type": "boolean"
+    },
+    "CopyTagsNullable": {
+      "type": "boolean"
+    },
     "Count": {
       "maximum": 1000,
       "minimum": 1,
@@ -465,20 +1056,54 @@
     "CreateLifecyclePolicyRequest": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/PolicyDescription",
-          "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDescription"
+            },
+            {
+              "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported."
+            }
+          ]
         },
         "ExecutionRoleArn": {
-          "$ref": "#/definitions/ExecutionRoleArn",
-          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+            }
+          ]
         },
         "PolicyDetails": {
-          "$ref": "#/definitions/PolicyDetails",
-          "description": "<p>The configuration details of the lifecycle policy.</p> <p>Target tags cannot be re-used across lifecycle policies.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDetails"
+            },
+            {
+              "description": "The configuration details of the lifecycle policy."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/SettablePolicyStateValues",
-          "description": "The desired activation state of the lifecycle policy after creation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SettablePolicyStateValues"
+            },
+            {
+              "description": "The desired activation state of the lifecycle policy after creation."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags to apply to the lifecycle policy during creation."
+            }
+          ]
         }
       },
       "required": [
@@ -487,72 +1112,434 @@
         "State",
         "PolicyDetails"
       ],
+      "title": "CreateLifecyclePolicyRequest",
       "type": "object"
     },
     "CreateLifecyclePolicyResponse": {
       "properties": {
         "PolicyId": {
-          "$ref": "#/definitions/PolicyId",
-          "description": "The identifier of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyId"
+            },
+            {
+              "description": "The identifier of the lifecycle policy."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "CreateRule": {
-      "description": "Specifies when to create snapshots of EBS volumes.",
+      "description": "<p>Specifies when to create snapshots of EBS volumes.</p> <p>You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.</p>",
       "properties": {
+        "CronExpression": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CronExpression"
+            },
+            {
+              "description": "The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions\">Cron expressions</a> in the <i>Amazon CloudWatch User Guide</i>."
+            }
+          ]
+        },
         "Interval": {
-          "$ref": "#/definitions/Interval",
-          "description": "The interval. The supported values are 12 and 24."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Interval"
+            },
+            {
+              "description": "The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24."
+            }
+          ]
         },
         "IntervalUnit": {
-          "$ref": "#/definitions/IntervalUnitValues",
-          "description": "The interval unit."
+          "allOf": [
+            {
+              "$ref": "#/definitions/IntervalUnitValues"
+            },
+            {
+              "description": "The interval unit."
+            }
+          ]
         },
         "Times": {
-          "$ref": "#/definitions/TimesList",
-          "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimesList"
+            },
+            {
+              "description": "<p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CronExpression": {
+      "maxLength": 106,
+      "minLength": 17,
+      "pattern": "cron\\([^\\n]{11,100}\\)",
+      "type": "string"
+    },
+    "CrossRegionCopyAction": {
+      "description": "Specifies a rule for copying shared snapshots across Regions.",
+      "properties": {
+        "EncryptionConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EncryptionConfiguration"
+            },
+            {
+              "description": "The encryption settings for the copied snapshot."
+            }
+          ]
+        },
+        "RetainRule": {
+          "$ref": "#/definitions/CrossRegionCopyRetainRule"
+        },
+        "Target": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Target"
+            },
+            {
+              "description": "The target Region."
+            }
+          ]
         }
       },
       "required": [
-        "Interval",
-        "IntervalUnit"
+        "Target",
+        "EncryptionConfiguration"
       ],
       "type": "object"
     },
+    "CrossRegionCopyActionList": {
+      "items": {
+        "$ref": "#/definitions/CrossRegionCopyAction"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array"
+    },
+    "CrossRegionCopyRetainRule": {
+      "description": "Specifies the retention rule for cross-Region snapshot copies.",
+      "properties": {
+        "Interval": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Interval"
+            },
+            {
+              "description": "The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days."
+            }
+          ]
+        },
+        "IntervalUnit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RetentionIntervalUnitValues"
+            },
+            {
+              "description": "The unit of time for time-based retention."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CrossRegionCopyRule": {
+      "description": "Specifies a rule for cross-Region snapshot copies.",
+      "properties": {
+        "CmkArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmkArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used."
+            }
+          ]
+        },
+        "CopyTags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CopyTagsNullable"
+            },
+            {
+              "description": "Copy all user-defined tags from the source snapshot to the copied snapshot."
+            }
+          ]
+        },
+        "Encrypted": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Encrypted"
+            },
+            {
+              "description": "To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled."
+            }
+          ]
+        },
+        "RetainRule": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CrossRegionCopyRetainRule"
+            },
+            {
+              "description": "The retention rule."
+            }
+          ]
+        },
+        "TargetRegion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetRegion"
+            },
+            {
+              "description": "The target Region."
+            }
+          ]
+        }
+      },
+      "required": [
+        "TargetRegion",
+        "Encrypted"
+      ],
+      "type": "object"
+    },
+    "CrossRegionCopyRules": {
+      "items": {
+        "$ref": "#/definitions/CrossRegionCopyRule"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array"
+    },
     "DeleteLifecyclePolicyRequest": {
       "properties": {},
+      "title": "DeleteLifecyclePolicyRequest",
       "type": "object"
     },
     "DeleteLifecyclePolicyResponse": {
       "properties": {},
       "type": "object"
     },
-    "ExecutionRoleArn": {
+    "DescriptionRegex": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "pattern": "[\\p{all}]*",
       "type": "string"
+    },
+    "Encrypted": {
+      "type": "boolean"
+    },
+    "EncryptionConfiguration": {
+      "description": "Specifies the encryption settings for shared snapshots that are copied across Regions.",
+      "properties": {
+        "CmkArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CmkArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used."
+            }
+          ]
+        },
+        "Encrypted": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Encrypted"
+            },
+            {
+              "description": "To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Encrypted"
+      ],
+      "type": "object"
+    },
+    "EventParameters": {
+      "description": "Specifies an event that triggers an event-based policy.",
+      "properties": {
+        "DescriptionRegex": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DescriptionRegex"
+            },
+            {
+              "description": "<p>The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.</p> <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code> configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code> are shared with your account.</p>"
+            }
+          ]
+        },
+        "EventType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTypeValues"
+            },
+            {
+              "description": "The type of event. Currently, only snapshot sharing events are supported."
+            }
+          ]
+        },
+        "SnapshotOwner": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnapshotOwnerList"
+            },
+            {
+              "description": "The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account."
+            }
+          ]
+        }
+      },
+      "required": [
+        "EventType",
+        "SnapshotOwner",
+        "DescriptionRegex"
+      ],
+      "type": "object"
+    },
+    "EventSource": {
+      "description": "Specifies an event that triggers an event-based policy.",
+      "properties": {
+        "Parameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventParameters"
+            },
+            {
+              "description": "Information about the event."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventSourceValues"
+            },
+            {
+              "description": "The source of the event. Currently only managed AWS CloudWatch Events rules are supported."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "EventSourceValues": {
+      "enum": [
+        "MANAGED_CWE"
+      ],
+      "type": "string"
+    },
+    "EventTypeValues": {
+      "enum": [
+        "shareSnapshot"
+      ],
+      "type": "string"
+    },
+    "ExcludeBootVolume": {
+      "type": "boolean"
+    },
+    "ExecutionRoleArn": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "arn:aws(-[a-z]{1,3}){0,2}:iam::\\d+:role/.*",
+      "type": "string"
+    },
+    "FastRestoreRule": {
+      "description": "Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot restore based on either a count or a time interval.",
+      "properties": {
+        "AvailabilityZones": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AvailabilityZoneList"
+            },
+            {
+              "description": "The Availability Zones in which to enable fast snapshot restore."
+            }
+          ]
+        },
+        "Count": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Count"
+            },
+            {
+              "description": "The number of snapshots to be enabled with fast snapshot restore."
+            }
+          ]
+        },
+        "Interval": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Interval"
+            },
+            {
+              "description": "The amount of time to enable fast snapshot restore. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days."
+            }
+          ]
+        },
+        "IntervalUnit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RetentionIntervalUnitValues"
+            },
+            {
+              "description": "The unit of time for enabling fast snapshot restore."
+            }
+          ]
+        }
+      },
+      "required": [
+        "AvailabilityZones"
+      ],
+      "type": "object"
     },
     "GetLifecyclePoliciesRequest": {
       "properties": {},
+      "title": "GetLifecyclePoliciesRequest",
       "type": "object"
     },
     "GetLifecyclePoliciesResponse": {
       "properties": {
         "Policies": {
-          "$ref": "#/definitions/LifecyclePolicySummaryList",
-          "description": "Summary information about the lifecycle policies."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifecyclePolicySummaryList"
+            },
+            {
+              "description": "Summary information about the lifecycle policies."
+            }
+          ]
         }
       },
       "type": "object"
     },
     "GetLifecyclePolicyRequest": {
       "properties": {},
+      "title": "GetLifecyclePolicyRequest",
       "type": "object"
     },
     "GetLifecyclePolicyResponse": {
       "properties": {
         "Policy": {
-          "$ref": "#/definitions/LifecyclePolicy",
-          "description": "Detailed information about the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifecyclePolicy"
+            },
+            {
+              "description": "Detailed information about the lifecycle policy."
+            }
+          ]
         }
       },
       "type": "object"
@@ -581,32 +1568,104 @@
       "description": "Detailed information about a lifecycle policy.",
       "properties": {
         "DateCreated": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The local date and time when the lifecycle policy was created."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The local date and time when the lifecycle policy was created."
+            }
+          ]
         },
         "DateModified": {
-          "$ref": "#/definitions/Timestamp",
-          "description": "The local date and time when the lifecycle policy was last modified."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The local date and time when the lifecycle policy was last modified."
+            }
+          ]
         },
         "Description": {
-          "$ref": "#/definitions/PolicyDescription",
-          "description": "The description of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDescription"
+            },
+            {
+              "description": "The description of the lifecycle policy."
+            }
+          ]
         },
         "ExecutionRoleArn": {
-          "$ref": "#/definitions/ExecutionRoleArn",
-          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+            }
+          ]
+        },
+        "PolicyArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the policy."
+            }
+          ]
         },
         "PolicyDetails": {
-          "$ref": "#/definitions/PolicyDetails",
-          "description": "The configuration of the lifecycle policy"
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDetails"
+            },
+            {
+              "description": "The configuration of the lifecycle policy"
+            }
+          ]
         },
         "PolicyId": {
-          "$ref": "#/definitions/PolicyId",
-          "description": "The identifier of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyId"
+            },
+            {
+              "description": "The identifier of the lifecycle policy."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/GettablePolicyStateValues",
-          "description": "The activation state of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GettablePolicyStateValues"
+            },
+            {
+              "description": "The activation state of the lifecycle policy."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatusMessage"
+            },
+            {
+              "description": "The description of the status."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags."
+            }
+          ]
         }
       },
       "type": "object"
@@ -615,16 +1674,54 @@
       "description": "Summary information about a lifecycle policy.",
       "properties": {
         "Description": {
-          "$ref": "#/definitions/PolicyDescription",
-          "description": "The description of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDescription"
+            },
+            {
+              "description": "The description of the lifecycle policy."
+            }
+          ]
         },
         "PolicyId": {
-          "$ref": "#/definitions/PolicyId",
-          "description": "The identifier of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyId"
+            },
+            {
+              "description": "The identifier of the lifecycle policy."
+            }
+          ]
+        },
+        "PolicyType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyTypeValues"
+            },
+            {
+              "description": "The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy manages the lifecycle of Amazon EBS snapshots. <code>IMAGE_MANAGEMENT</code> indicates that the policy manages the lifecycle of EBS-backed AMIs."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/GettablePolicyStateValues",
-          "description": "The activation state of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/GettablePolicyStateValues"
+            },
+            {
+              "description": "The activation state of the lifecycle policy."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags."
+            }
+          ]
         }
       },
       "type": "object"
@@ -636,30 +1733,147 @@
       "type": "array"
     },
     "LimitExceededException": {},
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "Information about the tags."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NoReboot": {
+      "type": "boolean"
+    },
+    "Parameters": {
+      "description": "Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.",
+      "properties": {
+        "ExcludeBootVolume": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExcludeBootVolume"
+            },
+            {
+              "description": "[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html\">CreateSnapshots</a>. The default is false."
+            }
+          ]
+        },
+        "NoReboot": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NoReboot"
+            },
+            {
+              "description": "Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. <code>true</code> indicates that targeted instances are not rebooted when the policy runs. <code>false</code> indicates that target instances are rebooted when the policy runs. The default is <code>true</code> (instances are not rebooted)."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PolicyArn": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "^arn:aws(-[a-z]{1,3}){0,2}:dlm:[A-Za-z0-9_/.-]{0,63}:\\d+:policy/[0-9A-Za-z_-]{1,128}$",
+      "type": "string"
+    },
     "PolicyDescription": {
       "maxLength": 500,
       "minLength": 0,
+      "pattern": "[0-9A-Za-z _-]+",
       "type": "string"
     },
     "PolicyDetails": {
       "description": "Specifies the configuration of a lifecycle policy.",
       "properties": {
+        "Actions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ActionList"
+            },
+            {
+              "description": "<p>The actions to be performed when the event-based policy is triggered. You can specify only one action per policy.</p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+            }
+          ]
+        },
+        "EventSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventSource"
+            },
+            {
+              "description": "<p>The event that triggers the event-based policy. </p> <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>"
+            }
+          ]
+        },
+        "Parameters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Parameters"
+            },
+            {
+              "description": "<p>A set of optional parameters for snapshot and AMI lifecycle policies. </p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+            }
+          ]
+        },
+        "PolicyType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyTypeValues"
+            },
+            {
+              "description": "<p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p> <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>"
+            }
+          ]
+        },
         "ResourceTypes": {
-          "$ref": "#/definitions/ResourceTypeValuesList",
-          "description": "The resource type."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceTypeValuesList"
+            },
+            {
+              "description": "<p>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume snapshots from the volumes for an instance.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+            }
+          ]
         },
         "Schedules": {
-          "$ref": "#/definitions/ScheduleList",
-          "description": "The schedule of policy-defined actions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ScheduleList"
+            },
+            {
+              "description": "<p>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+            }
+          ]
         },
         "TargetTags": {
-          "$ref": "#/definitions/TargetTagList",
-          "description": "The single tag that identifies targeted resources for this policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TargetTagList"
+            },
+            {
+              "description": "<p>The single tag that identifies targeted resources for this policy.</p> <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>"
+            }
+          ]
         }
       },
       "type": "object"
     },
     "PolicyId": {
+      "maxLength": 64,
+      "minLength": 0,
+      "pattern": "policy-[A-Za-z0-9]+",
       "type": "string"
     },
     "PolicyIdList": {
@@ -668,10 +1882,19 @@
       },
       "type": "array"
     },
+    "PolicyTypeValues": {
+      "enum": [
+        "EBS_SNAPSHOT_MANAGEMENT",
+        "IMAGE_MANAGEMENT",
+        "EVENT_BASED_POLICY"
+      ],
+      "type": "string"
+    },
     "ResourceNotFoundException": {},
     "ResourceTypeValues": {
       "enum": [
-        "VOLUME"
+        "VOLUME",
+        "INSTANCE"
       ],
       "type": "string"
     },
@@ -684,36 +1907,142 @@
       "type": "array"
     },
     "RetainRule": {
-      "description": "Specifies the number of snapshots to keep for each EBS volume.",
+      "description": "Specifies the retention rule for a lifecycle policy. You can retain snapshots based on either a count or a time interval.",
       "properties": {
         "Count": {
-          "$ref": "#/definitions/Count",
-          "description": "The number of snapshots to keep for each volume, up to a maximum of 1000."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Count"
+            },
+            {
+              "description": "The number of snapshots to retain for each volume, up to a maximum of 1000."
+            }
+          ]
+        },
+        "Interval": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Interval"
+            },
+            {
+              "description": "The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days."
+            }
+          ]
+        },
+        "IntervalUnit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RetentionIntervalUnitValues"
+            },
+            {
+              "description": "The unit of time for time-based retention."
+            }
+          ]
         }
       },
-      "required": [
-        "Count"
-      ],
       "type": "object"
     },
+    "RetentionIntervalUnitValues": {
+      "enum": [
+        "DAYS",
+        "WEEKS",
+        "MONTHS",
+        "YEARS"
+      ],
+      "type": "string"
+    },
     "Schedule": {
-      "description": "Specifies a schedule.",
+      "description": "Specifies a backup schedule for a snapshot or AMI lifecycle policy.",
       "properties": {
+        "CopyTags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CopyTags"
+            },
+            {
+              "description": "Copy all user-defined tags on a source volume to snapshots of the volume created by this policy."
+            }
+          ]
+        },
         "CreateRule": {
-          "$ref": "#/definitions/CreateRule",
-          "description": "The create rule."
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateRule"
+            },
+            {
+              "description": "The creation rule."
+            }
+          ]
+        },
+        "CrossRegionCopyRules": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CrossRegionCopyRules"
+            },
+            {
+              "description": "The rule for cross-Region snapshot copies."
+            }
+          ]
+        },
+        "FastRestoreRule": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FastRestoreRule"
+            },
+            {
+              "description": "The rule for enabling fast snapshot restore."
+            }
+          ]
         },
         "Name": {
-          "$ref": "#/definitions/ScheduleName",
-          "description": "The name of the schedule."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ScheduleName"
+            },
+            {
+              "description": "The name of the schedule."
+            }
+          ]
         },
         "RetainRule": {
-          "$ref": "#/definitions/RetainRule",
-          "description": "The retain rule."
+          "allOf": [
+            {
+              "$ref": "#/definitions/RetainRule"
+            },
+            {
+              "description": "The retention rule."
+            }
+          ]
+        },
+        "ShareRules": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareRules"
+            },
+            {
+              "description": "The rule for sharing snapshots with other AWS accounts."
+            }
+          ]
         },
         "TagsToAdd": {
-          "$ref": "#/definitions/TagsToAddList",
-          "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagsToAddList"
+            },
+            {
+              "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags."
+            }
+          ]
+        },
+        "VariableTags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableTagsList"
+            },
+            {
+              "description": "A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only valid for EBS Snapshot Management – Instance policies."
+            }
+          ]
         }
       },
       "type": "object"
@@ -722,13 +2051,14 @@
       "items": {
         "$ref": "#/definitions/Schedule"
       },
-      "maxItems": 1,
+      "maxItems": 4,
       "minItems": 1,
       "type": "array"
     },
     "ScheduleName": {
-      "maxLength": 500,
+      "maxLength": 120,
       "minLength": 0,
+      "pattern": "[0-9A-Za-z _-]+",
       "type": "string"
     },
     "SettablePolicyStateValues": {
@@ -738,19 +2068,102 @@
       ],
       "type": "string"
     },
+    "ShareRule": {
+      "description": "Specifies a rule for sharing snapshots across AWS accounts.",
+      "properties": {
+        "TargetAccounts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ShareTargetAccountList"
+            },
+            {
+              "description": "The IDs of the AWS accounts with which to share the snapshots."
+            }
+          ]
+        },
+        "UnshareInterval": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Interval"
+            },
+            {
+              "description": "The period after which snapshots that are shared with other AWS accounts are automatically unshared."
+            }
+          ]
+        },
+        "UnshareIntervalUnit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RetentionIntervalUnitValues"
+            },
+            {
+              "description": "The unit of time for the automatic unsharing interval."
+            }
+          ]
+        }
+      },
+      "required": [
+        "TargetAccounts"
+      ],
+      "type": "object"
+    },
+    "ShareRules": {
+      "items": {
+        "$ref": "#/definitions/ShareRule"
+      },
+      "maxItems": 1,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ShareTargetAccountList": {
+      "items": {
+        "$ref": "#/definitions/AwsAccountId"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "SnapshotOwnerList": {
+      "items": {
+        "$ref": "#/definitions/AwsAccountId"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "StatusMessage": {
+      "maxLength": 500,
+      "minLength": 0,
+      "pattern": "[\\p{all}]*",
+      "type": "string"
+    },
     "String": {
+      "maxLength": 500,
+      "minLength": 0,
+      "pattern": "[\\p{all}]*",
       "type": "string"
     },
     "Tag": {
       "description": "Specifies a tag for a resource.",
       "properties": {
         "Key": {
-          "$ref": "#/definitions/String",
-          "description": "The tag key."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The tag key."
+            }
+          ]
         },
         "Value": {
-          "$ref": "#/definitions/String",
-          "description": "The tag value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The tag value."
+            }
+          ]
         }
       },
       "required": [
@@ -760,6 +2173,59 @@
       "type": "object"
     },
     "TagFilter": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "[\\p{all}]*",
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 200,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "One or more tags."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "[\\p{all}]*",
       "type": "string"
     },
     "TagsToAddFilterList": {
@@ -774,9 +2240,21 @@
       "items": {
         "$ref": "#/definitions/Tag"
       },
-      "maxItems": 50,
+      "maxItems": 45,
       "minItems": 0,
       "type": "array"
+    },
+    "Target": {
+      "maxLength": 16,
+      "minLength": 0,
+      "pattern": "^[\\\\w:\\\\-\\\\/\\\\*]+$",
+      "type": "string"
+    },
+    "TargetRegion": {
+      "maxLength": 16,
+      "minLength": 0,
+      "pattern": "([a-z]+-){2,3}\\d",
+      "type": "string"
     },
     "TargetTagList": {
       "items": {
@@ -795,7 +2273,9 @@
       "type": "array"
     },
     "Time": {
-      "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+      "maxLength": 5,
+      "minLength": 5,
+      "pattern": "^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
       "type": "string"
     },
     "TimesList": {
@@ -809,30 +2289,137 @@
       "format": "date-time",
       "type": "string"
     },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "UpdateLifecyclePolicyRequest": {
       "properties": {
         "Description": {
-          "$ref": "#/definitions/PolicyDescription",
-          "description": "A description of the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDescription"
+            },
+            {
+              "description": "A description of the lifecycle policy."
+            }
+          ]
         },
         "ExecutionRoleArn": {
-          "$ref": "#/definitions/ExecutionRoleArn",
-          "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExecutionRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+            }
+          ]
         },
         "PolicyDetails": {
-          "$ref": "#/definitions/PolicyDetails",
-          "description": "<p>The configuration of the lifecycle policy.</p> <p>Target tags cannot be re-used across policies.</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/PolicyDetails"
+            },
+            {
+              "description": "The configuration of the lifecycle policy. You cannot update the policy type or the resource type."
+            }
+          ]
         },
         "State": {
-          "$ref": "#/definitions/SettablePolicyStateValues",
-          "description": "The desired activation state of the lifecycle policy after creation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SettablePolicyStateValues"
+            },
+            {
+              "description": "The desired activation state of the lifecycle policy after creation."
+            }
+          ]
         }
       },
+      "title": "UpdateLifecyclePolicyRequest",
       "type": "object"
     },
     "UpdateLifecyclePolicyResponse": {
       "properties": {},
       "type": "object"
+    },
+    "VariableTagsList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 45,
+      "minItems": 0,
+      "type": "array"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/dlm/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

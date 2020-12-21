@@ -1,35 +1,33 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "www.googleapis.com",
-  "basePath": "/siteVerification/v1",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "Verifies ownership of websites or domains with Google.",
-    "title": "Google Site Verification",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Google Site Verification API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "developer_tools"
+      "analytics",
+      "media"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "google",
-        "url": "https://www.googleapis.com/discovery/v1/apis/siteVerification/v1/rest",
+        "url": "https://siteverification.googleapis.com/$discovery/rest?version=v1",
         "version": "v1"
       }
     ],
@@ -41,114 +39,67 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://developers.google.com/site-verification/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
-        "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
-        "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "alt": {
-      "default": "json",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "prettyPrint": {
-      "default": false,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "userIp": {
-      "description": "Deprecated. Please use quotaUser instead.",
-      "in": "query",
-      "name": "userIp",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "webResource"
-    }
+  "host": "www.googleapis.com",
+  "basePath": "/siteVerification/v1",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/token": {
       "parameters": [
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/quotaUser"
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/userIp"
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Get a verification token for placing on a website or domain.",
-        "operationId": "webResource.getToken",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -170,23 +121,80 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/siteverification.verify_only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/siteverification.verify_only"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Get a verification token for placing on a website or domain.",
+        "operationId": "siteVerification.webResource.getToken"
       }
     },
     "/webResource": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Get the list of your verified websites and domains.",
-        "operationId": "webResource.list",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -199,53 +207,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Get the list of your verified websites and domains.",
+        "operationId": "siteVerification.webResource.list"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "post": {
-        "description": "Attempt verification of a website or domain.",
-        "operationId": "webResource.insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SiteVerificationWebResourceResource"
-            }
-          },
           {
             "description": "The method to use for verifying a site or domain.",
             "in": "query",
             "name": "verificationMethod",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SiteVerificationWebResourceResource"
+            }
           }
         ],
         "responses": {
@@ -260,23 +254,76 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/siteverification.verify_only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/siteverification.verify_only"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Attempt verification of a website or domain.",
+        "operationId": "siteVerification.webResource.insert"
       }
     },
     "/webResource/{id}": {
+      "parameters": [
+        {
+          "description": "Data format for the response.",
+          "enum": [
+            "json"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Deprecated. Please use quotaUser instead.",
+          "in": "query",
+          "name": "userIp",
+          "type": "string"
+        }
+      ],
       "delete": {
-        "description": "Relinquish ownership of a website or domain.",
-        "operationId": "webResource.delete",
         "parameters": [
           {
             "description": "The id of a verified site or domain.",
@@ -295,16 +342,22 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Relinquish ownership of a website or domain.",
+        "operationId": "siteVerification.webResource.delete"
       },
       "get": {
-        "description": "Get the most current data for a website or domain.",
-        "operationId": "webResource.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The id of a verified site or domain.",
@@ -326,53 +379,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Get the most current data for a website or domain.",
+        "operationId": "siteVerification.webResource.get"
       },
-      "parameters": [
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/userIp"
-        }
-      ],
       "patch": {
-        "description": "Modify the list of owners for your website or domain. This method supports patch semantics.",
-        "operationId": "webResource.patch",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "The id of a verified site or domain.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/SiteVerificationWebResourceResource"
             }
-          },
-          {
-            "description": "The id of a verified site or domain.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -387,30 +426,39 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Modify the list of owners for your website or domain. This method supports patch semantics.",
+        "operationId": "siteVerification.webResource.patch"
       },
       "put": {
-        "description": "Modify the list of owners for your website or domain.",
-        "operationId": "webResource.update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SiteVerificationWebResourceResource"
-            }
-          },
           {
             "description": "The id of a verified site or domain.",
             "in": "path",
             "name": "id",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SiteVerificationWebResourceResource"
+            }
           }
         ],
         "responses": {
@@ -425,12 +473,17 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/siteverification"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/siteverification"
             ]
           }
         ],
         "tags": [
           "webResource"
-        ]
+        ],
+        "description": "Modify the list of owners for your website or domain.",
+        "operationId": "siteVerification.webResource.update"
       }
     }
   },
@@ -512,6 +565,86 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
+        "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
+        "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "webResource"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://developers.google.com/site-verification/"
+  },
+  "x-components": {
+    "parameters": {
+      "alt": {
+        "description": "Data format for the response.",
+        "enum": [
+          "json"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "An opaque string that represents a user for quota purposes. Must not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "userIp": {
+        "description": "Deprecated. Please use quotaUser instead.",
+        "in": "query",
+        "name": "userIp",
+        "type": "string"
+      }
     }
   }
 }

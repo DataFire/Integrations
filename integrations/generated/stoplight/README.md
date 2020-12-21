@@ -11,7 +11,7 @@ let stoplight = require('@datafire/stoplight').create({
   Authorization: ""
 });
 
-stoplight.versions.publish.anon.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

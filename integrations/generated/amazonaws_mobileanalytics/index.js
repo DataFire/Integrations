@@ -34,9 +34,14 @@ for (let path in openapi.paths) {
     if (method === 'parameters') continue;
     let op = openapi.paths[path][method];
     let actionID = op.operationId;
+    actionID = actionID.replace(/\d\d\d\d_\d\d_\d\d$/, '');
+    if (actionID.indexOf('_') !== -1) {
+      actionID = actionID.split('_')[1];
+    }
     let functionID = actionID.charAt(0).toLowerCase() + actionID.substring(1);
     if (!dummyInstance[functionID]) {
       console.error("AWS SDK " + SDK_ID + ": Function " + functionID + " not found");
+      console.log(method, path, op.operationId, actionID);
       continue;
     }
 

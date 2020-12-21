@@ -9,7 +9,7 @@ npm install --save @datafire/surrey_ca_trafficloops
 ```js
 let surrey_ca_trafficloops = require('@datafire/surrey_ca_trafficloops').create();
 
-surrey_ca_trafficloops.TrafficLoops.fmw.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

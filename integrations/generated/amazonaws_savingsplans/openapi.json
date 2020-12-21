@@ -1,0 +1,3072 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Savings Plans are a pricing model that offer significant savings on AWS usage (for example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For more information, see the <a href=\"https://docs.aws.amazon.com/savingsplans/latest/userguide/\">AWS Savings Plans User Guide</a>.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Savings Plans",
+    "version": "2019-06-28",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/savingsplans-2019-06-28.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "savingsplans",
+    "x-datafire": {
+      "name": "amazonaws_savingsplans",
+      "type": "openapi"
+    }
+  },
+  "host": "savingsplans.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/CreateSavingsPlan": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "One or more tags.",
+                  "type": "object"
+                },
+                "clientToken": {
+                  "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                  "type": "string"
+                },
+                "commitment": {
+                  "description": "The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more than three digits after the decimal point.",
+                  "type": "string"
+                },
+                "purchaseTime": {
+                  "description": "The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ).",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "savingsPlanOfferingId": {
+                  "description": "The ID of the offering.",
+                  "type": "string"
+                },
+                "upfrontPaymentAmount": {
+                  "description": "The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan. This parameter is supported only if the payment option is <code>Partial Upfront</code>.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "savingsPlanOfferingId",
+                "commitment"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSavingsPlanResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Creates a Savings Plan.",
+        "operationId": "CreateSavingsPlan"
+      }
+    },
+    "/DeleteQueuedSavingsPlan": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "savingsPlanId": {
+                  "description": "The ID of the Savings Plan.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "savingsPlanId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteQueuedSavingsPlanResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Deletes the queued purchase for the specified Savings Plan.",
+        "operationId": "DeleteQueuedSavingsPlan"
+      }
+    },
+    "/DescribeSavingsPlanRates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filters": {
+                  "description": "The filters.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanRateFilter"
+                  },
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.",
+                  "maximum": 1000,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "maxLength": 1024,
+                  "pattern": "^[A-Za-z0-9/=\\+]+$",
+                  "type": "string"
+                },
+                "savingsPlanId": {
+                  "description": "The ID of the Savings Plan.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "savingsPlanId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSavingsPlanRatesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Describes the specified Savings Plans rates.",
+        "operationId": "DescribeSavingsPlanRates"
+      }
+    },
+    "/DescribeSavingsPlans": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filters": {
+                  "description": "The filters.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanFilter"
+                  },
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.",
+                  "maximum": 1000,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "maxLength": 1024,
+                  "pattern": "^[A-Za-z0-9/=\\+]+$",
+                  "type": "string"
+                },
+                "savingsPlanArns": {
+                  "description": "The Amazon Resource Names (ARN) of the Savings Plans.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanArn"
+                  },
+                  "maxItems": 100,
+                  "type": "array"
+                },
+                "savingsPlanIds": {
+                  "description": "The IDs of the Savings Plans.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanId"
+                  },
+                  "type": "array"
+                },
+                "states": {
+                  "description": "The states.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanState"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSavingsPlansResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Describes the specified Savings Plans.",
+        "operationId": "DescribeSavingsPlans"
+      }
+    },
+    "/DescribeSavingsPlansOfferingRates": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filters": {
+                  "description": "The filters.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanOfferingRateFilterElement"
+                  },
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.",
+                  "maximum": 1000,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "maxLength": 1024,
+                  "pattern": "^[A-Za-z0-9/=\\+]+$",
+                  "type": "string"
+                },
+                "operations": {
+                  "description": "The specific AWS operation for the line item in the billing report.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanRateOperation"
+                  },
+                  "type": "array"
+                },
+                "products": {
+                  "description": "The AWS products.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanProductType"
+                  },
+                  "type": "array"
+                },
+                "savingsPlanOfferingIds": {
+                  "description": "The IDs of the offerings.",
+                  "items": {
+                    "$ref": "#/definitions/UUID"
+                  },
+                  "type": "array"
+                },
+                "savingsPlanPaymentOptions": {
+                  "description": "The payment options.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanPaymentOption"
+                  },
+                  "type": "array"
+                },
+                "savingsPlanTypes": {
+                  "description": "The plan types.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanType"
+                  },
+                  "type": "array"
+                },
+                "serviceCodes": {
+                  "description": "The services.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanRateServiceCode"
+                  },
+                  "type": "array"
+                },
+                "usageTypes": {
+                  "description": "The usage details of the line item in the billing report.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanRateUsageType"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSavingsPlansOfferingRatesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the specified Savings Plans offering rates.",
+        "operationId": "DescribeSavingsPlansOfferingRates"
+      }
+    },
+    "/DescribeSavingsPlansOfferings": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "currencies": {
+                  "description": "The currencies.",
+                  "items": {
+                    "$ref": "#/definitions/CurrencyCode"
+                  },
+                  "type": "array"
+                },
+                "descriptions": {
+                  "description": "The descriptions.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanDescription"
+                  },
+                  "type": "array"
+                },
+                "durations": {
+                  "description": "The durations, in seconds.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlansDuration"
+                  },
+                  "type": "array"
+                },
+                "filters": {
+                  "description": "The filters.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanOfferingFilterElement"
+                  },
+                  "type": "array"
+                },
+                "maxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value.",
+                  "maximum": 1000,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "The token for the next page of results.",
+                  "maxLength": 1024,
+                  "pattern": "^[A-Za-z0-9/=\\+]+$",
+                  "type": "string"
+                },
+                "offeringIds": {
+                  "description": "The IDs of the offerings.",
+                  "items": {
+                    "$ref": "#/definitions/UUID"
+                  },
+                  "type": "array"
+                },
+                "operations": {
+                  "description": "The specific AWS operation for the line item in the billing report.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanOperation"
+                  },
+                  "type": "array"
+                },
+                "paymentOptions": {
+                  "description": "The payment options.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanPaymentOption"
+                  },
+                  "type": "array"
+                },
+                "planTypes": {
+                  "description": "The plan type.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanType"
+                  },
+                  "type": "array"
+                },
+                "productType": {
+                  "description": "The product type.",
+                  "enum": [
+                    "EC2",
+                    "Fargate",
+                    "Lambda"
+                  ],
+                  "type": "string"
+                },
+                "serviceCodes": {
+                  "description": "The services.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanServiceCode"
+                  },
+                  "type": "array"
+                },
+                "usageTypes": {
+                  "description": "The usage details of the line item in the billing report.",
+                  "items": {
+                    "$ref": "#/definitions/SavingsPlanUsageType"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSavingsPlansOfferingsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the specified Savings Plans offerings.",
+        "operationId": "DescribeSavingsPlansOfferings"
+      }
+    },
+    "/ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "resourceArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource.",
+                  "pattern": "arn:aws:[a-z]+:([a-z]{2}-[a-z]+-\\d{1}|):(\\d{12}):savingsplan\\/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the tags for the specified resource.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "One or more tags. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.",
+                  "type": "object"
+                },
+                "resourceArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource.",
+                  "pattern": "arn:aws:[a-z]+:([a-z]{2}-[a-z]+-\\d{1}|):(\\d{12}):savingsplan\\/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "resourceArn",
+                "tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Adds the specified tags to the specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "resourceArn": {
+                  "description": "The Amazon Resource Name (ARN) of the resource.",
+                  "pattern": "arn:aws:[a-z]+:([a-z]{2}-[a-z]+-\\d{1}|):(\\d{12}):savingsplan\\/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$",
+                  "type": "string"
+                },
+                "tagKeys": {
+                  "description": "The tag keys.",
+                  "items": {
+                    "$ref": "#/definitions/TagKey"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "resourceArn",
+                "tagKeys"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Removes the specified tags from the specified resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "Amount": {
+      "type": "string"
+    },
+    "ClientToken": {
+      "type": "string"
+    },
+    "CreateSavingsPlanRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "One or more tags."
+            }
+          ]
+        },
+        "clientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientToken"
+            },
+            {
+              "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+            }
+          ]
+        },
+        "commitment": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more than three digits after the decimal point."
+            }
+          ]
+        },
+        "purchaseTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ)."
+            }
+          ]
+        },
+        "savingsPlanOfferingId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingId"
+            },
+            {
+              "description": "The ID of the offering."
+            }
+          ]
+        },
+        "upfrontPaymentAmount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan. This parameter is supported only if the payment option is <code>Partial Upfront</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "savingsPlanOfferingId",
+        "commitment"
+      ],
+      "title": "CreateSavingsPlanRequest",
+      "type": "object"
+    },
+    "CreateSavingsPlanResponse": {
+      "properties": {
+        "savingsPlanId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanId"
+            },
+            {
+              "description": "The ID of the Savings Plan."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CurrencyCode": {
+      "enum": [
+        "CNY",
+        "USD"
+      ],
+      "type": "string"
+    },
+    "CurrencyList": {
+      "items": {
+        "$ref": "#/definitions/CurrencyCode"
+      },
+      "type": "array"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteQueuedSavingsPlanRequest": {
+      "properties": {
+        "savingsPlanId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanId"
+            },
+            {
+              "description": "The ID of the Savings Plan."
+            }
+          ]
+        }
+      },
+      "required": [
+        "savingsPlanId"
+      ],
+      "title": "DeleteQueuedSavingsPlanRequest",
+      "type": "object"
+    },
+    "DeleteQueuedSavingsPlanResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeSavingsPlanRatesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateFilterList"
+            },
+            {
+              "description": "The filters."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "savingsPlanId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanId"
+            },
+            {
+              "description": "The ID of the Savings Plan."
+            }
+          ]
+        }
+      },
+      "required": [
+        "savingsPlanId"
+      ],
+      "title": "DescribeSavingsPlanRatesRequest",
+      "type": "object"
+    },
+    "DescribeSavingsPlanRatesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "savingsPlanId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanId"
+            },
+            {
+              "description": "The ID of the Savings Plan."
+            }
+          ]
+        },
+        "searchResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateList"
+            },
+            {
+              "description": "Information about the Savings Plans rates."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSavingsPlansOfferingRatesRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingRateFiltersList"
+            },
+            {
+              "description": "The filters."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "operations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateOperationList"
+            },
+            {
+              "description": "The specific AWS operation for the line item in the billing report."
+            }
+          ]
+        },
+        "products": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductTypeList"
+            },
+            {
+              "description": "The AWS products."
+            }
+          ]
+        },
+        "savingsPlanOfferingIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUIDs"
+            },
+            {
+              "description": "The IDs of the offerings."
+            }
+          ]
+        },
+        "savingsPlanPaymentOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanPaymentOptionList"
+            },
+            {
+              "description": "The payment options."
+            }
+          ]
+        },
+        "savingsPlanTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanTypeList"
+            },
+            {
+              "description": "The plan types."
+            }
+          ]
+        },
+        "serviceCodes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateServiceCodeList"
+            },
+            {
+              "description": "The services."
+            }
+          ]
+        },
+        "usageTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateUsageTypeList"
+            },
+            {
+              "description": "The usage details of the line item in the billing report."
+            }
+          ]
+        }
+      },
+      "title": "DescribeSavingsPlansOfferingRatesRequest",
+      "type": "object"
+    },
+    "DescribeSavingsPlansOfferingRatesResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "searchResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingRatesList"
+            },
+            {
+              "description": "Information about the Savings Plans offering rates."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSavingsPlansOfferingsRequest": {
+      "properties": {
+        "currencies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrencyList"
+            },
+            {
+              "description": "The currencies."
+            }
+          ]
+        },
+        "descriptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanDescriptionsList"
+            },
+            {
+              "description": "The descriptions."
+            }
+          ]
+        },
+        "durations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DurationsList"
+            },
+            {
+              "description": "The durations, in seconds."
+            }
+          ]
+        },
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingFiltersList"
+            },
+            {
+              "description": "The filters."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PageSize"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "offeringIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUIDs"
+            },
+            {
+              "description": "The IDs of the offerings."
+            }
+          ]
+        },
+        "operations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOperationList"
+            },
+            {
+              "description": "The specific AWS operation for the line item in the billing report."
+            }
+          ]
+        },
+        "paymentOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanPaymentOptionList"
+            },
+            {
+              "description": "The payment options."
+            }
+          ]
+        },
+        "planTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanTypeList"
+            },
+            {
+              "description": "The plan type."
+            }
+          ]
+        },
+        "productType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductType"
+            },
+            {
+              "description": "The product type."
+            }
+          ]
+        },
+        "serviceCodes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanServiceCodeList"
+            },
+            {
+              "description": "The services."
+            }
+          ]
+        },
+        "usageTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanUsageTypeList"
+            },
+            {
+              "description": "The usage details of the line item in the billing report."
+            }
+          ]
+        }
+      },
+      "title": "DescribeSavingsPlansOfferingsRequest",
+      "type": "object"
+    },
+    "DescribeSavingsPlansOfferingsResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "searchResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingsList"
+            },
+            {
+              "description": "Information about the Savings Plans offerings."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSavingsPlansRequest": {
+      "properties": {
+        "filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanFilterList"
+            },
+            {
+              "description": "The filters."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve additional results, make another call with the returned token value."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "savingsPlanArns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanArnList"
+            },
+            {
+              "description": "The Amazon Resource Names (ARN) of the Savings Plans."
+            }
+          ]
+        },
+        "savingsPlanIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanIdList"
+            },
+            {
+              "description": "The IDs of the Savings Plans."
+            }
+          ]
+        },
+        "states": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanStateList"
+            },
+            {
+              "description": "The states."
+            }
+          ]
+        }
+      },
+      "title": "DescribeSavingsPlansRequest",
+      "type": "object"
+    },
+    "DescribeSavingsPlansResponse": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+            }
+          ]
+        },
+        "savingsPlans": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanList"
+            },
+            {
+              "description": "Information about the Savings Plans."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DurationsList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlansDuration"
+      },
+      "type": "array"
+    },
+    "EC2InstanceFamily": {
+      "type": "string"
+    },
+    "FilterValuesList": {
+      "items": {
+        "$ref": "#/definitions/JsonSafeFilterValueString"
+      },
+      "type": "array"
+    },
+    "InternalServerException": {},
+    "JsonSafeFilterValueString": {
+      "pattern": "^[a-zA-Z0-9_ \\/.\\:\\-\\(\\)]+$",
+      "type": "string"
+    },
+    "ListOfStrings": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "Information about the tags."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PageSize": {
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PaginationToken": {
+      "maxLength": 1024,
+      "pattern": "^[A-Za-z0-9/=\\+]+$",
+      "type": "string"
+    },
+    "ParentSavingsPlanOffering": {
+      "description": "Information about a Savings Plan offering.",
+      "properties": {
+        "currency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrencyCode"
+            },
+            {
+              "description": "The currency."
+            }
+          ]
+        },
+        "durationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlansDuration"
+            },
+            {
+              "description": "The duration, in seconds."
+            }
+          ]
+        },
+        "offeringId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The ID of the offering."
+            }
+          ]
+        },
+        "paymentOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanPaymentOption"
+            },
+            {
+              "description": "The payment option."
+            }
+          ]
+        },
+        "planDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanDescription"
+            },
+            {
+              "description": "The description."
+            }
+          ]
+        },
+        "planType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanType"
+            },
+            {
+              "description": "The plan type."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Region": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "SavingsPlan": {
+      "description": "Information about a Savings Plan.",
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "One or more tags."
+            }
+          ]
+        },
+        "commitment": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The hourly commitment, in USD."
+            }
+          ]
+        },
+        "currency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrencyCode"
+            },
+            {
+              "description": "The currency."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description."
+            }
+          ]
+        },
+        "ec2InstanceFamily": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EC2InstanceFamily"
+            },
+            {
+              "description": "The EC2 instance family."
+            }
+          ]
+        },
+        "end": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The end time."
+            }
+          ]
+        },
+        "offeringId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingId"
+            },
+            {
+              "description": "The ID of the offering."
+            }
+          ]
+        },
+        "paymentOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanPaymentOption"
+            },
+            {
+              "description": "The payment option."
+            }
+          ]
+        },
+        "productTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductTypeList"
+            },
+            {
+              "description": "The product types."
+            }
+          ]
+        },
+        "recurringPaymentAmount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The recurring payment amount."
+            }
+          ]
+        },
+        "region": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Region"
+            },
+            {
+              "description": "The AWS Region."
+            }
+          ]
+        },
+        "savingsPlanArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Savings Plan."
+            }
+          ]
+        },
+        "savingsPlanId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanId"
+            },
+            {
+              "description": "The ID of the Savings Plan."
+            }
+          ]
+        },
+        "savingsPlanType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanType"
+            },
+            {
+              "description": "The plan type."
+            }
+          ]
+        },
+        "start": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The start time."
+            }
+          ]
+        },
+        "state": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanState"
+            },
+            {
+              "description": "The state."
+            }
+          ]
+        },
+        "termDurationInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TermDurationInSeconds"
+            },
+            {
+              "description": "The duration of the term, in seconds."
+            }
+          ]
+        },
+        "upfrontPaymentAmount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The up-front payment amount."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanArn": {
+      "pattern": "arn:aws:[a-z]+:([a-z]{2}-[a-z]+-\\d{1}|):(\\d{12}):savingsplan\\/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$",
+      "type": "string"
+    },
+    "SavingsPlanArnList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanArn"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "SavingsPlanDescription": {
+      "pattern": "^[a-zA-Z0-9_\\- ]+$",
+      "type": "string"
+    },
+    "SavingsPlanDescriptionsList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanDescription"
+      },
+      "type": "array"
+    },
+    "SavingsPlanFilter": {
+      "description": "Information about a filter.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlansFilterName"
+            },
+            {
+              "description": "The filter name."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListOfStrings"
+            },
+            {
+              "description": "The filter value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanFilterList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanFilter"
+      },
+      "type": "array"
+    },
+    "SavingsPlanId": {
+      "type": "string"
+    },
+    "SavingsPlanIdList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanId"
+      },
+      "type": "array"
+    },
+    "SavingsPlanList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlan"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOffering": {
+      "description": "Information about a Savings Plan offering.",
+      "properties": {
+        "currency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrencyCode"
+            },
+            {
+              "description": "The currency."
+            }
+          ]
+        },
+        "description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanDescription"
+            },
+            {
+              "description": "The description."
+            }
+          ]
+        },
+        "durationSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlansDuration"
+            },
+            {
+              "description": "The duration, in seconds."
+            }
+          ]
+        },
+        "offeringId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The ID of the offering."
+            }
+          ]
+        },
+        "operation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOperation"
+            },
+            {
+              "description": "The specific AWS operation for the line item in the billing report."
+            }
+          ]
+        },
+        "paymentOption": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanPaymentOption"
+            },
+            {
+              "description": "The payment option."
+            }
+          ]
+        },
+        "planType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanType"
+            },
+            {
+              "description": "The plan type."
+            }
+          ]
+        },
+        "productTypes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductTypeList"
+            },
+            {
+              "description": "The product type."
+            }
+          ]
+        },
+        "properties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingPropertyList"
+            },
+            {
+              "description": "The properties."
+            }
+          ]
+        },
+        "serviceCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanServiceCode"
+            },
+            {
+              "description": "The service."
+            }
+          ]
+        },
+        "usageType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanUsageType"
+            },
+            {
+              "description": "The usage details of the line item in the billing report."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingFilterAttribute": {
+      "enum": [
+        "region",
+        "instanceFamily"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanOfferingFilterElement": {
+      "description": "Information about a filter.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingFilterAttribute"
+            },
+            {
+              "description": "The filter name."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValuesList"
+            },
+            {
+              "description": "The filter values."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingFiltersList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOfferingFilterElement"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOfferingId": {
+      "type": "string"
+    },
+    "SavingsPlanOfferingProperty": {
+      "description": "Information about a property.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingPropertyKey"
+            },
+            {
+              "description": "The property name."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonSafeFilterValueString"
+            },
+            {
+              "description": "The property value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingPropertyKey": {
+      "enum": [
+        "region",
+        "instanceFamily"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanOfferingPropertyList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOfferingProperty"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOfferingRate": {
+      "description": "Information about a Savings Plan offering rate.",
+      "properties": {
+        "operation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateOperation"
+            },
+            {
+              "description": "The specific AWS operation for the line item in the billing report."
+            }
+          ]
+        },
+        "productType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductType"
+            },
+            {
+              "description": "The product type."
+            }
+          ]
+        },
+        "properties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOfferingRatePropertyList"
+            },
+            {
+              "description": "The properties."
+            }
+          ]
+        },
+        "rate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRatePricePerUnit"
+            },
+            {
+              "description": "The Savings Plan rate."
+            }
+          ]
+        },
+        "savingsPlanOffering": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParentSavingsPlanOffering"
+            },
+            {
+              "description": "The Savings Plan offering."
+            }
+          ]
+        },
+        "serviceCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateServiceCode"
+            },
+            {
+              "description": "The service."
+            }
+          ]
+        },
+        "unit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateUnit"
+            },
+            {
+              "description": "The unit."
+            }
+          ]
+        },
+        "usageType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateUsageType"
+            },
+            {
+              "description": "The usage details of the line item in the billing report."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingRateFilterElement": {
+      "description": "Information about a filter.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateFilterAttribute"
+            },
+            {
+              "description": "The filter name."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterValuesList"
+            },
+            {
+              "description": "The filter values."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingRateFiltersList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOfferingRateFilterElement"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOfferingRateProperty": {
+      "description": "Information about a property.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonSafeFilterValueString"
+            },
+            {
+              "description": "The property name."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonSafeFilterValueString"
+            },
+            {
+              "description": "The property value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanOfferingRatePropertyList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOfferingRateProperty"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOfferingRatesList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOfferingRate"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOfferingsList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOffering"
+      },
+      "type": "array"
+    },
+    "SavingsPlanOperation": {
+      "maxLength": 255,
+      "pattern": "^[a-zA-Z0-9_ \\/.:-]*$",
+      "type": "string"
+    },
+    "SavingsPlanOperationList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanOperation"
+      },
+      "type": "array"
+    },
+    "SavingsPlanPaymentOption": {
+      "enum": [
+        "All Upfront",
+        "Partial Upfront",
+        "No Upfront"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanPaymentOptionList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanPaymentOption"
+      },
+      "type": "array"
+    },
+    "SavingsPlanProductType": {
+      "enum": [
+        "EC2",
+        "Fargate",
+        "Lambda"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanProductTypeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanProductType"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRate": {
+      "description": "Information about a Savings Plan rate.",
+      "properties": {
+        "currency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CurrencyCode"
+            },
+            {
+              "description": "The currency."
+            }
+          ]
+        },
+        "operation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateOperation"
+            },
+            {
+              "description": "The specific AWS operation for the line item in the billing report."
+            }
+          ]
+        },
+        "productType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanProductType"
+            },
+            {
+              "description": "The product type."
+            }
+          ]
+        },
+        "properties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRatePropertyList"
+            },
+            {
+              "description": "The properties."
+            }
+          ]
+        },
+        "rate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amount"
+            },
+            {
+              "description": "The rate."
+            }
+          ]
+        },
+        "serviceCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateServiceCode"
+            },
+            {
+              "description": "The service."
+            }
+          ]
+        },
+        "unit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateUnit"
+            },
+            {
+              "description": "The unit."
+            }
+          ]
+        },
+        "usageType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateUsageType"
+            },
+            {
+              "description": "The usage details of the line item in the billing report."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanRateFilter": {
+      "description": "Information about a filter.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRateFilterName"
+            },
+            {
+              "description": "The filter name."
+            }
+          ]
+        },
+        "values": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListOfStrings"
+            },
+            {
+              "description": "The filter values."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanRateFilterAttribute": {
+      "enum": [
+        "region",
+        "instanceFamily",
+        "instanceType",
+        "productDescription",
+        "tenancy",
+        "productId"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanRateFilterList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRateFilter"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRateFilterName": {
+      "enum": [
+        "region",
+        "instanceType",
+        "productDescription",
+        "tenancy",
+        "productType",
+        "serviceCode",
+        "usageType",
+        "operation"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanRateList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRate"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRateOperation": {
+      "maxLength": 255,
+      "pattern": "^[a-zA-Z0-9_ \\/.:-]*$",
+      "type": "string"
+    },
+    "SavingsPlanRateOperationList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRateOperation"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRatePricePerUnit": {
+      "type": "string"
+    },
+    "SavingsPlanRateProperty": {
+      "description": "Information about a property.",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanRatePropertyKey"
+            },
+            {
+              "description": "The property name."
+            }
+          ]
+        },
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JsonSafeFilterValueString"
+            },
+            {
+              "description": "The property value."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SavingsPlanRatePropertyKey": {
+      "enum": [
+        "region",
+        "instanceType",
+        "instanceFamily",
+        "productDescription",
+        "tenancy"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanRatePropertyList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRateProperty"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRateServiceCode": {
+      "enum": [
+        "AmazonEC2",
+        "AmazonECS",
+        "AWSLambda"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanRateServiceCodeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRateServiceCode"
+      },
+      "type": "array"
+    },
+    "SavingsPlanRateUnit": {
+      "enum": [
+        "Hrs",
+        "Lambda-GB-Second",
+        "Request"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanRateUsageType": {
+      "maxLength": 255,
+      "pattern": "^[a-zA-Z0-9_ \\/.:-]+$",
+      "type": "string"
+    },
+    "SavingsPlanRateUsageTypeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanRateUsageType"
+      },
+      "type": "array"
+    },
+    "SavingsPlanServiceCode": {
+      "maxLength": 255,
+      "pattern": "^[a-zA-Z]+$",
+      "type": "string"
+    },
+    "SavingsPlanServiceCodeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanServiceCode"
+      },
+      "type": "array"
+    },
+    "SavingsPlanState": {
+      "enum": [
+        "payment-pending",
+        "payment-failed",
+        "active",
+        "retired",
+        "queued",
+        "queued-deleted"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanStateList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanState"
+      },
+      "type": "array"
+    },
+    "SavingsPlanType": {
+      "enum": [
+        "Compute",
+        "EC2Instance"
+      ],
+      "type": "string"
+    },
+    "SavingsPlanTypeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanType"
+      },
+      "type": "array"
+    },
+    "SavingsPlanUsageType": {
+      "maxLength": 255,
+      "pattern": "^[a-zA-Z0-9_ \\/.:-]+$",
+      "type": "string"
+    },
+    "SavingsPlanUsageTypeList": {
+      "items": {
+        "$ref": "#/definitions/SavingsPlanUsageType"
+      },
+      "type": "array"
+    },
+    "SavingsPlansDuration": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "SavingsPlansFilterName": {
+      "enum": [
+        "region",
+        "ec2-instance-family",
+        "commitment",
+        "upfront",
+        "term",
+        "savings-plan-type",
+        "payment-option",
+        "start",
+        "end"
+      ],
+      "type": "string"
+    },
+    "ServiceQuotaExceededException": {},
+    "String": {
+      "type": "string"
+    },
+    "TagKey": {
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "One or more tags. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
+            }
+          ]
+        },
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "type": "string"
+    },
+    "TermDurationInSeconds": {
+      "type": "integer"
+    },
+    "UUID": {
+      "pattern": "^(([0-9a-f]+)(-?))+$",
+      "type": "string"
+    },
+    "UUIDs": {
+      "items": {
+        "$ref": "#/definitions/UUID"
+      },
+      "type": "array"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource."
+            }
+          ]
+        },
+        "tagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The tag keys."
+            }
+          ]
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/savingsplans/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

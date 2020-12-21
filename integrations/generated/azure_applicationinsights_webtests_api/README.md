@@ -15,10 +15,7 @@ let azure_applicationinsights_webtests_api = require('@datafire/azure_applicatio
   redirect_uri: ""
 });
 
-azure_applicationinsights_webtests_api.WebTests_List({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -30,7 +27,7 @@ Azure Application Insights client for web test based alerting.
 ## Actions
 
 ### WebTests_List
-Get all Application Insights web test alerts definitioned within a subscription.
+Get all Application Insights web test alerts definitions within a subscription.
 
 
 ```js
@@ -42,8 +39,31 @@ azure_applicationinsights_webtests_api.WebTests_List({
 
 #### Input
 * input `object`
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+
+#### Output
+* output [webTestListResult](#webtestlistresult)
+
+### WebTests_ListByComponent
+Get all Application Insights web tests defined for the specified component.
+
+
+```js
+azure_applicationinsights_webtests_api.WebTests_ListByComponent({
+  "componentName": "",
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * componentName **required** `string`: The name of the Application Insights component resource.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [webTestListResult](#webtestlistresult)
@@ -62,9 +82,9 @@ azure_applicationinsights_webtests_api.WebTests_ListByResourceGroup({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
 
 #### Output
 * output [webTestListResult](#webtestlistresult)
@@ -84,10 +104,10 @@ azure_applicationinsights_webtests_api.WebTests_Delete({
 
 #### Input
 * input `object`
-  * subscriptionId **required** `string`: The Azure subscription ID.
-  * resourceGroupName **required** `string`: The name of the resource group.
+  * subscriptionId **required** `string`: The ID of the target subscription.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
   * webTestName **required** `string`: The name of the Application Insights webtest resource.
-  * api-version **required** `string`: Client Api Version.
+  * api-version **required** `string`: The API version to use for this operation.
 
 #### Output
 *Output schema unknown*
@@ -107,9 +127,9 @@ azure_applicationinsights_webtests_api.WebTests_Get({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * webTestName **required** `string`: The name of the Application Insights webtest resource.
 
 #### Output
@@ -131,9 +151,9 @@ azure_applicationinsights_webtests_api.WebTests_UpdateTags({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * webTestName **required** `string`: The name of the Application Insights webtest resource.
   * WebTestTags **required** [TagsResource](#tagsresource)
 
@@ -156,9 +176,9 @@ azure_applicationinsights_webtests_api.WebTests_CreateOrUpdate({
 
 #### Input
 * input `object`
-  * resourceGroupName **required** `string`: The name of the resource group.
-  * api-version **required** `string`: Client Api Version.
-  * subscriptionId **required** `string`: The Azure subscription ID.
+  * resourceGroupName **required** `string`: The name of the resource group. The name is case insensitive.
+  * api-version **required** `string`: The API version to use for this operation.
+  * subscriptionId **required** `string`: The ID of the target subscription.
   * webTestName **required** `string`: The name of the Application Insights webtest resource.
   * WebTestDefinition **required** [WebTest](#webtest)
 
@@ -168,13 +188,6 @@ azure_applicationinsights_webtests_api.WebTests_CreateOrUpdate({
 
 
 ## Definitions
-
-### Resource
-* Resource `object`: An azure resource object
-  * id `string`: Azure resource Id
-  * location **required** `string`: Resource location
-  * name `string`: Azure resource name
-  * type `string`: Azure resource type
 
 ### TagsResource
 * TagsResource `object`: A container holding only the Tags for a resource, allowing the user to update the tags on a WebTest instance.
@@ -207,6 +220,13 @@ azure_applicationinsights_webtests_api.WebTests_CreateOrUpdate({
   * SyntheticMonitorId **required** `string`: Unique ID of this WebTest. This is typically the same value as the Name field.
   * Timeout `integer`: Seconds until this WebTest will timeout and fail. Default value is 30.
   * provisioningState `string`: Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+
+### WebtestsResource
+* WebtestsResource `object`: An azure resource object
+  * id `string`: Azure resource Id
+  * location **required** `string`: Resource location
+  * name `string`: Azure resource name
+  * type `string`: Azure resource type
 
 ### webTestListResult
 * webTestListResult `object`: A list of 0 or more Application Insights web test definitions.

@@ -7,7 +7,7 @@
   "info": {
     "description": "To manage and control access to your resources, you can define customized policies and assign them at a scope.",
     "title": "PolicyClient",
-    "version": "2017-06-01-preview",
+    "version": "2019-06-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Authorization/preview/2017-06-01-preview/policySetDefinitions.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Authorization/stable/2019-06-01/policySetDefinitions.json",
         "version": "2.0"
       }
     ],
@@ -34,12 +34,10 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
@@ -86,7 +84,7 @@
   "paths": {
     "/providers/Microsoft.Authorization/policySetDefinitions": {
       "get": {
-        "description": "Gets all the built in policy set definitions.",
+        "description": "This operation retrieves a list of all the built-in policy set definitions.",
         "operationId": "PolicySetDefinitions_ListBuiltIn",
         "parameters": [
           {
@@ -107,65 +105,71 @@
             }
           }
         },
+        "summary": "Retrieves built-in policy set definitions.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "List policy set definitions": {
+          "List built-in policy set definitions": {
             "parameters": {
-              "api-version": "2017-06-01-preview"
+              "api-version": "2019-06-01"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                      "name": "costManagement",
+                      "id": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+                      "name": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM and Storage Cost Management",
+                        "description": "Monitor all the available security recommendations in Azure Security Center. This is the default policy for Azure Security Center.",
+                        "displayName": "[Preview]: Enable Monitoring in Azure Security Center",
                         "metadata": {
-                          "category": "Cost Management"
+                          "category": "Security Center"
                         },
-                        "parameters": {
-                          "allowedLocations": {
-                            "metadata": {
-                              "description": "Regions that resources can be deployed to",
-                              "displayName": "Valid Regions"
-                            },
-                            "type": "array"
-                          }
-                        },
+                        "parameters": {},
                         "policyDefinitions": [
                           {
-                            "parameters": {
-                              "locations": {
-                                "value": "[parameters('allowedLocations')]"
-                              }
-                            },
-                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
-                          }
-                        ],
-                        "policyType": "Custom"
-                      },
-                      "type": "Microsoft.Authorization/policySetDefinitions"
-                    },
-                    {
-                      "id": "/providers/Microsoft.Authorization/policySetDefinitions/skuManagement",
-                      "name": "skuManagement",
-                      "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM Sku Management",
-                        "metadata": {
-                          "category": "Sku Management"
-                        },
-                        "policyDefinitions": [
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8bef009-a5c9-4d0f-90d7-6018734e8a16"
+                          },
                           {
-                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af8051bf-258b-44e2-a2bf-165330459f9d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86b3d65f-7626-441e-b690-81a8b71cff60"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/655cb504-bcee-4362-bd4c-402e6aa38759"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b0f33259-77d7-4c9e-aac6-3aabcfae693c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/44452482-524f-4bf4-b852-0bff7cc4a3ed"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af6cd1bd-1635-48cb-bde7-5b15693900b9"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0961003e-5a0a-4549-abde-af6a37f2724d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/760a85ff-6162-42b3-8d70-698e268f648c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/201ea587-7c90-41c3-910f-c280ae01cfd6"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9daedab3-fb2d-461e-b861-71790eead4f6"
                           }
                         ],
-                        "policyType": "Custom"
+                        "policyType": "BuiltIn"
                       },
                       "type": "Microsoft.Authorization/policySetDefinitions"
                     }
@@ -183,7 +187,7 @@
     },
     "/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}": {
       "get": {
-        "description": "Gets the built in policy set definition.",
+        "description": "This operation retrieves the built-in policy set definition with the given name.",
         "operationId": "PolicySetDefinitions_GetBuiltIn",
         "parameters": [
           {
@@ -211,60 +215,70 @@
             }
           }
         },
+        "summary": "Retrieves a built in policy set definition.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "Get a built in policy set definition": {
+          "Retrieve a built-in policy set definition": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "policySetDefinitionName": "costManagement"
+              "api-version": "2019-06-01",
+              "policySetDefinitionName": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+                  "name": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Monitor all the available security recommendations in Azure Security Center. This is the default policy for Azure Security Center.",
+                    "displayName": "[Preview]: Enable Monitoring in Azure Security Center",
                     "metadata": {
-                      "category": "Cost Management"
+                      "category": "Security Center"
                     },
-                    "parameters": {
-                      "allowedLocations": {
-                        "metadata": {
-                          "description": "Regions that resources can be deployed to",
-                          "displayName": "Valid Regions"
-                        },
-                        "type": "array"
-                      }
-                    },
+                    "parameters": {},
                     "policyDefinitions": [
                       {
-                        "parameters": {
-                          "listOfAllowedSKUs": {
-                            "value": [
-                              "Standard_GRS",
-                              "Standard_LRS"
-                            ]
-                          }
-                        },
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8bef009-a5c9-4d0f-90d7-6018734e8a16"
                       },
                       {
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af8051bf-258b-44e2-a2bf-165330459f9d"
                       },
                       {
-                        "parameters": {
-                          "listOfAllowedLocations": {
-                            "value": "[parameters('allowedLocations')]"
-                          }
-                        },
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/policyDefinitionId"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86b3d65f-7626-441e-b690-81a8b71cff60"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/655cb504-bcee-4362-bd4c-402e6aa38759"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b0f33259-77d7-4c9e-aac6-3aabcfae693c"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/44452482-524f-4bf4-b852-0bff7cc4a3ed"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af6cd1bd-1635-48cb-bde7-5b15693900b9"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0961003e-5a0a-4549-abde-af6a37f2724d"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/760a85ff-6162-42b3-8d70-698e268f648c"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/201ea587-7c90-41c3-910f-c280ae01cfd6"
+                      },
+                      {
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9daedab3-fb2d-461e-b861-71790eead4f6"
                       }
                     ],
-                    "policyType": "Custom"
+                    "policyType": "BuiltIn"
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -277,7 +291,7 @@
     },
     "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policySetDefinitions": {
       "get": {
-        "description": "Gets all the policy set definitions for a subscription at management group.",
+        "description": "This operation retrieves a list of all the a policy set definition in the given management group.",
         "operationId": "PolicySetDefinitions_ListByManagementGroup",
         "parameters": [
           {
@@ -301,67 +315,108 @@
             }
           }
         },
+        "summary": "Retrieves all policy set definitions in management group.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "List policy set definitions": {
+          "List policy set definitions at management group level": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "managementGroupId": "mgid",
-              "subscriptionId": "subid"
+              "api-version": "2019-06-01",
+              "managementGroupId": "MyManagementGroup"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/providers/Microsoft.Management/managementgroups/mgid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                      "name": "costManagement",
+                      "id": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+                      "name": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM and Storage Cost Management",
+                        "description": "Monitor all the available security recommendations in Azure Security Center. This is the default policy for Azure Security Center.",
+                        "displayName": "[Preview]: Enable Monitoring in Azure Security Center",
                         "metadata": {
-                          "category": "Cost Management"
+                          "category": "Security Center"
                         },
-                        "parameters": {
-                          "allowedLocations": {
-                            "metadata": {
-                              "description": "Regions that resources can be deployed to",
-                              "displayName": "Valid Regions"
-                            },
-                            "type": "array"
-                          }
-                        },
+                        "parameters": {},
                         "policyDefinitions": [
                           {
-                            "parameters": {
-                              "locations": {
-                                "value": "[parameters('allowedLocations')]"
-                              }
-                            },
-                            "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8bef009-a5c9-4d0f-90d7-6018734e8a16"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af8051bf-258b-44e2-a2bf-165330459f9d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86b3d65f-7626-441e-b690-81a8b71cff60"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/655cb504-bcee-4362-bd4c-402e6aa38759"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b0f33259-77d7-4c9e-aac6-3aabcfae693c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/44452482-524f-4bf4-b852-0bff7cc4a3ed"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af6cd1bd-1635-48cb-bde7-5b15693900b9"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0961003e-5a0a-4549-abde-af6a37f2724d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/760a85ff-6162-42b3-8d70-698e268f648c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/201ea587-7c90-41c3-910f-c280ae01cfd6"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9daedab3-fb2d-461e-b861-71790eead4f6"
                           }
                         ],
-                        "policyType": "Custom"
+                        "policyType": "BuiltIn"
                       },
                       "type": "Microsoft.Authorization/policySetDefinitions"
                     },
                     {
-                      "id": "/providers/Microsoft.Management/managementgroups/mgid/providers/Microsoft.Authorization/policySetDefinitions/skuManagement",
-                      "name": "skuManagement",
+                      "id": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                      "name": "CostManagement",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM Sku Management",
+                        "description": "Policies to enforce low cost storage SKUs",
+                        "displayName": "Cost Management",
                         "metadata": {
-                          "category": "Sku Management"
+                          "category": "Cost Management"
                         },
                         "policyDefinitions": [
                           {
-                            "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                            "parameters": {
+                              "listOfAllowedSKUs": {
+                                "value": [
+                                  "Standard_GRS",
+                                  "Standard_LRS"
+                                ]
+                              }
+                            },
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                          },
+                          {
+                            "parameters": {
+                              "prefix": {
+                                "value": "DeptA"
+                              },
+                              "suffix": {
+                                "value": "-LC"
+                              }
+                            },
+                            "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                           }
-                        ],
-                        "policyType": "Custom"
+                        ]
                       },
                       "type": "Microsoft.Authorization/policySetDefinitions"
                     }
@@ -379,7 +434,7 @@
     },
     "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}": {
       "delete": {
-        "description": "Deletes a policy set definition at management group level.",
+        "description": "This operation deletes the policy set definition in the given management group with the given name.",
         "operationId": "PolicySetDefinitions_DeleteAtManagementGroup",
         "parameters": [
           {
@@ -410,12 +465,30 @@
             }
           }
         },
+        "summary": "Deletes a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a policy set definition at management group level": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "managementGroupId": "MyManagementGroup",
+              "policySetDefinitionName": "CostManagement"
+            },
+            "responses": {
+              "200": {
+                "headers": {}
+              },
+              "204": {
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets the policy set definition at management group level.",
+        "description": "This operation retrieves the policy set definition in the given management group with the given name.",
         "operationId": "PolicySetDefinitions_GetAtManagementGroup",
         "parameters": [
           {
@@ -446,36 +519,27 @@
             }
           }
         },
+        "summary": "Retrieves a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "Get a policy set definition": {
+          "Retrieve a policy set definition at management group level": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "managementGroupId": "mgid",
-              "policySetDefinitionName": "costManagement",
-              "subscriptionId": "subid"
+              "api-version": "2019-06-01",
+              "managementGroupId": "MyManagementGroup",
+              "policySetDefinitionName": "CostManagement"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/providers/Microsoft.Management/managementgroups/mgid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
-                    },
-                    "parameters": {
-                      "allowedLocations": {
-                        "metadata": {
-                          "description": "Regions that resources can be deployed to",
-                          "displayName": "Valid Regions"
-                        },
-                        "type": "array"
-                      }
                     },
                     "policyDefinitions": [
                       {
@@ -487,21 +551,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
-                      },
-                      {
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
                       },
                       {
                         "parameters": {
-                          "listOfAllowedLocations": {
-                            "value": "[parameters('allowedLocations')]"
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
                           }
                         },
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/policyDefinitionId"
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -512,7 +575,7 @@
         }
       },
       "put": {
-        "description": "Creates or updates a policy set definition at management group level.",
+        "description": "This operation creates or updates a policy set definition in the given management group with the given name.",
         "operationId": "PolicySetDefinitions_CreateOrUpdateAtManagementGroup",
         "parameters": [
           {
@@ -558,18 +621,19 @@
             }
           }
         },
+        "summary": "Creates or updates a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "Put a policy set definition": {
+          "Create or update a policy set definition at management group level": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "managementGroupId": "mgid",
+              "api-version": "2019-06-01",
+              "managementGroupId": "MyManagementGroup",
               "parameters": {
                 "properties": {
-                  "description": "Policies required to minimize the risk of accidental cost overruns",
-                  "displayName": "VM and Storage Cost Management",
+                  "description": "Policies to enforce low cost storage SKUs",
+                  "displayName": "Cost Management",
                   "metadata": {
                     "category": "Cost Management"
                   },
@@ -583,22 +647,32 @@
                           ]
                         }
                       },
-                      "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                      "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                    },
+                    {
+                      "parameters": {
+                        "prefix": {
+                          "value": "DeptA"
+                        },
+                        "suffix": {
+                          "value": "-LC"
+                        }
+                      },
+                      "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                     }
                   ]
                 }
               },
-              "policySetDefinitionName": "costManagement",
-              "subscriptionId": "subid"
+              "policySetDefinitionName": "CostManagement"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/providers/Microsoft.Management/managementgroups/mgid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
                     },
@@ -612,10 +686,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                      },
+                      {
+                        "parameters": {
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
+                          }
+                        },
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -623,11 +707,11 @@
               },
               "201": {
                 "body": {
-                  "id": "/providers/Microsoft.Management/managementgroups/mgid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
                     },
@@ -641,10 +725,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                      },
+                      {
+                        "parameters": {
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
+                          }
+                        },
+                        "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -657,7 +751,7 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions": {
       "get": {
-        "description": "Gets all the policy set definitions for a subscription.",
+        "description": "This operation retrieves a list of all the policy set definitions in the given subscription.",
         "operationId": "PolicySetDefinitions_List",
         "parameters": [
           {
@@ -681,66 +775,108 @@
             }
           }
         },
+        "summary": "Retrieves the policy set definitions for a subscription.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
           "List policy set definitions": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "subscriptionId": "subid"
+              "api-version": "2019-06-01",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/subid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                      "name": "costManagement",
+                      "id": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+                      "name": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM and Storage Cost Management",
+                        "description": "Monitor all the available security recommendations in Azure Security Center. This is the default policy for Azure Security Center.",
+                        "displayName": "[Preview]: Enable Monitoring in Azure Security Center",
                         "metadata": {
-                          "category": "Cost Management"
+                          "category": "Security Center"
                         },
-                        "parameters": {
-                          "allowedLocations": {
-                            "metadata": {
-                              "description": "Regions that resources can be deployed to",
-                              "displayName": "Valid Regions"
-                            },
-                            "type": "array"
-                          }
-                        },
+                        "parameters": {},
                         "policyDefinitions": [
                           {
-                            "parameters": {
-                              "locations": {
-                                "value": "[parameters('allowedLocations')]"
-                              }
-                            },
-                            "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8bef009-a5c9-4d0f-90d7-6018734e8a16"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af8051bf-258b-44e2-a2bf-165330459f9d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86b3d65f-7626-441e-b690-81a8b71cff60"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/655cb504-bcee-4362-bd4c-402e6aa38759"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b0f33259-77d7-4c9e-aac6-3aabcfae693c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/44452482-524f-4bf4-b852-0bff7cc4a3ed"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af6cd1bd-1635-48cb-bde7-5b15693900b9"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0961003e-5a0a-4549-abde-af6a37f2724d"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/760a85ff-6162-42b3-8d70-698e268f648c"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/201ea587-7c90-41c3-910f-c280ae01cfd6"
+                          },
+                          {
+                            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9daedab3-fb2d-461e-b861-71790eead4f6"
                           }
                         ],
-                        "policyType": "Custom"
+                        "policyType": "BuiltIn"
                       },
                       "type": "Microsoft.Authorization/policySetDefinitions"
                     },
                     {
-                      "id": "/subscriptions/subid/providers/Microsoft.Authorization/policySetDefinitions/skuManagement",
-                      "name": "skuManagement",
+                      "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                      "name": "CostManagement",
                       "properties": {
-                        "description": "Policies required to minimize the risk of accidental cost overruns",
-                        "displayName": "VM Sku Management",
+                        "description": "Policies to enforce low cost storage SKUs",
+                        "displayName": "Cost Management",
                         "metadata": {
-                          "category": "Sku Management"
+                          "category": "Cost Management"
                         },
                         "policyDefinitions": [
                           {
-                            "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                            "parameters": {
+                              "listOfAllowedSKUs": {
+                                "value": [
+                                  "Standard_GRS",
+                                  "Standard_LRS"
+                                ]
+                              }
+                            },
+                            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                          },
+                          {
+                            "parameters": {
+                              "prefix": {
+                                "value": "DeptA"
+                              },
+                              "suffix": {
+                                "value": "-LC"
+                              }
+                            },
+                            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                           }
-                        ],
-                        "policyType": "Custom"
+                        ]
                       },
                       "type": "Microsoft.Authorization/policySetDefinitions"
                     }
@@ -758,7 +894,7 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}": {
       "delete": {
-        "description": "Deletes a policy set definition.",
+        "description": "This operation deletes the policy set definition in the given subscription with the given name.",
         "operationId": "PolicySetDefinitions_Delete",
         "parameters": [
           {
@@ -789,12 +925,30 @@
             }
           }
         },
+        "summary": "Deletes a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
-        ]
+        ],
+        "x-ms-examples": {
+          "Delete a policy set definition": {
+            "parameters": {
+              "api-version": "2019-06-01",
+              "policySetDefinitionName": "CostManagement",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
+            },
+            "responses": {
+              "200": {
+                "headers": {}
+              },
+              "204": {
+                "headers": {}
+              }
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets the policy set definition.",
+        "description": "This operation retrieves the policy set definition in the given subscription with the given name.",
         "operationId": "PolicySetDefinitions_Get",
         "parameters": [
           {
@@ -825,35 +979,27 @@
             }
           }
         },
+        "summary": "Retrieves a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "Get a policy set definition": {
+          "Retrieve a policy set definition": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
-              "policySetDefinitionName": "costManagement",
-              "subscriptionId": "subid"
+              "api-version": "2019-06-01",
+              "policySetDefinitionName": "CostManagement",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
-                    },
-                    "parameters": {
-                      "allowedLocations": {
-                        "metadata": {
-                          "description": "Regions that resources can be deployed to",
-                          "displayName": "Valid Regions"
-                        },
-                        "type": "array"
-                      }
                     },
                     "policyDefinitions": [
                       {
@@ -865,21 +1011,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
-                      },
-                      {
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/vmSkus"
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
                       },
                       {
                         "parameters": {
-                          "listOfAllowedLocations": {
-                            "value": "[parameters('allowedLocations')]"
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
                           }
                         },
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/policyDefinitionId"
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -890,7 +1035,7 @@
         }
       },
       "put": {
-        "description": "Creates or updates a policy set definition.",
+        "description": "This operation creates or updates a policy set definition in the given subscription with the given name.",
         "operationId": "PolicySetDefinitions_CreateOrUpdate",
         "parameters": [
           {
@@ -936,17 +1081,18 @@
             }
           }
         },
+        "summary": "Creates or updates a policy set definition.",
         "tags": [
           "PolicySetDefinitions"
         ],
         "x-ms-examples": {
-          "Put a policy set definition": {
+          "Create or update a policy set definition": {
             "parameters": {
-              "api-version": "2017-06-01-preview",
+              "api-version": "2019-06-01",
               "parameters": {
                 "properties": {
-                  "description": "Policies required to minimize the risk of accidental cost overruns",
-                  "displayName": "VM and Storage Cost Management",
+                  "description": "Policies to enforce low cost storage SKUs",
+                  "displayName": "Cost Management",
                   "metadata": {
                     "category": "Cost Management"
                   },
@@ -960,22 +1106,33 @@
                           ]
                         }
                       },
-                      "policyDefinitionId": "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                      "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                    },
+                    {
+                      "parameters": {
+                        "prefix": {
+                          "value": "DeptA"
+                        },
+                        "suffix": {
+                          "value": "-LC"
+                        }
+                      },
+                      "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                     }
                   ]
                 }
               },
-              "policySetDefinitionName": "costManagement",
-              "subscriptionId": "subid"
+              "policySetDefinitionName": "CostManagement",
+              "subscriptionId": "ae640e6b-ba3e-4256-9d62-2993eecfa6f2"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
                     },
@@ -989,10 +1146,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                      },
+                      {
+                        "parameters": {
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
+                          }
+                        },
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -1000,11 +1167,11 @@
               },
               "201": {
                 "body": {
-                  "id": "/subscriptions/subid/providers/Microsoft.Authorization/policySetDefinitions/costManagement",
-                  "name": "costManagement",
+                  "id": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+                  "name": "CostManagement",
                   "properties": {
-                    "description": "Policies required to minimize the risk of accidental cost overruns",
-                    "displayName": "VM and Storage Cost Management",
+                    "description": "Policies to enforce low cost storage SKUs",
+                    "displayName": "Cost Management",
                     "metadata": {
                       "category": "Cost Management"
                     },
@@ -1018,10 +1185,20 @@
                             ]
                           }
                         },
-                        "policyDefinitionId": "/subscriptions/subid/providers/Microsoft.Authorization/policyDefinitions/storageSkus"
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"
+                      },
+                      {
+                        "parameters": {
+                          "prefix": {
+                            "value": "DeptA"
+                          },
+                          "suffix": {
+                            "value": "-LC"
+                          }
+                        },
+                        "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"
                       }
-                    ],
-                    "policyType": "Custom"
+                    ]
                   },
                   "type": "Microsoft.Authorization/policySetDefinitions"
                 },
@@ -1035,7 +1212,7 @@
   },
   "definitions": {
     "ErrorResponse": {
-      "description": "Error reponse indicates ARM is not able to process the incoming request. The reason is provided in the error message.",
+      "description": "Error response indicates Azure Resource Manager is not able to process the incoming request. The reason is provided in the error message.",
       "properties": {
         "errorCode": {
           "description": "Error code.",

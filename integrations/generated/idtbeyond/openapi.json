@@ -15,7 +15,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#222222",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_net2phone_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_net2phone_profile_image.png"
     },
     "x-origin": [
       {
@@ -776,7 +776,7 @@
           "type": "string"
         },
         "to_service_number": {
-          "default": "0123456789",
+          "default": 123456789,
           "description": "Enter the to_service_number returned in the response to track the current transaction status. '0123456789'",
           "type": "string"
         },
@@ -795,7 +795,7 @@
           "type": "string"
         },
         "to_service_number": {
-          "default": "0123456789",
+          "default": 123456789,
           "description": "UNIQUE IDT transaction number found in the response of a successful topup request. '0123456789'",
           "type": "string"
         }

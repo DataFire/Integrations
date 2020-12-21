@@ -1,0 +1,4960 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions to gain insight in your documents. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Comprehend Medical",
+    "version": "2018-10-30",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/comprehendmedical-2018-10-30.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "comprehendmedical",
+    "x-datafire": {
+      "name": "amazonaws_comprehendmedical",
+      "type": "openapi"
+    }
+  },
+  "host": "comprehendmedical.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEntitiesDetectionV2JobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEntitiesDetectionV2JobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the properties associated with a medical entities detection job. Use this operation to get the status of a detection job.",
+        "operationId": "DescribeEntitiesDetectionV2Job"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DescribeICD10CMInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DescribeICD10CMInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeICD10CMInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeICD10CMInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the properties associated with an InferICD10CM job. Use this operation to get the status of an inference job.",
+        "operationId": "DescribeICD10CMInferenceJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DescribePHIDetectionJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DescribePHIDetectionJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribePHIDetectionJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribePHIDetectionJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the properties associated with a protected health information (PHI) detection job. Use this operation to get the status of a detection job.",
+        "operationId": "DescribePHIDetectionJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DescribeRxNormInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DescribeRxNormInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRxNormInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRxNormInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the properties associated with an InferRxNorm job. Use this operation to get the status of an inference job.",
+        "operationId": "DescribeRxNormInferenceJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DetectEntities": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DetectEntities"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetectEntitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetectEntitiesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "484": {
+            "description": "InvalidEncodingException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEncodingException"
+            }
+          },
+          "485": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          }
+        },
+        "deprecated": true,
+        "description": "<p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p> <p> Inspects the clinical text for a variety of medical entities and returns specific information about them such as entity category, location, and confidence score on that information .</p>",
+        "operationId": "DetectEntities"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DetectEntitiesV2": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DetectEntitiesV2"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetectEntitiesV2Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetectEntitiesV2Response"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "484": {
+            "description": "InvalidEncodingException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEncodingException"
+            }
+          },
+          "485": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Inspects the clinical text for a variety of medical entities and returns specific information about them such as entity category, location, and confidence score on that information. Amazon Comprehend Medical only detects medical entities in English language texts.</p> <p>The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a> operation. This new action uses a different model for determining the entities in your medical text and changes the way that some entities are returned in the output. You should use the <code>DetectEntitiesV2</code> operation in all new applications.</p> <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and <code>Direction</code> entities as attributes instead of types. </p>",
+        "operationId": "DetectEntitiesV2"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.DetectPHI": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.DetectPHI"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DetectPHIRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DetectPHIResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "484": {
+            "description": "InvalidEncodingException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEncodingException"
+            }
+          },
+          "485": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          }
+        },
+        "description": " Inspects the clinical text for protected health information (PHI) entities and returns the entity category, location, and confidence score for each entity. Amazon Comprehend Medical only detects entities in English language texts.",
+        "operationId": "DetectPHI"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.InferICD10CM": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.InferICD10CM"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InferICD10CMRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InferICD10CMResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "484": {
+            "description": "InvalidEncodingException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEncodingException"
+            }
+          },
+          "485": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          }
+        },
+        "description": "InferICD10CM detects medical conditions as entities listed in a patient record and links those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in English language texts.",
+        "operationId": "InferICD10CM"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.InferRxNorm": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.InferRxNorm"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InferRxNormRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InferRxNormResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "484": {
+            "description": "InvalidEncodingException",
+            "schema": {
+              "$ref": "#/definitions/InvalidEncodingException"
+            }
+          },
+          "485": {
+            "description": "TextSizeLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextSizeLimitExceededException"
+            }
+          }
+        },
+        "description": "InferRxNorm detects medications as entities listed in a patient record and links to the normalized concept identifiers in the RxNorm database from the National Library of Medicine. Amazon Comprehend Medical only detects medical entities in English language texts.",
+        "operationId": "InferRxNorm"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListEntitiesDetectionV2JobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEntitiesDetectionV2JobsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets a list of medical entity detection jobs that you have submitted.",
+        "operationId": "ListEntitiesDetectionV2Jobs"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.ListICD10CMInferenceJobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.ListICD10CMInferenceJobs"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListICD10CMInferenceJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListICD10CMInferenceJobsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets a list of InferICD10CM jobs that you have submitted.",
+        "operationId": "ListICD10CMInferenceJobs"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.ListPHIDetectionJobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.ListPHIDetectionJobs"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListPHIDetectionJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListPHIDetectionJobsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets a list of protected health information (PHI) detection jobs that you have submitted.",
+        "operationId": "ListPHIDetectionJobs"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.ListRxNormInferenceJobs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.ListRxNormInferenceJobs"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRxNormInferenceJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRxNormInferenceJobsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets a list of InferRxNorm jobs that you have submitted.",
+        "operationId": "ListRxNormInferenceJobs"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StartEntitiesDetectionV2Job": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StartEntitiesDetectionV2Job"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartEntitiesDetectionV2JobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartEntitiesDetectionV2JobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Starts an asynchronous medical entity detection job for a collection of documents. Use the <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.",
+        "operationId": "StartEntitiesDetectionV2Job"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StartICD10CMInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StartICD10CMInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartICD10CMInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartICD10CMInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a job.",
+        "operationId": "StartICD10CMInferenceJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StartPHIDetectionJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StartPHIDetectionJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartPHIDetectionJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartPHIDetectionJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Starts an asynchronous job to detect protected health information (PHI). Use the <code>DescribePHIDetectionJob</code> operation to track the status of a job.",
+        "operationId": "StartPHIDetectionJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StartRxNormInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StartRxNormInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartRxNormInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartRxNormInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Starts an asynchronous job to detect medication entities and link them to the RxNorm ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a job.",
+        "operationId": "StartRxNormInferenceJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StopEntitiesDetectionV2Job": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StopEntitiesDetectionV2Job"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopEntitiesDetectionV2JobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopEntitiesDetectionV2JobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Stops a medical entities detection job in progress.",
+        "operationId": "StopEntitiesDetectionV2Job"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StopICD10CMInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StopICD10CMInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopICD10CMInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopICD10CMInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Stops an InferICD10CM inference job in progress.",
+        "operationId": "StopICD10CMInferenceJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StopPHIDetectionJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StopPHIDetectionJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopPHIDetectionJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopPHIDetectionJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Stops a protected health information (PHI) detection job in progress.",
+        "operationId": "StopPHIDetectionJob"
+      }
+    },
+    "/#X-Amz-Target=ComprehendMedical_20181030.StopRxNormInferenceJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "ComprehendMedical_20181030.StopRxNormInferenceJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopRxNormInferenceJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopRxNormInferenceJobResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Stops an InferRxNorm inference job in progress.",
+        "operationId": "StopRxNormInferenceJob"
+      }
+    }
+  },
+  "definitions": {
+    "AnyLengthString": {
+      "type": "string"
+    },
+    "Attribute": {
+      "description": " An extracted segment of the text that is an attribute of an entity, or otherwise related to an entity, such as the dosage of a medication taken. It contains information about the attribute such as id, begin and end offset within the input text, and the segment of the input text. ",
+      "properties": {
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The 0-based character offset in the input text that shows where the attribute begins. The offset returns the UTF-8 code point in the string. "
+            }
+          ]
+        },
+        "Category": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": " The category of attribute. "
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The 0-based character offset in the input text that shows where the attribute ends. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The numeric identifier for this attribute. This is a monotonically increasing id unique within this response rather than a global unique identifier. "
+            }
+          ]
+        },
+        "RelationshipScore": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": " The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this entity. "
+            }
+          ]
+        },
+        "RelationshipType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelationshipType"
+            },
+            {
+              "description": "The type of relationship between the entity and attribute. Type for the relationship is <code>OVERLAP</code>, indicating that the entity occurred at the same time as the <code>Date_Expression</code>. "
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": " The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as an attribute. "
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": " The segment of input text extracted as this attribute."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TraitList"
+            },
+            {
+              "description": " Contextual information for this attribute. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntitySubType"
+            },
+            {
+              "description": " The type of attribute. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AttributeList": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "type": "array"
+    },
+    "AttributeName": {
+      "enum": [
+        "SIGN",
+        "SYMPTOM",
+        "DIAGNOSIS",
+        "NEGATION"
+      ],
+      "type": "string"
+    },
+    "BoundedLengthString": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ClientRequestTokenString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
+    "ComprehendMedicalAsyncJobFilter": {
+      "description": "Provides information for filtering a list of detection jobs.",
+      "properties": {
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "Filters on the name of the job."
+            }
+          ]
+        },
+        "JobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            },
+            {
+              "description": "Filters the list of jobs based on job status. Returns only jobs with the specified status."
+            }
+          ]
+        },
+        "SubmitTimeAfter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest."
+            }
+          ]
+        },
+        "SubmitTimeBefore": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComprehendMedicalAsyncJobProperties": {
+      "description": "Provides information about a detection job.",
+      "properties": {
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read access to your input data."
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time that the detection job completed."
+            }
+          ]
+        },
+        "ExpirationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that job metadata is deleted from the server. Output files in your S3 bucket will not be deleted. After the metadata is deleted, the job will no longer appear in the results of the <code>ListEntitiesDetectionV2Job</code> or the <code>ListPHIDetectionJobs</code> operation."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "The input data configuration that you supplied when you created the detection job."
+            }
+          ]
+        },
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier assigned to the detection job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The name that you assigned to the detection job."
+            }
+          ]
+        },
+        "JobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            },
+            {
+              "description": "The current status of the detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure."
+            }
+          ]
+        },
+        "KMSKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KMSKey"
+            },
+            {
+              "description": "The AWS Key Management Service key, if any, used to encrypt the output files. "
+            }
+          ]
+        },
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageCode"
+            },
+            {
+              "description": "The language code of the input documents."
+            }
+          ]
+        },
+        "ManifestFilePath": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ManifestFilePath"
+            },
+            {
+              "description": "The path to the file that describes the results of a batch job."
+            }
+          ]
+        },
+        "Message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnyLengthString"
+            },
+            {
+              "description": "A description of the status of a job."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelVersion"
+            },
+            {
+              "description": "The version of the model used to analyze the documents. The version number looks like X.X.X. You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "OutputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputDataConfig"
+            },
+            {
+              "description": "The output data configuration that you supplied when you created the detection job."
+            }
+          ]
+        },
+        "SubmitTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time that the detection job was submitted for processing."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ComprehendMedicalAsyncJobPropertiesList": {
+      "items": {
+        "$ref": "#/definitions/ComprehendMedicalAsyncJobProperties"
+      },
+      "type": "array"
+    },
+    "DescribeEntitiesDetectionV2JobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier that Amazon Comprehend Medical generated for the job. The <code>StartEntitiesDetectionV2Job</code> operation returns this identifier in its response."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "DescribeEntitiesDetectionV2JobRequest",
+      "type": "object"
+    },
+    "DescribeEntitiesDetectionV2JobResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobProperties"
+            },
+            {
+              "description": "An object that contains the properties associated with a detection job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeICD10CMInferenceJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier that Amazon Comprehend Medical generated for the job. <code>The StartICD10CMInferenceJob</code> operation returns this identifier in its response."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "DescribeICD10CMInferenceJobRequest",
+      "type": "object"
+    },
+    "DescribeICD10CMInferenceJobResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobProperties"
+            },
+            {
+              "description": "An object that contains the properties associated with a detection job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribePHIDetectionJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier that Amazon Comprehend Medical generated for the job. The <code>StartPHIDetectionJob</code> operation returns this identifier in its response."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "DescribePHIDetectionJobRequest",
+      "type": "object"
+    },
+    "DescribePHIDetectionJobResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobProperties"
+            },
+            {
+              "description": "An object that contains the properties associated with a detection job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRxNormInferenceJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier that Amazon Comprehend Medical generated for the job. The StartRxNormInferenceJob operation returns this identifier in its response."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "DescribeRxNormInferenceJobRequest",
+      "type": "object"
+    },
+    "DescribeRxNormInferenceJobResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobProperties"
+            },
+            {
+              "description": "An object that contains the properties associated with a detection job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectEntitiesRequest": {
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedLengthString"
+            },
+            {
+              "description": " A UTF-8 text string containing the clinical content being examined for entities. Each string must contain fewer than 20,000 bytes of characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "title": "DetectEntitiesRequest",
+      "type": "object"
+    },
+    "DetectEntitiesResponse": {
+      "properties": {
+        "Entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityList"
+            },
+            {
+              "description": " The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The version of the model used to analyze the documents. The version number looks like X.X.X. You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "PaginationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": " If the result of the previous request to <code>DetectEntities</code> was truncated, include the <code>PaginationToken</code> to fetch the next page of entities."
+            }
+          ]
+        },
+        "UnmappedAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UnmappedAttributeList"
+            },
+            {
+              "description": " Attributes extracted from the input text that we were unable to relate to an entity."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entities",
+        "ModelVersion"
+      ],
+      "type": "object"
+    },
+    "DetectEntitiesV2Request": {
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedLengthString"
+            },
+            {
+              "description": "A UTF-8 string containing the clinical content being examined for entities. Each string must contain fewer than 20,000 bytes of characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "title": "DetectEntitiesV2Request",
+      "type": "object"
+    },
+    "DetectEntitiesV2Response": {
+      "properties": {
+        "Entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityList"
+            },
+            {
+              "description": "The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence in the detection and analysis. Attributes and traits of the entity are also returned."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The version of the model used to analyze the documents. The version number looks like X.X.X. You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "PaginationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the <code>PaginationToken</code> to fetch the next page of entities."
+            }
+          ]
+        },
+        "UnmappedAttributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UnmappedAttributeList"
+            },
+            {
+              "description": "Attributes extracted from the input text that couldn't be related to an entity."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entities",
+        "ModelVersion"
+      ],
+      "type": "object"
+    },
+    "DetectPHIRequest": {
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedLengthString"
+            },
+            {
+              "description": " A UTF-8 text string containing the clinical content being examined for PHI entities. Each string must contain fewer than 20,000 bytes of characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "title": "DetectPHIRequest",
+      "type": "object"
+    },
+    "DetectPHIResponse": {
+      "properties": {
+        "Entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityList"
+            },
+            {
+              "description": " The collection of PHI entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its detection. "
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The version of the model used to analyze the documents. The version number looks like X.X.X. You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "PaginationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": " If the result of the previous request to <code>DetectPHI</code> was truncated, include the <code>PaginationToken</code> to fetch the next page of PHI entities. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entities",
+        "ModelVersion"
+      ],
+      "type": "object"
+    },
+    "Entity": {
+      "description": " Provides information about an extracted medical entity.",
+      "properties": {
+        "Attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeList"
+            },
+            {
+              "description": " The extracted attributes that relate to this entity."
+            }
+          ]
+        },
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The 0-based character offset in the input text that shows where the entity begins. The offset returns the UTF-8 code point in the string. "
+            }
+          ]
+        },
+        "Category": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": " The category of the entity."
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The 0-based character offset in the input text that shows where the entity ends. The offset returns the UTF-8 code point in the string. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": " The numeric identifier for the entity. This is a monotonically increasing id unique within this response rather than a global unique identifier. "
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": " The segment of input text extracted as this entity."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TraitList"
+            },
+            {
+              "description": "Contextual information for the entity."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntitySubType"
+            },
+            {
+              "description": " Describes the specific type of entity with category of entities."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EntityList": {
+      "items": {
+        "$ref": "#/definitions/Entity"
+      },
+      "type": "array"
+    },
+    "EntitySubType": {
+      "enum": [
+        "NAME",
+        "DOSAGE",
+        "ROUTE_OR_MODE",
+        "FORM",
+        "FREQUENCY",
+        "DURATION",
+        "GENERIC_NAME",
+        "BRAND_NAME",
+        "STRENGTH",
+        "RATE",
+        "ACUITY",
+        "TEST_NAME",
+        "TEST_VALUE",
+        "TEST_UNITS",
+        "PROCEDURE_NAME",
+        "TREATMENT_NAME",
+        "DATE",
+        "AGE",
+        "CONTACT_POINT",
+        "EMAIL",
+        "IDENTIFIER",
+        "URL",
+        "ADDRESS",
+        "PROFESSION",
+        "SYSTEM_ORGAN_SITE",
+        "DIRECTION",
+        "QUALITY",
+        "QUANTITY",
+        "TIME_EXPRESSION",
+        "TIME_TO_MEDICATION_NAME",
+        "TIME_TO_DX_NAME",
+        "TIME_TO_TEST_NAME",
+        "TIME_TO_PROCEDURE_NAME",
+        "TIME_TO_TREATMENT_NAME"
+      ],
+      "type": "string"
+    },
+    "EntityType": {
+      "enum": [
+        "MEDICATION",
+        "MEDICAL_CONDITION",
+        "PROTECTED_HEALTH_INFORMATION",
+        "TEST_TREATMENT_PROCEDURE",
+        "ANATOMY",
+        "TIME_EXPRESSION"
+      ],
+      "type": "string"
+    },
+    "Float": {
+      "format": "float",
+      "type": "number"
+    },
+    "ICD10CMAttribute": {
+      "description": "The detected attributes that relate to an entity. This includes an extracted segment of the text that is an attribute of an entity, or otherwise related to an entity. InferICD10CM detects the following attributes: <code>Direction</code>, <code>System, Organ or Site</code>, and <code>Acuity</code>.",
+      "properties": {
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the attribute begins. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the attribute ends. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The numeric identifier for this attribute. This is a monotonically increasing id unique within this response rather than a global unique identifier."
+            }
+          ]
+        },
+        "RelationshipScore": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this entity."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as an attribute."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The segment of input text which contains the detected attribute."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMTraitList"
+            },
+            {
+              "description": "The contextual information for the attribute. The traits recognized by InferICD10CM are <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION</code>."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMAttributeType"
+            },
+            {
+              "description": "The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ICD10CMAttributeList": {
+      "items": {
+        "$ref": "#/definitions/ICD10CMAttribute"
+      },
+      "type": "array"
+    },
+    "ICD10CMAttributeType": {
+      "enum": [
+        "ACUITY",
+        "DIRECTION",
+        "SYSTEM_ORGAN_SITE",
+        "QUALITY",
+        "QUANTITY"
+      ],
+      "type": "string"
+    },
+    "ICD10CMConcept": {
+      "description": " The ICD-10-CM concepts that the entity could refer to, along with a score indicating the likelihood of the match.",
+      "properties": {
+        "Code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ICD-10-CM code that identifies the concept found in the knowledge base from the Centers for Disease Control."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The long description of the ICD-10-CM code in the ontology."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to an ICD-10-CM concept."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ICD10CMConceptList": {
+      "items": {
+        "$ref": "#/definitions/ICD10CMConcept"
+      },
+      "type": "array"
+    },
+    "ICD10CMEntity": {
+      "description": "The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned. ",
+      "properties": {
+        "Attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMAttributeList"
+            },
+            {
+              "description": "The detected attributes that relate to the entity. An extracted segment of the text that is an attribute of an entity, or otherwise related to an entity, such as the nature of a medical condition."
+            }
+          ]
+        },
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the entity begins. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Category": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMEntityCategory"
+            },
+            {
+              "description": " The category of the entity. InferICD10CM detects entities in the <code>MEDICAL_CONDITION</code> category. "
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the entity ends. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "ICD10CMConcepts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMConceptList"
+            },
+            {
+              "description": "The ICD-10-CM concepts that the entity could refer to, along with a score indicating the likelihood of the match."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The numeric identifier for the entity. This is a monotonically increasing id unique within this response rather than a global unique identifier."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OntologyLinkingBoundedLengthString"
+            },
+            {
+              "description": "The segment of input text that is matched to the detected entity."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMTraitList"
+            },
+            {
+              "description": "Provides Contextual information for the entity. The traits recognized by InferICD10CM are <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION.</code> "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMEntityType"
+            },
+            {
+              "description": "Describes the specific type of entity with category of entities. InferICD10CM detects entities of the type <code>DX_NAME</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ICD10CMEntityCategory": {
+      "enum": [
+        "MEDICAL_CONDITION"
+      ],
+      "type": "string"
+    },
+    "ICD10CMEntityList": {
+      "items": {
+        "$ref": "#/definitions/ICD10CMEntity"
+      },
+      "type": "array"
+    },
+    "ICD10CMEntityType": {
+      "enum": [
+        "DX_NAME"
+      ],
+      "type": "string"
+    },
+    "ICD10CMTrait": {
+      "description": "Contextual information for the entity. The traits recognized by InferICD10CM are <code>DIAGNOSIS</code>, <code>SIGN</code>, <code>SYMPTOM</code>, and <code>NEGATION</code>.",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMTraitName"
+            },
+            {
+              "description": "Provides a name or contextual description about the trait."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized as a trait."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ICD10CMTraitList": {
+      "items": {
+        "$ref": "#/definitions/ICD10CMTrait"
+      },
+      "type": "array"
+    },
+    "ICD10CMTraitName": {
+      "enum": [
+        "NEGATION",
+        "DIAGNOSIS",
+        "SIGN",
+        "SYMPTOM"
+      ],
+      "type": "string"
+    },
+    "IamRoleArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+",
+      "type": "string"
+    },
+    "InferICD10CMRequest": {
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OntologyLinkingBoundedLengthString"
+            },
+            {
+              "description": "The input text used for analysis. The input for InferICD10CM is a string from 1 to 10000 characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "title": "InferICD10CMRequest",
+      "type": "object"
+    },
+    "InferICD10CMResponse": {
+      "properties": {
+        "Entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ICD10CMEntityList"
+            },
+            {
+              "description": "The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is successful, the service sends back an HTTP 200 response, as well as the entities detected."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The version of the model used to analyze the documents, in the format <i>n</i>.<i>n</i>.<i>n</i> You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "PaginationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If the result of the previous request to <code>InferICD10CM</code> was truncated, include the <code>PaginationToken</code> to fetch the next page of medical condition entities. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entities"
+      ],
+      "type": "object"
+    },
+    "InferRxNormRequest": {
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OntologyLinkingBoundedLengthString"
+            },
+            {
+              "description": "The input text used for analysis. The input for InferRxNorm is a string from 1 to 10000 characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "title": "InferRxNormRequest",
+      "type": "object"
+    },
+    "InferRxNormResponse": {
+      "properties": {
+        "Entities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormEntityList"
+            },
+            {
+              "description": "The medication entities detected in the text linked to RxNorm concepts. If the action is successful, the service sends back an HTTP 200 response, as well as the entities detected."
+            }
+          ]
+        },
+        "ModelVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The version of the model used to analyze the documents, in the format <i>n</i>.<i>n</i>.<i>n</i> You can use this information to track the model used for a particular batch of documents."
+            }
+          ]
+        },
+        "PaginationToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If the result of the previous request to <code>InferRxNorm</code> was truncated, include the <code>PaginationToken</code> to fetch the next page of medication entities."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Entities"
+      ],
+      "type": "object"
+    },
+    "InputDataConfig": {
+      "description": "The input properties for an entities detection job. This includes the name of the S3 bucket and the path to the files to be analyzed. See <a>batch-manifest</a> for more information. ",
+      "properties": {
+        "S3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Bucket"
+            },
+            {
+              "description": "<p>The URI of the S3 bucket that contains the input data. The bucket must be in the same region as the API endpoint that you are calling.</p> <p>Each file in the document collection must be less than 40 KB. You can store a maximum of 30 GB in the bucket.</p>"
+            }
+          ]
+        },
+        "S3Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Key"
+            },
+            {
+              "description": "The path to the input data files in the S3 bucket."
+            }
+          ]
+        }
+      },
+      "required": [
+        "S3Bucket"
+      ],
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "InvalidEncodingException": {},
+    "InvalidRequestException": {},
+    "JobId": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "JobName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "JobStatus": {
+      "enum": [
+        "SUBMITTED",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "PARTIAL_SUCCESS",
+        "FAILED",
+        "STOP_REQUESTED",
+        "STOPPED"
+      ],
+      "type": "string"
+    },
+    "KMSKey": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "LanguageCode": {
+      "enum": [
+        "en"
+      ],
+      "type": "string"
+    },
+    "ListEntitiesDetectionV2JobsRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobFilter"
+            },
+            {
+              "description": "Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsInteger"
+            },
+            {
+              "description": "The maximum number of results to return in each page. The default is 100."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "title": "ListEntitiesDetectionV2JobsRequest",
+      "type": "object"
+    },
+    "ListEntitiesDetectionV2JobsResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobPropertiesList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobPropertiesList"
+            },
+            {
+              "description": "A list containing the properties of each job returned."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListICD10CMInferenceJobsRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobFilter"
+            },
+            {
+              "description": "Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsInteger"
+            },
+            {
+              "description": "The maximum number of results to return in each page. The default is 100."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "title": "ListICD10CMInferenceJobsRequest",
+      "type": "object"
+    },
+    "ListICD10CMInferenceJobsResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobPropertiesList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobPropertiesList"
+            },
+            {
+              "description": "A list containing the properties of each job that is returned."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListPHIDetectionJobsRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobFilter"
+            },
+            {
+              "description": "Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsInteger"
+            },
+            {
+              "description": "The maximum number of results to return in each page. The default is 100."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "title": "ListPHIDetectionJobsRequest",
+      "type": "object"
+    },
+    "ListPHIDetectionJobsResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobPropertiesList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobPropertiesList"
+            },
+            {
+              "description": "A list containing the properties of each job returned."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListRxNormInferenceJobsRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobFilter"
+            },
+            {
+              "description": "Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsInteger"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "title": "ListRxNormInferenceJobsRequest",
+      "type": "object"
+    },
+    "ListRxNormInferenceJobsResponse": {
+      "properties": {
+        "ComprehendMedicalAsyncJobPropertiesList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComprehendMedicalAsyncJobPropertiesList"
+            },
+            {
+              "description": "The maximum number of results to return in each page. The default is 100."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Identifies the next page of results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ManifestFilePath": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MaxResultsInteger": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ModelVersion": {
+      "type": "string"
+    },
+    "OntologyLinkingBoundedLengthString": {
+      "maxLength": 10000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OutputDataConfig": {
+      "description": "The output properties for a detection job.",
+      "properties": {
+        "S3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Bucket"
+            },
+            {
+              "description": "When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output."
+            }
+          ]
+        },
+        "S3Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Key"
+            },
+            {
+              "description": "The path to the output data files in the S3 bucket. Amazon Comprehend Medical creates an output directory using the job ID so that the output from one job does not overwrite the output of another."
+            }
+          ]
+        }
+      },
+      "required": [
+        "S3Bucket"
+      ],
+      "type": "object"
+    },
+    "RelationshipType": {
+      "enum": [
+        "EVERY",
+        "WITH_DOSAGE",
+        "ADMINISTERED_VIA",
+        "FOR",
+        "NEGATIVE",
+        "OVERLAP",
+        "DOSAGE",
+        "ROUTE_OR_MODE",
+        "FORM",
+        "FREQUENCY",
+        "DURATION",
+        "STRENGTH",
+        "RATE",
+        "ACUITY",
+        "TEST_VALUE",
+        "TEST_UNITS",
+        "DIRECTION",
+        "SYSTEM_ORGAN_SITE"
+      ],
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "RxNormAttribute": {
+      "description": "The extracted attributes that relate to this entity. The attributes recognized by InferRxNorm are <code>DOSAGE</code>, <code>DURATION</code>, <code>FORM</code>, <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>.",
+      "properties": {
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the attribute begins. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the attribute ends. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The numeric identifier for this attribute. This is a monotonically increasing id unique within this response rather than a global unique identifier."
+            }
+          ]
+        },
+        "RelationshipScore": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that the attribute is accurately linked to an entity."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Comprehend Medical has that the segment of text is correctly recognized as an attribute."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The segment of input text which corresponds to the detected attribute."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormTraitList"
+            },
+            {
+              "description": "Contextual information for the attribute. InferRxNorm recognizes the trait <code>NEGATION</code> for attributes, i.e. that the patient is not taking a specific dose or form of a medication."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormAttributeType"
+            },
+            {
+              "description": "The type of attribute. The types of attributes recognized by InferRxNorm are <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RxNormAttributeList": {
+      "items": {
+        "$ref": "#/definitions/RxNormAttribute"
+      },
+      "type": "array"
+    },
+    "RxNormAttributeType": {
+      "enum": [
+        "DOSAGE",
+        "DURATION",
+        "FORM",
+        "FREQUENCY",
+        "RATE",
+        "ROUTE_OR_MODE",
+        "STRENGTH"
+      ],
+      "type": "string"
+    },
+    "RxNormConcept": {
+      "description": "The RxNorm concept that the entity could refer to, along with a score indicating the likelihood of the match.",
+      "properties": {
+        "Code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "RxNorm concept ID, also known as the RxCUI."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the RxNorm concept."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has that the entity is accurately linked to the reported RxNorm concept."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RxNormConceptList": {
+      "items": {
+        "$ref": "#/definitions/RxNormConcept"
+      },
+      "type": "array"
+    },
+    "RxNormEntity": {
+      "description": "The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned. ",
+      "properties": {
+        "Attributes": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormAttributeList"
+            },
+            {
+              "description": "The extracted attributes that relate to the entity. The attributes recognized by InferRxNorm are <code>DOSAGE</code>, <code>DURATION</code>, <code>FORM</code>, <code>FREQUENCY</code>, <code>RATE</code>, <code>ROUTE_OR_MODE</code>, and <code>STRENGTH</code>."
+            }
+          ]
+        },
+        "BeginOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the entity begins. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Category": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormEntityCategory"
+            },
+            {
+              "description": "The category of the entity. The recognized categories are <code>GENERIC</code> or <code>BRAND_NAME</code>."
+            }
+          ]
+        },
+        "EndOffset": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The 0-based character offset in the input text that shows where the entity ends. The offset returns the UTF-8 code point in the string."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "The numeric identifier for the entity. This is a monotonically increasing id unique within this response rather than a global unique identifier."
+            }
+          ]
+        },
+        "RxNormConcepts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormConceptList"
+            },
+            {
+              "description": " The RxNorm concepts that the entity could refer to, along with a score indicating the likelihood of the match."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected entity."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OntologyLinkingBoundedLengthString"
+            },
+            {
+              "description": "The segment of input text extracted from which the entity was detected."
+            }
+          ]
+        },
+        "Traits": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormTraitList"
+            },
+            {
+              "description": " Contextual information for the entity."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormEntityType"
+            },
+            {
+              "description": " Describes the specific type of entity. For InferRxNorm, the recognized entity type is <code>MEDICATION</code>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RxNormEntityCategory": {
+      "enum": [
+        "MEDICATION"
+      ],
+      "type": "string"
+    },
+    "RxNormEntityList": {
+      "items": {
+        "$ref": "#/definitions/RxNormEntity"
+      },
+      "type": "array"
+    },
+    "RxNormEntityType": {
+      "enum": [
+        "BRAND_NAME",
+        "GENERIC_NAME"
+      ],
+      "type": "string"
+    },
+    "RxNormTrait": {
+      "description": "The contextual information for the entity. InferRxNorm recognizes the trait <code>NEGATION</code>, which is any indication that the patient is not taking a medication. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RxNormTraitName"
+            },
+            {
+              "description": "Provides a name or contextual description about the trait."
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": "The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected trait."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RxNormTraitList": {
+      "items": {
+        "$ref": "#/definitions/RxNormTrait"
+      },
+      "type": "array"
+    },
+    "RxNormTraitName": {
+      "enum": [
+        "NEGATION"
+      ],
+      "type": "string"
+    },
+    "S3Bucket": {
+      "maxLength": 63,
+      "minLength": 3,
+      "pattern": "^[0-9a-z\\.\\-_]*(?!\\.)$",
+      "type": "string"
+    },
+    "S3Key": {
+      "maxLength": 1024,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "ServiceUnavailableException": {},
+    "StartEntitiesDetectionV2JobRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one."
+            }
+          ]
+        },
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "Specifies the format and location of the input data for the job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        },
+        "KMSKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KMSKey"
+            },
+            {
+              "description": "An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text."
+            }
+          ]
+        },
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageCode"
+            },
+            {
+              "description": "The language of the input documents. All documents must be in the same language."
+            }
+          ]
+        },
+        "OutputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputDataConfig"
+            },
+            {
+              "description": "Specifies where to send the output files."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "OutputDataConfig",
+        "DataAccessRoleArn",
+        "LanguageCode"
+      ],
+      "title": "StartEntitiesDetectionV2JobRequest",
+      "type": "object"
+    },
+    "StartEntitiesDetectionV2JobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier generated for the job. To get the status of a job, use this identifier with the <code>DescribeEntitiesDetectionV2Job</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StartICD10CMInferenceJobRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one."
+            }
+          ]
+        },
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "Specifies the format and location of the input data for the job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        },
+        "KMSKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KMSKey"
+            },
+            {
+              "description": "An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text."
+            }
+          ]
+        },
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageCode"
+            },
+            {
+              "description": "The language of the input documents. All documents must be in the same language."
+            }
+          ]
+        },
+        "OutputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputDataConfig"
+            },
+            {
+              "description": "Specifies where to send the output files."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "OutputDataConfig",
+        "DataAccessRoleArn",
+        "LanguageCode"
+      ],
+      "title": "StartICD10CMInferenceJobRequest",
+      "type": "object"
+    },
+    "StartICD10CMInferenceJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier generated for the job. To get the status of a job, use this identifier with the <code>StartICD10CMInferenceJob</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StartPHIDetectionJobRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one."
+            }
+          ]
+        },
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "Specifies the format and location of the input data for the job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        },
+        "KMSKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KMSKey"
+            },
+            {
+              "description": "An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text."
+            }
+          ]
+        },
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageCode"
+            },
+            {
+              "description": "The language of the input documents. All documents must be in the same language."
+            }
+          ]
+        },
+        "OutputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputDataConfig"
+            },
+            {
+              "description": "Specifies where to send the output files."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "OutputDataConfig",
+        "DataAccessRoleArn",
+        "LanguageCode"
+      ],
+      "title": "StartPHIDetectionJobRequest",
+      "type": "object"
+    },
+    "StartPHIDetectionJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier generated for the job. To get the status of a job, use this identifier with the <code>DescribePHIDetectionJob</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StartRxNormInferenceJobRequest": {
+      "properties": {
+        "ClientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestTokenString"
+            },
+            {
+              "description": "A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one."
+            }
+          ]
+        },
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend Medical read access to your input data. For more information, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med\"> Role-Based Permissions Required for Asynchronous Operations</a>."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "Specifies the format and location of the input data for the job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        },
+        "KMSKey": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/KMSKey"
+            },
+            {
+              "description": "An AWS Key Management Service key to encrypt your output files. If you do not specify a key, the files are written in plain text."
+            }
+          ]
+        },
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LanguageCode"
+            },
+            {
+              "description": "The language of the input documents. All documents must be in the same language."
+            }
+          ]
+        },
+        "OutputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutputDataConfig"
+            },
+            {
+              "description": "Specifies where to send the output files."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "OutputDataConfig",
+        "DataAccessRoleArn",
+        "LanguageCode"
+      ],
+      "title": "StartRxNormInferenceJobRequest",
+      "type": "object"
+    },
+    "StartRxNormInferenceJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopEntitiesDetectionV2JobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the medical entities job to stop."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "StopEntitiesDetectionV2JobRequest",
+      "type": "object"
+    },
+    "StopEntitiesDetectionV2JobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the medical entities detection job that was stopped."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopICD10CMInferenceJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "StopICD10CMInferenceJobRequest",
+      "type": "object"
+    },
+    "StopICD10CMInferenceJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeICD10CMInferenceJob</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopPHIDetectionJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the PHI detection job to stop."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "StopPHIDetectionJobRequest",
+      "type": "object"
+    },
+    "StopPHIDetectionJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the PHI detection job that was stopped."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StopRxNormInferenceJobRequest": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier of the job."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId"
+      ],
+      "title": "StopRxNormInferenceJobRequest",
+      "type": "object"
+    },
+    "StopRxNormInferenceJobResponse": {
+      "properties": {
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeRxNormInferenceJob</code> operation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "TextSizeLimitExceededException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TooManyRequestsException": {},
+    "Trait": {
+      "description": " Provides contextual information about the extracted entity. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttributeName"
+            },
+            {
+              "description": " Provides a name or contextual description about the trait. "
+            }
+          ]
+        },
+        "Score": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Float"
+            },
+            {
+              "description": " The level of confidence that Amazon Comprehend Medical has in the accuracy of this trait."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TraitList": {
+      "items": {
+        "$ref": "#/definitions/Trait"
+      },
+      "type": "array"
+    },
+    "UnmappedAttribute": {
+      "description": " An attribute that we extracted, but were unable to relate to an entity. ",
+      "properties": {
+        "Attribute": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Attribute"
+            },
+            {
+              "description": " The specific attribute that has been extracted but not mapped to an entity. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            },
+            {
+              "description": " The type of the attribute, could be one of the following values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\". "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UnmappedAttributeList": {
+      "items": {
+        "$ref": "#/definitions/UnmappedAttribute"
+      },
+      "type": "array"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/comprehendmedical/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

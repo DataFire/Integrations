@@ -9,11 +9,7 @@ npm install --save @datafire/payrun
 ```js
 let payrun = require('@datafire/payrun').create();
 
-payrun.DeleteEmployer({
-  "EmployerId": "",
-  "Authorization": "",
-  "Api-Version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -38,7 +34,7 @@ payrun.DeleteEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -59,7 +55,7 @@ payrun.GetEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -82,7 +78,7 @@ payrun.PatchEmployer({
 #### Input
 * input `object`
   * Employer **required** [Employer](#employer)
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -104,13 +100,360 @@ payrun.PutEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Employer **required** [Employer](#employer)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [Employer](#employer)
+
+### GetCisLineTypeWithTag
+Gets the CIS line types with the tag
+
+
+```js
+payrun.GetCisLineTypeWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteCisLineType
+Delete the specified CIS line type
+
+
+```js
+payrun.DeleteCisLineType({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisLineTypeFromEmployer
+Gets the specified CIS line type from employer.
+
+
+```js
+payrun.GetCisLineTypeFromEmployer({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisLineType](#cislinetype)
+
+### PutCisLineTypeIntoEmployer
+Updates the existing specified CIS line type object
+
+
+```js
+payrun.PutCisLineTypeIntoEmployer({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "CisLineType": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * CisLineType **required** [CisLineType](#cislinetype)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisLineType](#cislinetype)
+
+### DeleteCisLineTypeTag
+Deletes a tag from the CIS line type
+
+
+```js
+payrun.DeleteCisLineTypeTag({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromCisLineType
+Gets the tag from the CIS line type
+
+
+```js
+payrun.GetTagFromCisLineType({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutCisLineTypeTag
+Inserts a new tag on the CIS line type
+
+
+```js
+payrun.PutCisLineTypeTag({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromCisLineType
+Gets all the tags from the CIS line type
+
+
+```js
+payrun.GetTagsFromCisLineType({
+  "EmployerId": "",
+  "CisLineTypeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineTypeId **required** `string`: The CIS line type unique identifier. E.g. TYPEA
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetCisLineTypesFromEmployer
+Get links to all CIS line types for the specified employer.
+
+
+```js
+payrun.GetCisLineTypesFromEmployer({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostCisLineTypeIntoEmployer
+Create a new CIS line type object
+
+
+```js
+payrun.PostCisLineTypeIntoEmployer({
+  "EmployerId": "",
+  "CisLineType": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisLineType **required** [CisLineType](#cislinetype)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### GetCisLineTypesWithTag
+Gets the CIS line type with the tag
+
+
+```js
+payrun.GetCisLineTypesWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllCisLineTypeTags
+Gets all the CIS line type tags
+
+
+```js
+payrun.GetAllCisLineTypeTags({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteCisTransaction
+Deletes the specified CIS transaction
+
+
+```js
+payrun.DeleteCisTransaction({
+  "EmployerId": "",
+  "CisTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisTransactionId **required** `string`: The CIS transaction unique identifier. E.g. CISTRAN001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisTransactionFromEmployer
+Returns the specified CIS transaction
+
+
+```js
+payrun.GetCisTransactionFromEmployer({
+  "EmployerId": "",
+  "CisTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * CisTransactionId **required** `string`: The CIS transaction unique identifier. E.g. CISTRAN001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisTransaction](#cistransaction)
+
+### GetCisTransactionsFromEmployer
+Get links for all CIS transactions for the specified employer
+
+
+```js
+payrun.GetCisTransactionsFromEmployer({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### DeleteDpsMessage
 Deletes the DPS message
@@ -127,7 +470,7 @@ payrun.DeleteDpsMessage({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * DpsMessageId **required** `string`: The DPS message unique identifier. E.g. DPS001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -150,7 +493,7 @@ payrun.GetDpsMessageFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * DpsMessageId **required** `string`: The DPS message unique identifier. E.g. DPS001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -173,7 +516,7 @@ payrun.PatchDpsMessage({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * DpsMessageId **required** `string`: The DPS message unique identifier. E.g. DPS001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -195,7 +538,7 @@ payrun.GetDpsMessagesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -217,8 +560,8 @@ payrun.DeleteEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -240,8 +583,8 @@ payrun.GetEmployeeFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -265,8 +608,8 @@ payrun.PatchEmployee({
 #### Input
 * input `object`
   * Employee **required** [Employee](#employee)
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -289,8 +632,8 @@ payrun.PutEmployeeIntoEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Employee **required** [Employee](#employee)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -314,8 +657,8 @@ payrun.DeleteAEAssessment({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -339,8 +682,8 @@ payrun.GetAEAssessmentFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -365,8 +708,8 @@ payrun.PutNewAEAssessment({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * AEAssessmentId **required** `string`: The auto enrolment assessment unique identifier. E.g. AE001
   * AEAssessment **required** [AEAssessment](#aeassessment)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -390,8 +733,8 @@ payrun.GetAEAssessmentsFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -414,8 +757,8 @@ payrun.PostNewAEAssessment({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * AEAssessment **required** [AEAssessment](#aeassessment)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -438,8 +781,8 @@ payrun.GetCommentariesFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -462,14 +805,39 @@ payrun.GetCommentaryFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * CommentaryId **required** `string`: The commentary unique identifier. E.g. C001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [Commentary](#commentary)
+
+### GetPayInstructionWithTag
+Gets the pay instructions with the tag
+
+
+```js
+payrun.GetPayInstructionWithTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### DeletePayInstruction
 Delete the specified pay instruction
@@ -487,8 +855,8 @@ payrun.DeletePayInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -512,8 +880,8 @@ payrun.GetPayInstructionFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -538,8 +906,8 @@ payrun.PatchPayInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
   * PayInstruction **required** [PayInstruction](#payinstruction)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -565,8 +933,8 @@ payrun.PutPayInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
   * PayInstruction **required** [PayInstruction](#payinstruction)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -574,6 +942,112 @@ payrun.PutPayInstruction({
 
 #### Output
 * output [PayInstruction](#payinstruction)
+
+### DeletePayInstructionTag
+Deletes a tag from the pay instruction
+
+
+```js
+payrun.DeletePayInstructionTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromPayInstruction
+Gets the tag from the pay instruction
+
+
+```js
+payrun.GetTagFromPayInstruction({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutPayInstructionTag
+Inserts a new tag on the pay instruction
+
+
+```js
+payrun.PutPayInstructionTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromPayInstruction
+Gets all the tags from the pay instruction
+
+
+```js
+payrun.GetTagsFromPayInstruction({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayInstructionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayInstructionId **required** `string`: The pay instruction unique identifier. E.g. SAL001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### GetPayInstructionsFromEmployee
 Get links to all pay instructions for the specified employee
@@ -590,8 +1064,8 @@ payrun.GetPayInstructionsFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -614,14 +1088,87 @@ payrun.PostPayInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayInstruction **required** [PayInstruction](#payinstruction)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [Link](#link)
+
+### GetPayInstructionsWithTag
+Gets the pay instructions with the tag
+
+
+```js
+payrun.GetPayInstructionsWithTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllPayInstructionTags
+Gets all the pay instruction tags
+
+
+```js
+payrun.GetAllPayInstructionTags({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetPayLineWithTag
+Gets the pay lines with the tag
+
+
+```js
+payrun.GetPayLineWithTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### GetPayLineFromEmployee
 Returns the specified pay line from employee
@@ -639,14 +1186,120 @@ payrun.GetPayLineFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * PayLineId **required** `string`: The pay line unique identifier. E.g. PL001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [PayLine](#payline)
+
+### DeletePayLineTag
+Deletes a tag from the pay line
+
+
+```js
+payrun.DeletePayLineTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayLineId **required** `string`: The pay line unique identifier. E.g. PL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromPayLine
+Gets the tag from the pay line
+
+
+```js
+payrun.GetTagFromPayLine({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayLineId **required** `string`: The pay line unique identifier. E.g. PL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutPayLineTag
+Inserts a new tag on the pay line
+
+
+```js
+payrun.PutPayLineTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayLineId **required** `string`: The pay line unique identifier. E.g. PL001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromPayLine
+Gets all the tags from the pay line
+
+
+```js
+payrun.GetTagsFromPayLine({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "PayLineId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * PayLineId **required** `string`: The pay line unique identifier. E.g. PL001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### GetPayLinesFromEmployee
 Get links to all pay lines for the specified employee
@@ -663,8 +1316,56 @@ payrun.GetPayLinesFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetPayLinesWithTag
+Gets the pay line with the tag
+
+
+```js
+payrun.GetPayLinesWithTag({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllPayLineTags
+Gets all the pay line tags
+
+
+```js
+payrun.GetAllPayLineTags({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -686,13 +1387,63 @@ payrun.GetPayRunsFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [LinkCollection](#linkcollection)
+
+### DeleteEmployeeRevisionByNumber
+Deletes the specified employee revision for the matching revision number
+
+
+```js
+payrun.DeleteEmployeeRevisionByNumber({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetEmployeeRevisionByNumber
+Get the employee revision matching the specified revision number
+
+
+```js
+payrun.GetEmployeeRevisionByNumber({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Employee](#employee)
 
 ### GetEmployeeRevisions
 Gets links to all employee revisions
@@ -709,13 +1460,134 @@ payrun.GetEmployeeRevisions({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [LinkCollection](#linkcollection)
+
+### DeleteEmployeeSecret
+Deletes an employee secret from the given resource location
+
+
+```js
+payrun.DeleteEmployeeSecret({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetEmployeeSecret
+Get the public visible employee secret object
+
+
+```js
+payrun.GetEmployeeSecret({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [EmployeeSecret](#employeesecret)
+
+### PutEmployeeSecret
+Create / update an employee secret at the given resource location
+
+
+```js
+payrun.PutEmployeeSecret({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [EmployeeSecret](#employeesecret)
+
+### GetEmployeeSecrets
+Get all the employee secret links
+
+
+```js
+payrun.GetEmployeeSecrets({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostEmployeeSecret
+Create new employee secret using auto generated resource location key
+
+
+```js
+payrun.PostEmployeeSecret({
+  "EmployerId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
 
 ### DeleteEmployeeTag
 Deletes a tag from the employee
@@ -733,8 +1605,8 @@ payrun.DeleteEmployeeTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -758,8 +1630,8 @@ payrun.GetTagFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -783,8 +1655,8 @@ payrun.PutEmployeeTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -809,8 +1681,8 @@ payrun.GetTagFromEmployeeRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -834,8 +1706,8 @@ payrun.GetTagsFromEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -858,8 +1730,8 @@ payrun.GetTagsFromEmployeeRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -883,8 +1755,8 @@ payrun.DeleteEmployeeRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -908,8 +1780,8 @@ payrun.GetEmployeeByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -931,7 +1803,7 @@ payrun.GetEmployeesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -953,7 +1825,7 @@ payrun.PostEmployeeIntoEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Employee **required** [Employee](#employee)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -976,7 +1848,7 @@ payrun.GetEmployeesWithTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -998,7 +1870,7 @@ payrun.GetAllEmployeeTags({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1020,7 +1892,510 @@ payrun.GetEmployeesByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetHolidaySchemeWithTag
+Gets the holiday schemes with the tag
+
+
+```js
+payrun.GetHolidaySchemeWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteHolidayScheme
+Delete the specified holiday scheme
+
+
+```js
+payrun.DeleteHolidayScheme({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetHolidaySchemeFromEmployer
+Gets the specified holiday scheme from employer.
+
+
+```js
+payrun.GetHolidaySchemeFromEmployer({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [HolidayScheme](#holidayscheme)
+
+### PatchHolidayScheme
+Patches the specified holiday scheme with the supplied values
+
+
+```js
+payrun.PatchHolidayScheme({
+  "HolidayScheme": {},
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * HolidayScheme **required** [HolidayScheme](#holidayscheme)
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [HolidayScheme](#holidayscheme)
+
+### PutHolidaySchemeIntoEmployer
+Updates the existing specified holiday scheme object
+
+
+```js
+payrun.PutHolidaySchemeIntoEmployer({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "HolidayScheme": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * HolidayScheme **required** [HolidayScheme](#holidayscheme)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [HolidayScheme](#holidayscheme)
+
+### DeleteHolidaySchemeRevisionByNumber
+Deletes the specified holiday scheme revision for the matching revision number
+
+
+```js
+payrun.DeleteHolidaySchemeRevisionByNumber({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetHolidaySchemeRevisionByNumber
+Get the holiday scheme revision matching the specified revision number
+
+
+```js
+payrun.GetHolidaySchemeRevisionByNumber({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [HolidayScheme](#holidayscheme)
+
+### GetHolidaySchemeRevisions
+Gets links to all the holiday scheme revisions
+
+
+```js
+payrun.GetHolidaySchemeRevisions({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteHolidaySchemeTag
+Deletes a tag from the holiday scheme
+
+
+```js
+payrun.DeleteHolidaySchemeTag({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromHolidayScheme
+Gets the tag from the holiday scheme
+
+
+```js
+payrun.GetTagFromHolidayScheme({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutHolidaySchemeTag
+Inserts a new tag on the holiday scheme
+
+
+```js
+payrun.PutHolidaySchemeTag({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagFromHolidaySchemeRevision
+Gets the tag from the holiday scheme revision
+
+
+```js
+payrun.GetTagFromHolidaySchemeRevision({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "TagId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromHolidayScheme
+Gets all the tags from the holiday scheme
+
+
+```js
+payrun.GetTagsFromHolidayScheme({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetTagsFromHolidaySchemeRevision
+Gets all the tags from the holiday scheme revision
+
+
+```js
+payrun.GetTagsFromHolidaySchemeRevision({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteHolidaySchemeRevision
+Deletes the specified holiday scheme revision for the matching revision date
+
+
+```js
+payrun.DeleteHolidaySchemeRevision({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetHolidaySchemeByEffectiveDate
+Returns the holiday scheme's state at the specified effective date.
+
+
+```js
+payrun.GetHolidaySchemeByEffectiveDate({
+  "EmployerId": "",
+  "HolidaySchemeId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidaySchemeId **required** `string`: The holiday schemes' unique identifier. E.g HOLSCH001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [HolidayScheme](#holidayscheme)
+
+### GetHolidaySchemesFromEmployer
+Get links to all holiday schemes for the specified employer.
+
+
+```js
+payrun.GetHolidaySchemesFromEmployer({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostHolidaySchemeIntoEmployer
+Create a new holiday scheme object
+
+
+```js
+payrun.PostHolidaySchemeIntoEmployer({
+  "EmployerId": "",
+  "HolidayScheme": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * HolidayScheme **required** [HolidayScheme](#holidayscheme)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### GetHolidaySchemesWithTag
+Gets the holiday scheme with the tag
+
+
+```js
+payrun.GetHolidaySchemesWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllHolidaySchemeTags
+Gets all the holiday scheme tags
+
+
+```js
+payrun.GetAllHolidaySchemeTags({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetHolidaySchemesByEffectiveDate
+Get links to all holiday schemes for the employer on specified effective date.
+
+
+```js
+payrun.GetHolidaySchemesByEffectiveDate({
+  "EmployerId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1043,7 +2418,7 @@ payrun.DeleteNominalCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * NominalCodeId **required** `string`: The nominal code unique identifier. E.g. NOM001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1066,7 +2441,7 @@ payrun.GetNominalCodeFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * NominalCodeId **required** `string`: The nominal code unique identifier. E.g. NOM001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1090,7 +2465,7 @@ payrun.PutNominalCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * NominalCodeId **required** `string`: The nominal code unique identifier. E.g. NOM001
   * NominalCode **required** [NominalCode](#nominalcode)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -1098,6 +2473,29 @@ payrun.PutNominalCode({
 
 #### Output
 * output [NominalCode](#nominalcode)
+
+### GetPayCodesFromNominalCode
+Get the pay codes that share the specified nominal code
+
+
+```js
+payrun.GetPayCodesFromNominalCode({
+  "EmployerId": "",
+  "NominalCodeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * NominalCodeId **required** `string`: The nominal code unique identifier. E.g. NOM001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### GetNominalCodesFromEmployer
 Gets the nominal code links
@@ -1113,7 +2511,7 @@ payrun.GetNominalCodesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1135,7 +2533,7 @@ payrun.PostNominalCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * NominalCode **required** [NominalCode](#nominalcode)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1158,8 +2556,8 @@ payrun.DeletePayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1181,8 +2579,8 @@ payrun.GetPayCodeFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1205,8 +2603,8 @@ payrun.PatchPayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * PayCode **required** [PayCode](#paycode)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1230,9 +2628,59 @@ payrun.PutPayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * PayCode **required** [PayCode](#paycode)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [PayCode](#paycode)
+
+### DeletePayCodeRevisionByNumber
+Deletes the specified pay code revision for the matching revision number
+
+
+```js
+payrun.DeletePayCodeRevisionByNumber({
+  "EmployerId": "",
+  "PayCodeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetPayCodeRevisionByNumber
+Get the pay code revision matching the specified revision number
+
+
+```js
+payrun.GetPayCodeRevisionByNumber({
+  "EmployerId": "",
+  "PayCodeId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1254,8 +2702,8 @@ payrun.GetPayCodeRevisions({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1278,8 +2726,8 @@ payrun.DeletePayCodeTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1303,8 +2751,8 @@ payrun.GetTagFromPayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1328,8 +2776,8 @@ payrun.PutPayCodeTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1352,8 +2800,8 @@ payrun.GetTagsFromPayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1376,8 +2824,8 @@ payrun.DeletePayCodeRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1401,8 +2849,8 @@ payrun.GetPayCodeByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayCodeId **required** `string`: The pay code unique identifier. E.g. CODE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayCodeId **required** `string`: The pay code unique identifier. E.g. BASIC
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1424,7 +2872,7 @@ payrun.GetPayCodesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1446,7 +2894,7 @@ payrun.PostPayCode({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * PayCode **required** [PayCode](#paycode)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1469,7 +2917,7 @@ payrun.GetPayCodesWithTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1491,7 +2939,7 @@ payrun.GetAllPayCodeTags({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1513,7 +2961,7 @@ payrun.GetPayCodesByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1536,8 +2984,8 @@ payrun.DeletePaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1559,8 +3007,8 @@ payrun.GetPayScheduleFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1583,8 +3031,8 @@ payrun.PutPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * PaySchedule **required** [PaySchedule](#payschedule)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1593,7 +3041,7 @@ payrun.PutPaySchedule({
 * output [PaySchedule](#payschedule)
 
 ### GetEmployeesFromPaySchedule
-Gets links to all employees included in the specified pay schedule.
+Gets links to all employee revisions that have ever existed in the specified pay schedule.
 
 
 ```js
@@ -1607,8 +3055,33 @@ payrun.GetEmployeesFromPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetEmployeesFromPayScheduleOnEffectiveDate
+Gets links to all employee revisions in the specified pay schedule for the given effective date.
+
+
+```js
+payrun.GetEmployeesFromPayScheduleOnEffectiveDate({
+  "EmployerId": "",
+  "PayScheduleId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1631,9 +3104,9 @@ payrun.DeletePayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1656,9 +3129,9 @@ payrun.GetPayRunFromPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1681,9 +3154,9 @@ payrun.GetAEAssessmentsFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1706,9 +3179,9 @@ payrun.GetCommentariesFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1732,15 +3205,42 @@ payrun.DeletePayRunEmployee({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
-  * EmployeeId **required** `string`: The employee's unique identifier. E.g EE001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 *Output schema unknown*
+
+### GetCommentaryFromPayRunByEmployee
+Get commentary from payrun by specified employee.
+
+
+```js
+payrun.GetCommentaryFromPayRunByEmployee({
+  "EmployerId": "",
+  "PayScheduleId": "",
+  "PayRunId": "",
+  "EmployeeId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
+  * EmployeeId **required** `string`: The employees' unique identifier. E.g EE001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Commentary](#commentary)
 
 ### GetEmployeesFromPayRun
 Gets links to all employees included in the specified pay run.
@@ -1758,9 +3258,9 @@ payrun.GetEmployeesFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1783,9 +3283,9 @@ payrun.GetReportLinesFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1809,9 +3309,9 @@ payrun.DeletePayRunTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1836,9 +3336,9 @@ payrun.GetTagFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1863,9 +3363,9 @@ payrun.PutPayRunTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1889,9 +3389,9 @@ payrun.GetTagsFromPayRun({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
-  * PayRunId **required** `string`: The pay run's unique identifier. E.g. PR001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
+  * PayRunId **required** `string`: The pay runs' unique identifier. E.g. PR001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1913,8 +3413,8 @@ payrun.GetPayRunsFromPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1937,8 +3437,8 @@ payrun.GetPayRunsWithTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -1961,8 +3461,8 @@ payrun.GetAllPayRunTags({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -1985,8 +3485,8 @@ payrun.DeletePayScheduleTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2010,8 +3510,8 @@ payrun.GetTagFromPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2035,8 +3535,8 @@ payrun.PutPayScheduleTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2059,8 +3559,8 @@ payrun.GetTagsFromPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PayScheduleId **required** `string`: The pay schedule's unique identifier. E.g SCH001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PayScheduleId **required** `string`: The pay schedules' unique identifier. E.g SCH001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2081,7 +3581,7 @@ payrun.GetPaySchedulesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2103,7 +3603,7 @@ payrun.PostPaySchedule({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * PaySchedule **required** [PaySchedule](#payschedule)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2126,7 +3626,7 @@ payrun.GetPaySchedulesWithTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2148,7 +3648,7 @@ payrun.GetAllPayScheduleTags({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2170,8 +3670,8 @@ payrun.DeletePension({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2193,8 +3693,8 @@ payrun.GetPensionFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2218,8 +3718,8 @@ payrun.PatchPension({
 #### Input
 * input `object`
   * Pension **required** [Pension](#pension)
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2242,9 +3742,59 @@ payrun.PutPensionIntoEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * Pension **required** [Pension](#pension)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Pension](#pension)
+
+### DeletePensionRevisionByNumber
+Deletes the specified pension revision for the matching revision number
+
+
+```js
+payrun.DeletePensionRevisionByNumber({
+  "EmployerId": "",
+  "PensionId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetPensionRevisionByNumber
+Get the pension revision matching the specified revision number
+
+
+```js
+payrun.GetPensionRevisionByNumber({
+  "EmployerId": "",
+  "PensionId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2266,8 +3816,8 @@ payrun.GetPensionRevisions({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2290,8 +3840,8 @@ payrun.DeletePensionRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2315,8 +3865,8 @@ payrun.GetPensionByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
-  * PensionId **required** `string`: The pension's unique identifier. E.g PEN001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * PensionId **required** `string`: The pensions' unique identifier. E.g PEN001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2338,7 +3888,7 @@ payrun.GetPensionsFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2360,7 +3910,7 @@ payrun.PostPensionIntoEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Pension **required** [Pension](#pension)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2383,7 +3933,7 @@ payrun.GetPensionsByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2406,7 +3956,7 @@ payrun.GetReportLineFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * ReportLineId **required** `string`: The report line unique identifier. E.g. RTL001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2428,7 +3978,7 @@ payrun.GetReportLinesFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2450,7 +4000,7 @@ payrun.DeleteReportingInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * ReportingInstructionId **required** `string`: The reporting instruction unique identifier. E.g. SERRPT001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2473,7 +4023,7 @@ payrun.GetReportingInstructionFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * ReportingInstructionId **required** `string`: The reporting instruction unique identifier. E.g. SERRPT001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2497,7 +4047,7 @@ payrun.PutReportingInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * ReportingInstructionId **required** `string`: The reporting instruction unique identifier. E.g. SERRPT001
   * ReportingInstruction **required** [ReportingInstruction](#reportinginstruction)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -2520,7 +4070,7 @@ payrun.GetReportingInstructionsFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2542,13 +4092,59 @@ payrun.PostReportingInstruction({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * ReportingInstruction **required** [ReportingInstruction](#reportinginstruction)
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [Link](#link)
+
+### DeleteEmployerRevisionByNumber
+Deletes the specified employer revision for the matching revision number
+
+
+```js
+payrun.DeleteEmployerRevisionByNumber({
+  "EmployerId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetEmployerRevisionByNumber
+Get the employer revision matching the specified revision number
+
+
+```js
+payrun.GetEmployerRevisionByNumber({
+  "EmployerId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Employer](#employer)
 
 ### GetEmployerRevisions
 Gets links to all the employer revisions
@@ -2564,12 +4160,35 @@ payrun.GetEmployerRevisions({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [LinkCollection](#linkcollection)
+
+### DeleteRtiTransaction
+Deletes the specified RTI transaction
+
+
+```js
+payrun.DeleteRtiTransaction({
+  "EmployerId": "",
+  "RtiTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
 
 ### GetRtiTransactionFromEmployer
 Returns the specified RTI transaction
@@ -2586,13 +4205,111 @@ payrun.GetRtiTransactionFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output [RtiTransactionBase](#rtitransactionbase)
+
+### DeleteRtiTransactionTag
+Deletes a tag from the RTI transaction
+
+
+```js
+payrun.DeleteRtiTransactionTag({
+  "EmployerId": "",
+  "RtiTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromRtiTransaction
+Gets the tag from the RTI transaction
+
+
+```js
+payrun.GetTagFromRtiTransaction({
+  "EmployerId": "",
+  "RtiTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutRtiTransactionTag
+Inserts a new tag on the RTI transaction
+
+
+```js
+payrun.PutRtiTransactionTag({
+  "EmployerId": "",
+  "RtiTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromRtiTransaction
+Gets all the tags from the RTI transaction
+
+
+```js
+payrun.GetTagsFromRtiTransaction({
+  "EmployerId": "",
+  "RtiTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * RtiTransactionId **required** `string`: The RTI transaction unique identifier. E.g. FPS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
 
 ### GetRtiTransactionsFromEmployer
 Get links for all RTI transactions for the specified employer
@@ -2608,7 +4325,1246 @@ payrun.GetRtiTransactionsFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetRtiTransactionsWithTag
+Gets the RTI transactions with the tag
+
+
+```js
+payrun.GetRtiTransactionsWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllRtiTransactionTags
+Gets all the RTI transaction tags
+
+
+```js
+payrun.GetAllRtiTransactionTags({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteEmployerSecret
+Deletes an employer secret from the given resource location
+
+
+```js
+payrun.DeleteEmployerSecret({
+  "EmployerId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetEmployerSecret
+Get the public visible employer secret object
+
+
+```js
+payrun.GetEmployerSecret({
+  "EmployerId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [EmployerSecret](#employersecret)
+
+### PutEmployerSecret
+Create / update an employer secret at the given resource location
+
+
+```js
+payrun.PutEmployerSecret({
+  "EmployerId": "",
+  "SecretId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SecretId **required** `string`: The secret unique identifier. E.g ERSEC001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [EmployerSecret](#employersecret)
+
+### GetEmployerSecrets
+Get all the employer secret links
+
+
+```js
+payrun.GetEmployerSecrets({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostEmployerSecret
+Create new employer secret using auto generated resource location key
+
+
+```js
+payrun.PostEmployerSecret({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### GetSubContractorWithTag
+Gets the sub contractors with the tag
+
+
+```js
+payrun.GetSubContractorWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteSubContractor
+Delete the specified sub contractor
+
+
+```js
+payrun.DeleteSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetSubContractorFromEmployer
+Gets the specified sub contractor from employer.
+
+
+```js
+payrun.GetSubContractorFromEmployer({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [SubContractor](#subcontractor)
+
+### PatchSubContractor
+Patches the specified sub contractor with the supplied values
+
+
+```js
+payrun.PatchSubContractor({
+  "SubContractor": {},
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubContractor **required** [SubContractor](#subcontractor)
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [SubContractor](#subcontractor)
+
+### PutSubContractorIntoEmployer
+Updates the existing specified sub contractor object
+
+
+```js
+payrun.PutSubContractorIntoEmployer({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "SubContractor": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * SubContractor **required** [SubContractor](#subcontractor)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [SubContractor](#subcontractor)
+
+### GetCisInstructionWithTag
+Gets the CIS instructions with the tag
+
+
+```js
+payrun.GetCisInstructionWithTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteCisInstruction
+Delete the specified CIS instruction
+
+
+```js
+payrun.DeleteCisInstruction({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisInstructionFromSubContractor
+Gets the specified CIS instruction from sub contractor.
+
+
+```js
+payrun.GetCisInstructionFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisInstruction](#cisinstruction)
+
+### PatchCisInstruction
+Update an existing CIS instruction object
+
+
+```js
+payrun.PatchCisInstruction({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisInstruction](#cisinstruction)
+
+### PutCisInstructionIntoSubContractor
+Insert or update existing CIS instruction object
+
+
+```js
+payrun.PutCisInstructionIntoSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "CisInstruction": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * CisInstruction **required** [CisInstruction](#cisinstruction)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisInstruction](#cisinstruction)
+
+### DeleteCisInstructionTag
+Deletes a tag from the CIS instruction
+
+
+```js
+payrun.DeleteCisInstructionTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromCisInstruction
+Gets the tag from the CIS instruction
+
+
+```js
+payrun.GetTagFromCisInstruction({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutCisInstructionTag
+Inserts a new tag on the CIS instruction
+
+
+```js
+payrun.PutCisInstructionTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromCisInstruction
+Gets all the tags from the CIS instruction
+
+
+```js
+payrun.GetTagsFromCisInstruction({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstructionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstructionId **required** `string`: The CIS instruction unique identifier. E.g. CIS001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetCisInstructionsFromSubContractor
+Get links to all CIS instructions for the specified sub contractor.
+
+
+```js
+payrun.GetCisInstructionsFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostCisInstructionIntoSubContractor
+Create a new CIS instruction object
+
+
+```js
+payrun.PostCisInstructionIntoSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisInstruction": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisInstruction **required** [CisInstruction](#cisinstruction)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### GetCisInstructionsWithTag
+Gets the CIS instruction with the tag
+
+
+```js
+payrun.GetCisInstructionsWithTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllCisInstructionTags
+Gets all the CIS instruction tags
+
+
+```js
+payrun.GetAllCisInstructionTags({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetCisLineWithTag
+Gets the CIS lines with the tag
+
+
+```js
+payrun.GetCisLineWithTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteCisLine
+Delete the specified CIS line
+
+
+```js
+payrun.DeleteCisLine({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisLineFromSubContractor
+Gets the specified CIS line from sub contractor.
+
+
+```js
+payrun.GetCisLineFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [CisLine](#cisline)
+
+### DeleteCisLineTag
+Deletes a tag from the CIS line
+
+
+```js
+payrun.DeleteCisLineTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromCisLine
+Gets the tag from the CIS line
+
+
+```js
+payrun.GetTagFromCisLine({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutCisLineTag
+Inserts a new tag on the CIS line
+
+
+```js
+payrun.PutCisLineTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromCisLine
+Gets all the tags from the CIS line
+
+
+```js
+payrun.GetTagsFromCisLine({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "CisLineId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * CisLineId **required** `string`: The CIS line unique identifier. E.g. CISLN001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetCisLinesFromSubContractor
+Get links to all CIS lines for the specified sub contractor.
+
+
+```js
+payrun.GetCisLinesFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetCisLinesWithTag
+Gets the CIS line with the tag
+
+
+```js
+payrun.GetCisLinesWithTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllCisLineTags
+Gets all the CIS line tags
+
+
+```js
+payrun.GetAllCisLineTags({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteSubContractorRevisionByNumber
+Deletes the specified sub contractor revision for the matching revision number
+
+
+```js
+payrun.DeleteSubContractorRevisionByNumber({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetSubContractorRevisionByNumber
+Get the sub contractor revision matching the specified revision number
+
+
+```js
+payrun.GetSubContractorRevisionByNumber({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "RevisionNumber": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * RevisionNumber **required** `string`: The revision number. E.g. 1
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [SubContractor](#subcontractor)
+
+### GetSubContractorRevisions
+Gets links to all the sub contractor revisions
+
+
+```js
+payrun.GetSubContractorRevisions({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteSubContractorTag
+Deletes a tag from the sub contractor
+
+
+```js
+payrun.DeleteSubContractorTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromSubContractor
+Gets the tag from the sub contractor
+
+
+```js
+payrun.GetTagFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutSubContractorTag
+Inserts a new tag on the sub contractor
+
+
+```js
+payrun.PutSubContractorTag({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagFromSubContractorRevision
+Gets the tag from the sub contractor revision
+
+
+```js
+payrun.GetTagFromSubContractorRevision({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "TagId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromSubContractor
+Gets all the tags from the sub contractor
+
+
+```js
+payrun.GetTagsFromSubContractor({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetTagsFromSubContractorRevision
+Gets all the tags from the sub contractor revision
+
+
+```js
+payrun.GetTagsFromSubContractorRevision({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteSubContractorRevision
+Deletes the specified sub contractor revision for the matching revision date
+
+
+```js
+payrun.DeleteSubContractorRevision({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetSubContractorByEffectiveDate
+Returns the sub contractor's state at the specified effective date.
+
+
+```js
+payrun.GetSubContractorByEffectiveDate({
+  "EmployerId": "",
+  "SubContractorId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractorId **required** `string`: The sub contractors' unique identifier. E.g SUB001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [SubContractor](#subcontractor)
+
+### GetSubContractorsFromEmployer
+Get links to all sub contractors for the specified employer.
+
+
+```js
+payrun.GetSubContractorsFromEmployer({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostSubContractorIntoEmployer
+Create a new sub contractor object
+
+
+```js
+payrun.PostSubContractorIntoEmployer({
+  "EmployerId": "",
+  "SubContractor": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * SubContractor **required** [SubContractor](#subcontractor)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### GetSubContractorsWithTag
+Gets the sub contractor with the tag
+
+
+```js
+payrun.GetSubContractorsWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllSubContractorTags
+Gets all the sub contractor tags
+
+
+```js
+payrun.GetAllSubContractorTags({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetSubContractorsByEffectiveDate
+Get links to all sub contractors for the employer on specified effective date.
+
+
+```js
+payrun.GetSubContractorsByEffectiveDate({
+  "EmployerId": "",
+  "EffectiveDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2630,7 +5586,7 @@ payrun.DeleteEmployerTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2653,7 +5609,7 @@ payrun.GetTagFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2676,7 +5632,7 @@ payrun.PutEmployerTag({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2700,7 +5656,7 @@ payrun.GetTagFromEmployerRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * TagId **required** `string`: The tag unique identifier. E.g. MyTag
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -2723,7 +5679,7 @@ payrun.GetTagsFromEmployer({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2745,8 +5701,217 @@ payrun.GetTagsFromEmployerRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### DeleteThirdPartyTransaction
+Deletes a third party transaction record from the given resource location
+
+
+```js
+payrun.DeleteThirdPartyTransaction({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetThirdPartyTransaction
+Get a third party transaction
+
+
+```js
+payrun.GetThirdPartyTransaction({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [ThirdPartyTransaction](#thirdpartytransaction)
+
+### DeleteThirdPartyTransactionTag
+Deletes a tag from the third party transaction
+
+
+```js
+payrun.DeleteThirdPartyTransactionTag({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetTagFromThirdPartyTransaction
+Gets a tag from the third party transaction
+
+
+```js
+payrun.GetTagFromThirdPartyTransaction({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### PutThirdPartyTransactionTag
+Inserts a tag on the third party transaction
+
+
+```js
+payrun.PutThirdPartyTransactionTag({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Tag](#tag)
+
+### GetTagsFromThirdPartyTransaction
+Gets all tags from the third party transaction
+
+
+```js
+payrun.GetTagsFromThirdPartyTransaction({
+  "EmployerId": "",
+  "ThirdPartyTransactionId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * ThirdPartyTransactionId **required** `string`: The third party transaction unique identifier. E.g TP001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetThirdPartyTransactions
+Get all third party transaction links
+
+
+```js
+payrun.GetThirdPartyTransactions({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllThirdPartyTransactionsWithTag
+Gets the third party transactions with the specified tag
+
+
+```js
+payrun.GetAllThirdPartyTransactionsWithTag({
+  "EmployerId": "",
+  "TagId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * TagId **required** `string`: The tag unique identifier. E.g. MyTag
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### GetAllThirdPartyTransactionTags
+Gets all the third party transaction tags
+
+
+```js
+payrun.GetAllThirdPartyTransactionTags({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -2768,7 +5933,7 @@ payrun.DeleteEmployerRevision({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2791,7 +5956,7 @@ payrun.GetEmployerByEffectiveDate({
 
 #### Input
 * input `object`
-  * EmployerId **required** `string`: The employer's unique identifier. E.g ER001
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
   * EffectiveDate **required** `string`: The effective date to be applied. E.g 2016-04-06
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
@@ -2913,6 +6078,254 @@ payrun.GetHealthCheck(null, context)
 
 #### Output
 * output [HealthCheck](#healthcheck)
+
+### GetBatchJobs
+Gets all the Batch jobs
+
+
+```js
+payrun.GetBatchJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostNewBatchJob
+Adds a new Batch job to the queue and returns the job info
+
+
+```js
+payrun.PostNewBatchJob({
+  "BatchJobInstruction": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * BatchJobInstruction **required** [BatchJobInstruction](#batchjobinstruction)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### DeleteBatchJob
+Deletes the the Batch job
+
+
+```js
+payrun.DeleteBatchJob({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetBatchJobInfo
+Return the the Batch job information
+
+
+```js
+payrun.GetBatchJobInfo({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [JobInfo](#jobinfo)
+
+### GetBatchJobProgress
+Return the the Batch job progress
+
+
+```js
+payrun.GetBatchJobProgress({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetBatchJobStatus
+Return the the Batch job status
+
+
+```js
+payrun.GetBatchJobStatus({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisJobs
+Gets all the CIS jobs
+
+
+```js
+payrun.GetCisJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostNewCisJob
+Adds a new CIS job to the queue and returns the job info
+
+
+```js
+payrun.PostNewCisJob({
+  "CisJobInstructionBase": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CisJobInstructionBase **required** [CisJobInstructionBase](#cisjobinstructionbase)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### DeleteCisJob
+Deletes the the CIS job
+
+
+```js
+payrun.DeleteCisJob({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisJobInfo
+Return the the CIS job information
+
+
+```js
+payrun.GetCisJobInfo({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [JobInfo](#jobinfo)
+
+### GetCisJobProgress
+Return the the CIS job progress
+
+
+```js
+payrun.GetCisJobProgress({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetCisJobStatus
+Return the the CIS job status
+
+
+```js
+payrun.GetCisJobStatus({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
 
 ### GetDpsJobs
 Gets all the DPS jobs
@@ -3037,6 +6450,27 @@ payrun.GetDpsJobStatus({
 
 #### Output
 *Output schema unknown*
+
+### GetEmployerJobs
+Returns all job information objects for the specified employer.
+
+
+```js
+payrun.GetEmployerJobs({
+  "EmployerId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerId **required** `string`: The employers' unique identifier. E.g ER001
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
 
 ### GetPayRunJobs
 Gets all the pay run jobs
@@ -3286,6 +6720,130 @@ payrun.GetRtiJobStatus({
 #### Output
 *Output schema unknown*
 
+### GetThirdPartyJobs
+Gets all the Third Party jobs
+
+
+```js
+payrun.GetThirdPartyJobs({
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [LinkCollection](#linkcollection)
+
+### PostNewThirdPartyJob
+Adds a new Third Party job to the queue and returns the job info
+
+
+```js
+payrun.PostNewThirdPartyJob({
+  "ThirdPartyJobInstruction": {},
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ThirdPartyJobInstruction **required** [ThirdPartyJobInstruction](#thirdpartyjobinstruction)
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [Link](#link)
+
+### DeleteThirdPartyJob
+Deletes the the Third Party job
+
+
+```js
+payrun.DeleteThirdPartyJob({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetThirdPartyJobInfo
+Return the the Third Party job information
+
+
+```js
+payrun.GetThirdPartyJobInfo({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output [JobInfo](#jobinfo)
+
+### GetThirdPartyJobProgress
+Return the the Third Party job progress
+
+
+```js
+payrun.GetThirdPartyJobProgress({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
+### GetThirdPartyJobStatus
+Return the the Third Party job status
+
+
+```js
+payrun.GetThirdPartyJobStatus({
+  "JobId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`: The job unique identifier.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+*Output schema unknown*
+
 ### GetQueryResponse
 Get the results for the specified query
 
@@ -3315,7 +6873,7 @@ Returns the result of the executed active pay instructions report for the given 
 payrun.GetActivePayInstructionsReportOutput({
   "EmployerKey": "",
   "EmployeeKey": "",
-  "ActiveOn": "",
+  "FromDate": "",
   "Authorization": "",
   "Api-Version": ""
 }, context)
@@ -3325,8 +6883,37 @@ payrun.GetActivePayInstructionsReportOutput({
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * EmployeeKey **required** `string`: The employee unique key. E.g. EE001
-  * ActiveOn **required** `string`: The active date to consider. E.g 2017-04-05
+  * ActiveOn `string`: The active date to consider. E.g 2017-04-05
+  * FromDate **required** `string`: The lower filter date. E.g 2016-04-06
+  * ToDate `string`: The upper filter date. E.g 2017-04-05
   * Type `string`: the data type to filter on. E.g. TaxPayInstruction
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
+### GetAoeLiabilityReportOuput
+Returns the result of the executed AOE liability report for the given query parameters
+
+
+```js
+payrun.GetAoeLiabilityReportOuput({
+  "EmployerKey": "",
+  "PayScheduleKey": "",
+  "TaxYear": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
+  * TaxPeriod `string`: The tax period number.
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3361,6 +6948,29 @@ payrun.GetDpsMessageReportOutput({
 #### Output
 * output `file`
 
+### GetEmployerSummaryReportOuput
+Returns the result of the employer summary report for the given query parameters
+
+
+```js
+payrun.GetEmployerSummaryReportOuput({
+  "EmployerKey": "",
+  "ContextDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * ContextDate **required** `string`: The date context for the report. E.g. 2018-04-30
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
 ### GetGrossToNetReportOutput
 Returns the result of the executed gross to net report for the given query parameters
 
@@ -3389,14 +6999,14 @@ payrun.GetGrossToNetReportOutput({
 #### Output
 * output `file`
 
-### GetLastPayDateReportOuput
-Returns the result of the executed last pay date report for the given query parameters
+### GetHolidayBalanceReportOuput
+Returns the result of the executed holiday balance report for the given query parameters
 
 
 ```js
-payrun.GetLastPayDateReportOuput({
+payrun.GetHolidayBalanceReportOuput({
   "EmployerKey": "",
-  "EmployeeKey": "",
+  "HolidayYearEnd": "",
   "Authorization": "",
   "Api-Version": ""
 }, context)
@@ -3405,7 +7015,32 @@ payrun.GetLastPayDateReportOuput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
-  * EmployeeKey **required** `string`: The employee unique key. E.g. EE001
+  * HolidayYearEnd **required** `string`: The holiday year end for the report. E.g. 2018-12-31
+  * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
+  * StartIndex `string`: The element index to begin the report. Used to control paging within large data sets. E.g. 1
+  * MaxIndex `string`: The highest element index to return from the report. Used to control paging within large data sets. E.g. 100
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
+### GetLastPayDateReportOuput
+Returns the result of the executed last pay date report for the given query parameters
+
+
+```js
+payrun.GetLastPayDateReportOuput({
+  "EmployerKey": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * OptEmployeeKey `string`: The optional employee unique key. E.g. EE001
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -3482,7 +7117,6 @@ payrun.GetP11SummaryReportOutput({
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
   * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
-  * TaxPeriod `string`: The tax period number.
   * StartIndex `string`: The element index to begin the report. Used to control paging within large data sets. E.g. 1
   * MaxIndex `string`: The highest element index to return from the report. Used to control paging within large data sets. E.g. 100
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
@@ -3588,14 +7222,17 @@ payrun.GetP60ReportOutput({
 #### Output
 * output `file`
 
-### GetPayslipReportOutput
-Returns the result of the executed payslip report for the given query parameters
+### GetPapdisReportOuput
+Returns the result of the executed PAPDIS report. PAPDIS is a free and open data interface standard designed to allow payroll and middleware software developers to create a file that can be used by pension providers to exchange data. http://www.papdis.org
 
 
 ```js
-payrun.GetPayslipReportOutput({
+payrun.GetPapdisReportOuput({
   "EmployerKey": "",
+  "PayScheduleKey": "",
   "TaxYear": "",
+  "PensionKey": "",
+  "MessageFunctionCode": "",
   "Authorization": "",
   "Api-Version": ""
 }, context)
@@ -3604,24 +7241,90 @@ payrun.GetPayslipReportOutput({
 #### Input
 * input `object`
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
   * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
-  * TaxPeriod `string`: The tax period number.
-  * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
-  * StartIndex `string`: The element index to begin the report. Used to control paging within large data sets. E.g. 1
-  * MaxIndex `string`: The highest element index to return from the report. Used to control paging within large data sets. E.g. 100
   * PaymentDate `string`: The payment date context for the report. E.g. 2018-04-30
+  * PensionKey **required** `string`: The pension scheme unique key. E.g. PENSCH001
+  * MessageFunctionCode **required** `string`: Specific to PAPDIS report, specifies the business function that the sender is requesting. If left BLANK it will be assumed to be 0 (Enrol / Receive Contributions).
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output `file`
 
-### GetPayslip2ReportOutput
-Returns the result of the executed concise payslip report for the given query parameters
+### GetPassReportOuput
+Returns the result of the executed PASS report. PASS stands for Payroll and Systemsync. PASS 1.1 is an extension of the PAPDIS V1.1 schema. https://pensionsynckb.systemsyncsolutions.com/display/PKB/PASS+1.1
 
 
 ```js
-payrun.GetPayslip2ReportOutput({
+payrun.GetPassReportOuput({
+  "EmployerKey": "",
+  "PayScheduleKey": "",
+  "TaxYear": "",
+  "PensionKey": "",
+  "MessageFunctionCode": "",
+  "IntermediaryId": "",
+  "DocumentId": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
+  * PaymentDate `string`: The payment date context for the report. E.g. 2018-04-30
+  * PensionKey **required** `string`: The pension scheme unique key. E.g. PENSCH001
+  * MessageFunctionCode **required** `string`: Specific to PAPDIS report, specifies the business function that the sender is requesting. If left BLANK it will be assumed to be 0 (Enrol / Receive Contributions).
+  * IntermediaryId **required** `string`: Specific to PensionSync PASS report, a unique identifier for the Intermediary who is acting on behalf of the employer.
+  * DocumentId **required** `string`: Specific to PensionSync PASS report, a document identifier unique for this document within the Intermediary.
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
+### GetPayDashboardPayslipReportOuput
+Returns the result of the executed Pay Dashboard payslip report for the given query parameters. See https://api.paydashboard.com for details. For compatability should be returned as JSON with TransformDefinitionKey=Json-Clean.
+
+
+```js
+payrun.GetPayDashboardPayslipReportOuput({
+  "EmployerKey": "",
+  "PayScheduleKey": "",
+  "TaxYear": "",
+  "PublicationDate": "",
+  "Authorization": "",
+  "Api-Version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EmployerKey **required** `string`: The employer unique key. E.g. ER001
+  * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
+  * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
+  * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
+  * StartIndex `string`: The element index to begin the report. Used to control paging within large data sets. E.g. 1
+  * MaxIndex `string`: The highest element index to return from the report. Used to control paging within large data sets. E.g. 100
+  * PaymentDate `string`: The payment date context for the report. E.g. 2018-04-30
+  * PublicationDate **required** `string`: Specific to the Pay Dashboard report, allows the specification of a future payslip publication date. E.g. 2018-12-31
+  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
+  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
+
+#### Output
+* output `file`
+
+### GetPayslip3ReportOutput
+Returns the result of the executed verbose payslip report for the given query parameters
+
+
+```js
+payrun.GetPayslip3ReportOutput({
   "EmployerKey": "",
   "PayScheduleKey": "",
   "TaxYear": "",
@@ -3635,8 +7338,8 @@ payrun.GetPayslip2ReportOutput({
   * EmployerKey **required** `string`: The employer unique key. E.g. ER001
   * PayScheduleKey **required** `string`: The pay schedule unique key. E.g. SCH001
   * TaxYear **required** `string`: The tax year. E.g. 2017 = 2017/18 year.
-  * TaxPeriod `string`: The tax period number.
   * EmployeeCodes `string`: A comma separated list of the employee codes. E.g. EMP001,EMP002
+  * TransformDefinitionKey `string`: The transform definition unique key. E.g. P45-Pdf
   * StartIndex `string`: The element index to begin the report. Used to control paging within large data sets. E.g. 1
   * MaxIndex `string`: The highest element index to return from the report. Used to control paging within large data sets. E.g. 100
   * PaymentDate `string`: The payment date context for the report. E.g. 2018-04-30
@@ -3816,12 +7519,13 @@ payrun.GetSchemas({
 #### Output
 * output [LinkCollection](#linkcollection)
 
-### GetAbsencePayInstructionSchema
-Returns the AbsencePayInstruction schema object
+### GetSchema
+Returns the XSD schema for the specified data type
 
 
 ```js
-payrun.GetAbsencePayInstructionSchema({
+payrun.GetSchema({
+  "DtoDataType": "",
   "Authorization": "",
   "Api-Version": ""
 }, context)
@@ -3829,18 +7533,20 @@ payrun.GetAbsencePayInstructionSchema({
 
 #### Input
 * input `object`
+  * DtoDataType **required** `string`: The data transfer object type name. E.g PensionPayInstruction
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
 #### Output
 * output `file`
 
-### GetAbsenceYtdPayInstructionSchema
-Returns the AbsenceYtdPayInstruction schema object
+### GetTemplateModel
+Returns a template instance of the specified data type
 
 
 ```js
-payrun.GetAbsenceYtdPayInstructionSchema({
+payrun.GetTemplateModel({
+  "DtoDataType": "",
   "Authorization": "",
   "Api-Version": ""
 }, context)
@@ -3848,709 +7554,7 @@ payrun.GetAbsenceYtdPayInstructionSchema({
 
 #### Input
 * input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetAddressSchema
-Returns the Address schema object
-
-
-```js
-payrun.GetAddressSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetArrayOfEmployeeSchema
-Returns the ArrayOfEmployee schema object
-
-
-```js
-payrun.GetArrayOfEmployeeSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBankAccountSchema
-Returns the BankAccount schema object
-
-
-```js
-payrun.GetBankAccountSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBenefitPayInstructionSchema
-Returns the BenefitPayInstruction schema object
-
-
-```js
-payrun.GetBenefitPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBenefitYtdPayInstructionSchema
-Returns the BenefitYtdPayInstruction schema object
-
-
-```js
-payrun.GetBenefitYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetCommonSchema
-Returns the Common schema object
-
-
-```js
-payrun.GetCommonSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployeeSchema
-Returns the Employee schema object
-
-
-```js
-payrun.GetEmployeeSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployeePartnerSchema
-Returns the EmployeePartner schema object
-
-
-```js
-payrun.GetEmployeePartnerSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployerSchema
-Returns the Employer schema object
-
-
-```js
-payrun.GetEmployerSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetHmrcSettingsSchema
-Returns the HmrcSettings schema object
-
-
-```js
-payrun.GetHmrcSettingsSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetLinkSchema
-Returns the Link schema object
-
-
-```js
-payrun.GetLinkSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiAdjustmentPayInstructionSchema
-Returns the NiAdjustmentPayInstruction schema object
-
-
-```js
-payrun.GetNiAdjustmentPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiPayInstructionSchema
-Returns the NiPayInstruction schema object
-
-
-```js
-payrun.GetNiPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiYtdPayInstructionSchema
-Returns the NiYtdPayInstruction schema object
-
-
-```js
-payrun.GetNiYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetP45PayInstructionSchema
-Returns the P45PayInstruction schema object
-
-
-```js
-payrun.GetP45PayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayInstructionSchema
-Returns the PayInstruction schema object
-
-
-```js
-payrun.GetPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayRunJobInstructionSchema
-Returns the PayRunJobInstruction schema object
-
-
-```js
-payrun.GetPayRunJobInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayScheduleSchema
-Returns the PaySchedule schema object
-
-
-```js
-payrun.GetPayScheduleSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPensionPayInstructionSchema
-Returns the PensionPayInstruction schema object
-
-
-```js
-payrun.GetPensionPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPensionYtdPayInstructionSchema
-Returns the PensionYtdPayInstruction schema object
-
-
-```js
-payrun.GetPensionYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPrimitivePayInstructionSchema
-Returns the PrimitivePayInstruction schema object
-
-
-```js
-payrun.GetPrimitivePayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiJobInstructionSchema
-Returns the RtiJobInstruction schema object
-
-
-```js
-payrun.GetRtiJobInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSalaryPayInstructionSchema
-Returns the SalaryPayInstruction schema object
-
-
-```js
-payrun.GetSalaryPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSapPayInstructionSchema
-Returns the SapPayInstruction schema object
-
-
-```js
-payrun.GetSapPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSapYtdPayInstructionSchema
-Returns the SapYtdPayInstruction schema object
-
-
-```js
-payrun.GetSapYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetShppPayInstructionSchema
-Returns the ShppPayInstruction schema object
-
-
-```js
-payrun.GetShppPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetShppYtdPayInstructionSchema
-Returns the ShppYtdPayInstruction schema object
-
-
-```js
-payrun.GetShppYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSmpPayInstructionSchema
-Returns the SmpPayInstruction schema object
-
-
-```js
-payrun.GetSmpPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSmpYtdPayInstructionSchema
-Returns the SmpYtdPayInstruction schema object
-
-
-```js
-payrun.GetSmpYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSppPayInstructionSchema
-Returns the SppPayInstruction schema object
-
-
-```js
-payrun.GetSppPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSppYtdPayInstructionSchema
-Returns the SppYtdPayInstruction schema object
-
-
-```js
-payrun.GetSppYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSspPayInstructionSchema
-Returns the SspPayInstruction schema object
-
-
-```js
-payrun.GetSspPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSspYtdPayInstructionSchema
-Returns the SspYtdPayInstruction schema object
-
-
-```js
-payrun.GetSspYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetStudentLoanPayInstructionSchema
-Returns the StudentLoanPayInstruction schema object
-
-
-```js
-payrun.GetStudentLoanPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetStudentLoanYtdPayInstructionSchema
-Returns the StudentLoanYtdPayInstruction schema object
-
-
-```js
-payrun.GetStudentLoanYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetTaxPayInstructionSchema
-Returns the TaxPayInstruction schema object
-
-
-```js
-payrun.GetTaxPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetTaxYtdPayInstructionSchema
-Returns the TaxYtdPayInstruction schema object
-
-
-```js
-payrun.GetTaxYtdPayInstructionSchema({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
+  * DtoDataType **required** `string`: The data transfer object type name. E.g PensionPayInstruction
   * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
   * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
 
@@ -4575,1184 +7579,6 @@ payrun.GetTemplates({
 
 #### Output
 * output [LinkCollection](#linkcollection)
-
-### GetAddressTemplate
-Return the address data object template
-
-
-```js
-payrun.GetAddressTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetApplicationInfoTemplate
-Return the application info data object template
-
-
-```js
-payrun.GetApplicationInfoTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBankAccountTemplate
-Return the bank account data object template
-
-
-```js
-payrun.GetBankAccountTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBenefitPayInstructionTemplate
-Return the benefit pay instruction data object template
-
-
-```js
-payrun.GetBenefitPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetBenefitYtdPayInstructionTemplate
-Return the benefit YTD pay instruction data object template
-
-
-```js
-payrun.GetBenefitYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetCommentaryTemplate
-Return the commentary data object template
-
-
-```js
-payrun.GetCommentaryTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployeeTemplate
-Return the employee data object template
-
-
-```js
-payrun.GetEmployeeTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployeePartnerTemplate
-Return the employee partner data object template
-
-
-```js
-payrun.GetEmployeePartnerTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetEmployerTemplate
-Return the employer data object template
-
-
-```js
-payrun.GetEmployerTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetErrorModelTemplate
-Return the error model data object template
-
-
-```js
-payrun.GetErrorModelTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetHmrcSettingsTemplate
-Return the hmrc settings data object template
-
-
-```js
-payrun.GetHmrcSettingsTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetJobInfoTemplate
-Return the job info data object template
-
-
-```js
-payrun.GetJobInfoTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetLinkTemplate
-Return the link data object template
-
-
-```js
-payrun.GetLinkTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetLinkCollectionTemplate
-Return the link collection data object template
-
-
-```js
-payrun.GetLinkCollectionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiAdjustmentPayInstructionTemplate
-Return the NI adjustment pay instruction data object template
-
-
-```js
-payrun.GetNiAdjustmentPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiPayInstructionTemplate
-Return the NI pay instruction data object template
-
-
-```js
-payrun.GetNiPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetNiYtdPayInstructionTemplate
-Return the NI YTD pay instruction data object template
-
-
-```js
-payrun.GetNiYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetP45PayInstructionTemplate
-Return the P45 pay instruction data object template
-
-
-```js
-payrun.GetP45PayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayCodeTemplate
-Return the pay code data object template
-
-
-```js
-payrun.GetPayCodeTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayInstructionTemplate
-Return the pay instruction data object template
-
-
-```js
-payrun.GetPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineTemplate
-Return the pay line data object template
-
-
-```js
-payrun.GetPayLineTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineBenefitTemplate
-Return the pay line benefit data object template
-
-
-```js
-payrun.GetPayLineBenefitTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineNiTemplate
-Return the pay line NI data object template
-
-
-```js
-payrun.GetPayLineNiTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLinePensionTemplate
-Return the pay line pension data object template
-
-
-```js
-payrun.GetPayLinePensionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineSapTemplate
-Return the pay line sap data object template
-
-
-```js
-payrun.GetPayLineSapTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineShppTemplate
-Return the pay line shpp data object template
-
-
-```js
-payrun.GetPayLineShppTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineSmpTemplate
-Return the pay line smp data object template
-
-
-```js
-payrun.GetPayLineSmpTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineSppTemplate
-Return the pay line spp data object template
-
-
-```js
-payrun.GetPayLineSppTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineSspTemplate
-Return the pay line ssp data object template
-
-
-```js
-payrun.GetPayLineSspTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineStudentLoanTemplate
-Return the pay line student loan data object template
-
-
-```js
-payrun.GetPayLineStudentLoanTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayLineTaxTemplate
-Return the pay line tax data object template
-
-
-```js
-payrun.GetPayLineTaxTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayRunTemplate
-Return the pay run data object template
-
-
-```js
-payrun.GetPayRunTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayRunJobTemplate
-Return the pay run job data object template
-
-
-```js
-payrun.GetPayRunJobTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayRunJobInstructionTemplate
-Return the pay run job instruction data object template
-
-
-```js
-payrun.GetPayRunJobInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPayScheduleTemplate
-Return the pay schedule data object template
-
-
-```js
-payrun.GetPayScheduleTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPensionPayInstructionTemplate
-Return the pension pay instruction data object template
-
-
-```js
-payrun.GetPensionPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPensionYtdPayInstructionTemplate
-Return the pension YTD pay instruction data object template
-
-
-```js
-payrun.GetPensionYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetPrimitivePayInstructionTemplate
-Return the primitive pay instruction data object template
-
-
-```js
-payrun.GetPrimitivePayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetReportDefinitionTemplate
-Return the report definition data object template
-
-
-```js
-payrun.GetReportDefinitionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiEasTransactionTemplate
-Return the rti eas transaction data object template
-
-
-```js
-payrun.GetRtiEasTransactionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiEpsTransactionTemplate
-Return the rti eps transaction data object template
-
-
-```js
-payrun.GetRtiEpsTransactionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiEyuTransactionTemplate
-Return the rti eyu transaction data object template
-
-
-```js
-payrun.GetRtiEyuTransactionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiFpsTransactionTemplate
-Return the rti fps transaction data object template
-
-
-```js
-payrun.GetRtiFpsTransactionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiJobTemplate
-Return the rti job data object template
-
-
-```js
-payrun.GetRtiJobTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiJobInstructionTemplate
-Return the rti job instruction data object template
-
-
-```js
-payrun.GetRtiJobInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiNvrTransactionTemplate
-Return the rti nvr transaction data object template
-
-
-```js
-payrun.GetRtiNvrTransactionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetRtiTransactionBaseTemplate
-Return the rti transaction base data object template
-
-
-```js
-payrun.GetRtiTransactionBaseTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSalaryPayInstructionTemplate
-Return the salary pay instruction data object template
-
-
-```js
-payrun.GetSalaryPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSapPayInstructionTemplate
-Return the sap pay instruction data object template
-
-
-```js
-payrun.GetSapPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSapYtdPayInstructionTemplate
-Return the sap YTD pay instruction data object template
-
-
-```js
-payrun.GetSapYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetShppPayInstructionTemplate
-Return the shpp pay instruction data object template
-
-
-```js
-payrun.GetShppPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetShppYtdPayInstructionTemplate
-Return the shpp YTD pay instruction data object template
-
-
-```js
-payrun.GetShppYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSmpPayInstructionTemplate
-Return the smp pay instruction data object template
-
-
-```js
-payrun.GetSmpPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSmpYtdPayInstructionTemplate
-Return the smp YTD pay instruction data object template
-
-
-```js
-payrun.GetSmpYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSppPayInstructionTemplate
-Return the spp pay instruction data object template
-
-
-```js
-payrun.GetSppPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSppYtdPayInstructionTemplate
-Return the spp YTD pay instruction data object template
-
-
-```js
-payrun.GetSppYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSspPayInstructionTemplate
-Return the ssp pay instruction data object template
-
-
-```js
-payrun.GetSspPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetSspYtdPayInstructionTemplate
-Return the ssp YTD pay instruction data object template
-
-
-```js
-payrun.GetSspYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetStudentLoanPayInstructionTemplate
-Return the student loan pay instruction data object template
-
-
-```js
-payrun.GetStudentLoanPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetStudentLoanYtdPayInstructionTemplate
-Return the student loan YTD pay instruction data object template
-
-
-```js
-payrun.GetStudentLoanYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetTaxPayInstructionTemplate
-Return the tax pay instruction data object template
-
-
-```js
-payrun.GetTaxPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
-
-### GetTaxYtdPayInstructionTemplate
-Return the tax YTD pay instruction data object template
-
-
-```js
-payrun.GetTaxYtdPayInstructionTemplate({
-  "Authorization": "",
-  "Api-Version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * Authorization **required** `string`: The OAuth 1 authorization header. &apos;Auto&apos; enables auto complete.
-  * Api-Version **required** `string`: The version of the api to target. Omit or set as &apos;default&apos; to target the current api version.
-
-#### Output
-* output `file`
 
 ### DeleteTransformDefinition
 Delete the specified transform definition
@@ -5866,483 +7692,678 @@ payrun.PostTransformDefinition({
 ### AEAssessment
 * AEAssessment `object`
   * AEAssessment `object`
-    * Age `integer`: The a e assessment's age
-    * AssessmentCode `string` (values: Excluded, EligibleJobHolder, NonEligibleJobHolder, EntitledWorker): The a e assessment's assessment code
-    * AssessmentDate `string`: The a e assessment's assessment date
-    * AssessmentEvent `string` (values: NonEnrolmentEvent, AutomaticEnrolment, OptIn, VoluntaryJoiner, ContractualEnrolment): The a e assessment's assessment event
-    * AssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The a e assessment's assessment override
-    * AssessmentResult `string` (values: Inconclusive, NoChange, Enrol, Exit): The a e assessment's assessment result
-    * QualifyingEarnings `number`: The a e assessment's qualifying earnings
-    * StatePensionAge `integer`: The a e assessment's state pension age
-    * StatePensionDate `string`: The a e assessment's state pension date
+    * Age `integer`: The a e assessments' age
+    * AssessmentCode `string` (values: Excluded, EligibleJobHolder, NonEligibleJobHolder, EntitledWorker): The a e assessments' assessment code
+    * AssessmentDate `string`: The a e assessments' assessment date
+    * AssessmentEvent `string` (values: NonEnrolmentEvent, AutomaticEnrolment, OptIn, VoluntaryJoiner, ContractualEnrolment): The a e assessments' assessment event
+    * AssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The a e assessments' assessment override
+    * AssessmentResult `string` (values: Inconclusive, NoChange, Enrol, Exit): The a e assessments' assessment result
+    * IsMemberOfAlternativePensionScheme `boolean`: The a e assessments' is member of alternative pension scheme
+    * OptOutWindowEndDate `string`: The a e assessments' opt out window end date
+    * QualifyingEarnings `number`: The a e assessments' qualifying earnings
+    * ReenrolmentDate `string`: The a e assessments' reenrolment date
+    * StatePensionAge `integer`: The a e assessments' state pension age
+    * StatePensionDate `string`: The a e assessments' state pension date
+    * TaxPeriod `integer`: The a e assessments' tax period
+    * TaxYear `integer`: The a e assessments' tax year
+
+### BatchItemBase
+* BatchItemBase `object`
+  * BatchItemBase `object`
+    * @Href `string`: The batch item bases' href
+
+### BatchJobInstruction
+* BatchJobInstruction `object`
+  * BatchJobInstruction `object`
+    * HoldingDate `string`: The batch job instructions' holding date
+    * Instructions `object`: The batch job instructions' instructions
+      * DELETE `array`
+        * items `object`
+          * @Href `string`: The batch item bases' href
+    * ValidateOnly `boolean`: The batch job instructions' validate only
+
+### CisInstruction
+* CisInstruction `object`
+  * CisInstruction `object`
+    * CisLineTag `string`: The cis instructions' cis line tag
+    * CisLineType `string`: The cis instructions' cis line type
+    * Description `string`: The cis instructions' description
+    * PayFrequency `string` (values: Monthly, Weekly): The cis instructions' pay frequency
+    * PeriodEnd `integer`: The cis instructions' period end
+    * PeriodStart `integer`: The cis instructions' period start
+    * TaxYearEnd `integer`: The cis instructions' tax year end
+    * TaxYearStart `integer`: The cis instructions' tax year start
+    * UOM `string` (values: NotSet, Minute, Hour, Day, Week, Month, Year, Unit): The cis instructions' u o m
+    * Units `number`: The cis instructions' units
+    * VAT `number`: The cis instructions' v a t
+    * Value `number`: The cis instructions' value
+
+### CisJobInstructionBase
+* CisJobInstructionBase `object`
+  * CisJobInstructionBase `object`
+    * Employer `object`: The cis job instruction bases' employer
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * HoldingDate `string`: The cis job instruction bases' holding date
+    * SubContractors `object`: The cis job instruction bases' sub contractors
+      * SubContractor `array`
+        * items `object`
+          * @href `string`: The links' href
+          * @rel `string`: The links' target type
+          * @title `string`: The links' title
+
+### CisLine
+* CisLine `object`
+  * CisLine `object`
+    * CisDeduction `number`: The cis lines' cis deduction
+    * CisLineType `string`: The cis lines' cis line type
+    * Description `string`: The cis lines' description
+    * Generated `string`: The cis lines' generated
+    * GrossPay `number`: The cis lines' gross pay
+    * NominalCodeKey `string`: The cis lines' nominal code key
+    * PayFrequency `string` (values: Monthly, Weekly): The cis lines' pay frequency
+    * TaxMonth `integer`: The cis lines' tax month
+    * TaxPeriod `integer`: The cis lines' tax period
+    * TaxTreatment `string` (values: Taxable, NonTaxable, Notional, Materials): The cis lines' tax treatment
+    * TaxYear `integer`: The cis lines' tax year
+    * UOM `string` (values: NotSet, Minute, Hour, Day, Week, Month, Year, Unit): The cis lines' u o m
+    * UnitRate `number`: The cis lines' unit rate
+    * Units `number`: The cis lines' units
+    * VAT `number`: The cis lines' v a t
+
+### CisLineType
+* CisLineType `object`
+  * CisLineType `object`
+    * Description `string`: The cis line types' description
+    * LineType `string`: The cis line types' line type
+    * NominalCode `object`: The cis line types' nominal code
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * TaxTreatment `string` (values: Taxable, NonTaxable, Notional, Materials): The cis line types' tax treatment
+
+### CisTransaction
+* CisTransaction `object`
+  * CisTransaction `object`
+    * CisMessageType `string` (values: Verification, Return): The cis transactions' cis message type
+    * EmployerCore `object`: The cis transactions' employer core
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * RequestData `string`: The cis transactions' request data
+    * ResponseData `string`: The cis transactions' response data
+    * TaxYear `integer`: The cis transactions' tax year
+    * Timestamp `string`: The cis transactions' timestamp
+    * TransactionStatus `string` (values: New, RequestGenerated, CompletedWithError, CompletedWithSuccess, TimeOut): The cis transactions' transaction status
+    * TransmissionDate `string`: The cis transactions' transmission date
 
 ### Commentary
 * Commentary `object`
   * Commentary `object`
-    * Created `string`: The commentary's created
-    * Detail `string`: The commentary's detail
+    * Created `string`: The commentarys' created
+    * Detail `string`: The commentarys' detail
+    * Employee `object`: The commentarys' employee
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * PayRun `object`: The commentarys' pay run
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
 
 ### DpsJobInstruction
 * DpsJobInstruction `object`
   * DpsJobInstruction `object`
-    * Apply `boolean`: The dps job instruction's apply
-    * Employer `object`: The dps job instruction's employer
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * FromDate `string`: The dps job instruction's from date
-    * HoldingDate `string`: The dps job instruction's holding date
-    * MessageTypes `object`: The dps job instruction's message types
+    * Apply `boolean`: The dps job instructions' apply
+    * Employer `object`: The dps job instructions' employer
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * FromDate `string`: The dps job instructions' from date
+    * HoldingDate `string`: The dps job instructions' holding date
+    * MessageTypes `object`: The dps job instructions' message types
       * Type `array`
         * items `object`
-    * MessagesToProcess `object`: The dps job instruction's messages to process
+    * MessagesToProcess `object`: The dps job instructions' messages to process
       * Message `array`
         * items `object`
-          * @href `string`: The link's href
-          * @rel `string`: The link's target type
-          * @title `string`: The link's title
-    * Retrieve `boolean`: The dps job instruction's retrieve
+          * @href `string`: The links' href
+          * @rel `string`: The links' target type
+          * @title `string`: The links' title
+    * Retrieve `boolean`: The dps job instructions' retrieve
 
 ### DpsMessage
 * DpsMessage `object`
   * DpsMessage `object`
-    * FormType `string`: The dps message's form type
-    * IssueDate `string`: The dps message's issue date
-    * LastUpdated `string`: The dps message's last updated
-    * Message `string`: The dps message's message
-    * MessageStatus `string` (values: Retrieved, Applied, Unresolved, Ignored, Information): The dps message's message status
-    * MessageType `string`: The dps message's message type
-    * ProcessingResult `string`: The dps message's processing result
-    * RetrieveDate `string`: The dps message's retrieve date
-    * SequenceNumber `integer`: The dps message's sequence number
+    * FormType `string`: The dps messages' form type
+    * IssueDate `string`: The dps messages' issue date
+    * LastUpdated `string`: The dps messages' last updated
+    * Message `string`: The dps messages' message
+    * MessageStatus `string` (values: Retrieved, Applied, Unresolved, Ignored, Information): The dps messages' message status
+    * MessageType `string`: The dps messages' message type
+    * ProcessingResult `string`: The dps messages' processing result
+    * RetrieveDate `string`: The dps messages' retrieve date
+    * SequenceNumber `integer`: The dps messages' sequence number
 
 ### Employee
 * Employee `object`
   * Employee `object`
-    * AEAssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The employee's a e assessment override
-    * AEAssessmentOverrideDate `string`: The employee's a e assessment override date
-    * AEPostponementDate `string`: The employee's a e postponement date
-    * Address `object`: The employee's address
-      * Address1 `string`: The address's line 1
-      * Address2 `string`: The address's line 2
-      * Address3 `string`: The address's line 3
-      * Address4 `string`: The address's line 4
-      * Country `string`: The address's country
-      * Postcode `string`: The address's postcode
-    * BankAccount `object`: The employee's bank account
-      * AccountName `string`: The bank account's account name
-      * AccountNumber `string`: The bank account's account number
-      * SortCode `string`: The bank account's sort code
-    * Code `string`: The employee's code
-    * DateOfBirth `string`: The employee's date of birth
-    * Deactivated `boolean`: The employee's deactivated
-    * DirectorshipAppointmentDate `string`: The employee's directorship appointment date
-    * EEACitizen `boolean`: The employee's e e a citizen
-    * EPM6 `boolean`: The employee's e p m6
-    * EffectiveDate `string`: The employee's effective date
-    * EmployeePartner `object`: The employee's employee partner
-      * FirstName `string`: The employee partner's first name
-      * Initials `string`: The employee partner's initials
-      * LastName `string`: The employee partner's last name
-      * MiddleName `string`: The employee partner's middle name
-      * NiNumber `string`: The employee partner's ni number
-    * FirstName `string`: The employee's the first name
-    * Gender `string` (values: Unknown, Male, Female): The employee's gender
-    * HoursPerWeek `number`: The employee's hours per week
-    * Initials `string`: The employee's initials
-    * IrregularEmployment `boolean`: The employee's irregular employment
-    * IsAgencyWorker `boolean`: The employee's is agency worker
-    * LastName `string`: The employee's last name
-    * LeaverReason `string` (values: Resigned, Dismissed, Redundant, Retired, Deceased, LegalCustody, Other): The employee's leaver reason
-    * LeavingDate `string`: The employee's leaving date
-    * MaritalStatus `string` (values: NotSet, Single, Married, Divorced, Widowed): The employee's marital status
-    * MiddleName `string`: The employee's middle name
-    * NiNumber `string`: The employee's ni number
-    * NicLiability `string` (values: HasOtherJob, IsFemaleEntitledToReducedRate, IsNotLiable, IsContractedOut, IsFullyLiable, IsApprentice, LeaverBeyond6Weeks): The employee's nic liability
-    * OnStrike `boolean`: The employee's on strike
-    * PassportNumber `string`: The employee's passport number
-    * PaySchedule `object`: The employee's pay schedule
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * PaymentMethod `string` (values: NotSet, Cash, Cheque, BACS): The employee's payment method
-    * PaymentToANonIndividual `boolean`: The employee's payment to a non individual
-    * Region `string` (values: NotSet, England, Scotland): The employee's region
-    * Revision `integer`: The employee's revision
-    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule, EmployeeDeceasedRule): The employee's rule exclusions
-    * Seconded `string` (values: NotSet, Stay183DaysOrMore, StayLessThan183Days, InOutUk): The employee's seconded
-    * StartDate `string`: The employee's start date
-    * StarterDeclaration `string` (values: A, B, C, NA): The employee's starter declaration
-    * Territory `string` (values: UnitedKingdom): The employee's territory
-    * Title `string`: The employee's title
-    * WorkingWeek `string` (values: None, Monday, Tuesday, Wednesday, Thursday, Friday, AllWeekDays, Saturday, Sunday, AllDays): The employee's working week
+    * AEAssessmentOverride `string` (values: None, OptOut, OptIn, VoluntaryJoiner, ContractualPension, CeasedMembership, Leaver, Excluded): The employees' a e assessment override
+    * AEAssessmentOverrideDate `string`: The employees' a e assessment override date
+    * AEExclusionReasonCode `string` (values: OtherNotKnown, NotAWorker, NotUKWorker, TemporaryUKWorker, OutsideAgeRange, SingleEmployeeDirector, CeasedMembershipWithin12Months, CeasedMembershipBeyond12Months, WorkerWULSWithin12Month, WorkerWULSBeyond12Month, WorkerInNoticePeriod, WorkerTaxProtection): The employees' a e exclusion reason code
+    * AEPostponementDate `string`: The employees' a e postponement date
+    * Address `object`: The employees' address
+      * Address1 `string`: The addresss' line 1
+      * Address2 `string`: The addresss' line 2
+      * Address3 `string`: The addresss' line 3
+      * Address4 `string`: The addresss' line 4
+      * Country `string`: The addresss' country
+      * Postcode `string`: The addresss' postcode
+    * BankAccount `object`: The employees' bank account
+      * AccountName `string`: The bank accounts' account name
+      * AccountNumber `string`: The bank accounts' account number
+      * Reference `string`: The bank accounts' reference
+      * SortCode `string`: The bank accounts' sort code
+    * Code `string`: The employees' code
+    * DateOfBirth `string`: The employees' date of birth
+    * Deactivated `boolean`: The employees' deactivated
+    * DirectorshipAppointmentDate `string`: The employees' directorship appointment date
+    * EEACitizen `boolean`: The employees' e e a citizen
+    * EPM6 `boolean`: The employees' e p m6
+    * EffectiveDate `string`: The employees' effective date
+    * EmployeePartner `object`: The employees' employee partner
+      * FirstName `string`: The employee partners' first name
+      * Initials `string`: The employee partners' initials
+      * LastName `string`: The employee partners' last name
+      * MiddleName `string`: The employee partners' middle name
+      * NiNumber `string`: The employee partners' ni number
+    * FirstName `string`: The employees' the first name
+    * Gender `string` (values: Unknown, Male, Female): The employees' gender
+    * HoursPerWeek `number`: The employees' hours per week
+    * Initials `string`: The employees' initials
+    * IrregularEmployment `boolean`: The employees' irregular employment
+    * IsAgencyWorker `boolean`: The employees' is agency worker
+    * LastName `string`: The employees' last name
+    * LeaverReason `string` (values: Resigned, Dismissed, Redundant, Retired, Deceased, LegalCustody, Other): The employees' leaver reason
+    * LeavingDate `string`: The employees' leaving date
+    * MaritalStatus `string` (values: NotSet, Single, Married, Divorced, Widowed): The employees' marital status
+    * MetaData `object`: The employees' meta data
+    * MiddleName `string`: The employees' middle name
+    * NiNumber `string`: The employees' ni number
+    * NicLiability `string` (values: HasOtherJob, IsFemaleEntitledToReducedRate, IsNotLiable, IsContractedOut, IsFullyLiable, IsApprentice, LeaverBeyond6Weeks, PaymentAfterLeaving): The employees' nic liability
+    * OnStrike `boolean`: The employees' on strike
+    * PassportNumber `string`: The employees' passport number
+    * PaySchedule `object`: The employees' pay schedule
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * PaymentMethod `string` (values: NotSet, Cash, Cheque, BACS, FasterPayments, Other): The employees' payment method
+    * PaymentToANonIndividual `boolean`: The employees' payment to a non individual
+    * Region `string` (values: NotSet, England, Scotland, Wales): The employees' region
+    * Revision `integer`: The employees' revision
+    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule, EmployeeDeceasedRule, BenefitInstructionAutoEndRule): The employees' rule exclusions
+    * Seconded `string` (values: NotSet, Stay183DaysOrMore, StayLessThan183Days, InOutUk): The employees' seconded
+    * StartDate `string`: The employees' start date
+    * StarterDeclaration `string` (values: PreviouslyReported, A, B, C): The employees' starter declaration
+    * Territory `string` (values: UnitedKingdom): The employees' territory
+    * Title `string`: The employees' title
+    * WorkingWeek `string` (values: None, Monday, Tuesday, Wednesday, Thursday, Friday, AllWeekDays, Saturday, Sunday, AllDays): The employees' working week
+
+### EmployeeSecret
+* EmployeeSecret `object`
+  * EmployeeSecret `object`
+    * Created `string`: The employee secrets' created
+    * Name `string`: The employee secrets' name
+    * Value `string`: The employee secrets' value
 
 ### Employer
 * Employer `object`
   * Employer `object`
-    * Address `object`: The employer's address
-      * Address1 `string`: The address's line 1
-      * Address2 `string`: The address's line 2
-      * Address3 `string`: The address's line 3
-      * Address4 `string`: The address's line 4
-      * Country `string`: The address's country
-      * Postcode `string`: The address's postcode
-    * ApprenticeshipLevyAllowance `number`: The employer's apprenticeship levy allowance
-    * AutoEnrolment `object`: The employer's auto enrolment
-      * Pension `object`: The employer auto enrolment's pension
-        * @href `string`: The link's href
-        * @rel `string`: The link's target type
-        * @title `string`: The link's title
-      * PostponementDate `string`: The employer auto enrolment's postponement date
-      * PrimaryEmail `string`: The employer auto enrolment's primary email
-      * PrimaryFirstName `string`: The employer auto enrolment's primary first name
-      * PrimaryJobTitle `string`: The employer auto enrolment's primary job title
-      * PrimaryLastName `string`: The employer auto enrolment's primary last name
-      * PrimaryTelephone `string`: The employer auto enrolment's primary telephone
-      * ReEnrolmentDayOffset `integer`: The employer auto enrolment's re enrolment day offset
-      * ReEnrolmentMonthOffset `integer`: The employer auto enrolment's re enrolment month offset
-      * SecondaryEmail `string`: The employer auto enrolment's secondary email
-      * SecondaryFirstName `string`: The employer auto enrolment's secondary first name
-      * SecondaryJobTitle `string`: The employer auto enrolment's secondary job title
-      * SecondaryLastName `string`: The employer auto enrolment's secondary last name
-      * SecondaryTelephone `string`: The employer auto enrolment's secondary telephone
-      * StagingDate `string`: The employer auto enrolment's staging date
-    * BacsServiceUserNumber `string`: The employer's bacs service user number
-    * BankAccount `object`: The employer's bank account
-      * AccountName `string`: The bank account's account name
-      * AccountNumber `string`: The bank account's account number
-      * SortCode `string`: The bank account's sort code
-    * ClaimEmploymentAllowance `boolean`: The employer's claim employment allowance
-    * ClaimSmallEmployerRelief `boolean`: The employer's claim small employer relief
-    * EffectiveDate `string`: The employer's effective date
-    * HmrcSettings `object`: The employer's hmrc settings
-      * AccountingOfficeRef `string`: The hmrc settings's accounting office ref
-      * COTAXRef `string`: The hmrc settings's c o t a x ref
-      * ContactEmail `string`: The hmrc settings's contact email
-      * ContactFax `string`: The hmrc settings's contact fax
-      * ContactFirstName `string`: The hmrc settings's contact first name
-      * ContactLastName `string`: The hmrc settings's contact last name
-      * ContactTelephone `string`: The hmrc settings's contact telephone
-      * Password `string`: The hmrc settings's password
-      * SAUTR `string`: The hmrc settings's s a u t r
-      * Sender `string` (values: Employer, Individual, Company, Agent, Bureau, Partnership, Trust, Government, ActingInCapacity, Other): The hmrc settings's sender
-      * SenderId `string`: The hmrc settings's sender id
-      * TaxOfficeNumber `string`: The hmrc settings's tax office number
-      * TaxOfficeReference `string`: The hmrc settings's tax office reference
-    * Name `string`: The employer's name
-    * Region `string` (values: NotSet, England, Scotland): The employer's region
-    * Revision `integer`: The employer's revision
-    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule, EmployeeDeceasedRule): The employer's rule exclusions
-    * Territory `string` (values: UnitedKingdom): The employer's territory
+    * Address `object`: The employers' address
+      * Address1 `string`: The addresss' line 1
+      * Address2 `string`: The addresss' line 2
+      * Address3 `string`: The addresss' line 3
+      * Address4 `string`: The addresss' line 4
+      * Country `string`: The addresss' country
+      * Postcode `string`: The addresss' postcode
+    * ApprenticeshipLevyAllowance `number`: The employers' apprenticeship levy allowance
+    * AutoEnrolment `object`: The employers' auto enrolment
+      * Pension `object`: The employer auto enrolments' pension
+        * @href `string`: The links' href
+        * @rel `string`: The links' target type
+        * @title `string`: The links' title
+      * PostponementDate `string`: The employer auto enrolments' postponement date
+      * PrimaryEmail `string`: The employer auto enrolments' primary email
+      * PrimaryFirstName `string`: The employer auto enrolments' primary first name
+      * PrimaryJobTitle `string`: The employer auto enrolments' primary job title
+      * PrimaryLastName `string`: The employer auto enrolments' primary last name
+      * PrimaryTelephone `string`: The employer auto enrolments' primary telephone
+      * ReEnrolmentDayOffset `integer`: The employer auto enrolments' re enrolment day offset
+      * ReEnrolmentMonthOffset `integer`: The employer auto enrolments' re enrolment month offset
+      * SecondaryEmail `string`: The employer auto enrolments' secondary email
+      * SecondaryFirstName `string`: The employer auto enrolments' secondary first name
+      * SecondaryJobTitle `string`: The employer auto enrolments' secondary job title
+      * SecondaryLastName `string`: The employer auto enrolments' secondary last name
+      * SecondaryTelephone `string`: The employer auto enrolments' secondary telephone
+      * StagingDate `string`: The employer auto enrolments' staging date
+    * BacsServiceUserNumber `string`: The employers' bacs service user number
+    * BankAccount `object`: The employers' bank account
+      * AccountName `string`: The bank accounts' account name
+      * AccountNumber `string`: The bank accounts' account number
+      * Reference `string`: The bank accounts' reference
+      * SortCode `string`: The bank accounts' sort code
+    * ClaimEmploymentAllowance `boolean`: The employers' claim employment allowance
+    * ClaimSmallEmployerRelief `boolean`: The employers' claim small employer relief
+    * EffectiveDate `string`: The employers' effective date
+    * HmrcSettings `object`: The employers' hmrc settings
+      * AccountingOfficeRef `string`: The hmrc settingss' accounting office ref
+      * COTAXRef `string`: The hmrc settingss' c o t a x ref
+      * ContactEmail `string`: The hmrc settingss' contact email
+      * ContactFax `string`: The hmrc settingss' contact fax
+      * ContactFirstName `string`: The hmrc settingss' contact first name
+      * ContactLastName `string`: The hmrc settingss' contact last name
+      * ContactTelephone `string`: The hmrc settingss' contact telephone
+      * Password `string`: The hmrc settingss' password
+      * SAUTR `string`: The hmrc settingss' s a u t r
+      * Sender `string` (values: Employer, Individual, Company, Agent, Bureau, Partnership, Trust, Government, ActingInCapacity, Other): The hmrc settingss' sender
+      * SenderId `string`: The hmrc settingss' sender id
+      * TaxOfficeNumber `string`: The hmrc settingss' tax office number
+      * TaxOfficeReference `string`: The hmrc settingss' tax office reference
+    * MetaData `object`: The employers' meta data
+    * Name `string`: The employers' name
+    * Region `string` (values: NotSet, England, Scotland, Wales): The employers' region
+    * Revision `integer`: The employers' revision
+    * RuleExclusions `string` (values: None, NiMissingPayInstructionRule, TaxMissingPayInstructionRule, TaxCodeUpliftRule, NiSetExpectedLetterRule, NiDateOfBirthChangeRetrospectiveCRule, NiDefermentStatusChangeRule, NiEndContractedOutTransferRule, PaymentAfterLeavingRule, LeaverEndInstructionsRule, P45StudentLoanInstructionRule, P45TaxInstructionRule, P45YtdTaxRule, YtdInstructionRule, TaxCodeRegionChangeRule, AutoEnrolmentStatusChangeRule, EmployeeDeceasedRule, BenefitInstructionAutoEndRule): The employers' rule exclusions
+    * Territory `string` (values: UnitedKingdom): The employers' territory
+
+### EmployerSecret
+* EmployerSecret `object`
+  * EmployerSecret `object`
+    * Created `string`: The employer secrets' created
+    * Name `string`: The employer secrets' name
+    * Value `string`: The employer secrets' value
 
 ### ErrorModel
 * ErrorModel `object`
   * ErrorModel `object`
-    * Description `string`: The error model's description
-    * ErrorCategory `string` (values: General, NotFound, NotAuthorised, ValidationFailure): The error model's error category
-    * Errors `object`: The error model's errors
+    * Description `string`: The error models' description
+    * ErrorCategory `string` (values: General, NotFound, NotAuthorised, ValidationFailure): The error models' error category
+    * Errors `object`: The error models' errors
       * Error `array`
         * items `string`
 
 ### HealthCheck
 * HealthCheck `object`
   * HealthCheck `object`
-    * Info `string`: The health check's info
-    * Version `string`: The health check's version
+    * Info `string`: The health checks' info
+    * Version `string`: The health checks' version
+
+### HolidayScheme
+* HolidayScheme `object`
+  * HolidayScheme `object`
+    * AccrualPayCodes `object`: The holiday schemes' accrual pay codes
+      * PayCode `array`
+        * items `string`
+    * AllowNegativeBalance `boolean`: The holiday schemes' allow negative balance
+    * AnnualEntitlementWeeks `number`: The holiday schemes' annual entitlement weeks
+    * BankHolidayInclusive `boolean`: The holiday schemes' bank holiday inclusive
+    * Code `string`: The holiday schemes' code
+    * EffectiveDate `string`: The holiday schemes' effective date
+    * MaxCarryOverDays `number`: The holiday schemes' max carry over days
+    * Revision `integer`: The holiday schemes' revision
+    * SchemeCeasedDate `string`: The holiday schemes' scheme ceased date
+    * SchemeKey `string`: The holiday schemes' scheme key
+    * SchemeName `string`: The holiday schemes' scheme name
+    * YearStartDay `integer`: The holiday schemes' year start day
+    * YearStartMonth `integer`: The holiday schemes' year start month
 
 ### JobInfo
 * JobInfo `object`
   * JobInfo `object`
-    * Created `string`: The job info's created
-    * Errors `object`: The job info's errors
+    * Created `string`: The job infos' created
+    * EmployerKey `string`: The job infos' employer key
+    * Errors `object`: The job infos' errors
       * Error `array`
         * items `string`
-    * HoldingDate `string`: The job info's holding date
-    * JobId `string`: The job info's job id
-    * JobStatus `string` (values: New, Pending, InProgress, Success, Failed, OnHold): The job info's job status
-    * JobType `string`: The job info's job type
-    * LastUpdated `string`: The job info's last updated
-    * Progress `number`: The job info's progress
+    * HoldingDate `string`: The job infos' holding date
+    * JobId `string`: The job infos' job id
+    * JobStatus `string` (values: New, Pending, InProgress, Success, Failed, OnHold): The job infos' job status
+    * JobType `string`: The job infos' job type
+    * LastUpdated `string`: The job infos' last updated
+    * Progress `number`: The job infos' progress
 
 ### Link
 * Link `object`
   * Link `object`
-    * @href `string`: The link's href
-    * @rel `string`: The link's target type
-    * @title `string`: The link's title
+    * @href `string`: The links' href
+    * @rel `string`: The links' target type
+    * @title `string`: The links' title
 
 ### LinkCollection
 * LinkCollection `object`
   * LinkCollection `object`
-    * Links `object`: The link collection's links
+    * Links `object`: The link collections' links
       * Link `array`
         * items `object`
-          * @href `string`: The link's href
-          * @rel `string`: The link's target type
-          * @title `string`: The link's title
+          * @href `string`: The links' href
+          * @rel `string`: The links' target type
+          * @title `string`: The links' title
 
 ### NominalCode
 * NominalCode `object`
   * NominalCode `object`
-    * Description `string`: The nominal code's description
-    * Key `string`: The nominal code's key
+    * Description `string`: The nominal codes' description
+    * Key `string`: The nominal codes' key
 
 ### PayCode
 * PayCode `object`
   * PayCode `object`
-    * Benefit `boolean`: The pay code's benefit
-    * Code `string`: The pay code's code
-    * Description `string`: The pay code's description
-    * EffectiveDate `string`: The pay code's effective date
-    * Niable `boolean`: The pay code's niable
-    * NominalCode `object`: The pay code's nominal code
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * Readonly `boolean`: The pay code's readonly
-    * Region `string` (values: NotSet, England, Scotland): The pay code's region
-    * Revision `integer`: The pay code's revision
-    * Taxable `boolean`: The pay code's taxable
-    * Territory `string` (values: UnitedKingdom): The pay code's territory
-    * Type `string` (values: NotSet, Payment, Deduction): The pay code's type
+    * Benefit `boolean`: The pay codes' benefit
+    * Code `string`: The pay codes' code
+    * Description `string`: The pay codes' description
+    * EffectiveDate `string`: The pay codes' effective date
+    * Niable `boolean`: The pay codes' niable
+    * NominalCode `object`: The pay codes' nominal code
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * NonArrestable `boolean`: The pay codes' non arrestable
+    * Notional `boolean`: The pay codes' notional
+    * Readonly `boolean`: The pay codes' readonly
+    * Region `string` (values: NotSet, England, Scotland, Wales): The pay codes' region
+    * Revision `integer`: The pay codes' revision
+    * Taxable `boolean`: The pay codes' taxable
+    * Territory `string` (values: UnitedKingdom): The pay codes' territory
+    * Type `string` (values: NotSet, Payment, Deduction): The pay codes' type
 
 ### PayInstruction
 * PayInstruction `object`
   * PayInstruction `object`
-    * Description `string`: The pay instruction's description
-    * EndDate `string`: The pay instruction's end date
-    * StartDate `string`: The pay instruction's start date
+    * Description `string`: The pay instructions' description
+    * EndDate `string`: The pay instructions' end date
+    * PayLineTag `string`: The pay instructions' pay line tag
+    * StartDate `string`: The pay instructions' start date
 
 ### PayLine
 * PayLine `object`
   * PayLine `object`
-    * Calculator `string`: The pay line's calculator
-    * Description `string`: The pay line's description
-    * Generated `string`: The pay line's generated
-    * PayCode `string`: The pay line's pay code
-    * PayCodeType `string` (values: NotSet, Payment, Deduction): The pay line's pay code type
-    * PaymentDate `string`: The pay line's payment date
-    * TaxPeriod `integer`: The pay line's tax period
-    * TaxYear `integer`: The pay line's tax year
-    * Value `number`: The pay line's value
+    * Calculator `string`: The pay lines' calculator
+    * Description `string`: The pay lines' description
+    * Generated `string`: The pay lines' generated
+    * PayCode `string`: The pay lines' pay code
+    * PayCodeType `string` (values: NotSet, Payment, Deduction): The pay lines' pay code type
+    * PayRunSequence `integer`: The pay lines' pay run sequence
+    * PaymentDate `string`: The pay lines' payment date
+    * TaxPeriod `integer`: The pay lines' tax period
+    * TaxYear `integer`: The pay lines' tax year
+    * Value `number`: The pay lines' value
 
 ### PayRun
 * PayRun `object`
   * PayRun `object`
-    * Executed `string`: The pay run's executed
-    * IsSupplementary `boolean`: The pay run's is supplementary
-    * PayFrequency `string` (values: Weekly, Monthly, TwoWeekly, FourWeekly, Yearly): The pay run's pay frequency
-    * PaySchedule `object`: The pay run's pay schedule
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * PaymentDate `string`: The pay run's payment date
-    * PeriodEnd `string`: The pay run's period end
-    * PeriodStart `string`: The pay run's period start
-    * ProceedingPayRun `object`: The pay run's proceeding pay run
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * Sequence `integer`: The pay run's sequence
-    * TaxPeriod `integer`: The pay run's tax period
-    * TaxYear `integer`: The pay run's tax year
+    * Executed `string`: The pay runs' executed
+    * IsSupplementary `boolean`: The pay runs' is supplementary
+    * PayFrequency `string` (values: Weekly, Monthly, TwoWeekly, FourWeekly, Yearly): The pay runs' pay frequency
+    * PaySchedule `object`: The pay runs' pay schedule
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * PaymentDate `string`: The pay runs' payment date
+    * PeriodEnd `string`: The pay runs' period end
+    * PeriodStart `string`: The pay runs' period start
+    * ProceedingPayRun `object`: The pay runs' proceeding pay run
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * Sequence `integer`: The pay runs' sequence
+    * TaxPeriod `integer`: The pay runs' tax period
+    * TaxYear `integer`: The pay runs' tax year
 
 ### PayRunJobInstruction
 * PayRunJobInstruction `object`
   * PayRunJobInstruction `object`
-    * Employees `object`: The pay run job instruction's employees
+    * Employees `object`: The pay run job instructions' employees
       * Employee `array`
         * items `object`
-          * @href `string`: The link's href
-          * @rel `string`: The link's target type
-          * @title `string`: The link's title
-    * EndDate `string`: The pay run job instruction's end date
-    * HoldingDate `string`: The pay run job instruction's holding date
-    * IsSupplementary `boolean`: The pay run job instruction's is supplementary
-    * PaySchedule `object`: The pay run job instruction's pay schedule
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * PaymentDate `string`: The pay run job instruction's payment date
-    * StartDate `string`: The pay run job instruction's start date
+          * @href `string`: The links' href
+          * @rel `string`: The links' target type
+          * @title `string`: The links' title
+    * EndDate `string`: The pay run job instructions' end date
+    * HoldingDate `string`: The pay run job instructions' holding date
+    * IsSupplementary `boolean`: The pay run job instructions' is supplementary
+    * PaySchedule `object`: The pay run job instructions' pay schedule
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * PaymentDate `string`: The pay run job instructions' payment date
+    * StartDate `string`: The pay run job instructions' start date
 
 ### PaySchedule
 * PaySchedule `object`
   * PaySchedule `object`
-    * Name `string`: The pay schedule's name
-    * PayFrequency `string` (values: Weekly, Monthly, TwoWeekly, FourWeekly, Yearly): The pay schedule's pay frequency
+    * MetaData `object`: The pay schedules' meta data
+    * Name `string`: The pay schedules' name
+    * PayFrequency `string` (values: Weekly, Monthly, TwoWeekly, FourWeekly, Yearly): The pay schedules' pay frequency
 
 ### Pension
 * Pension `object`
   * Pension `object`
-    * AECompatible `boolean`: The pension's a e compatible
-    * Code `string`: The pension's code
-    * ContributionDeductionDay `integer`: The pension's contribution deduction day
-    * EffectiveDate `string`: The pension's effective date
-    * EmployeeContributionCash `number`: The pension's employee contribution cash
-    * EmployeeContributionPercent `number`: The pension's employee contribution percent
-    * EmployerContributionCash `number`: The pension's employer contribution cash
-    * EmployerContributionPercent `number`: The pension's employer contribution percent
-    * Group `string`: The pension's group
-    * LowerThreshold `number`: The pension's lower threshold
-    * ProRataMethod `string` (values: NotSet, Annual260Days, Annual365Days, AnnualQualifyingDays, DaysPerCalenderMonth, DaysPerTaxPeriod): The pension's pro rata method
-    * ProviderEmployerRef `string`: The pension's provider employer ref
-    * ProviderName `string`: The pension's provider name
-    * Revision `integer`: The pension's revision
-    * SalarySacrifice `boolean`: The pension's salary sacrifice
-    * SchemeName `string`: The pension's scheme name
-    * SubGroup `string`: The pension's sub group
-    * TaxationMethod `string` (values: NotSet, NetBased, ReliefAtSource): The pension's taxation method
-    * UpperThreshold `number`: The pension's upper threshold
-    * UseAEThresholds `boolean`: The pension's use a e thresholds
+    * AECompatible `boolean`: The pensions' a e compatible
+    * Code `string`: The pensions' code
+    * ContributionDeductionDay `integer`: The pensions' contribution deduction day
+    * EffectiveDate `string`: The pensions' effective date
+    * EmployeeContributionCash `number`: The pensions' employee contribution cash
+    * EmployeeContributionPercent `number`: The pensions' employee contribution percent
+    * EmployerContributionCash `number`: The pensions' employer contribution cash
+    * EmployerContributionPercent `number`: The pensions' employer contribution percent
+    * Group `string`: The pensions' group
+    * LowerThreshold `number`: The pensions' lower threshold
+    * MetaData `object`: The pensions' meta data
+    * PensionablePayCodes `object`: The pensions' pensionable pay codes
+      * PayCode `array`
+        * items `string`
+    * ProRataMethod `string` (values: NotSet, Annual260Days, Annual365Days, AnnualQualifyingDays, DaysPerCalendarMonth, DaysPerTaxPeriod): The pensions' pro rata method
+    * ProviderEmployerRef `string`: The pensions' provider employer ref
+    * ProviderName `string`: The pensions' provider name
+    * QualifyingPayCodes `object`: The pensions' qualifying pay codes
+      * PayCode `array`
+        * items `string`
+    * Revision `integer`: The pensions' revision
+    * RoundingOption `string` (values: NotSet, PennyUp, PennyDown, Bankers, FiveUp, FiveDown): The pensions' rounding option
+    * SalarySacrifice `boolean`: The pensions' salary sacrifice
+    * SchemeName `string`: The pensions' scheme name
+    * SubGroup `string`: The pensions' sub group
+    * TaxationMethod `string` (values: NotSet, NetBased, ReliefAtSource, TaxReliefExcluded): The pensions' taxation method
+    * UpperThreshold `number`: The pensions' upper threshold
+    * UseAEThresholds `boolean`: The pensions' use a e thresholds
 
 ### Query
 * Query `object`
   * Query `object`
-    * Groups `object`: The query's groups
+    * ExcludeNullOrEmptyElements `boolean`: The querys' exclude null or empty elements
+    * Groups `object`: The querys' groups
       * Group `array`
         * items `object`
-          * @GroupName `string`: The entity group's group name
-          * @ItemName `string`: The entity group's item name
-          * @LoopExpression `string`: The entity group's loop expression
-          * @Selector `string`: The entity group's selector
-          * @UniqueKeyVariable `string`: The entity group's unique key variable
-          * Condition `array`: The entity group's conditions
-            * items `object`
-              * @ValueA `string`: The compare condition base's value a
-              * @ValueB `string`: The compare condition base's value b
-          * Filter `array`: The entity group's filters
-            * items `object`
-              * @Property `string`: The filter base's property
-              * @Value `string`: The filter base's value
-          * Order `array`: The entity group's ordering
-            * items `object`
-              * @Property `string`: The order by base's property
-          * Output `array`: The entity group's outputs
-            * items `object`
-              * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend, VariablePrepend, ElementDatePart): The output base's output
-    * RootNodeName `string`: The query's root node name
-    * Variables `object`: The query's variables
+          * @GroupName `string`: The entity groups' group name
+          * @ItemName `string`: The entity groups' item name
+          * @LoopExpression `string`: The entity groups' loop expression
+          * @Selector `string`: The entity groups' selector
+          * @UniqueKeyVariable `string`: The entity groups' unique key variable
+          * Condition `array`: The entity groups' conditions
+          * Filter `array`: The entity groups' filters
+          * Order `array`: The entity groups' ordering
+          * Output `array`: The entity groups' outputs
+    * RootNodeName `string`: The querys' root node name
+    * SuppressMetricAttributes `boolean`: The querys' suppress metric attributes
+    * Variables `object`: The querys' variables
       * Variable `array`
         * items `object`
-          * @Name `string`: The name value pair's name
-          * @Value `string`: The name value pair's value
+          * @Name `string`: The name value pairs' name
+          * @Value `string`: The name value pairs' value
 
 ### ReportDefinition
 * ReportDefinition `object`
   * ReportDefinition `object`
-    * Readonly `boolean`: The report definition's readonly
-    * ReportQuery `object`: The report definition's report query
-      * Groups `object`: The query's groups
+    * Readonly `boolean`: The report definitions' readonly
+    * ReportQuery `object`: The report definitions' report query
+      * ExcludeNullOrEmptyElements `boolean`: The querys' exclude null or empty elements
+      * Groups `object`: The querys' groups
         * Group `array`
           * items `object`
-            * @GroupName `string`: The entity group's group name
-            * @ItemName `string`: The entity group's item name
-            * @LoopExpression `string`: The entity group's loop expression
-            * @Selector `string`: The entity group's selector
-            * @UniqueKeyVariable `string`: The entity group's unique key variable
-            * Condition `array`: The entity group's conditions
-              * items `object`
-                * @ValueA `string`: The compare condition base's value a
-                * @ValueB `string`: The compare condition base's value b
-            * Filter `array`: The entity group's filters
-              * items `object`
-                * @Property `string`: The filter base's property
-                * @Value `string`: The filter base's value
-            * Order `array`: The entity group's ordering
-              * items `object`
-                * @Property `string`: The order by base's property
-            * Output `array`: The entity group's outputs
-              * items `object`
-                * @Output `string` (values: Element, Attribute, Variable, VariableSum, VariableAppend, VariablePrepend, ElementDatePart): The output base's output
-      * RootNodeName `string`: The query's root node name
-      * Variables `object`: The query's variables
+      * RootNodeName `string`: The querys' root node name
+      * SuppressMetricAttributes `boolean`: The querys' suppress metric attributes
+      * Variables `object`: The querys' variables
         * Variable `array`
           * items `object`
-            * @Name `string`: The name value pair's name
-            * @Value `string`: The name value pair's value
-    * Title `string`: The report definition's title
+    * Title `string`: The report definitions' title
 
 ### ReportLine
 * ReportLine `object`
   * ReportLine `object`
-    * Description `string`: The report line's description
-    * Generated `string`: The report line's generated
-    * TaxMonth `integer`: The report line's tax month
-    * TaxYear `integer`: The report line's tax year
-    * Value `number`: The report line's value
+    * Description `string`: The report lines' description
+    * Generated `string`: The report lines' generated
+    * TaxMonth `integer`: The report lines' tax month
+    * TaxYear `integer`: The report lines' tax year
+    * Value `number`: The report lines' value
 
 ### ReportingInstruction
 * ReportingInstruction `object`
   * ReportingInstruction `object`
-    * EndDate `string`: The reporting instruction's end date
-    * StartDate `string`: The reporting instruction's start date
-    * TaxMonth `integer`: The reporting instruction's tax month
-    * TaxYear `integer`: The reporting instruction's tax year
-    * Value `number`: The reporting instruction's value
+    * EndDate `string`: The reporting instructions' end date
+    * StartDate `string`: The reporting instructions' start date
+    * TaxMonth `integer`: The reporting instructions' tax month
+    * TaxYear `integer`: The reporting instructions' tax year
+    * Value `number`: The reporting instructions' value
 
 ### RtiJobInstruction
 * RtiJobInstruction `object`
   * RtiJobInstruction `object`
-    * EarlierTaxYear `integer`: The rti job instruction's earlier tax year
-    * Employer `object`: The rti job instruction's employer
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * FinalSubmissionForYear `boolean`: The rti job instruction's final submission for year
-    * Generate `boolean`: The rti job instruction's generate
-    * HoldingDate `string`: The rti job instruction's holding date
-    * LateReason `string` (values: A, B, C, D, F, G, H): The rti job instruction's late reason
-    * NoPaymentForPeriodFrom `string`: The rti job instruction's no payment for period from
-    * NoPaymentForPeriodTo `string`: The rti job instruction's no payment for period to
-    * PaySchedule `object`: The rti job instruction's pay schedule
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * PaymentDate `string`: The rti job instruction's payment date
-    * PeriodOfInactivityFrom `string`: The rti job instruction's period of inactivity from
-    * PeriodOfInactivityTo `string`: The rti job instruction's period of inactivity to
-    * RtiType `string`: The rti job instruction's rti type
-    * SchemeCeased `string`: The rti job instruction's scheme ceased
-    * TaxMonth `integer`: The rti job instruction's tax month
-    * TaxYear `integer`: The rti job instruction's tax year
-    * Timestamp `string`: The rti job instruction's timestamp
-    * Transmit `boolean`: The rti job instruction's transmit
+    * EarlierTaxYear `integer`: The rti job instructions' earlier tax year
+    * Employer `object`: The rti job instructions' employer
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * FinalSubmissionForYear `boolean`: The rti job instructions' final submission for year
+    * Generate `boolean`: The rti job instructions' generate
+    * HoldingDate `string`: The rti job instructions' holding date
+    * LateReason `string` (values: A, B, C, D, F, G, H): The rti job instructions' late reason
+    * NoPaymentForPeriodFrom `string`: The rti job instructions' no payment for period from
+    * NoPaymentForPeriodTo `string`: The rti job instructions' no payment for period to
+    * PaySchedule `object`: The rti job instructions' pay schedule
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * PaymentDate `string`: The rti job instructions' payment date
+    * PeriodOfInactivityFrom `string`: The rti job instructions' period of inactivity from
+    * PeriodOfInactivityTo `string`: The rti job instructions' period of inactivity to
+    * RtiTransaction `object`: The rti job instructions' rti transaction
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * RtiType `string`: The rti job instructions' rti type
+    * SchemeCeased `string`: The rti job instructions' scheme ceased
+    * TaxMonth `integer`: The rti job instructions' tax month
+    * TaxYear `integer`: The rti job instructions' tax year
+    * Timestamp `string`: The rti job instructions' timestamp
+    * Transmit `boolean`: The rti job instructions' transmit
 
 ### RtiTransactionBase
 * RtiTransactionBase `object`
   * RtiTransactionBase `object`
-    * EmployerCore `object`: The rti transaction base's employer core
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * RequestData `string`: The rti transaction base's request data
-    * ResponseData `string`: The rti transaction base's response data
-    * RtiType `string`: The rti transaction base's rti type
-    * TaxYear `integer`: The rti transaction base's tax year
-    * Timestamp `string`: The rti transaction base's timestamp
-    * TransactionStatus `string` (values: New, RequestGenerated, CompletedWithError, CompletedWithSuccess, TimeOut): The rti transaction base's transaction status
-    * TransmissionDate `string`: The rti transaction base's transmission date
+    * EmployerCore `object`: The rti transaction bases' employer core
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * RequestData `string`: The rti transaction bases' request data
+    * ResponseData `string`: The rti transaction bases' response data
+    * RtiType `string`: The rti transaction bases' rti type
+    * TaxYear `integer`: The rti transaction bases' tax year
+    * Timestamp `string`: The rti transaction bases' timestamp
+    * TransactionStatus `string` (values: New, RequestGenerated, CompletedWithError, CompletedWithSuccess, TimeOut): The rti transaction bases' transaction status
+    * TransmissionDate `string`: The rti transaction bases' transmission date
+
+### SubContractor
+* SubContractor `object`
+  * SubContractor `object`
+    * Address `object`: The sub contractors' address
+      * Address1 `string`: The addresss' line 1
+      * Address2 `string`: The addresss' line 2
+      * Address3 `string`: The addresss' line 3
+      * Address4 `string`: The addresss' line 4
+      * Country `string`: The addresss' country
+      * Postcode `string`: The addresss' postcode
+    * BankAccount `object`: The sub contractors' bank account
+      * AccountName `string`: The bank accounts' account name
+      * AccountNumber `string`: The bank accounts' account number
+      * Reference `string`: The bank accounts' reference
+      * SortCode `string`: The bank accounts' sort code
+    * BusinessType `string` (values: SoleTrader, Company, Partnership, Trust): The sub contractors' business type
+    * CompanyName `string`: The sub contractors' company name
+    * CompanyRegistrationNumber `string`: The sub contractors' company registration number
+    * Deactivated `boolean`: The sub contractors' deactivated
+    * EffectiveDate `string`: The sub contractors' effective date
+    * FirstName `string`: The sub contractors' first name
+    * Initials `string`: The sub contractors' initials
+    * LastName `string`: The sub contractors' last name
+    * MetaData `object`: The sub contractors' meta data
+    * MiddleName `string`: The sub contractors' middle name
+    * NiNumber `string`: The sub contractors' ni number
+    * PartnershipName `string`: The sub contractors' partnership name
+    * PartnershipUniqueTaxReference `string`: The sub contractors' partnership unique tax reference
+    * PayFrequency `string` (values: Monthly, Weekly): The sub contractors' pay frequency
+    * PaymentMethod `string` (values: NotSet, Cash, Cheque, BACS, FasterPayments, Other): The sub contractors' payment method
+    * Region `string` (values: NotSet, England, Scotland, Wales): The sub contractors' region
+    * Revision `integer`: The sub contractors' revision
+    * TaxationStatus `string` (values: Unmatched, Net, Gross): The sub contractors' taxation status
+    * Telephone `string`: The sub contractors' telephone
+    * Territory `string` (values: UnitedKingdom): The sub contractors' territory
+    * Title `string`: The sub contractors' title
+    * TradingName `string`: The sub contractors' trading name
+    * UniqueTaxReference `string`: The sub contractors' unique tax reference
+    * VatRegistered `boolean`: The sub contractors' vat registered
+    * VatRegistrationNumber `string`: The sub contractors' vat registration number
+    * VerificationDate `string`: The sub contractors' verification date
+    * VerificationNumber `string`: The sub contractors' verification number
+    * WorksNumber `string`: The sub contractors' works number
 
 ### Tag
 * Tag `object`
   * Tag `object`
-    * Created `string`: The tag's created
-    * TaggedItem `object`: The tag's tagged item
-      * @href `string`: The link's href
-      * @rel `string`: The link's target type
-      * @title `string`: The link's title
-    * Text `string`: The tag's text
+    * Created `string`: The tags' created
+    * TaggedItem `object`: The tags' tagged item
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * Text `string`: The tags' text
+
+### ThirdPartyJobInstruction
+* ThirdPartyJobInstruction `object`
+  * ThirdPartyJobInstruction `object`
+    * ClientIdUniqueKey `string`: The third party job instructions' client id unique key
+    * ClientSecretUniqueKey `string`: The third party job instructions' client secret unique key
+    * Employer `object`: The third party job instructions' employer
+      * @href `string`: The links' href
+      * @rel `string`: The links' target type
+      * @title `string`: The links' title
+    * HoldingDate `string`: The third party job instructions' holding date
+    * InstructionTypeName `string`: The third party job instructions' instruction type name
+    * PayScheduleUniqueKey `string`: The third party job instructions' pay schedule unique key
+    * PaymentDate `string`: The third party job instructions' payment date
+    * RemoteEndpoint `string`: The third party job instructions' remote endpoint
+
+### ThirdPartyTransaction
+
 
 ### TransformDefinition
 * TransformDefinition `object`
   * TransformDefinition `object`
-    * ContentType `string`: The transform definition's content type
-    * Definition `string`: The transform definition's definition
-    * DefinitionType `string`: The transform definition's definition type
-    * Readonly `boolean`: The transform definition's readonly
-    * SupportedReports `string`: The transform definition's supported reports
-    * TaxYear `integer`: The transform definition's tax year
-    * Title `string`: The transform definition's title
+    * ContentType `string`: The transform definitions' content type
+    * Definition `string`: The transform definitions' definition
+    * DefinitionType `string`: The transform definitions' definition type
+    * Readonly `boolean`: The transform definitions' readonly
+    * SupportedReports `string`: The transform definitions' supported reports
+    * TaxYear `integer`: The transform definitions' tax year
+    * Title `string`: The transform definitions' title
 
 

@@ -16,9 +16,14 @@
       "entertainment"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_halo_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_d_d7_Halo_(series)_logo.svg"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://developer.haloapi.com/docs/services/58acde2921091812784ce8c3/export?DocumentFormat=Swagger",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://developer.haloapi.com/docs/services/58acde2921091812784ce8c3/export?DocumentFormat=Swagger",
@@ -33,9 +38,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "securityDefinitions": {
     "apiKeyHeader": {
       "in": "header",
@@ -56,6 +58,7 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/h5/players/{player}/gamevariants": {
       "get": {
@@ -93,6 +96,9 @@
             "name": "order",
             "type": "number"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -176,6 +182,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -268,6 +277,9 @@
             "type": "number"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain a list of the Player-created Map Variants.",
@@ -344,6 +356,9 @@
             "required": true,
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

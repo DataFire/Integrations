@@ -103,7 +103,7 @@
         "operationId": "Inputs_ListByStreamingJob",
         "parameters": [
           {
-            "description": "The $select OData query parameter. This is a comma-separated list of structural properties to include in the response, or “*” to include all properties. By default, all properties are returned except diagnostics. Currently only accepts '*' as a valid value.",
+            "description": "The $select OData query parameter. This is a comma-separated list of structural properties to include in the response, or \"*\" to include all properties. By default, all properties are returned except diagnostics. Currently only accepts '*' as a valid value.",
             "in": "query",
             "name": "$select",
             "required": false,
@@ -403,7 +403,7 @@
           "Inputs"
         ],
         "x-ms-examples": {
-          "Get a reference blob input wtih CSV serialization": {
+          "Get a reference blob input with CSV serialization": {
             "parameters": {
               "api-version": "2016-03-01",
               "inputName": "input7225",
@@ -586,7 +586,7 @@
             }
           },
           {
-            "description": "The ETag of the input. Omit this value to always overwrite the current input. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.",
+            "description": "The ETag of the input. Omit this value to always overwrite the current input. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -879,7 +879,7 @@
             }
           },
           {
-            "description": "The ETag of the input. Omit this value to always overwrite the current input. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.",
+            "description": "The ETag of the input. Omit this value to always overwrite the current input. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -940,7 +940,7 @@
           "Inputs"
         ],
         "x-ms-examples": {
-          "Create a reference blob input wtih CSV serialization": {
+          "Create a reference blob input with CSV serialization": {
             "parameters": {
               "api-version": "2016-03-01",
               "input": {

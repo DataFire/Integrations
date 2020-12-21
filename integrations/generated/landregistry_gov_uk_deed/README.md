@@ -1,6 +1,6 @@
 # @datafire/landregistry_gov_uk_deed
 
-Client library for Deed
+Client library for Deed API
 
 ## Installation and Usage
 ```bash
@@ -9,15 +9,7 @@ npm install --save @datafire/landregistry_gov_uk_deed
 ```js
 let landregistry_gov_uk_deed = require('@datafire/landregistry_gov_uk_deed').create();
 
-landregistry_gov_uk_deed.addDeed({
-  "body": {
-    "title_number": "",
-    "borrowers": [],
-    "md_ref": "",
-    "identity_checked": "",
-    "property_address": ""
-  }
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

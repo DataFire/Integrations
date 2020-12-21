@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "api.nytimes.com",
-  "basePath": "/svc/movies/v2",
   "info": {
     "description": "With the Movie Reviews API, you can search New York Times movie reviews by keyword and get lists of NYT Critics' Picks.",
     "termsOfService": "http://developer.nytimes.com/tou",
-    "title": "Movie Reviews",
+    "title": "Movie Reviews API",
     "version": "2.0.0",
     "x-apiClientRegistration": {
       "url": "http://developer.nytimes.com/signup"
@@ -23,9 +17,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/NYTimes/public_api_specs/master/movie_reviews/movie_reviews_v2.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nytimes/public_api_specs/master/movie_reviews/movie_reviews_v2.json",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -36,27 +30,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "http://developer.nytimes.com/"
-  },
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "apikey": {
-      "in": "query",
-      "name": "api-key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "apikey": []
-    }
+  "host": "api.nytimes.com",
+  "basePath": "/svc/movies/v2",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/critics/{resource-type}.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "all | full-time | part-time | [reviewer-name]\n\nSpecify all to get all Times reviewers, or specify full-time or part-time to get that subset. Specify a reviewer's name to get details about a particular reviewer.\n",
@@ -90,12 +74,14 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "critics.resource_type.json.get"
+        }
       }
     },
     "/reviews/search.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Search keywords; matches movie title and indexed terms\n\nTo limit your search to exact matches only, surround your search string with single quotation marks (e.g., query='28+days+later'). Otherwise, responses will include partial matches (\"head words\") as well as exact matches (e.g., president will match president, presidents and presidential).\n  \n  If you specify multiple terms without quotation marks, they will be combined in an OR search.\n  \n  If you omit the query parameter, your request will be equivalent to a reviews and NYT Critics' Picks request.\n",
@@ -172,12 +158,14 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "reviews.search.json.get"
+        }
       }
     },
     "/reviews/{resource-type}.json": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Specify all to retrieve all reviews, including NYT Critics' Picks.\n\nSpecify picks to get NYT Critics' Picks currently in theaters.\n\n",
@@ -236,8 +224,7 @@
               "type": "object"
             }
           }
-        },
-        "operationId": "reviews.resource_type.json.get"
+        }
       }
     }
   },
@@ -355,5 +342,21 @@
       },
       "type": "object"
     }
-  }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "query",
+      "name": "api-key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "externalDocs": {
+    "url": "http://developer.nytimes.com/"
+  },
+  "x-components": {}
 }

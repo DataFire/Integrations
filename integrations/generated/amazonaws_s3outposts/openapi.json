@@ -1,0 +1,729 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon S3 on Outposts provides access to S3 on Outposts operations.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon S3 on Outposts",
+    "version": "2017-07-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/s3outposts-2017-07-25.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "s3outposts",
+    "x-datafire": {
+      "name": "amazonaws_s3outposts",
+      "type": "openapi"
+    }
+  },
+  "host": "s3-outposts.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/S3Outposts/CreateEndpoint": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "OutpostId": {
+                  "description": "The ID of the AWS Outpost. ",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^(op-[a-f0-9]{17}|\\d{12}|ec2)$",
+                  "type": "string"
+                },
+                "SecurityGroupId": {
+                  "description": "The ID of the security group to use with the endpoint.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$",
+                  "type": "string"
+                },
+                "SubnetId": {
+                  "description": "The ID of the subnet in the selected VPC.",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "OutpostId",
+                "SubnetId",
+                "SecurityGroupId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateEndpointResult"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>S3 on Outposts access points simplify managing data access at scale for shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your virtual private cloud (VPC). </p> <p>This action creates an endpoint and associates it with the specified Outpost. </p> <p/> <p>Related actions include:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a> </p> </li> </ul>",
+        "operationId": "CreateEndpoint"
+      }
+    },
+    "/S3Outposts/DeleteEndpoint#endpointId&outpostId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the end point.",
+            "in": "query",
+            "maxLength": 500,
+            "minLength": 5,
+            "name": "endpointId",
+            "pattern": "^[a-zA-Z0-9]{19}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the AWS Outpost. ",
+            "in": "query",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "outpostId",
+            "pattern": "^(op-[a-f0-9]{17}|\\d{12}|ec2)$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>S3 on Outposts access points simplify managing data access at scale for shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your virtual private cloud (VPC). </p> <p>This action deletes an endpoint. </p> <p/> <p>Related actions include:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html\">ListEndpoints</a> </p> </li> </ul>",
+        "operationId": "DeleteEndpoint"
+      }
+    },
+    "/S3Outposts/ListEndpoints": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The next endpoint requested in the list.",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "^[A-Za-z0-9\\+\\:\\/\\=\\?\\#-_]+$",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The max number of endpoints that can be returned on the request.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 0,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEndpointsResult"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>S3 on Outposts access points simplify managing data access at scale for shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your virtual private cloud (VPC). </p> <p>This action lists endpoints associated with the Outpost. </p> <p/> <p>Related actions include:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html\">CreateEndpoint</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html\">DeleteEndpoint</a> </p> </li> </ul>",
+        "operationId": "ListEndpoints"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "CidrBlock": {
+      "maxLength": 20,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateEndpointRequest": {
+      "properties": {
+        "OutpostId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutpostId"
+            },
+            {
+              "description": "The ID of the AWS Outpost. "
+            }
+          ]
+        },
+        "SecurityGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupId"
+            },
+            {
+              "description": "The ID of the security group to use with the endpoint."
+            }
+          ]
+        },
+        "SubnetId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetId"
+            },
+            {
+              "description": "The ID of the subnet in the selected VPC."
+            }
+          ]
+        }
+      },
+      "required": [
+        "OutpostId",
+        "SubnetId",
+        "SecurityGroupId"
+      ],
+      "title": "CreateEndpointRequest",
+      "type": "object"
+    },
+    "CreateEndpointResult": {
+      "properties": {
+        "EndpointArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the endpoint."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreationTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteEndpointRequest": {
+      "properties": {},
+      "title": "DeleteEndpointRequest",
+      "type": "object"
+    },
+    "Endpoint": {
+      "description": "S3 on Outposts access points simplify managing data access at scale for shared datasets in Amazon S3 on Outposts. S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your virtual private cloud (VPC). ",
+      "properties": {
+        "CidrBlock": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CidrBlock"
+            },
+            {
+              "description": "The VPC CIDR committed by this endpoint."
+            }
+          ]
+        },
+        "CreationTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreationTime"
+            },
+            {
+              "description": "The time the endpoint was created."
+            }
+          ]
+        },
+        "EndpointArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the endpoint."
+            }
+          ]
+        },
+        "NetworkInterfaces": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaces"
+            },
+            {
+              "description": "The network interface of the endpoint."
+            }
+          ]
+        },
+        "OutpostsId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OutpostId"
+            },
+            {
+              "description": "The ID of the AWS Outpost."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndpointStatus"
+            },
+            {
+              "description": "The status of the endpoint."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EndpointArn": {
+      "maxLength": 500,
+      "minLength": 5,
+      "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):s3-outposts:[a-z\\-0-9]*:[0-9]{12}:outpost/(op-[a-f0-9]{17}|ec2)/endpoint/[a-zA-Z0-9]{19}$",
+      "type": "string"
+    },
+    "EndpointId": {
+      "maxLength": 500,
+      "minLength": 5,
+      "pattern": "^[a-zA-Z0-9]{19}$",
+      "type": "string"
+    },
+    "EndpointStatus": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE"
+      ],
+      "type": "string"
+    },
+    "Endpoints": {
+      "items": {
+        "$ref": "#/definitions/Endpoint"
+      },
+      "type": "array"
+    },
+    "InternalServerException": {},
+    "ListEndpointsRequest": {
+      "properties": {},
+      "title": "ListEndpointsRequest",
+      "type": "object"
+    },
+    "ListEndpointsResult": {
+      "properties": {
+        "Endpoints": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Endpoints"
+            },
+            {
+              "description": "Returns an array of endpoints associated with AWS Outpost."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The next endpoint returned in the list."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NetworkInterface": {
+      "description": "The container for the network interface.",
+      "properties": {
+        "NetworkInterfaceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaceId"
+            },
+            {
+              "description": "The ID for the network interface."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NetworkInterfaceId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NetworkInterfaces": {
+      "items": {
+        "$ref": "#/definitions/NetworkInterface"
+      },
+      "type": "array"
+    },
+    "NextToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9\\+\\:\\/\\=\\?\\#-_]+$",
+      "type": "string"
+    },
+    "OutpostId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^(op-[a-f0-9]{17}|\\d{12}|ec2)$",
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "SecurityGroupId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$",
+      "type": "string"
+    },
+    "SubnetId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$",
+      "type": "string"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/s3-outposts/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

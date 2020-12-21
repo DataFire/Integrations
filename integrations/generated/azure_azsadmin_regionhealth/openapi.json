@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/InfrastructureInsights/Microsoft.InfrastructureInsights.Admin/stable/2016-05-01/RegionHealth.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/azsadmin/resource-manager/infrastructureinsights/Microsoft.InfrastructureInsights.Admin/preview/2016-05-01/RegionHealth.json",
         "version": "2.0"
       }
     ],
@@ -42,7 +42,7 @@
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Authorization uses an Azure Active Directory OAuth2 flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -57,40 +57,31 @@
       ]
     }
   ],
-  "parameters": {
-    "RegionParameter": {
-      "description": "Name of the region",
-      "in": "path",
-      "name": "region",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  },
+  "parameters": {},
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/System.{location}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths": {
       "get": {
-        "description": "Get the list of all regions health status.",
+        "description": "Returns the list of all health status for the region.",
         "operationId": "RegionHealths_List",
         "parameters": [
           {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.",
+            "description": "Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Location name.",
+            "description": "The name of the resource group.",
             "in": "path",
-            "name": "location",
+            "name": "resourceGroupName",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
           },
           {
             "default": "2016-05-01",
-            "description": "Client Api Version.",
+            "description": "Client API Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -116,16 +107,16 @@
           "RegionHealths"
         ],
         "x-ms-examples": {
-          "Get the list of all health items for the region": {
+          "Returns the list of all health status for the region.": {
             "parameters": {
               "api-version": "2016-05-01",
-              "location": "local",
+              "resourceGroupName": "System.local",
               "subscriptionId": "20ff7fc3-e762-44dd-bd96-b71116dcdc23"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
                       "id": "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/System.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local",
@@ -199,20 +190,28 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/System.{location}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{region}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{location}": {
       "get": {
-        "description": "Get health status of a region.",
+        "description": "Returns the requested health status of a region.",
         "operationId": "RegionHealths_Get",
         "parameters": [
           {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription.The subscription ID forms part of the URI for every service call.",
+            "description": "Subscription credentials that uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
             "in": "path",
             "name": "subscriptionId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Location name.",
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Name of the region",
             "in": "path",
             "name": "location",
             "required": true,
@@ -220,11 +219,8 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/RegionParameter"
-          },
-          {
             "default": "2016-05-01",
-            "description": "Client Api Version.",
+            "description": "Client API Version.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -243,11 +239,11 @@
           "RegionHealths"
         ],
         "x-ms-examples": {
-          "Get the health status of a region": {
+          "Returns the requested health status of a region.": {
             "parameters": {
               "api-version": "2016-05-01",
               "location": "local",
-              "region": "local",
+              "resourceGroupName": "System.local",
               "subscriptionId": "20ff7fc3-e762-44dd-bd96-b71116dcdc23"
             },
             "responses": {
@@ -323,45 +319,59 @@
     "RegionHealth": {
       "allOf": [
         {
-          "description": "Base Resource Object",
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "The resource model definition for a ARM tracked top level resource",
           "properties": {
-            "id": {
-              "description": "URI of the resource.",
-              "type": "string"
-            },
             "location": {
-              "description": "Location where resource is location.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "name": {
-              "description": "Name of the resource.",
-              "readOnly": true,
-              "type": "string"
+              "description": "The Azure Region where the resource lives",
+              "type": "string",
+              "x-ms-mutability": [
+                "read",
+                "create"
+              ]
             },
             "tags": {
               "additionalProperties": {
                 "type": "string"
               },
-              "description": "List of key value pairs.",
-              "readOnly": true,
-              "type": "object"
-            },
-            "type": {
-              "description": "Type of resource.",
-              "readOnly": true,
-              "type": "string"
+              "description": "Resource tags.",
+              "type": "object",
+              "x-ms-mutability": [
+                "read",
+                "create",
+                "update"
+              ]
             }
-          },
-          "type": "object",
-          "x-ms-azure-resource": true
+          }
         }
       ],
-      "description": "Contains information related to a regions health.",
+      "description": "Contains information related to the health of a region.",
       "properties": {
         "properties": {
           "$ref": "#/definitions/RegionHealthModel",
-          "description": "Contains information related to a regions health.",
+          "description": "Contains information related to the health of a region.",
           "x-ms-client-flatten": true
         }
       }
@@ -383,23 +393,23 @@
       }
     },
     "RegionHealthModel": {
-      "description": "Contains information related to a regions health.",
+      "description": "Contains information related to the health of a region.",
       "properties": {
         "alertSummary": {
           "description": "Summary of the alerts.",
           "properties": {
             "criticalAlertCount": {
-              "description": "How many critical alerts this service has.",
+              "description": "The number of critical alerts for the service.",
               "type": "integer"
             },
             "warningAlertCount": {
-              "description": "How many warning alerts this service has.",
+              "description": "The number of warning alerts for the service.",
               "type": "integer"
             }
           }
         },
         "usageMetrics": {
-          "description": "List of usage metrics for this region.",
+          "description": "List of usage metrics for the region.",
           "items": {
             "description": "Metrics of resource usage.",
             "properties": {
@@ -409,7 +419,7 @@
                   "description": "Metrics for a source.",
                   "properties": {
                     "maCounterName": {
-                      "description": "Name of the usage metric.",
+                      "description": "Name of the counter.",
                       "type": "string"
                     },
                     "name": {
@@ -417,12 +427,12 @@
                       "type": "string"
                     },
                     "observedTimestamp": {
-                      "description": "Name of the usage metric.",
+                      "description": "Time counter was observed.",
                       "format": "date-time",
                       "type": "string"
                     },
                     "sourceName": {
-                      "description": "What created the metric.",
+                      "description": "The origin of the metric.",
                       "enum": [
                         "PhysicalNode",
                         "VirtualMachine",
@@ -435,7 +445,7 @@
                       }
                     },
                     "sourceType": {
-                      "description": "Name of the usage metric.",
+                      "description": "Type of the source.",
                       "type": "string"
                     },
                     "unit": {

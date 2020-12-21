@@ -78,11 +78,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation.",
@@ -110,75 +111,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list job schedule operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of job schedules.",
-                  "items": {
-                    "description": "Definition of the job schedule.",
-                    "properties": {
-                      "id": {
-                        "description": "Gets the id of the resource.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Gets the name of the variable.",
-                        "readOnly": true,
-                        "type": "string"
-                      },
-                      "properties": {
-                        "description": "Definition of job schedule parameters.",
-                        "properties": {
-                          "jobScheduleId": {
-                            "description": "Gets or sets the id of job schedule.",
-                            "type": "string"
-                          },
-                          "parameters": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Gets or sets the parameters of the job schedule.",
-                            "type": "object"
-                          },
-                          "runOn": {
-                            "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
-                            "type": "string"
-                          },
-                          "runbook": {
-                            "description": "The runbook property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the runbook.",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "schedule": {
-                            "description": "The schedule property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the schedule.",
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "type": {
-                        "description": "Resource type",
-                        "readOnly": true,
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/JobScheduleListResult"
             }
           },
           "default": {
@@ -263,7 +196,7 @@
             }
           }
         },
-        "x-ms-odata": "./definitions.json#/definitions/JobSchedule",
+        "x-ms-odata": "#/definitions/JobSchedule",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -289,11 +222,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The job schedule name.",
@@ -377,11 +311,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The job schedule name.",
@@ -410,62 +345,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "Definition of the job schedule.",
-              "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the variable.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "Definition of job schedule parameters.",
-                  "properties": {
-                    "jobScheduleId": {
-                      "description": "Gets or sets the id of job schedule.",
-                      "type": "string"
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job schedule.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "schedule": {
-                      "description": "The schedule property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the schedule.",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": {
-                  "description": "Resource type",
-                  "readOnly": true,
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/JobSchedule"
             }
           },
           "default": {
@@ -542,11 +422,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The job schedule name.",
@@ -562,50 +443,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create job schedule operation.",
-              "properties": {
-                "properties": {
-                  "description": "The parameters supplied to the create job schedule operation.",
-                  "properties": {
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets a list of job properties.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "schedule": {
-                      "description": "The schedule property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the schedule.",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "required": [
-                    "schedule",
-                    "runbook"
-                  ]
-                }
-              },
-              "required": [
-                "properties"
-              ]
+              "$ref": "#/definitions/JobScheduleCreateParameters"
             }
           },
           {
@@ -627,62 +465,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "description": "Definition of the job schedule.",
-              "properties": {
-                "id": {
-                  "description": "Gets the id of the resource.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets the name of the variable.",
-                  "readOnly": true,
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "Definition of job schedule parameters.",
-                  "properties": {
-                    "jobScheduleId": {
-                      "description": "Gets or sets the id of job schedule.",
-                      "type": "string"
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job schedule.",
-                      "type": "object"
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
-                      "type": "string"
-                    },
-                    "runbook": {
-                      "description": "The runbook property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the runbook.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "schedule": {
-                      "description": "The schedule property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the schedule.",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "type": {
-                  "description": "Resource type",
-                  "readOnly": true,
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/JobSchedule"
             }
           },
           "default": {
@@ -756,5 +539,134 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "JobSchedule": {
+      "description": "Definition of the job schedule.",
+      "properties": {
+        "id": {
+          "description": "Gets the id of the resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets the name of the variable.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/JobScheduleProperties",
+          "description": "Gets or sets the properties of the job schedule.",
+          "x-ms-client-flatten": true
+        },
+        "type": {
+          "description": "Resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "JobScheduleCreateParameters": {
+      "description": "The parameters supplied to the create job schedule operation.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/JobScheduleCreateProperties",
+          "description": "Gets or sets the list of job schedule properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ]
+    },
+    "JobScheduleCreateProperties": {
+      "description": "The parameters supplied to the create job schedule operation.",
+      "properties": {
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets a list of job properties.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook."
+        },
+        "schedule": {
+          "$ref": "#/definitions/ScheduleAssociationProperty",
+          "description": "Gets or sets the schedule."
+        }
+      },
+      "required": [
+        "schedule",
+        "runbook"
+      ]
+    },
+    "JobScheduleListResult": {
+      "description": "The response model for the list job schedule operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of job schedules.",
+          "items": {
+            "$ref": "#/definitions/JobSchedule"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "JobScheduleProperties": {
+      "description": "Definition of job schedule parameters.",
+      "properties": {
+        "jobScheduleId": {
+          "description": "Gets or sets the id of job schedule.",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job schedule.",
+          "type": "object"
+        },
+        "runOn": {
+          "description": "Gets or sets the hybrid worker group that the scheduled job should run on.",
+          "type": "string"
+        },
+        "runbook": {
+          "$ref": "#/definitions/RunbookAssociationProperty",
+          "description": "Gets or sets the runbook."
+        },
+        "schedule": {
+          "$ref": "#/definitions/ScheduleAssociationProperty",
+          "description": "Gets or sets the schedule."
+        }
+      }
+    },
+    "RunbookAssociationProperty": {
+      "description": "The runbook property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the runbook.",
+          "type": "string"
+        }
+      }
+    },
+    "ScheduleAssociationProperty": {
+      "description": "The schedule property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the Schedule.",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

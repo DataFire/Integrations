@@ -1,23 +1,25 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "firebasedynamiclinks.googleapis.com",
-  "basePath": "/",
   "info": {
     "contact": {
       "name": "Google",
-      "url": "https://google.com"
+      "url": "https://google.com",
+      "x-twitter": "youtube"
     },
     "description": "Programmatically creates and manages Firebase Dynamic Links.",
-    "title": "Firebase Dynamic Links",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
+    "title": "Firebase Dynamic Links API",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
     "x-apisguru-categories": [
-      "backend"
+      "analytics",
+      "media"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
@@ -26,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
+          "version": "2.7.31"
         },
         "format": "google",
         "url": "https://firebasedynamiclinks.googleapis.com/$discovery/rest?version=v1",
@@ -41,179 +43,97 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "url": "https://firebase.google.com/docs/dynamic-links/"
-  },
-  "securityDefinitions": {
-    "Oauth2": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
-      "flow": "implicit",
-      "scopes": {
-        "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
-      },
-      "type": "oauth2"
-    },
-    "offline": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
-      },
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-      "description": "Allows offline access using a refresh_token"
-    }
-  },
-  "parameters": {
-    "$.xgafv": {
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ],
-      "in": "query",
-      "name": "$.xgafv",
-      "type": "string"
-    },
-    "access_token": {
-      "description": "OAuth access token.",
-      "in": "query",
-      "name": "access_token",
-      "type": "string"
-    },
-    "alt": {
-      "default": "json",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ],
-      "in": "query",
-      "name": "alt",
-      "type": "string"
-    },
-    "bearer_token": {
-      "description": "OAuth bearer token.",
-      "in": "query",
-      "name": "bearer_token",
-      "type": "string"
-    },
-    "callback": {
-      "description": "JSONP",
-      "in": "query",
-      "name": "callback",
-      "type": "string"
-    },
-    "fields": {
-      "description": "Selector specifying which fields to include in a partial response.",
-      "in": "query",
-      "name": "fields",
-      "type": "string"
-    },
-    "key": {
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-      "in": "query",
-      "name": "key",
-      "type": "string"
-    },
-    "oauth_token": {
-      "description": "OAuth 2.0 token for the current user.",
-      "in": "query",
-      "name": "oauth_token",
-      "type": "string"
-    },
-    "pp": {
-      "default": true,
-      "description": "Pretty-print response.",
-      "in": "query",
-      "name": "pp",
-      "type": "boolean"
-    },
-    "prettyPrint": {
-      "default": true,
-      "description": "Returns response with indentations and line breaks.",
-      "in": "query",
-      "name": "prettyPrint",
-      "type": "boolean"
-    },
-    "quotaUser": {
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
-      "in": "query",
-      "name": "quotaUser",
-      "type": "string"
-    },
-    "uploadType": {
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
-      "in": "query",
-      "name": "uploadType",
-      "type": "string"
-    },
-    "upload_protocol": {
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
-      "in": "query",
-      "name": "upload_protocol",
-      "type": "string"
-    }
-  },
-  "tags": [
-    {
-      "name": "managedShortLinks"
-    },
-    {
-      "name": "shortLinks"
-    },
-    {
-      "name": "v1"
-    }
+  "host": "firebasedynamiclinks.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
   "paths": {
     "/v1/installAttribution": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Get iOS strong/weak-match info for post-install attribution.",
-        "operationId": "installAttribution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -235,59 +155,104 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
             ]
           }
         ],
         "tags": [
           "v1"
-        ]
+        ],
+        "description": "Get iOS strong/weak-match info for post-install attribution.",
+        "operationId": "firebasedynamiclinks.installAttribution"
       }
     },
     "/v1/managedShortLinks:create": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a managed short Dynamic Link given either a valid long Dynamic Link\nor details such as Dynamic Link domain, Android and iOS app information.\nThe created short Dynamic Link will not expire.\n\nThis differs from CreateShortDynamicLink in the following ways:\n  - The request will also contain a name for the link (non unique name\n    for the front end).\n  - The response must be authenticated with an auth token (generated with\n    the admin service account).\n  - The link will appear in the FDL list of links in the console front end.\n\nThe Dynamic Link domain in the request must be owned by requester's\nFirebase project.",
-        "operationId": "managedShortLinks.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -309,59 +274,223 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
             ]
           }
         ],
         "tags": [
           "managedShortLinks"
-        ]
+        ],
+        "description": "Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name for the link (non unique name for the front end). - The response must be authenticated with an auth token (generated with the admin service account). - The link will appear in the FDL list of links in the console front end. The Dynamic Link domain in the request must be owned by requester's Firebase project.",
+        "operationId": "firebasedynamiclinks.managedShortLinks.create"
+      }
+    },
+    "/v1/reopenAttribution": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/GetIosReopenAttributionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/GetIosReopenAttributionResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
+            ]
+          }
+        ],
+        "tags": [
+          "v1"
+        ],
+        "description": "Get iOS reopen attribution for app universal link open deeplinking.",
+        "operationId": "firebasedynamiclinks.reopenAttribution"
       }
     },
     "/v1/shortLinks": {
       "parameters": [
         {
-          "$ref": "#/parameters/$.xgafv"
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/access_token"
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/alt"
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/bearer_token"
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/callback"
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/fields"
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/key"
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/oauth_token"
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
         },
         {
-          "$ref": "#/parameters/pp"
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/prettyPrint"
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a short Dynamic Link given either a valid long Dynamic Link or\ndetails such as Dynamic Link domain, Android and iOS app information.\nThe created short Dynamic Link will not expire.\n\nRepeated calls with the same long Dynamic Link or Dynamic Link information\nwill produce the same short Dynamic Link.\n\nThe Dynamic Link domain in the request must be owned by requester's\nFirebase project.",
-        "operationId": "shortLinks.create",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -383,19 +512,109 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
             ]
           }
         ],
         "tags": [
           "shortLinks"
-        ]
+        ],
+        "description": "Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project.",
+        "operationId": "firebasedynamiclinks.shortLinks.create"
       }
     },
     "/v1/{dynamicLink}/linkStats": {
+      "parameters": [
+        {
+          "description": "V1 error format.",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "$.xgafv",
+          "type": "string"
+        },
+        {
+          "description": "OAuth access token.",
+          "in": "query",
+          "name": "access_token",
+          "type": "string"
+        },
+        {
+          "description": "Data format for response.",
+          "enum": [
+            "json",
+            "media",
+            "proto"
+          ],
+          "in": "query",
+          "name": "alt",
+          "type": "string"
+        },
+        {
+          "description": "JSONP",
+          "in": "query",
+          "name": "callback",
+          "type": "string"
+        },
+        {
+          "description": "Selector specifying which fields to include in a partial response.",
+          "in": "query",
+          "name": "fields",
+          "type": "string"
+        },
+        {
+          "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+          "in": "query",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "description": "OAuth 2.0 token for the current user.",
+          "in": "query",
+          "name": "oauth_token",
+          "type": "string"
+        },
+        {
+          "description": "Returns response with indentations and line breaks.",
+          "in": "query",
+          "name": "prettyPrint",
+          "type": "boolean"
+        },
+        {
+          "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+          "in": "query",
+          "name": "quotaUser",
+          "type": "string"
+        },
+        {
+          "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+          "in": "query",
+          "name": "upload_protocol",
+          "type": "string"
+        },
+        {
+          "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+          "in": "query",
+          "name": "uploadType",
+          "type": "string"
+        }
+      ],
       "get": {
-        "description": "Fetches analytics stats of a short Dynamic Link for a given\nduration. Metrics include number of clicks, redirects, installs,\napp first opens, and app reopens.",
-        "operationId": "getLinkStats",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz",
+            "in": "path",
+            "name": "dynamicLink",
+            "required": true,
+            "type": "string"
+          },
           {
             "description": "The span of time requested in days.",
             "in": "query",
@@ -403,10 +622,9 @@
             "type": "string"
           },
           {
-            "description": "Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz",
-            "in": "path",
-            "name": "dynamicLink",
-            "required": true,
+            "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
+            "in": "query",
+            "name": "sdkVersion",
             "type": "string"
           }
         ],
@@ -422,54 +640,18 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
             ]
           }
         ],
         "tags": [
           "v1"
-        ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/$.xgafv"
-        },
-        {
-          "$ref": "#/parameters/access_token"
-        },
-        {
-          "$ref": "#/parameters/alt"
-        },
-        {
-          "$ref": "#/parameters/bearer_token"
-        },
-        {
-          "$ref": "#/parameters/callback"
-        },
-        {
-          "$ref": "#/parameters/fields"
-        },
-        {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
-        },
-        {
-          "$ref": "#/parameters/upload_protocol"
-        }
-      ]
+        ],
+        "description": "Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens.",
+        "operationId": "firebasedynamiclinks.getLinkStats"
+      }
     }
   },
   "definitions": {
@@ -499,7 +681,7 @@
           "type": "string"
         },
         "androidMinPackageVersionCode": {
-          "description": "Minimum version code for the Android app. If the installed app’s version\ncode is lower, then the user is taken to the Play Store.",
+          "description": "Minimum version code for the Android app. If the installed app’s version code is lower, then the user is taken to the Play Store.",
           "type": "string"
         },
         "androidPackageName": {
@@ -514,14 +696,18 @@
       "properties": {
         "dynamicLinkInfo": {
           "$ref": "#/definitions/DynamicLinkInfo",
-          "description": "Information about the Dynamic Link to be shortened.\n[Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener)."
+          "description": "Information about the Dynamic Link to be shortened. [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener)."
         },
         "longDynamicLink": {
-          "description": "Full long Dynamic Link URL with desired query parameters specified.\nFor example,\n\"https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample\",\n[Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).",
+          "description": "Full long Dynamic Link URL with desired query parameters specified. For example, \"https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample\", [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).",
           "type": "string"
         },
         "name": {
-          "description": "Link name to associate with the link. It's used for marketer to identify\nmanually-created links in the Firebase console\n(https://console.firebase.google.com/).\nLinks must be named to be tracked.",
+          "description": "Link name to associate with the link. It's used for marketer to identify manually-created links in the Firebase console (https://console.firebase.google.com/). Links must be named to be tracked.",
+          "type": "string"
+        },
+        "sdkVersion": {
+          "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
           "type": "string"
         },
         "suffix": {
@@ -557,10 +743,14 @@
       "properties": {
         "dynamicLinkInfo": {
           "$ref": "#/definitions/DynamicLinkInfo",
-          "description": "Information about the Dynamic Link to be shortened.\n[Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener)."
+          "description": "Information about the Dynamic Link to be shortened. [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener)."
         },
         "longDynamicLink": {
-          "description": "Full long Dynamic Link URL with desired query parameters specified.\nFor example,\n\"https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample\",\n[Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).",
+          "description": "Full long Dynamic Link URL with desired query parameters specified. For example, \"https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample\", [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).",
+          "type": "string"
+        },
+        "sdkVersion": {
+          "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
           "type": "string"
         },
         "suffix": {
@@ -613,11 +803,11 @@
           "type": "string"
         },
         "languageCodeFromWebview": {
-          "description": "Device language code setting obtained by executing JavaScript code in\nWebView.",
+          "description": "Device language code setting obtained by executing JavaScript code in WebView.",
           "type": "string"
         },
         "languageCodeRaw": {
-          "description": "Device language code raw setting.\niOS does returns language code in different format than iOS WebView.\nFor example WebView returns en_US, but iOS returns en-US.\nField below will return raw value returned by iOS.",
+          "description": "Device language code raw setting. iOS does returns language code in different format than iOS WebView. For example WebView returns en_US, but iOS returns en-US. Field below will return raw value returned by iOS.",
           "type": "string"
         },
         "screenResolutionHeight": {
@@ -676,30 +866,30 @@
       "properties": {
         "analyticsInfo": {
           "$ref": "#/definitions/AnalyticsInfo",
-          "description": "Parameters used for tracking. See all tracking parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
+          "description": "Parameters used for tracking. See all tracking parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
         },
         "androidInfo": {
           "$ref": "#/definitions/AndroidInfo",
-          "description": "Android related information. See Android related parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
+          "description": "Android related information. See Android related parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
         },
         "desktopInfo": {
           "$ref": "#/definitions/DesktopInfo",
-          "description": "Desktop related information. See desktop related parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
+          "description": "Desktop related information. See desktop related parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
         },
         "domainUriPrefix": {
-          "description": "E.g. https://maps.app.goo.gl, https://maps.page.link, https://g.co/maps\nMore examples can be found in description of getNormalizedUriPrefix in\nj/c/g/firebase/dynamiclinks/uri/DdlDomain.java",
+          "description": "E.g. https://maps.app.goo.gl, https://maps.page.link, https://g.co/maps More examples can be found in description of getNormalizedUriPrefix in j/c/g/firebase/dynamiclinks/uri/DdlDomain.java Will fallback to dynamic_link_domain is this field is missing",
           "type": "string"
         },
         "dynamicLinkDomain": {
-          "description": "Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl\n[Learn more](https://firebase.google.com/docs/dynamic-links/android/receive)\non how to set up Dynamic Link domain associated with your Firebase project.\n\nRequired.",
+          "description": "Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl [Learn more](https://firebase.google.com/docs/dynamic-links/android/receive) on how to set up Dynamic Link domain associated with your Firebase project. Required if missing domain_uri_prefix.",
           "type": "string"
         },
         "iosInfo": {
           "$ref": "#/definitions/IosInfo",
-          "description": "iOS related information. See iOS related parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
+          "description": "iOS related information. See iOS related parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually)."
         },
         "link": {
-          "description": "The link your app will open, You can specify any URL your app can handle.\nThis link must be a well-formatted URL, be properly URL-encoded, and use\nthe HTTP or HTTPS scheme. See 'link' parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/create-manually).\n\nRequired.",
+          "description": "The link your app will open, You can specify any URL your app can handle. This link must be a well-formatted URL, be properly URL-encoded, and use the HTTP or HTTPS scheme. See 'link' parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually). Required.",
           "type": "string"
         },
         "navigationInfo": {
@@ -708,7 +898,7 @@
         },
         "socialMetaTagInfo": {
           "$ref": "#/definitions/SocialMetaTagInfo",
-          "description": "Parameters for social meta tag params.\nUsed to set meta tag data for link previews on social sites."
+          "description": "Parameters for social meta tag params. Used to set meta tag data for link previews on social sites."
         }
       },
       "type": "object"
@@ -776,10 +966,10 @@
       "type": "object"
     },
     "GetIosPostInstallAttributionRequest": {
-      "description": "Request for iSDK to execute strong match flow for post-install attribution.\nThis is meant for iOS requests only. Requests from other platforms will\nnot be honored.",
+      "description": "Request for iSDK to execute strong match flow for post-install attribution. This is meant for iOS requests only. Requests from other platforms will not be honored.",
       "properties": {
         "appInstallationTime": {
-          "description": "App installation epoch time (https://en.wikipedia.org/wiki/Unix_time).\nThis is a client signal for a more accurate weak match.",
+          "description": "App installation epoch time (https://en.wikipedia.org/wiki/Unix_time). This is a client signal for a more accurate weak match.",
           "format": "int64",
           "type": "string"
         },
@@ -792,11 +982,11 @@
           "description": "Device information."
         },
         "iosVersion": {
-          "description": "iOS version, ie: 9.3.5.\nConsider adding \"build\".",
+          "description": "iOS version, ie: 9.3.5. Consider adding \"build\".",
           "type": "string"
         },
         "retrievalMethod": {
-          "description": "App post install attribution retrieval information. Disambiguates\nmechanism (iSDK or developer invoked) to retrieve payload from\nclicked link.",
+          "description": "App post install attribution retrieval information. Disambiguates mechanism (iSDK or developer invoked) to retrieve payload from clicked link.",
           "enum": [
             "UNKNOWN_PAYLOAD_RETRIEVAL_METHOD",
             "IMPLICIT_WEAK_MATCH",
@@ -806,15 +996,15 @@
           "type": "string"
         },
         "sdkVersion": {
-          "description": "Google SDK version.",
+          "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
           "type": "string"
         },
         "uniqueMatchLinkToCheck": {
-          "description": "Possible unique matched link that server need to check before performing\nfingerprint match. If passed link is short server need to expand the link.\nIf link is long server need to vslidate the link.",
+          "description": "Possible unique matched link that server need to check before performing fingerprint match. If passed link is short server need to expand the link. If link is long server need to vslidate the link.",
           "type": "string"
         },
         "visualStyle": {
-          "description": "Strong match page information. Disambiguates between default UI and\ncustom page to present when strong match succeeds/fails to find cookie.",
+          "description": "Strong match page information. Disambiguates between default UI and custom page to present when strong match succeeds/fails to find cookie.",
           "enum": [
             "UNKNOWN_VISUAL_STYLE",
             "DEFAULT_STYLE",
@@ -829,7 +1019,7 @@
       "description": "Response for iSDK to execute strong match flow for post-install attribution.",
       "properties": {
         "appMinimumVersion": {
-          "description": "The minimum version for app, specified by dev through ?imv= parameter.\nReturn to iSDK to allow app to evaluate if current version meets this.",
+          "description": "The minimum version for app, specified by dev through ?imv= parameter. Return to iSDK to allow app to evaluate if current version meets this.",
           "type": "string"
         },
         "attributionConfidence": {
@@ -843,27 +1033,27 @@
           "type": "string"
         },
         "deepLink": {
-          "description": "The deep-link attributed post-install via one of several techniques\n(fingerprint, copy unique).",
+          "description": "The deep-link attributed post-install via one of several techniques (fingerprint, copy unique).",
           "type": "string"
         },
         "externalBrowserDestinationLink": {
-          "description": "User-agent specific custom-scheme URIs for iSDK to open. This will be set\naccording to the user-agent tha the click was originally made in. There is\nno Safari-equivalent custom-scheme open URLs.\nie: googlechrome://www.example.com\nie: firefox://open-url?url=http://www.example.com\nie: opera-http://example.com",
+          "description": "User-agent specific custom-scheme URIs for iSDK to open. This will be set according to the user-agent tha the click was originally made in. There is no Safari-equivalent custom-scheme open URLs. ie: googlechrome://www.example.com ie: firefox://open-url?url=http://www.example.com ie: opera-http://example.com",
           "type": "string"
         },
         "fallbackLink": {
-          "description": "The link to navigate to update the app if min version is not met.\nThis is either (in order): 1) fallback link (from ?ifl= parameter, if\nspecified by developer) or 2) AppStore URL (from ?isi= parameter, if\nspecified), or 3) the payload link (from required link= parameter).",
+          "description": "The link to navigate to update the app if min version is not met. This is either (in order): 1) fallback link (from ?ifl= parameter, if specified by developer) or 2) AppStore URL (from ?isi= parameter, if specified), or 3) the payload link (from required link= parameter).",
           "type": "string"
         },
         "invitationId": {
-          "description": "Invitation ID attributed post-install via one of several techniques\n(fingerprint, copy unique).",
+          "description": "Invitation ID attributed post-install via one of several techniques (fingerprint, copy unique).",
           "type": "string"
         },
         "isStrongMatchExecutable": {
-          "description": "Instruction for iSDK to attemmpt to perform strong match. For instance,\nif browser does not support/allow cookie or outside of support browsers,\nthis will be false.",
+          "description": "Instruction for iSDK to attemmpt to perform strong match. For instance, if browser does not support/allow cookie or outside of support browsers, this will be false.",
           "type": "boolean"
         },
         "matchMessage": {
-          "description": "Describes why match failed, ie: \"discarded due to low confidence\".\nThis message will be publicly visible.",
+          "description": "Describes why match failed, ie: \"discarded due to low confidence\". This message will be publicly visible.",
           "type": "string"
         },
         "requestIpVersion": {
@@ -876,15 +1066,19 @@
           "type": "string"
         },
         "requestedLink": {
-          "description": "Entire FDL (short or long) attributed post-install via one of several\ntechniques (fingerprint, copy unique).",
+          "description": "Entire FDL (short or long) attributed post-install via one of several techniques (fingerprint, copy unique).",
           "type": "string"
         },
         "resolvedLink": {
-          "description": "The entire FDL, expanded from a short link. It is the same as the\nrequested_link, if it is long. Parameters from this should not be\nused directly (ie: server can default utm_[campaign|medium|source]\nto a value when requested_link lack them, server determine the best\nfallback_link when requested_link specifies >1 fallback links).",
+          "description": "The entire FDL, expanded from a short link. It is the same as the requested_link, if it is long. Parameters from this should not be used directly (ie: server can default utm_[campaign|medium|source] to a value when requested_link lack them, server determine the best fallback_link when requested_link specifies >1 fallback links).",
           "type": "string"
         },
         "utmCampaign": {
           "description": "Scion campaign value to be propagated by iSDK to Scion at post-install.",
+          "type": "string"
+        },
+        "utmContent": {
+          "description": "Scion content value to be propagated by iSDK to Scion at app-reopen.",
           "type": "string"
         },
         "utmMedium": {
@@ -894,23 +1088,87 @@
         "utmSource": {
           "description": "Scion source value to be propagated by iSDK to Scion at post-install.",
           "type": "string"
+        },
+        "utmTerm": {
+          "description": "Scion term value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GetIosReopenAttributionRequest": {
+      "description": "Request for iSDK to get reopen attribution for app universal link open deeplinking. This endpoint is meant for only iOS requests.",
+      "properties": {
+        "bundleId": {
+          "description": "APP bundle ID.",
+          "type": "string"
+        },
+        "requestedLink": {
+          "description": "FDL link to be verified from an app universal link open. The FDL link can be one of: 1) short FDL. e.g. .page.link/, or 2) long FDL. e.g. .page.link/?{query params}, or 3) Invite FDL. e.g. .page.link/i/",
+          "type": "string"
+        },
+        "sdkVersion": {
+          "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GetIosReopenAttributionResponse": {
+      "description": "Response for iSDK to get reopen attribution for app universal link open deeplinking. This endpoint is meant for only iOS requests.",
+      "properties": {
+        "deepLink": {
+          "description": "The deep-link attributed the app universal link open. For both regular FDL links and invite FDL links.",
+          "type": "string"
+        },
+        "invitationId": {
+          "description": "Optional invitation ID, for only invite typed requested FDL links.",
+          "type": "string"
+        },
+        "iosMinAppVersion": {
+          "description": "FDL input value of the \"&imv=\" parameter, minimum app version to be returned to Google Firebase SDK running on iOS-9.",
+          "type": "string"
+        },
+        "resolvedLink": {
+          "description": "The entire FDL, expanded from a short link. It is the same as the requested_link, if it is long.",
+          "type": "string"
+        },
+        "utmCampaign": {
+          "description": "Scion campaign value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
+        },
+        "utmContent": {
+          "description": "Scion content value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
+        },
+        "utmMedium": {
+          "description": "Scion medium value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
+        },
+        "utmSource": {
+          "description": "Scion source value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
+        },
+        "utmTerm": {
+          "description": "Scion term value to be propagated by iSDK to Scion at app-reopen.",
+          "type": "string"
         }
       },
       "type": "object"
     },
     "GooglePlayAnalytics": {
-      "description": "Parameters for Google Play Campaign Measurements.\n[Learn more](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns#campaign-params)",
+      "description": "Parameters for Google Play Campaign Measurements. [Learn more](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns#campaign-params)",
       "properties": {
         "gclid": {
-          "description": "[AdWords autotagging parameter](https://support.google.com/analytics/answer/1033981?hl=en);\nused to measure Google AdWords ads. This value is generated dynamically\nand should never be modified.",
+          "description": "[AdWords autotagging parameter](https://support.google.com/analytics/answer/1033981?hl=en); used to measure Google AdWords ads. This value is generated dynamically and should never be modified.",
           "type": "string"
         },
         "utmCampaign": {
-          "description": "Campaign name; used for keyword analysis to identify a specific product\npromotion or strategic campaign.",
+          "description": "Campaign name; used for keyword analysis to identify a specific product promotion or strategic campaign.",
           "type": "string"
         },
         "utmContent": {
-          "description": "Campaign content; used for A/B testing and content-targeted ads to\ndifferentiate ads or links that point to the same URL.",
+          "description": "Campaign content; used for A/B testing and content-targeted ads to differentiate ads or links that point to the same URL.",
           "type": "string"
         },
         "utmMedium": {
@@ -918,7 +1176,7 @@
           "type": "string"
         },
         "utmSource": {
-          "description": "Campaign source; used to identify a search engine, newsletter, or other\nsource.",
+          "description": "Campaign source; used to identify a search engine, newsletter, or other source.",
           "type": "string"
         },
         "utmTerm": {
@@ -936,7 +1194,7 @@
           "type": "string"
         },
         "ct": {
-          "description": "Campaign text that developers can optionally add to any link in order to\ntrack sales from a specific marketing campaign.",
+          "description": "Campaign text that developers can optionally add to any link in order to track sales from a specific marketing campaign.",
           "type": "string"
         },
         "mt": {
@@ -944,7 +1202,7 @@
           "type": "string"
         },
         "pt": {
-          "description": "Provider token that enables analytics for Dynamic Links from within iTunes\nConnect.",
+          "description": "Provider token that enables analytics for Dynamic Links from within iTunes Connect.",
           "type": "string"
         }
       },
@@ -962,7 +1220,7 @@
           "type": "string"
         },
         "iosCustomScheme": {
-          "description": "Custom (destination) scheme to use for iOS. By default, we’ll use the\nbundle ID as the custom scheme. Developer can override this behavior using\nthis param.",
+          "description": "Custom (destination) scheme to use for iOS. By default, we’ll use the bundle ID as the custom scheme. Developer can override this behavior using this param.",
           "type": "string"
         },
         "iosFallbackLink": {
@@ -976,6 +1234,10 @@
         "iosIpadFallbackLink": {
           "description": "If specified, this overrides the ios_fallback_link value on iPads.",
           "type": "string"
+        },
+        "iosMinimumVersion": {
+          "description": "iOS minimum version.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -983,6 +1245,10 @@
     "ManagedShortLink": {
       "description": "Managed Short Link.",
       "properties": {
+        "info": {
+          "$ref": "#/definitions/DynamicLinkInfo",
+          "description": "Full Dyamic Link info"
+        },
         "creationTime": {
           "description": "Creation timestamp of the short link.",
           "format": "google-datetime",
@@ -999,16 +1265,12 @@
           },
           "type": "array"
         },
-        "info": {
-          "$ref": "#/definitions/DynamicLinkInfo",
-          "description": "Full Dyamic Link info"
-        },
         "link": {
-          "description": "Short durable link url, for example, \"https://sample.app.goo.gl/xyz123\".\n\nRequired.",
+          "description": "Short durable link url, for example, \"https://sample.app.goo.gl/xyz123\". Required.",
           "type": "string"
         },
         "linkName": {
-          "description": "Link name defined by the creator.\n\nRequired.",
+          "description": "Link name defined by the creator. Required.",
           "type": "string"
         },
         "visibility": {
@@ -1028,14 +1290,14 @@
       "description": "Information of navigation behavior.",
       "properties": {
         "enableForcedRedirect": {
-          "description": "If this option is on, FDL click will be forced to redirect rather than\nshow an interstitial page.",
+          "description": "If this option is on, FDL click will be forced to redirect rather than show an interstitial page.",
           "type": "boolean"
         }
       },
       "type": "object"
     },
     "SocialMetaTagInfo": {
-      "description": "Parameters for social meta tag params.\nUsed to set meta tag data for link previews on social sites.",
+      "description": "Parameters for social meta tag params. Used to set meta tag data for link previews on social sites.",
       "properties": {
         "socialDescription": {
           "description": "A short description of the link. Optional.",
@@ -1071,6 +1333,120 @@
         }
       },
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 implicit authentication",
+      "flow": "implicit",
+      "scopes": {
+        "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
+      },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 authorizationCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+      "type": "oauth2"
+    }
+  },
+  "tags": [
+    {
+      "name": "managedShortLinks"
+    },
+    {
+      "name": "shortLinks"
+    },
+    {
+      "name": "v1"
+    }
+  ],
+  "externalDocs": {
+    "url": "https://firebase.google.com/docs/dynamic-links/"
+  },
+  "x-components": {
+    "parameters": {
+      "_.xgafv": {
+        "description": "V1 error format.",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "in": "query",
+        "name": "$.xgafv",
+        "type": "string"
+      },
+      "access_token": {
+        "description": "OAuth access token.",
+        "in": "query",
+        "name": "access_token",
+        "type": "string"
+      },
+      "alt": {
+        "description": "Data format for response.",
+        "enum": [
+          "json",
+          "media",
+          "proto"
+        ],
+        "in": "query",
+        "name": "alt",
+        "type": "string"
+      },
+      "callback": {
+        "description": "JSONP",
+        "in": "query",
+        "name": "callback",
+        "type": "string"
+      },
+      "fields": {
+        "description": "Selector specifying which fields to include in a partial response.",
+        "in": "query",
+        "name": "fields",
+        "type": "string"
+      },
+      "key": {
+        "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+        "in": "query",
+        "name": "key",
+        "type": "string"
+      },
+      "oauth_token": {
+        "description": "OAuth 2.0 token for the current user.",
+        "in": "query",
+        "name": "oauth_token",
+        "type": "string"
+      },
+      "prettyPrint": {
+        "description": "Returns response with indentations and line breaks.",
+        "in": "query",
+        "name": "prettyPrint",
+        "type": "boolean"
+      },
+      "quotaUser": {
+        "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.",
+        "in": "query",
+        "name": "quotaUser",
+        "type": "string"
+      },
+      "uploadType": {
+        "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\").",
+        "in": "query",
+        "name": "uploadType",
+        "type": "string"
+      },
+      "upload_protocol": {
+        "description": "Upload protocol for media (e.g. \"raw\", \"multipart\").",
+        "in": "query",
+        "name": "upload_protocol",
+        "type": "string"
+      }
     }
   }
 }

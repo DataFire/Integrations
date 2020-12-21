@@ -15,10 +15,7 @@ let azure_monitor_diagnosticssettingscategories_api = require('@datafire/azure_m
   redirect_uri: ""
 });
 
-azure_monitor_diagnosticssettingscategories_api.DiagnosticSettingsCategory_List({
-  "resourceUri": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

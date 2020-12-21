@@ -1,8 +1,8 @@
 {
   "name": "@datafire/europeana_eu",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Europeana",
+  "description": "DataFire integration for Europeana Search & Record API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/europeana.eu/2.3.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/europeana.eu/version unknown/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

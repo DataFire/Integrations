@@ -1,0 +1,6699 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your AWS and on-premises networks that are built around transit gateways.</p> <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Network Manager",
+    "version": "2019-07-05",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/networkmanager-2019-07-05.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "networkmanager",
+    "x-datafire": {
+      "name": "amazonaws_networkmanager",
+      "type": "openapi"
+    }
+  },
+  "host": "networkmanager.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/global-networks": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "The IDs of one or more global networks. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "globalNetworkIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeGlobalNetworksResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes one or more global networks. By default, all global networks are described. To describe the objects in your global network, you must use the appropriate <code>Get*</code> action. For example, to list the transit gateways in your global network, use <a>GetTransitGatewayRegistrations</a>.",
+        "operationId": "DescribeGlobalNetworks"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "<p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the resource during creation.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGlobalNetworkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new, empty global network.",
+        "operationId": "CreateGlobalNetwork"
+      }
+    },
+    "/global-networks/{globalNetworkId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGlobalNetworkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an existing global network. You must first delete all global network objects (devices, links, and sites) and deregister all transit gateways.",
+        "operationId": "DeleteGlobalNetwork"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of your global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "<p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGlobalNetworkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates an existing global network. To remove information for any of the parameters, specify an empty string.",
+        "operationId": "UpdateGlobalNetwork"
+      }
+    },
+    "/global-networks/{globalNetworkId}/connections": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more connection IDs.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "connectionIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "query",
+            "name": "deviceId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetConnectionsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about one or more of your connections in a global network.",
+        "operationId": "GetConnections"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ConnectedDeviceId": {
+                  "description": "The ID of the second device in the connection.",
+                  "type": "string"
+                },
+                "ConnectedLinkId": {
+                  "description": "The ID of the link for the second device.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "<p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "DeviceId": {
+                  "description": "The ID of the first device in the connection.",
+                  "type": "string"
+                },
+                "LinkId": {
+                  "description": "The ID of the link for the first device.",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the resource during creation.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "DeviceId",
+                "ConnectedDeviceId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateConnectionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a connection between two devices. The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.",
+        "operationId": "CreateConnection"
+      }
+    },
+    "/global-networks/{globalNetworkId}/connections/{connectionId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the connection.",
+            "in": "path",
+            "name": "connectionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteConnectionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes the specified connection in your global network.",
+        "operationId": "DeleteConnection"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the connection.",
+            "in": "path",
+            "name": "connectionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ConnectedLinkId": {
+                  "description": "The ID of the link for the second device in the connection.",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "<p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "LinkId": {
+                  "description": "The ID of the link for the first device in the connection.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateConnectionResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the information for an existing connection. To remove information for any of the parameters, specify an empty string.",
+        "operationId": "UpdateConnection"
+      }
+    },
+    "/global-networks/{globalNetworkId}/customer-gateway-associations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more customer gateway Amazon Resource Names (ARNs). For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "customerGatewayArns",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCustomerGatewayAssociationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the association information for customer gateways that are associated with devices and links in your global network.",
+        "operationId": "GetCustomerGatewayAssociations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "CustomerGatewayArn": {
+                  "description": "The Amazon Resource Name (ARN) of the customer gateway. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.",
+                  "type": "string"
+                },
+                "DeviceId": {
+                  "description": "The ID of the device.",
+                  "type": "string"
+                },
+                "LinkId": {
+                  "description": "The ID of the link.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "CustomerGatewayArn",
+                "DeviceId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateCustomerGatewayResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Associates a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device. </p> <p>You can only associate customer gateways that are connected to a VPN attachment on a transit gateway. The transit gateway must be registered in your global network. When you register a transit gateway, customer gateways that are connected to the transit gateway are automatically included in the global network. To list customer gateways that are connected to a transit gateway, use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html\">DescribeVpnConnections</a> EC2 API and filter by <code>transit-gateway-id</code>.</p> <p>You cannot associate a customer gateway with more than one device and link. </p>",
+        "operationId": "AssociateCustomerGateway"
+      }
+    },
+    "/global-networks/{globalNetworkId}/customer-gateway-associations/{customerGatewayArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Amazon Resource Name (ARN) of the customer gateway. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.",
+            "in": "path",
+            "name": "customerGatewayArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateCustomerGatewayResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Disassociates a customer gateway from a device and a link.",
+        "operationId": "DisassociateCustomerGateway"
+      }
+    },
+    "/global-networks/{globalNetworkId}/devices": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more device IDs. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "deviceIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The ID of the site.",
+            "in": "query",
+            "name": "siteId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDevicesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about one or more of your devices in a global network.",
+        "operationId": "GetDevices"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AWSLocation": {
+                  "description": "Specifies a location in AWS.",
+                  "properties": {
+                    "SubnetArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) of the subnet the device is located in."
+                        }
+                      ]
+                    },
+                    "Zone": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The Zone the device is located in. This can be the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Description": {
+                  "description": "<p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Location": {
+                  "description": "Describes a location.",
+                  "properties": {
+                    "Address": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The physical address."
+                        }
+                      ]
+                    },
+                    "Latitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The latitude."
+                        }
+                      ]
+                    },
+                    "Longitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The longitude."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Model": {
+                  "description": "<p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "SerialNumber": {
+                  "description": "<p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "SiteId": {
+                  "description": "The ID of the site.",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the resource during creation.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "Type": {
+                  "description": "The type of the device.",
+                  "type": "string"
+                },
+                "Vendor": {
+                  "description": "<p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.",
+        "operationId": "CreateDevice"
+      }
+    },
+    "/global-networks/{globalNetworkId}/devices/{deviceId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an existing device. You must first disassociate the device from any links and customer gateways.",
+        "operationId": "DeleteDevice"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "path",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AWSLocation": {
+                  "description": "Specifies a location in AWS.",
+                  "properties": {
+                    "SubnetArn": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The Amazon Resource Name (ARN) of the subnet the device is located in."
+                        }
+                      ]
+                    },
+                    "Zone": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The Zone the device is located in. This can be the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Description": {
+                  "description": "<p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Location": {
+                  "description": "Describes a location.",
+                  "properties": {
+                    "Address": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The physical address."
+                        }
+                      ]
+                    },
+                    "Latitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The latitude."
+                        }
+                      ]
+                    },
+                    "Longitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The longitude."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Model": {
+                  "description": "<p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "SerialNumber": {
+                  "description": "<p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "SiteId": {
+                  "description": "The ID of the site.",
+                  "type": "string"
+                },
+                "Type": {
+                  "description": "The type of the device.",
+                  "type": "string"
+                },
+                "Vendor": {
+                  "description": "<p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDeviceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the details for an existing device. To remove information for any of the parameters, specify an empty string.",
+        "operationId": "UpdateDevice"
+      }
+    },
+    "/global-networks/{globalNetworkId}/link-associations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "query",
+            "name": "deviceId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the link.",
+            "in": "query",
+            "name": "linkId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLinkAssociationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the link associations for a device or a link. Either the device ID or the link ID must be specified.",
+        "operationId": "GetLinkAssociations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DeviceId": {
+                  "description": "The ID of the device.",
+                  "type": "string"
+                },
+                "LinkId": {
+                  "description": "The ID of the link.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "DeviceId",
+                "LinkId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateLinkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.",
+        "operationId": "AssociateLink"
+      }
+    },
+    "/global-networks/{globalNetworkId}/link-associations#deviceId&linkId": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the device.",
+            "in": "query",
+            "name": "deviceId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the link.",
+            "in": "query",
+            "name": "linkId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateLinkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Disassociates an existing device from a link. You must first disassociate any customer gateways that are associated with the link.",
+        "operationId": "DisassociateLink"
+      }
+    },
+    "/global-networks/{globalNetworkId}/links": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more link IDs. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "linkIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The ID of the site.",
+            "in": "query",
+            "name": "siteId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The link type.",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The link provider.",
+            "in": "query",
+            "name": "provider",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLinksResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Gets information about one or more links in a specified global network.</p> <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>",
+        "operationId": "GetLinks"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Bandwidth": {
+                  "description": "Describes bandwidth information.",
+                  "properties": {
+                    "DownloadSpeed": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Integer"
+                        },
+                        {
+                          "description": "Download speed in Mbps."
+                        }
+                      ]
+                    },
+                    "UploadSpeed": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Integer"
+                        },
+                        {
+                          "description": "Upload speed in Mbps."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Description": {
+                  "description": "<p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Provider": {
+                  "description": "<p>The provider of the link.</p> <p>Constraints: Cannot include the following characters: | \\ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "SiteId": {
+                  "description": "The ID of the site.",
+                  "type": "string"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the resource during creation.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                },
+                "Type": {
+                  "description": "<p>The type of the link.</p> <p>Constraints: Cannot include the following characters: | \\ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Bandwidth",
+                "SiteId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLinkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new link for a specified site.",
+        "operationId": "CreateLink"
+      }
+    },
+    "/global-networks/{globalNetworkId}/links/{linkId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the link.",
+            "in": "path",
+            "name": "linkId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLinkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an existing link. You must first disassociate the link from any devices and customer gateways.",
+        "operationId": "DeleteLink"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the link.",
+            "in": "path",
+            "name": "linkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Bandwidth": {
+                  "description": "Describes bandwidth information.",
+                  "properties": {
+                    "DownloadSpeed": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Integer"
+                        },
+                        {
+                          "description": "Download speed in Mbps."
+                        }
+                      ]
+                    },
+                    "UploadSpeed": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Integer"
+                        },
+                        {
+                          "description": "Upload speed in Mbps."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Description": {
+                  "description": "<p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Provider": {
+                  "description": "<p>The provider of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                },
+                "Type": {
+                  "description": "<p>The type of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLinkResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the details for an existing link. To remove information for any of the parameters, specify an empty string.",
+        "operationId": "UpdateLink"
+      }
+    },
+    "/global-networks/{globalNetworkId}/sites": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more site IDs. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "siteIds",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSitesResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about one or more of your sites in a global network.",
+        "operationId": "GetSites"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "<p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Location": {
+                  "description": "Describes a location.",
+                  "properties": {
+                    "Address": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The physical address."
+                        }
+                      ]
+                    },
+                    "Latitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The latitude."
+                        }
+                      ]
+                    },
+                    "Longitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The longitude."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Tags": {
+                  "description": "The tags to apply to the resource during creation.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSiteResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a new site in a global network.",
+        "operationId": "CreateSite"
+      }
+    },
+    "/global-networks/{globalNetworkId}/sites/{siteId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the site.",
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSiteResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes an existing site. The site cannot be associated with any device or link.",
+        "operationId": "DeleteSite"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of your site.",
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Description": {
+                  "description": "<p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>",
+                  "type": "string"
+                },
+                "Location": {
+                  "description": "Describes a location.",
+                  "properties": {
+                    "Address": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The physical address."
+                        }
+                      ]
+                    },
+                    "Latitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The latitude."
+                        }
+                      ]
+                    },
+                    "Longitude": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The longitude."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateSiteResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the information for an existing site. To remove information for any of the parameters, specify an empty string.",
+        "operationId": "UpdateSite"
+      }
+    },
+    "/global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "One or more transit gateway Connect peer Amazon Resource Names (ARNs).",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "transitGatewayConnectPeerArns",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTransitGatewayConnectPeerAssociationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about one or more of your transit gateway Connect peer associations in a global network.",
+        "operationId": "GetTransitGatewayConnectPeerAssociations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "DeviceId": {
+                  "description": "The ID of the device.",
+                  "type": "string"
+                },
+                "LinkId": {
+                  "description": "The ID of the link.",
+                  "type": "string"
+                },
+                "TransitGatewayConnectPeerArn": {
+                  "description": "The Amazon Resource Name (ARN) of the Connect peer.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TransitGatewayConnectPeerArn",
+                "DeviceId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateTransitGatewayConnectPeerResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you specify a link, it must be associated with the specified device. </p> <p>You can only associate transit gateway Connect peers that have been created on a transit gateway that's registered in your global network.</p> <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>",
+        "operationId": "AssociateTransitGatewayConnectPeer"
+      }
+    },
+    "/global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations/{transitGatewayConnectPeerArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Amazon Resource Name (ARN) of the transit gateway Connect peer.",
+            "in": "path",
+            "name": "transitGatewayConnectPeerArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateTransitGatewayConnectPeerResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Disassociates a transit gateway Connect peer from a device and link.",
+        "operationId": "DisassociateTransitGatewayConnectPeer"
+      }
+    },
+    "/global-networks/{globalNetworkId}/transit-gateway-registrations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is 10.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/String"
+            },
+            "name": "transitGatewayArns",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "description": "The maximum number of results to return.",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The token for the next page of results.",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTransitGatewayRegistrationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about the transit gateway registrations in a specified global network.",
+        "operationId": "GetTransitGatewayRegistrations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "TransitGatewayArn": {
+                  "description": "The Amazon Resource Name (ARN) of the transit gateway. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "TransitGatewayArn"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RegisterTransitGatewayResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.",
+        "operationId": "RegisterTransitGateway"
+      }
+    },
+    "/global-networks/{globalNetworkId}/transit-gateway-registrations/{transitGatewayArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the global network.",
+            "in": "path",
+            "name": "globalNetworkId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Amazon Resource Name (ARN) of the transit gateway.",
+            "in": "path",
+            "name": "transitGatewayArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeregisterTransitGatewayResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deregisters a transit gateway from your global network. This action does not delete your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.",
+        "operationId": "DeregisterTransitGateway"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the tags for a specified resource.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Tags": {
+                  "description": "The tags to apply to the specified resource.",
+                  "items": {
+                    "$ref": "#/definitions/Tag"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "Tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Tags a specified resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Amazon Resource Name (ARN) of the resource.",
+            "in": "path",
+            "name": "resourceArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The tag keys to remove from the specified resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Removes tags from a specified resource.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "AWSLocation": {
+      "description": "Specifies a location in AWS.",
+      "properties": {
+        "SubnetArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the subnet the device is located in."
+            }
+          ]
+        },
+        "Zone": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Zone the device is located in. This can be the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AccessDeniedException": {},
+    "AssociateCustomerGatewayRequest": {
+      "properties": {
+        "CustomerGatewayArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the customer gateway. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>."
+            }
+          ]
+        },
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        }
+      },
+      "required": [
+        "CustomerGatewayArn",
+        "DeviceId"
+      ],
+      "title": "AssociateCustomerGatewayRequest",
+      "type": "object"
+    },
+    "AssociateCustomerGatewayResponse": {
+      "properties": {
+        "CustomerGatewayAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomerGatewayAssociation"
+            },
+            {
+              "description": "The customer gateway association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociateLinkRequest": {
+      "properties": {
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DeviceId",
+        "LinkId"
+      ],
+      "title": "AssociateLinkRequest",
+      "type": "object"
+    },
+    "AssociateLinkResponse": {
+      "properties": {
+        "LinkAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkAssociation"
+            },
+            {
+              "description": "The link association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AssociateTransitGatewayConnectPeerRequest": {
+      "properties": {
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        },
+        "TransitGatewayConnectPeerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Connect peer."
+            }
+          ]
+        }
+      },
+      "required": [
+        "TransitGatewayConnectPeerArn",
+        "DeviceId"
+      ],
+      "title": "AssociateTransitGatewayConnectPeerRequest",
+      "type": "object"
+    },
+    "AssociateTransitGatewayConnectPeerResponse": {
+      "properties": {
+        "TransitGatewayConnectPeerAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayConnectPeerAssociation"
+            },
+            {
+              "description": "The transit gateway Connect peer association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Bandwidth": {
+      "description": "Describes bandwidth information.",
+      "properties": {
+        "DownloadSpeed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Download speed in Mbps."
+            }
+          ]
+        },
+        "UploadSpeed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Integer"
+            },
+            {
+              "description": "Upload speed in Mbps."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConflictException": {},
+    "Connection": {
+      "description": "Describes a connection.",
+      "properties": {
+        "ConnectedDeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the second device in the connection."
+            }
+          ]
+        },
+        "ConnectedLinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the second device in the connection."
+            }
+          ]
+        },
+        "ConnectionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the connection."
+            }
+          ]
+        },
+        "ConnectionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the connection."
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time that the connection was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the connection."
+            }
+          ]
+        },
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the first device in the connection."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the first device in the connection."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionState"
+            },
+            {
+              "description": "The state of the connection."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the connection."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionList": {
+      "items": {
+        "$ref": "#/definitions/Connection"
+      },
+      "type": "array"
+    },
+    "ConnectionState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
+    "CreateConnectionRequest": {
+      "properties": {
+        "ConnectedDeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the second device in the connection."
+            }
+          ]
+        },
+        "ConnectedLinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the second device."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the first device in the connection."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the first device."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the resource during creation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DeviceId",
+        "ConnectedDeviceId"
+      ],
+      "title": "CreateConnectionRequest",
+      "type": "object"
+    },
+    "CreateConnectionResponse": {
+      "properties": {
+        "Connection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Connection"
+            },
+            {
+              "description": "Information about the connection."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateDeviceRequest": {
+      "properties": {
+        "AWSLocation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AWSLocation"
+            },
+            {
+              "description": "The AWS location of the device."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The location of the device."
+            }
+          ]
+        },
+        "Model": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "SerialNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the site."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the resource during creation."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of the device."
+            }
+          ]
+        },
+        "Vendor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        }
+      },
+      "title": "CreateDeviceRequest",
+      "type": "object"
+    },
+    "CreateDeviceResponse": {
+      "properties": {
+        "Device": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Device"
+            },
+            {
+              "description": "Information about the device."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateGlobalNetworkRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the resource during creation."
+            }
+          ]
+        }
+      },
+      "title": "CreateGlobalNetworkRequest",
+      "type": "object"
+    },
+    "CreateGlobalNetworkResponse": {
+      "properties": {
+        "GlobalNetwork": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GlobalNetwork"
+            },
+            {
+              "description": "Information about the global network object."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateLinkRequest": {
+      "properties": {
+        "Bandwidth": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Bandwidth"
+            },
+            {
+              "description": " The upload speed and download speed in Mbps. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Provider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The provider of the link.</p> <p>Constraints: Cannot include the following characters: | \\ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the site."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the resource during creation."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The type of the link.</p> <p>Constraints: Cannot include the following characters: | \\ ^</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Bandwidth",
+        "SiteId"
+      ],
+      "title": "CreateLinkRequest",
+      "type": "object"
+    },
+    "CreateLinkResponse": {
+      "properties": {
+        "Link": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Link"
+            },
+            {
+              "description": "Information about the link."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateSiteRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "<p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul>"
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the resource during creation."
+            }
+          ]
+        }
+      },
+      "title": "CreateSiteRequest",
+      "type": "object"
+    },
+    "CreateSiteResponse": {
+      "properties": {
+        "Site": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Site"
+            },
+            {
+              "description": "Information about the site."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CustomerGatewayAssociation": {
+      "description": "Describes the association between a customer gateway, a device, and a link.",
+      "properties": {
+        "CustomerGatewayArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the customer gateway."
+            }
+          ]
+        },
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomerGatewayAssociationState"
+            },
+            {
+              "description": "The association state."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CustomerGatewayAssociationList": {
+      "items": {
+        "$ref": "#/definitions/CustomerGatewayAssociation"
+      },
+      "type": "array"
+    },
+    "CustomerGatewayAssociationState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteConnectionRequest": {
+      "properties": {},
+      "title": "DeleteConnectionRequest",
+      "type": "object"
+    },
+    "DeleteConnectionResponse": {
+      "properties": {
+        "Connection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Connection"
+            },
+            {
+              "description": "Information about the connection."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDeviceRequest": {
+      "properties": {},
+      "title": "DeleteDeviceRequest",
+      "type": "object"
+    },
+    "DeleteDeviceResponse": {
+      "properties": {
+        "Device": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Device"
+            },
+            {
+              "description": "Information about the device."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteGlobalNetworkRequest": {
+      "properties": {},
+      "title": "DeleteGlobalNetworkRequest",
+      "type": "object"
+    },
+    "DeleteGlobalNetworkResponse": {
+      "properties": {
+        "GlobalNetwork": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GlobalNetwork"
+            },
+            {
+              "description": "Information about the global network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteLinkRequest": {
+      "properties": {},
+      "title": "DeleteLinkRequest",
+      "type": "object"
+    },
+    "DeleteLinkResponse": {
+      "properties": {
+        "Link": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Link"
+            },
+            {
+              "description": "Information about the link."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteSiteRequest": {
+      "properties": {},
+      "title": "DeleteSiteRequest",
+      "type": "object"
+    },
+    "DeleteSiteResponse": {
+      "properties": {
+        "Site": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Site"
+            },
+            {
+              "description": "Information about the site."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeregisterTransitGatewayRequest": {
+      "properties": {},
+      "title": "DeregisterTransitGatewayRequest",
+      "type": "object"
+    },
+    "DeregisterTransitGatewayResponse": {
+      "properties": {
+        "TransitGatewayRegistration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayRegistration"
+            },
+            {
+              "description": "The transit gateway registration information."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeGlobalNetworksRequest": {
+      "properties": {},
+      "title": "DescribeGlobalNetworksRequest",
+      "type": "object"
+    },
+    "DescribeGlobalNetworksResponse": {
+      "properties": {
+        "GlobalNetworks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GlobalNetworkList"
+            },
+            {
+              "description": "Information about the global networks."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Device": {
+      "description": "Describes a device.",
+      "properties": {
+        "AWSLocation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AWSLocation"
+            },
+            {
+              "description": "The AWS location of the device."
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time that the site was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the device."
+            }
+          ]
+        },
+        "DeviceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the device."
+            }
+          ]
+        },
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The site location."
+            }
+          ]
+        },
+        "Model": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The device model."
+            }
+          ]
+        },
+        "SerialNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The device serial number."
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The site ID."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceState"
+            },
+            {
+              "description": "The device state."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the device."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The device type."
+            }
+          ]
+        },
+        "Vendor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The device vendor."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeviceList": {
+      "items": {
+        "$ref": "#/definitions/Device"
+      },
+      "type": "array"
+    },
+    "DeviceState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
+    "DisassociateCustomerGatewayRequest": {
+      "properties": {},
+      "title": "DisassociateCustomerGatewayRequest",
+      "type": "object"
+    },
+    "DisassociateCustomerGatewayResponse": {
+      "properties": {
+        "CustomerGatewayAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomerGatewayAssociation"
+            },
+            {
+              "description": "Information about the customer gateway association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateLinkRequest": {
+      "properties": {},
+      "title": "DisassociateLinkRequest",
+      "type": "object"
+    },
+    "DisassociateLinkResponse": {
+      "properties": {
+        "LinkAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkAssociation"
+            },
+            {
+              "description": "Information about the link association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateTransitGatewayConnectPeerRequest": {
+      "properties": {},
+      "title": "DisassociateTransitGatewayConnectPeerRequest",
+      "type": "object"
+    },
+    "DisassociateTransitGatewayConnectPeerResponse": {
+      "properties": {
+        "TransitGatewayConnectPeerAssociation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayConnectPeerAssociation"
+            },
+            {
+              "description": "The transit gateway Connect peer association."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetConnectionsRequest": {
+      "properties": {},
+      "title": "GetConnectionsRequest",
+      "type": "object"
+    },
+    "GetConnectionsResponse": {
+      "properties": {
+        "Connections": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionList"
+            },
+            {
+              "description": "Information about the connections."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetCustomerGatewayAssociationsRequest": {
+      "properties": {},
+      "title": "GetCustomerGatewayAssociationsRequest",
+      "type": "object"
+    },
+    "GetCustomerGatewayAssociationsResponse": {
+      "properties": {
+        "CustomerGatewayAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomerGatewayAssociationList"
+            },
+            {
+              "description": "The customer gateway associations."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetDevicesRequest": {
+      "properties": {},
+      "title": "GetDevicesRequest",
+      "type": "object"
+    },
+    "GetDevicesResponse": {
+      "properties": {
+        "Devices": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DeviceList"
+            },
+            {
+              "description": "The devices."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetLinkAssociationsRequest": {
+      "properties": {},
+      "title": "GetLinkAssociationsRequest",
+      "type": "object"
+    },
+    "GetLinkAssociationsResponse": {
+      "properties": {
+        "LinkAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkAssociationList"
+            },
+            {
+              "description": "The link associations."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetLinksRequest": {
+      "properties": {},
+      "title": "GetLinksRequest",
+      "type": "object"
+    },
+    "GetLinksResponse": {
+      "properties": {
+        "Links": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkList"
+            },
+            {
+              "description": "The links."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetSitesRequest": {
+      "properties": {},
+      "title": "GetSitesRequest",
+      "type": "object"
+    },
+    "GetSitesResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "Sites": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SiteList"
+            },
+            {
+              "description": "The sites."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetTransitGatewayConnectPeerAssociationsRequest": {
+      "properties": {},
+      "title": "GetTransitGatewayConnectPeerAssociationsRequest",
+      "type": "object"
+    },
+    "GetTransitGatewayConnectPeerAssociationsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token to use for the next page of results."
+            }
+          ]
+        },
+        "TransitGatewayConnectPeerAssociations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayConnectPeerAssociationList"
+            },
+            {
+              "description": "Information about the transit gateway Connect peer associations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetTransitGatewayRegistrationsRequest": {
+      "properties": {},
+      "title": "GetTransitGatewayRegistrationsRequest",
+      "type": "object"
+    },
+    "GetTransitGatewayRegistrationsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The token for the next page of results."
+            }
+          ]
+        },
+        "TransitGatewayRegistrations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayRegistrationList"
+            },
+            {
+              "description": "The transit gateway registrations."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GlobalNetwork": {
+      "description": "Describes a global network.",
+      "properties": {
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time that the global network was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the global network."
+            }
+          ]
+        },
+        "GlobalNetworkArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the global network."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GlobalNetworkState"
+            },
+            {
+              "description": "The state of the global network."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the global network."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GlobalNetworkList": {
+      "items": {
+        "$ref": "#/definitions/GlobalNetwork"
+      },
+      "type": "array"
+    },
+    "GlobalNetworkState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalServerException": {},
+    "Link": {
+      "description": "Describes a link.",
+      "properties": {
+        "Bandwidth": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Bandwidth"
+            },
+            {
+              "description": "The bandwidth for the link."
+            }
+          ]
+        },
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time that the link was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the link."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "LinkArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the link."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        },
+        "Provider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The provider of the link."
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the site."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkState"
+            },
+            {
+              "description": "The state of the link."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the link."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of the link."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LinkAssociation": {
+      "description": "Describes the association between a device and a link.",
+      "properties": {
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The device ID for the link association."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "LinkAssociationState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LinkAssociationState"
+            },
+            {
+              "description": "The state of the association."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LinkAssociationList": {
+      "items": {
+        "$ref": "#/definitions/LinkAssociation"
+      },
+      "type": "array"
+    },
+    "LinkAssociationState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "LinkList": {
+      "items": {
+        "$ref": "#/definitions/Link"
+      },
+      "type": "array"
+    },
+    "LinkState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "TagList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The list of tags."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Location": {
+      "description": "Describes a location.",
+      "properties": {
+        "Address": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The physical address."
+            }
+          ]
+        },
+        "Latitude": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The latitude."
+            }
+          ]
+        },
+        "Longitude": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The longitude."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "RegisterTransitGatewayRequest": {
+      "properties": {
+        "TransitGatewayArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the transit gateway. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies\">Resources Defined by Amazon EC2</a>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "TransitGatewayArn"
+      ],
+      "title": "RegisterTransitGatewayRequest",
+      "type": "object"
+    },
+    "RegisterTransitGatewayResponse": {
+      "properties": {
+        "TransitGatewayRegistration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayRegistration"
+            },
+            {
+              "description": "Information about the transit gateway registration."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceARN": {
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ServiceQuotaExceededException": {},
+    "Site": {
+      "description": "Describes a site.",
+      "properties": {
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateTime"
+            },
+            {
+              "description": "The date and time that the site was created."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The description of the site."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "The location of the site."
+            }
+          ]
+        },
+        "SiteArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the site."
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the site."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SiteState"
+            },
+            {
+              "description": "The state of the site."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags for the site."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SiteList": {
+      "items": {
+        "$ref": "#/definitions/Site"
+      },
+      "type": "array"
+    },
+    "SiteState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
+    "String": {
+      "type": "string"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "Tag": {
+      "description": "Describes a tag.",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "<p>The tag key.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "<p>The tag value.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TagKey": {
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags to apply to the specified resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "TransitGatewayConnectPeerAssociation": {
+      "description": "Describes a transit gateway Connect peer association.",
+      "properties": {
+        "DeviceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the device."
+            }
+          ]
+        },
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayConnectPeerAssociationState"
+            },
+            {
+              "description": "The state of the association."
+            }
+          ]
+        },
+        "TransitGatewayConnectPeerArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the transit gateway Connect peer."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TransitGatewayConnectPeerAssociationList": {
+      "items": {
+        "$ref": "#/definitions/TransitGatewayConnectPeerAssociation"
+      },
+      "type": "array"
+    },
+    "TransitGatewayConnectPeerAssociationState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "TransitGatewayRegistration": {
+      "description": "Describes the registration of a transit gateway to a global network.",
+      "properties": {
+        "GlobalNetworkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the global network."
+            }
+          ]
+        },
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayRegistrationStateReason"
+            },
+            {
+              "description": "The state of the transit gateway registration."
+            }
+          ]
+        },
+        "TransitGatewayArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the transit gateway."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TransitGatewayRegistrationList": {
+      "items": {
+        "$ref": "#/definitions/TransitGatewayRegistration"
+      },
+      "type": "array"
+    },
+    "TransitGatewayRegistrationState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "DELETING",
+        "DELETED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "TransitGatewayRegistrationStateReason": {
+      "description": "Describes the status of a transit gateway registration.",
+      "properties": {
+        "Code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TransitGatewayRegistrationState"
+            },
+            {
+              "description": "The code for the state reason."
+            }
+          ]
+        },
+        "Message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The message for the state reason."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateConnectionRequest": {
+      "properties": {
+        "ConnectedLinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the second device in the connection."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the connection.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "LinkId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the link for the first device in the connection."
+            }
+          ]
+        }
+      },
+      "title": "UpdateConnectionRequest",
+      "type": "object"
+    },
+    "UpdateConnectionResponse": {
+      "properties": {
+        "Connection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Connection"
+            },
+            {
+              "description": "Information about the connection."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDeviceRequest": {
+      "properties": {
+        "AWSLocation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AWSLocation"
+            },
+            {
+              "description": "The AWS location of the device."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the device.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Location": {
+          "$ref": "#/definitions/Location"
+        },
+        "Model": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The model of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "SerialNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The serial number of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "SiteId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ID of the site."
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The type of the device."
+            }
+          ]
+        },
+        "Vendor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The vendor of the device.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        }
+      },
+      "title": "UpdateDeviceRequest",
+      "type": "object"
+    },
+    "UpdateDeviceResponse": {
+      "properties": {
+        "Device": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Device"
+            },
+            {
+              "description": "Information about the device."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateGlobalNetworkRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the global network.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        }
+      },
+      "title": "UpdateGlobalNetworkRequest",
+      "type": "object"
+    },
+    "UpdateGlobalNetworkResponse": {
+      "properties": {
+        "GlobalNetwork": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/GlobalNetwork"
+            },
+            {
+              "description": "Information about the global network object."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateLinkRequest": {
+      "properties": {
+        "Bandwidth": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Bandwidth"
+            },
+            {
+              "description": "The upload and download speed in Mbps. "
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of the link.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Provider": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The provider of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>The type of the link.</p> <p>Length Constraints: Maximum length of 128 characters.</p>"
+            }
+          ]
+        }
+      },
+      "title": "UpdateLinkRequest",
+      "type": "object"
+    },
+    "UpdateLinkResponse": {
+      "properties": {
+        "Link": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Link"
+            },
+            {
+              "description": "Information about the link."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateSiteRequest": {
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A description of your site.</p> <p>Length Constraints: Maximum length of 256 characters.</p>"
+            }
+          ]
+        },
+        "Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Location"
+            },
+            {
+              "description": "<p>The site location:</p> <ul> <li> <p> <code>Address</code>: The physical address of the site.</p> </li> <li> <p> <code>Latitude</code>: The latitude of the site. </p> </li> <li> <p> <code>Longitude</code>: The longitude of the site.</p> </li> </ul>"
+            }
+          ]
+        }
+      },
+      "title": "UpdateSiteRequest",
+      "type": "object"
+    },
+    "UpdateSiteResponse": {
+      "properties": {
+        "Site": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Site"
+            },
+            {
+              "description": "Information about the site."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/networkmanager/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

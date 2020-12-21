@@ -13,16 +13,14 @@ let amazonaws_support = require('@datafire/amazonaws_support').create({
   region: ""
 });
 
-amazonaws_support.AddAttachmentsToSet({
-  "attachments": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Support</fullname> <p>The AWS Support API reference is intended for programmers who need detailed information about the AWS Support operations and data types. This service enables you to manage your AWS Support cases programmatically. It uses HTTP methods that return results in JSON format.</p> <p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">Trusted Advisor</a> features. You can retrieve a list of checks and their descriptions, get check results, specify checks to refresh, and get the refresh status of checks. </p> <p>The following list describes the AWS Support case management operations:</p> <ul> <li> <p> <b>Service names, issue categories, and available severity levels. </b>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names, service codes, service categories, and problem severity levels. You use these values when you call the <a>CreateCase</a> operation. </p> </li> <li> <p> <b>Case creation, case details, and case resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve information about cases, and resolve cases.</p> </li> <li> <p> <b>Case communication.</b> The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications and attachments to AWS Support cases. </p> </li> </ul> <p>The following list describes the operations available from the AWS Support service for Trusted Advisor:</p> <ul> <li> <p> <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that run against your AWS resources.</p> </li> <li> <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the check you specified.</p> </li> <li> <p> <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized results for one or more Trusted Advisor checks.</p> </li> <li> <p> <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a specified check. </p> </li> <li> <p> <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh status of one or more checks. </p> </li> </ul> <p>For authentication of requests, AWS Support uses <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.</p> <p>See <a href="http://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the AWS Support API</a> in the <i>AWS Support User Guide</i> for information about how to use this service to create and manage your support cases, and how to call Trusted Advisor for results of checks on your resources. </p>
+<fullname>AWS Support</fullname> <p>The AWS Support API reference is intended for programmers who need detailed information about the AWS Support operations and data types. This service enables you to manage your AWS Support cases programmatically. It uses HTTP methods that return results in JSON format.</p> <note> <ul> <li> <p>You must have a Business or Enterprise support plan to use the AWS Support API. </p> </li> <li> <p>If you call the AWS Support API from an account that does not have a Business or Enterprise support plan, the <code>SubscriptionRequiredException</code> error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p> </li> </ul> </note> <p>The AWS Support service also exposes a set of <a href="http://aws.amazon.com/premiumsupport/trustedadvisor/">AWS Trusted Advisor</a> features. You can retrieve a list of checks and their descriptions, get check results, specify checks to refresh, and get the refresh status of checks.</p> <p>The following list describes the AWS Support case management operations:</p> <ul> <li> <p> <b>Service names, issue categories, and available severity levels. </b>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names, service codes, service categories, and problem severity levels. You use these values when you call the <a>CreateCase</a> operation.</p> </li> <li> <p> <b>Case creation, case details, and case resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve information about cases, and resolve cases.</p> </li> <li> <p> <b>Case communication.</b> The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications and attachments to AWS Support cases.</p> </li> </ul> <p>The following list describes the operations available from the AWS Support service for Trusted Advisor:</p> <ul> <li> <p> <a>DescribeTrustedAdvisorChecks</a> returns the list of checks that run against your AWS resources.</p> </li> <li> <p>Using the <code>checkId</code> for a specific check returned by <a>DescribeTrustedAdvisorChecks</a>, you can call <a>DescribeTrustedAdvisorCheckResult</a> to obtain the results for the check that you specified.</p> </li> <li> <p> <a>DescribeTrustedAdvisorCheckSummaries</a> returns summarized results for one or more Trusted Advisor checks.</p> </li> <li> <p> <a>RefreshTrustedAdvisorCheck</a> requests that Trusted Advisor rerun a specified check.</p> </li> <li> <p> <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> reports the refresh status of one or more checks.</p> </li> </ul> <p>For authentication of requests, AWS Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.</p> <p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the AWS Support API</a> in the <i>AWS Support User Guide</i> for information about how to use this service to create and manage your support cases, and how to call Trusted Advisor for results of checks on your resources.</p>
 
 ## Actions
 
@@ -32,14 +30,15 @@ amazonaws_support.AddAttachmentsToSet({
 
 ```js
 amazonaws_support.AddAttachmentsToSet({
-  "attachments": []
+  "attachments": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * attachments **required** [Attachments](#attachments)
+  * attachmentSetId
+  * attachments **required**
+    * items [Attachment](#attachment)
 
 #### Output
 * output [AddAttachmentsToSetResponse](#addattachmentstosetresponse)
@@ -50,16 +49,17 @@ amazonaws_support.AddAttachmentsToSet({
 
 ```js
 amazonaws_support.AddCommunicationToCase({
-  "communicationBody": ""
+  "communicationBody": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * caseId [CaseId](#caseid)
-  * ccEmailAddresses [CcEmailAddressList](#ccemailaddresslist)
-  * communicationBody **required** [CommunicationBody](#communicationbody)
+  * attachmentSetId
+  * caseId
+  * ccEmailAddresses
+    * items [CcEmailAddress](#ccemailaddress)
+  * communicationBody **required**
 
 #### Output
 * output [AddCommunicationToCaseResponse](#addcommunicationtocaseresponse)
@@ -70,22 +70,23 @@ amazonaws_support.AddCommunicationToCase({
 
 ```js
 amazonaws_support.CreateCase({
-  "subject": "",
-  "communicationBody": ""
+  "subject": null,
+  "communicationBody": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * categoryCode [CategoryCode](#categorycode)
-  * ccEmailAddresses [CcEmailAddressList](#ccemailaddresslist)
-  * communicationBody **required** [CommunicationBody](#communicationbody)
-  * issueType [IssueType](#issuetype)
-  * language [Language](#language)
-  * serviceCode [ServiceCode](#servicecode)
-  * severityCode [SeverityCode](#severitycode)
-  * subject **required** [Subject](#subject)
+  * attachmentSetId
+  * categoryCode
+  * ccEmailAddresses
+    * items [CcEmailAddress](#ccemailaddress)
+  * communicationBody **required**
+  * issueType
+  * language
+  * serviceCode
+  * severityCode
+  * subject **required**
 
 #### Output
 * output [CreateCaseResponse](#createcaseresponse)
@@ -96,13 +97,13 @@ amazonaws_support.CreateCase({
 
 ```js
 amazonaws_support.DescribeAttachment({
-  "attachmentId": ""
+  "attachmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attachmentId **required** [AttachmentId](#attachmentid)
+  * attachmentId **required**
 
 #### Output
 * output [DescribeAttachmentResponse](#describeattachmentresponse)
@@ -119,15 +120,16 @@ amazonaws_support.DescribeCases({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * afterTime [AfterTime](#aftertime)
-  * beforeTime [BeforeTime](#beforetime)
-  * caseIdList [CaseIdList](#caseidlist)
-  * displayId [DisplayId](#displayid)
-  * includeCommunications [IncludeCommunications](#includecommunications)
-  * includeResolvedCases [IncludeResolvedCases](#includeresolvedcases)
-  * language [Language](#language)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * afterTime
+  * beforeTime
+  * caseIdList
+    * items [CaseId](#caseid)
+  * displayId
+  * includeCommunications
+  * includeResolvedCases
+  * language
+  * maxResults
+  * nextToken
 
 #### Output
 * output [DescribeCasesResponse](#describecasesresponse)
@@ -138,7 +140,7 @@ amazonaws_support.DescribeCases({}, context)
 
 ```js
 amazonaws_support.DescribeCommunications({
-  "caseId": ""
+  "caseId": null
 }, context)
 ```
 
@@ -146,11 +148,11 @@ amazonaws_support.DescribeCommunications({
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * afterTime [AfterTime](#aftertime)
-  * beforeTime [BeforeTime](#beforetime)
-  * caseId **required** [CaseId](#caseid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+  * afterTime
+  * beforeTime
+  * caseId **required**
+  * maxResults
+  * nextToken
 
 #### Output
 * output [DescribeCommunicationsResponse](#describecommunicationsresponse)
@@ -165,8 +167,9 @@ amazonaws_support.DescribeServices({}, context)
 
 #### Input
 * input `object`
-  * language [Language](#language)
-  * serviceCodeList [ServiceCodeList](#servicecodelist)
+  * language
+  * serviceCodeList
+    * items [ServiceCode](#servicecode)
 
 #### Output
 * output [DescribeServicesResponse](#describeservicesresponse)
@@ -181,7 +184,7 @@ amazonaws_support.DescribeSeverityLevels({}, context)
 
 #### Input
 * input `object`
-  * language [Language](#language)
+  * language
 
 #### Output
 * output [DescribeSeverityLevelsResponse](#describeseveritylevelsresponse)
@@ -192,13 +195,14 @@ amazonaws_support.DescribeSeverityLevels({}, context)
 
 ```js
 amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({
-  "checkIds": []
+  "checkIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * checkIds **required** [StringList](#stringlist)
+  * checkIds **required**
+    * items [String](#string)
 
 #### Output
 * output [DescribeTrustedAdvisorCheckRefreshStatusesResponse](#describetrustedadvisorcheckrefreshstatusesresponse)
@@ -209,14 +213,14 @@ amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({
 
 ```js
 amazonaws_support.DescribeTrustedAdvisorCheckResult({
-  "checkId": ""
+  "checkId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * checkId **required** [String](#string)
-  * language [String](#string)
+  * checkId **required**
+  * language
 
 #### Output
 * output [DescribeTrustedAdvisorCheckResultResponse](#describetrustedadvisorcheckresultresponse)
@@ -227,13 +231,14 @@ amazonaws_support.DescribeTrustedAdvisorCheckResult({
 
 ```js
 amazonaws_support.DescribeTrustedAdvisorCheckSummaries({
-  "checkIds": []
+  "checkIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * checkIds **required** [StringList](#stringlist)
+  * checkIds **required**
+    * items [String](#string)
 
 #### Output
 * output [DescribeTrustedAdvisorCheckSummariesResponse](#describetrustedadvisorchecksummariesresponse)
@@ -244,13 +249,13 @@ amazonaws_support.DescribeTrustedAdvisorCheckSummaries({
 
 ```js
 amazonaws_support.DescribeTrustedAdvisorChecks({
-  "language": ""
+  "language": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * language **required** [String](#string)
+  * language **required**
 
 #### Output
 * output [DescribeTrustedAdvisorChecksResponse](#describetrustedadvisorchecksresponse)
@@ -261,13 +266,13 @@ amazonaws_support.DescribeTrustedAdvisorChecks({
 
 ```js
 amazonaws_support.RefreshTrustedAdvisorCheck({
-  "checkId": ""
+  "checkId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * checkId **required** [String](#string)
+  * checkId **required**
 
 #### Output
 * output [RefreshTrustedAdvisorCheckResponse](#refreshtrustedadvisorcheckresponse)
@@ -282,7 +287,7 @@ amazonaws_support.ResolveCase({}, context)
 
 #### Input
 * input `object`
-  * caseId [CaseId](#caseid)
+  * caseId
 
 #### Output
 * output [ResolveCaseResponse](#resolvecaseresponse)
@@ -292,68 +297,65 @@ amazonaws_support.ResolveCase({}, context)
 ## Definitions
 
 ### AddAttachmentsToSetRequest
-* AddAttachmentsToSetRequest `object`: <p/>
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * attachments **required** [Attachments](#attachments)
+* AddAttachmentsToSetRequest `object`
+  * attachmentSetId
+  * attachments **required**
+    * items [Attachment](#attachment)
 
 ### AddAttachmentsToSetResponse
 * AddAttachmentsToSetResponse `object`: The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * expiryTime [ExpiryTime](#expirytime)
+  * attachmentSetId
+  * expiryTime
 
 ### AddCommunicationToCaseRequest
-* AddCommunicationToCaseRequest `object`: To be written.
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * caseId [CaseId](#caseid)
-  * ccEmailAddresses [CcEmailAddressList](#ccemailaddresslist)
-  * communicationBody **required** [CommunicationBody](#communicationbody)
+* AddCommunicationToCaseRequest `object`
+  * attachmentSetId
+  * caseId
+  * ccEmailAddresses
+    * items [CcEmailAddress](#ccemailaddress)
+  * communicationBody **required**
 
 ### AddCommunicationToCaseResponse
 * AddCommunicationToCaseResponse `object`: The result of the <a>AddCommunicationToCase</a> operation.
-  * result [Result](#result)
+  * result
 
 ### AfterTime
 * AfterTime `string`
 
 ### Attachment
 * Attachment `object`: An attachment to a case communication. The attachment consists of the file name and the content of the file.
-  * data [Data](#data)
-  * fileName [FileName](#filename)
+  * data
+  * fileName
 
 ### AttachmentDetails
 * AttachmentDetails `object`: The file name and ID of an attachment to a case communication. You can use the ID to retrieve the attachment with the <a>DescribeAttachment</a> operation.
-  * attachmentId [AttachmentId](#attachmentid)
-  * fileName [FileName](#filename)
+  * attachmentId
+  * fileName
 
 ### AttachmentId
 * AttachmentId `string`
 
 ### AttachmentIdNotFound
-* AttachmentIdNotFound `object`: An attachment with the specified ID could not be found.
-  * message [ErrorMessage](#errormessage)
+
 
 ### AttachmentLimitExceeded
-* AttachmentLimitExceeded `object`: The limit for the number of attachment sets created in a short period of time has been exceeded.
-  * message [ErrorMessage](#errormessage)
+
 
 ### AttachmentSet
 * AttachmentSet `array`
   * items [AttachmentDetails](#attachmentdetails)
 
 ### AttachmentSetExpired
-* AttachmentSetExpired `object`: The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
-  * message [ErrorMessage](#errormessage)
+
 
 ### AttachmentSetId
 * AttachmentSetId `string`
 
 ### AttachmentSetIdNotFound
-* AttachmentSetIdNotFound `object`: An attachment set with the specified ID could not be found.
-  * message [ErrorMessage](#errormessage)
+
 
 ### AttachmentSetSizeLimitExceeded
-* AttachmentSetSizeLimitExceeded `object`: A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment.
-  * message [ErrorMessage](#errormessage)
+
 
 ### Attachments
 * Attachments `array`
@@ -366,23 +368,26 @@ amazonaws_support.ResolveCase({}, context)
 * Boolean `boolean`
 
 ### CaseCreationLimitExceeded
-* CaseCreationLimitExceeded `object`: The case creation limit for the account has been exceeded.
-  * message [ErrorMessage](#errormessage)
+
 
 ### CaseDetails
-* CaseDetails `object`: <p>A JSON-formatted object that contains the metadata for a support case. It is contained the response from a <a>DescribeCases</a> request. <b>CaseDetails</b> contains the following fields:</p> <ul> <li> <p> <b>caseId.</b> The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p> </li> <li> <p> <b>categoryCode.</b> The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>displayId.</b> The identifier for the case on pages in the AWS Support Center.</p> </li> <li> <p> <b>language.</b> The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.</p> </li> <li> <p> <b>recentCommunications.</b> One or more <a>Communication</a> objects. Fields of these objects are <code>attachments</code>, <code>body</code>, <code>caseId</code>, <code>submittedBy</code>, and <code>timeCreated</code>.</p> </li> <li> <p> <b>nextToken.</b> A resumption point for pagination.</p> </li> <li> <p> <b>serviceCode.</b> The identifier for the AWS service that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>severityCode. </b>The severity code assigned to the case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>.</p> </li> <li> <p> <b>status.</b> The status of the case in the AWS Support Center.</p> </li> <li> <p> <b>subject.</b> The subject line of the case.</p> </li> <li> <p> <b>submittedBy.</b> The email address of the account that submitted the case.</p> </li> <li> <p> <b>timeCreated.</b> The time the case was created, in ISO-8601 format.</p> </li> </ul>
-  * caseId [CaseId](#caseid)
-  * categoryCode [CategoryCode](#categorycode)
-  * ccEmailAddresses [CcEmailAddressList](#ccemailaddresslist)
-  * displayId [DisplayId](#displayid)
-  * language [Language](#language)
-  * recentCommunications [RecentCaseCommunications](#recentcasecommunications)
-  * serviceCode [ServiceCode](#servicecode)
-  * severityCode [SeverityCode](#severitycode)
-  * status [Status](#status)
-  * subject [Subject](#subject)
-  * submittedBy [SubmittedBy](#submittedby)
-  * timeCreated [TimeCreated](#timecreated)
+* CaseDetails `object`: <p>A JSON-formatted object that contains the metadata for a support case. It is contained in the response from a <a>DescribeCases</a> request. <b>CaseDetails</b> contains the following fields:</p> <ul> <li> <p> <b>caseId.</b> The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p> </li> <li> <p> <b>categoryCode.</b> The category of problem for the AWS Support case. Corresponds to the CategoryCode values returned by a call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>displayId.</b> The identifier for the case on pages in the AWS Support Center.</p> </li> <li> <p> <b>language.</b> The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.</p> </li> <li> <p> <b>nextToken.</b> A resumption point for pagination.</p> </li> <li> <p> <b>recentCommunications.</b> One or more <a>Communication</a> objects. Fields of these objects are <code>attachments</code>, <code>body</code>, <code>caseId</code>, <code>submittedBy</code>, and <code>timeCreated</code>.</p> </li> <li> <p> <b>serviceCode.</b> The identifier for the AWS service that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p> </li> <li> <p> <b>severityCode.</b> The severity code assigned to the case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>. The possible values are: <code>low</code>, <code>normal</code>, <code>high</code>, <code>urgent</code>, and <code>critical</code>.</p> </li> <li> <p> <b>status.</b> The status of the case in the AWS Support Center. Valid values:</p> <ul> <li> <p> <code>opened</code> </p> </li> <li> <p> <code>pending-customer-action</code> </p> </li> <li> <p> <code>reopened</code> </p> </li> <li> <p> <code>resolved</code> </p> </li> <li> <p> <code>unassigned</code> </p> </li> <li> <p> <code>work-in-progress</code> </p> </li> </ul> </li> <li> <p> <b>subject.</b> The subject line of the case.</p> </li> <li> <p> <b>submittedBy.</b> The email address of the account that submitted the case.</p> </li> <li> <p> <b>timeCreated.</b> The time the case was created, in ISO-8601 format.</p> </li> </ul>
+  * caseId
+  * categoryCode
+  * ccEmailAddresses
+    * items [CcEmailAddress](#ccemailaddress)
+  * displayId
+  * language
+  * recentCommunications
+    * communications
+      * items [Communication](#communication)
+    * nextToken
+  * serviceCode
+  * severityCode
+  * status
+  * subject
+  * submittedBy
+  * timeCreated
 
 ### CaseId
 * CaseId `string`
@@ -392,8 +397,7 @@ amazonaws_support.ResolveCase({}, context)
   * items [CaseId](#caseid)
 
 ### CaseIdNotFound
-* CaseIdNotFound `object`: The requested <code>caseId</code> could not be located.
-  * message [ErrorMessage](#errormessage)
+
 
 ### CaseList
 * CaseList `array`
@@ -404,8 +408,8 @@ amazonaws_support.ResolveCase({}, context)
 
 ### Category
 * Category `object`: A JSON-formatted name/value pair that represents the category name and category code of the problem, selected from the <a>DescribeServices</a> response for each AWS service.
-  * code [CategoryCode](#categorycode)
-  * name [CategoryName](#categoryname)
+  * code
+  * name
 
 ### CategoryCode
 * CategoryCode `string`
@@ -425,12 +429,13 @@ amazonaws_support.ResolveCase({}, context)
   * items [CcEmailAddress](#ccemailaddress)
 
 ### Communication
-* Communication `object`: A communication associated with an AWS Support case. The communication consists of the case ID, the message body, attachment information, the account email address, and the date and time of the communication.
-  * attachmentSet [AttachmentSet](#attachmentset)
-  * body [CommunicationBody](#communicationbody)
-  * caseId [CaseId](#caseid)
-  * submittedBy [SubmittedBy](#submittedby)
-  * timeCreated [TimeCreated](#timecreated)
+* Communication `object`: A communication associated with an AWS Support case. The communication consists of the case ID, the message body, attachment information, the submitter of the communication, and the date and time of the communication.
+  * attachmentSet
+    * items [AttachmentDetails](#attachmentdetails)
+  * body
+  * caseId
+  * submittedBy
+  * timeCreated
 
 ### CommunicationBody
 * CommunicationBody `string`
@@ -440,124 +445,144 @@ amazonaws_support.ResolveCase({}, context)
   * items [Communication](#communication)
 
 ### CreateCaseRequest
-* CreateCaseRequest `object`: <p/>
-  * attachmentSetId [AttachmentSetId](#attachmentsetid)
-  * categoryCode [CategoryCode](#categorycode)
-  * ccEmailAddresses [CcEmailAddressList](#ccemailaddresslist)
-  * communicationBody **required** [CommunicationBody](#communicationbody)
-  * issueType [IssueType](#issuetype)
-  * language [Language](#language)
-  * serviceCode [ServiceCode](#servicecode)
-  * severityCode [SeverityCode](#severitycode)
-  * subject **required** [Subject](#subject)
+* CreateCaseRequest `object`
+  * attachmentSetId
+  * categoryCode
+  * ccEmailAddresses
+    * items [CcEmailAddress](#ccemailaddress)
+  * communicationBody **required**
+  * issueType
+  * language
+  * serviceCode
+  * severityCode
+  * subject **required**
 
 ### CreateCaseResponse
-* CreateCaseResponse `object`: The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation. 
-  * caseId [CaseId](#caseid)
+* CreateCaseResponse `object`: The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation.
+  * caseId
 
 ### Data
 * Data `string`
 
 ### DescribeAttachmentLimitExceeded
-* DescribeAttachmentLimitExceeded `object`: The limit for the number of <a>DescribeAttachment</a> requests in a short period of time has been exceeded.
-  * message [ErrorMessage](#errormessage)
+
 
 ### DescribeAttachmentRequest
 * DescribeAttachmentRequest `object`
-  * attachmentId **required** [AttachmentId](#attachmentid)
+  * attachmentId **required**
 
 ### DescribeAttachmentResponse
 * DescribeAttachmentResponse `object`: The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.
-  * attachment [Attachment](#attachment)
+  * attachment
+    * data
+    * fileName
 
 ### DescribeCasesRequest
-* DescribeCasesRequest `object`: <p/>
-  * afterTime [AfterTime](#aftertime)
-  * beforeTime [BeforeTime](#beforetime)
-  * caseIdList [CaseIdList](#caseidlist)
-  * displayId [DisplayId](#displayid)
-  * includeCommunications [IncludeCommunications](#includecommunications)
-  * includeResolvedCases [IncludeResolvedCases](#includeresolvedcases)
-  * language [Language](#language)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+* DescribeCasesRequest `object`
+  * afterTime
+  * beforeTime
+  * caseIdList
+    * items [CaseId](#caseid)
+  * displayId
+  * includeCommunications
+  * includeResolvedCases
+  * language
+  * maxResults
+  * nextToken
 
 ### DescribeCasesResponse
-* DescribeCasesResponse `object`: Returns an array of <a>CaseDetails</a> objects and a <code>nextToken</code> that defines a point for pagination in the result set.
-  * cases [CaseList](#caselist)
-  * nextToken [NextToken](#nexttoken)
+* DescribeCasesResponse `object`: Returns an array of <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> objects and a <code>nextToken</code> that defines a point for pagination in the result set.
+  * cases
+    * items [CaseDetails](#casedetails)
+  * nextToken
 
 ### DescribeCommunicationsRequest
-* DescribeCommunicationsRequest `object`: <p/>
-  * afterTime [AfterTime](#aftertime)
-  * beforeTime [BeforeTime](#beforetime)
-  * caseId **required** [CaseId](#caseid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [NextToken](#nexttoken)
+* DescribeCommunicationsRequest `object`
+  * afterTime
+  * beforeTime
+  * caseId **required**
+  * maxResults
+  * nextToken
 
 ### DescribeCommunicationsResponse
 * DescribeCommunicationsResponse `object`: The communications returned by the <a>DescribeCommunications</a> operation.
-  * communications [CommunicationList](#communicationlist)
-  * nextToken [NextToken](#nexttoken)
+  * communications
+    * items [Communication](#communication)
+  * nextToken
 
 ### DescribeServicesRequest
-* DescribeServicesRequest `object`: <p/>
-  * language [Language](#language)
-  * serviceCodeList [ServiceCodeList](#servicecodelist)
+* DescribeServicesRequest `object`
+  * language
+  * serviceCodeList
+    * items [ServiceCode](#servicecode)
 
 ### DescribeServicesResponse
 * DescribeServicesResponse `object`: The list of AWS services returned by the <a>DescribeServices</a> operation.
-  * services [ServiceList](#servicelist)
+  * services
+    * items [Service](#service)
 
 ### DescribeSeverityLevelsRequest
-* DescribeSeverityLevelsRequest `object`: <p/>
-  * language [Language](#language)
+* DescribeSeverityLevelsRequest `object`
+  * language
 
 ### DescribeSeverityLevelsResponse
 * DescribeSeverityLevelsResponse `object`: The list of severity levels returned by the <a>DescribeSeverityLevels</a> operation.
-  * severityLevels [SeverityLevelsList](#severitylevelslist)
+  * severityLevels
+    * items [SeverityLevel](#severitylevel)
 
 ### DescribeTrustedAdvisorCheckRefreshStatusesRequest
-* DescribeTrustedAdvisorCheckRefreshStatusesRequest `object`: <p/>
-  * checkIds **required** [StringList](#stringlist)
+* DescribeTrustedAdvisorCheckRefreshStatusesRequest `object`
+  * checkIds **required**
+    * items [String](#string)
 
 ### DescribeTrustedAdvisorCheckRefreshStatusesResponse
 * DescribeTrustedAdvisorCheckRefreshStatusesResponse `object`: The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.
-  * statuses **required** [TrustedAdvisorCheckRefreshStatusList](#trustedadvisorcheckrefreshstatuslist)
+  * statuses **required**
+    * items [TrustedAdvisorCheckRefreshStatus](#trustedadvisorcheckrefreshstatus)
 
 ### DescribeTrustedAdvisorCheckResultRequest
 * DescribeTrustedAdvisorCheckResultRequest `object`: <p/>
-  * checkId **required** [String](#string)
-  * language [String](#string)
+  * checkId **required**
+  * language
 
 ### DescribeTrustedAdvisorCheckResultResponse
 * DescribeTrustedAdvisorCheckResultResponse `object`: The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.
-  * result [TrustedAdvisorCheckResult](#trustedadvisorcheckresult)
+  * result
+    * categorySpecificSummary **required**
+      * costOptimizing
+        * estimatedMonthlySavings **required**
+        * estimatedPercentMonthlySavings **required**
+    * checkId **required**
+    * flaggedResources **required**
+      * items [TrustedAdvisorResourceDetail](#trustedadvisorresourcedetail)
+    * resourcesSummary **required** [TrustedAdvisorResourcesSummary](#trustedadvisorresourcessummary)
+    * status **required**
+    * timestamp **required**
 
 ### DescribeTrustedAdvisorCheckSummariesRequest
-* DescribeTrustedAdvisorCheckSummariesRequest `object`: <p/>
-  * checkIds **required** [StringList](#stringlist)
+* DescribeTrustedAdvisorCheckSummariesRequest `object`
+  * checkIds **required**
+    * items [String](#string)
 
 ### DescribeTrustedAdvisorCheckSummariesResponse
 * DescribeTrustedAdvisorCheckSummariesResponse `object`: The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.
-  * summaries **required** [TrustedAdvisorCheckSummaryList](#trustedadvisorchecksummarylist)
+  * summaries **required**
+    * items [TrustedAdvisorCheckSummary](#trustedadvisorchecksummary)
 
 ### DescribeTrustedAdvisorChecksRequest
-* DescribeTrustedAdvisorChecksRequest `object`: <p/>
-  * language **required** [String](#string)
+* DescribeTrustedAdvisorChecksRequest `object`
+  * language **required**
 
 ### DescribeTrustedAdvisorChecksResponse
 * DescribeTrustedAdvisorChecksResponse `object`: Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.
-  * checks **required** [TrustedAdvisorCheckList](#trustedadvisorchecklist)
+  * checks **required**
+    * items [TrustedAdvisorCheckDescription](#trustedadvisorcheckdescription)
 
 ### DisplayId
 * DisplayId `string`
 
 ### Double
 * Double `number`
-
-### ErrorMessage
-* ErrorMessage `string`
 
 ### ExpiryTime
 * ExpiryTime `string`
@@ -572,8 +597,7 @@ amazonaws_support.ResolveCase({}, context)
 * IncludeResolvedCases `boolean`
 
 ### InternalServerError
-* InternalServerError `object`: An internal server error occurred.
-  * message [ErrorMessage](#errormessage)
+
 
 ### IssueType
 * IssueType `string`
@@ -592,34 +616,39 @@ amazonaws_support.ResolveCase({}, context)
 
 ### RecentCaseCommunications
 * RecentCaseCommunications `object`: The five most recent communications associated with the case.
-  * communications [CommunicationList](#communicationlist)
-  * nextToken [NextToken](#nexttoken)
+  * communications
+    * items [Communication](#communication)
+  * nextToken
 
 ### RefreshTrustedAdvisorCheckRequest
 * RefreshTrustedAdvisorCheckRequest `object`: <p/>
-  * checkId **required** [String](#string)
+  * checkId **required**
 
 ### RefreshTrustedAdvisorCheckResponse
 * RefreshTrustedAdvisorCheckResponse `object`: The current refresh status of a Trusted Advisor check.
-  * status **required** [TrustedAdvisorCheckRefreshStatus](#trustedadvisorcheckrefreshstatus)
+  * status **required**
+    * checkId **required**
+    * millisUntilNextRefreshable **required**
+    * status **required**
 
 ### ResolveCaseRequest
-* ResolveCaseRequest `object`: <p/>
-  * caseId [CaseId](#caseid)
+* ResolveCaseRequest `object`
+  * caseId
 
 ### ResolveCaseResponse
 * ResolveCaseResponse `object`: The status of the case returned by the <a>ResolveCase</a> operation.
-  * finalCaseStatus [CaseStatus](#casestatus)
-  * initialCaseStatus [CaseStatus](#casestatus)
+  * finalCaseStatus
+  * initialCaseStatus
 
 ### Result
 * Result `boolean`
 
 ### Service
-* Service `object`: Information about an AWS service returned by the <a>DescribeServices</a> operation. 
-  * categories [CategoryList](#categorylist)
-  * code [ServiceCode](#servicecode)
-  * name [ServiceName](#servicename)
+* Service `object`: Information about an AWS service returned by the <a>DescribeServices</a> operation.
+  * categories
+    * items [Category](#category)
+  * code
+  * name
 
 ### ServiceCode
 * ServiceCode `string`
@@ -639,9 +668,9 @@ amazonaws_support.ResolveCase({}, context)
 * SeverityCode `string`
 
 ### SeverityLevel
-* SeverityLevel `object`: A code and name pair that represent a severity level that can be applied to a support case.
-  * code [SeverityLevelCode](#severitylevelcode)
-  * name [SeverityLevelName](#severitylevelname)
+* SeverityLevel `object`: A code and name pair that represents the severity level of a support case. The available values depend on the support plan for the account. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity">Choosing a severity</a> in the <i>AWS Support User Guide</i>.
+  * code
+  * name
 
 ### SeverityLevelCode
 * SeverityLevelCode `string`
@@ -674,15 +703,18 @@ amazonaws_support.ResolveCase({}, context)
 
 ### TrustedAdvisorCategorySpecificSummary
 * TrustedAdvisorCategorySpecificSummary `object`: The container for summary information that relates to the category of the Trusted Advisor check.
-  * costOptimizing [TrustedAdvisorCostOptimizingSummary](#trustedadvisorcostoptimizingsummary)
+  * costOptimizing
+    * estimatedMonthlySavings **required**
+    * estimatedPercentMonthlySavings **required**
 
 ### TrustedAdvisorCheckDescription
 * TrustedAdvisorCheckDescription `object`: The description and metadata for a Trusted Advisor check.
-  * category **required** [String](#string)
-  * description **required** [String](#string)
-  * id **required** [String](#string)
-  * metadata **required** [StringList](#stringlist)
-  * name **required** [String](#string)
+  * category **required**
+  * description **required**
+  * id **required**
+  * metadata **required**
+    * items [String](#string)
+  * name **required**
 
 ### TrustedAdvisorCheckList
 * TrustedAdvisorCheckList `array`
@@ -690,9 +722,9 @@ amazonaws_support.ResolveCase({}, context)
 
 ### TrustedAdvisorCheckRefreshStatus
 * TrustedAdvisorCheckRefreshStatus `object`: The refresh status of a Trusted Advisor check.
-  * checkId **required** [String](#string)
-  * millisUntilNextRefreshable **required** [Long](#long)
-  * status **required** [String](#string)
+  * checkId **required**
+  * millisUntilNextRefreshable **required**
+  * status **required**
 
 ### TrustedAdvisorCheckRefreshStatusList
 * TrustedAdvisorCheckRefreshStatusList `array`
@@ -700,48 +732,56 @@ amazonaws_support.ResolveCase({}, context)
 
 ### TrustedAdvisorCheckResult
 * TrustedAdvisorCheckResult `object`: The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.
-  * categorySpecificSummary **required** [TrustedAdvisorCategorySpecificSummary](#trustedadvisorcategoryspecificsummary)
-  * checkId **required** [String](#string)
-  * flaggedResources **required** [TrustedAdvisorResourceDetailList](#trustedadvisorresourcedetaillist)
+  * categorySpecificSummary **required**
+    * costOptimizing
+      * estimatedMonthlySavings **required**
+      * estimatedPercentMonthlySavings **required**
+  * checkId **required**
+  * flaggedResources **required**
+    * items [TrustedAdvisorResourceDetail](#trustedadvisorresourcedetail)
   * resourcesSummary **required** [TrustedAdvisorResourcesSummary](#trustedadvisorresourcessummary)
-  * status **required** [String](#string)
-  * timestamp **required** [String](#string)
+  * status **required**
+  * timestamp **required**
 
 ### TrustedAdvisorCheckSummary
 * TrustedAdvisorCheckSummary `object`: A summary of a Trusted Advisor check result, including the alert status, last refresh, and number of resources examined.
-  * categorySpecificSummary **required** [TrustedAdvisorCategorySpecificSummary](#trustedadvisorcategoryspecificsummary)
-  * checkId **required** [String](#string)
-  * hasFlaggedResources [Boolean](#boolean)
+  * categorySpecificSummary **required**
+    * costOptimizing
+      * estimatedMonthlySavings **required**
+      * estimatedPercentMonthlySavings **required**
+  * checkId **required**
+  * hasFlaggedResources
   * resourcesSummary **required** [TrustedAdvisorResourcesSummary](#trustedadvisorresourcessummary)
-  * status **required** [String](#string)
-  * timestamp **required** [String](#string)
+  * status **required**
+  * timestamp **required**
 
 ### TrustedAdvisorCheckSummaryList
 * TrustedAdvisorCheckSummaryList `array`
   * items [TrustedAdvisorCheckSummary](#trustedadvisorchecksummary)
 
 ### TrustedAdvisorCostOptimizingSummary
-* TrustedAdvisorCostOptimizingSummary `object`: The estimated cost savings that might be realized if the recommended actions are taken.
-  * estimatedMonthlySavings **required** [Double](#double)
-  * estimatedPercentMonthlySavings **required** [Double](#double)
+* TrustedAdvisorCostOptimizingSummary `object`: The estimated cost savings that might be realized if the recommended operations are taken.
+  * estimatedMonthlySavings **required**
+  * estimatedPercentMonthlySavings **required**
 
 ### TrustedAdvisorResourceDetail
 * TrustedAdvisorResourceDetail `object`: Contains information about a resource identified by a Trusted Advisor check.
-  * isSuppressed [Boolean](#boolean)
-  * metadata **required** [StringList](#stringlist)
-  * region [String](#string)
-  * resourceId **required** [String](#string)
-  * status **required** [String](#string)
+  * isSuppressed
+  * metadata **required**
+    * items [String](#string)
+  * region
+  * resourceId **required**
+  * status **required**
 
 ### TrustedAdvisorResourceDetailList
 * TrustedAdvisorResourceDetailList `array`
   * items [TrustedAdvisorResourceDetail](#trustedadvisorresourcedetail)
 
 ### TrustedAdvisorResourcesSummary
-* TrustedAdvisorResourcesSummary `object`: Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>. 
-  * resourcesFlagged **required** [Long](#long)
-  * resourcesIgnored **required** [Long](#long)
-  * resourcesProcessed **required** [Long](#long)
-  * resourcesSuppressed **required** [Long](#long)
+* TrustedAdvisorResourcesSummary `object`: Details about AWS resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.
+  * resourcesFlagged **required**
+  * resourcesIgnored **required**
+  * resourcesProcessed **required**
+  * resourcesSuppressed **required**
 
 

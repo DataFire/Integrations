@@ -2,7 +2,7 @@
   "name": "@datafire/amazonaws_eks",
   "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Amazon Elastic Container Service for Kubernetes",
+  "description": "DataFire integration for Amazon Elastic Kubernetes Service",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/eks/2017-11-01/swagger.json",
-    "type": "openapi"
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/eks/2017-11-01/openapi.json",
+    "type": "openapi_3"
   },
   "peerDependencies": {
     "datafire": "^2.0.0"

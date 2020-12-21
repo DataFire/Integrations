@@ -16,9 +16,14 @@
       "entertainment"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_halo_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_d_d7_Halo_(series)_logo.svg"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://developer.haloapi.com/docs/services/58ace18c21091812784ce8c5/export?DocumentFormat=Swagger",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://developer.haloapi.com/docs/services/58ace18c21091812784ce8c5/export?DocumentFormat=Swagger",
@@ -33,9 +38,6 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json"
-  ],
   "securityDefinitions": {
     "apiKeyHeader": {
       "in": "header",
@@ -56,11 +58,12 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/h5/metadata/campaign-missions": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Campaign Missions\" to \"Halo 5 - Campaign Missions\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc421",
+        "operationId": "h5.metadata.campaign_missions.get",
         "parameters": [
           {
             "default": "en",
@@ -69,6 +72,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -84,7 +90,7 @@
     "/h5/metadata/commendations": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Commendations\" to \"Halo 5 - Commendations\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc422",
+        "operationId": "h5.metadata.commendations.get",
         "parameters": [
           {
             "default": "en",
@@ -93,6 +99,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -105,10 +114,10 @@
         "summary": "Halo 5 - Commendations"
       }
     },
-    "/h5/metadata/csr-designations": {
+    "/h5/metadata/company-commendations": {
       "get": {
-        "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"CSR Designations\" to \"Halo 5 - CSR Designations\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc423",
+        "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>August 15, 2018:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.metadata.company_commendations.get",
         "parameters": [
           {
             "default": "en",
@@ -117,6 +126,36 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The response body will contain the requested Metadata.",
+            "examples": {
+              "application/json": "// A list of commendations for the title. There is no significance to the ordering.\n[\n  {\n    // Indicates the type of commendation. This is one of the two following options:\n    //   - \"Progressive\"\n    //   - \"Meta\"\n    // Progressive commendations have a series of increasingly difficult thresholds\n    // (levels) a player must cross to receive increasingly greater rewards.\n    // Meta commendations are unlocked when a player has completed one or more other\n    // commendation levels. We model this by giving meta commendations one level with\n    // dependencies rather than a threshold.\n    \"type\": \"string\",\n\n    // A localized name for the commendation, suitable for display to users. The text is\n    // title cased. \n    \"name\": \"string\",\n\n    // A localized description, suitable for display to users.\n    \"description\": \"string\",\n\n    // An image that is used as the icon for this commendation.\n    \"iconImageUrl\": \"string\",\n\n    // One or more levels that model what a player must do to earn rewards and complete\n    // the commendation.\n    \"levels\": [\n      {\n        // The reward the player will receive for earning this level.\n        \"reward\": {\n\n          // The amount of XP that will be awarded.\n          \"xp\": \"int\",\n\n          // The set of requisition packs (if any) that will be awarded.\n          \"requisitionPacks\": [\n            {\n              // A localized name for the pack, suitable for display to users. The text\n              // is title cased. \n              \"name\": \"string\",\n\n              // A localized description, suitable for display to users.\n              \"description\": \"string\",\n\n              // A large image for the pack.\n              \"largeImageUrl\": \"string\",\n\n              // A medium image for the pack.\n              \"mediumImageUrl\": \"string\",\n\n              // A small image for the pack.\n              \"smallImageUrl\": \"string\",\n\n              // Internal use. Whether the item should be featured ahead of others.\n              \"isFeatured\": \"boolean\",\n\n              // Internal use. Whether the item should be labeled as \"new!\"\n              \"isNew\": \"boolean\",\n\n              // If the pack is purchasable via credits, this value contains the number\n              // of credits a player must spend to acquire one pack. This value is zero\n              // when isPurchasableWithCredits is false.\n              \"creditPrice\": \"int\",\n\n              // If the pack is currently available for purchase by spending credits,\n              // then this value is true.\n              \"isPurchasableWithCredits\": \"boolean\",\n\n              // If the pack might be obtainable through the Xbox Live Marketplace, then\n              // this value is true.\n              \"isPurchasableFromMarketplace\": \"boolean\",\n\n              // If this pack might be obtainable through the Xbox Live Marketplace, this\n              // is the product ID. Note: Pricing and availability within the Xbox Live\n              // marketplace is controlled independently of this value. The presence of\n              // an Id in this field is not a guarantee the product is purchasable. There\n              // may be geographic restrictions restricting purchase in certain regions,\n              // or the item may not be currently purchasable at all.\n              \"xboxMarketplaceProductId\": \"guid\",\n\n              // If this pack might be obtainable through the Xbox Live Marketplace, this\n              // is the URL to the product.\n              \"xboxMarketplaceProductUrl\": \"string\",\n\n              // Internal use. The order in which packs are shown for merchandising\n              // purposes.\n              \"merchandisingOrder\": \"int\",\n\n              // Internal use. Indicates the visual treatment of the pack. This is one of\n              // the following options:\n              //   - None\n              //   - New\n              //   - Hot\n              //   - LeavingSoon\n              //   - MaximumValue\n              //   - LimitedTime\n              //   - Featured\n              //   - BestSeller\n              //   - Popular\n              \"flair\": \"string\",\n\n              // The ID that uniquely identifies this pack.\n              \"id\": \"guid\",\n\n              // Internal use only. Do not use.\n              \"contentId\": \"guid\"\n            }\n          ],\n\n          // The ID that uniquely identifies this reward.\n          \"id\": \"guid\",\n\n          // Internal use only. Do not use.\n          \"contentId\": \"guid\"\n        },\n\n        // For progressive commendations this indicates the threshold that the player\n        // must meet or exceed to consider the commendation level \"completed\". For meta\n        // commendations, this value is always zero.\n        \"threshold\": \"int\",\n\n        // The ID that uniquely identifies this commendation level.\n        \"id\": \"guid\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // For meta commendations, the commendation is considered \"completed\" when all\n    // required levels have been \"completed\". This list contains one or more Level Ids\n    // from other commendations. For progressive commendations, this list is empty.\n    \"requiredLevels\": [\n      {\n        // The threshold that the player must meet or exceed in order to consider the\n        // level requirement met.\n        \"threshold\": \"int\",\n\n        // The ID of the commendation level that must be met in order to consider the\n        // level requirement met.\n        \"id\": \"guid\",\n\n        // Internal use only. Do not use.\n        \"contentId\": \"guid\"\n      }\n    ],\n\n    // The reward the player will receive for earning this commendation.\n    \"reward\": {\n\n      // The amount of XP that will be awarded.\n      \"xp\": \"int\",\n\n      // The set of requisition packs (if any) that will be awarded.\n      \"requisitionPacks\": [\n        {\n          // A localized name for the pack, suitable for display to users. The text is\n          // title cased. \n          \"name\": \"string\",\n\n          // A localized description, suitable for display to users.\n          \"description\": \"Your achievement on the field of battle will not go unrewarded.\",\n\n          // A large image for the pack.\n          \"largeImageUrl\": \"string\",\n\n          // A medium image for the pack.\n          \"mediumImageUrl\": \"string\",\n\n          // A small image for the pack.\n          \"smallImageUrl\": \"string\",\n\n          // Internal use. Whether the item should be featured ahead of others.\n          \"isFeatured\": \"boolean\",\n\n          // Internal use. Whether the item should be labeled as \"new!\"\n          \"isNew\": \"boolean\",\n\n          // If the pack is purchasable via credits, this value contains the number of\n          // credits a player must spend to acquire one pack. This value is zero when\n          // isPurchasableWithCredits is false.\n          \"creditPrice\": \"int\",\n\n          // If the pack is currently available for purchase by spending credits, then\n          // this value is true.\n          \"isPurchasableWithCredits\": \"boolean\",\n\n          // If the pack might be obtainable through the Xbox Live Marketplace, then this\n          // value is true.\n          \"isPurchasableFromMarketplace\": \"boolean\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the product ID. Note: Pricing and availability within the Xbox Live\n          // marketplace is controlled independently of this value. The presence of an Id\n          // in this field is not a guarantee the product is purchasable. There may be\n          // geographic restrictions restricting purchase in certain regions, or the item\n          // may not be currently purchasable at all.\n          \"xboxMarketplaceProductId\": \"guid\",\n\n          // If this pack might be obtainable through the Xbox Live Marketplace, this is\n          // the URL to the product.\n          \"xboxMarketplaceProductUrl\": \"string\",\n\n          // Internal use. The order in which packs are shown for merchandising purposes.\n          \"merchandisingOrder\": \"int\",\n\n          // Internal use. Indicates the visual treatment of the pack. This is one of the\n          // following options:\n          //   - None\n          //   - New\n          //   - Hot\n          //   - LeavingSoon\n          //   - MaximumValue\n          //   - LimitedTime\n          //   - Featured\n          //   - BestSeller\n          //   - Popular\n          \"flair\": \"string\",\n\n          // The ID that uniquely identifies this pack.\n          \"id\": \"guid\",\n\n          // Internal use only. Do not use.\n          \"contentId\": \"guid\"\n        }\n      ],\n\n      // The ID that uniquely identifies this reward.\n      \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n      \"contentId\": \"guid\"\n    },\n\n    // Information about how this commendation should be categorized when shown to users.\n    \"category\": {\n\n      // A localized name for the category, suitable for display to users. The text is\n      // title cased.\n      \"name\": \"string\",\n\n      // An image that is used as the icon for this category.\n      \"iconImageUrl\": \"string\",\n\n      // Internal use. The order in which the category should be displayed relative to\n      // other categories. The lower the value, the more important the category - more\n      // important categories should be shown before or ahead of less important\n      // categories.\n      \"order\": \"int\",\n\n      // The ID that uniquely identifies this category.\n      \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n      \"contentId\": \"guid\"\n    },\n\n    // Whether this commendation is enabled or not.\n    \"enabled\": \"boolean\",\n\n    // The ID that uniquely identifies this commendation.\n    \"id\": \"guid\",\n\n      // Internal use only. Do not use.\n    \"contentId\": \"guid\"\n  }\n]\n"
+            }
+          }
+        },
+        "summary": "Halo 5 - Company Commendations"
+      }
+    },
+    "/h5/metadata/csr-designations": {
+      "get": {
+        "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"CSR Designations\" to \"Halo 5 - CSR Designations\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
+        "operationId": "h5.metadata.csr_designations.get",
+        "parameters": [
+          {
+            "default": "en",
+            "description": "The desired language for the Metadata.",
+            "in": "header",
+            "name": "Accept-Language",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -132,7 +171,7 @@
     "/h5/metadata/enemies": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Enemies\" to \"Halo 5 - Enemies\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 20, 2016:</strong></p>\n    <ul>\n        <li>Corrected documentation typo. The field \"largeIconImageUrl\" was incorrectly named \"lageIconImageUrl\".</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc424",
+        "operationId": "h5.metadata.enemies.get",
         "parameters": [
           {
             "default": "en",
@@ -141,6 +180,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -156,7 +198,7 @@
     "/h5/metadata/flexible-stats": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Flexible Stats\" to \"Halo 5 - Flexible Stats\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc425",
+        "operationId": "h5.metadata.flexible_stats.get",
         "parameters": [
           {
             "default": "en",
@@ -165,6 +207,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -180,7 +225,7 @@
     "/h5/metadata/game-base-variants": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Game Base Variants\" to \"Halo 5 - Game Base Variants\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc426",
+        "operationId": "h5.metadata.game_base_variants.get",
         "parameters": [
           {
             "default": "en",
@@ -189,6 +234,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -204,7 +252,7 @@
     "/h5/metadata/game-variants/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Game Variants\" to \"Halo 5 - Game Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc427",
+        "operationId": "h5.metadata.game_variants.id.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Game Variant.",
@@ -220,6 +268,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -245,7 +296,7 @@
     "/h5/metadata/impulses": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Impulses\" to \"Halo 5 - Impulses\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc428",
+        "operationId": "h5.metadata.impulses.get",
         "parameters": [
           {
             "default": "en",
@@ -254,6 +305,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -269,7 +323,7 @@
     "/h5/metadata/map-variants/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Map Variants\" to \"Halo 5 - Map Variant\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc429",
+        "operationId": "h5.metadata.map_variants.id.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Map Variant.",
@@ -285,6 +339,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -310,7 +367,7 @@
     "/h5/metadata/maps": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Maps\" to \"Halo 5 - Maps\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42a",
+        "operationId": "h5.metadata.maps.get",
         "parameters": [
           {
             "default": "en",
@@ -319,6 +376,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -334,7 +394,7 @@
     "/h5/metadata/medals": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Medals\" to \"Halo 5 - Medals\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42b",
+        "operationId": "h5.metadata.medals.get",
         "parameters": [
           {
             "default": "en",
@@ -343,6 +403,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -358,7 +421,7 @@
     "/h5/metadata/playlists": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Playlists\" to \"Halo 5 - Playlists\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42c",
+        "operationId": "h5.metadata.playlists.get",
         "parameters": [
           {
             "default": "en",
@@ -367,6 +430,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -382,7 +448,7 @@
     "/h5/metadata/requisition-packs/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Requisition Packs\" to \"Halo 5 - Requisition Pack\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42e",
+        "operationId": "h5.metadata.requisition_packs.id.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Requisition Pack.",
@@ -398,6 +464,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -436,7 +505,7 @@
     "/h5/metadata/requisitions/{id}": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Requisitions\" to \"Halo 5 - Requisition\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42d",
+        "operationId": "h5.metadata.requisitions.id.get",
         "parameters": [
           {
             "description": "An ID that uniquely identifies a Requisition.",
@@ -452,6 +521,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -470,7 +542,7 @@
     "/h5/metadata/seasons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Seasons\" to \"Halo 5 - Seasons\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc42f",
+        "operationId": "h5.metadata.seasons.get",
         "parameters": [
           {
             "default": "en",
@@ -479,6 +551,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -494,7 +569,7 @@
     "/h5/metadata/skulls": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Skulls\" to \"Halo 5 - Skulls\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc430",
+        "operationId": "h5.metadata.skulls.get",
         "parameters": [
           {
             "default": "en",
@@ -503,6 +578,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -518,7 +596,7 @@
     "/h5/metadata/spartan-ranks": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Spartan Ranks\" to \"Halo 5 - Spartan Ranks\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc431",
+        "operationId": "h5.metadata.spartan_ranks.get",
         "parameters": [
           {
             "default": "en",
@@ -527,6 +605,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -542,7 +623,7 @@
     "/h5/metadata/team-colors": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Team Colors\" to \"Halo 5 - Team Colors\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc432",
+        "operationId": "h5.metadata.team_colors.get",
         "parameters": [
           {
             "default": "en",
@@ -551,6 +632,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -566,7 +650,7 @@
     "/h5/metadata/vehicles": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Vehicles\" to \"Halo 5 - Vehicles\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc433",
+        "operationId": "h5.metadata.vehicles.get",
         "parameters": [
           {
             "default": "en",
@@ -575,6 +659,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -590,7 +677,7 @@
     "/h5/metadata/weapons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Renamed Endpoint from \"Weapons\" to \"Halo 5 - Weapons\".</li>\n        <li>Removed \"{title}\" Request Parameter.</li>\n        <li>Documented \"Accept-Language\" Request Header.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>April 26, 2016:</strong></p>\n    <ul>\n        <li>Corrected documentation issue. The documentation for the \"type\" field was incorrect.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc434",
+        "operationId": "h5.metadata.weapons.get",
         "parameters": [
           {
             "default": "en",
@@ -599,6 +686,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -614,7 +704,7 @@
     "/hw2/campaign-levels": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc435",
+        "operationId": "hw2.campaign_levels.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -629,6 +719,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1017,7 +1110,7 @@
     "/hw2/campaign-logs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc436",
+        "operationId": "hw2.campaign_logs.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1025,6 +1118,9 @@
             "name": "startAt",
             "type": "number"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1075,7 +1171,7 @@
     "/hw2/card-keywords": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ae45962109180bdcacc4eb",
+        "operationId": "hw2.card_keywords.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1090,6 +1186,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1168,7 +1267,7 @@
     "/hw2/cards": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc438",
+        "operationId": "hw2.cards.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1184,6 +1283,9 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "The response body will contain the requested Metadata.",
@@ -1198,7 +1300,7 @@
     "/hw2/csr-designations": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 22, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ae45962109180bdcacc4ec",
+        "operationId": "hw2.csr_designations.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1213,6 +1315,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1339,7 +1444,7 @@
     "/hw2/difficulties": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43a",
+        "operationId": "hw2.difficulties.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1354,6 +1459,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1431,7 +1539,7 @@
     "/hw2/game-object-categories": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43b",
+        "operationId": "hw2.game_object_categories.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1439,6 +1547,9 @@
             "name": "startAt",
             "type": "number"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1487,7 +1598,7 @@
     "/hw2/game-objects": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43c",
+        "operationId": "hw2.game_objects.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1502,6 +1613,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1621,7 +1735,7 @@
     "/hw2/leader-powers": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43d",
+        "operationId": "hw2.leader_powers.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1636,6 +1750,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1715,7 +1832,7 @@
     "/hw2/leaders": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43e",
+        "operationId": "hw2.leaders.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1730,6 +1847,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -1903,7 +2023,7 @@
     "/hw2/maps": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc43f",
+        "operationId": "hw2.maps.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -1918,6 +2038,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2023,7 +2146,7 @@
     "/hw2/packs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc440",
+        "operationId": "hw2.packs.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2038,6 +2161,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2293,7 +2419,7 @@
     "/hw2/playlists": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc441",
+        "operationId": "hw2.playlists.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2308,6 +2434,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2604,7 +2733,7 @@
     "/hw2/seasons": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc442",
+        "operationId": "hw2.seasons.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2619,6 +2748,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2705,7 +2837,7 @@
     "/hw2/spartan-ranks": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 27, 2017:</strong></p>\n    <ul>\n        <li>Updated documentation to clarify the relationship between the Spartan Rank content item and the Spartan Rank Display Info content item.</li>\n    </ul>\n</div>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc443",
+        "operationId": "hw2.spartan_ranks.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2720,6 +2852,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {
@@ -2803,7 +2938,7 @@
     "/hw2/techs": {
       "get": {
         "description": "<br />\n<h4>Changelog</h4>\n<div class=\"panel-body\">\n    <p><strong>February 21, 2017:</strong></p>\n    <ul>\n        <li>Added Endpoint.</li>\n    </ul>\n</div>\n",
-        "operationId": "58ace18c2109180bdcacc444",
+        "operationId": "hw2.techs.get",
         "parameters": [
           {
             "description": "When specified, this indicates the index of the item to start at.\n\nWhen omitted, 0 is assumed.\n\nWhen the value contains a non-digit or is not a multiple of 100, HTTP 400 (\"Bad Request\") is returned.",
@@ -2818,6 +2953,9 @@
             "name": "Accept-Language",
             "type": "string"
           }
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "200": {

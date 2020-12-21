@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "AutomationManagement",
-    "version": "2015-10-31",
+    "version": "2018-01-15",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2015-10-31/dscCompilationJob.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/automation/resource-manager/Microsoft.Automation/stable/2018-01-15/dscCompilationJob.json",
         "version": "2.0"
       }
     ],
@@ -78,11 +78,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The filter to apply on the operation.",
@@ -110,174 +111,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list job operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "Gets or sets a list of Dsc Compilation jobs.",
-                  "items": {
-                    "allOf": [
-                      {
-                        "allOf": [
-                          {
-                            "description": "The core properties of ARM resources",
-                            "properties": {
-                              "id": {
-                                "description": "Fully qualified resource Id for the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "name": {
-                                "description": "The name of the resource",
-                                "readOnly": true,
-                                "type": "string"
-                              },
-                              "type": {
-                                "description": "The type of the resource.",
-                                "readOnly": true,
-                                "type": "string"
-                              }
-                            },
-                            "x-ms-azure-resource": true
-                          }
-                        ],
-                        "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                      }
-                    ],
-                    "description": "Definition of the Dsc Compilation job.",
-                    "properties": {
-                      "properties": {
-                        "description": "Definition of Dsc Compilation job properties.",
-                        "properties": {
-                          "configuration": {
-                            "description": "The Dsc configuration property associated with the entity.",
-                            "properties": {
-                              "name": {
-                                "description": "Gets or sets the name of the Dsc configuration.",
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "creationTime": {
-                            "description": "Gets the creation time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "endTime": {
-                            "description": "Gets the end time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "exception": {
-                            "description": "Gets the exception of the job.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "jobId": {
-                            "description": "Gets the id of the job.",
-                            "format": "uuid",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "lastModifiedTime": {
-                            "description": "Gets the last modified time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "lastStatusModifiedTime": {
-                            "description": "Gets the last status modified time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "parameters": {
-                            "additionalProperties": {
-                              "type": "string"
-                            },
-                            "description": "Gets or sets the parameters of the job.",
-                            "type": "object"
-                          },
-                          "provisioningState": {
-                            "description": "The provisioning state property.",
-                            "properties": {
-                              "provisioningState": {
-                                "description": "The provisioning state of the resource.",
-                                "enum": [
-                                  "Failed",
-                                  "Succeeded",
-                                  "Suspended",
-                                  "Processing"
-                                ],
-                                "readOnly": true,
-                                "type": "string",
-                                "x-ms-enum": {
-                                  "modelAsString": true,
-                                  "name": "JobProvisioningState"
-                                }
-                              }
-                            }
-                          },
-                          "runOn": {
-                            "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                            "type": "string"
-                          },
-                          "startTime": {
-                            "description": "Gets the start time of the job.",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "type": "string",
-                            "x-nullable": true
-                          },
-                          "startedBy": {
-                            "description": "Gets the compilation job started by.",
-                            "readOnly": true,
-                            "type": "string"
-                          },
-                          "status": {
-                            "description": "Gets or sets the status of the job.",
-                            "enum": [
-                              "New",
-                              "Activating",
-                              "Running",
-                              "Completed",
-                              "Failed",
-                              "Stopped",
-                              "Blocked",
-                              "Suspended",
-                              "Disconnected",
-                              "Suspending",
-                              "Stopping",
-                              "Resuming",
-                              "Removing"
-                            ],
-                            "type": "string",
-                            "x-ms-enum": {
-                              "modelAsString": true,
-                              "name": "JobStatus"
-                            }
-                          },
-                          "statusDetails": {
-                            "description": "Gets or sets the status details of the job.",
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/DscCompilationJobListResult"
             }
           },
           "default": {
@@ -304,7 +138,7 @@
         "x-ms-examples": {
           "List DSC Compilation job in Automation Account": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2018-01-15",
               "automationAccountName": "myAutomationAccount33",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
@@ -314,8 +148,8 @@
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/e6e7fbab-183c-405a-afe6-9eb5db97921a",
-                      "name": "e6e7fbab-183c-405a-afe6-9eb5db97921a",
+                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/",
+                      "name": "CompilationConfiguration1",
                       "properties": {
                         "configuration": {
                           "name": "TestDscConfiguration"
@@ -330,8 +164,8 @@
                       "type": "Microsoft.Automation/AutomationAccounts/compilationjobs"
                     },
                     {
-                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/111d4e06-2d88-46b4-8500-7febd4906838",
-                      "name": "111d4e06-2d88-46b4-8500-7febd4906838",
+                      "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/",
+                      "name": "CompilationConfiguration2",
                       "properties": {
                         "configuration": {
                           "name": "NewDscConfiguration"
@@ -352,12 +186,13 @@
             }
           }
         },
+        "x-ms-odata": "#/definitions/DscCompilationJob",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationjobs/{compilationJobId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationjobs/{compilationJobName}": {
       "get": {
         "description": "Retrieve the Dsc configuration compilation job identified by job id.",
         "externalDocs": {
@@ -377,17 +212,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The Dsc configuration compilation job id.",
-            "format": "uuid",
+            "description": "The DSC configuration Id.",
             "in": "path",
-            "name": "compilationJobId",
+            "name": "compilationJobName",
             "required": true,
             "type": "string"
           },
@@ -410,161 +245,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the Dsc Compilation job.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of Dsc Compilation job properties.",
-                  "properties": {
-                    "configuration": {
-                      "description": "The Dsc configuration property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the Dsc configuration.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "endTime": {
-                      "description": "Gets the end time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "exception": {
-                      "description": "Gets the exception of the job.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "jobId": {
-                      "description": "Gets the id of the job.",
-                      "format": "uuid",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastStatusModifiedTime": {
-                      "description": "Gets the last status modified time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "provisioningState": {
-                      "description": "The provisioning state property.",
-                      "properties": {
-                        "provisioningState": {
-                          "description": "The provisioning state of the resource.",
-                          "enum": [
-                            "Failed",
-                            "Succeeded",
-                            "Suspended",
-                            "Processing"
-                          ],
-                          "readOnly": true,
-                          "type": "string",
-                          "x-ms-enum": {
-                            "modelAsString": true,
-                            "name": "JobProvisioningState"
-                          }
-                        }
-                      }
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                      "type": "string"
-                    },
-                    "startTime": {
-                      "description": "Gets the start time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "startedBy": {
-                      "description": "Gets the compilation job started by.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "status": {
-                      "description": "Gets or sets the status of the job.",
-                      "enum": [
-                        "New",
-                        "Activating",
-                        "Running",
-                        "Completed",
-                        "Failed",
-                        "Stopped",
-                        "Blocked",
-                        "Suspended",
-                        "Disconnected",
-                        "Suspending",
-                        "Stopping",
-                        "Resuming",
-                        "Removing"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStatus"
-                      }
-                    },
-                    "statusDetails": {
-                      "description": "Gets or sets the status details of the job.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/DscCompilationJob"
             }
           },
           "default": {
@@ -591,17 +272,17 @@
         "x-ms-examples": {
           "Get a DSC Compilation job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2018-01-15",
               "automationAccountName": "myAutomationAccount33",
-              "compilationJobId": "ce6fe3e3-9db3-4096-a6b4-82bfb4c10a9a",
+              "compilationJobName": "TestCompilationJob",
               "resourceGroupName": "rg",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/ce6fe3e3-9db3-4096-a6b4-82bfb4c10a9a",
-                  "name": null,
+                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/TestCompilationJob",
+                  "name": "TestCompilationJob",
                   "properties": {
                     "configuration": {
                       "name": "SetupServer"
@@ -646,17 +327,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "The the DSC configuration Id.",
-            "format": "uuid",
+            "description": "The DSC configuration Id.",
             "in": "path",
-            "name": "compilationJobId",
+            "name": "compilationJobName",
             "required": true,
             "type": "string"
           },
@@ -666,55 +347,7 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "description": "The parameters supplied to the create compilation job operation.",
-              "properties": {
-                "location": {
-                  "description": "Gets or sets the location of the resource.",
-                  "type": "string"
-                },
-                "name": {
-                  "description": "Gets or sets name of the resource.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "The parameters supplied to the create compilation job operation.",
-                  "properties": {
-                    "configuration": {
-                      "description": "The Dsc configuration property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the Dsc configuration.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "newNodeConfigurationBuildVersionRequired": {
-                      "description": "If a new build version of NodeConfiguration is required.",
-                      "type": "boolean"
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    }
-                  },
-                  "required": [
-                    "configuration"
-                  ]
-                },
-                "tags": {
-                  "additionalProperties": {
-                    "type": "string"
-                  },
-                  "description": "Gets or sets the tags attached to the resource.",
-                  "type": "object"
-                }
-              },
-              "required": [
-                "properties"
-              ]
+              "$ref": "#/definitions/DscCompilationJobCreateParameters"
             }
           },
           {
@@ -736,161 +369,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "allOf": [
-                {
-                  "allOf": [
-                    {
-                      "description": "The core properties of ARM resources",
-                      "properties": {
-                        "id": {
-                          "description": "Fully qualified resource Id for the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "name": {
-                          "description": "The name of the resource",
-                          "readOnly": true,
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of the resource.",
-                          "readOnly": true,
-                          "type": "string"
-                        }
-                      },
-                      "x-ms-azure-resource": true
-                    }
-                  ],
-                  "description": "The resource model definition for a ARM proxy resource. It will have everything other than required location and tags"
-                }
-              ],
-              "description": "Definition of the Dsc Compilation job.",
-              "properties": {
-                "properties": {
-                  "description": "Definition of Dsc Compilation job properties.",
-                  "properties": {
-                    "configuration": {
-                      "description": "The Dsc configuration property associated with the entity.",
-                      "properties": {
-                        "name": {
-                          "description": "Gets or sets the name of the Dsc configuration.",
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "creationTime": {
-                      "description": "Gets the creation time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "endTime": {
-                      "description": "Gets the end time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "exception": {
-                      "description": "Gets the exception of the job.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "jobId": {
-                      "description": "Gets the id of the job.",
-                      "format": "uuid",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastModifiedTime": {
-                      "description": "Gets the last modified time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "lastStatusModifiedTime": {
-                      "description": "Gets the last status modified time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "parameters": {
-                      "additionalProperties": {
-                        "type": "string"
-                      },
-                      "description": "Gets or sets the parameters of the job.",
-                      "type": "object"
-                    },
-                    "provisioningState": {
-                      "description": "The provisioning state property.",
-                      "properties": {
-                        "provisioningState": {
-                          "description": "The provisioning state of the resource.",
-                          "enum": [
-                            "Failed",
-                            "Succeeded",
-                            "Suspended",
-                            "Processing"
-                          ],
-                          "readOnly": true,
-                          "type": "string",
-                          "x-ms-enum": {
-                            "modelAsString": true,
-                            "name": "JobProvisioningState"
-                          }
-                        }
-                      }
-                    },
-                    "runOn": {
-                      "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
-                      "type": "string"
-                    },
-                    "startTime": {
-                      "description": "Gets the start time of the job.",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "type": "string",
-                      "x-nullable": true
-                    },
-                    "startedBy": {
-                      "description": "Gets the compilation job started by.",
-                      "readOnly": true,
-                      "type": "string"
-                    },
-                    "status": {
-                      "description": "Gets or sets the status of the job.",
-                      "enum": [
-                        "New",
-                        "Activating",
-                        "Running",
-                        "Completed",
-                        "Failed",
-                        "Stopped",
-                        "Blocked",
-                        "Suspended",
-                        "Disconnected",
-                        "Suspending",
-                        "Stopping",
-                        "Resuming",
-                        "Removing"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStatus"
-                      }
-                    },
-                    "statusDetails": {
-                      "description": "Gets or sets the status details of the job.",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/DscCompilationJob"
             }
           },
           "default": {
@@ -917,9 +396,9 @@
         "x-ms-examples": {
           "Create or update a DSC Compilation job": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2018-01-15",
               "automationAccountName": "myAutomationAccount33",
-              "compilationJobId": "111d4e06-2d88-46b4-8500-7febd4906838",
+              "compilationJobName": "TestCompilationJob",
               "parameters": {
                 "properties": {
                   "configuration": {
@@ -933,8 +412,8 @@
             "responses": {
               "201": {
                 "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/111d4e06-2d88-46b4-8500-7febd4906838",
-                  "name": "111d4e06-2d88-46b4-8500-7febd4906838",
+                  "id": "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/compilationjobs/TestCompilationJob",
+                  "name": "TestCompilationJob",
                   "properties": {
                     "configuration": {
                       "name": "SetupServer"
@@ -942,7 +421,7 @@
                     "creationTime": "2017-03-28T23:14:26.903+00:00",
                     "endTime": null,
                     "exception": null,
-                    "jobId": "111d4e06-2d88-46b4-8500-7febd4906838",
+                    "jobId": "ce6fe3e3-9db3-4096-a6b4-82bfb4c10a9a",
                     "lastModifiedTime": "2017-03-28T23:14:26.903+00:00",
                     "lastStatusModifiedTime": "2017-03-28T23:14:26.903+00:00",
                     "parameters": {},
@@ -958,10 +437,11 @@
               }
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationjobs/{jobId}/streams/": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationjobs/{jobId}/streams": {
       "get": {
         "description": "Retrieve all the job streams for the compilation Job.",
         "externalDocs": {
@@ -981,11 +461,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The job id.",
@@ -1014,74 +495,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "The response model for the list job stream operation.",
-              "properties": {
-                "nextLink": {
-                  "description": "Gets or sets the next link.",
-                  "type": "string"
-                },
-                "value": {
-                  "description": "A list of job streams.",
-                  "items": {
-                    "description": "Definition of the job stream.",
-                    "properties": {
-                      "id": {
-                        "description": "Gets or sets the id of the resource.",
-                        "type": "string"
-                      },
-                      "properties": {
-                        "description": "Definition of the job stream.",
-                        "properties": {
-                          "jobStreamId": {
-                            "description": "Gets or sets the id of the job stream.",
-                            "type": "string"
-                          },
-                          "streamText": {
-                            "description": "Gets or sets the stream text.",
-                            "type": "string"
-                          },
-                          "streamType": {
-                            "description": "Gets or sets the stream type.",
-                            "enum": [
-                              "Progress",
-                              "Output",
-                              "Warning",
-                              "Error",
-                              "Debug",
-                              "Verbose",
-                              "Any"
-                            ],
-                            "type": "string",
-                            "x-ms-enum": {
-                              "modelAsString": true,
-                              "name": "JobStreamType"
-                            }
-                          },
-                          "summary": {
-                            "description": "Gets or sets the summary.",
-                            "type": "string"
-                          },
-                          "time": {
-                            "description": "Gets or sets the creation time of the job.",
-                            "format": "date-time",
-                            "type": "string",
-                            "x-nullable": false
-                          },
-                          "value": {
-                            "additionalProperties": {
-                              "type": "object"
-                            },
-                            "description": "Gets or sets the values of the job stream.",
-                            "type": "object"
-                          }
-                        },
-                        "x-ms-client-flatten": true
-                      }
-                    }
-                  },
-                  "type": "array"
-                }
-              }
+              "$ref": "#/definitions/JobStreamListResult"
             }
           },
           "default": {
@@ -1108,7 +522,7 @@
         "x-ms-examples": {
           "List DSC Compilation job streams": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2018-01-15",
               "automationAccountName": "myAutomationAccount33",
               "jobId": "836d4e06-2d88-46b4-8500-7febd4906838",
               "resourceGroupName": "rg",
@@ -1219,11 +633,12 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "The automation account name.",
+            "description": "The name of the automation account.",
             "in": "path",
             "name": "automationAccountName",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The job id.",
@@ -1259,61 +674,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "description": "Definition of the job stream.",
-              "properties": {
-                "id": {
-                  "description": "Gets or sets the id of the resource.",
-                  "type": "string"
-                },
-                "properties": {
-                  "description": "Definition of the job stream.",
-                  "properties": {
-                    "jobStreamId": {
-                      "description": "Gets or sets the id of the job stream.",
-                      "type": "string"
-                    },
-                    "streamText": {
-                      "description": "Gets or sets the stream text.",
-                      "type": "string"
-                    },
-                    "streamType": {
-                      "description": "Gets or sets the stream type.",
-                      "enum": [
-                        "Progress",
-                        "Output",
-                        "Warning",
-                        "Error",
-                        "Debug",
-                        "Verbose",
-                        "Any"
-                      ],
-                      "type": "string",
-                      "x-ms-enum": {
-                        "modelAsString": true,
-                        "name": "JobStreamType"
-                      }
-                    },
-                    "summary": {
-                      "description": "Gets or sets the summary.",
-                      "type": "string"
-                    },
-                    "time": {
-                      "description": "Gets or sets the creation time of the job.",
-                      "format": "date-time",
-                      "type": "string",
-                      "x-nullable": false
-                    },
-                    "value": {
-                      "additionalProperties": {
-                        "type": "object"
-                      },
-                      "description": "Gets or sets the values of the job stream.",
-                      "type": "object"
-                    }
-                  },
-                  "x-ms-client-flatten": true
-                }
-              }
+              "$ref": "#/definitions/JobStream"
             }
           },
           "default": {
@@ -1340,7 +701,7 @@
         "x-ms-examples": {
           "Get a DSC Compilation job stream by job stream id": {
             "parameters": {
-              "api-version": "2015-10-31",
+              "api-version": "2018-01-15",
               "automationAccountName": "myAutomationAccount33",
               "jobId": "836d4e06-2d88-46b4-8500-7febd4906838",
               "jobStreamId": "836d4e06-2d88-46b4-8500-7febd4906838_00636481062421684835_00000000000000000008",
@@ -1373,5 +734,319 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "DscCompilationJob": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "description": "The core properties of ARM resources",
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "ARM proxy resource.",
+          "properties": {},
+          "type": "object"
+        }
+      ],
+      "description": "Definition of the Dsc Compilation job.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DscCompilationJobProperties",
+          "description": "Gets or sets the properties of the Dsc Compilation job.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "DscCompilationJobCreateParameters": {
+      "description": "The parameters supplied to the create compilation job operation.",
+      "properties": {
+        "location": {
+          "description": "Gets or sets the location of the resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets name of the resource.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/DscCompilationJobCreateProperties",
+          "description": "Gets or sets the list of compilation job properties.",
+          "x-ms-client-flatten": true
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the tags attached to the resource.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "properties"
+      ]
+    },
+    "DscCompilationJobCreateProperties": {
+      "description": "The parameters supplied to the create compilation job operation.",
+      "properties": {
+        "configuration": {
+          "$ref": "#/definitions/DscConfigurationAssociationProperty",
+          "description": "Gets or sets the configuration."
+        },
+        "incrementNodeConfigurationBuild": {
+          "description": "If a new build version of NodeConfiguration is required.",
+          "type": "boolean"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "configuration"
+      ]
+    },
+    "DscCompilationJobListResult": {
+      "description": "The response model for the list job operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets a list of Dsc Compilation jobs.",
+          "items": {
+            "$ref": "#/definitions/DscCompilationJob"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "DscCompilationJobProperties": {
+      "description": "Definition of Dsc Compilation job properties.",
+      "properties": {
+        "configuration": {
+          "$ref": "#/definitions/DscConfigurationAssociationProperty",
+          "description": "Gets or sets the configuration."
+        },
+        "creationTime": {
+          "description": "Gets the creation time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "endTime": {
+          "description": "Gets the end time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "exception": {
+          "description": "Gets the exception of the job.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "jobId": {
+          "description": "Gets the id of the job.",
+          "format": "uuid",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "lastModifiedTime": {
+          "description": "Gets the last modified time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": false
+        },
+        "lastStatusModifiedTime": {
+          "description": "Gets the last status modified time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets the parameters of the job.",
+          "type": "object"
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/JobProvisioningStateProperty",
+          "description": "The current provisioning state of the job."
+        },
+        "runOn": {
+          "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Gets the start time of the job.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string",
+          "x-nullable": true
+        },
+        "startedBy": {
+          "description": "Gets the compilation job started by.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "status": {
+          "description": "Gets or sets the status of the job.",
+          "enum": [
+            "New",
+            "Activating",
+            "Running",
+            "Completed",
+            "Failed",
+            "Stopped",
+            "Blocked",
+            "Suspended",
+            "Disconnected",
+            "Suspending",
+            "Stopping",
+            "Resuming",
+            "Removing"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JobStatus"
+          }
+        },
+        "statusDetails": {
+          "description": "Gets or sets the status details of the job.",
+          "type": "string"
+        }
+      }
+    },
+    "DscConfigurationAssociationProperty": {
+      "description": "The Dsc configuration property associated with the entity.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the Dsc configuration.",
+          "type": "string"
+        }
+      }
+    },
+    "JobProvisioningStateProperty": {
+      "description": "The provisioning state of the resource.",
+      "enum": [
+        "Failed",
+        "Succeeded",
+        "Suspended",
+        "Processing"
+      ],
+      "readOnly": true,
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "JobProvisioningState"
+      }
+    },
+    "JobStream": {
+      "description": "Definition of the job stream.",
+      "properties": {
+        "id": {
+          "description": "Gets or sets the id of the resource.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/JobStreamProperties",
+          "description": "Gets or sets the id of the job stream.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "JobStreamListResult": {
+      "description": "The response model for the list job stream operation.",
+      "properties": {
+        "nextLink": {
+          "description": "Gets or sets the next link.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A list of job streams.",
+          "items": {
+            "$ref": "#/definitions/JobStream"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "JobStreamProperties": {
+      "description": "Definition of the job stream.",
+      "properties": {
+        "jobStreamId": {
+          "description": "Gets or sets the id of the job stream.",
+          "type": "string"
+        },
+        "streamText": {
+          "description": "Gets or sets the stream text.",
+          "type": "string"
+        },
+        "streamType": {
+          "description": "Gets or sets the stream type.",
+          "enum": [
+            "Progress",
+            "Output",
+            "Warning",
+            "Error",
+            "Debug",
+            "Verbose",
+            "Any"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "JobStreamType"
+          }
+        },
+        "summary": {
+          "description": "Gets or sets the summary.",
+          "type": "string"
+        },
+        "time": {
+          "description": "Gets or sets the creation time of the job.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "value": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "Gets or sets the values of the job stream.",
+          "type": "object"
+        }
+      },
+      "x-ms-client-flatten": true
+    }
+  }
 }

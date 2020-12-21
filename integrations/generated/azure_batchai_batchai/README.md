@@ -15,9 +15,7 @@ let azure_batchai_batchai = require('@datafire/azure_batchai_batchai').create({
   redirect_uri: ""
 });
 
-azure_batchai_batchai.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -45,12 +43,33 @@ azure_batchai_batchai.Operations_List({
 #### Output
 * output [OperationListResult](#operationlistresult)
 
-### Clusters_List
-Gets information about the Clusters associated with the subscription.
+### Usages_List
+Gets the current usage information as well as limits for Batch AI resources for given subscription.
 
 
 ```js
-azure_batchai_batchai.Clusters_List({
+azure_batchai_batchai.Usages_List({
+  "api-version": "",
+  "subscriptionId": "",
+  "location": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+  * location **required** `string`: The location for which resource usage is queried.
+
+#### Output
+* output [ListUsagesResult](#listusagesresult)
+
+### Workspaces_List
+Gets a list of Workspaces associated with the given subscription.
+
+
+```js
+azure_batchai_batchai.Workspaces_List({
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -58,65 +77,19 @@ azure_batchai_batchai.Clusters_List({
 
 #### Input
 * input `object`
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
   * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
 
 #### Output
-* output [ClusterListResult](#clusterlistresult)
+* output [WorkspaceListResult](#workspacelistresult)
 
-### FileServers_List
-To list all the file servers available under the given subscription (and across all resource groups within that subscription)
-
-
-```js
-azure_batchai_batchai.FileServers_List({
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
-  * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
-  * api-version **required** `string`: Specifies the version of API used for this request.
-  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
-
-#### Output
-* output [FileServerListResult](#fileserverlistresult)
-
-### Jobs_List
-Gets information about the jobs associated with the subscription.
+### Workspaces_ListByResourceGroup
+Gets a list of Workspaces within the specified resource group.
 
 
 ```js
-azure_batchai_batchai.Jobs_List({
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
-  * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
-  * api-version **required** `string`: Specifies the version of API used for this request.
-  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
-
-#### Output
-* output [JobListResult](#joblistresult)
-
-### Clusters_ListByResourceGroup
-Gets information about the Clusters associated within the specified resource group.
-
-
-```js
-azure_batchai_batchai.Clusters_ListByResourceGroup({
+azure_batchai_batchai.Workspaces_ListByResourceGroup({
   "resourceGroupName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -126,8 +99,126 @@ azure_batchai_batchai.Clusters_ListByResourceGroup({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
+  * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [WorkspaceListResult](#workspacelistresult)
+
+### Workspaces_Delete
+Deletes a Workspace.
+
+
+```js
+azure_batchai_batchai.Workspaces_Delete({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+*Output schema unknown*
+
+### Workspaces_Get
+Gets information about a Workspace.
+
+
+```js
+azure_batchai_batchai.Workspaces_Get({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [Workspace](#workspace)
+
+### Workspaces_Update
+Updates properties of a Workspace.
+
+
+```js
+azure_batchai_batchai.Workspaces_Update({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * parameters **required** [WorkspaceUpdateParameters](#workspaceupdateparameters)
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [Workspace](#workspace)
+
+### Workspaces_Create
+Creates a Workspace.
+
+
+```js
+azure_batchai_batchai.Workspaces_Create({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * parameters **required** [WorkspaceCreateParameters](#workspacecreateparameters)
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [Workspace](#workspace)
+
+### Clusters_ListByWorkspace
+Gets information about Clusters associated with the given Workspace.
+
+
+```js
+azure_batchai_batchai.Clusters_ListByWorkspace({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -142,6 +233,7 @@ Deletes a Cluster.
 ```js
 azure_batchai_batchai.Clusters_Delete({
   "resourceGroupName": "",
+  "workspaceName": "",
   "clusterName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -151,6 +243,7 @@ azure_batchai_batchai.Clusters_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * clusterName **required** `string`: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -159,12 +252,13 @@ azure_batchai_batchai.Clusters_Delete({
 *Output schema unknown*
 
 ### Clusters_Get
-Gets information about the specified Cluster.
+Gets information about a Cluster.
 
 
 ```js
 azure_batchai_batchai.Clusters_Get({
   "resourceGroupName": "",
+  "workspaceName": "",
   "clusterName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -174,6 +268,7 @@ azure_batchai_batchai.Clusters_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * clusterName **required** `string`: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -182,12 +277,13 @@ azure_batchai_batchai.Clusters_Get({
 * output [Cluster](#cluster)
 
 ### Clusters_Update
-Update the properties of a given cluster.
+Updates properties of a Cluster.
 
 
 ```js
 azure_batchai_batchai.Clusters_Update({
   "resourceGroupName": "",
+  "workspaceName": "",
   "clusterName": "",
   "parameters": null,
   "api-version": "",
@@ -198,6 +294,7 @@ azure_batchai_batchai.Clusters_Update({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * clusterName **required** `string`: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * parameters **required** [ClusterUpdateParameters](#clusterupdateparameters)
   * api-version **required** `string`: Specifies the version of API used for this request.
@@ -207,12 +304,13 @@ azure_batchai_batchai.Clusters_Update({
 * output [Cluster](#cluster)
 
 ### Clusters_Create
-Adds a cluster. A cluster is a collection of compute nodes. Multiple jobs can be run on the same cluster.
+Creates a Cluster in the given Workspace.
 
 
 ```js
 azure_batchai_batchai.Clusters_Create({
   "resourceGroupName": "",
+  "workspaceName": "",
   "clusterName": "",
   "parameters": null,
   "api-version": "",
@@ -223,6 +321,7 @@ azure_batchai_batchai.Clusters_Create({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * clusterName **required** `string`: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * parameters **required** [ClusterCreateParameters](#clustercreateparameters)
   * api-version **required** `string`: Specifies the version of API used for this request.
@@ -232,12 +331,13 @@ azure_batchai_batchai.Clusters_Create({
 * output [Cluster](#cluster)
 
 ### Clusters_ListRemoteLoginInformation
-Get the IP address, port of all the compute nodes in the cluster.
+Get the IP address, port of all the compute nodes in the Cluster.
 
 
 ```js
 azure_batchai_batchai.Clusters_ListRemoteLoginInformation({
   "resourceGroupName": "",
+  "workspaceName": "",
   "clusterName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -247,6 +347,7 @@ azure_batchai_batchai.Clusters_ListRemoteLoginInformation({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * clusterName **required** `string`: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -254,13 +355,14 @@ azure_batchai_batchai.Clusters_ListRemoteLoginInformation({
 #### Output
 * output [RemoteLoginInformationListResult](#remotelogininformationlistresult)
 
-### FileServers_ListByResourceGroup
-Gets a formatted list of file servers and their properties associated within the specified resource group.
+### Experiments_ListByWorkspace
+Gets a list of Experiments within the specified Workspace.
 
 
 ```js
-azure_batchai_batchai.FileServers_ListByResourceGroup({
+azure_batchai_batchai.Experiments_ListByWorkspace({
   "resourceGroupName": "",
+  "workspaceName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -269,23 +371,23 @@ azure_batchai_batchai.FileServers_ListByResourceGroup({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
 
 #### Output
-* output [FileServerListResult](#fileserverlistresult)
+* output [ExperimentListResult](#experimentlistresult)
 
-### FileServers_Delete
-Delete a file Server.
+### Experiments_Delete
+Deletes an Experiment.
 
 
 ```js
-azure_batchai_batchai.FileServers_Delete({
+azure_batchai_batchai.Experiments_Delete({
   "resourceGroupName": "",
-  "fileServerName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -294,21 +396,23 @@ azure_batchai_batchai.FileServers_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
 
 #### Output
 *Output schema unknown*
 
-### FileServers_Get
-Gets information about the specified Cluster.
+### Experiments_Get
+Gets information about an Experiment.
 
 
 ```js
-azure_batchai_batchai.FileServers_Get({
+azure_batchai_batchai.Experiments_Get({
   "resourceGroupName": "",
-  "fileServerName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -317,22 +421,23 @@ azure_batchai_batchai.FileServers_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
 
 #### Output
-* output [FileServer](#fileserver)
+* output [Experiment](#experiment)
 
-### FileServers_Create
-Creates a file server.
+### Experiments_Create
+Creates an Experiment.
 
 
 ```js
-azure_batchai_batchai.FileServers_Create({
+azure_batchai_batchai.Experiments_Create({
   "resourceGroupName": "",
-  "fileServerName": "",
-  "parameters": null,
+  "workspaceName": "",
+  "experimentName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -341,21 +446,23 @@ azure_batchai_batchai.FileServers_Create({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-  * parameters **required** [FileServerCreateParameters](#fileservercreateparameters)
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
 
 #### Output
-* output [FileServer](#fileserver)
+* output [Experiment](#experiment)
 
-### Jobs_ListByResourceGroup
-Gets information about the Batch AI jobs associated within the specified resource group.
+### Jobs_ListByExperiment
+Gets a list of Jobs within the specified Experiment.
 
 
 ```js
-azure_batchai_batchai.Jobs_ListByResourceGroup({
+azure_batchai_batchai.Jobs_ListByExperiment({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "api-version": "",
   "subscriptionId": ""
 }, context)
@@ -364,8 +471,8 @@ azure_batchai_batchai.Jobs_ListByResourceGroup({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
-  * $filter `string`: An OData $filter clause.. Used to filter results that are returned in the GET respnose.
-  * $select `string`: An OData $select clause. Used to select the properties to be returned in the GET respnose.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -374,12 +481,14 @@ azure_batchai_batchai.Jobs_ListByResourceGroup({
 * output [JobListResult](#joblistresult)
 
 ### Jobs_Delete
-Deletes the specified Batch AI job.
+Deletes a Job.
 
 
 ```js
 azure_batchai_batchai.Jobs_Delete({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -389,6 +498,8 @@ azure_batchai_batchai.Jobs_Delete({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -397,12 +508,14 @@ azure_batchai_batchai.Jobs_Delete({
 *Output schema unknown*
 
 ### Jobs_Get
-Gets information about the specified Batch AI job.
+Gets information about a Job.
 
 
 ```js
 azure_batchai_batchai.Jobs_Get({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -412,6 +525,8 @@ azure_batchai_batchai.Jobs_Get({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -420,12 +535,14 @@ azure_batchai_batchai.Jobs_Get({
 * output [Job](#job)
 
 ### Jobs_Create
-Adds a Job that gets executed on a cluster.
+Creates a Job in the given Experiment.
 
 
 ```js
 azure_batchai_batchai.Jobs_Create({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "parameters": null,
   "api-version": "",
@@ -436,6 +553,8 @@ azure_batchai_batchai.Jobs_Create({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * parameters **required** [JobCreateParameters](#jobcreateparameters)
   * api-version **required** `string`: Specifies the version of API used for this request.
@@ -445,12 +564,14 @@ azure_batchai_batchai.Jobs_Create({
 * output [Job](#job)
 
 ### Jobs_ListOutputFiles
-List all files inside the given output directory (Only if the output directory is on Azure File Share or Azure Storage container).
+List all directories and files inside the given directory of the Job's output directory (if the output directory is on Azure File Share or Azure Storage Container).
 
 
 ```js
 azure_batchai_batchai.Jobs_ListOutputFiles({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "outputdirectoryid": "",
   "api-version": "",
@@ -461,8 +582,11 @@ azure_batchai_batchai.Jobs_ListOutputFiles({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * outputdirectoryid **required** `string`: Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
+  * directory `string`: The path to the directory.
   * linkexpiryinminutes `integer`: The number of minutes after which the download link will expire.
   * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
   * api-version **required** `string`: Specifies the version of API used for this request.
@@ -472,12 +596,14 @@ azure_batchai_batchai.Jobs_ListOutputFiles({
 * output [FileListResult](#filelistresult)
 
 ### Jobs_ListRemoteLoginInformation
-Gets the IP address and port information of all the compute nodes which are used for job execution.
+Gets a list of currently existing nodes which were used for the Job execution. The returned information contains the node ID, its public IP and SSH port.
 
 
 ```js
 azure_batchai_batchai.Jobs_ListRemoteLoginInformation({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -487,6 +613,8 @@ azure_batchai_batchai.Jobs_ListRemoteLoginInformation({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -501,6 +629,8 @@ Terminates a job.
 ```js
 azure_batchai_batchai.Jobs_Terminate({
   "resourceGroupName": "",
+  "workspaceName": "",
+  "experimentName": "",
   "jobName": "",
   "api-version": "",
   "subscriptionId": ""
@@ -510,6 +640,8 @@ azure_batchai_batchai.Jobs_Terminate({
 #### Input
 * input `object`
   * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * experimentName **required** `string`: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * jobName **required** `string`: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
   * api-version **required** `string`: Specifies the version of API used for this request.
   * subscriptionId **required** `string`: The subscriptionID for the Azure user.
@@ -517,74 +649,181 @@ azure_batchai_batchai.Jobs_Terminate({
 #### Output
 *Output schema unknown*
 
+### FileServers_ListByWorkspace
+Gets a list of File Servers associated with the specified workspace.
+
+
+```js
+azure_batchai_batchai.FileServers_ListByWorkspace({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * maxresults `integer`: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [FileServerListResult](#fileserverlistresult)
+
+### FileServers_Delete
+Deletes a File Server.
+
+
+```js
+azure_batchai_batchai.FileServers_Delete({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "fileServerName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+*Output schema unknown*
+
+### FileServers_Get
+Gets information about a File Server.
+
+
+```js
+azure_batchai_batchai.FileServers_Get({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "fileServerName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [FileServer](#fileserver)
+
+### FileServers_Create
+Creates a File Server in the given workspace.
+
+
+```js
+azure_batchai_batchai.FileServers_Create({
+  "resourceGroupName": "",
+  "workspaceName": "",
+  "fileServerName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: Name of the resource group to which the resource belongs.
+  * workspaceName **required** `string`: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * fileServerName **required** `string`: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+  * parameters **required** [FileServerCreateParameters](#fileservercreateparameters)
+  * api-version **required** `string`: Specifies the version of API used for this request.
+  * subscriptionId **required** `string`: The subscriptionID for the Azure user.
+
+#### Output
+* output [FileServer](#fileserver)
+
 
 
 ## Definitions
 
+### AppInsightsReference
+* AppInsightsReference `object`: Azure Application Insights information for performance counters reporting.
+  * component **required** [ResourceId](#resourceid)
+  * instrumentationKey `string`: Value of the Azure Application Insights instrumentation key.
+  * instrumentationKeySecretReference [KeyVaultSecretReference](#keyvaultsecretreference)
+
 ### AutoScaleSettings
-* AutoScaleSettings `object`: The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
-  * initialNodeCount `integer`
-  * maximumNodeCount **required** `integer`
-  * minimumNodeCount **required** `integer`
+* AutoScaleSettings `object`: Auto-scale settings for the cluster. The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the number of queued and running jobs assigned to the cluster.
+  * initialNodeCount `integer`: The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
+  * maximumNodeCount **required** `integer`: The maximum number of compute nodes the cluster can have.
+  * minimumNodeCount **required** `integer`: The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
 
 ### AzureBlobFileSystemReference
-* AzureBlobFileSystemReference `object`: Provides required information, for the service to be able to mount Azure Blob Storage container on the cluster nodes.
-  * accountName **required** `string`
-  * containerName **required** `string`
+* AzureBlobFileSystemReference `object`: Azure Blob Storage Container mounting configuration.
+  * accountName **required** `string`: Name of the Azure storage account.
+  * containerName **required** `string`: Name of the Azure Blob Storage container to mount on the cluster.
   * credentials **required** [AzureStorageCredentialsInfo](#azurestoragecredentialsinfo)
-  * mountOptions `string`
-  * relativeMountPath **required** `string`: Note that all blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+  * mountOptions `string`: Mount options for mounting blobfuse file system.
+  * relativeMountPath **required** `string`: The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
 ### AzureFileShareReference
-* AzureFileShareReference `object`: Details of the Azure File Share to mount on the cluster.
-  * accountName **required** `string`
-  * azureFileUrl **required** `string`
+* AzureFileShareReference `object`: Azure File Share mounting configuration.
+  * accountName **required** `string`: Name of the Azure storage account.
+  * azureFileUrl **required** `string`: URL to access the Azure File.
   * credentials **required** [AzureStorageCredentialsInfo](#azurestoragecredentialsinfo)
-  * directoryMode `string`: Default value is 0777. Valid only if OS is linux.
-  * fileMode `string`: Default value is 0777. Valid only if OS is linux.
-  * relativeMountPath **required** `string`: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+  * directoryMode `string`: File mode for directories on the mounted file share. Default value: 0777.
+  * fileMode `string`: File mode for files on the mounted file share. Default value: 0777.
+  * relativeMountPath **required** `string`: The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
 ### AzureStorageCredentialsInfo
-* AzureStorageCredentialsInfo `object`: Credentials to access Azure File Share.
-  * accountKey `string`: One of accountKey or accountKeySecretReference must be specified.
+* AzureStorageCredentialsInfo `object`: Azure storage account credentials.
+  * accountKey `string`: Storage account key. One of accountKey or accountKeySecretReference must be specified.
   * accountKeySecretReference [KeyVaultSecretReference](#keyvaultsecretreference)
 
 ### BatchAIError
 * BatchAIError `object`: An error response from the Batch AI service.
-  * code `string`: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+  * code `string`: An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
   * details `array`: A list of additional details about the error.
     * items [NameValuePair](#namevaluepair)
   * message `string`: A message describing the error, intended to be suitable for display in a user interface.
 
 ### CNTKsettings
-* CNTKsettings `object`: Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
-  * commandLineArgs `string`
-  * configFilePath `string`: This property can be specified only if the languageType is 'BrainScript'.
-  * languageType `string`: Valid values are 'BrainScript' or 'Python'.
-  * processCount `integer`: The default value for this property is equal to nodeCount property
-  * pythonInterpreterPath `string`: This property can be specified only if the languageType is 'Python'.
-  * pythonScriptFilePath `string`: This property can be specified only if the languageType is 'Python'.
+* CNTKsettings `object`: CNTK (aka Microsoft Cognitive Toolkit) job settings.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the python script or cntk executable.
+  * configFilePath `string`: Specifies the path of the BrainScript config file. This property can be specified only if the languageType is 'BrainScript'.
+  * languageType `string`: The language to use for launching CNTK (aka Microsoft Cognitive Toolkit) job. Valid values are 'BrainScript' or 'Python'.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+  * pythonInterpreterPath `string`: The path to the Python interpreter. This property can be specified only if the languageType is 'Python'.
+  * pythonScriptFilePath `string`: Python script to execute. This property can be specified only if the languageType is 'Python'.
 
 ### Caffe2Settings
-* Caffe2Settings `object`: Specifies the settings for Caffe2 job.
-  * commandLineArgs `string`
-  * pythonInterpreterPath `string`
-  * pythonScriptFilePath **required** `string`
+* Caffe2Settings `object`: Caffe2 job settings.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the python script.
+  * pythonInterpreterPath `string`: The path to the Python interpreter.
+  * pythonScriptFilePath **required** `string`: The python script to execute.
 
 ### CaffeSettings
-* CaffeSettings `object`: Specifies the settings for Caffe job.
-  * commandLineArgs `string`
-  * configFilePath `string`: This property cannot be specified if pythonScriptFilePath is specified.
-  * processCount `integer`: The default value for this property is equal to nodeCount property
-  * pythonInterpreterPath `string`: This property can be specified only if the pythonScriptFilePath is specified.
-  * pythonScriptFilePath `string`: This property cannot be specified if configFilePath is specified.
+* CaffeSettings `object`: Caffe job settings.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the Caffe job.
+  * configFilePath `string`: Path of the config file for the job. This property cannot be specified if pythonScriptFilePath is specified.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+  * pythonInterpreterPath `string`: The path to the Python interpreter. The property can be specified only if the pythonScriptFilePath is specified.
+  * pythonScriptFilePath `string`: Python script to execute. This property cannot be specified if configFilePath is specified.
 
 ### ChainerSettings
-* ChainerSettings `object`: Specifies the settings for Chainer job.
-  * commandLineArgs `string`
-  * processCount `integer`: The default value for this property is equal to nodeCount property
-  * pythonInterpreterPath `string`
-  * pythonScriptFilePath **required** `string`
+* ChainerSettings `object`: Chainer job settings.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the python script.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+  * pythonInterpreterPath `string`: The path to the Python interpreter.
+  * pythonScriptFilePath **required** `string`: The python script to execute.
 
 ### CloudError
 * CloudError `object`: An error response from the Batch AI service.
@@ -599,13 +838,11 @@ azure_batchai_batchai.Jobs_Terminate({
   * target `string`: The target of the particular error. For example, the name of the property in error.
 
 ### Cluster
-* Cluster `object`: Contains information about a Cluster.
+* Cluster `object`: Information about a Cluster.
   * properties [ClusterProperties](#clusterproperties)
-  * id `string`: The ID of the resource
-  * location `string`: The location of the resource
-  * name `string`: The name of the resource
-  * tags `object`: The tags of the resource
-  * type `string`: The type of the resource
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
 
 ### ClusterBaseProperties
 * ClusterBaseProperties `object`: The properties of a Cluster.
@@ -614,14 +851,12 @@ azure_batchai_batchai.Jobs_Terminate({
   * subnet [ResourceId](#resourceid)
   * userAccountSettings **required** [UserAccountSettings](#useraccountsettings)
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
-  * vmPriority `string` (values: dedicated, lowpriority): Default is dedicated.
-  * vmSize **required** `string`: All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmPriority `string` (values: dedicated, lowpriority): VM priority. Allowed values are: dedicated (default) and lowpriority.
+  * vmSize **required** `string`: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 
 ### ClusterCreateParameters
-* ClusterCreateParameters `object`: Parameters supplied to the Create operation.
-  * location **required** `string`: The region in which to create the cluster.
+* ClusterCreateParameters `object`: Cluster creation operation.
   * properties [ClusterBaseProperties](#clusterbaseproperties)
-  * tags `object`: The user specified tags associated with the Cluster.
 
 ### ClusterListResult
 * ClusterListResult `object`: Values returned by the List Clusters operation.
@@ -630,175 +865,211 @@ azure_batchai_batchai.Jobs_Terminate({
     * items [Cluster](#cluster)
 
 ### ClusterProperties
-* ClusterProperties `object`: Job specific properties.
-  * allocationState `string` (values: steady, resizing): Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
-  * allocationStateTransitionTime `string`
-  * creationTime `string`
-  * currentNodeCount `integer`
-  * errors `array`: This element contains all the errors encountered by various compute nodes during node setup.
+* ClusterProperties `object`: Cluster properties.
+  * allocationState `string` (values: steady, resizing): Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+  * allocationStateTransitionTime `string`: The time at which the cluster entered its current allocation state.
+  * creationTime `string`: The time when the cluster was created.
+  * currentNodeCount `integer`: The number of compute nodes currently assigned to the cluster.
+  * errors `array`: Collection of errors encountered by various compute nodes during node setup.
     * items [BatchAIError](#batchaierror)
   * nodeSetup [NodeSetup](#nodesetup)
   * nodeStateCounts [NodeStateCounts](#nodestatecounts)
-  * provisioningState `string` (values: creating, succeeded, failed, deleting): Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
-  * provisioningStateTransitionTime `string`
+  * provisioningState `string` (values: creating, succeeded, failed, deleting): Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+  * provisioningStateTransitionTime `string`: Time when the provisioning state was changed.
   * scaleSettings [ScaleSettings](#scalesettings)
   * subnet [ResourceId](#resourceid)
   * userAccountSettings [UserAccountSettings](#useraccountsettings)
   * virtualMachineConfiguration [VirtualMachineConfiguration](#virtualmachineconfiguration)
-  * vmPriority `string` (values: dedicated, lowpriority): The default value is dedicated. The node can get preempted while the task is running if lowpriority is choosen. This is best suited if the workload is checkpointing and can be restarted.
-  * vmSize `string`: All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+  * vmPriority `string` (values: dedicated, lowpriority): VM priority of cluster nodes.
+  * vmSize `string`: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
 
 ### ClusterUpdateParameters
-* ClusterUpdateParameters `object`: Parameters supplied to the Update operation.
+* ClusterUpdateParameters `object`: Cluster update parameters.
   * properties [ClusterUpdateProperties](#clusterupdateproperties)
-  * tags `object`: The user specified tags associated with the Cluster.
 
 ### ClusterUpdateProperties
 * ClusterUpdateProperties `object`: The properties of a Cluster that need to be updated.
   * scaleSettings [ScaleSettings](#scalesettings)
 
 ### ContainerSettings
-* ContainerSettings `object`: Settings for the container to be downloaded.
+* ContainerSettings `object`: Docker container settings.
   * imageSourceRegistry **required** [ImageSourceRegistry](#imagesourceregistry)
+  * shmSize `string`: Size of /dev/shm. Please refer to docker documentation for supported argument formats.
+
+### CustomMpiSettings
+* CustomMpiSettings `object`: Custom MPI job settings.
+  * commandLine **required** `string`: The command line to be executed by mpi runtime on each compute node.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
 
 ### CustomToolkitSettings
-* CustomToolkitSettings `object`: Specifies the settings for a custom tool kit job.
-  * commandLine `string`
+* CustomToolkitSettings `object`: Custom tool kit job settings.
+  * commandLine `string`: The command line to execute on the master node.
 
 ### DataDisks
-* DataDisks `object`: Settings for the data disk which would be created for the File Server.
-  * cachingType `string` (values: none, readonly, readwrite)
-  * diskCount **required** `integer`
-  * diskSizeInGB **required** `integer`
-  * storageAccountType **required** `string` (values: Standard_LRS, Premium_LRS)
+* DataDisks `object`: Data disks settings.
+  * cachingType `string` (values: none, readonly, readwrite): Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
+  * diskCount **required** `integer`: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
+  * diskSizeInGB **required** `integer`: Disk size in GB for the blank data disks.
+  * storageAccountType **required** `string` (values: Standard_LRS, Premium_LRS): Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
 
 ### DeallocationOption
-* Specifies when compute nodes may be removed from the cluster, if the cluster size is decreasing. `string` (values: requeue, terminate, waitforjobcompletion, unknown): Possible values are: requeue - Terminate running jobs and requeue them. The jobs will run again. Remove compute nodes as soon as jobs have been terminated. terminate - Terminate running jobs. The jobs will not run again. Remove compute nodes as soon as jobs have been terminated. jobcompletion - Allow currently running jobs to complete. Schedule no new jobs while waiting. Remove compute nodes when all jobs have completed. The default value is requeue.
+* Deallocation options. `string` (values: requeue, terminate, waitforjobcompletion): Actions which should be performed when compute nodes are removed from the cluster. Possible values are: requeue (default) - Terminate running jobs and requeue them so the jobs will run again. Remove compute nodes as soon as jobs have been terminated; terminate - Terminate running jobs. The jobs will not run again. Remove compute nodes as soon as jobs have been terminated. waitforjobcompletion - Allow currently running jobs to complete. Schedule no new jobs while waiting. Remove compute nodes when all jobs have completed.
 
-### EnvironmentSetting
-* EnvironmentSetting `object`: A collection of environment variables to set.
-  * name **required** `string`
-  * value `string`
+### EnvironmentVariable
+* EnvironmentVariable `object`: An environment variable definition.
+  * name **required** `string`: The name of the environment variable.
+  * value **required** `string`: The value of the environment variable.
+
+### EnvironmentVariableWithSecretValue
+* EnvironmentVariableWithSecretValue `object`: An environment variable with secret value definition.
+  * name **required** `string`: The name of the environment variable to store the secret value.
+  * value `string`: The value of the environment variable. This value will never be reported back by Batch AI.
+  * valueSecretReference [KeyVaultSecretReference](#keyvaultsecretreference)
+
+### Experiment
+* Experiment `object`: Experiment information.
+  * properties [ExperimentProperties](#experimentproperties)
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
+
+### ExperimentListResult
+* ExperimentListResult `object`: Values returned by the List operation.
+  * nextLink `string`: The continuation token.
+  * value `array`: The collection of experiments.
+    * items [Experiment](#experiment)
+
+### ExperimentProperties
+* ExperimentProperties `object`: Experiment properties.
+  * creationTime `string`: Time when the Experiment was created.
+  * provisioningState `string` (values: creating, deleting, succeeded, failed): The provisioned state of the experiment
+  * provisioningStateTransitionTime `string`: The time at which the experiment entered its current provisioning state.
 
 ### File
-* File `object`: Properties of the file.
-  * downloadUrl **required** `string`: This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
-  * name **required** `string`: file name
+* File `object`: Properties of the file or directory.
+  * downloadUrl `string`: URL to download the corresponding file. The downloadUrl is not returned for directories.
+  * fileType `string` (values: file, directory): Type of the file. Possible values are file and directory.
+  * name `string`: Name of the file.
   * properties [FileProperties](#fileproperties)
 
 ### FileListResult
 * FileListResult `object`: Values returned by the List operation.
   * nextLink `string`: The continuation token.
-  * value `array`: The collection of returned job files.
+  * value `array`: The collection of returned job directories and files.
     * items [File](#file)
 
 ### FileProperties
-* FileProperties `object`: File specific properties.
-  * contentLength `integer`: The file size.
+* FileProperties `object`: File properties.
+  * contentLength `integer`: The file of the size.
   * lastModified `string`: The time at which the file was last modified.
 
 ### FileServer
-* FileServer `object`: Contains information about the File Server.
+* FileServer `object`: File Server information.
   * properties [FileServerProperties](#fileserverproperties)
-  * id `string`: The ID of the resource
-  * location `string`: The location of the resource
-  * name `string`: The name of the resource
-  * tags `object`: The tags of the resource
-  * type `string`: The type of the resource
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
 
 ### FileServerBaseProperties
 * FileServerBaseProperties `object`: The properties of a file server.
   * dataDisks **required** [DataDisks](#datadisks)
   * sshConfiguration **required** [SshConfiguration](#sshconfiguration)
   * subnet [ResourceId](#resourceid)
-  * vmSize **required** `string`: For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+  * vmSize **required** `string`: The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
 
 ### FileServerCreateParameters
-* FileServerCreateParameters `object`: Parameters supplied to the Create operation.
-  * location **required** `string`: The region in which to create the File Server.
+* FileServerCreateParameters `object`: File Server creation parameters.
   * properties [FileServerBaseProperties](#fileserverbaseproperties)
-  * tags `object`: The user specified tags associated with the File Server.
 
 ### FileServerListResult
-* FileServerListResult `object`: Values returned by the List operation.
+* FileServerListResult `object`: Values returned by the File Server List operation.
   * nextLink `string`: The continuation token.
   * value `array`: The collection of File Servers.
     * items [FileServer](#fileserver)
 
 ### FileServerProperties
-* FileServerProperties `object`: File server specific properties.
-  * creationTime `string`
+* FileServerProperties `object`: File Server properties.
+  * creationTime `string`: Time when the FileServer was created.
   * dataDisks [DataDisks](#datadisks)
   * mountSettings [MountSettings](#mountsettings)
-  * provisioningState `string` (values: creating, updating, deleting, succeeded, failed): Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
-  * provisioningStateTransitionTime `string`
+  * provisioningState `string` (values: creating, updating, deleting, succeeded, failed): Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+  * provisioningStateTransitionTime `string`: Time when the provisioning state was changed.
   * sshConfiguration [SshConfiguration](#sshconfiguration)
   * subnet [ResourceId](#resourceid)
-  * vmSize `string`: For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+  * vmSize `string`: VM size of the File Server.
 
 ### FileServerReference
-* FileServerReference `object`: Provides required information, for the service to be able to mount Azure FileShare on the cluster nodes.
+* FileServerReference `object`: File Server mounting configuration.
   * fileServer **required** [ResourceId](#resourceid)
-  * mountOptions `string`
-  * relativeMountPath **required** `string`: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
-  * sourceDirectory `string`: If this property is not specified, the entire File Server will be mounted.
+  * mountOptions `string`: Mount options to be passed to mount command.
+  * relativeMountPath **required** `string`: The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+  * sourceDirectory `string`: File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
+
+### HorovodSettings
+* HorovodSettings `object`: Specifies the settings for Horovod job.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the python script.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+  * pythonInterpreterPath `string`: The path to the Python interpreter.
+  * pythonScriptFilePath **required** `string`: The python script to execute.
 
 ### ImageReference
-* ImageReference `object`: The image reference.
-  * offer **required** `string`
-  * publisher **required** `string`
-  * sku **required** `string`
-  * version `string`
+* ImageReference `object`: The OS image reference.
+  * offer **required** `string`: Offer of the image.
+  * publisher **required** `string`: Publisher of the image.
+  * sku **required** `string`: SKU of the image.
+  * version `string`: Version of the image.
+  * virtualMachineImageId `string`: The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}. The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
 
 ### ImageSourceRegistry
-* ImageSourceRegistry `object`: Details of the container image such as name, URL and credentials.
+* ImageSourceRegistry `object`: Information about docker image for the job.
   * credentials [PrivateRegistryCredentials](#privateregistrycredentials)
-  * image **required** `string`
-  * serverUrl `string`
+  * image **required** `string`: The name of the image in the image repository.
+  * serverUrl `string`: URL for image repository.
 
 ### InputDirectory
 * InputDirectory `object`: Input directory for the job.
-  * id **required** `string`: It will be available for the job as an environment variable under AZ_BATCHAI_INPUT_id. The service will also provide the following  environment variable: AZ_BATCHAI_PREV_OUTPUT_Name. The value of the variable will be populated if the job is being retried after a previous failure, otherwise it will be set to nothing.
-  * path **required** `string`
+  * id **required** `string`: The ID for the input directory. The job can use AZ_BATCHAI_INPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
+  * path **required** `string`: The path to the input directory.
 
 ### Job
-* Job `object`: Contains information about the job.
+* Job `object`: Information about a Job.
   * properties [JobProperties](#jobproperties)
-  * id `string`: The ID of the resource
-  * location `string`: The location of the resource
-  * name `string`: The name of the resource
-  * tags `object`: The tags of the resource
-  * type `string`: The type of the resource
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
 
 ### JobBaseProperties
-* JobBaseProperties `object`: The properties of a Batch AI job.
+* JobBaseProperties `object`: The properties of a Batch AI Job.
   * caffe2Settings [Caffe2Settings](#caffe2settings)
   * caffeSettings [CaffeSettings](#caffesettings)
   * chainerSettings [ChainerSettings](#chainersettings)
   * cluster **required** [ResourceId](#resourceid)
   * cntkSettings [CNTKsettings](#cntksettings)
   * constraints `object`: Constraints associated with the Job.
-    * maxWallClockTime `string`: Default Value = 1 week.
+    * maxWallClockTime `string`: Max time the job can run. Default value: 1 week.
   * containerSettings [ContainerSettings](#containersettings)
+  * customMpiSettings [CustomMpiSettings](#custommpisettings)
   * customToolkitSettings [CustomToolkitSettings](#customtoolkitsettings)
-  * environmentVariables `array`: Batch AI service sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE. For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS
-    * items [EnvironmentSetting](#environmentsetting)
-  * experimentName `string`: Describe the experiment information of the job
-  * inputDirectories `array`
+  * environmentVariables `array`: A list of user defined environment variables which will be setup for the job.
+    * items [EnvironmentVariable](#environmentvariable)
+  * horovodSettings [HorovodSettings](#horovodsettings)
+  * inputDirectories `array`: A list of input directories for the job.
     * items [InputDirectory](#inputdirectory)
   * jobPreparation [JobPreparation](#jobpreparation)
-  * nodeCount **required** `integer`: The job will be gang scheduled on that many compute nodes
-  * outputDirectories `array`
+  * mountVolumes [MountVolumes](#mountvolumes)
+  * nodeCount **required** `integer`: Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
+  * outputDirectories `array`: A list of output directories for the job.
     * items [OutputDirectory](#outputdirectory)
-  * priority `integer`: Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
-  * stdOutErrPathPrefix **required** `string`: The path where the Batch AI service will upload stdout and stderror of the job.
+  * pyTorchSettings [PyTorchSettings](#pytorchsettings)
+  * schedulingPriority `string` (values: low, normal, high): Scheduling priority associated with the job. Possible values: low, normal, high.
+  * secrets `array`: A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
+    * items [EnvironmentVariableWithSecretValue](#environmentvariablewithsecretvalue)
+  * stdOutErrPathPrefix **required** `string`: The path where the Batch AI service will store stdout, stderror and execution log of the job.
   * tensorFlowSettings [TensorFlowSettings](#tensorflowsettings)
 
 ### JobCreateParameters
-* JobCreateParameters `object`: Parameters supplied to the Create operation.
-  * location **required** `string`: The region in which to create the job.
+* JobCreateParameters `object`: Job creation parameters.
   * properties [JobBaseProperties](#jobbaseproperties)
-  * tags `object`: The user specified tags associated with the job.
 
 ### JobListResult
 * JobListResult `object`: Values returned by the List operation.
@@ -807,102 +1078,105 @@ azure_batchai_batchai.Jobs_Terminate({
     * items [Job](#job)
 
 ### JobPreparation
-* JobPreparation `object`: Specifies the settings for job preparation.
-  * commandLine **required** `string`: If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+* JobPreparation `object`: Job preparation settings.
+  * commandLine **required** `string`: The command line to execute. If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
 
 ### JobProperties
-* JobProperties `object`: Job specific properties.
+* JobProperties `object`: Job properties.
+  * caffe2Settings [Caffe2Settings](#caffe2settings)
   * caffeSettings [CaffeSettings](#caffesettings)
   * chainerSettings [ChainerSettings](#chainersettings)
   * cluster [ResourceId](#resourceid)
   * cntkSettings [CNTKsettings](#cntksettings)
   * constraints `object`: Constraints associated with the Job.
-    * maxWallClockTime `string`: Default Value = 1 week.
+    * maxWallClockTime `string`: Max time the job can run. Default value: 1 week.
   * containerSettings [ContainerSettings](#containersettings)
   * creationTime `string`: The creation time of the job.
+  * customMpiSettings [CustomMpiSettings](#custommpisettings)
   * customToolkitSettings [CustomToolkitSettings](#customtoolkitsettings)
-  * environmentVariables `array`: Batch AI services sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE, For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS.
-    * items [EnvironmentSetting](#environmentsetting)
-  * executionInfo `object`: Contains information about the execution of a job in the Azure Batch service.
-    * endTime `string`: This property is only returned if the job is in completed state.
-    * errors `array`
+  * environmentVariables `array`: A collection of user defined environment variables to be setup for the job.
+    * items [EnvironmentVariable](#environmentvariable)
+  * executionInfo `object`: Information about the execution of a job.
+    * endTime `string`: The time at which the job completed. This property is only returned if the job is in completed state.
+    * errors `array`: A collection of errors encountered by the service during job execution.
       * items [BatchAIError](#batchaierror)
-    * exitCode `integer`: This property is only returned if the job is in completed state.
-    * startTime **required** `string`: 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
-  * executionState `string` (values: queued, running, terminating, succeeded, failed): The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running succesfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
+    * exitCode `integer`: The exit code of the job. This property is only returned if the job is in completed state.
+    * startTime `string`: The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+  * executionState `string` (values: queued, running, terminating, succeeded, failed): The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
   * executionStateTransitionTime `string`: The time at which the job entered its current execution state.
-  * experimentName `string`: Describe the experiment information of the job
-  * inputDirectories `array`
+  * horovodSettings [HorovodSettings](#horovodsettings)
+  * inputDirectories `array`: A list of input directories for the job.
     * items [InputDirectory](#inputdirectory)
+  * jobOutputDirectoryPathSegment `string`: A segment of job's output directories path created by Batch AI. Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
   * jobPreparation [JobPreparation](#jobpreparation)
+  * mountVolumes [MountVolumes](#mountvolumes)
   * nodeCount `integer`: The job will be gang scheduled on that many compute nodes
-  * outputDirectories `array`
+  * outputDirectories `array`: A list of output directories for the job.
     * items [OutputDirectory](#outputdirectory)
-  * priority `integer`: Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
   * provisioningState `string` (values: creating, deleting, succeeded, failed): The provisioned state of the Batch AI job
   * provisioningStateTransitionTime `string`: The time at which the job entered its current provisioning state.
-  * stdOutErrPathPrefix `string`: The path where the Batch AI service will upload stdout and stderror of the job.
+  * pyTorchSettings [PyTorchSettings](#pytorchsettings)
+  * schedulingPriority `string` (values: low, normal, high): Scheduling priority associated with the job.
+  * secrets `array`: A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
+    * items [EnvironmentVariableWithSecretValue](#environmentvariablewithsecretvalue)
+  * stdOutErrPathPrefix `string`: The path where the Batch AI service stores stdout, stderror and execution log of the job.
   * tensorFlowSettings [TensorFlowSettings](#tensorflowsettings)
   * toolType [ToolType](#tooltype)
 
-### KeyVaultKeyReference
-* KeyVaultKeyReference `object`: Describes a reference to Key Vault Key.
-  * keyUrl **required** `string`
-  * sourceVault **required** [ResourceId](#resourceid)
-
 ### KeyVaultSecretReference
-* KeyVaultSecretReference `object`: Describes a reference to Key Vault Secret.
-  * secretUrl **required** `string`
+* KeyVaultSecretReference `object`: Key Vault Secret reference.
+  * secretUrl **required** `string`: The URL referencing a secret in the Key Vault.
   * sourceVault **required** [ResourceId](#resourceid)
 
-### LocalDataVolume
-* LocalDataVolume `object`: Represents mapping of host directories to directories in the container.
-  * hostPath **required** `string`
-  * localPath **required** `string`
+### ListUsagesResult
+* ListUsagesResult `object`: The List Usages operation response.
+  * nextLink `string`: The URI to fetch the next page of compute resource usage information. Call ListNext() with this to fetch the next page of compute resource usage information.
+  * value `array`: The list of compute resource usages.
+    * items [Usage](#usage)
 
 ### ManualScaleSettings
 * ManualScaleSettings `object`: Manual scale settings for the cluster.
   * nodeDeallocationOption [DeallocationOption](#deallocationoption)
-  * targetNodeCount **required** `integer`: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+  * targetNodeCount **required** `integer`: The desired number of compute nodes in the Cluster. Default is 0.
 
 ### MountSettings
-* MountSettings `object`: Details of the File Server.
-  * fileServerInternalIP `string`
-  * fileServerPublicIP `string`
-  * fileServerType `string` (values: nfs, glusterfs)
-  * mountPoint `string`
+* MountSettings `object`: File Server mount Information.
+  * fileServerInternalIP `string`: Internal IP address of the File Server which can be used to access the File Server from within the subnet.
+  * fileServerPublicIP `string`: Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
+  * mountPoint `string`: Path where the data disks are mounted on the File Server.
 
 ### MountVolumes
 * MountVolumes `object`: Details of volumes to mount on the cluster.
-  * azureBlobFileSystems `array`: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+  * azureBlobFileSystems `array`: A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
     * items [AzureBlobFileSystemReference](#azureblobfilesystemreference)
-  * azureFileShares `array`: References to Azure File Shares that are to be mounted to the cluster nodes.
+  * azureFileShares `array`: A collection of Azure File Shares that are to be mounted to the cluster nodes.
     * items [AzureFileShareReference](#azurefilesharereference)
-  * fileServers `array`
+  * fileServers `array`: A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
     * items [FileServerReference](#fileserverreference)
-  * unmanagedFileSystems `array`
+  * unmanagedFileSystems `array`: A collection of unmanaged file systems that are to be mounted to the cluster nodes.
     * items [UnmanagedFileSystemReference](#unmanagedfilesystemreference)
 
 ### NameValuePair
-* NameValuePair `object`: Represents a name-value pair.
-  * name `string`
-  * value `string`
+* NameValuePair `object`: Name-value pair.
+  * name `string`: The name in the name-value pair.
+  * value `string`: The value in the name-value pair.
 
 ### NodeSetup
-* NodeSetup `object`: Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+* NodeSetup `object`: Node setup settings.
   * mountVolumes [MountVolumes](#mountvolumes)
+  * performanceCountersSettings [PerformanceCountersSettings](#performancecounterssettings)
   * setupTask [SetupTask](#setuptask)
 
 ### NodeStateCounts
 * NodeStateCounts `object`: Counts of various compute node states on the cluster.
-  * idleNodeCount **required** `integer`
-  * leavingNodeCount **required** `integer`
-  * preparingNodeCount **required** `integer`
-  * runningNodeCount **required** `integer`
-  * unusableNodeCount **required** `integer`
+  * idleNodeCount `integer`: Number of compute nodes in idle state.
+  * leavingNodeCount `integer`: Number of compute nodes which are leaving the cluster.
+  * preparingNodeCount `integer`: Number of compute nodes which are being prepared.
+  * runningNodeCount `integer`: Number of compute nodes which are running jobs.
+  * unusableNodeCount `integer`: Number of compute nodes which are in unusable state.
 
 ### Operation
-* A REST API operation `object`: Details of a REST API operation
+* A REST API operation. `object`: Details of a REST API operation
   * display `object`: The object that describes the operation.
     * description `string`
     * operation `string`: For example: read, write, delete, or listKeys/action
@@ -920,23 +1194,39 @@ azure_batchai_batchai.Jobs_Terminate({
 
 ### OutputDirectory
 * OutputDirectory `object`: Output directory for the job.
-  * createNew `boolean`: Default is true. If false, then the directory is not created and can be any directory path that the user specifies.
-  * id **required** `string`: It will be available for the job as an environment variable under AZ_BATCHAI_OUTPUT_id.
-  * pathPrefix **required** `string`: NOTE: This is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs.
-  * pathSuffix `string`: The suffix path where the output directory will be created.
-  * type `string` (values: model, logs, summary, custom): Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
+  * id **required** `string`: The ID of the output directory. The job can use AZ_BATCHAI_OUTPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
+  * pathPrefix **required** `string`: The prefix path where the output directory will be created. Note, this is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs. The full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
+  * pathSuffix `string`: The suffix path where the output directory will be created. E.g. models. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
+
+### PerformanceCountersSettings
+* PerformanceCountersSettings `object`: Performance counters reporting settings.
+  * appInsightsReference **required** [AppInsightsReference](#appinsightsreference)
 
 ### PrivateRegistryCredentials
 * PrivateRegistryCredentials `object`: Credentials to access a container image in a private repository.
-  * password `string`: One of password or passwordSecretReference must be specified.
+  * password `string`: User password to login to the docker repository. One of password or passwordSecretReference must be specified.
   * passwordSecretReference [KeyVaultSecretReference](#keyvaultsecretreference)
-  * username **required** `string`
+  * username **required** `string`: User name to login to the repository.
+
+### ProxyResource
+* ProxyResource `object`: A definition of an Azure proxy resource.
+  * id `string`: The ID of the resource.
+  * name `string`: The name of the resource.
+  * type `string`: The type of the resource.
+
+### PyTorchSettings
+* PyTorchSettings `object`: pyTorch job settings.
+  * commandLineArgs `string`: Command line arguments that need to be passed to the python script.
+  * communicationBackend `string`: Type of the communication backend for distributed jobs. Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
+  * processCount `integer`: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+  * pythonInterpreterPath `string`: The path to the Python interpreter.
+  * pythonScriptFilePath **required** `string`: The python script to execute.
 
 ### RemoteLoginInformation
-* RemoteLoginInformation `object`: Contains remote login details to SSH/RDP to a compute node in cluster.
-  * ipAddress **required** `string`: ip address
-  * nodeId **required** `string`: Id of the compute node
-  * port **required** `number`
+* RemoteLoginInformation `object`: Login details to SSH to a compute node in cluster.
+  * ipAddress `string`: Public IP address of the compute node.
+  * nodeId `string`: ID of the compute node.
+  * port `number`: SSH port number of the node.
 
 ### RemoteLoginInformationListResult
 * RemoteLoginInformationListResult `object`: Values returned by the List operation.
@@ -963,44 +1253,88 @@ azure_batchai_batchai.Jobs_Terminate({
 
 ### SetupTask
 * SetupTask `object`: Specifies a setup task which can be used to customize the compute nodes of the cluster.
-  * commandLine **required** `string`
-  * environmentVariables `array`
-    * items [EnvironmentSetting](#environmentsetting)
-  * runElevated `boolean`
-  * stdOutErrPathPrefix **required** `string`: The path where the Batch AI service will upload the stdout and stderror of setup task.
+  * commandLine **required** `string`: The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
+  * environmentVariables `array`: A collection of user defined environment variables to be set for setup task.
+    * items [EnvironmentVariable](#environmentvariable)
+  * secrets `array`: A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
+    * items [EnvironmentVariableWithSecretValue](#environmentvariablewithsecretvalue)
+  * stdOutErrPathPrefix **required** `string`: The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
+  * stdOutErrPathSuffix `string`: A path segment appended by Batch AI to stdOutErrPathPrefix to form a path where stdout, stderr and execution log of the setup task will be uploaded. Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. The full path can be obtained by concatenation of stdOutErrPathPrefix and stdOutErrPathSuffix.
 
 ### SshConfiguration
-* SshConfiguration `object`: SSH configuration settings for the VM
-  * publicIPsToAllow `array`: Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
+* SshConfiguration `object`: SSH configuration.
+  * publicIPsToAllow `array`: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
     * items `string`
   * userAccountSettings **required** [UserAccountSettings](#useraccountsettings)
 
 ### TensorFlowSettings
-* TensorFlowSettings `object`: Specifies the settings for TensorFlow job.
-  * masterCommandLineArgs **required** `string`
-  * parameterServerCommandLineArgs `string`: This property is optional for single machine training.
-  * parameterServerCount `integer`: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
-  * pythonInterpreterPath `string`
-  * pythonScriptFilePath **required** `string`
-  * workerCommandLineArgs `string`: This property is optional for single machine training.
-  * workerCount `integer`: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+* TensorFlowSettings `object`: TensorFlow job settings.
+  * masterCommandLineArgs `string`: Command line arguments that need to be passed to the python script for the master task.
+  * parameterServerCommandLineArgs `string`: Command line arguments that need to be passed to the python script for the parameter server. Optional for single process jobs.
+  * parameterServerCount `integer`: The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
+  * pythonInterpreterPath `string`: The path to the Python interpreter.
+  * pythonScriptFilePath **required** `string`: The python script to execute.
+  * workerCommandLineArgs `string`: Command line arguments that need to be passed to the python script for the worker task. Optional for single process jobs.
+  * workerCount `integer`: The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
 
 ### ToolType
-* ToolType `string` (values: cntk, tensorflow, caffe, caffe2, chainer, custom): The toolkit type of this job.
+* Toolkit type. `string` (values: cntk, tensorflow, caffe, caffe2, chainer, horovod, custommpi, custom): The toolkit type of the job.
 
 ### UnmanagedFileSystemReference
-* UnmanagedFileSystemReference `object`: Details of the file system to mount on the compute cluster nodes.
-  * mountCommand **required** `string`
-  * relativeMountPath **required** `string`: Note that all file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location.
+* UnmanagedFileSystemReference `object`: Unmanaged file system mounting configuration.
+  * mountCommand **required** `string`: Mount command line. Note, Batch AI will append mount path to the command on its own.
+  * relativeMountPath **required** `string`: The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+### Usage
+* Usage `object`: Describes Batch AI Resource Usage.
+  * currentValue `integer`: The current usage of the resource.
+  * limit `integer`: The maximum permitted usage of the resource.
+  * name [UsageName](#usagename)
+  * unit `string` (values: Count): An enum describing the unit of usage measurement.
+
+### UsageName
+* UsageName `object`: The Usage Names.
+  * localizedValue `string`: The localized name of the resource.
+  * value `string`: The name of the resource.
 
 ### UserAccountSettings
 * UserAccountSettings `object`: Settings for user account that gets created on each on the nodes of a cluster.
-  * adminUserName **required** `string`
-  * adminUserPassword `string`
-  * adminUserSshPublicKey `string`
+  * adminUserName **required** `string`: Name of the administrator user account which can be used to SSH to nodes.
+  * adminUserPassword `string`: Password of the administrator user account.
+  * adminUserSshPublicKey `string`: SSH public key of the administrator user account.
 
 ### VirtualMachineConfiguration
-* VirtualMachineConfiguration `object`: Settings for OS image.
+* VirtualMachineConfiguration `object`: VM configuration.
   * imageReference [ImageReference](#imagereference)
+
+### Workspace
+* Workspace `object`: Batch AI Workspace information.
+  * properties [WorkspaceProperties](#workspaceproperties)
+  * id `string`: The ID of the resource
+  * location `string`: The location of the resource
+  * name `string`: The name of the resource
+  * tags `object`: The tags of the resource
+  * type `string`: The type of the resource
+
+### WorkspaceCreateParameters
+* WorkspaceCreateParameters `object`: Workspace creation parameters.
+  * location **required** `string`: The region in which to create the Workspace.
+  * tags `object`: The user specified tags associated with the Workspace.
+
+### WorkspaceListResult
+* WorkspaceListResult `object`: Values returned by the List operation.
+  * nextLink `string`: The continuation token.
+  * value `array`: The collection of workspaces.
+    * items [Workspace](#workspace)
+
+### WorkspaceProperties
+* WorkspaceProperties `object`: Workspace specific properties.
+  * creationTime `string`: Time when the Workspace was created.
+  * provisioningState `string` (values: creating, deleting, succeeded, failed): The provisioned state of the Workspace
+  * provisioningStateTransitionTime `string`: The time at which the workspace entered its current provisioning state.
+
+### WorkspaceUpdateParameters
+* WorkspaceUpdateParameters `object`: Workspace update parameters.
+  * tags `object`: The user specified tags associated with the Workspace.
 
 

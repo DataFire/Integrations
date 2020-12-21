@@ -7,7 +7,7 @@
   "info": {
     "description": "The DNS Management Client.",
     "title": "DnsManagementClient",
-    "version": "2017-09-01",
+    "version": "2018-05-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/dns/resource-manager/Microsoft.Network/stable/2017-09-01/dns.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01/dns.json",
         "version": "2.0"
       }
     ],
@@ -107,13 +107,13 @@
         "x-ms-examples": {
           "List zones by subscription": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://servicehost/subscriptions/subid/providers/Microsoft.Network/dnsZones?api-version=2017-09-01&$skipToken=skipToken",
+                  "nextLink": "https://servicehost/subscriptions/subid/providers/Microsoft.Network/dnsZones?api-version=2018-05-01&$skipToken=skipToken",
                   "value": [
                     {
                       "etag": "00000000-0000-0000-0000-000000000000",
@@ -160,6 +160,78 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Network/getDnsResourceReference": {
+      "post": {
+        "description": "Returns the DNS records specified by the referencing targetResourceIds.",
+        "operationId": "DnsResourceReference_GetByTargetResources",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "Properties for dns resource reference request.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DnsResourceReferenceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/DnsResourceReferenceResult"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List zones by resource group": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "targetResources": [
+                  {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/trafficManagerProfiles/testpp2"
+                  }
+                ]
+              },
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "properties": {
+                    "dnsResourceReferences": [
+                      {
+                        "dnsResources": [
+                          {
+                            "id": "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.network/dnszones/hydratest.dnszone.com5989/a/hydratestdnsrec9310"
+                          }
+                        ],
+                        "targetResource": {
+                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/trafficManagerProfiles/testpp2"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -210,14 +282,14 @@
         "x-ms-examples": {
           "List zones by resource group": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones?api-version=2017-09-01&$skipToken=skipToken",
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones?api-version=2018-05-01&$skipToken=skipToken",
                   "value": [
                     {
                       "etag": "00000000-0000-0000-0000-000000000000",
@@ -324,7 +396,7 @@
         "x-ms-examples": {
           "Delete zone": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid",
               "zoneName": "zone1"
@@ -387,7 +459,7 @@
         "x-ms-examples": {
           "Get zone": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid",
               "zoneName": "zone1"
@@ -411,6 +483,105 @@
                   },
                   "tags": {
                     "key1": "value1"
+                  },
+                  "type": "Microsoft.Network/dnsZones"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Updates a DNS zone. Does not modify DNS records within the zone.",
+        "operationId": "Zones_Update",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the DNS zone (without a terminating dot).",
+            "in": "path",
+            "name": "zoneName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parameters supplied to the Update operation.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ZoneUpdate"
+            }
+          },
+          {
+            "description": "The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.",
+            "in": "header",
+            "name": "If-Match",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "IfMatch"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The DNS zone has been updated.",
+            "schema": {
+              "$ref": "#/definitions/Zone"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "Zones"
+        ],
+        "x-ms-examples": {
+          "Patch zone": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "tags": {
+                  "key2": "value2"
+                }
+              },
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1",
+                  "location": "global",
+                  "name": "zone1",
+                  "properties": {
+                    "maxNumberOfRecordSets": 5000,
+                    "nameServers": [
+                      "ns1-01.azure-dns.com",
+                      "ns2-01.azure-dns.net",
+                      "ns3-01.azure-dns.org",
+                      "ns4-01.azure-dns.info"
+                    ],
+                    "numberOfRecordSets": 2
+                  },
+                  "tags": {
+                    "key2": "value2"
                   },
                   "type": "Microsoft.Network/dnsZones"
                 }
@@ -447,7 +618,7 @@
             }
           },
           {
-            "description": "The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwritting any concurrent changes.",
+            "description": "The etag of the DNS zone. Omit this value to always overwrite the current zone. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -495,7 +666,7 @@
         "x-ms-examples": {
           "Create zone": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "parameters": {
                 "location": "Global",
                 "tags": {
@@ -521,7 +692,8 @@
                       "ns3-01.azure-dns.org",
                       "ns4-01.azure-dns.info"
                     ],
-                    "numberOfRecordSets": 2
+                    "numberOfRecordSets": 2,
+                    "zoneType": "Public"
                   },
                   "tags": {
                     "key1": "value1"
@@ -543,7 +715,8 @@
                       "ns3-01.azure-dns.org",
                       "ns4-01.azure-dns.info"
                     ],
-                    "numberOfRecordSets": 2
+                    "numberOfRecordSets": 2,
+                    "zoneType": "Public"
                   },
                   "tags": {
                     "key1": "value1"
@@ -553,6 +726,143 @@
               }
             }
           }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/all": {
+      "get": {
+        "description": "Lists all record sets in a DNS zone.",
+        "operationId": "RecordSets_ListAllByDnsZone",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the DNS zone (without a terminating dot).",
+            "in": "path",
+            "name": "zoneName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of record sets to return. If not specified, returns up to 100 record sets.",
+            "format": "int32",
+            "in": "query",
+            "name": "$top",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>",
+            "in": "query",
+            "name": "$recordsetnamesuffix",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "recordSetNameSuffix"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/RecordSetListResult"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "tags": [
+          "RecordSets"
+        ],
+        "x-ms-examples": {
+          "List recordsets by zone": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA/record1",
+                      "name": "record1",
+                      "properties": {
+                        "TTL": 3600,
+                        "caaRecords": [
+                          {
+                            "flags": 0,
+                            "tag": "issue",
+                            "value": "ca.contoso.com"
+                          }
+                        ],
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/CAA"
+                    },
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                      "name": "record1",
+                      "properties": {
+                        "ARecords": [
+                          {
+                            "ipv4Address": "127.0.0.1"
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/A"
+                    },
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record2",
+                      "name": "record2",
+                      "properties": {
+                        "CNAMERecord": {
+                          "cname": "contoso.com"
+                        },
+                        "TTL": 3600,
+                        "fqdn": "record2.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/CNAME"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       }
     },
@@ -617,7 +927,7 @@
         "x-ms-examples": {
           "List recordsets by zone": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid",
               "zoneName": "zone1"
@@ -625,7 +935,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA?api-version=2017-09-01&$skipToken=skipToken",
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA?api-version=2018-05-01&$skipToken=skipToken",
                   "value": [
                     {
                       "etag": "00000000-0000-0000-0000-000000000000",
@@ -774,9 +1084,81 @@
           "RecordSets"
         ],
         "x-ms-examples": {
-          "List CAA recordset": {
+          "List A recordsets": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                      "name": "record1",
+                      "properties": {
+                        "ARecords": [
+                          {
+                            "ipv4Address": "127.0.0.1"
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/A"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List AAAA recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "AAAA",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA/record1",
+                      "name": "record1",
+                      "properties": {
+                        "AAAARecords": [
+                          {
+                            "ipv6Address": "::1"
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/AAAA"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List CAA recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
               "recordType": "CAA",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid",
@@ -785,7 +1167,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA?api-version=2017-09-01&$skipToken=skipToken",
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CAA?api-version=2018-05-01&$skipToken=skipToken",
                   "value": [
                     {
                       "etag": "00000000-0000-0000-0000-000000000000",
@@ -806,6 +1188,267 @@
                         }
                       },
                       "type": "Microsoft.Network/dnsZones/CAA"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List CNAME recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "CNAME",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record1",
+                      "name": "record1",
+                      "properties": {
+                        "CNAMERecord": {
+                          "cname": "contoso.com"
+                        },
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/CNAME"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List MX recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "MX",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX/record1",
+                      "name": "record1",
+                      "properties": {
+                        "MXRecords": [
+                          {
+                            "exchange": "mail.contoso.com",
+                            "preference": 0
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/MX"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List NS recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "NS",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS/record1",
+                      "name": "record1",
+                      "properties": {
+                        "NSRecords": [
+                          {
+                            "nsdname": "ns1.contoso.com"
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/NS"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List PTR recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "PTR",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "0.0.127.in-addr.arpa"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR/1",
+                      "name": "1",
+                      "properties": {
+                        "PTRRecords": [
+                          {
+                            "ptrdname": "localhost"
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "1.0.0.127.in-addr.arpa",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/PTR"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List SOA recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "SOA",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA/@",
+                      "name": "@",
+                      "properties": {
+                        "SOARecord": {
+                          "email": "hostmaster.contoso.com",
+                          "expireTime": 2419200,
+                          "host": "ns1.contoso.com",
+                          "minimumTTL": 300,
+                          "refreshTime": 3600,
+                          "retryTime": 300,
+                          "serialNumber": 1
+                        },
+                        "TTL": 3600,
+                        "fqdn": "zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/SOA"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List SRV recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "SRV",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV/record1",
+                      "name": "record1",
+                      "properties": {
+                        "SRVRecords": [
+                          {
+                            "port": 80,
+                            "priority": 0,
+                            "target": "contoso.com",
+                            "weight": 10
+                          }
+                        ],
+                        "TTL": 3600,
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/SRV"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "List TXT recordsets": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "TXT",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "https://servicehost/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT?api-version=2018-05-01&$skipToken=skipToken",
+                  "value": [
+                    {
+                      "etag": "00000000-0000-0000-0000-000000000000",
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1",
+                      "name": "record1",
+                      "properties": {
+                        "TTL": 3600,
+                        "TXTRecords": [
+                          {
+                            "value": [
+                              "string1",
+                              "string2"
+                            ]
+                          }
+                        ],
+                        "fqdn": "record1.zone1",
+                        "metadata": {
+                          "key1": "value1"
+                        }
+                      },
+                      "type": "Microsoft.Network/dnsZones/TXT"
                     }
                   ]
                 }
@@ -901,10 +1544,122 @@
           "RecordSets"
         ],
         "x-ms-examples": {
+          "Delete A recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete AAAA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "AAAA",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
           "Delete CAA recordset": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "recordType": "CAA",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete CNAME recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete MX recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete NS recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete PTR recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "PTR",
+              "relativeRecordSetName": "1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "0.0.127.in-addr.arpa"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete SRV recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "SRV",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          },
+          "Delete TXT recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "TXT",
               "relativeRecordSetName": "record1",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid",
@@ -991,9 +1746,73 @@
           "RecordSets"
         ],
         "x-ms-examples": {
+          "Get A recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "ARecords": [
+                      {
+                        "ipv4Address": "127.0.0.1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              }
+            }
+          },
+          "Get AAAA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "AAAA",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA/record1",
+                  "name": "record1",
+                  "properties": {
+                    "AAAARecords": [
+                      {
+                        "ipv6Address": "::1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/AAAA"
+                }
+              }
+            }
+          },
           "Get CAA recordset": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "recordType": "CAA",
               "relativeRecordSetName": "record1",
               "resourceGroupName": "rg1",
@@ -1021,6 +1840,239 @@
                     }
                   },
                   "type": "Microsoft.Network/dnsZones/CAA"
+                }
+              }
+            }
+          },
+          "Get CNAME recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "CNAME",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record1",
+                  "name": "record1",
+                  "properties": {
+                    "CNAMERecord": {
+                      "cname": "contoso.com"
+                    },
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/CNAME"
+                }
+              }
+            }
+          },
+          "Get MX recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "MX",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX/record1",
+                  "name": "record1",
+                  "properties": {
+                    "MXRecords": [
+                      {
+                        "exchange": "mail.contoso.com",
+                        "preference": 0
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/MX"
+                }
+              }
+            }
+          },
+          "Get NS recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "NS",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS/record1",
+                  "name": "record1",
+                  "properties": {
+                    "NSRecords": [
+                      {
+                        "nsdname": "ns1.contoso.com"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/NS"
+                }
+              }
+            }
+          },
+          "Get PTR recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "PTR",
+              "relativeRecordSetName": "1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "0.0.127.in-addr.arpa"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR/1",
+                  "name": "1",
+                  "properties": {
+                    "PTRRecords": [
+                      {
+                        "ptrdname": "localhost"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "1.0.0.127.in-addr.arpa",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/PTR"
+                }
+              }
+            }
+          },
+          "Get SOA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "SOA",
+              "relativeRecordSetName": "@",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA/@",
+                  "name": "@",
+                  "properties": {
+                    "SOARecord": {
+                      "email": "hostmaster.contoso.com",
+                      "expireTime": 2419200,
+                      "host": "ns1.contoso.com",
+                      "minimumTTL": 300,
+                      "refreshTime": 3600,
+                      "retryTime": 300,
+                      "serialNumber": 1
+                    },
+                    "TTL": 3600,
+                    "fqdn": "zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SOA"
+                }
+              }
+            }
+          },
+          "Get SRV recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "SRV",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV/record1",
+                  "name": "record1",
+                  "properties": {
+                    "SRVRecords": [
+                      {
+                        "port": 80,
+                        "priority": 0,
+                        "target": "contoso.com",
+                        "weight": 10
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SRV"
+                }
+              }
+            }
+          },
+          "Get TXT recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "recordType": "TXT",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "TXTRecords": [
+                      {
+                        "value": [
+                          "string1",
+                          "string2"
+                        ]
+                      }
+                    ],
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/TXT"
                 }
               }
             }
@@ -1086,7 +2138,7 @@
             }
           },
           {
-            "description": "The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwritting concurrent changes.",
+            "description": "The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwriting concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -1118,9 +2170,87 @@
           "RecordSets"
         ],
         "x-ms-examples": {
+          "Patch A recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "ARecords": [
+                      {
+                        "ipv4Address": "127.0.0.1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              }
+            }
+          },
+          "Patch AAAA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "AAAA",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA/record1",
+                  "name": "record1",
+                  "properties": {
+                    "AAAARecords": [
+                      {
+                        "ipv6Address": "::1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/AAAA"
+                }
+              }
+            }
+          },
           "Patch CAA recordset": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "parameters": {
                 "properties": {
                   "metadata": {
@@ -1155,6 +2285,288 @@
                     }
                   },
                   "type": "Microsoft.Network/dnsZones/CAA"
+                }
+              }
+            }
+          },
+          "Patch CNAME recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "CNAME",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record1",
+                  "name": "record1",
+                  "properties": {
+                    "CNAMERecord": {
+                      "cname": "contoso.com"
+                    },
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/CNAME"
+                }
+              }
+            }
+          },
+          "Patch MX recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "MX",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX/record1",
+                  "name": "record1",
+                  "properties": {
+                    "MXRecords": [
+                      {
+                        "exchange": "mail.contoso.com",
+                        "preference": 0
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/MX"
+                }
+              }
+            }
+          },
+          "Patch NS recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "NS",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS/record1",
+                  "name": "record1",
+                  "properties": {
+                    "NSRecords": [
+                      {
+                        "nsdname": "ns1.contoso.com"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/NS"
+                }
+              }
+            }
+          },
+          "Patch PTR recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "PTR",
+              "relativeRecordSetName": "1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "0.0.127.in-addr.arpa"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR/1",
+                  "name": "1",
+                  "properties": {
+                    "PTRRecords": [
+                      {
+                        "ptrdname": "localhost"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "1.0.0.127.in-addr.arpa",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/PTR"
+                }
+              }
+            }
+          },
+          "Patch SOA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "SOA",
+              "relativeRecordSetName": "@",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA/@",
+                  "name": "@",
+                  "properties": {
+                    "SOARecord": {
+                      "email": "hostmaster.contoso.com",
+                      "expireTime": 2419200,
+                      "host": "ns1.contoso.com",
+                      "minimumTTL": 300,
+                      "refreshTime": 3600,
+                      "retryTime": 300,
+                      "serialNumber": 1
+                    },
+                    "TTL": 3600,
+                    "fqdn": "zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SOA"
+                }
+              }
+            }
+          },
+          "Patch SRV recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "SRV",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV/record1",
+                  "name": "record1",
+                  "properties": {
+                    "SRVRecords": [
+                      {
+                        "port": 80,
+                        "priority": 0,
+                        "target": "contoso.com",
+                        "weight": 10
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SRV"
+                }
+              }
+            }
+          },
+          "Patch TXT recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "metadata": {
+                    "key2": "value2"
+                  }
+                }
+              },
+              "recordType": "TXT",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "TXTRecords": [
+                      {
+                        "value": [
+                          "string1",
+                          "string2"
+                        ]
+                      }
+                    ],
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key2": "value2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/TXT"
                 }
               }
             }
@@ -1220,7 +2632,7 @@
             }
           },
           {
-            "description": "The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwritting any concurrent changes.",
+            "description": "The etag of the record set. Omit this value to always overwrite the current record set. Specify the last-seen etag value to prevent accidentally overwriting any concurrent changes.",
             "in": "header",
             "name": "If-Match",
             "required": false,
@@ -1266,9 +2678,200 @@
           "RecordSets"
         ],
         "x-ms-examples": {
+          "Create A recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "ARecords": [
+                    {
+                      "ipv4Address": "127.0.0.1"
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "ARecords": [
+                      {
+                        "ipv4Address": "127.0.0.1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "ARecords": [
+                      {
+                        "ipv4Address": "127.0.0.1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              }
+            }
+          },
+          "Create A recordset with alias target resource": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  },
+                  "targetResource": {
+                    "id": "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2"
+                  }
+                }
+              },
+              "recordType": "A",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    },
+                    "provisioningState": "Succeeded",
+                    "targetResource": {
+                      "id": "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/A/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    },
+                    "provisioningState": "Succeeded",
+                    "targetResource": {
+                      "id": "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/A"
+                }
+              }
+            }
+          },
+          "Create AAAA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "AAAARecords": [
+                    {
+                      "ipv6Address": "::1"
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "AAAA",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA/record1",
+                  "name": "record1",
+                  "properties": {
+                    "AAAARecords": [
+                      {
+                        "ipv6Address": "::1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/AAAA"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/AAAA/record1",
+                  "name": "record1",
+                  "properties": {
+                    "AAAARecords": [
+                      {
+                        "ipv6Address": "::1"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/AAAA"
+                }
+              }
+            }
+          },
           "Create CAA recordset": {
             "parameters": {
-              "api-version": "2017-09-01",
+              "api-version": "2018-05-01",
               "parameters": {
                 "properties": {
                   "TTL": 3600,
@@ -1333,6 +2936,488 @@
                     }
                   },
                   "type": "Microsoft.Network/dnsZones/CAA"
+                }
+              }
+            }
+          },
+          "Create CNAME recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "CNAMERecord": {
+                    "cname": "contoso.com"
+                  },
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "CNAME",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record1",
+                  "name": "record1",
+                  "properties": {
+                    "CNAMERecord": {
+                      "cname": "contoso.com"
+                    },
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/CNAME"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/CNAME/record1",
+                  "name": "record1",
+                  "properties": {
+                    "CNAMERecord": {
+                      "cname": "contoso.com"
+                    },
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/CNAME"
+                }
+              }
+            }
+          },
+          "Create MX recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "MXRecords": [
+                    {
+                      "exchange": "mail.contoso.com",
+                      "preference": 0
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "MX",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX/record1",
+                  "name": "record1",
+                  "properties": {
+                    "MXRecords": [
+                      {
+                        "exchange": "mail.contoso.com",
+                        "preference": 0
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/MX"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/MX/record1",
+                  "name": "record1",
+                  "properties": {
+                    "MXRecords": [
+                      {
+                        "exchange": "mail.contoso.com",
+                        "preference": 0
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/MX"
+                }
+              }
+            }
+          },
+          "Create NS recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "NSRecords": [
+                    {
+                      "nsdname": "ns1.contoso.com"
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "NS",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS/record1",
+                  "name": "record1",
+                  "properties": {
+                    "NSRecords": [
+                      {
+                        "nsdname": "ns1.contoso.com"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/NS"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/NS/record1",
+                  "name": "record1",
+                  "properties": {
+                    "NSRecords": [
+                      {
+                        "nsdname": "ns1.contoso.com"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/NS"
+                }
+              }
+            }
+          },
+          "Create PTR recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "PTRRecords": [
+                    {
+                      "ptrdname": "localhost"
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "PTR",
+              "relativeRecordSetName": "1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "0.0.127.in-addr.arpa"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR/1",
+                  "name": "1",
+                  "properties": {
+                    "PTRRecords": [
+                      {
+                        "ptrdname": "localhost"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "1.0.0.127.in-addr.arpa",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/PTR"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/0.0.127.in-addr.arpa/PTR/1",
+                  "name": "1",
+                  "properties": {
+                    "PTRRecords": [
+                      {
+                        "ptrdname": "localhost"
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "1.0.0.127.in-addr.arpa",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/PTR"
+                }
+              }
+            }
+          },
+          "Create SOA recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "SOARecord": {
+                    "email": "hostmaster.contoso.com",
+                    "expireTime": 2419200,
+                    "host": "ns1.contoso.com",
+                    "minimumTTL": 300,
+                    "refreshTime": 3600,
+                    "retryTime": 300,
+                    "serialNumber": 1
+                  },
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "SOA",
+              "relativeRecordSetName": "@",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA/@",
+                  "name": "@",
+                  "properties": {
+                    "SOARecord": {
+                      "email": "hostmaster.contoso.com",
+                      "expireTime": 2419200,
+                      "host": "ns1.contoso.com",
+                      "minimumTTL": 300,
+                      "refreshTime": 3600,
+                      "retryTime": 300,
+                      "serialNumber": 1
+                    },
+                    "TTL": 3600,
+                    "fqdn": "zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SOA"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SOA/@",
+                  "name": "@",
+                  "properties": {
+                    "SOARecord": {
+                      "email": "hostmaster.contoso.com",
+                      "expireTime": 2419200,
+                      "host": "ns1.contoso.com",
+                      "minimumTTL": 300,
+                      "refreshTime": 3600,
+                      "retryTime": 300,
+                      "serialNumber": 1
+                    },
+                    "TTL": 3600,
+                    "fqdn": "zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SOA"
+                }
+              }
+            }
+          },
+          "Create SRV recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "SRVRecords": [
+                    {
+                      "port": 80,
+                      "priority": 0,
+                      "target": "contoso.com",
+                      "weight": 10
+                    }
+                  ],
+                  "TTL": 3600,
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "SRV",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV/record1",
+                  "name": "record1",
+                  "properties": {
+                    "SRVRecords": [
+                      {
+                        "port": 80,
+                        "priority": 0,
+                        "target": "contoso.com",
+                        "weight": 10
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SRV"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/SRV/record1",
+                  "name": "record1",
+                  "properties": {
+                    "SRVRecords": [
+                      {
+                        "port": 80,
+                        "priority": 0,
+                        "target": "contoso.com",
+                        "weight": 10
+                      }
+                    ],
+                    "TTL": 3600,
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/SRV"
+                }
+              }
+            }
+          },
+          "Create TXT recordset": {
+            "parameters": {
+              "api-version": "2018-05-01",
+              "parameters": {
+                "properties": {
+                  "TTL": 3600,
+                  "TXTRecords": [
+                    {
+                      "value": [
+                        "string1",
+                        "string2"
+                      ]
+                    }
+                  ],
+                  "metadata": {
+                    "key1": "value1"
+                  }
+                }
+              },
+              "recordType": "TXT",
+              "relativeRecordSetName": "record1",
+              "resourceGroupName": "rg1",
+              "subscriptionId": "subid",
+              "zoneName": "zone1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "TXTRecords": [
+                      {
+                        "value": [
+                          "string1",
+                          "string2"
+                        ]
+                      }
+                    ],
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/TXT"
+                }
+              },
+              "201": {
+                "body": {
+                  "etag": "00000000-0000-0000-0000-000000000000",
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1",
+                  "name": "record1",
+                  "properties": {
+                    "TTL": 3600,
+                    "TXTRecords": [
+                      {
+                        "value": [
+                          "string1",
+                          "string2"
+                        ]
+                      }
+                    ],
+                    "fqdn": "record1.zone1",
+                    "metadata": {
+                      "key1": "value1"
+                    }
+                  },
+                  "type": "Microsoft.Network/dnsZones/TXT"
                 }
               }
             }
@@ -1421,6 +3506,66 @@
         "cname": {
           "description": "The canonical name for this CNAME record.",
           "type": "string"
+        }
+      }
+    },
+    "DnsResourceReference": {
+      "description": "Represents a single Azure resource and its referencing DNS records.",
+      "properties": {
+        "dnsResources": {
+          "description": "A list of dns Records ",
+          "items": {
+            "$ref": "#/definitions/SubResource"
+          },
+          "type": "array"
+        },
+        "targetResource": {
+          "$ref": "#/definitions/SubResource",
+          "description": "A reference to an azure resource from where the dns resource value is taken."
+        }
+      }
+    },
+    "DnsResourceReferenceRequest": {
+      "description": "Represents the properties of the Dns Resource Reference Request.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DnsResourceReferenceRequestProperties",
+          "description": "The properties of the Resource Reference Request.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "DnsResourceReferenceRequestProperties": {
+      "description": "Represents the properties of the Dns Resource Reference Request.",
+      "properties": {
+        "targetResources": {
+          "description": "A list of references to azure resources for which referencing dns records need to be queried.",
+          "items": {
+            "$ref": "#/definitions/SubResource"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "DnsResourceReferenceResult": {
+      "description": "Represents the properties of the Dns Resource Reference Result.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DnsResourceReferenceResultProperties",
+          "description": "The result of dns resource reference request. Returns a list of dns resource references for each of the azure resource in the request.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "DnsResourceReferenceResultProperties": {
+      "description": "The result of dns resource reference request. Returns a list of dns resource references for each of the azure resource in the request.",
+      "properties": {
+        "dnsResourceReferences": {
+          "description": "The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request",
+          "items": {
+            "$ref": "#/definitions/DnsResourceReference"
+          },
+          "type": "array"
         }
       }
     },
@@ -1595,6 +3740,15 @@
           },
           "description": "The metadata attached to the record set.",
           "type": "object"
+        },
+        "provisioningState": {
+          "description": "provisioning State of the record set.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "targetResource": {
+          "$ref": "#/definitions/SubResource",
+          "description": "A reference to an azure resource from where the dns resource value is taken."
         }
       }
     },
@@ -1716,8 +3870,7 @@
           "description": "Resource Id.",
           "type": "string"
         }
-      },
-      "x-ms-external": true
+      }
     },
     "TxtRecord": {
       "description": "A TXT record.",
@@ -1789,6 +3942,45 @@
           "format": "int64",
           "readOnly": true,
           "type": "integer"
+        },
+        "registrationVirtualNetworks": {
+          "description": "A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.",
+          "items": {
+            "$ref": "#/definitions/SubResource"
+          },
+          "type": "array"
+        },
+        "resolutionVirtualNetworks": {
+          "description": "A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.",
+          "items": {
+            "$ref": "#/definitions/SubResource"
+          },
+          "type": "array"
+        },
+        "zoneType": {
+          "default": "Public",
+          "description": "The type of this DNS zone (Public or Private).",
+          "enum": [
+            "Public",
+            "Private"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ZoneType"
+          }
+        }
+      }
+    },
+    "ZoneUpdate": {
+      "description": "Describes a request to update a DNS zone.",
+      "properties": {
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags.",
+          "type": "object"
         }
       }
     }

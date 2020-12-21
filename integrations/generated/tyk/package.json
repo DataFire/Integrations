@@ -1,8 +1,8 @@
 {
   "name": "@datafire/tyk",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Gateway",
+  "description": "DataFire integration for Gateway REST API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

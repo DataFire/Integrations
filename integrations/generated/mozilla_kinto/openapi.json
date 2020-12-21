@@ -6,8 +6,8 @@
   "host": "firefox.settings.services.mozilla.com",
   "basePath": "/v1",
   "info": {
-    "title": "kinto",
-    "version": "1.19",
+    "title": "Remote Settings",
+    "version": "1.22",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -33,17 +33,16 @@
   "produces": [
     "application/json"
   ],
-  "securityDefinitions": {
-    "basicauth": {
-      "type": "basic"
-    }
-  },
+  "securityDefinitions": {},
   "tags": [
     {
       "name": "Blocklist"
     },
     {
       "name": "Changess"
+    },
+    {
+      "name": "Attachment"
     },
     {
       "name": "Batch"
@@ -148,6 +147,17 @@
         ]
       }
     },
+    "/__user_data__": {},
+    "/__user_data__/{principal}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "principal",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
     "/__version__": {
       "get": {
         "operationId": "__version__",
@@ -169,6 +179,9 @@
     },
     "/batch": {
       "post": {
+        "consumes": [
+          "application/json"
+        ],
         "operationId": "batch",
         "parameters": [
           {
@@ -488,6 +501,20 @@
                   "items": {
                     "additionalProperties": {},
                     "default": {},
+                    "properties": {
+                      "collection:schema": {
+                        "additionalProperties": {},
+                        "type": "object"
+                      },
+                      "group:schema": {
+                        "additionalProperties": {},
+                        "type": "object"
+                      },
+                      "record:schema": {
+                        "additionalProperties": {},
+                        "type": "object"
+                      }
+                    },
                     "type": "object"
                   },
                   "type": "array"
@@ -650,7 +677,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -720,11 +747,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Buckets"
         ]
@@ -1016,7 +1039,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -1086,11 +1109,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Changess"
         ]
@@ -1376,7 +1395,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -1446,11 +1465,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Collections"
         ]
@@ -1733,7 +1748,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -1803,11 +1818,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Records"
         ]
@@ -1895,7 +1906,7 @@
                   "type": "object"
                 }
               },
-              "title": "RecordSchema",
+              "title": "ObjectSchema",
               "type": "object"
             }
           },
@@ -2087,7 +2098,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -2157,11 +2168,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Records"
         ]
@@ -2186,6 +2193,52 @@
           "type": "string"
         }
       ]
+    },
+    "/buckets/{bucket_id}/collections/{collection_id}/records/{id}/attachment": {
+      "delete": {
+        "operationId": "delete_attachment",
+        "responses": {
+          "default": {
+            "description": "UNDOCUMENTED RESPONSE"
+          }
+        },
+        "security": [],
+        "tags": [
+          "Attachment"
+        ]
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "bucket_id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "collection_id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "operationId": "create_attachment",
+        "responses": {
+          "default": {
+            "description": "UNDOCUMENTED RESPONSE"
+          }
+        },
+        "security": [],
+        "tags": [
+          "Attachment"
+        ]
+      }
     },
     "/buckets/{bucket_id}/collections/{id}": {
       "get": {
@@ -2273,7 +2326,7 @@
                   "type": "object"
                 }
               },
-              "title": "RecordSchema",
+              "title": "ObjectSchema",
               "type": "object"
             }
           },
@@ -2465,7 +2518,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -2535,11 +2588,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Collections"
         ]
@@ -2837,7 +2886,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -2907,11 +2956,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Groups"
         ]
@@ -3002,7 +3047,7 @@
                   "type": "object"
                 }
               },
-              "title": "RecordSchema",
+              "title": "ObjectSchema",
               "type": "object"
             }
           },
@@ -3194,7 +3239,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -3264,11 +3309,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Groups"
         ]
@@ -3333,6 +3374,20 @@
                 "data": {
                   "additionalProperties": {},
                   "default": {},
+                  "properties": {
+                    "collection:schema": {
+                      "additionalProperties": {},
+                      "type": "object"
+                    },
+                    "group:schema": {
+                      "additionalProperties": {},
+                      "type": "object"
+                    },
+                    "record:schema": {
+                      "additionalProperties": {},
+                      "type": "object"
+                    }
+                  },
                   "type": "object"
                 },
                 "permissions": {
@@ -3370,7 +3425,7 @@
                   "type": "object"
                 }
               },
-              "title": "RecordSchema",
+              "title": "ObjectSchema",
               "type": "object"
             }
           },
@@ -3562,7 +3617,7 @@
             }
           },
           "412": {
-            "description": "Record was changed or deleted since value in `If-Match` header.",
+            "description": "Object was changed or deleted since value in `If-Match` header.",
             "schema": {
               "properties": {
                 "code": {
@@ -3632,11 +3687,7 @@
             }
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Buckets"
         ]
@@ -3691,11 +3742,7 @@
             "description": "UNDOCUMENTED RESPONSE"
           }
         },
-        "security": [
-          {
-            "basicauth": []
-          }
-        ],
+        "security": [],
         "tags": [
           "Blocklist"
         ]

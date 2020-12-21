@@ -6,7 +6,7 @@
   "host": "management.azure.com",
   "info": {
     "title": "DomainRegistrationProvider API Client",
-    "version": "2015-04-01",
+    "version": "2018-02-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -16,7 +16,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.DomainRegistration/stable/2015-04-01/DomainRegistrationProvider.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/web/resource-manager/Microsoft.DomainRegistration/stable/2018-02-01/DomainRegistrationProvider.json",
         "version": "2.0"
       }
     ],
@@ -128,6 +128,24 @@
                           "serviceSpecification": {
                             "description": "Resource metrics service provided by Microsoft.Insights resource provider.",
                             "properties": {
+                              "logSpecifications": {
+                                "items": {
+                                  "description": "Log Definition of a single resource metric.",
+                                  "properties": {
+                                    "blobDuration": {
+                                      "type": "string"
+                                    },
+                                    "displayName": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
                               "metricSpecifications": {
                                 "items": {
                                   "description": "Definition of a single resource metric.",
@@ -229,6 +247,66 @@
               ],
               "type": "object"
             }
+          },
+          "default": {
+            "description": "App Service error response.",
+            "schema": {
+              "description": "App Service error response.",
+              "properties": {
+                "error": {
+                  "description": "Error model.",
+                  "properties": {
+                    "code": {
+                      "description": "Standardized string to programmatically identify the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "details": {
+                      "items": {
+                        "description": "Detailed errors.",
+                        "properties": {
+                          "code": {
+                            "description": "Standardized string to programmatically identify the error.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Detailed error description and debugging information.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "readOnly": true
+                      },
+                      "type": "array"
+                    },
+                    "innererror": {
+                      "description": "More information to debug error.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "target": {
+                      "description": "Detailed error description and debugging information.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "summary": "Implements Csm operations Api to exposes the list of available Csm Apis under the resource provider",
@@ -238,7 +316,7 @@
         "x-ms-examples": {
           "List operations": {
             "parameters": {
-              "api-version": "2015-04-01"
+              "api-version": "2018-02-01"
             },
             "responses": {
               "200": {
@@ -307,9 +385,9 @@
                     {
                       "display": {
                         "description": "Check if a domain is available for purchase",
-                        "operation": "Check Domain Availablity",
+                        "operation": "Check Domain Availability",
                         "provider": "Microsoft Domains",
-                        "resource": "Domain Availablity Result"
+                        "resource": "Domain Availability Result"
                       },
                       "name": "Microsoft.DomainRegistration/checkDomainAvailability/Action",
                       "origin": "user,system"

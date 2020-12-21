@@ -1,6 +1,6 @@
 {
   "name": "@datafire/surrey_ca_trafficloops",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for City of Surrey Traffic Loop Count API.",
   "repository": {

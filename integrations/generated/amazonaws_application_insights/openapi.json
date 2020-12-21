@@ -1,0 +1,5797 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>Amazon CloudWatch Application Insights</fullname> <p> Amazon CloudWatch Application Insights is a service that helps you detect common problems with your applications. It enables you to pinpoint the source of issues in your applications (built with technologies such as Microsoft IIS, .NET, and Microsoft SQL Server), by providing key insights into detected problems.</p> <p>After you onboard your application, CloudWatch Application Insights identifies, recommends, and sets up metrics and logs. It continuously analyzes and correlates your metrics and logs for unusual behavior to surface actionable problems with your application. For example, if your application is slow and unresponsive and leading to HTTP 500 errors in your Application Load Balancer (ALB), Application Insights informs you that a memory pressure problem with your SQL Server database is occurring. It bases this analysis on impactful metrics and log errors. </p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon CloudWatch Application Insights",
+    "version": "2018-11-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/application-insights-2018-11-25.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "application-insights",
+    "x-datafire": {
+      "name": "amazonaws_application_insights",
+      "type": "openapi"
+    }
+  },
+  "host": "applicationinsights.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=EC2WindowsBarleyService.CreateApplication": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.CreateApplication"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "TagsAlreadyExistException",
+            "schema": {
+              "$ref": "#/definitions/TagsAlreadyExistException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          }
+        },
+        "description": "Adds an application that is created from a resource group.",
+        "operationId": "CreateApplication"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.CreateComponent": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.CreateComponent"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateComponentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a custom component by grouping similar standalone instances to monitor.",
+        "operationId": "CreateComponent"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.CreateLogPattern": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.CreateLogPattern"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLogPatternRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateLogPatternResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Adds an log pattern to a <code>LogPatternSet</code>.",
+        "operationId": "CreateLogPattern"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DeleteApplication": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DeleteApplication"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Removes the specified application from monitoring. Does not delete the application.",
+        "operationId": "DeleteApplication"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DeleteComponent": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DeleteComponent"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteComponentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Ungroups a custom component. When you ungroup custom components, all applicable monitors that are set up for the component are removed and the instances revert to their standalone status.",
+        "operationId": "DeleteComponent"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DeleteLogPattern": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DeleteLogPattern"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLogPatternRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLogPatternResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Removes the specified log pattern from a <code>LogPatternSet</code>.",
+        "operationId": "DeleteLogPattern"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeApplication": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeApplication"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the application.",
+        "operationId": "DescribeApplication"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeComponent": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeComponent"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes a component and lists the resources that are grouped together in a component.",
+        "operationId": "DescribeComponent"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeComponentConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeComponentConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the monitoring configuration of the component.",
+        "operationId": "DescribeComponentConfiguration"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentConfigurationRecommendationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeComponentConfigurationRecommendationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describes the recommended monitoring configuration of the component.",
+        "operationId": "DescribeComponentConfigurationRecommendation"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeLogPattern": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeLogPattern"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeLogPatternRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeLogPatternResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Describe a specific log pattern from a <code>LogPatternSet</code>.",
+        "operationId": "DescribeLogPattern"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeObservation": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeObservation"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeObservationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeObservationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Describes an anomaly or error with the application.",
+        "operationId": "DescribeObservation"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeProblem": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeProblem"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeProblemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProblemResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Describes an application problem.",
+        "operationId": "DescribeProblem"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.DescribeProblemObservations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.DescribeProblemObservations"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeProblemObservationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProblemObservationsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Describes the anomalies or errors associated with the problem.",
+        "operationId": "DescribeProblemObservations"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListApplications": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListApplications"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListApplicationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListApplicationsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the IDs of the applications that you are monitoring. ",
+        "operationId": "ListApplications"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListComponents": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListComponents"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListComponentsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListComponentsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the auto-grouped, standalone, and custom components of the application.",
+        "operationId": "ListComponents"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListConfigurationHistory": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListConfigurationHistory"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationHistoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationHistoryResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "<p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are: </p> <ul> <li> <p>INFO: creating a new alarm or updating an alarm threshold.</p> </li> <li> <p>WARN: alarm not created due to insufficient data points used to predict thresholds.</p> </li> <li> <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p> </li> </ul>",
+        "operationId": "ListConfigurationHistory"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListLogPatternSets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListLogPatternSets"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListLogPatternSetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLogPatternSetsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the log pattern sets in the specific application.",
+        "operationId": "ListLogPatternSets"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListLogPatterns": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListLogPatterns"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListLogPatternsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLogPatternsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the log patterns in the specific log <code>LogPatternSet</code>.",
+        "operationId": "ListLogPatterns"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListProblems": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListProblems"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListProblemsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProblemsResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the problems with your application.",
+        "operationId": "ListProblems"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Retrieve a list of the tags (keys and values) that are associated with a specified application. A <i>tag</i> is a label that you optionally define and associate with an application. Each tag consists of a required <i>tag key</i> and an optional associated <i>tag value</i>. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "TooManyTagsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyTagsException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>Add one or more tags (keys and values) to a specified application. A <i>tag</i> is a label that you optionally define and associate with an application. Tags can help you categorize and manage application in different ways, such as by purpose, owner, environment, or other criteria. </p> <p>Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>, both of which you define. A tag key is a general label that acts as a category for more specific tag values. A tag value acts as a descriptor within a tag key.</p>",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Remove one or more tags (keys and values) from a specified application.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.UpdateApplication": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.UpdateApplication"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Updates the application.",
+        "operationId": "UpdateApplication"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.UpdateComponent": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.UpdateComponent"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateComponentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateComponentResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the custom component name and/or the list of resources that make up the component.",
+        "operationId": "UpdateComponent"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.UpdateComponentConfiguration": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.UpdateComponentConfiguration"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateComponentConfigurationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateComponentConfigurationResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Updates the monitoring configurations for the component. The configuration input parameter is an escaped JSON of the configuration and should match the schema of what is returned by <code>DescribeComponentConfigurationRecommendation</code>. ",
+        "operationId": "UpdateComponentConfiguration"
+      }
+    },
+    "/#X-Amz-Target=EC2WindowsBarleyService.UpdateLogPattern": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "EC2WindowsBarleyService.UpdateLogPattern"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateLogPatternRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateLogPatternResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Adds a log pattern to a <code>LogPatternSet</code>.",
+        "operationId": "UpdateLogPattern"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AffectedResource": {
+      "type": "string"
+    },
+    "AmazonResourceName": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "pattern": "^arn:aws(-\\w+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$",
+      "type": "string"
+    },
+    "ApplicationComponent": {
+      "description": "Describes a standalone resource or similarly grouped resources that the application is made up of.",
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ComponentRemarks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Remarks"
+            },
+            {
+              "description": " If logging is supported for the resource type, indicates whether the component has configured logs to be monitored. "
+            }
+          ]
+        },
+        "DetectedWorkload": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DetectedWorkload"
+            },
+            {
+              "description": " Workloads detected in the application component. "
+            }
+          ]
+        },
+        "Monitor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Monitor"
+            },
+            {
+              "description": "Indicates whether the application component is monitored. "
+            }
+          ]
+        },
+        "OsType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OsType"
+            },
+            {
+              "description": " The operating system of the component. "
+            }
+          ]
+        },
+        "ResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceType"
+            },
+            {
+              "description": "The resource type. Supported resource types include EC2 instances, Auto Scaling group, Classic ELB, Application ELB, and SQS Queue."
+            }
+          ]
+        },
+        "Tier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tier"
+            },
+            {
+              "description": "The stack tier of the application component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationComponentList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationComponent"
+      },
+      "type": "array"
+    },
+    "ApplicationInfo": {
+      "description": "Describes the status of the application.",
+      "properties": {
+        "CWEMonitorEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CWEMonitorEnabled"
+            },
+            {
+              "description": " Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. "
+            }
+          ]
+        },
+        "LifeCycle": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycle"
+            },
+            {
+              "description": "The lifecycle of the application. "
+            }
+          ]
+        },
+        "OpsCenterEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsCenterEnabled"
+            },
+            {
+              "description": " Indicates whether Application Insights will create opsItems for any problem detected by Application Insights for an application. "
+            }
+          ]
+        },
+        "OpsItemSNSTopicArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsItemSNSTopicArn"
+            },
+            {
+              "description": " The SNS topic provided to Application Insights that is associated to the created opsItems to receive SNS notifications for opsItem updates. "
+            }
+          ]
+        },
+        "Remarks": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Remarks"
+            },
+            {
+              "description": "<p>The issues on the user side that block Application Insights from successfully monitoring an application. Example remarks include:</p> <ul> <li> <p>“Configuring application, detected 1 Errors, 3 Warnings”</p> </li> <li> <p>“Configuring application, detected 1 Unconfigured Components”</p> </li> </ul>"
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group used for the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationInfoList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationInfo"
+      },
+      "type": "array"
+    },
+    "BadRequestException": {},
+    "CWEMonitorEnabled": {
+      "type": "boolean"
+    },
+    "CloudWatchEventDetailType": {
+      "type": "string"
+    },
+    "CloudWatchEventId": {
+      "type": "string"
+    },
+    "CloudWatchEventSource": {
+      "enum": [
+        "EC2",
+        "CODE_DEPLOY",
+        "HEALTH",
+        "RDS"
+      ],
+      "type": "string"
+    },
+    "CodeDeployApplication": {
+      "type": "string"
+    },
+    "CodeDeployDeploymentGroup": {
+      "type": "string"
+    },
+    "CodeDeployDeploymentId": {
+      "type": "string"
+    },
+    "CodeDeployInstanceGroupId": {
+      "type": "string"
+    },
+    "CodeDeployState": {
+      "type": "string"
+    },
+    "ComponentConfiguration": {
+      "maxLength": 10000,
+      "minLength": 1,
+      "pattern": "[\\S\\s]+",
+      "type": "string"
+    },
+    "ComponentName": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "pattern": "(?:^[\\d\\w\\-_\\.+]*$)|(?:^arn:aws(-\\w+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$)",
+      "type": "string"
+    },
+    "ConfigurationEvent": {
+      "description": " The event information. ",
+      "properties": {
+        "EventDetail": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventDetail"
+            },
+            {
+              "description": " The details of the event in plain text. "
+            }
+          ]
+        },
+        "EventResourceName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventResourceName"
+            },
+            {
+              "description": " The name of the resource Application Insights attempted to configure. "
+            }
+          ]
+        },
+        "EventResourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventResourceType"
+            },
+            {
+              "description": " The resource type that Application Insights attempted to configure, for example, CLOUDWATCH_ALARM. "
+            }
+          ]
+        },
+        "EventStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventStatus"
+            },
+            {
+              "description": " The status of the configuration update event. Possible values include INFO, WARN, and ERROR. "
+            }
+          ]
+        },
+        "EventTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventTime"
+            },
+            {
+              "description": " The timestamp of the event. "
+            }
+          ]
+        },
+        "MonitoredResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventMonitoredResourceARN"
+            },
+            {
+              "description": " The resource monitored by Application Insights. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationEventDetail": {
+      "type": "string"
+    },
+    "ConfigurationEventList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationEvent"
+      },
+      "type": "array"
+    },
+    "ConfigurationEventMonitoredResourceARN": {
+      "type": "string"
+    },
+    "ConfigurationEventResourceName": {
+      "type": "string"
+    },
+    "ConfigurationEventResourceType": {
+      "enum": [
+        "CLOUDWATCH_ALARM",
+        "CLOUDWATCH_LOG",
+        "CLOUDFORMATION",
+        "SSM_ASSOCIATION"
+      ],
+      "type": "string"
+    },
+    "ConfigurationEventStatus": {
+      "enum": [
+        "INFO",
+        "WARN",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "ConfigurationEventTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CreateApplicationRequest": {
+      "properties": {
+        "CWEMonitorEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CWEMonitorEnabled"
+            },
+            {
+              "description": " Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. "
+            }
+          ]
+        },
+        "OpsCenterEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsCenterEnabled"
+            },
+            {
+              "description": " When set to <code>true</code>, creates opsItems for any problems detected on an application. "
+            }
+          ]
+        },
+        "OpsItemSNSTopicArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsItemSNSTopicArn"
+            },
+            {
+              "description": " The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem. "
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "List of tags to add to the application. tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "CreateApplicationRequest",
+      "type": "object"
+    },
+    "CreateApplicationResponse": {
+      "properties": {
+        "ApplicationInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationInfo"
+            },
+            {
+              "description": "Information about the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CreateComponentRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "ResourceList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceList"
+            },
+            {
+              "description": "The list of resource ARNs that belong to the component."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName",
+        "ResourceList"
+      ],
+      "title": "CreateComponentRequest",
+      "type": "object"
+    },
+    "CreateComponentResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "CreateLogPatternRequest": {
+      "properties": {
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRegex"
+            },
+            {
+              "description": "The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported."
+            }
+          ]
+        },
+        "PatternName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternName"
+            },
+            {
+              "description": "The name of the log pattern."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern set."
+            }
+          ]
+        },
+        "Rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRank"
+            },
+            {
+              "description": "Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. "
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "PatternSetName",
+        "PatternName",
+        "Pattern",
+        "Rank"
+      ],
+      "title": "CreateLogPatternRequest",
+      "type": "object"
+    },
+    "CreateLogPatternResponse": {
+      "properties": {
+        "LogPattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPattern"
+            },
+            {
+              "description": "The successfully created log pattern."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CustomComponentName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[\\d\\w\\-_\\.+]*$",
+      "type": "string"
+    },
+    "DeleteApplicationRequest": {
+      "properties": {
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "DeleteApplicationRequest",
+      "type": "object"
+    },
+    "DeleteApplicationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteComponentRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName"
+      ],
+      "title": "DeleteComponentRequest",
+      "type": "object"
+    },
+    "DeleteComponentResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteLogPatternRequest": {
+      "properties": {
+        "PatternName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternName"
+            },
+            {
+              "description": "The name of the log pattern."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern set."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "PatternSetName",
+        "PatternName"
+      ],
+      "title": "DeleteLogPatternRequest",
+      "type": "object"
+    },
+    "DeleteLogPatternResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeApplicationRequest": {
+      "properties": {
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "DescribeApplicationRequest",
+      "type": "object"
+    },
+    "DescribeApplicationResponse": {
+      "properties": {
+        "ApplicationInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationInfo"
+            },
+            {
+              "description": "Information about the application."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeComponentConfigurationRecommendationRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "Tier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tier"
+            },
+            {
+              "description": "The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName",
+        "Tier"
+      ],
+      "title": "DescribeComponentConfigurationRecommendationRequest",
+      "type": "object"
+    },
+    "DescribeComponentConfigurationRecommendationResponse": {
+      "properties": {
+        "ComponentConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfiguration"
+            },
+            {
+              "description": "The recommended configuration settings of the component. The value is the escaped JSON of the configuration."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeComponentConfigurationRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName"
+      ],
+      "title": "DescribeComponentConfigurationRequest",
+      "type": "object"
+    },
+    "DescribeComponentConfigurationResponse": {
+      "properties": {
+        "ComponentConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfiguration"
+            },
+            {
+              "description": "The configuration settings of the component. The value is the escaped JSON of the configuration."
+            }
+          ]
+        },
+        "Monitor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Monitor"
+            },
+            {
+              "description": "Indicates whether the application component is monitored."
+            }
+          ]
+        },
+        "Tier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tier"
+            },
+            {
+              "description": "The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>, <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code> "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeComponentRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName"
+      ],
+      "title": "DescribeComponentRequest",
+      "type": "object"
+    },
+    "DescribeComponentResponse": {
+      "properties": {
+        "ApplicationComponent": {
+          "$ref": "#/definitions/ApplicationComponent"
+        },
+        "ResourceList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceList"
+            },
+            {
+              "description": "The list of resource ARNs that belong to the component."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLogPatternRequest": {
+      "properties": {
+        "PatternName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternName"
+            },
+            {
+              "description": "The name of the log pattern."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern set."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "PatternSetName",
+        "PatternName"
+      ],
+      "title": "DescribeLogPatternRequest",
+      "type": "object"
+    },
+    "DescribeLogPatternResponse": {
+      "properties": {
+        "LogPattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPattern"
+            },
+            {
+              "description": "The successfully created log pattern."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeObservationRequest": {
+      "properties": {
+        "ObservationId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ObservationId"
+            },
+            {
+              "description": "The ID of the observation."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ObservationId"
+      ],
+      "title": "DescribeObservationRequest",
+      "type": "object"
+    },
+    "DescribeObservationResponse": {
+      "properties": {
+        "Observation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Observation"
+            },
+            {
+              "description": "Information about the observation."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProblemObservationsRequest": {
+      "properties": {
+        "ProblemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProblemId"
+            },
+            {
+              "description": "The ID of the problem."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProblemId"
+      ],
+      "title": "DescribeProblemObservationsRequest",
+      "type": "object"
+    },
+    "DescribeProblemObservationsResponse": {
+      "properties": {
+        "RelatedObservations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelatedObservations"
+            },
+            {
+              "description": "Observations related to the problem."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProblemRequest": {
+      "properties": {
+        "ProblemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProblemId"
+            },
+            {
+              "description": "The ID of the problem."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ProblemId"
+      ],
+      "title": "DescribeProblemRequest",
+      "type": "object"
+    },
+    "DescribeProblemResponse": {
+      "properties": {
+        "Problem": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Problem"
+            },
+            {
+              "description": "Information about the problem. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DetectedWorkload": {
+      "additionalProperties": {
+        "$ref": "#/definitions/WorkloadMetaData"
+      },
+      "type": "object"
+    },
+    "EbsCause": {
+      "type": "string"
+    },
+    "EbsEvent": {
+      "type": "string"
+    },
+    "EbsRequestId": {
+      "type": "string"
+    },
+    "EbsResult": {
+      "type": "string"
+    },
+    "Ec2State": {
+      "type": "string"
+    },
+    "EndTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Feedback": {
+      "additionalProperties": {
+        "$ref": "#/definitions/FeedbackValue"
+      },
+      "maxProperties": 10,
+      "type": "object"
+    },
+    "FeedbackKey": {
+      "enum": [
+        "INSIGHTS_FEEDBACK"
+      ],
+      "type": "string"
+    },
+    "FeedbackValue": {
+      "enum": [
+        "NOT_SPECIFIED",
+        "USEFUL",
+        "NOT_USEFUL"
+      ],
+      "type": "string"
+    },
+    "HealthEventArn": {
+      "type": "string"
+    },
+    "HealthEventDescription": {
+      "type": "string"
+    },
+    "HealthEventTypeCategory": {
+      "type": "string"
+    },
+    "HealthEventTypeCode": {
+      "type": "string"
+    },
+    "HealthService": {
+      "type": "string"
+    },
+    "Insights": {
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "LifeCycle": {
+      "type": "string"
+    },
+    "LineTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ListApplicationsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        }
+      },
+      "title": "ListApplicationsRequest",
+      "type": "object"
+    },
+    "ListApplicationsResponse": {
+      "properties": {
+        "ApplicationInfoList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationInfoList"
+            },
+            {
+              "description": "The list of applications."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListComponentsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "ListComponentsRequest",
+      "type": "object"
+    },
+    "ListComponentsResponse": {
+      "properties": {
+        "ApplicationComponentList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationComponentList"
+            },
+            {
+              "description": "The list of application components."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListConfigurationHistoryRequest": {
+      "properties": {
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndTime"
+            },
+            {
+              "description": "The end time of the event."
+            }
+          ]
+        },
+        "EventStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventStatus"
+            },
+            {
+              "description": "The status of the configuration update event. Possible values include INFO, WARN, and ERROR."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": " The maximum number of results returned by <code>ListConfigurationHistory</code> in paginated output. When this parameter is used, <code>ListConfigurationHistory</code> returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListConfigurationHistory</code> request with the returned <code>NextToken</code> value. If this parameter is not used, then <code>ListConfigurationHistory</code> returns all results. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "Resource group to which the application belongs. "
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTime"
+            },
+            {
+              "description": "The start time of the event. "
+            }
+          ]
+        }
+      },
+      "title": "ListConfigurationHistoryRequest",
+      "type": "object"
+    },
+    "ListConfigurationHistoryResponse": {
+      "properties": {
+        "EventList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationEventList"
+            },
+            {
+              "description": " The list of configuration events and their corresponding details. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The <code>NextToken</code> value to include in a future <code>ListConfigurationHistory</code> request. When the results of a <code>ListConfigurationHistory</code> request exceed <code>MaxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListLogPatternSetsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "ListLogPatternSetsRequest",
+      "type": "object"
+    },
+    "ListLogPatternSetsResponse": {
+      "properties": {
+        "LogPatternSets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetList"
+            },
+            {
+              "description": "The list of log pattern sets."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListLogPatternsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern set."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "ListLogPatternsRequest",
+      "type": "object"
+    },
+    "ListLogPatternsResponse": {
+      "properties": {
+        "LogPatterns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternList"
+            },
+            {
+              "description": "The list of log patterns."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListProblemsRequest": {
+      "properties": {
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndTime"
+            },
+            {
+              "description": "The time when the problem ended, in epoch seconds. If not specified, problems within the past seven days are returned."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxEntities"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token to request the next page of results."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTime"
+            },
+            {
+              "description": "The time when the problem was detected, in epoch seconds. If you don't specify a time frame for the request, problems within the past seven days are returned."
+            }
+          ]
+        }
+      },
+      "title": "ListProblemsRequest",
+      "type": "object"
+    },
+    "ListProblemsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "The token used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+            }
+          ]
+        },
+        "ProblemList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProblemList"
+            },
+            {
+              "description": "The list of problems. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the application that you want to retrieve tag information for."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN"
+      ],
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "An array that lists all the tags that are associated with the application. Each tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>)."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogFilter": {
+      "enum": [
+        "ERROR",
+        "WARN",
+        "INFO"
+      ],
+      "type": "string"
+    },
+    "LogGroup": {
+      "type": "string"
+    },
+    "LogPattern": {
+      "description": "An object that defines the log patterns that belongs to a <code>LogPatternSet</code>.",
+      "properties": {
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRegex"
+            },
+            {
+              "description": "A regular expression that defines the log pattern. A log pattern can contain as many as 50 characters, and it cannot be empty. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported."
+            }
+          ]
+        },
+        "PatternName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternName"
+            },
+            {
+              "description": "The name of the log pattern. A log pattern name can contain as many as 50 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern. A log pattern name can contain as many as 30 characters, and it cannot be empty. The characters can be Unicode letters, digits, or one of the following symbols: period, dash, underscore."
+            }
+          ]
+        },
+        "Rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRank"
+            },
+            {
+              "description": "Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LogPatternList": {
+      "items": {
+        "$ref": "#/definitions/LogPattern"
+      },
+      "type": "array"
+    },
+    "LogPatternName": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\.\\-_]*",
+      "type": "string"
+    },
+    "LogPatternRank": {
+      "type": "integer"
+    },
+    "LogPatternRegex": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[\\S\\s]+",
+      "type": "string"
+    },
+    "LogPatternSetList": {
+      "items": {
+        "$ref": "#/definitions/LogPatternSetName"
+      },
+      "type": "array"
+    },
+    "LogPatternSetName": {
+      "maxLength": 30,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\.\\-_]*",
+      "type": "string"
+    },
+    "LogText": {
+      "type": "string"
+    },
+    "MaxEntities": {
+      "maximum": 40,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MetaDataKey": {
+      "type": "string"
+    },
+    "MetaDataValue": {
+      "type": "string"
+    },
+    "MetricName": {
+      "type": "string"
+    },
+    "MetricNamespace": {
+      "type": "string"
+    },
+    "Monitor": {
+      "type": "boolean"
+    },
+    "Observation": {
+      "description": "Describes an anomaly or error with the application.",
+      "properties": {
+        "CloudWatchEventDetailType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchEventDetailType"
+            },
+            {
+              "description": " The detail type of the CloudWatch Event-based observation, for example, <code>EC2 Instance State-change Notification</code>. "
+            }
+          ]
+        },
+        "CloudWatchEventId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchEventId"
+            },
+            {
+              "description": " The ID of the CloudWatch Event-based observation related to the detected problem. "
+            }
+          ]
+        },
+        "CloudWatchEventSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchEventSource"
+            },
+            {
+              "description": " The source of the CloudWatch Event. "
+            }
+          ]
+        },
+        "CodeDeployApplication": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CodeDeployApplication"
+            },
+            {
+              "description": " The CodeDeploy application to which the deployment belongs. "
+            }
+          ]
+        },
+        "CodeDeployDeploymentGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CodeDeployDeploymentGroup"
+            },
+            {
+              "description": " The deployment group to which the CodeDeploy deployment belongs. "
+            }
+          ]
+        },
+        "CodeDeployDeploymentId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CodeDeployDeploymentId"
+            },
+            {
+              "description": " The deployment ID of the CodeDeploy-based observation related to the detected problem. "
+            }
+          ]
+        },
+        "CodeDeployInstanceGroupId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CodeDeployInstanceGroupId"
+            },
+            {
+              "description": " The instance group to which the CodeDeploy instance belongs. "
+            }
+          ]
+        },
+        "CodeDeployState": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CodeDeployState"
+            },
+            {
+              "description": " The status of the CodeDeploy deployment, for example <code>SUCCESS</code> or <code> FAILURE</code>. "
+            }
+          ]
+        },
+        "EbsCause": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EbsCause"
+            },
+            {
+              "description": " The cause of an EBS CloudWatch event. "
+            }
+          ]
+        },
+        "EbsEvent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EbsEvent"
+            },
+            {
+              "description": " The type of EBS CloudWatch event, such as <code>createVolume</code>, <code>deleteVolume</code> or <code>attachVolume</code>. "
+            }
+          ]
+        },
+        "EbsRequestId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EbsRequestId"
+            },
+            {
+              "description": " The request ID of an EBS CloudWatch event. "
+            }
+          ]
+        },
+        "EbsResult": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EbsResult"
+            },
+            {
+              "description": " The result of an EBS CloudWatch event, such as <code>failed</code> or <code>succeeded</code>. "
+            }
+          ]
+        },
+        "Ec2State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Ec2State"
+            },
+            {
+              "description": " The state of the instance, such as <code>STOPPING</code> or <code>TERMINATING</code>. "
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndTime"
+            },
+            {
+              "description": "The time when the observation ended, in epoch seconds."
+            }
+          ]
+        },
+        "HealthEventArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthEventArn"
+            },
+            {
+              "description": " The Amazon Resource Name (ARN) of the AWS Health Event-based observation."
+            }
+          ]
+        },
+        "HealthEventDescription": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthEventDescription"
+            },
+            {
+              "description": " The description of the AWS Health event provided by the service, such as Amazon EC2. "
+            }
+          ]
+        },
+        "HealthEventTypeCategory": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthEventTypeCategory"
+            },
+            {
+              "description": " The category of the AWS Health event, such as <code>issue</code>. "
+            }
+          ]
+        },
+        "HealthEventTypeCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthEventTypeCode"
+            },
+            {
+              "description": " The type of the AWS Health event, for example, <code>AWS_EC2_POWER_CONNECTIVITY_ISSUE</code>. "
+            }
+          ]
+        },
+        "HealthService": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HealthService"
+            },
+            {
+              "description": " The service to which the AWS Health Event belongs, such as EC2. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ObservationId"
+            },
+            {
+              "description": "The ID of the observation type."
+            }
+          ]
+        },
+        "LineTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LineTime"
+            },
+            {
+              "description": "The timestamp in the CloudWatch Logs that specifies when the matched line occurred."
+            }
+          ]
+        },
+        "LogFilter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogFilter"
+            },
+            {
+              "description": "The log filter of the observation."
+            }
+          ]
+        },
+        "LogGroup": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogGroup"
+            },
+            {
+              "description": "The log group name."
+            }
+          ]
+        },
+        "LogText": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogText"
+            },
+            {
+              "description": "The log text of the observation."
+            }
+          ]
+        },
+        "MetricName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricName"
+            },
+            {
+              "description": "The name of the observation metric."
+            }
+          ]
+        },
+        "MetricNamespace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MetricNamespace"
+            },
+            {
+              "description": "The namespace of the observation metric."
+            }
+          ]
+        },
+        "RdsEventCategories": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RdsEventCategories"
+            },
+            {
+              "description": " The category of an RDS event. "
+            }
+          ]
+        },
+        "RdsEventMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RdsEventMessage"
+            },
+            {
+              "description": " The message of an RDS event. "
+            }
+          ]
+        },
+        "S3EventName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3EventName"
+            },
+            {
+              "description": " The name of the S3 CloudWatch Event-based observation. "
+            }
+          ]
+        },
+        "SourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SourceARN"
+            },
+            {
+              "description": "The source resource ARN of the observation."
+            }
+          ]
+        },
+        "SourceType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SourceType"
+            },
+            {
+              "description": "The source type of the observation."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTime"
+            },
+            {
+              "description": "The time when the observation was first detected, in epoch seconds."
+            }
+          ]
+        },
+        "StatesArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatesArn"
+            },
+            {
+              "description": " The Amazon Resource Name (ARN) of the step function-based observation. "
+            }
+          ]
+        },
+        "StatesExecutionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatesExecutionArn"
+            },
+            {
+              "description": " The Amazon Resource Name (ARN) of the step function execution-based observation. "
+            }
+          ]
+        },
+        "StatesInput": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatesInput"
+            },
+            {
+              "description": " The input to the step function-based observation. "
+            }
+          ]
+        },
+        "StatesStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StatesStatus"
+            },
+            {
+              "description": " The status of the step function-related observation. "
+            }
+          ]
+        },
+        "Unit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Unit"
+            },
+            {
+              "description": "The unit of the source observation metric."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Value"
+            },
+            {
+              "description": "The value of the source observation metric."
+            }
+          ]
+        },
+        "XRayErrorPercent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayErrorPercent"
+            },
+            {
+              "description": " The X-Ray request error percentage for this node. "
+            }
+          ]
+        },
+        "XRayFaultPercent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayFaultPercent"
+            },
+            {
+              "description": " The X-Ray request fault percentage for this node. "
+            }
+          ]
+        },
+        "XRayNodeName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayNodeName"
+            },
+            {
+              "description": " The name of the X-Ray node. "
+            }
+          ]
+        },
+        "XRayNodeType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayNodeType"
+            },
+            {
+              "description": " The type of the X-Ray node. "
+            }
+          ]
+        },
+        "XRayRequestAverageLatency": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayRequestAverageLatency"
+            },
+            {
+              "description": " The X-Ray node request average latency for this node. "
+            }
+          ]
+        },
+        "XRayRequestCount": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayRequestCount"
+            },
+            {
+              "description": " The X-Ray request count for this node. "
+            }
+          ]
+        },
+        "XRayThrottlePercent": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/XRayThrottlePercent"
+            },
+            {
+              "description": " The X-Ray request throttle percentage for this node. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ObservationId": {
+      "maxLength": 38,
+      "minLength": 38,
+      "pattern": "o-[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}",
+      "type": "string"
+    },
+    "ObservationList": {
+      "items": {
+        "$ref": "#/definitions/Observation"
+      },
+      "type": "array"
+    },
+    "OpsCenterEnabled": {
+      "type": "boolean"
+    },
+    "OpsItemSNSTopicArn": {
+      "maxLength": 300,
+      "minLength": 20,
+      "pattern": "^arn:aws(-\\w+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$",
+      "type": "string"
+    },
+    "OsType": {
+      "enum": [
+        "WINDOWS",
+        "LINUX"
+      ],
+      "type": "string"
+    },
+    "PaginationToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".+",
+      "type": "string"
+    },
+    "Problem": {
+      "description": "Describes a problem that is detected by correlating observations.",
+      "properties": {
+        "AffectedResource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AffectedResource"
+            },
+            {
+              "description": "The resource affected by the problem."
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndTime"
+            },
+            {
+              "description": "The time when the problem ended, in epoch seconds."
+            }
+          ]
+        },
+        "Feedback": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Feedback"
+            },
+            {
+              "description": "Feedback provided by the user about the problem."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProblemId"
+            },
+            {
+              "description": "The ID of the problem."
+            }
+          ]
+        },
+        "Insights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Insights"
+            },
+            {
+              "description": "A detailed analysis of the problem using machine learning."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group affected by the problem."
+            }
+          ]
+        },
+        "SeverityLevel": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SeverityLevel"
+            },
+            {
+              "description": "A measure of the level of impact of the problem."
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTime"
+            },
+            {
+              "description": "The time when the problem started, in epoch seconds."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Status"
+            },
+            {
+              "description": "The status of the problem."
+            }
+          ]
+        },
+        "Title": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Title"
+            },
+            {
+              "description": "The name of the problem."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProblemId": {
+      "maxLength": 38,
+      "minLength": 38,
+      "pattern": "p-[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}",
+      "type": "string"
+    },
+    "ProblemList": {
+      "items": {
+        "$ref": "#/definitions/Problem"
+      },
+      "type": "array"
+    },
+    "RdsEventCategories": {
+      "type": "string"
+    },
+    "RdsEventMessage": {
+      "type": "string"
+    },
+    "RelatedObservations": {
+      "description": "Describes observations related to the problem.",
+      "properties": {
+        "ObservationList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ObservationList"
+            },
+            {
+              "description": "The list of observations related to the problem."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Remarks": {
+      "type": "string"
+    },
+    "RemoveSNSTopic": {
+      "type": "boolean"
+    },
+    "ResourceARN": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "pattern": "^arn:aws(-\\w+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$",
+      "type": "string"
+    },
+    "ResourceGroupName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\.\\-_]*",
+      "type": "string"
+    },
+    "ResourceInUseException": {},
+    "ResourceList": {
+      "items": {
+        "$ref": "#/definitions/ResourceARN"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceType": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[0-9a-zA-Z:_]*",
+      "type": "string"
+    },
+    "S3EventName": {
+      "type": "string"
+    },
+    "SeverityLevel": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "type": "string"
+    },
+    "SourceARN": {
+      "type": "string"
+    },
+    "SourceType": {
+      "type": "string"
+    },
+    "StartTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "StatesArn": {
+      "type": "string"
+    },
+    "StatesExecutionArn": {
+      "type": "string"
+    },
+    "StatesInput": {
+      "type": "string"
+    },
+    "StatesStatus": {
+      "type": "string"
+    },
+    "Status": {
+      "enum": [
+        "IGNORE",
+        "RESOLVED",
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "Tag": {
+      "description": "<p>An object that defines the tags associated with an application. A <i>tag</i> is a label that you optionally define and associate with an application. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria.</p> <p>Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>, both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:</p> <ul> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>For each associated resource, each tag key must be unique and it can have only one value.</p> </li> <li> <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can't edit or remove tag keys or values that use this prefix. </p> </li> </ul>",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want an application to have a specific tag value, don't specify a value for this parameter."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the application that you want to add one or more tags to."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tags that to add to the application. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagsAlreadyExistException": {},
+    "Tier": {
+      "enum": [
+        "CUSTOM",
+        "DEFAULT",
+        "DOT_NET_CORE",
+        "DOT_NET_WORKER",
+        "DOT_NET_WEB_TIER",
+        "DOT_NET_WEB",
+        "SQL_SERVER",
+        "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
+        "MYSQL",
+        "POSTGRESQL",
+        "JAVA_JMX",
+        "ORACLE"
+      ],
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "TooManyTagsException": {},
+    "Unit": {
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "ResourceARN": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from."
+            }
+          ]
+        },
+        "TagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "<p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the application, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "TagKeys"
+      ],
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateApplicationRequest": {
+      "properties": {
+        "CWEMonitorEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CWEMonitorEnabled"
+            },
+            {
+              "description": " Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as <code>instance terminated</code>, <code>failed deployment</code>, and others. "
+            }
+          ]
+        },
+        "OpsCenterEnabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsCenterEnabled"
+            },
+            {
+              "description": " When set to <code>true</code>, creates opsItems for any problems detected on an application. "
+            }
+          ]
+        },
+        "OpsItemSNSTopicArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsItemSNSTopicArn"
+            },
+            {
+              "description": " The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem."
+            }
+          ]
+        },
+        "RemoveSNSTopic": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RemoveSNSTopic"
+            },
+            {
+              "description": " Disassociates the SNS topic from the opsItem created for detected problems."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName"
+      ],
+      "title": "UpdateApplicationRequest",
+      "type": "object"
+    },
+    "UpdateApplicationResponse": {
+      "properties": {
+        "ApplicationInfo": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApplicationInfo"
+            },
+            {
+              "description": "Information about the application. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateComponentConfigurationRequest": {
+      "properties": {
+        "ComponentConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentConfiguration"
+            },
+            {
+              "description": "The configuration settings of the component. The value is the escaped JSON of the configuration. For more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>. You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>."
+            }
+          ]
+        },
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "Monitor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Monitor"
+            },
+            {
+              "description": "Indicates whether the application component is monitored."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "Tier": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tier"
+            },
+            {
+              "description": "The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName"
+      ],
+      "title": "UpdateComponentConfigurationRequest",
+      "type": "object"
+    },
+    "UpdateComponentConfigurationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateComponentRequest": {
+      "properties": {
+        "ComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomComponentName"
+            },
+            {
+              "description": "The name of the component."
+            }
+          ]
+        },
+        "NewComponentName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomComponentName"
+            },
+            {
+              "description": "The new name of the component."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        },
+        "ResourceList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceList"
+            },
+            {
+              "description": "The list of resource ARNs that belong to the component."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "ComponentName"
+      ],
+      "title": "UpdateComponentRequest",
+      "type": "object"
+    },
+    "UpdateComponentResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateLogPatternRequest": {
+      "properties": {
+        "Pattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRegex"
+            },
+            {
+              "description": "The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported."
+            }
+          ]
+        },
+        "PatternName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternName"
+            },
+            {
+              "description": "The name of the log pattern."
+            }
+          ]
+        },
+        "PatternSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternSetName"
+            },
+            {
+              "description": "The name of the log pattern set."
+            }
+          ]
+        },
+        "Rank": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPatternRank"
+            },
+            {
+              "description": "Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for AWS-provided patterns. "
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceGroupName",
+        "PatternSetName",
+        "PatternName"
+      ],
+      "title": "UpdateLogPatternRequest",
+      "type": "object"
+    },
+    "UpdateLogPatternResponse": {
+      "properties": {
+        "LogPattern": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/LogPattern"
+            },
+            {
+              "description": "The successfully created log pattern."
+            }
+          ]
+        },
+        "ResourceGroupName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceGroupName"
+            },
+            {
+              "description": "The name of the resource group."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ValidationException": {},
+    "Value": {
+      "format": "double",
+      "type": "number"
+    },
+    "WorkloadMetaData": {
+      "additionalProperties": {
+        "$ref": "#/definitions/MetaDataValue"
+      },
+      "type": "object"
+    },
+    "XRayErrorPercent": {
+      "type": "integer"
+    },
+    "XRayFaultPercent": {
+      "type": "integer"
+    },
+    "XRayNodeName": {
+      "type": "string"
+    },
+    "XRayNodeType": {
+      "type": "string"
+    },
+    "XRayRequestAverageLatency": {
+      "type": "integer"
+    },
+    "XRayRequestCount": {
+      "type": "integer"
+    },
+    "XRayThrottlePercent": {
+      "type": "integer"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/applicationinsights/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

@@ -7,20 +7,25 @@
   "basePath": "/geocode",
   "info": {
     "contact": {
-      "name": "OpenCage Data Ltd",
-      "url": "https://geocoder.opencagedata.com/contact"
+      "name": "OpenCage GmbH",
+      "url": "https://opencagedata.com/contact"
     },
     "description": "Worldwide forward and reverse geocoding",
-    "termsOfService": "https://geocoder.opencagedata.com/terms",
+    "termsOfService": "https://opencagedata.com/terms",
     "title": "OpenCage Geocoder",
     "version": "1",
     "x-apisguru-categories": [
       "location"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_opencagedata.com_opencagelogo-green.png"
     },
     "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://opencagedata.com/swagger.yaml",
+        "version": "2.0"
+      },
       {
         "format": "swagger",
         "url": "https://geocoder.opencagedata.com/swagger.yaml",
@@ -36,7 +41,7 @@
   },
   "externalDocs": {
     "description": "OpenCage Geocoder Website",
-    "url": "https://geocoder.opencagedata.com/api"
+    "url": "https://opencagedata.com/api"
   },
   "consumes": [
     "text/plain"
@@ -150,6 +155,18 @@
             "in": "query",
             "name": "pretty",
             "type": "boolean"
+          },
+          {
+            "description": "lat,lng to bias results.",
+            "in": "query",
+            "name": "proximity",
+            "type": "string"
+          },
+          {
+            "description": "match nearest road, include roadinfo annotation",
+            "in": "query",
+            "name": "roadinfo",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -172,7 +189,7 @@
             }
           },
           "403": {
-            "description": "Invalid or missing API key",
+            "description": "Forbidden",
             "schema": {
               "$ref": "#/definitions/Response"
             }
@@ -183,8 +200,20 @@
               "$ref": "#/definitions/Response"
             }
           },
+          "405": {
+            "description": "Method not allowed",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
           "410": {
             "description": "Request too long",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "429": {
+            "description": "Too many requests",
             "schema": {
               "$ref": "#/definitions/Response"
             }

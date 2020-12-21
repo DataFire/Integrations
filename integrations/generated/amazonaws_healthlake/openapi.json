@@ -1,0 +1,1593 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Amazon HealthLake is a HIPAA eligibile service that allows customers to store, transform, query, and analyze their data in a consistent fashion in the cloud.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon HealthLake",
+    "version": "2017-07-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/healthlake-2017-07-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "healthlake",
+    "x-datafire": {
+      "name": "amazonaws_healthlake",
+      "type": "openapi"
+    }
+  },
+  "host": "healthlake.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=HealthLake.CreateFHIRDatastore": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "HealthLake.CreateFHIRDatastore"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFHIRDatastoreRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFHIRDatastoreResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Creates a datastore that can ingest and export FHIR data.",
+        "operationId": "CreateFHIRDatastore"
+      }
+    },
+    "/#X-Amz-Target=HealthLake.DeleteFHIRDatastore": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "HealthLake.DeleteFHIRDatastore"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFHIRDatastoreRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFHIRDatastoreResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes a datastore. ",
+        "operationId": "DeleteFHIRDatastore"
+      }
+    },
+    "/#X-Amz-Target=HealthLake.DescribeFHIRDatastore": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "HealthLake.DescribeFHIRDatastore"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeFHIRDatastoreRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeFHIRDatastoreResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets the properties associated with the FHIR datastore, including the datastore ID, datastore ARN, datastore name, datastore status, created at, datastore type version, and datastore endpoint.",
+        "operationId": "DescribeFHIRDatastore"
+      }
+    },
+    "/#X-Amz-Target=HealthLake.DescribeFHIRImportJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "HealthLake.DescribeFHIRImportJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeFHIRImportJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeFHIRImportJobResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the datastore.",
+        "operationId": "DescribeFHIRImportJob"
+      }
+    },
+    "/#X-Amz-Target=HealthLake.ListFHIRDatastores": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "HealthLake.ListFHIRDatastores"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFHIRDatastoresRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFHIRDatastoresResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists all FHIR datastores that are in the user’s account, regardless of datastore status.",
+        "operationId": "ListFHIRDatastores"
+      }
+    },
+    "/#X-Amz-Target=HealthLake.StartFHIRImportJob": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "HealthLake.StartFHIRImportJob"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartFHIRImportJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartFHIRImportJobResponse"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Begins a FHIR Import job.",
+        "operationId": "StartFHIRImportJob"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "BoundedLengthString": {
+      "maxLength": 5000,
+      "minLength": 1,
+      "pattern": "[\\P{M}\\p{M}]{1,5000}",
+      "type": "string"
+    },
+    "ClientTokenString": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateFHIRDatastoreRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientTokenString"
+            },
+            {
+              "description": "Optional user provided token used for ensuring idempotency."
+            }
+          ]
+        },
+        "DatastoreName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreName"
+            },
+            {
+              "description": "The user generated name for the datastore."
+            }
+          ]
+        },
+        "DatastoreTypeVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FHIRVersion"
+            },
+            {
+              "description": "The FHIR version of the datastore. The only supported version is R4."
+            }
+          ]
+        },
+        "PreloadDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PreloadDataConfig"
+            },
+            {
+              "description": "Optional parameter to preload data upon creation of the datastore. Currently, the only supported preloaded data is synthetic data generated from Synthea."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreTypeVersion"
+      ],
+      "title": "CreateFHIRDatastoreRequest",
+      "type": "object"
+    },
+    "CreateFHIRDatastoreResponse": {
+      "properties": {
+        "DatastoreArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreArn"
+            },
+            {
+              "description": "The datastore ARN is generated during the creation of the datastore and can be found in the output from the initial datastore creation call."
+            }
+          ]
+        },
+        "DatastoreEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedLengthString"
+            },
+            {
+              "description": "The AWS endpoint for the created datastore. For preview, only US-east-1 endpoints are supported."
+            }
+          ]
+        },
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated datastore id. This id is in the output from the initial datastore creation call."
+            }
+          ]
+        },
+        "DatastoreStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreStatus"
+            },
+            {
+              "description": "The status of the FHIR datastore. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreId",
+        "DatastoreArn",
+        "DatastoreStatus",
+        "DatastoreEndpoint"
+      ],
+      "type": "object"
+    },
+    "DatastoreArn": {
+      "pattern": "^arn:aws((-us-gov)|(-iso)|(-iso-b)|(-cn))?:healthlake:[a-zA-Z0-9-]+:[0-9]{12}:datastore/.+?",
+      "type": "string"
+    },
+    "DatastoreFilter": {
+      "description": "The filters applied to datastore query.",
+      "properties": {
+        "CreatedAfter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "A filter that allows the user to set cutoff dates for records. All datastores created after the specified date will be included in the results."
+            }
+          ]
+        },
+        "CreatedBefore": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "A filter that allows the user to set cutoff dates for records. All datastores created before the specified date will be included in the results. "
+            }
+          ]
+        },
+        "DatastoreName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreName"
+            },
+            {
+              "description": "Allows the user to filter datastore results by name."
+            }
+          ]
+        },
+        "DatastoreStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreStatus"
+            },
+            {
+              "description": "Allows the user to filter datastore results by status."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DatastoreId": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "DatastoreName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "DatastoreProperties": {
+      "description": "Displays the properties of the datastore, including the ID, Arn, name, and the status of the datastore.",
+      "properties": {
+        "CreatedAt": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time that a datastore was created. "
+            }
+          ]
+        },
+        "DatastoreArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreArn"
+            },
+            {
+              "description": "The Amazon Resource Name used in the creation of the datastore."
+            }
+          ]
+        },
+        "DatastoreEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The AWS endpoint for the datastore. Each datastore will have it's own endpoint with datastore ID in the endpoint URL."
+            }
+          ]
+        },
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated ID number for the datastore."
+            }
+          ]
+        },
+        "DatastoreName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreName"
+            },
+            {
+              "description": "The user-generated name for the datastore."
+            }
+          ]
+        },
+        "DatastoreStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreStatus"
+            },
+            {
+              "description": "The status of the datastore. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'."
+            }
+          ]
+        },
+        "DatastoreTypeVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FHIRVersion"
+            },
+            {
+              "description": "The FHIR version. Only R4 version data is supported."
+            }
+          ]
+        },
+        "PreloadDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PreloadDataConfig"
+            },
+            {
+              "description": "The preloaded data configuration for the datastore. Only data preloaded from Synthea is supported."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreId",
+        "DatastoreArn",
+        "DatastoreStatus",
+        "DatastoreTypeVersion",
+        "DatastoreEndpoint"
+      ],
+      "type": "object"
+    },
+    "DatastorePropertiesList": {
+      "items": {
+        "$ref": "#/definitions/DatastoreProperties"
+      },
+      "type": "array"
+    },
+    "DatastoreStatus": {
+      "enum": [
+        "CREATING",
+        "ACTIVE",
+        "DELETING",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "DeleteFHIRDatastoreRequest": {
+      "properties": {
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": " The AWS-generated ID for the datastore to be deleted."
+            }
+          ]
+        }
+      },
+      "title": "DeleteFHIRDatastoreRequest",
+      "type": "object"
+    },
+    "DeleteFHIRDatastoreResponse": {
+      "properties": {
+        "DatastoreArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission."
+            }
+          ]
+        },
+        "DatastoreEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BoundedLengthString"
+            },
+            {
+              "description": "The AWS endpoint for the datastore the user has requested to be deleted."
+            }
+          ]
+        },
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated ID for the datastore to be deleted."
+            }
+          ]
+        },
+        "DatastoreStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreStatus"
+            },
+            {
+              "description": "The status of the datastore that the user has requested to be deleted. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreId",
+        "DatastoreArn",
+        "DatastoreStatus",
+        "DatastoreEndpoint"
+      ],
+      "type": "object"
+    },
+    "DescribeFHIRDatastoreRequest": {
+      "properties": {
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated datastore id. This is part of the ‘CreateFHIRDatastore’ output."
+            }
+          ]
+        }
+      },
+      "title": "DescribeFHIRDatastoreRequest",
+      "type": "object"
+    },
+    "DescribeFHIRDatastoreResponse": {
+      "properties": {
+        "DatastoreProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreProperties"
+            },
+            {
+              "description": "All properties associated with a datastore, including the datastore ID, datastore ARN, datastore name, datastore status, created at, datastore type version, and datastore endpoint."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreProperties"
+      ],
+      "type": "object"
+    },
+    "DescribeFHIRImportJobRequest": {
+      "properties": {
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated ID of the datastore."
+            }
+          ]
+        },
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The AWS-generated job ID."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastoreId",
+        "JobId"
+      ],
+      "title": "DescribeFHIRImportJobRequest",
+      "type": "object"
+    },
+    "DescribeFHIRImportJobResponse": {
+      "properties": {
+        "ImportJobProperties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportJobProperties"
+            },
+            {
+              "description": "The properties of the Import job request, including the ID, ARN, name, and the status of the datastore."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ImportJobProperties"
+      ],
+      "type": "object"
+    },
+    "FHIRVersion": {
+      "enum": [
+        "R4"
+      ],
+      "type": "string"
+    },
+    "IamRoleArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+",
+      "type": "string"
+    },
+    "ImportJobProperties": {
+      "description": "Displays the properties of the import job, including the ID, Arn, Name, and the status of the datastore.",
+      "properties": {
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that gives Amazon HealthLake access to your input data."
+            }
+          ]
+        },
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The datastore id used when the Import job was created. "
+            }
+          ]
+        },
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time that the Import job was completed."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "The input data configuration that was supplied when the Import job was created."
+            }
+          ]
+        },
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The AWS-generated id number for the Import job."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The user-generated name for an Import job."
+            }
+          ]
+        },
+        "JobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            },
+            {
+              "description": "The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, FAILED."
+            }
+          ]
+        },
+        "Message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Message"
+            },
+            {
+              "description": "An explanation of any errors that may have occurred during the FHIR import job. "
+            }
+          ]
+        },
+        "SubmitTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The time that the Import job was submitted for processing."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId",
+        "JobStatus",
+        "SubmitTime",
+        "DatastoreId",
+        "InputDataConfig"
+      ],
+      "type": "object"
+    },
+    "InputDataConfig": {
+      "description": " The input properties for an import job.",
+      "properties": {
+        "S3Uri": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/S3Uri"
+            },
+            {
+              "description": "The S3Uri is the user specified S3 location of the FHIR data to be imported into Amazon HealthLake. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerException": {},
+    "JobId": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "JobName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "JobStatus": {
+      "enum": [
+        "SUBMITTED",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ListFHIRDatastoresRequest": {
+      "properties": {
+        "Filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreFilter"
+            },
+            {
+              "description": "Lists all filters associated with a FHIR datastore request."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResultsInteger"
+            },
+            {
+              "description": "The maximum number of datastores returned in a single page of a ListFHIRDatastoresRequest call."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "Fetches the next page of datastores when results are paginated."
+            }
+          ]
+        }
+      },
+      "title": "ListFHIRDatastoresRequest",
+      "type": "object"
+    },
+    "ListFHIRDatastoresResponse": {
+      "properties": {
+        "DatastorePropertiesList": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastorePropertiesList"
+            },
+            {
+              "description": "All properties associated with the listed datastores."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "Pagination token that can be used to retrieve the next page of results."
+            }
+          ]
+        }
+      },
+      "required": [
+        "DatastorePropertiesList"
+      ],
+      "type": "object"
+    },
+    "MaxResultsInteger": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Message": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 8192,
+      "pattern": "\\p{ASCII}{0,8192}",
+      "type": "string"
+    },
+    "PreloadDataConfig": {
+      "description": " The input properties for the preloaded datastore. Only data preloaded from Synthea is supported.",
+      "properties": {
+        "PreloadDataType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PreloadDataType"
+            },
+            {
+              "description": "The type of preloaded data. Only Synthea preloaded data is supported."
+            }
+          ]
+        }
+      },
+      "required": [
+        "PreloadDataType"
+      ],
+      "type": "object"
+    },
+    "PreloadDataType": {
+      "enum": [
+        "SYNTHEA"
+      ],
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "S3Uri": {
+      "maxLength": 1024,
+      "pattern": "s3://[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9](/.*)?",
+      "type": "string"
+    },
+    "StartFHIRImportJobRequest": {
+      "properties": {
+        "ClientToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientTokenString"
+            },
+            {
+              "description": "Optional user provided token used for ensuring idempotency."
+            }
+          ]
+        },
+        "DataAccessRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IamRoleArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission."
+            }
+          ]
+        },
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated datastore ID."
+            }
+          ]
+        },
+        "InputDataConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InputDataConfig"
+            },
+            {
+              "description": "The input properties of the FHIR Import job in the StartFHIRImport job request."
+            }
+          ]
+        },
+        "JobName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobName"
+            },
+            {
+              "description": "The name of the FHIR Import job in the StartFHIRImport job request."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InputDataConfig",
+        "DatastoreId",
+        "DataAccessRoleArn",
+        "ClientToken"
+      ],
+      "title": "StartFHIRImportJobRequest",
+      "type": "object"
+    },
+    "StartFHIRImportJobResponse": {
+      "properties": {
+        "DatastoreId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DatastoreId"
+            },
+            {
+              "description": "The AWS-generated datastore ID."
+            }
+          ]
+        },
+        "JobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": "The AWS-generated job ID."
+            }
+          ]
+        },
+        "JobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            },
+            {
+              "description": "The status of an import job."
+            }
+          ]
+        }
+      },
+      "required": [
+        "JobId",
+        "JobStatus"
+      ],
+      "type": "object"
+    },
+    "String": {
+      "maxLength": 10000,
+      "pattern": "[\\P{M}\\p{M}]{0,10000}",
+      "type": "string"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/healthlake/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

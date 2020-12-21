@@ -15,12 +15,7 @@ let azure_sql_serverdnsaliases = require('@datafire/azure_sql_serverdnsaliases')
   redirect_uri: ""
 });
 
-azure_sql_serverdnsaliases.ServerDnsAliases_ListByServer({
-  "resourceGroupName": "",
-  "serverName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

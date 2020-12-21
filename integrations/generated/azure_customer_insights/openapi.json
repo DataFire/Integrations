@@ -108,7 +108,6 @@
                   "value": [
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Hub",
                         "operation": "Read Azure Customer Insights Hub",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Hubs"
@@ -117,7 +116,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Hub",
                         "operation": "Create or Update Azure Customer Insights Hub",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Hubs"
@@ -126,7 +124,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Hub",
                         "operation": "Delete Azure Customer Insights Hub",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Hubs"
@@ -135,7 +132,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights App View",
                         "operation": "Read Azure Customer Insights App View",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights App Views"
@@ -144,7 +140,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights App View",
                         "operation": "Create or Update Azure Customer Insights App View",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights App Views"
@@ -153,7 +148,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights App View",
                         "operation": "Delete Azure Customer Insights App View",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights App Views"
@@ -162,7 +156,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Connector",
                         "operation": "Read Azure Customer Insights Connector",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connectors"
@@ -171,7 +164,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Connector",
                         "operation": "Create or Update Azure Customer Insights Connector",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connectors"
@@ -180,7 +172,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Connector",
                         "operation": "Delete Azure Customer Insights Connector",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connectors"
@@ -189,7 +180,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Connector Mapping",
                         "operation": "Read Azure Customer Insights Connector Mapping",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connector Mappings"
@@ -198,7 +188,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Connector Mapping",
                         "operation": "Create or Update Azure Customer Insights Connector Mapping",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connector Mappings"
@@ -207,7 +196,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Connector Mapping",
                         "operation": "Delete Azure Customer Insights App View",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Connector Mappings"
@@ -216,7 +204,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Interaction",
                         "operation": "Read Azure Customer Insights Interaction",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Interactions"
@@ -225,7 +212,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Interaction",
                         "operation": "Create or Update Azure Customer Insights Interaction",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Interactions"
@@ -234,7 +220,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Profile",
                         "operation": "Read Azure Customer Insights Profile",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Profiles"
@@ -243,7 +228,6 @@
                     },
                     {
                       "display": {
-                        "description": "Write any Azure Customer Insights Profile",
                         "operation": "Create or Update Azure Customer Insights Profile",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Profiles"
@@ -252,7 +236,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Key Performance Indicator",
                         "operation": "Read Azure Customer Insights Key Performance Indicator",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Create or Update Customer Insights Key Performance Indicators"
@@ -261,7 +244,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Key Performance Indicator",
                         "operation": "Create or Update Azure Customer Insights Key Performance Indicator",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Create or Update Customer Insights Key Performance Indicators"
@@ -270,7 +252,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Key Performance Indicator",
                         "operation": "Delete Azure Customer Insights Key Performance Indicator",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Create or Update Customer Insights Key Performance Indicators"
@@ -279,7 +260,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Rbac Assignment",
                         "operation": "Read Azure Customer Insights Rbac Assignment",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Rbac Assignments"
@@ -288,7 +268,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Rbac Assignment",
                         "operation": "Create or Update Azure Customer Insights Rbac Assignment",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Rbac Assignments"
@@ -297,7 +276,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Rbac Assignment",
                         "operation": "Delete Azure Customer Insights Rbac Assignment",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Rbac Assignments"
@@ -306,7 +284,6 @@
                     },
                     {
                       "display": {
-                        "description": "Read any Azure Customer Insights Shared Access Signature Policy",
                         "operation": "Read Azure Customer Insights Shared Access Signature Policy",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Shared Access Signature Policies"
@@ -315,7 +292,6 @@
                     },
                     {
                       "display": {
-                        "description": "Create or Update any Azure Customer Insights Shared Access Signature Policy",
                         "operation": "Create or Update Azure Customer Insights Shared Access Signature Policy",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Shared Access Signature Policies"
@@ -324,7 +300,6 @@
                     },
                     {
                       "display": {
-                        "description": "Delete any Azure Customer Insights Shared Access Signature Policy",
                         "operation": "Delete Azure Customer Insights Shared Access Signature Policy",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Shared Access Signature Policies"
@@ -333,7 +308,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate Azure Customer Insights Shared Access Signature Policy primary key",
                         "operation": "Regenerate Azure Customer Insights Shared Access Signature Policy primary key",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Shared Access Signature Policies"
@@ -342,7 +316,6 @@
                     },
                     {
                       "display": {
-                        "description": "Regenerate Azure Customer Insights Shared Access Signature Policy secondary key",
                         "operation": "Regenerate Azure Customer Insights Shared Access Signature Policy secondary key",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Azure Customer Insights Shared Access Signature Policies"
@@ -351,7 +324,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available metrics for resource",
                         "operation": "Read resource metric definitions",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Microsoft Azure Customer Insights Metric Definition"
@@ -360,7 +332,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the available logs for resource",
                         "operation": "Read resource log definitions",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Microsoft Azure Customer Insights Log Definition"
@@ -369,7 +340,6 @@
                     },
                     {
                       "display": {
-                        "description": "Gets the diagnostic setting for the resource",
                         "operation": "Diagnostic setting read",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Microsoft Azure Customer Insights Diagnostic Settings"
@@ -378,7 +348,6 @@
                     },
                     {
                       "display": {
-                        "description": "Creates or updates the diagnostic setting for the resource",
                         "operation": "Diagnostic setting write",
                         "provider": "Microsoft Azure Customer Insights",
                         "resource": "Microsoft Azure Customer Insights Diagnostic Settings"
@@ -2688,13 +2657,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK. Successfully created the interation.",
+            "description": "OK. Successfully created the interaction.",
             "schema": {
               "$ref": "#/definitions/InteractionResourceFormat"
             }
           },
           "202": {
-            "description": "Accepted. The create interation operation is accepted."
+            "description": "Accepted. The create interaction operation is accepted."
           }
         },
         "tags": [
@@ -4442,7 +4411,7 @@
             "responses": {
               "200": {
                 "body": {
-                  "nextLink": "",
+                  "nextLink": null,
                   "value": [
                     {
                       "id": "/subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/profiles/TestProfileType396",
@@ -6303,7 +6272,7 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The user ID. Use * to retreive hub level views.",
+            "description": "The user ID. Use * to retrieve hub level views.",
             "in": "query",
             "name": "userId",
             "required": true,
@@ -6392,7 +6361,7 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The user ID. Use * to retreive hub level view.",
+            "description": "The user ID. Use * to retrieve hub level view.",
             "in": "query",
             "name": "userId",
             "required": true,
@@ -6455,7 +6424,7 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "description": "The user ID. Use * to retreive hub level view.",
+            "description": "The user ID. Use * to retrieve hub level view.",
             "in": "query",
             "name": "userId",
             "required": true,
@@ -6505,7 +6474,7 @@
         }
       },
       "put": {
-        "description": "Creates a view or updates an exisiting view in the hub.",
+        "description": "Creates a view or updates an existing view in the hub.",
         "operationId": "Views_CreateOrUpdate",
         "parameters": [
           {
@@ -6801,11 +6770,11 @@
           "type": "string"
         },
         "primaryKey": {
-          "description": "Primary key assiciated with the policy.",
+          "description": "Primary key associated with the policy.",
           "type": "string"
         },
         "secondaryKey": {
-          "description": "Secondary key assiciated with the policy.",
+          "description": "Secondary key associated with the policy.",
           "type": "string"
         }
       },
@@ -6946,7 +6915,7 @@
           "type": "boolean"
         },
         "lastModified": {
-          "description": "The last monified time.",
+          "description": "The last modified time.",
           "format": "date-time",
           "readOnly": true,
           "type": "string"
@@ -7050,7 +7019,7 @@
           "type": "string"
         },
         "lastModified": {
-          "description": "The last monified time.",
+          "description": "The last modified time.",
           "format": "date-time",
           "readOnly": true,
           "type": "string"
@@ -7150,7 +7119,7 @@
       }
     },
     "ConnectorMappingErrorManagement": {
-      "description": "The error mangement.",
+      "description": "The error management.",
       "properties": {
         "errorLimit": {
           "description": "The error limit allowed while importing data.",
@@ -7282,7 +7251,7 @@
           "$ref": "#/definitions/ProxyResource"
         }
       ],
-      "description": "The c onnector mapping resource format.",
+      "description": "The connector mapping resource format.",
       "properties": {
         "properties": {
           "$ref": "#/definitions/ConnectorMapping",
@@ -7476,7 +7445,7 @@
       "description": "Describes an entity.",
       "properties": {
         "apiEntitySetName": {
-          "description": "The api entity set name. This becomes the odata entity set name for the entity Type being refered in this object.",
+          "description": "The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.",
           "type": "string"
         },
         "entityType": {
@@ -8045,7 +8014,7 @@
           "readOnly": true
         },
         "referenceOnly": {
-          "description": "Indicating whether the link is reference only link. This flag is ingored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.",
+          "description": "Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.",
           "type": "boolean"
         },
         "sourceEntityType": {
@@ -8566,7 +8535,7 @@
           "type": "string"
         },
         "signalsUsed": {
-          "description": "The singnas used.",
+          "description": "The signals used.",
           "readOnly": true,
           "type": "integer"
         },
@@ -8799,7 +8768,7 @@
           "type": "boolean"
         },
         "isRequired": {
-          "description": "Whether property value is required on instances, IsRequired field only for Intercation. Profile Instance will not check for required field.",
+          "description": "Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.",
           "type": "boolean"
         },
         "maxLength": {

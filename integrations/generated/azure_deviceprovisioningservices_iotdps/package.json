@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_deviceprovisioningservices_iotdps",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for iotDpsClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/deviceprovisioningservices-iotdps/2017-11-15/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/deviceprovisioningservices-iotdps/2018-01-22/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

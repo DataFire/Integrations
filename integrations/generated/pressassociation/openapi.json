@@ -1,0 +1,709 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Welcome to the API Reference Docs page for the Press Association TV API (v2).",
+    "title": "TV API",
+    "version": "2.0",
+    "x-apisguru-categories": [
+      "media"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/PressAssociation/tv-api-v2-development-kit/master/swagger.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "pressassociation.io",
+    "x-datafire": {
+      "name": "pressassociation",
+      "type": "openapi"
+    }
+  },
+  "host": "tv.api.pressassociation.io",
+  "basePath": "/v2",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/asset": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2015-05-05T00:00:00.000Z",
+            "description": "Updated After",
+            "in": "query",
+            "name": "updatedAfter",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 100,
+            "description": "Limit the the number of items to be returned per page. For example: 5.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Asset"
+        ],
+        "description": "Return a collection of Assets.",
+        "operationId": "listAssets",
+        "summary": "Asset Collection"
+      }
+    },
+    "/asset/{assetId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.",
+            "in": "path",
+            "name": "assetId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Asset"
+        ],
+        "description": "Return the content of the selected asset.",
+        "operationId": "getAsset",
+        "summary": "Asset Detail"
+      }
+    },
+    "/asset/{assetId}/contributor": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "A asset ID filter for the schedule collection. This can be a reference to any type of asset i.e. movie, season, series or episode.",
+            "in": "path",
+            "name": "assetId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Asset"
+        ],
+        "description": "Return the contributors of the selected asset.",
+        "operationId": "getAssetContributors",
+        "summary": "Asset Contributors"
+      }
+    },
+    "/channel": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3",
+            "description": "The identifier for the selected platform. Multiple platforms can be passed to the API without a region Id. Passing multiple platforms without a region will not return epg numbers as these are linked to a platform and region.",
+            "in": "query",
+            "name": "platformId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "afa4f624-da9b-54ce-b514-570345dbbdce",
+            "description": "The platform region ID for the channel selection.",
+            "in": "query",
+            "name": "regionId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "2018-09-15",
+            "description": "Date of the Channel State to select, this will display channel names and attributes in the future or past.",
+            "in": "query",
+            "name": "date",
+            "pattern": "date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2015-05-05T00:00:00",
+            "description": "The Start Date for the schedule.",
+            "in": "query",
+            "name": "scheduleStart",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2015-05-06T00:00:00",
+            "description": "The End Date for the schedule.",
+            "in": "query",
+            "name": "scheduleEnd",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2015-05-05T00:00:00",
+            "description": "Schedule Updated Since",
+            "in": "query",
+            "name": "scheduleUpdatedSince",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Channel"
+        ],
+        "description": "If you are interested in a list of channels that have had there schedule updated you can filter by the following query params.\n - scheduleStart\n - scheduleEnd\n - scheduleUpdatedSince\n\nadding these query params will filter the channel collection to only return channels that have been updated within the given range, updatedSince stores the state of your previous call.\n\nExample Usage: Every 10 minutes get me the channels that have updated schedules for the next 2 weeks.\n\n/channel?platform={uuid}&scheduleStart={today}&scheduleEnd={today + 2 weeks}&updatedSince={10 minutes ago}\n\nAlso please note epg numbers are only exposed when a platform and region are passed to the query.",
+        "operationId": "listChannels",
+        "summary": "Channel Collection"
+      }
+    },
+    "/channel/{channelId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The identifier for the selected channel.",
+            "in": "path",
+            "name": "channelId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Channel"
+        ],
+        "description": "Return the content of the selected channel.",
+        "operationId": "getChannel",
+        "summary": "Channel Detail"
+      }
+    },
+    "/contributor": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2015-05-05T00:00:00.000Z",
+            "description": "Updated After",
+            "in": "query",
+            "name": "updatedAfter",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 100,
+            "description": "Limit the the number of items to be returned per page. For example: 5.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Contributor"
+        ],
+        "description": "Return a collection of Contributors.",
+        "operationId": "listContributor",
+        "summary": "Contributor Collection"
+      }
+    },
+    "/contributor/{contributorId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Filter the schedule items by contributor ID",
+            "in": "path",
+            "name": "contributorId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Contributor"
+        ],
+        "description": "Return the content of the selected contributor.",
+        "operationId": "getContributor",
+        "summary": "Contributor Detail"
+      }
+    },
+    "/feature": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "netflix-monthly",
+            "description": "The namespace of the feature type.",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2018-09-15",
+            "description": "Date of the collection of feature items.",
+            "in": "query",
+            "name": "date",
+            "pattern": "date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2018-09-15",
+            "description": "Start date for a range of features.",
+            "in": "query",
+            "name": "start",
+            "pattern": "date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "2018-10-15",
+            "description": "End date for a range of features.",
+            "in": "query",
+            "name": "end",
+            "pattern": "date",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Feature"
+        ],
+        "description": "Return a collection of Feature.",
+        "operationId": "listFeatures",
+        "summary": "Feature Collection"
+      }
+    },
+    "/feature-type": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Feature"
+        ],
+        "description": "Return a collection of Feature Types.",
+        "operationId": "listFeatureTypes",
+        "summary": "Feature Type Collection"
+      }
+    },
+    "/feature/{featureId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The identifier for the selected feature.",
+            "in": "path",
+            "name": "featureId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Feature"
+        ],
+        "description": "Return the content of the selected feature.",
+        "operationId": "getFeature",
+        "summary": "Feature Detail"
+      }
+    },
+    "/platform": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Platform"
+        ],
+        "description": "Return a list of available platforms.",
+        "operationId": "listPlatforms",
+        "summary": "Platform Collection"
+      }
+    },
+    "/platform/{platformId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3",
+            "description": "The identifier for the selected platform.",
+            "in": "path",
+            "name": "platformId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Platform"
+        ],
+        "description": "Return the content of the selected platform.",
+        "operationId": "getPlatform",
+        "summary": "Platform Detail"
+      }
+    },
+    "/platform/{platformId}/region": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "d3b26caa-8c7d-5f97-9eff-40fcf1a6f8d3",
+            "description": "The identifier for the selected platform.",
+            "in": "path",
+            "name": "platformId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Platform"
+        ],
+        "description": "Return a list of regions for a platform.",
+        "operationId": "listPlatformRegions",
+        "summary": "Platform Region Collection"
+      }
+    },
+    "/schedule": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The identifier for the selected channel.",
+            "in": "query",
+            "name": "channelId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2015-05-05T00:00:00",
+            "description": "The Start Date for the schedule.",
+            "in": "query",
+            "name": "start",
+            "pattern": "date-time",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2015-05-06T00:00:00",
+            "description": "The End Date for the schedule.",
+            "in": "query",
+            "name": "end",
+            "pattern": "date-time",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "description": "Flag to display Legacy and Provider Ids.",
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "tags": [
+          "Schedule"
+        ],
+        "description": "The schedule endpoint produces a linear TV schedule for a given channel and date range.\n\n - The date range supplied must be no larger than 21 days.\n - If no end data is passed the API will default to start date + 24 hours.",
+        "operationId": "listSchedule",
+        "summary": "Schedule Collection"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "header",
+      "name": "apikey",
+      "type": "apiKey"
+    }
+  },
+  "x-components": {}
+}

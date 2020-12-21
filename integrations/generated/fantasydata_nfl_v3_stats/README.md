@@ -12,9 +12,7 @@ let fantasydata_nfl_v3_stats = require('@datafire/fantasydata_nfl_v3_stats').cre
   apiKeyQuery: ""
 });
 
-fantasydata_nfl_v3_stats.LegacyBoxScoresActive({
-  "format": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

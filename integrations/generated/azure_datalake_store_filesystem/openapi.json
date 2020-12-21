@@ -75,7 +75,7 @@
             "type": "string"
           },
           {
-            "description": "The file contents to include when appending to the file.",
+            "description": "The file contents to include when appending to the file.  The maximum content size is 4MB.  For content larger than 4MB you must append the content in 4MB chunks.",
             "in": "body",
             "name": "streamContents",
             "required": true,
@@ -672,7 +672,7 @@
             "type": "string"
           },
           {
-            "description": "The file contents to include when appending to the file.",
+            "description": "The file contents to include when appending to the file.  The maximum content size is 4MB.  For content larger than 4MB you must append the content in 4MB chunks.",
             "in": "body",
             "name": "streamContents",
             "required": true,
@@ -869,7 +869,7 @@
             "type": "string"
           },
           {
-            "description": "The file contents to include when creating the file. This parameter is optional, resulting in an empty file if not specified.",
+            "description": "The file contents to include when creating the file. This parameter is optional, resulting in an empty file if not specified.  The maximum content size is 4MB.  For content larger than 4MB you must append the content in 4MB chunks.",
             "in": "body",
             "name": "streamContents",
             "required": false,
@@ -1063,7 +1063,7 @@
             "type": "string"
           },
           {
-            "description": "An optional switch to return friendly names in place of object ID for ACL entries. tooid=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
+            "description": "An optional switch to return friendly names in place of object ID for ACL entries. tooId=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
             "in": "query",
             "name": "tooId",
             "required": false,
@@ -1112,15 +1112,17 @@
             },
             "responses": {
               "200": {
-                "AclStatus": {
-                  "entries": [
-                    "test_entry_1",
-                    "test_entry_2"
-                  ],
-                  "group": "test_group",
-                  "owner": "test_owner",
-                  "permission": "1",
-                  "stickyBit": false
+                "body": {
+                  "aclStatus": {
+                    "entries": [
+                      "test_entry_1",
+                      "test_entry_2"
+                    ],
+                    "group": "test_group",
+                    "owner": "test_owner",
+                    "permission": "1",
+                    "stickyBit": false
+                  }
                 }
               }
             }
@@ -1209,7 +1211,7 @@
             "type": "string"
           },
           {
-            "description": "An optional switch to return friendly names in place of owner and group. tooid=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
+            "description": "An optional switch to return friendly names in place of owner and group. tooId=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
             "in": "query",
             "name": "tooId",
             "required": false,
@@ -1300,21 +1302,21 @@
             "type": "integer"
           },
           {
-            "description": "Gets or sets the item or lexographical index after which to begin returning results. For example, a file list of 'a','b','d' and listAfter='b' will return 'd', and a listAfter='c' will also return 'd'. Optional.",
+            "description": "Gets or sets the item or lexicographical index after which to begin returning results. For example, a file list of 'a','b','d' and listAfter='b' will return 'd', and a listAfter='c' will also return 'd'. Optional.",
             "in": "query",
             "name": "listAfter",
             "required": false,
             "type": "string"
           },
           {
-            "description": "Gets or sets the item or lexographical index before which to begin returning results. For example, a file list of 'a','b','d' and listBefore='d' will return 'a','b', and a listBefore='c' will also return 'a','b'. Optional.",
+            "description": "Gets or sets the item or lexicographical index before which to begin returning results. For example, a file list of 'a','b','d' and listBefore='d' will return 'a','b', and a listBefore='c' will also return 'a','b'. Optional.",
             "in": "query",
             "name": "listBefore",
             "required": false,
             "type": "string"
           },
           {
-            "description": "An optional switch to return friendly names in place of owner and group. tooid=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
+            "description": "An optional switch to return friendly names in place of owner and group. tooId=false returns friendly names instead of the AAD Object ID. Default value is true, returning AAD object IDs.",
             "in": "query",
             "name": "tooId",
             "required": false,

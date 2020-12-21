@@ -13,19 +13,14 @@ let amazonaws_sns = require('@datafire/amazonaws_sns').create({
   region: ""
 });
 
-amazonaws_sns.AddPermission({
-  "TopicArn": "",
-  "Label": "",
-  "AWSAccountId": [],
-  "ActionName": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Simple Notification Service</fullname> <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. For detailed information about Amazon SNS features and their associated API calls, see the <a href="http://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p> <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p>
+<fullname>Amazon Simple Notification Service</fullname> <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. For detailed information about Amazon SNS features and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p> <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and access management in Amazon SNS</a> in the <i>Amazon SNS Developer Guide.</i> </p> <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p>
 
 ## Actions
 
@@ -44,10 +39,35 @@ amazonaws_sns.AddPermission({
 
 #### Input
 * input `object`
-  * AWSAccountId **required** [DelegatesList](#delegateslist)
-  * ActionName **required** [ActionsList](#actionslist)
-  * Label **required** [label](#label)
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+  * Label **required** `string`
+  * AWSAccountId **required** `array`
+  * ActionName **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### AddPermission
+
+
+
+```js
+amazonaws_sns.AddPermission({
+  "TopicArn": null,
+  "Label": null,
+  "AWSAccountId": null,
+  "ActionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AWSAccountId **required**
+    * items [delegate](#delegate)
+  * ActionName **required**
+    * items [action](#action)
+  * Label **required**
+  * TopicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -64,7 +84,24 @@ amazonaws_sns.CheckIfPhoneNumberIsOptedOut({
 
 #### Input
 * input `object`
-  * phoneNumber **required** [PhoneNumber](#phonenumber)
+  * phoneNumber **required** `string`
+
+#### Output
+* output [CheckIfPhoneNumberIsOptedOutResponse](#checkifphonenumberisoptedoutresponse)
+
+### CheckIfPhoneNumberIsOptedOut
+
+
+
+```js
+amazonaws_sns.CheckIfPhoneNumberIsOptedOut({
+  "phoneNumber": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * phoneNumber **required**
 
 #### Output
 * output [CheckIfPhoneNumberIsOptedOutResponse](#checkifphonenumberisoptedoutresponse)
@@ -82,9 +119,29 @@ amazonaws_sns.ConfirmSubscription({
 
 #### Input
 * input `object`
-  * AuthenticateOnUnsubscribe [authenticateOnUnsubscribe](#authenticateonunsubscribe)
-  * Token **required** [token](#token)
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+  * Token **required** `string`
+  * AuthenticateOnUnsubscribe `string`
+
+#### Output
+* output [ConfirmSubscriptionResponse](#confirmsubscriptionresponse)
+
+### ConfirmSubscription
+
+
+
+```js
+amazonaws_sns.ConfirmSubscription({
+  "TopicArn": null,
+  "Token": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticateOnUnsubscribe
+  * Token **required**
+  * TopicArn **required**
 
 #### Output
 * output [ConfirmSubscriptionResponse](#confirmsubscriptionresponse)
@@ -97,15 +154,36 @@ amazonaws_sns.ConfirmSubscription({
 amazonaws_sns.CreatePlatformApplication({
   "Name": "",
   "Platform": "",
-  "Attributes": []
+  "Attributes": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * Name **required** [String](#string)
-  * Platform **required** [String](#string)
+  * Name **required** `string`
+  * Platform **required** `string`
+  * Attributes **required** `object`
+
+#### Output
+* output [CreatePlatformApplicationResponse](#createplatformapplicationresponse)
+
+### CreatePlatformApplication
+
+
+
+```js
+amazonaws_sns.CreatePlatformApplication({
+  "Name": null,
+  "Platform": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+  * Name **required**
+  * Platform **required**
 
 #### Output
 * output [CreatePlatformApplicationResponse](#createplatformapplicationresponse)
@@ -123,10 +201,31 @@ amazonaws_sns.CreatePlatformEndpoint({
 
 #### Input
 * input `object`
-  * Attributes [MapStringToString](#mapstringtostring)
-  * CustomUserData [String](#string)
-  * PlatformApplicationArn **required** [String](#string)
-  * Token **required** [String](#string)
+  * PlatformApplicationArn **required** `string`
+  * Token **required** `string`
+  * CustomUserData `string`
+  * Attributes `object`
+
+#### Output
+* output [CreateEndpointResponse](#createendpointresponse)
+
+### CreatePlatformEndpoint
+
+
+
+```js
+amazonaws_sns.CreatePlatformEndpoint({
+  "PlatformApplicationArn": null,
+  "Token": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes
+  * CustomUserData
+  * PlatformApplicationArn **required**
+  * Token **required**
 
 #### Output
 * output [CreateEndpointResponse](#createendpointresponse)
@@ -143,7 +242,29 @@ amazonaws_sns.CreateTopic({
 
 #### Input
 * input `object`
-  * Name **required** [topicName](#topicname)
+  * Name **required** `string`
+  * Attributes `object`
+  * Tags `array`
+
+#### Output
+* output [CreateTopicResponse](#createtopicresponse)
+
+### CreateTopic
+
+
+
+```js
+amazonaws_sns.CreateTopic({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateTopicResponse](#createtopicresponse)
@@ -160,7 +281,24 @@ amazonaws_sns.DeleteEndpoint({
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteEndpoint
+
+
+
+```js
+amazonaws_sns.DeleteEndpoint({
+  "EndpointArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndpointArn **required**
 
 #### Output
 *Output schema unknown*
@@ -177,7 +315,24 @@ amazonaws_sns.DeletePlatformApplication({
 
 #### Input
 * input `object`
-  * PlatformApplicationArn **required** [String](#string)
+  * PlatformApplicationArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeletePlatformApplication
+
+
+
+```js
+amazonaws_sns.DeletePlatformApplication({
+  "PlatformApplicationArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PlatformApplicationArn **required**
 
 #### Output
 *Output schema unknown*
@@ -194,7 +349,24 @@ amazonaws_sns.DeleteTopic({
 
 #### Input
 * input `object`
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteTopic
+
+
+
+```js
+amazonaws_sns.DeleteTopic({
+  "TopicArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TopicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -211,7 +383,24 @@ amazonaws_sns.GetEndpointAttributes({
 
 #### Input
 * input `object`
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required** `string`
+
+#### Output
+* output [GetEndpointAttributesResponse](#getendpointattributesresponse)
+
+### GetEndpointAttributes
+
+
+
+```js
+amazonaws_sns.GetEndpointAttributes({
+  "EndpointArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndpointArn **required**
 
 #### Output
 * output [GetEndpointAttributesResponse](#getendpointattributesresponse)
@@ -228,7 +417,24 @@ amazonaws_sns.GetPlatformApplicationAttributes({
 
 #### Input
 * input `object`
-  * PlatformApplicationArn **required** [String](#string)
+  * PlatformApplicationArn **required** `string`
+
+#### Output
+* output [GetPlatformApplicationAttributesResponse](#getplatformapplicationattributesresponse)
+
+### GetPlatformApplicationAttributes
+
+
+
+```js
+amazonaws_sns.GetPlatformApplicationAttributes({
+  "PlatformApplicationArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PlatformApplicationArn **required**
 
 #### Output
 * output [GetPlatformApplicationAttributesResponse](#getplatformapplicationattributesresponse)
@@ -243,7 +449,23 @@ amazonaws_sns.GetSMSAttributes({}, context)
 
 #### Input
 * input `object`
-  * attributes [ListString](#liststring)
+  * attributes `array`
+
+#### Output
+* output [GetSMSAttributesResponse](#getsmsattributesresponse)
+
+### GetSMSAttributes
+
+
+
+```js
+amazonaws_sns.GetSMSAttributes({}, context)
+```
+
+#### Input
+* input `object`
+  * attributes
+    * items [String](#string)
 
 #### Output
 * output [GetSMSAttributesResponse](#getsmsattributesresponse)
@@ -260,7 +482,24 @@ amazonaws_sns.GetSubscriptionAttributes({
 
 #### Input
 * input `object`
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn **required** `string`
+
+#### Output
+* output [GetSubscriptionAttributesResponse](#getsubscriptionattributesresponse)
+
+### GetSubscriptionAttributes
+
+
+
+```js
+amazonaws_sns.GetSubscriptionAttributes({
+  "SubscriptionArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionArn **required**
 
 #### Output
 * output [GetSubscriptionAttributesResponse](#getsubscriptionattributesresponse)
@@ -277,7 +516,24 @@ amazonaws_sns.GetTopicAttributes({
 
 #### Input
 * input `object`
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+
+#### Output
+* output [GetTopicAttributesResponse](#gettopicattributesresponse)
+
+### GetTopicAttributes
+
+
+
+```js
+amazonaws_sns.GetTopicAttributes({
+  "TopicArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TopicArn **required**
 
 #### Output
 * output [GetTopicAttributesResponse](#gettopicattributesresponse)
@@ -294,9 +550,27 @@ amazonaws_sns.ListEndpointsByPlatformApplication({
 
 #### Input
 * input `object`
+  * PlatformApplicationArn **required** `string`
   * NextToken `string`
-  * NextToken [String](#string)
-  * PlatformApplicationArn **required** [String](#string)
+
+#### Output
+* output [ListEndpointsByPlatformApplicationResponse](#listendpointsbyplatformapplicationresponse)
+
+### ListEndpointsByPlatformApplication
+
+
+
+```js
+amazonaws_sns.ListEndpointsByPlatformApplication({
+  "PlatformApplicationArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * NextToken
+  * PlatformApplicationArn **required**
 
 #### Output
 * output [ListEndpointsByPlatformApplicationResponse](#listendpointsbyplatformapplicationresponse)
@@ -311,7 +585,22 @@ amazonaws_sns.ListPhoneNumbersOptedOut({}, context)
 
 #### Input
 * input `object`
-  * nextToken [string](#string)
+  * nextToken `string`
+
+#### Output
+* output [ListPhoneNumbersOptedOutResponse](#listphonenumbersoptedoutresponse)
+
+### ListPhoneNumbersOptedOut
+
+
+
+```js
+amazonaws_sns.ListPhoneNumbersOptedOut({}, context)
+```
+
+#### Input
+* input `object`
+  * nextToken
 
 #### Output
 * output [ListPhoneNumbersOptedOutResponse](#listphonenumbersoptedoutresponse)
@@ -327,7 +616,22 @@ amazonaws_sns.ListPlatformApplications({}, context)
 #### Input
 * input `object`
   * NextToken `string`
-  * NextToken [String](#string)
+
+#### Output
+* output [ListPlatformApplicationsResponse](#listplatformapplicationsresponse)
+
+### ListPlatformApplications
+
+
+
+```js
+amazonaws_sns.ListPlatformApplications({}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * NextToken
 
 #### Output
 * output [ListPlatformApplicationsResponse](#listplatformapplicationsresponse)
@@ -343,7 +647,22 @@ amazonaws_sns.ListSubscriptions({}, context)
 #### Input
 * input `object`
   * NextToken `string`
-  * NextToken [nextToken](#nexttoken)
+
+#### Output
+* output [ListSubscriptionsResponse](#listsubscriptionsresponse)
+
+### ListSubscriptions
+
+
+
+```js
+amazonaws_sns.ListSubscriptions({}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * NextToken
 
 #### Output
 * output [ListSubscriptionsResponse](#listsubscriptionsresponse)
@@ -360,12 +679,64 @@ amazonaws_sns.ListSubscriptionsByTopic({
 
 #### Input
 * input `object`
+  * TopicArn **required** `string`
   * NextToken `string`
-  * NextToken [nextToken](#nexttoken)
-  * TopicArn **required** [topicARN](#topicarn)
 
 #### Output
 * output [ListSubscriptionsByTopicResponse](#listsubscriptionsbytopicresponse)
+
+### ListSubscriptionsByTopic
+
+
+
+```js
+amazonaws_sns.ListSubscriptionsByTopic({
+  "TopicArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * NextToken
+  * TopicArn **required**
+
+#### Output
+* output [ListSubscriptionsByTopicResponse](#listsubscriptionsbytopicresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_sns.ListTagsForResource({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_sns.ListTagsForResource({
+  "ResourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
 
 ### ListTopics
 
@@ -378,7 +749,22 @@ amazonaws_sns.ListTopics({}, context)
 #### Input
 * input `object`
   * NextToken `string`
-  * NextToken [nextToken](#nexttoken)
+
+#### Output
+* output [ListTopicsResponse](#listtopicsresponse)
+
+### ListTopics
+
+
+
+```js
+amazonaws_sns.ListTopics({}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * NextToken
 
 #### Output
 * output [ListTopicsResponse](#listtopicsresponse)
@@ -395,7 +781,24 @@ amazonaws_sns.OptInPhoneNumber({
 
 #### Input
 * input `object`
-  * phoneNumber **required** [PhoneNumber](#phonenumber)
+  * phoneNumber **required** `string`
+
+#### Output
+* output [OptInPhoneNumberResponse](#optinphonenumberresponse)
+
+### OptInPhoneNumber
+
+
+
+```js
+amazonaws_sns.OptInPhoneNumber({
+  "phoneNumber": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * phoneNumber **required**
 
 #### Output
 * output [OptInPhoneNumberResponse](#optinphonenumberresponse)
@@ -412,13 +815,40 @@ amazonaws_sns.Publish({
 
 #### Input
 * input `object`
-  * Message **required** [message](#message)
-  * MessageAttributes [MessageAttributeMap](#messageattributemap)
-  * MessageStructure [messageStructure](#messagestructure)
-  * PhoneNumber [String](#string)
-  * Subject [subject](#subject)
-  * TargetArn [String](#string)
-  * TopicArn [topicARN](#topicarn)
+  * TopicArn `string`
+  * TargetArn `string`
+  * PhoneNumber `string`
+  * Message **required** `string`
+  * Subject `string`
+  * MessageStructure `string`
+  * MessageAttributes `object`
+  * MessageDeduplicationId `string`
+  * MessageGroupId `string`
+
+#### Output
+* output [PublishResponse](#publishresponse)
+
+### Publish
+
+
+
+```js
+amazonaws_sns.Publish({
+  "Message": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Message **required**
+  * MessageAttributes
+  * MessageDeduplicationId
+  * MessageGroupId
+  * MessageStructure
+  * PhoneNumber
+  * Subject
+  * TargetArn
+  * TopicArn
 
 #### Output
 * output [PublishResponse](#publishresponse)
@@ -436,8 +866,27 @@ amazonaws_sns.RemovePermission({
 
 #### Input
 * input `object`
-  * Label **required** [label](#label)
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+  * Label **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### RemovePermission
+
+
+
+```js
+amazonaws_sns.RemovePermission({
+  "TopicArn": null,
+  "Label": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Label **required**
+  * TopicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -449,14 +898,33 @@ amazonaws_sns.RemovePermission({
 ```js
 amazonaws_sns.SetEndpointAttributes({
   "EndpointArn": "",
-  "Attributes": []
+  "Attributes": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required** `string`
+  * Attributes **required** `object`
+
+#### Output
+*Output schema unknown*
+
+### SetEndpointAttributes
+
+
+
+```js
+amazonaws_sns.SetEndpointAttributes({
+  "EndpointArn": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+  * EndpointArn **required**
 
 #### Output
 *Output schema unknown*
@@ -468,14 +936,33 @@ amazonaws_sns.SetEndpointAttributes({
 ```js
 amazonaws_sns.SetPlatformApplicationAttributes({
   "PlatformApplicationArn": "",
-  "Attributes": []
+  "Attributes": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * PlatformApplicationArn **required** [String](#string)
+  * PlatformApplicationArn **required** `string`
+  * Attributes **required** `object`
+
+#### Output
+*Output schema unknown*
+
+### SetPlatformApplicationAttributes
+
+
+
+```js
+amazonaws_sns.SetPlatformApplicationAttributes({
+  "PlatformApplicationArn": null,
+  "Attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes **required**
+  * PlatformApplicationArn **required**
 
 #### Output
 *Output schema unknown*
@@ -486,13 +973,30 @@ amazonaws_sns.SetPlatformApplicationAttributes({
 
 ```js
 amazonaws_sns.SetSMSAttributes({
-  "attributes": []
+  "attributes": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * attributes **required** [MapStringToString](#mapstringtostring)
+  * attributes **required** `object`
+
+#### Output
+* output [SetSMSAttributesResponse](#setsmsattributesresponse)
+
+### SetSMSAttributes
+
+
+
+```js
+amazonaws_sns.SetSMSAttributes({
+  "attributes": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * attributes **required**
 
 #### Output
 * output [SetSMSAttributesResponse](#setsmsattributesresponse)
@@ -510,9 +1014,29 @@ amazonaws_sns.SetSubscriptionAttributes({
 
 #### Input
 * input `object`
-  * AttributeName **required** [attributeName](#attributename)
-  * AttributeValue [attributeValue](#attributevalue)
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn **required** `string`
+  * AttributeName **required** `string`
+  * AttributeValue `string`
+
+#### Output
+*Output schema unknown*
+
+### SetSubscriptionAttributes
+
+
+
+```js
+amazonaws_sns.SetSubscriptionAttributes({
+  "SubscriptionArn": null,
+  "AttributeName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeName **required**
+  * AttributeValue
+  * SubscriptionArn **required**
 
 #### Output
 *Output schema unknown*
@@ -530,9 +1054,29 @@ amazonaws_sns.SetTopicAttributes({
 
 #### Input
 * input `object`
-  * AttributeName **required** [attributeName](#attributename)
-  * AttributeValue [attributeValue](#attributevalue)
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+  * AttributeName **required** `string`
+  * AttributeValue `string`
+
+#### Output
+*Output schema unknown*
+
+### SetTopicAttributes
+
+
+
+```js
+amazonaws_sns.SetTopicAttributes({
+  "TopicArn": null,
+  "AttributeName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeName **required**
+  * AttributeValue
+  * TopicArn **required**
 
 #### Output
 *Output schema unknown*
@@ -550,14 +1094,75 @@ amazonaws_sns.Subscribe({
 
 #### Input
 * input `object`
-  * Attributes [SubscriptionAttributesMap](#subscriptionattributesmap)
-  * Endpoint [endpoint](#endpoint)
-  * Protocol **required** [protocol](#protocol)
-  * ReturnSubscriptionArn [boolean](#boolean)
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required** `string`
+  * Protocol **required** `string`
+  * Endpoint `string`
+  * Attributes `object`
+  * ReturnSubscriptionArn `boolean`
 
 #### Output
 * output [SubscribeResponse](#subscriberesponse)
+
+### Subscribe
+
+
+
+```js
+amazonaws_sns.Subscribe({
+  "TopicArn": null,
+  "Protocol": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Attributes
+  * Endpoint
+  * Protocol **required**
+  * ReturnSubscriptionArn
+  * TopicArn **required**
+
+#### Output
+* output [SubscribeResponse](#subscriberesponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_sns.TagResource({
+  "ResourceArn": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+  * Tags **required** `array`
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_sns.TagResource({
+  "ResourceArn": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
 
 ### Unsubscribe
 
@@ -571,10 +1176,66 @@ amazonaws_sns.Unsubscribe({
 
 #### Input
 * input `object`
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn **required** `string`
 
 #### Output
 *Output schema unknown*
+
+### Unsubscribe
+
+
+
+```js
+amazonaws_sns.Unsubscribe({
+  "SubscriptionArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionArn **required**
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_sns.UntagResource({
+  "ResourceArn": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required** `string`
+  * TagKeys **required** `array`
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_sns.UntagResource({
+  "ResourceArn": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 
 
@@ -586,64 +1247,74 @@ amazonaws_sns.Unsubscribe({
 
 ### AddPermissionInput
 * AddPermissionInput `object`
-  * AWSAccountId **required** [DelegatesList](#delegateslist)
-  * ActionName **required** [ActionsList](#actionslist)
-  * Label **required** [label](#label)
-  * TopicArn **required** [topicARN](#topicarn)
+  * AWSAccountId **required**
+    * items [delegate](#delegate)
+  * ActionName **required**
+    * items [action](#action)
+  * Label **required**
+  * TopicArn **required**
+
+### AmazonResourceName
+* AmazonResourceName `string`
 
 ### AuthorizationErrorException
-* AuthorizationErrorException `object`: Indicates that the user has been denied access to the requested resource.
-  * message [string](#string)
+
 
 ### Binary
 * Binary `string`
 
 ### CheckIfPhoneNumberIsOptedOutInput
 * CheckIfPhoneNumberIsOptedOutInput `object`: The input for the <code>CheckIfPhoneNumberIsOptedOut</code> action.
-  * phoneNumber **required** [PhoneNumber](#phonenumber)
+  * phoneNumber **required**
 
 ### CheckIfPhoneNumberIsOptedOutResponse
 * CheckIfPhoneNumberIsOptedOutResponse `object`: The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.
-  * isOptedOut [boolean](#boolean)
+  * isOptedOut
+
+### ConcurrentAccessException
+
 
 ### ConfirmSubscriptionInput
 * ConfirmSubscriptionInput `object`: Input for ConfirmSubscription action.
-  * AuthenticateOnUnsubscribe [authenticateOnUnsubscribe](#authenticateonunsubscribe)
-  * Token **required** [token](#token)
-  * TopicArn **required** [topicARN](#topicarn)
+  * AuthenticateOnUnsubscribe
+  * Token **required**
+  * TopicArn **required**
 
 ### ConfirmSubscriptionResponse
 * ConfirmSubscriptionResponse `object`: Response for ConfirmSubscriptions action.
-  * SubscriptionArn [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn
 
 ### CreateEndpointResponse
 * CreateEndpointResponse `object`: Response from CreateEndpoint action.
-  * EndpointArn [String](#string)
+  * EndpointArn
 
 ### CreatePlatformApplicationInput
 * CreatePlatformApplicationInput `object`: Input for CreatePlatformApplication action.
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * Name **required** [String](#string)
-  * Platform **required** [String](#string)
+  * Attributes **required**
+  * Name **required**
+  * Platform **required**
 
 ### CreatePlatformApplicationResponse
 * CreatePlatformApplicationResponse `object`: Response from CreatePlatformApplication action.
-  * PlatformApplicationArn [String](#string)
+  * PlatformApplicationArn
 
 ### CreatePlatformEndpointInput
 * CreatePlatformEndpointInput `object`: Input for CreatePlatformEndpoint action.
-  * Attributes [MapStringToString](#mapstringtostring)
-  * CustomUserData [String](#string)
-  * PlatformApplicationArn **required** [String](#string)
-  * Token **required** [String](#string)
+  * Attributes
+  * CustomUserData
+  * PlatformApplicationArn **required**
+  * Token **required**
 
 ### CreateTopicInput
 * CreateTopicInput `object`: Input for CreateTopic action.
-  * Name **required** [topicName](#topicname)
+  * Attributes
+  * Name **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateTopicResponse
 * CreateTopicResponse `object`: Response from CreateTopic action.
-  * TopicArn [topicARN](#topicarn)
+  * TopicArn
 
 ### DelegatesList
 * DelegatesList `array`
@@ -651,90 +1322,108 @@ amazonaws_sns.Unsubscribe({
 
 ### DeleteEndpointInput
 * DeleteEndpointInput `object`: Input for DeleteEndpoint action.
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 ### DeletePlatformApplicationInput
 * DeletePlatformApplicationInput `object`: Input for DeletePlatformApplication action.
-  * PlatformApplicationArn **required** [String](#string)
+  * PlatformApplicationArn **required**
 
 ### DeleteTopicInput
 * DeleteTopicInput `object`
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required**
 
 ### Endpoint
 * Endpoint `object`: Endpoint for mobile app and device.
-  * Attributes [MapStringToString](#mapstringtostring)
-  * EndpointArn [String](#string)
+  * Attributes
+  * EndpointArn
 
 ### EndpointDisabledException
-* EndpointDisabledException `object`: Exception error indicating endpoint disabled.
-  * message [string](#string)
+
 
 ### FilterPolicyLimitExceededException
-* FilterPolicyLimitExceededException `object`: Indicates that the number of filter polices in your AWS account exceeds the limit. To add more filter polices, submit an SNS Limit Increase case in the AWS Support Center.
-  * message [string](#string)
+
 
 ### GetEndpointAttributesInput
 * GetEndpointAttributesInput `object`: Input for GetEndpointAttributes action.
-  * EndpointArn **required** [String](#string)
+  * EndpointArn **required**
 
 ### GetEndpointAttributesResponse
 * GetEndpointAttributesResponse `object`: Response from GetEndpointAttributes of the EndpointArn.
-  * Attributes [MapStringToString](#mapstringtostring)
+  * Attributes
 
 ### GetPlatformApplicationAttributesInput
 * GetPlatformApplicationAttributesInput `object`: Input for GetPlatformApplicationAttributes action.
-  * PlatformApplicationArn **required** [String](#string)
+  * PlatformApplicationArn **required**
 
 ### GetPlatformApplicationAttributesResponse
 * GetPlatformApplicationAttributesResponse `object`: Response for GetPlatformApplicationAttributes action.
-  * Attributes [MapStringToString](#mapstringtostring)
+  * Attributes
 
 ### GetSMSAttributesInput
 * GetSMSAttributesInput `object`: The input for the <code>GetSMSAttributes</code> request.
-  * attributes [ListString](#liststring)
+  * attributes
+    * items [String](#string)
 
 ### GetSMSAttributesResponse
 * GetSMSAttributesResponse `object`: The response from the <code>GetSMSAttributes</code> request.
-  * attributes [MapStringToString](#mapstringtostring)
+  * attributes
 
 ### GetSubscriptionAttributesInput
 * GetSubscriptionAttributesInput `object`: Input for GetSubscriptionAttributes.
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn **required**
 
 ### GetSubscriptionAttributesResponse
 * GetSubscriptionAttributesResponse `object`: Response for GetSubscriptionAttributes action.
-  * Attributes [SubscriptionAttributesMap](#subscriptionattributesmap)
+  * Attributes
 
 ### GetTopicAttributesInput
 * GetTopicAttributesInput `object`: Input for GetTopicAttributes action.
-  * TopicArn **required** [topicARN](#topicarn)
+  * TopicArn **required**
 
 ### GetTopicAttributesResponse
 * GetTopicAttributesResponse `object`: Response for GetTopicAttributes action.
-  * Attributes [TopicAttributesMap](#topicattributesmap)
+  * Attributes
 
 ### InternalErrorException
-* InternalErrorException `object`: Indicates an internal service error.
-  * message [string](#string)
+
 
 ### InvalidParameterException
-* InvalidParameterException `object`: Indicates that a request parameter does not comply with the associated constraints.
-  * message [string](#string)
+
 
 ### InvalidParameterValueException
-* InvalidParameterValueException `object`: Indicates that a request parameter does not comply with the associated constraints.
-  * message [string](#string)
+
+
+### InvalidSecurityException
+
+
+### KMSAccessDeniedException
+
+
+### KMSDisabledException
+
+
+### KMSInvalidStateException
+
+
+### KMSNotFoundException
+
+
+### KMSOptInRequired
+
+
+### KMSThrottlingException
+
 
 ### ListEndpointsByPlatformApplicationInput
 * ListEndpointsByPlatformApplicationInput `object`: Input for ListEndpointsByPlatformApplication action.
-  * NextToken [String](#string)
-  * PlatformApplicationArn **required** [String](#string)
+  * NextToken
+  * PlatformApplicationArn **required**
 
 ### ListEndpointsByPlatformApplicationResponse
 * ListEndpointsByPlatformApplicationResponse `object`: Response for ListEndpointsByPlatformApplication action.
-  * Endpoints [ListOfEndpoints](#listofendpoints)
-  * NextToken [String](#string)
+  * Endpoints
+    * items [Endpoint](#endpoint)
+  * NextToken
 
 ### ListOfEndpoints
 * ListOfEndpoints `array`
@@ -746,21 +1435,23 @@ amazonaws_sns.Unsubscribe({
 
 ### ListPhoneNumbersOptedOutInput
 * ListPhoneNumbersOptedOutInput `object`: The input for the <code>ListPhoneNumbersOptedOut</code> action.
-  * nextToken [string](#string)
+  * nextToken
 
 ### ListPhoneNumbersOptedOutResponse
 * ListPhoneNumbersOptedOutResponse `object`: The response from the <code>ListPhoneNumbersOptedOut</code> action.
-  * nextToken [string](#string)
-  * phoneNumbers [PhoneNumberList](#phonenumberlist)
+  * nextToken
+  * phoneNumbers
+    * items [PhoneNumber](#phonenumber)
 
 ### ListPlatformApplicationsInput
 * ListPlatformApplicationsInput `object`: Input for ListPlatformApplications action.
-  * NextToken [String](#string)
+  * NextToken
 
 ### ListPlatformApplicationsResponse
 * ListPlatformApplicationsResponse `object`: Response for ListPlatformApplications action.
-  * NextToken [String](#string)
-  * PlatformApplications [ListOfPlatformApplications](#listofplatformapplications)
+  * NextToken
+  * PlatformApplications
+    * items [PlatformApplication](#platformapplication)
 
 ### ListString
 * ListString `array`
@@ -768,57 +1459,62 @@ amazonaws_sns.Unsubscribe({
 
 ### ListSubscriptionsByTopicInput
 * ListSubscriptionsByTopicInput `object`: Input for ListSubscriptionsByTopic action.
-  * NextToken [nextToken](#nexttoken)
-  * TopicArn **required** [topicARN](#topicarn)
+  * NextToken
+  * TopicArn **required**
 
 ### ListSubscriptionsByTopicResponse
 * ListSubscriptionsByTopicResponse `object`: Response for ListSubscriptionsByTopic action.
-  * NextToken [nextToken](#nexttoken)
-  * Subscriptions [SubscriptionsList](#subscriptionslist)
+  * NextToken
+  * Subscriptions
+    * items [Subscription](#subscription)
 
 ### ListSubscriptionsInput
 * ListSubscriptionsInput `object`: Input for ListSubscriptions action.
-  * NextToken [nextToken](#nexttoken)
+  * NextToken
 
 ### ListSubscriptionsResponse
 * ListSubscriptionsResponse `object`: Response for ListSubscriptions action
-  * NextToken [nextToken](#nexttoken)
-  * Subscriptions [SubscriptionsList](#subscriptionslist)
+  * NextToken
+  * Subscriptions
+    * items [Subscription](#subscription)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * ResourceArn **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
+    * items [Tag](#tag)
 
 ### ListTopicsInput
 * ListTopicsInput `object`
-  * NextToken [nextToken](#nexttoken)
+  * NextToken
 
 ### ListTopicsResponse
 * ListTopicsResponse `object`: Response for ListTopics action.
-  * NextToken [nextToken](#nexttoken)
-  * Topics [TopicsList](#topicslist)
+  * NextToken
+  * Topics
+    * items [Topic](#topic)
 
 ### MapStringToString
-* MapStringToString `array`
-  * items `object`
-    * key [String](#string)
-    * value [String](#string)
+* MapStringToString `object`
 
 ### MessageAttributeMap
-* MessageAttributeMap `array`
-  * items `object`
-    * key [String](#string)
-    * value [MessageAttributeValue](#messageattributevalue)
+* MessageAttributeMap `object`
 
 ### MessageAttributeValue
-* MessageAttributeValue `object`: <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p> <p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Using Amazon SNS Message Attributes</a>.</p>
-  * BinaryValue [Binary](#binary)
-  * DataType **required** [String](#string)
-  * StringValue [String](#string)
+* MessageAttributeValue `object`: <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p> <p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message attributes</a> and <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide.</i> </p>
+  * BinaryValue
+  * DataType **required**
+  * StringValue
 
 ### NotFoundException
-* NotFoundException `object`: Indicates that the requested resource does not exist.
-  * message [string](#string)
+
 
 ### OptInPhoneNumberInput
 * OptInPhoneNumberInput `object`: Input for the OptInPhoneNumber action.
-  * phoneNumber **required** [PhoneNumber](#phonenumber)
+  * phoneNumber **required**
 
 ### OptInPhoneNumberResponse
 * OptInPhoneNumberResponse `object`: The response for the OptInPhoneNumber action.
@@ -832,115 +1528,148 @@ amazonaws_sns.Unsubscribe({
 
 ### PlatformApplication
 * PlatformApplication `object`: Platform application object.
-  * Attributes [MapStringToString](#mapstringtostring)
-  * PlatformApplicationArn [String](#string)
+  * Attributes
+  * PlatformApplicationArn
 
 ### PlatformApplicationDisabledException
-* PlatformApplicationDisabledException `object`: Exception error indicating platform application disabled.
-  * message [string](#string)
+
 
 ### PublishInput
 * PublishInput `object`: Input for Publish action.
-  * Message **required** [message](#message)
-  * MessageAttributes [MessageAttributeMap](#messageattributemap)
-  * MessageStructure [messageStructure](#messagestructure)
-  * PhoneNumber [String](#string)
-  * Subject [subject](#subject)
-  * TargetArn [String](#string)
-  * TopicArn [topicARN](#topicarn)
+  * Message **required**
+  * MessageAttributes
+  * MessageDeduplicationId
+  * MessageGroupId
+  * MessageStructure
+  * PhoneNumber
+  * Subject
+  * TargetArn
+  * TopicArn
 
 ### PublishResponse
 * PublishResponse `object`: Response for Publish action.
-  * MessageId [messageId](#messageid)
+  * MessageId
+  * SequenceNumber
 
 ### RemovePermissionInput
 * RemovePermissionInput `object`: Input for RemovePermission action.
-  * Label **required** [label](#label)
-  * TopicArn **required** [topicARN](#topicarn)
+  * Label **required**
+  * TopicArn **required**
+
+### ResourceNotFoundException
+
 
 ### SetEndpointAttributesInput
 * SetEndpointAttributesInput `object`: Input for SetEndpointAttributes action.
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * EndpointArn **required** [String](#string)
+  * Attributes **required**
+  * EndpointArn **required**
 
 ### SetPlatformApplicationAttributesInput
 * SetPlatformApplicationAttributesInput `object`: Input for SetPlatformApplicationAttributes action.
-  * Attributes **required** [MapStringToString](#mapstringtostring)
-  * PlatformApplicationArn **required** [String](#string)
+  * Attributes **required**
+  * PlatformApplicationArn **required**
 
 ### SetSMSAttributesInput
 * SetSMSAttributesInput `object`: The input for the SetSMSAttributes action.
-  * attributes **required** [MapStringToString](#mapstringtostring)
+  * attributes **required**
 
 ### SetSMSAttributesResponse
 * SetSMSAttributesResponse `object`: The response for the SetSMSAttributes action.
 
 ### SetSubscriptionAttributesInput
 * SetSubscriptionAttributesInput `object`: Input for SetSubscriptionAttributes action.
-  * AttributeName **required** [attributeName](#attributename)
-  * AttributeValue [attributeValue](#attributevalue)
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * AttributeName **required**
+  * AttributeValue
+  * SubscriptionArn **required**
 
 ### SetTopicAttributesInput
 * SetTopicAttributesInput `object`: Input for SetTopicAttributes action.
-  * AttributeName **required** [attributeName](#attributename)
-  * AttributeValue [attributeValue](#attributevalue)
-  * TopicArn **required** [topicARN](#topicarn)
+  * AttributeName **required**
+  * AttributeValue
+  * TopicArn **required**
+
+### StaleTagException
+
 
 ### String
 * String `string`
 
 ### SubscribeInput
 * SubscribeInput `object`: Input for Subscribe action.
-  * Attributes [SubscriptionAttributesMap](#subscriptionattributesmap)
-  * Endpoint [endpoint](#endpoint)
-  * Protocol **required** [protocol](#protocol)
-  * ReturnSubscriptionArn [boolean](#boolean)
-  * TopicArn **required** [topicARN](#topicarn)
+  * Attributes
+  * Endpoint
+  * Protocol **required**
+  * ReturnSubscriptionArn
+  * TopicArn **required**
 
 ### SubscribeResponse
 * SubscribeResponse `object`: Response for Subscribe action.
-  * SubscriptionArn [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn
 
 ### Subscription
 * Subscription `object`: A wrapper type for the attributes of an Amazon SNS subscription.
-  * Endpoint [endpoint](#endpoint)
-  * Owner [account](#account)
-  * Protocol [protocol](#protocol)
-  * SubscriptionArn [subscriptionARN](#subscriptionarn)
-  * TopicArn [topicARN](#topicarn)
+  * Endpoint
+  * Owner
+  * Protocol
+  * SubscriptionArn
+  * TopicArn
 
 ### SubscriptionAttributesMap
-* SubscriptionAttributesMap `array`
-  * items `object`
-    * key [attributeName](#attributename)
-    * value [attributeValue](#attributevalue)
+* SubscriptionAttributesMap `object`
 
 ### SubscriptionLimitExceededException
-* SubscriptionLimitExceededException `object`: Indicates that the customer already owns the maximum allowed number of subscriptions.
-  * message [string](#string)
+
 
 ### SubscriptionsList
 * SubscriptionsList `array`
   * items [Subscription](#subscription)
 
+### Tag
+* Tag `object`: The list of tags to be added to the specified topic.
+  * Key **required**
+  * Value **required**
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagLimitExceededException
+
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagPolicyException
+
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceArn **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
+
 ### ThrottledException
-* ThrottledException `object`: Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.
-  * message [string](#string)
+
 
 ### Topic
 * Topic `object`: A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use <code>GetTopicAttributes</code>.
-  * TopicArn [topicARN](#topicarn)
+  * TopicArn
 
 ### TopicAttributesMap
-* TopicAttributesMap `array`
-  * items `object`
-    * key [attributeName](#attributename)
-    * value [attributeValue](#attributevalue)
+* TopicAttributesMap `object`
 
 ### TopicLimitExceededException
-* TopicLimitExceededException `object`: Indicates that the customer already owns the maximum allowed number of topics.
-  * message [string](#string)
+
 
 ### TopicsList
 * TopicsList `array`
@@ -948,7 +1677,16 @@ amazonaws_sns.Unsubscribe({
 
 ### UnsubscribeInput
 * UnsubscribeInput `object`: Input for Unsubscribe action.
-  * SubscriptionArn **required** [subscriptionARN](#subscriptionarn)
+  * SubscriptionArn **required**
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceArn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### account
 * account `string`

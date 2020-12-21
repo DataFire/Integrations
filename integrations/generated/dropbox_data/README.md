@@ -15,7 +15,7 @@ let dropbox_data = require('@datafire/dropbox_data').create({
   redirect_uri: ""
 });
 
-dropbox_data.team.features.get_values.post({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -537,9 +537,6 @@ dropbox_data.files.upload_session.finish_batch.check.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
       * content_hash **required** `string`
       * id **required** `string`
@@ -689,11 +686,6 @@ dropbox_data.files.create_folder_batch.check.post({}, context)
           * no_access **required** `boolean`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * id **required** `string`
 
 ### team.devices.revoke_device_session_batch.post
@@ -853,11 +845,6 @@ dropbox_data.files.copy_batch.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -886,9 +873,6 @@ dropbox_data.file_properties.properties.search.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
 
 ### team.groups.delete.post
@@ -1090,11 +1074,6 @@ dropbox_data.files.get_thumbnail_batch.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -1254,8 +1233,6 @@ dropbox_data.team_log.get_events.continue.post({}, context)
         * access_method **required** `object`
           * .tag **required** `string`
           * end_user **required** `object`
-            * .tag **required** `string`
-            * session_id **required** `string`
       * event_type **required** `object`
         * .tag **required** `string`
         * description **required** `string`
@@ -1273,12 +1250,6 @@ dropbox_data.team_log.get_events.continue.post({}, context)
         * items `object`
           * .tag **required** `string`
           * user **required** `object`
-            * display_name **required** `string`
-            * account_id **required** `string`
-            * team_member_id **required** `string`
-            * .tag **required** `string`
-            * member_external_id **required** `string`
-            * email **required** `string`
       * event_category **required** `object`
         * .tag **required** `string`
       * context **required** `object`
@@ -1303,10 +1274,6 @@ dropbox_data.team_log.get_events.continue.post({}, context)
       * assets **required** `array`
         * items `object`
           * path **required** `object`
-            * namespace_relative **required** `object`
-              * ns_id **required** `string`
-              * relative_path **required** `string`
-            * contextual **required** `string`
           * .tag **required** `string`
           * display_name **required** `string`
           * file_id **required** `string`
@@ -1594,11 +1561,6 @@ dropbox_data.files.copy_batch.check.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -1636,11 +1598,6 @@ dropbox_data.files.move_batch.check.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -1793,15 +1750,8 @@ dropbox_data.team.groups.members.remove.post({}, context)
       * items `object`
         * profile **required** `object`
           * status **required** `object`
-            * .tag **required** `string`
           * membership_type **required** `object`
-            * .tag **required** `string`
           * name **required** `object`
-            * familiar_name **required** `string`
-            * display_name **required** `string`
-            * surname **required** `string`
-            * given_name **required** `string`
-            * abbreviated_name **required** `string`
           * email_verified **required** `boolean`
           * team_member_id **required** `string`
           * joined_on **required** `string`
@@ -1862,8 +1812,6 @@ dropbox_data.files.copy_reference.save.post({}, context)
       * items `object`
         * fields **required** `array`
           * items `object`
-            * name **required** `string`
-            * value **required** `string`
         * template_id **required** `string`
     * content_hash **required** `string`
     * id **required** `string`
@@ -2071,15 +2019,11 @@ dropbox_data.sharing.list_folders.continue.post({}, context)
         * url **required** `string`
         * link_permissions **required** `array`
           * items `object`
-            * action **required** `object`
-              * .tag **required** `string`
-            * allow **required** `boolean`
         * password_protected **required** `boolean`
         * current_audience **required** `object`
           * .tag **required** `string`
         * audience_options **required** `array`
           * items `object`
-            * .tag **required** `string`
 
 ### files.list_folder.get_latest_cursor.post
 A way to quickly get a cursor for the folder's state. Unlike list_folder , list_folder/get_latest_cursor doesn't return any entries. This endpoint is for app which only needs to know about new files and modifications and doesn't need to know about files that already exist in Dropbox.
@@ -2232,11 +2176,6 @@ dropbox_data.files.delete_batch.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -2329,9 +2268,6 @@ dropbox_data.files.upload_session.finish_batch.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
       * content_hash **required** `string`
       * id **required** `string`
@@ -2387,8 +2323,6 @@ dropbox_data.files.copy_reference.get.post({}, context)
       * items `object`
         * fields **required** `array`
           * items `object`
-            * name **required** `string`
-            * value **required** `string`
         * template_id **required** `string`
     * content_hash **required** `string`
     * id **required** `string`
@@ -2581,9 +2515,6 @@ dropbox_data.file_properties.properties.search.continue.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
 
 ### files.list_folder.post
@@ -2630,9 +2561,6 @@ dropbox_data.files.list_folder.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
       * content_hash `string`
       * id **required** `string`
@@ -2703,11 +2631,6 @@ dropbox_data.files.move_batch.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -2793,9 +2716,6 @@ dropbox_data.files.list_folder.continue.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
       * content_hash `string`
       * id **required** `string`
@@ -3484,15 +3404,11 @@ dropbox_data.sharing.list_mountable_folders.continue.post({}, context)
         * url **required** `string`
         * link_permissions **required** `array`
           * items `object`
-            * action **required** `object`
-              * .tag **required** `string`
-            * allow **required** `boolean`
         * password_protected **required** `boolean`
         * current_audience **required** `object`
           * .tag **required** `string`
         * audience_options **required** `array`
           * items `object`
-            * .tag **required** `string`
 
 ### file_properties.templates.get_for_team.post
 Get the schema for a specified template.
@@ -3733,15 +3649,8 @@ dropbox_data.team.groups.members.add.post({}, context)
       * items `object`
         * profile **required** `object`
           * status **required** `object`
-            * .tag **required** `string`
           * membership_type **required** `object`
-            * .tag **required** `string`
           * name **required** `object`
-            * familiar_name **required** `string`
-            * display_name **required** `string`
-            * surname **required** `string`
-            * given_name **required** `string`
-            * abbreviated_name **required** `string`
           * email_verified **required** `boolean`
           * team_member_id **required** `string`
           * joined_on **required** `string`
@@ -3956,8 +3865,6 @@ dropbox_data.team_log.get_events.post({}, context)
         * access_method **required** `object`
           * .tag **required** `string`
           * end_user **required** `object`
-            * .tag **required** `string`
-            * session_id **required** `string`
       * event_type **required** `object`
         * .tag **required** `string`
         * description **required** `string`
@@ -3975,12 +3882,6 @@ dropbox_data.team_log.get_events.post({}, context)
         * items `object`
           * .tag **required** `string`
           * user **required** `object`
-            * display_name **required** `string`
-            * account_id **required** `string`
-            * team_member_id **required** `string`
-            * .tag **required** `string`
-            * member_external_id **required** `string`
-            * email **required** `string`
       * event_category **required** `object`
         * .tag **required** `string`
       * context **required** `object`
@@ -4005,10 +3906,6 @@ dropbox_data.team_log.get_events.post({}, context)
       * assets **required** `array`
         * items `object`
           * path **required** `object`
-            * namespace_relative **required** `object`
-              * ns_id **required** `string`
-              * relative_path **required** `string`
-            * contextual **required** `string`
           * .tag **required** `string`
           * display_name **required** `string`
           * file_id **required** `string`
@@ -4282,7 +4179,6 @@ dropbox_data.team.team_folder.list.post({}, context)
       * content_sync_settings **required** `array`
         * items `object`
           * sync_setting **required** `object`
-            * .tag **required** `string`
           * id **required** `string`
       * sync_setting **required** `object`
         * .tag **required** `string`
@@ -4433,15 +4329,11 @@ dropbox_data.sharing.list_mountable_folders.post({}, context)
         * url **required** `string`
         * link_permissions **required** `array`
           * items `object`
-            * action **required** `object`
-              * .tag **required** `string`
-            * allow **required** `boolean`
         * password_protected **required** `boolean`
         * current_audience **required** `object`
           * .tag **required** `string`
         * audience_options **required** `array`
           * items `object`
-            * .tag **required** `string`
 
 ### sharing.set_access_inheritance.post
 Change the inheritance policy of an existing Shared Folder. Only permitted for shared folders in a shared team root. If a ShareFolderLaunch.async_job_id is returned, you'll need to call check_share_job_status until the action completes to get the metadata for the folder.
@@ -4715,11 +4607,6 @@ dropbox_data.files.create_folder_batch.post({}, context)
           * no_access **required** `boolean`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * id **required** `string`
 
 ### users.get_account.post
@@ -4795,7 +4682,6 @@ dropbox_data.team.team_folder.list.continue.post({}, context)
       * content_sync_settings **required** `array`
         * items `object`
           * sync_setting **required** `object`
-            * .tag **required** `string`
           * id **required** `string`
       * sync_setting **required** `object`
         * .tag **required** `string`
@@ -5066,15 +4952,11 @@ dropbox_data.sharing.list_folders.post({}, context)
         * url **required** `string`
         * link_permissions **required** `array`
           * items `object`
-            * action **required** `object`
-              * .tag **required** `string`
-            * allow **required** `boolean`
         * password_protected **required** `boolean`
         * current_audience **required** `object`
           * .tag **required** `string`
         * audience_options **required** `array`
           * items `object`
-            * .tag **required** `string`
 
 ### paper.docs.folder_users.list.continue.post
 Once a cursor has been retrieved from docs/folder_users/list , use this to paginate through all users on the Paper folder.
@@ -5157,8 +5039,6 @@ dropbox_data.files.get_temporary_link.post({}, context)
       * items `object`
         * fields **required** `array`
           * items `object`
-            * name **required** `string`
-            * value **required** `string`
         * template_id **required** `string`
     * content_hash **required** `string`
     * id **required** `string`
@@ -5219,11 +5099,6 @@ dropbox_data.files.search.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`
@@ -5321,9 +5196,6 @@ dropbox_data.files.list_revisions.post({}, context)
       * property_groups **required** `array`
         * items `object`
           * fields **required** `array`
-            * items `object`
-              * name **required** `string`
-              * value **required** `string`
           * template_id **required** `string`
       * content_hash **required** `string`
       * id **required** `string`
@@ -5429,11 +5301,6 @@ dropbox_data.files.delete_batch.check.post({}, context)
           * modified_by **required** `string`
         * property_groups **required** `array`
           * items `object`
-            * fields **required** `array`
-              * items `object`
-                * name **required** `string`
-                * value **required** `string`
-            * template_id **required** `string`
         * content_hash **required** `string`
         * id **required** `string`
         * size **required** `integer`

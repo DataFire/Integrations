@@ -3,9 +3,11 @@
   "schemes": [
     "https"
   ],
-  "host": "developer.nrel.gov",
   "basePath": "/api/building-case-studies",
   "info": {
+    "contact": {
+      "x-twitter": "NRELdev"
+    },
     "description": "The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of Energy and the National Renewable Energy Laboratory (NREL), is a unique central repository of in-depth information and data on high-performance, green building projects across the United States and abroad.  ",
     "title": "High Performance Building Database",
     "version": "1.0",
@@ -23,7 +25,7 @@
           "version": "2.0.1"
         },
         "format": "swagger",
-        "url": "http://developer.nrel.gov/docs/buildings/building-case-studies/api-docs.json",
+        "url": "http://developer.nrel.gov/docs/buildings/building-case-studies/spec.yml",
         "version": "1.2"
       }
     ],
@@ -35,31 +37,16 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "text/xml"
-  ],
-  "securityDefinitions": {
-    "api_key": {
-      "description": "API Key",
-      "in": "query",
-      "name": "api_key",
-      "type": "apiKey"
-    }
-  },
-  "security": [
-    {
-      "api_key": []
-    }
-  ],
   "tags": [
     {
       "description": "API endpoints related to buildings.",
-      "name": "project"
+      "name": "project.json"
     }
   ],
   "paths": {
     "/project.{output_format}": {
       "get": {
+        "description": "",
         "operationId": "project",
         "parameters": [
           {
@@ -71,6 +58,14 @@
             ],
             "in": "path",
             "name": "output_format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "DEMO_KEY",
+            "description": "API Key",
+            "in": "query",
+            "name": "api_key",
             "required": true,
             "type": "string"
           },
@@ -117,20 +112,23 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "text/xml"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Successful request"
           }
         },
         "summary": "A filterable list of projects.",
         "tags": [
-          "project"
+          "project.json"
         ]
       }
     },
     "/project/{project_id}.{output_format}": {
       "get": {
-        "description": "This API allows users to request metadata associated with the specific Document.",
+        "description": "",
         "operationId": "document",
         "parameters": [
           {
@@ -146,6 +144,14 @@
             "type": "string"
           },
           {
+            "default": "DEMO_KEY",
+            "description": "API Key",
+            "in": "query",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Project ID",
             "in": "path",
             "name": "project_id",
@@ -153,14 +159,17 @@
             "type": "integer"
           }
         ],
+        "produces": [
+          "text/xml"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Successful request"
           }
         },
         "summary": "Project Details",
         "tags": [
-          "project"
+          "project.json"
         ]
       }
     }

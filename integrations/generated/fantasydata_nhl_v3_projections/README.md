@@ -12,10 +12,7 @@ let fantasydata_nhl_v3_projections = require('@datafire/fantasydata_nhl_v3_proje
   apiKeyQuery: ""
 });
 
-fantasydata_nhl_v3_projections.DfsSlatesByDate({
-  "format": "",
-  "date": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

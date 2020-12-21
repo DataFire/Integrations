@@ -1,0 +1,1792 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "devrel@vonage.com",
+      "name": "Vonage DevRel",
+      "url": "https://developer.nexmo.com/"
+    },
+    "description": "The Subaccounts API enables you to create subaccounts under your primary account. Subaccounts facilitate differential product configuration, reporting, and billing. The Subaccounts API is released initially with restricted availability. You can read more about the API in the [Subaccounts documentation](/account/subaccounts/overview).",
+    "title": "Subaccounts API",
+    "version": "1.0.7",
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/nexmo/api-specification/master/definitions/subaccounts.yml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "nexmo.com",
+    "x-serviceName": "subaccounts",
+    "x-datafire": {
+      "name": "nexmo_subaccounts",
+      "type": "openapi"
+    }
+  },
+  "host": "api.nexmo.com",
+  "basePath": "/accounts",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/{api_key}/balance-transfers": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account.",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start of the retrieval period.",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "type": "string",
+            "x-example": "2019-07-15T13:11:44Z"
+          },
+          {
+            "description": "End of the retrieval period. If absent then all transfers until now is returned.",
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "type": "string",
+            "x-example": "2019-07-15T14:11:44Z"
+          },
+          {
+            "description": "Subaccount to filter by. You may send this multiple times to filter on multiple subaccounts",
+            "in": "query",
+            "name": "subaccount",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List balance transfers response",
+            "schema": {
+              "$ref": "#/definitions/ListBalanceTransfersResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Transfers"
+        ],
+        "description": "Retrieve a list of balance transfers that have taken place for a primary account within a specified time period.\n",
+        "operationId": "retrieveBalanceTransfers",
+        "summary": "Retrieve list of balance transfers"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransferBalanceOrCreditRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Balance transfer response",
+            "schema": {
+              "$ref": "#/definitions/TransferBalanceResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "The request failed due to validation errors",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "invalid_parameters": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "example": "use_primary_account_balance",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "example": "Should be either 'true' or 'false'",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "example": "Bad Request",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors/account/subaccounts#validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "invalid_parameters",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Transfers"
+        ],
+        "description": "Transfer balance between a primary account and one of its subaccounts. Note that balance_available_for_transfer = |account_balance - credit_limit| of the source account.\n",
+        "operationId": "transferBalance",
+        "summary": "Transfer balance"
+      }
+    },
+    "/{api_key}/credit-transfers": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account.",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start of the retrieval period.",
+            "in": "query",
+            "name": "start_date",
+            "required": true,
+            "type": "string",
+            "x-example": "2019-07-15T13:11:44Z"
+          },
+          {
+            "description": "End of the retrieval period. If absent then all transfers until now is returned.",
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "type": "string",
+            "x-example": "2019-07-15T14:11:44Z"
+          },
+          {
+            "description": "Subaccount to filter by. You may send this multiple times to filter on multiple subaccounts",
+            "in": "query",
+            "name": "subaccount",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List credit transfers response",
+            "schema": {
+              "$ref": "#/definitions/ListCreditTransfersResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Transfers"
+        ],
+        "description": "Retrieve a list of credit transfers that have taken place for a primary account within a specified time period.\n",
+        "operationId": "retrieveCreditTransfers",
+        "summary": "Retrieve list of credit transfers"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransferBalanceOrCreditRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Credit transfer response",
+            "schema": {
+              "$ref": "#/definitions/TransferCreditResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "The request failed due to validation errors",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "invalid_parameters": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "example": "use_primary_account_balance",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "example": "Should be either 'true' or 'false'",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "example": "Bad Request",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors/account/subaccounts#validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "invalid_parameters",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Transfers"
+        ],
+        "description": "Transfer credit limit between a primary account and one of its subaccounts.\n",
+        "operationId": "transferCredit",
+        "summary": "Transfer credit"
+      }
+    },
+    "/{api_key}/subaccounts": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subaccounts response",
+            "schema": {
+              "$ref": "#/definitions/SubaccountsAllResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Subaccount Management"
+        ],
+        "description": "Get the information of all the subaccounts owned by the primary account.\n",
+        "operationId": "retrieveSubaccountsList",
+        "summary": "Retrieve list of subaccounts"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewSubaccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subaccount response",
+            "schema": {
+              "$ref": "#/definitions/SubaccountCreateResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "The request failed due to validation errors",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "invalid_parameters": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "example": "use_primary_account_balance",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "example": "Should be either 'true' or 'false'",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "example": "Bad Request",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors/account/subaccounts#validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "invalid_parameters",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Subaccount Management"
+        ],
+        "description": "Create a subaccount for a given primary account.\n",
+        "operationId": "createSubAccount",
+        "summary": "Create subaccount"
+      }
+    },
+    "/{api_key}/subaccounts/{subaccount_key}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ID of the subaccount",
+            "in": "path",
+            "name": "subaccount_key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subaccount response",
+            "schema": {
+              "$ref": "#/definitions/SubaccountResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Subaccount Management"
+        ],
+        "description": "Get the information of a subaccount specified with its API key.\n",
+        "operationId": "retrieveSubaccount",
+        "summary": "Retrieve a subaccount"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID of the primary account",
+            "in": "path",
+            "name": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "ID of the subaccount",
+            "in": "path",
+            "name": "subaccount_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifySubaccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subaccount response",
+            "schema": {
+              "$ref": "#/definitions/SubaccountResponse"
+            }
+          },
+          "401": {
+            "description": "Credential is missing or invalid",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "403": {
+            "description": "Action is forbidden",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "The account ID provided does not exist in our system or you do not have access",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "The request failed due to validation errors",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "invalid_parameters": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "example": "use_primary_account_balance",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "example": "Should be either 'true' or 'false'",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "example": "Bad Request",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors/account/subaccounts#validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "invalid_parameters",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "tags": [
+          "Subaccount Management"
+        ],
+        "description": "Change one or more properties of a subaccount.\n",
+        "operationId": "modifySubaccount",
+        "summary": "Modify a subaccount"
+      }
+    }
+  },
+  "definitions": {
+    "ListBalanceTransfersResponse": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "balance_transfers": {
+              "items": {
+                "$ref": "#/definitions/TransferBalanceResponse"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "ListCreditTransfersResponse": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "credit-transfers": {
+              "items": {
+                "$ref": "#/definitions/TransferCreditResponse"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "ModifySubaccountRequest": {
+      "properties": {
+        "name": {
+          "example": "Subaccount department B",
+          "type": "string"
+        },
+        "suspended": {
+          "example": true,
+          "type": "boolean"
+        },
+        "use_primary_account_balance": {
+          "example": false,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "NewSubaccountRequest": {
+      "properties": {
+        "name": {
+          "example": "Subaccount department A",
+          "type": "string"
+        },
+        "secret": {
+          "example": "Password123",
+          "type": "string"
+        },
+        "use_primary_account_balance": {
+          "default": true,
+          "example": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "SubaccountCreateResponse": {
+      "allOf": [
+        {
+          "properties": {
+            "secret": {
+              "description": "API secret of the subaccount.",
+              "example": "Password123",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/SubaccountResponse"
+        }
+      ]
+    },
+    "SubaccountResponse": {
+      "properties": {
+        "api_key": {
+          "description": "Unique subaccount ID.",
+          "example": "bbe6222f",
+          "type": "string"
+        },
+        "balance": {
+          "description": "Balance of the subAccount. Value is null if balance is shared with primary account.",
+          "example": 100.25,
+          "type": "number"
+        },
+        "created_at": {
+          "description": "Subaccount creation date and time.",
+          "example": "2018-03-02T16:34:49Z",
+          "type": "string"
+        },
+        "credit_limit": {
+          "description": "Credit limit of the subAccount. Value is null if balance is shared with primary account.",
+          "example": -100.25,
+          "type": "number"
+        },
+        "name": {
+          "description": "Name of the subaccount.",
+          "example": "Subaccount department A",
+          "type": "string"
+        },
+        "primary_account_api_key": {
+          "description": "Unique primary account ID.",
+          "example": "acc6111f",
+          "type": "string"
+        },
+        "suspended": {
+          "description": "Subaccount suspension status.",
+          "example": false,
+          "type": "boolean"
+        },
+        "use_primary_account_balance": {
+          "description": "Flag showing if balance is shared with primary account.",
+          "example": true,
+          "type": "boolean"
+        }
+      }
+    },
+    "SubaccountsAllResponse": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "primary_account": {
+              "$ref": "#/definitions/SubaccountResponse"
+            },
+            "subaccounts": {
+              "items": {
+                "$ref": "#/definitions/SubaccountResponse"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "TransferBalanceOrCreditRequest": {
+      "properties": {
+        "amount": {
+          "example": "123.45",
+          "type": "number"
+        },
+        "from": {
+          "example": "7c9738e6",
+          "type": "string"
+        },
+        "reference": {
+          "example": "This gets added to the audit log",
+          "type": "string"
+        },
+        "to": {
+          "example": "ad6dc56f",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "amount"
+      ],
+      "type": "object"
+    },
+    "TransferBalanceResponse": {
+      "properties": {
+        "amount": {
+          "description": "Balance transfer amount",
+          "example": 123.45,
+          "type": "number"
+        },
+        "balance_transfer_id": {
+          "description": "Unique balance transfer ID",
+          "example": "07b5-46e1-a527-85530e625800",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date and time when the balance transfer was executed",
+          "example": "2019-03-02T16:34:49Z",
+          "type": "string"
+        },
+        "from": {
+          "description": "Account the balance is transferred from",
+          "example": "7c9738e6",
+          "type": "string"
+        },
+        "reference": {
+          "description": "Reference for the balance transfer",
+          "example": "This gets added to the audit log",
+          "type": "string"
+        },
+        "to": {
+          "description": "Account the balance is transferred to",
+          "example": "ad6dc56f",
+          "type": "string"
+        }
+      }
+    },
+    "TransferCreditResponse": {
+      "properties": {
+        "amount": {
+          "description": "Credit transfer amount",
+          "example": 123.45,
+          "type": "number"
+        },
+        "created_at": {
+          "description": "The date and time when the credit transfer was executed",
+          "example": "2019-03-02T16:34:49Z",
+          "type": "string"
+        },
+        "credit_transfer_id": {
+          "description": "Unique credit transfer ID",
+          "example": "07b5-46e1-a527-85530e625800",
+          "type": "string"
+        },
+        "from": {
+          "description": "Account the credit is transferred from",
+          "example": "7c9738e6",
+          "type": "string"
+        },
+        "reference": {
+          "description": "Reference for the credit transfer",
+          "example": "This gets added to the audit log",
+          "type": "string"
+        },
+        "to": {
+          "description": "Account the credit is transferred to",
+          "example": "ad6dc56f",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "tags": [
+    {
+      "description": "This section shows how you can create, retrieve and modify subaccounts of a primary account.",
+      "name": "Subaccount Management"
+    },
+    {
+      "description": "This section shows how you execute credit and balance transfers, as well as viewing past transactions.",
+      "name": "Transfers"
+    }
+  ],
+  "x-components": {
+    "responses": {
+      "ForbiddenError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "Account acc6111f is not provisioned to access Subaccount Provisioning API",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Authorisation error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unprovisioned",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "Action is forbidden"
+      },
+      "InternalError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "An internal error occurred. Please try again shortly",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Internal Error",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#internal-error",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "An internal error has occurred"
+      },
+      "NotFoundError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "API key 'acc6111f' does not exist, or you do not have access",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid API Key",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#invalid-api-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "The account ID provided does not exist in our system or you do not have access"
+      },
+      "UnauthorizedError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "You did not provide correct credentials",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "798b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "title": {
+                  "example": "Invalid credentials supplied",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors#unauthorized",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "Credential is missing or invalid"
+      },
+      "UnprocessableEntityError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "The request failed due to validation errors",
+                  "type": "string"
+                },
+                "instance": {
+                  "example": "158b8f199c45014ab7b08bfe9cc1c12c",
+                  "type": "string"
+                },
+                "invalid_parameters": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "example": "use_primary_account_balance",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "example": "Should be either 'true' or 'false'",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "example": "Bad Request",
+                  "type": "string"
+                },
+                "type": {
+                  "example": "https://developer.nexmo.com/api-errors/account/subaccounts#validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "detail",
+                "invalid_parameters",
+                "instance"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "Validation Error"
+      }
+    }
+  },
+  "x-errors": {
+    "internal-error": {
+      "description": "An error has occurred in the platform while processing this request",
+      "resolution": "If the error persists, contact [Vonage Support](https://support.vonage.co.uk/contactus)."
+    },
+    "provisioning": {
+      "description": "Maximum number of sub-accounts reached",
+      "resolution": "If you need more subaccounts, contact [Vonage Support](https://support.vonage.co.uk/contactus)."
+    },
+    "valid-transfers": {
+      "description": "Invalid transfer",
+      "link": {
+        "text": "View API reference",
+        "url": "/api/subaccounts#transferCredit"
+      },
+      "resolution": "See the `detail` field for the reason this transfer is invalid."
+    },
+    "validation": {
+      "description": "The request failed due to validation errors",
+      "link": {
+        "text": "View API reference",
+        "url": "/api/subaccounts"
+      },
+      "resolution": "See the `detail` (and, if present, the `invalid_parameters`) fields for the exact reason this request was rejected and review the documentation."
+    }
+  }
+}

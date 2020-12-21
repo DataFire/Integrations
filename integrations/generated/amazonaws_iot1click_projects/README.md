@@ -13,14 +13,14 @@ let amazonaws_iot1click_projects = require('@datafire/amazonaws_iot1click_projec
   region: ""
 });
 
-amazonaws_iot1click_projects.ListProjects({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-The AWS IoT 1-Click Project API Reference
+The AWS IoT 1-Click Projects API Reference
 
 ## Actions
 
@@ -34,6 +34,8 @@ amazonaws_iot1click_projects.ListProjects({}, context)
 
 #### Input
 * input `object`
+  * nextToken `string`
+  * maxResults `integer`
 
 #### Output
 * output [ListProjectsResponse](#listprojectsresponse)
@@ -50,9 +52,12 @@ amazonaws_iot1click_projects.CreateProject({
 
 #### Input
 * input `object`
-  * description [Description](#description)
-  * placementTemplate [PlacementTemplate](#placementtemplate)
-  * projectName **required** [ProjectName](#projectname)
+  * tags `object`: Optional tags (metadata key/value pairs) to be associated with the project. For example, <code>{ {"key1": "value1", "key2": "value2"} }</code>. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging Strategies</a>.
+  * description `string`: An optional description for the project.
+  * placementTemplate `object`: An object defining the template for a placement.
+    * defaultAttributes
+    * deviceTemplates
+  * projectName **required** `string`: The name of the project to create.
 
 #### Output
 * output [CreateProjectResponse](#createprojectresponse)
@@ -104,8 +109,10 @@ amazonaws_iot1click_projects.UpdateProject({
 #### Input
 * input `object`
   * projectName **required** `string`
-  * description [Description](#description)
-  * placementTemplate [PlacementTemplate](#placementtemplate)
+  * description `string`: An optional user-defined description for the project.
+  * placementTemplate `object`: An object defining the template for a placement.
+    * defaultAttributes
+    * deviceTemplates
 
 #### Output
 * output [UpdateProjectResponse](#updateprojectresponse)
@@ -123,6 +130,8 @@ amazonaws_iot1click_projects.ListPlacements({
 #### Input
 * input `object`
   * projectName **required** `string`
+  * nextToken `string`
+  * maxResults `integer`
 
 #### Output
 * output [ListPlacementsResponse](#listplacementsresponse)
@@ -141,8 +150,8 @@ amazonaws_iot1click_projects.CreatePlacement({
 #### Input
 * input `object`
   * projectName **required** `string`
-  * attributes [PlacementAttributeMap](#placementattributemap)
-  * placementName **required** [PlacementName](#placementname)
+  * attributes `object`: Optional user-defined key/value pairs providing contextual data (such as location or function) for the placement.
+  * placementName **required** `string`: The name of the placement to be created.
 
 #### Output
 * output [CreatePlacementResponse](#createplacementresponse)
@@ -153,15 +162,15 @@ amazonaws_iot1click_projects.CreatePlacement({
 
 ```js
 amazonaws_iot1click_projects.DeletePlacement({
-  "projectName": "",
-  "placementName": ""
+  "placementName": "",
+  "projectName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectName **required** `string`
   * placementName **required** `string`
+  * projectName **required** `string`
 
 #### Output
 * output [DeletePlacementResponse](#deleteplacementresponse)
@@ -172,15 +181,15 @@ amazonaws_iot1click_projects.DeletePlacement({
 
 ```js
 amazonaws_iot1click_projects.DescribePlacement({
-  "projectName": "",
-  "placementName": ""
+  "placementName": "",
+  "projectName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectName **required** `string`
   * placementName **required** `string`
+  * projectName **required** `string`
 
 #### Output
 * output [DescribePlacementResponse](#describeplacementresponse)
@@ -191,16 +200,16 @@ amazonaws_iot1click_projects.DescribePlacement({
 
 ```js
 amazonaws_iot1click_projects.UpdatePlacement({
-  "projectName": "",
-  "placementName": ""
+  "placementName": "",
+  "projectName": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * projectName **required** `string`
   * placementName **required** `string`
-  * attributes [PlacementAttributeMap](#placementattributemap)
+  * projectName **required** `string`
+  * attributes `object`: The user-defined object of attributes used to update the placement. The maximum number of key/value pairs is 50.
 
 #### Output
 * output [UpdatePlacementResponse](#updateplacementresponse)
@@ -263,10 +272,65 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
   * projectName **required** `string`
   * placementName **required** `string`
   * deviceTemplateName **required** `string`
-  * deviceId **required** [DeviceId](#deviceid)
+  * deviceId **required** `string`: The ID of the physical device to be associated with the given placement in the project. Note that a mandatory 4 character prefix is required for all <code>deviceId</code> values.
 
 #### Output
 * output [AssociateDeviceWithPlacementResponse](#associatedevicewithplacementresponse)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_iot1click_projects.ListTagsForResource({
+  "resourceArn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_iot1click_projects.TagResource({
+  "resourceArn": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+  * tags **required** `object`: The new or modifying tag(s) for the resource. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per resource.
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_iot1click_projects.UntagResource({
+  "resourceArn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceArn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 
 
@@ -274,7 +338,7 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 
 ### AssociateDeviceWithPlacementRequest
 * AssociateDeviceWithPlacementRequest `object`
-  * deviceId **required** [DeviceId](#deviceid)
+  * deviceId **required**
 
 ### AssociateDeviceWithPlacementResponse
 * AssociateDeviceWithPlacementResponse `object`
@@ -288,31 +352,28 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 ### AttributeValue
 * AttributeValue `string`
 
-### Code
-* Code `string`
-
 ### CreatePlacementRequest
 * CreatePlacementRequest `object`
-  * attributes [PlacementAttributeMap](#placementattributemap)
-  * placementName **required** [PlacementName](#placementname)
+  * attributes
+  * placementName **required**
 
 ### CreatePlacementResponse
 * CreatePlacementResponse `object`
 
 ### CreateProjectRequest
 * CreateProjectRequest `object`
-  * description [Description](#description)
-  * placementTemplate [PlacementTemplate](#placementtemplate)
-  * projectName **required** [ProjectName](#projectname)
+  * tags
+  * description
+  * placementTemplate
+    * defaultAttributes
+    * deviceTemplates
+  * projectName **required**
 
 ### CreateProjectResponse
 * CreateProjectResponse `object`
 
 ### DefaultPlacementAttributeMap
-* DefaultPlacementAttributeMap `array`
-  * items `object`
-    * key [AttributeName](#attributename)
-    * value [AttributeDefaultValue](#attributedefaultvalue)
+* DefaultPlacementAttributeMap `object`
 
 ### DeletePlacementRequest
 * DeletePlacementRequest `object`
@@ -331,14 +392,28 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 
 ### DescribePlacementResponse
 * DescribePlacementResponse `object`
-  * placement **required** [PlacementDescription](#placementdescription)
+  * placement **required**
+    * attributes **required**
+    * createdDate **required**
+    * placementName **required**
+    * projectName **required**
+    * updatedDate **required**
 
 ### DescribeProjectRequest
 * DescribeProjectRequest `object`
 
 ### DescribeProjectResponse
 * DescribeProjectResponse `object`
-  * project **required** [ProjectDescription](#projectdescription)
+  * project **required**
+    * tags
+    * arn
+    * createdDate **required**
+    * description
+    * placementTemplate
+      * defaultAttributes
+      * deviceTemplates
+    * projectName **required**
+    * updatedDate **required**
 
 ### Description
 * Description `string`
@@ -347,10 +422,7 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 * DeviceCallbackKey `string`
 
 ### DeviceCallbackOverrideMap
-* DeviceCallbackOverrideMap `array`
-  * items `object`
-    * key [DeviceCallbackKey](#devicecallbackkey)
-    * value [DeviceCallbackValue](#devicecallbackvalue)
+* DeviceCallbackOverrideMap `object`
 
 ### DeviceCallbackValue
 * DeviceCallbackValue `string`
@@ -359,21 +431,15 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 * DeviceId `string`
 
 ### DeviceMap
-* DeviceMap `array`
-  * items `object`
-    * key [DeviceTemplateName](#devicetemplatename)
-    * value [DeviceId](#deviceid)
+* DeviceMap `object`
 
 ### DeviceTemplate
 * DeviceTemplate `object`: An object representing a device for a placement template (see <a>PlacementTemplate</a>).
-  * callbackOverrides [DeviceCallbackOverrideMap](#devicecallbackoverridemap)
-  * deviceType [DeviceType](#devicetype)
+  * callbackOverrides
+  * deviceType
 
 ### DeviceTemplateMap
-* DeviceTemplateMap `array`
-  * items `object`
-    * key [DeviceTemplateName](#devicetemplatename)
-    * value [DeviceTemplate](#devicetemplate)
+* DeviceTemplateMap `object`
 
 ### DeviceTemplateName
 * DeviceTemplateName `string`
@@ -392,66 +458,65 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 
 ### GetDevicesInPlacementResponse
 * GetDevicesInPlacementResponse `object`
-  * devices **required** [DeviceMap](#devicemap)
+  * devices **required**
 
 ### InternalFailureException
-* InternalFailureException `object`: <p/>
-  * code **required** [Code](#code)
-  * message **required** [Message](#message)
+
 
 ### InvalidRequestException
-* InvalidRequestException `object`: <p/>
-  * code **required** [Code](#code)
-  * message **required** [Message](#message)
+
 
 ### ListPlacementsRequest
 * ListPlacementsRequest `object`
 
 ### ListPlacementsResponse
 * ListPlacementsResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * placements **required** [PlacementSummaryList](#placementsummarylist)
+  * nextToken
+  * placements **required**
+    * items [PlacementSummary](#placementsummary)
 
 ### ListProjectsRequest
 * ListProjectsRequest `object`
 
 ### ListProjectsResponse
 * ListProjectsResponse `object`
-  * nextToken [NextToken](#nexttoken)
-  * projects **required** [ProjectSummaryList](#projectsummarylist)
+  * nextToken
+  * projects **required**
+    * items [ProjectSummary](#projectsummary)
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * tags
 
 ### MaxResults
 * MaxResults `integer`
-
-### Message
-* Message `string`
 
 ### NextToken
 * NextToken `string`
 
 ### PlacementAttributeMap
-* PlacementAttributeMap `array`
-  * items `object`
-    * key [AttributeName](#attributename)
-    * value [AttributeValue](#attributevalue)
+* PlacementAttributeMap `object`
 
 ### PlacementDescription
 * PlacementDescription `object`: An object describing a project's placement.
-  * attributes **required** [PlacementAttributeMap](#placementattributemap)
-  * createdDate **required** [Time](#time)
-  * placementName **required** [PlacementName](#placementname)
-  * projectName **required** [ProjectName](#projectname)
-  * updatedDate **required** [Time](#time)
+  * attributes **required**
+  * createdDate **required**
+  * placementName **required**
+  * projectName **required**
+  * updatedDate **required**
 
 ### PlacementName
 * PlacementName `string`
 
 ### PlacementSummary
 * PlacementSummary `object`: An object providing summary information for a particular placement.
-  * createdDate **required** [Time](#time)
-  * placementName **required** [PlacementName](#placementname)
-  * projectName **required** [ProjectName](#projectname)
-  * updatedDate **required** [Time](#time)
+  * createdDate **required**
+  * placementName **required**
+  * projectName **required**
+  * updatedDate **required**
 
 ### PlacementSummaryList
 * PlacementSummaryList `array`
@@ -459,59 +524,90 @@ amazonaws_iot1click_projects.AssociateDeviceWithPlacement({
 
 ### PlacementTemplate
 * PlacementTemplate `object`: An object defining the template for a placement.
-  * defaultAttributes [DefaultPlacementAttributeMap](#defaultplacementattributemap)
-  * deviceTemplates [DeviceTemplateMap](#devicetemplatemap)
+  * defaultAttributes
+  * deviceTemplates
+
+### ProjectArn
+* ProjectArn `string`
 
 ### ProjectDescription
 * ProjectDescription `object`: An object providing detailed information for a particular project associated with an AWS account and region.
-  * createdDate **required** [Time](#time)
-  * description [Description](#description)
-  * placementTemplate [PlacementTemplate](#placementtemplate)
-  * projectName **required** [ProjectName](#projectname)
-  * updatedDate **required** [Time](#time)
+  * tags
+  * arn
+  * createdDate **required**
+  * description
+  * placementTemplate
+    * defaultAttributes
+    * deviceTemplates
+  * projectName **required**
+  * updatedDate **required**
 
 ### ProjectName
 * ProjectName `string`
 
 ### ProjectSummary
 * ProjectSummary `object`: An object providing summary information for a particular project for an associated AWS account and region.
-  * createdDate **required** [Time](#time)
-  * projectName **required** [ProjectName](#projectname)
-  * updatedDate **required** [Time](#time)
+  * tags
+  * arn
+  * createdDate **required**
+  * projectName **required**
+  * updatedDate **required**
 
 ### ProjectSummaryList
 * ProjectSummaryList `array`
   * items [ProjectSummary](#projectsummary)
 
 ### ResourceConflictException
-* ResourceConflictException `object`: <p/>
-  * code **required** [Code](#code)
-  * message **required** [Message](#message)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: <p/>
-  * code **required** [Code](#code)
-  * message **required** [Message](#message)
+
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagMap
+* TagMap `object`
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * tags **required**
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
 
 ### Time
 * Time `string`
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: <p/>
-  * code **required** [Code](#code)
-  * message **required** [Message](#message)
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UpdatePlacementRequest
 * UpdatePlacementRequest `object`
-  * attributes [PlacementAttributeMap](#placementattributemap)
+  * attributes
 
 ### UpdatePlacementResponse
 * UpdatePlacementResponse `object`
 
 ### UpdateProjectRequest
 * UpdateProjectRequest `object`
-  * description [Description](#description)
-  * placementTemplate [PlacementTemplate](#placementtemplate)
+  * description
+  * placementTemplate
+    * defaultAttributes
+    * deviceTemplates
 
 ### UpdateProjectResponse
 * UpdateProjectResponse `object`

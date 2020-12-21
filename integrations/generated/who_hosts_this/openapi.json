@@ -11,7 +11,7 @@
       "url": "https://www.who-hosts-this.com/Contact"
     },
     "description": "Discover the hosting provider for any web site",
-    "title": "Who Hosts This",
+    "title": "Who Hosts This API",
     "version": "0.0.1",
     "x-apisguru-categories": [
       "hosting",

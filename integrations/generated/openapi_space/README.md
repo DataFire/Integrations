@@ -11,7 +11,7 @@ let openapi_space = require('@datafire/openapi_space').create({
   AuthToken: ""
 });
 
-openapi_space.register({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -311,7 +311,6 @@ openapi_space.register({}, context)
   * swagger `object`: An optional Swagger spec. Not included in meta lists.
   * url `string`
   * versions `array`
-
 
 ### APIMetaList
 * APIMetaList `array`

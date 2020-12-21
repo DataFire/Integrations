@@ -13,9 +13,7 @@ let amazonaws_cloudsearch = require('@datafire/amazonaws_cloudsearch').create({
   region: ""
 });
 
-amazonaws_cloudsearch.BuildSuggesters({
-  "DomainName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -25,6 +23,23 @@ amazonaws_cloudsearch.BuildSuggesters({
 <fullname>Amazon CloudSearch Configuration Service</fullname> <p>You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.</p> <p>The endpoint for configuration service requests is region-specific: cloudsearch.<i>region</i>.amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region" target="_blank">Regions and Endpoints</a>.</p>
 
 ## Actions
+
+### BuildSuggesters
+
+
+
+```js
+amazonaws_cloudsearch.BuildSuggesters({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+
+#### Output
+* output [BuildSuggestersResponse](#buildsuggestersresponse)
 
 ### BuildSuggesters
 
@@ -55,10 +70,46 @@ amazonaws_cloudsearch.CreateDomain({
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required** `string`
 
 #### Output
 * output [CreateDomainResponse](#createdomainresponse)
+
+### CreateDomain
+
+
+
+```js
+amazonaws_cloudsearch.CreateDomain({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
+
+#### Output
+* output [CreateDomainResponse](#createdomainresponse)
+
+### DefineAnalysisScheme
+
+
+
+```js
+amazonaws_cloudsearch.DefineAnalysisScheme({
+  "DomainName": "",
+  "AnalysisScheme": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * AnalysisScheme **required** `object`
+
+#### Output
+* output [DefineAnalysisSchemeResponse](#defineanalysisschemeresponse)
 
 ### DefineAnalysisScheme
 
@@ -89,6 +140,25 @@ amazonaws_cloudsearch.DefineAnalysisScheme({
 ```js
 amazonaws_cloudsearch.DefineExpression({
   "DomainName": "",
+  "Expression": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * Expression **required** `object`
+
+#### Output
+* output [DefineExpressionResponse](#defineexpressionresponse)
+
+### DefineExpression
+
+
+
+```js
+amazonaws_cloudsearch.DefineExpression({
+  "DomainName": "",
   "Expression": {
     "ExpressionName": "",
     "ExpressionValue": ""
@@ -111,17 +181,46 @@ amazonaws_cloudsearch.DefineExpression({
 ```js
 amazonaws_cloudsearch.DefineIndexField({
   "DomainName": "",
-  "IndexField": {
-    "IndexFieldName": "",
-    "IndexFieldType": ""
-  }
+  "IndexField": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * IndexField **required** `object`
+
+#### Output
+* output [DefineIndexFieldResponse](#defineindexfieldresponse)
+
+### DefineIndexField
+
+
+
+```js
+amazonaws_cloudsearch.DefineIndexField({
+  "DomainName": "",
+  "IndexField": null
 }, context)
 ```
 
 #### Input
 * input `object`
   * DomainName **required** [DomainName](#domainname)
-  * IndexField **required** [IndexField](#indexfield)
+  * IndexField **required**
+    * DateArrayOptions [DateArrayOptions](#datearrayoptions)
+    * DateOptions [DateOptions](#dateoptions)
+    * DoubleArrayOptions [DoubleArrayOptions](#doublearrayoptions)
+    * DoubleOptions [DoubleOptions](#doubleoptions)
+    * IndexFieldName **required**
+    * IndexFieldType **required** [IndexFieldType](#indexfieldtype)
+    * IntArrayOptions [IntArrayOptions](#intarrayoptions)
+    * IntOptions [IntOptions](#intoptions)
+    * LatLonOptions [LatLonOptions](#latlonoptions)
+    * LiteralArrayOptions [LiteralArrayOptions](#literalarrayoptions)
+    * LiteralOptions [LiteralOptions](#literaloptions)
+    * TextArrayOptions [TextArrayOptions](#textarrayoptions)
+    * TextOptions [TextOptions](#textoptions)
 
 #### Output
 * output [DefineIndexFieldResponse](#defineindexfieldresponse)
@@ -133,10 +232,29 @@ amazonaws_cloudsearch.DefineIndexField({
 ```js
 amazonaws_cloudsearch.DefineSuggester({
   "DomainName": "",
+  "Suggester": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * Suggester **required** `object`
+
+#### Output
+* output [DefineSuggesterResponse](#definesuggesterresponse)
+
+### DefineSuggester
+
+
+
+```js
+amazonaws_cloudsearch.DefineSuggester({
+  "DomainName": "",
   "Suggester": {
     "SuggesterName": "",
     "DocumentSuggesterOptions": {
-      "SourceField": ""
+      "SourceField": null
     }
   }
 }, context)
@@ -163,7 +281,26 @@ amazonaws_cloudsearch.DeleteAnalysisScheme({
 
 #### Input
 * input `object`
-  * AnalysisSchemeName **required** [StandardName](#standardname)
+  * DomainName **required** `string`
+  * AnalysisSchemeName **required** `string`
+
+#### Output
+* output [DeleteAnalysisSchemeResponse](#deleteanalysisschemeresponse)
+
+### DeleteAnalysisScheme
+
+
+
+```js
+amazonaws_cloudsearch.DeleteAnalysisScheme({
+  "DomainName": "",
+  "AnalysisSchemeName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AnalysisSchemeName **required**
   * DomainName **required** [DomainName](#domainname)
 
 #### Output
@@ -181,7 +318,24 @@ amazonaws_cloudsearch.DeleteDomain({
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required** `string`
+
+#### Output
+* output [DeleteDomainResponse](#deletedomainresponse)
+
+### DeleteDomain
+
+
+
+```js
+amazonaws_cloudsearch.DeleteDomain({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required**
 
 #### Output
 * output [DeleteDomainResponse](#deletedomainresponse)
@@ -199,8 +353,27 @@ amazonaws_cloudsearch.DeleteExpression({
 
 #### Input
 * input `object`
+  * DomainName **required** `string`
+  * ExpressionName **required** `string`
+
+#### Output
+* output [DeleteExpressionResponse](#deleteexpressionresponse)
+
+### DeleteExpression
+
+
+
+```js
+amazonaws_cloudsearch.DeleteExpression({
+  "DomainName": "",
+  "ExpressionName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * DomainName **required** [DomainName](#domainname)
-  * ExpressionName **required** [StandardName](#standardname)
+  * ExpressionName **required**
 
 #### Output
 * output [DeleteExpressionResponse](#deleteexpressionresponse)
@@ -218,8 +391,27 @@ amazonaws_cloudsearch.DeleteIndexField({
 
 #### Input
 * input `object`
+  * DomainName **required** `string`
+  * IndexFieldName **required** `string`
+
+#### Output
+* output [DeleteIndexFieldResponse](#deleteindexfieldresponse)
+
+### DeleteIndexField
+
+
+
+```js
+amazonaws_cloudsearch.DeleteIndexField({
+  "DomainName": "",
+  "IndexFieldName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * DomainName **required** [DomainName](#domainname)
-  * IndexFieldName **required** [DynamicFieldName](#dynamicfieldname)
+  * IndexFieldName **required**
 
 #### Output
 * output [DeleteIndexFieldResponse](#deleteindexfieldresponse)
@@ -237,8 +429,27 @@ amazonaws_cloudsearch.DeleteSuggester({
 
 #### Input
 * input `object`
+  * DomainName **required** `string`
+  * SuggesterName **required** `string`
+
+#### Output
+* output [DeleteSuggesterResponse](#deletesuggesterresponse)
+
+### DeleteSuggester
+
+
+
+```js
+amazonaws_cloudsearch.DeleteSuggester({
+  "DomainName": "",
+  "SuggesterName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * DomainName **required** [DomainName](#domainname)
-  * SuggesterName **required** [StandardName](#standardname)
+  * SuggesterName **required**
 
 #### Output
 * output [DeleteSuggesterResponse](#deletesuggesterresponse)
@@ -255,9 +466,29 @@ amazonaws_cloudsearch.DescribeAnalysisSchemes({
 
 #### Input
 * input `object`
-  * AnalysisSchemeNames [StandardNameList](#standardnamelist)
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required** `string`
+  * AnalysisSchemeNames `array`
+  * Deployed `boolean`
+
+#### Output
+* output [DescribeAnalysisSchemesResponse](#describeanalysisschemesresponse)
+
+### DescribeAnalysisSchemes
+
+
+
+```js
+amazonaws_cloudsearch.DescribeAnalysisSchemes({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AnalysisSchemeNames
+    * items [StandardName](#standardname)
+  * Deployed
+  * DomainName **required**
 
 #### Output
 * output [DescribeAnalysisSchemesResponse](#describeanalysisschemesresponse)
@@ -274,11 +505,65 @@ amazonaws_cloudsearch.DescribeAvailabilityOptions({
 
 #### Input
 * input `object`
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required** `string`
+  * Deployed `boolean`
 
 #### Output
 * output [DescribeAvailabilityOptionsResponse](#describeavailabilityoptionsresponse)
+
+### DescribeAvailabilityOptions
+
+
+
+```js
+amazonaws_cloudsearch.DescribeAvailabilityOptions({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
+
+#### Output
+* output [DescribeAvailabilityOptionsResponse](#describeavailabilityoptionsresponse)
+
+### DescribeDomainEndpointOptions
+
+
+
+```js
+amazonaws_cloudsearch.DescribeDomainEndpointOptions({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * Deployed `boolean`
+
+#### Output
+* output [DescribeDomainEndpointOptionsResponse](#describedomainendpointoptionsresponse)
+
+### DescribeDomainEndpointOptions
+
+
+
+```js
+amazonaws_cloudsearch.DescribeDomainEndpointOptions({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
+
+#### Output
+* output [DescribeDomainEndpointOptionsResponse](#describedomainendpointoptionsresponse)
 
 ### DescribeDomains
 
@@ -290,7 +575,23 @@ amazonaws_cloudsearch.DescribeDomains({}, context)
 
 #### Input
 * input `object`
-  * DomainNames [DomainNameList](#domainnamelist)
+  * DomainNames `array`
+
+#### Output
+* output [DescribeDomainsResponse](#describedomainsresponse)
+
+### DescribeDomains
+
+
+
+```js
+amazonaws_cloudsearch.DescribeDomains({}, context)
+```
+
+#### Input
+* input `object`
+  * DomainNames
+    * items [DomainName](#domainname)
 
 #### Output
 * output [DescribeDomainsResponse](#describedomainsresponse)
@@ -307,9 +608,29 @@ amazonaws_cloudsearch.DescribeExpressions({
 
 #### Input
 * input `object`
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * ExpressionNames [StandardNameList](#standardnamelist)
+  * DomainName **required** `string`
+  * ExpressionNames `array`
+  * Deployed `boolean`
+
+#### Output
+* output [DescribeExpressionsResponse](#describeexpressionsresponse)
+
+### DescribeExpressions
+
+
+
+```js
+amazonaws_cloudsearch.DescribeExpressions({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
+  * ExpressionNames
+    * items [StandardName](#standardname)
 
 #### Output
 * output [DescribeExpressionsResponse](#describeexpressionsresponse)
@@ -326,12 +647,49 @@ amazonaws_cloudsearch.DescribeIndexFields({
 
 #### Input
 * input `object`
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * FieldNames [DynamicFieldNameList](#dynamicfieldnamelist)
+  * DomainName **required** `string`
+  * FieldNames `array`
+  * Deployed `boolean`
 
 #### Output
 * output [DescribeIndexFieldsResponse](#describeindexfieldsresponse)
+
+### DescribeIndexFields
+
+
+
+```js
+amazonaws_cloudsearch.DescribeIndexFields({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
+  * FieldNames
+    * items [DynamicFieldName](#dynamicfieldname)
+
+#### Output
+* output [DescribeIndexFieldsResponse](#describeindexfieldsresponse)
+
+### DescribeScalingParameters
+
+
+
+```js
+amazonaws_cloudsearch.DescribeScalingParameters({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+
+#### Output
+* output [DescribeScalingParametersResponse](#describescalingparametersresponse)
 
 ### DescribeScalingParameters
 
@@ -362,8 +720,26 @@ amazonaws_cloudsearch.DescribeServiceAccessPolicies({
 
 #### Input
 * input `object`
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required** `string`
+  * Deployed `boolean`
+
+#### Output
+* output [DescribeServiceAccessPoliciesResponse](#describeserviceaccesspoliciesresponse)
+
+### DescribeServiceAccessPolicies
+
+
+
+```js
+amazonaws_cloudsearch.DescribeServiceAccessPolicies({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
 
 #### Output
 * output [DescribeServiceAccessPoliciesResponse](#describeserviceaccesspoliciesresponse)
@@ -380,12 +756,49 @@ amazonaws_cloudsearch.DescribeSuggesters({
 
 #### Input
 * input `object`
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * SuggesterNames [StandardNameList](#standardnamelist)
+  * DomainName **required** `string`
+  * SuggesterNames `array`
+  * Deployed `boolean`
 
 #### Output
 * output [DescribeSuggestersResponse](#describesuggestersresponse)
+
+### DescribeSuggesters
+
+
+
+```js
+amazonaws_cloudsearch.DescribeSuggesters({
+  "DomainName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Deployed
+  * DomainName **required**
+  * SuggesterNames
+    * items [StandardName](#standardname)
+
+#### Output
+* output [DescribeSuggestersResponse](#describesuggestersresponse)
+
+### IndexDocuments
+
+
+
+```js
+amazonaws_cloudsearch.IndexDocuments({
+  "DomainName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+
+#### Output
+* output [IndexDocumentsResponse](#indexdocumentsresponse)
 
 ### IndexDocuments
 
@@ -418,6 +831,20 @@ amazonaws_cloudsearch.ListDomainNames({}, context)
 #### Output
 * output [ListDomainNamesResponse](#listdomainnamesresponse)
 
+### ListDomainNames
+
+
+
+```js
+amazonaws_cloudsearch.ListDomainNames({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListDomainNamesResponse](#listdomainnamesresponse)
+
 ### UpdateAvailabilityOptions
 
 
@@ -431,11 +858,89 @@ amazonaws_cloudsearch.UpdateAvailabilityOptions({
 
 #### Input
 * input `object`
-  * DomainName **required** [DomainName](#domainname)
-  * MultiAZ **required** [Boolean](#boolean)
+  * DomainName **required** `string`
+  * MultiAZ **required** `boolean`
 
 #### Output
 * output [UpdateAvailabilityOptionsResponse](#updateavailabilityoptionsresponse)
+
+### UpdateAvailabilityOptions
+
+
+
+```js
+amazonaws_cloudsearch.UpdateAvailabilityOptions({
+  "DomainName": "",
+  "MultiAZ": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** [DomainName](#domainname)
+  * MultiAZ **required**
+
+#### Output
+* output [UpdateAvailabilityOptionsResponse](#updateavailabilityoptionsresponse)
+
+### UpdateDomainEndpointOptions
+
+
+
+```js
+amazonaws_cloudsearch.UpdateDomainEndpointOptions({
+  "DomainName": "",
+  "DomainEndpointOptions": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * DomainEndpointOptions **required** `object`
+
+#### Output
+* output [UpdateDomainEndpointOptionsResponse](#updatedomainendpointoptionsresponse)
+
+### UpdateDomainEndpointOptions
+
+
+
+```js
+amazonaws_cloudsearch.UpdateDomainEndpointOptions({
+  "DomainName": null,
+  "DomainEndpointOptions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainEndpointOptions **required**
+    * EnforceHTTPS
+    * TLSSecurityPolicy
+  * DomainName **required**
+
+#### Output
+* output [UpdateDomainEndpointOptionsResponse](#updatedomainendpointoptionsresponse)
+
+### UpdateScalingParameters
+
+
+
+```js
+amazonaws_cloudsearch.UpdateScalingParameters({
+  "DomainName": "",
+  "ScalingParameters": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DomainName **required** `string`
+  * ScalingParameters **required** `object`
+
+#### Output
+* output [UpdateScalingParametersResponse](#updatescalingparametersresponse)
 
 ### UpdateScalingParameters
 
@@ -469,7 +974,26 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 #### Input
 * input `object`
-  * AccessPolicies **required** [PolicyDocument](#policydocument)
+  * DomainName **required** `string`
+  * AccessPolicies **required** `string`
+
+#### Output
+* output [UpdateServiceAccessPoliciesResponse](#updateserviceaccesspoliciesresponse)
+
+### UpdateServiceAccessPolicies
+
+
+
+```js
+amazonaws_cloudsearch.UpdateServiceAccessPolicies({
+  "DomainName": "",
+  "AccessPolicies": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessPolicies **required**
   * DomainName **required** [DomainName](#domainname)
 
 #### Output
@@ -495,11 +1019,11 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### AnalysisOptions
 * AnalysisOptions `object`: Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.
-  * AlgorithmicStemming [AlgorithmicStemming](#algorithmicstemming)
-  * JapaneseTokenizationDictionary [String](#string)
-  * StemmingDictionary [String](#string)
-  * Stopwords [String](#string)
-  * Synonyms [String](#string)
+  * AlgorithmicStemming
+  * JapaneseTokenizationDictionary
+  * StemmingDictionary
+  * Stopwords
+  * Synonyms
 
 ### AnalysisScheme
 * AnalysisScheme `object`: Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.
@@ -521,13 +1045,11 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### AvailabilityOptionsStatus
 * AvailabilityOptionsStatus `object`: The status and configuration of the domain's availability options.
-  * Options **required** [MultiAZ](#multiaz)
+  * Options **required**
   * Status **required** [OptionStatus](#optionstatus)
 
 ### BaseException
-* BaseException `object`: An error occurred while processing the request.
-  * Code [ErrorCode](#errorcode)
-  * Message [ErrorMessage](#errormessage)
+
 
 ### Boolean
 * Boolean `boolean`
@@ -542,7 +1064,7 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### CreateDomainRequest
 * CreateDomainRequest `object`: Container for the parameters to the <code><a>CreateDomain</a></code> operation. Specifies a name for the new search domain.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### CreateDomainResponse
 * CreateDomainResponse `object`: The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.
@@ -550,19 +1072,19 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### DateArrayOptions
 * DateArrayOptions `object`: Options for a field that contains an array of dates. Present if <code>IndexFieldType</code> specifies the field is of type <code>date-array</code>. All options are enabled by default.
-  * DefaultValue [FieldValue](#fieldvalue)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SourceFields [FieldNameCommaList](#fieldnamecommalist)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SourceFields
 
 ### DateOptions
 * DateOptions `object`: Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if <code>IndexFieldType</code> specifies the field is of type <code>date</code>. All options are enabled by default.
-  * DefaultValue [FieldValue](#fieldvalue)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SortEnabled
   * SourceField [FieldName](#fieldname)
 
 ### DefineAnalysisSchemeRequest
@@ -586,7 +1108,20 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 ### DefineIndexFieldRequest
 * DefineIndexFieldRequest `object`: Container for the parameters to the <code><a>DefineIndexField</a></code> operation. Specifies the name of the domain you want to update and the index field configuration.
   * DomainName **required** [DomainName](#domainname)
-  * IndexField **required** [IndexField](#indexfield)
+  * IndexField **required**
+    * DateArrayOptions [DateArrayOptions](#datearrayoptions)
+    * DateOptions [DateOptions](#dateoptions)
+    * DoubleArrayOptions [DoubleArrayOptions](#doublearrayoptions)
+    * DoubleOptions [DoubleOptions](#doubleoptions)
+    * IndexFieldName **required**
+    * IndexFieldType **required** [IndexFieldType](#indexfieldtype)
+    * IntArrayOptions [IntArrayOptions](#intarrayoptions)
+    * IntOptions [IntOptions](#intoptions)
+    * LatLonOptions [LatLonOptions](#latlonoptions)
+    * LiteralArrayOptions [LiteralArrayOptions](#literalarrayoptions)
+    * LiteralOptions [LiteralOptions](#literaloptions)
+    * TextArrayOptions [TextArrayOptions](#textarrayoptions)
+    * TextOptions [TextOptions](#textoptions)
 
 ### DefineIndexFieldResponse
 * DefineIndexFieldResponse `object`: The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.
@@ -603,16 +1138,18 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### DeleteAnalysisSchemeRequest
 * DeleteAnalysisSchemeRequest `object`: Container for the parameters to the <code><a>DeleteAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete. 
-  * AnalysisSchemeName **required** [StandardName](#standardname)
+  * AnalysisSchemeName **required**
   * DomainName **required** [DomainName](#domainname)
 
 ### DeleteAnalysisSchemeResponse
 * DeleteAnalysisSchemeResponse `object`: The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.
-  * AnalysisScheme **required** [AnalysisSchemeStatus](#analysisschemestatus)
+  * AnalysisScheme **required**
+    * Options **required** [AnalysisScheme](#analysisscheme)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### DeleteDomainRequest
 * DeleteDomainRequest `object`: Container for the parameters to the <code><a>DeleteDomain</a></code> operation. Specifies the name of the domain you want to delete.
-  * DomainName **required** [DomainName](#domainname)
+  * DomainName **required**
 
 ### DeleteDomainResponse
 * DeleteDomainResponse `object`: The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.
@@ -621,52 +1158,83 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 ### DeleteExpressionRequest
 * DeleteExpressionRequest `object`: Container for the parameters to the <code><a>DeleteExpression</a></code> operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
   * DomainName **required** [DomainName](#domainname)
-  * ExpressionName **required** [StandardName](#standardname)
+  * ExpressionName **required**
 
 ### DeleteExpressionResponse
 * DeleteExpressionResponse `object`: The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.
-  * Expression **required** [ExpressionStatus](#expressionstatus)
+  * Expression **required**
+    * Options **required**
+      * ExpressionName **required** [StandardName](#standardname)
+      * ExpressionValue **required** [ExpressionValue](#expressionvalue)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### DeleteIndexFieldRequest
 * DeleteIndexFieldRequest `object`: Container for the parameters to the <code><a>DeleteIndexField</a></code> operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.
   * DomainName **required** [DomainName](#domainname)
-  * IndexFieldName **required** [DynamicFieldName](#dynamicfieldname)
+  * IndexFieldName **required**
 
 ### DeleteIndexFieldResponse
 * DeleteIndexFieldResponse `object`: The result of a <code><a>DeleteIndexField</a></code> request.
-  * IndexField **required** [IndexFieldStatus](#indexfieldstatus)
+  * IndexField **required**
+    * Options **required** [IndexField](#indexfield)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### DeleteSuggesterRequest
 * DeleteSuggesterRequest `object`: Container for the parameters to the <code><a>DeleteSuggester</a></code> operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.
   * DomainName **required** [DomainName](#domainname)
-  * SuggesterName **required** [StandardName](#standardname)
+  * SuggesterName **required**
 
 ### DeleteSuggesterResponse
 * DeleteSuggesterResponse `object`: The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.
-  * Suggester **required** [SuggesterStatus](#suggesterstatus)
+  * Suggester **required**
+    * Options **required** [Suggester](#suggester)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### DescribeAnalysisSchemesRequest
 * DescribeAnalysisSchemesRequest `object`: Container for the parameters to the <code><a>DescribeAnalysisSchemes</a></code> operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>. 
-  * AnalysisSchemeNames [StandardNameList](#standardnamelist)
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * AnalysisSchemeNames
+    * items [StandardName](#standardname)
+  * Deployed
+  * DomainName **required**
 
 ### DescribeAnalysisSchemesResponse
 * DescribeAnalysisSchemesResponse `object`: The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.
-  * AnalysisSchemes **required** [AnalysisSchemeStatusList](#analysisschemestatuslist)
+  * AnalysisSchemes **required**
+    * items [AnalysisSchemeStatus](#analysisschemestatus)
 
 ### DescribeAvailabilityOptionsRequest
 * DescribeAvailabilityOptionsRequest `object`: Container for the parameters to the <code><a>DescribeAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * Deployed
+  * DomainName **required**
 
 ### DescribeAvailabilityOptionsResponse
 * DescribeAvailabilityOptionsResponse `object`: The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. 
-  * AvailabilityOptions [AvailabilityOptionsStatus](#availabilityoptionsstatus)
+  * AvailabilityOptions
+    * Options **required**
+    * Status **required** [OptionStatus](#optionstatus)
+
+### DescribeDomainEndpointOptionsRequest
+* DescribeDomainEndpointOptionsRequest `object`: Container for the parameters to the <code><a>DescribeDomainEndpointOptions</a></code> operation. Specify the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to <code>true</code>.
+  * Deployed
+  * DomainName **required**
+
+### DescribeDomainEndpointOptionsResponse
+* DescribeDomainEndpointOptionsResponse `object`: The result of a <code>DescribeDomainEndpointOptions</code> request. Contains the status and configuration of a search domain's endpoint options. 
+  * DomainEndpointOptions
+    * Options **required**
+      * EnforceHTTPS
+      * TLSSecurityPolicy
+    * Status **required**
+      * CreationDate **required**
+      * PendingDeletion
+      * State **required**
+      * UpdateDate **required**
+      * UpdateVersion
 
 ### DescribeDomainsRequest
 * DescribeDomainsRequest `object`: Container for the parameters to the <code><a>DescribeDomains</a></code> operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.
-  * DomainNames [DomainNameList](#domainnamelist)
+  * DomainNames
+    * items [DomainName](#domainname)
 
 ### DescribeDomainsResponse
 * DescribeDomainsResponse `object`: The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.
@@ -674,23 +1242,27 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### DescribeExpressionsRequest
 * DescribeExpressionsRequest `object`: Container for the parameters to the <code><a>DescribeDomains</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * ExpressionNames [StandardNameList](#standardnamelist)
+  * Deployed
+  * DomainName **required**
+  * ExpressionNames
+    * items [StandardName](#standardname)
 
 ### DescribeExpressionsResponse
 * DescribeExpressionsResponse `object`: The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.
-  * Expressions **required** [ExpressionStatusList](#expressionstatuslist)
+  * Expressions **required**
+    * items [ExpressionStatus](#expressionstatus)
 
 ### DescribeIndexFieldsRequest
 * DescribeIndexFieldsRequest `object`: Container for the parameters to the <code><a>DescribeIndexFields</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * FieldNames [DynamicFieldNameList](#dynamicfieldnamelist)
+  * Deployed
+  * DomainName **required**
+  * FieldNames
+    * items [DynamicFieldName](#dynamicfieldname)
 
 ### DescribeIndexFieldsResponse
 * DescribeIndexFieldsResponse `object`: The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.
-  * IndexFields **required** [IndexFieldStatusList](#indexfieldstatuslist)
+  * IndexFields **required**
+    * items [IndexFieldStatus](#indexfieldstatus)
 
 ### DescribeScalingParametersRequest
 * DescribeScalingParametersRequest `object`: Container for the parameters to the <code><a>DescribeScalingParameters</a></code> operation. Specifies the name of the domain you want to describe. 
@@ -702,31 +1274,52 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### DescribeServiceAccessPoliciesRequest
 * DescribeServiceAccessPoliciesRequest `object`: Container for the parameters to the <code><a>DescribeServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
+  * Deployed
+  * DomainName **required**
 
 ### DescribeServiceAccessPoliciesResponse
 * DescribeServiceAccessPoliciesResponse `object`: The result of a <code>DescribeServiceAccessPolicies</code> request.
-  * AccessPolicies **required** [AccessPoliciesStatus](#accesspoliciesstatus)
+  * AccessPolicies **required**
+    * Options **required** [PolicyDocument](#policydocument)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### DescribeSuggestersRequest
 * DescribeSuggestersRequest `object`: Container for the parameters to the <code><a>DescribeSuggester</a></code> operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the <code>Deployed</code> option to <code>true</code>.
-  * Deployed [Boolean](#boolean)
-  * DomainName **required** [DomainName](#domainname)
-  * SuggesterNames [StandardNameList](#standardnamelist)
+  * Deployed
+  * DomainName **required**
+  * SuggesterNames
+    * items [StandardName](#standardname)
 
 ### DescribeSuggestersResponse
 * DescribeSuggestersResponse `object`: The result of a <code>DescribeSuggesters</code> request.
-  * Suggesters **required** [SuggesterStatusList](#suggesterstatuslist)
+  * Suggesters **required**
+    * items [SuggesterStatus](#suggesterstatus)
 
 ### DisabledOperationException
-* DisabledOperationException `object`: The request was rejected because it attempted an operation which is not enabled.
+
 
 ### DocumentSuggesterOptions
 * DocumentSuggesterOptions `object`: Options for a search suggester.
-  * FuzzyMatching [SuggesterFuzzyMatching](#suggesterfuzzymatching)
-  * SortExpression [String](#string)
-  * SourceField **required** [FieldName](#fieldname)
+  * FuzzyMatching
+  * SortExpression
+  * SourceField **required**
+
+### DomainEndpointOptions
+* DomainEndpointOptions `object`: The domain's endpoint options.
+  * EnforceHTTPS
+  * TLSSecurityPolicy
+
+### DomainEndpointOptionsStatus
+* DomainEndpointOptionsStatus `object`: The configuration and status of the domain's endpoint options.
+  * Options **required**
+    * EnforceHTTPS
+    * TLSSecurityPolicy
+  * Status **required**
+    * CreationDate **required**
+    * PendingDeletion
+    * State **required**
+    * UpdateDate **required**
+    * UpdateVersion
 
 ### DomainId
 * DomainId `string`: An internally generated unique identifier for a domain.
@@ -739,26 +1332,25 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
   * items [DomainName](#domainname)
 
 ### DomainNameMap
-* DomainNameMap `array`: A collection of domain names.
-  * items `object`
-    * key [DomainName](#domainname)
-    * value [APIVersion](#apiversion)
+* DomainNameMap `object`: A collection of domain names.
 
 ### DomainStatus
 * DomainStatus `object`: The current status of the search domain.
   * ARN [ARN](#arn)
-  * Created [Boolean](#boolean)
-  * Deleted [Boolean](#boolean)
-  * DocService [ServiceEndpoint](#serviceendpoint)
+  * Created
+  * Deleted
+  * DocService
+    * Endpoint [ServiceUrl](#serviceurl)
   * DomainId **required** [DomainId](#domainid)
   * DomainName **required** [DomainName](#domainname)
   * Limits [Limits](#limits)
-  * Processing [Boolean](#boolean)
-  * RequiresIndexDocuments **required** [Boolean](#boolean)
-  * SearchInstanceCount [InstanceCount](#instancecount)
-  * SearchInstanceType [SearchInstanceType](#searchinstancetype)
-  * SearchPartitionCount [PartitionCount](#partitioncount)
-  * SearchService [ServiceEndpoint](#serviceendpoint)
+  * Processing
+  * RequiresIndexDocuments **required**
+  * SearchInstanceCount
+  * SearchInstanceType
+  * SearchPartitionCount
+  * SearchService
+    * Endpoint [ServiceUrl](#serviceurl)
 
 ### DomainStatusList
 * DomainStatusList `array`: A list that contains the status of each requested domain.
@@ -769,20 +1361,20 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### DoubleArrayOptions
 * DoubleArrayOptions `object`: Options for a field that contains an array of double-precision 64-bit floating point values. Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>. All options are enabled by default.
-  * DefaultValue [Double](#double)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SourceFields [FieldNameCommaList](#fieldnamecommalist)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SourceFields
 
 ### DoubleOptions
 * DoubleOptions `object`: Options for a double-precision 64-bit floating point field. Present if <code>IndexFieldType</code> specifies the field is of type <code>double</code>. All options are enabled by default.
-  * DefaultValue [Double](#double)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
-  * SourceField [FieldName](#fieldname)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SortEnabled
+  * SourceField
 
 ### DynamicFieldName
 * DynamicFieldName `string`
@@ -791,12 +1383,6 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 * DynamicFieldNameList `array`
   * items [DynamicFieldName](#dynamicfieldname)
 
-### ErrorCode
-* ErrorCode `string`: A machine-parsable string error or warning code.
-
-### ErrorMessage
-* ErrorMessage `string`: A human-readable string error or warning message.
-
 ### Expression
 * Expression `object`: A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results. 
   * ExpressionName **required** [StandardName](#standardname)
@@ -804,7 +1390,9 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### ExpressionStatus
 * ExpressionStatus `object`: The value of an <code>Expression</code> and its current status.
-  * Options **required** [Expression](#expression)
+  * Options **required**
+    * ExpressionName **required** [StandardName](#standardname)
+    * ExpressionValue **required** [ExpressionValue](#expressionvalue)
   * Status **required** [OptionStatus](#optionstatus)
 
 ### ExpressionStatusList
@@ -833,7 +1421,8 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### IndexDocumentsResponse
 * IndexDocumentsResponse `object`: The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.
-  * FieldNames [FieldNameList](#fieldnamelist)
+  * FieldNames
+    * items [FieldName](#fieldname)
 
 ### IndexField
 * IndexField `object`: Configuration information for a field in the index, including its name, type, and options. The supported options depend on the <code><a>IndexFieldType</a></code>.
@@ -841,7 +1430,7 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
   * DateOptions [DateOptions](#dateoptions)
   * DoubleArrayOptions [DoubleArrayOptions](#doublearrayoptions)
   * DoubleOptions [DoubleOptions](#doubleoptions)
-  * IndexFieldName **required** [DynamicFieldName](#dynamicfieldname)
+  * IndexFieldName **required**
   * IndexFieldType **required** [IndexFieldType](#indexfieldtype)
   * IntArrayOptions [IntArrayOptions](#intarrayoptions)
   * IntOptions [IntOptions](#intoptions)
@@ -868,38 +1457,38 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### IntArrayOptions
 * IntArrayOptions `object`: Options for a field that contains an array of 64-bit signed integers. Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.
-  * DefaultValue [Long](#long)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SourceFields [FieldNameCommaList](#fieldnamecommalist)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SourceFields
 
 ### IntOptions
 * IntOptions `object`: Options for a 64-bit signed integer field. Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.
-  * DefaultValue [Long](#long)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
-  * SourceField [FieldName](#fieldname)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SortEnabled
+  * SourceField
 
 ### InternalException
-* InternalException `object`: An internal error occurred while processing the request. If this problem persists, report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.
+
 
 ### InvalidTypeException
-* InvalidTypeException `object`: The request was rejected because it specified an invalid type definition.
+
 
 ### LatLonOptions
 * LatLonOptions `object`: Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if <code>IndexFieldType</code> specifies the field is of type <code>latlon</code>. All options are enabled by default.
-  * DefaultValue [FieldValue](#fieldvalue)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SortEnabled
   * SourceField [FieldName](#fieldname)
 
 ### LimitExceededException
-* LimitExceededException `object`: The request was rejected because a resource limit has already been met.
+
 
 ### Limits
 * Limits `object`
@@ -908,23 +1497,23 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### ListDomainNamesResponse
 * ListDomainNamesResponse `object`: The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.
-  * DomainNames [DomainNameMap](#domainnamemap)
+  * DomainNames
 
 ### LiteralArrayOptions
 * LiteralArrayOptions `object`: Options for a field that contains an array of literal strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.
-  * DefaultValue [FieldValue](#fieldvalue)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SourceFields [FieldNameCommaList](#fieldnamecommalist)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SourceFields
 
 ### LiteralOptions
 * LiteralOptions `object`: Options for literal field. Present if <code>IndexFieldType</code> specifies the field is of type <code>literal</code>. All options are enabled by default.
-  * DefaultValue [FieldValue](#fieldvalue)
-  * FacetEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SearchEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
+  * DefaultValue
+  * FacetEnabled
+  * ReturnEnabled
+  * SearchEnabled
+  * SortEnabled
   * SourceField [FieldName](#fieldname)
 
 ### Long
@@ -944,11 +1533,11 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### OptionStatus
 * OptionStatus `object`: The status of domain configuration option.
-  * CreationDate **required** [UpdateTimestamp](#updatetimestamp)
-  * PendingDeletion [Boolean](#boolean)
-  * State **required** [OptionState](#optionstate)
-  * UpdateDate **required** [UpdateTimestamp](#updatetimestamp)
-  * UpdateVersion [UIntValue](#uintvalue)
+  * CreationDate **required**
+  * PendingDeletion
+  * State **required**
+  * UpdateDate **required**
+  * UpdateVersion
 
 ### PartitionCount
 * PartitionCount `integer`: The number of partitions used to hold the domain's index.
@@ -960,13 +1549,13 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 * PolicyDocument `string`: Access rules for a domain's document or search service endpoints. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>. The maximum size of a policy document is 100 KB.
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`: The request was rejected because it attempted to reference a resource that does not exist.
+
 
 ### ScalingParameters
 * ScalingParameters `object`: The desired instance type and desired number of replicas of each index partition.
-  * DesiredInstanceType [PartitionInstanceType](#partitioninstancetype)
-  * DesiredPartitionCount [UIntValue](#uintvalue)
-  * DesiredReplicationCount [UIntValue](#uintvalue)
+  * DesiredInstanceType
+  * DesiredPartitionCount
+  * DesiredReplicationCount
 
 ### ScalingParametersStatus
 * ScalingParametersStatus `object`: The status and configuration of a search domain's scaling parameters. 
@@ -1010,21 +1599,24 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 * SuggesterStatusList `array`: Contains the status of multiple suggesters.
   * items [SuggesterStatus](#suggesterstatus)
 
+### TLSSecurityPolicy
+* TLSSecurityPolicy `string` (values: Policy-Min-TLS-1-0-2019-07, Policy-Min-TLS-1-2-2019-07): The minimum required TLS version.
+
 ### TextArrayOptions
 * TextArrayOptions `object`: Options for a field that contains an array of text strings. Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.
-  * AnalysisScheme [Word](#word)
-  * DefaultValue [FieldValue](#fieldvalue)
-  * HighlightEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SourceFields [FieldNameCommaList](#fieldnamecommalist)
+  * AnalysisScheme
+  * DefaultValue
+  * HighlightEnabled
+  * ReturnEnabled
+  * SourceFields
 
 ### TextOptions
 * TextOptions `object`: Options for text field. Present if <code>IndexFieldType</code> specifies the field is of type <code>text</code>. A <code>text</code> field is always searchable. All options are enabled by default.
-  * AnalysisScheme [Word](#word)
-  * DefaultValue [FieldValue](#fieldvalue)
-  * HighlightEnabled [Boolean](#boolean)
-  * ReturnEnabled [Boolean](#boolean)
-  * SortEnabled [Boolean](#boolean)
+  * AnalysisScheme
+  * DefaultValue
+  * HighlightEnabled
+  * ReturnEnabled
+  * SortEnabled
   * SourceField [FieldName](#fieldname)
 
 ### UIntValue
@@ -1033,11 +1625,33 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 ### UpdateAvailabilityOptionsRequest
 * UpdateAvailabilityOptionsRequest `object`: Container for the parameters to the <code><a>UpdateAvailabilityOptions</a></code> operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.
   * DomainName **required** [DomainName](#domainname)
-  * MultiAZ **required** [Boolean](#boolean)
+  * MultiAZ **required**
 
 ### UpdateAvailabilityOptionsResponse
 * UpdateAvailabilityOptionsResponse `object`: The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. 
-  * AvailabilityOptions [AvailabilityOptionsStatus](#availabilityoptionsstatus)
+  * AvailabilityOptions
+    * Options **required**
+    * Status **required** [OptionStatus](#optionstatus)
+
+### UpdateDomainEndpointOptionsRequest
+* UpdateDomainEndpointOptionsRequest `object`: Container for the parameters to the <code><a>UpdateDomainEndpointOptions</a></code> operation. Specifies the name of the domain you want to update and the domain endpoint options.
+  * DomainEndpointOptions **required**
+    * EnforceHTTPS
+    * TLSSecurityPolicy
+  * DomainName **required**
+
+### UpdateDomainEndpointOptionsResponse
+* UpdateDomainEndpointOptionsResponse `object`: The result of a <code>UpdateDomainEndpointOptions</code> request. Contains the configuration and status of the domain's endpoint options. 
+  * DomainEndpointOptions
+    * Options **required**
+      * EnforceHTTPS
+      * TLSSecurityPolicy
+    * Status **required**
+      * CreationDate **required**
+      * PendingDeletion
+      * State **required**
+      * UpdateDate **required**
+      * UpdateVersion
 
 ### UpdateScalingParametersRequest
 * UpdateScalingParametersRequest `object`: Container for the parameters to the <code><a>UpdateScalingParameters</a></code> operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
@@ -1050,15 +1664,20 @@ amazonaws_cloudsearch.UpdateServiceAccessPolicies({
 
 ### UpdateServiceAccessPoliciesRequest
 * UpdateServiceAccessPoliciesRequest `object`: Container for the parameters to the <code><a>UpdateServiceAccessPolicies</a></code> operation. Specifies the name of the domain you want to update and the access rules you want to configure.
-  * AccessPolicies **required** [PolicyDocument](#policydocument)
+  * AccessPolicies **required**
   * DomainName **required** [DomainName](#domainname)
 
 ### UpdateServiceAccessPoliciesResponse
 * UpdateServiceAccessPoliciesResponse `object`: The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.
-  * AccessPolicies **required** [AccessPoliciesStatus](#accesspoliciesstatus)
+  * AccessPolicies **required**
+    * Options **required** [PolicyDocument](#policydocument)
+    * Status **required** [OptionStatus](#optionstatus)
 
 ### UpdateTimestamp
 * UpdateTimestamp `string`
+
+### ValidationException
+
 
 ### Word
 * Word `string`

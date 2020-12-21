@@ -15,12 +15,7 @@ let azure_monitor_alertrulesincidents_api = require('@datafire/azure_monitor_ale
   redirect_uri: ""
 });
 
-azure_monitor_alertrulesincidents_api.AlertRuleIncidents_ListByAlertRule({
-  "resourceGroupName": "",
-  "ruleName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

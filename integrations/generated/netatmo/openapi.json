@@ -10,14 +10,14 @@
       "email": "contact-api@netatmo.com",
       "name": "Netatmo"
     },
-    "description": "<h3>Welcome to the Netatmo swagger on-line documentation !</h3>This site is a complement to the official <a href=\"https://dev.netatmo.com/\">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the \"try it\" button (authenticate with the authorization code 0Auth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href=\"https://github.com/cbornet/netatmo-swagger-ui\">netatmo-swagger-ui</a>. You can also use the online <a href=\"./swagger.json\">swagger declaration</a> file to generate code or static documentation (see <a href=\"https://github.com/cbornet/netatmo-swagger-api\">netatmo-swagger-api</a>).",
+    "description": "<h3>Welcome to the Netatmo swagger on-line documentation !</h3>\nThis site is a complement to the official <a href=\"https://dev.netatmo.com/\">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the \"try it\" button (authenticate with the authorization code OAuth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href=\"https://github.com/cbornet/netatmo-swagger-ui\">netatmo-swagger-ui</a>. You can also use the online <a href=\"./swagger.json\">swagger declaration</a> file to generate code or static documentation (see <a href=\"https://github.com/cbornet/netatmo-swagger-api\">netatmo-swagger-api</a>).\n",
     "license": {
       "name": "Netatmo : Terms of Service",
       "url": "https://dev.netatmo.com/dev/resources/legal/introduction"
     },
     "termsOfService": "https://dev.netatmo.com/dev/resources/legal/introduction",
     "title": "Netatmo",
-    "version": "1.1.1",
+    "version": "1.1.5",
     "x-apiClientRegistration": {
       "url": "https://dev.netatmo.com/dev/createanapp"
     },
@@ -25,12 +25,12 @@
       "iot"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_netatmo_profile_image.jpeg"
     },
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/cbornet/netatmo-swagger-decl/master/swagger.json",
+        "url": "https://raw.githubusercontent.com/cbornet/netatmo-swagger-decl/master/spec/swagger.yaml",
         "version": "2.0"
       }
     ],
@@ -59,6 +59,7 @@
       "scopes": {
         "access_camera": "Access welcome camera",
         "read_camera": "Read welcome camera's data",
+        "read_homecoach": "Read data coming from Healthy Home Coach",
         "read_station": "Read weather station's data",
         "read_thermostat": "Read thermostat's data",
         "write_camera": "Write welcome camera's data",
@@ -69,7 +70,15 @@
     },
     "password_oauth": {
       "flow": "password",
-      "scopes": {},
+      "scopes": {
+        "access_camera": "Access welcome camera",
+        "read_camera": "Read welcome camera's data",
+        "read_homecoach": "Read data coming from Healthy Home Coach",
+        "read_station": "Read weather station's data",
+        "read_thermostat": "Read thermostat's data",
+        "write_camera": "Write welcome camera's data",
+        "write_thermostat": "Configure the thermostat"
+      },
       "tokenUrl": "https://api.netatmo.net/oauth2/token",
       "type": "oauth2"
     }
@@ -98,12 +107,15 @@
     {
       "description": "Partner API specific methods",
       "name": "partner"
+    },
+    {
+      "description": "These methods are no longer maintained nor supported",
+      "name": "deprecated"
     }
   ],
   "paths": {
     "/addwebhook": {
       "get": {
-        "deprecated": false,
         "description": "Links a callback url to a user.\n",
         "operationId": "addwebhook",
         "parameters": [
@@ -187,7 +199,9 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "write_thermostat"
+            ]
           }
         ],
         "tags": [
@@ -209,17 +223,16 @@
             ],
             "in": "query",
             "name": "app_type",
-            "required": false,
             "type": "string"
           },
           {
             "description": "Specify a device_id if you want to retrieve only this device informations.",
             "in": "query",
             "name": "device_id",
-            "required": false,
             "type": "string"
           },
           {
+            "default": false,
             "description": "When set to \"true\", the favorite devices of the user are returned. This flag is available only if the devices requested are Weather Stations.",
             "in": "query",
             "name": "get_favorites",
@@ -243,19 +256,19 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "read_thermostat",
+              "read_station"
+            ]
           }
         ],
         "tags": [
-          "station",
-          "thermostat",
-          "partner"
+          "deprecated"
         ]
       }
     },
     "/dropwebhook": {
       "get": {
-        "deprecated": false,
         "description": "Dissociates a webhook from a user.\n",
         "operationId": "dropwebhook",
         "parameters": [
@@ -290,7 +303,6 @@
     },
     "/getcamerapicture": {
       "get": {
-        "deprecated": false,
         "description": "Returns the snapshot associated to an event.\n",
         "operationId": "getcamerapicture",
         "parameters": [
@@ -333,7 +345,6 @@
     },
     "/geteventsuntil": {
       "get": {
-        "deprecated": false,
         "description": "Returns the snapshot associated to an event.\n",
         "operationId": "geteventsuntil",
         "parameters": [
@@ -356,7 +367,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/NAWelcomeEventsResponse"
+              "$ref": "#/definitions/NAWelcomeEventResponse"
             }
           }
         },
@@ -368,7 +379,10 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "access_camera",
+              "read_camera"
+            ]
           }
         ],
         "tags": [
@@ -385,7 +399,6 @@
             "description": "Id of the device you want to retrieve information of",
             "in": "query",
             "name": "device_id",
-            "required": false,
             "type": "string"
           }
         ],
@@ -397,6 +410,18 @@
             }
           }
         },
+        "security": [
+          {
+            "code_oauth": [
+              "read_homecoach"
+            ]
+          },
+          {
+            "password_oauth": [
+              "read_homecoach"
+            ]
+          }
+        ],
         "tags": [
           "healthyhomecoach"
         ]
@@ -404,7 +429,6 @@
     },
     "/gethomedata": {
       "get": {
-        "deprecated": false,
         "description": "Returns information about users homes and cameras.\n",
         "operationId": "gethomedata",
         "parameters": [
@@ -412,14 +436,12 @@
             "description": "Specify if you're looking for the events of a specific Home.",
             "in": "query",
             "name": "home_id",
-            "required": false,
             "type": "string"
           },
           {
-            "description": "Number of events to retrieve. Default is 30.",
+            "description": "Number of events to retrieve. Default is `30`.",
             "in": "query",
             "name": "size",
-            "required": false,
             "type": "integer"
           }
         ],
@@ -439,7 +461,10 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "access_camera",
+              "read_camera"
+            ]
           }
         ],
         "tags": [
@@ -449,7 +474,6 @@
     },
     "/getlasteventof": {
       "get": {
-        "deprecated": false,
         "description": "Returns most recent events.\n",
         "operationId": "getlasteventof",
         "parameters": [
@@ -471,7 +495,6 @@
             "description": "Number of events to retrieve. Default is 30.",
             "in": "query",
             "name": "offset",
-            "required": false,
             "type": "integer"
           }
         ],
@@ -479,7 +502,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/NAWelcomeEventsResponse"
+              "$ref": "#/definitions/NAWelcomeEventResponse"
             }
           }
         },
@@ -491,7 +514,10 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "access_camera",
+              "read_camera"
+            ]
           }
         ],
         "tags": [
@@ -515,7 +541,6 @@
             "description": "If you don't specify any module_id you will retrieve the device's measurements. If you specify a module_id you will retrieve the module's measurements.",
             "in": "query",
             "name": "module_id",
-            "required": false,
             "type": "string"
           },
           {
@@ -536,7 +561,7 @@
           },
           {
             "collectionFormat": "csv",
-            "description": "Sets the type of measurement you want to retrieve.\nThe different types of measurements must be given in a comma separated list of strings.\nExample: type=\"Temperature,Humidity\"\nDepending on the device's type and the scale, different measurements are available:\nFor Weather Station :\n\n  max -> Temperature, CO2, Humidity, Pressure, Noise, Rain (if\nmodule_id is a rain sensor)\n\n  30min, 1hour, 3hours -> Temperature, CO2, Humidity, Pressure,\nNoise, min_temp, max_temp, min_hum, max_hum, min_pressure, max_pressure, min_noise, max_noise, sum_rain (if module_id is a rain sensor)\n\n  1day, 1week, 1month -> Temperature, Co2, Humidity, Pressure, Noise,\nmin_temp, date_min_temp, max_temp, date_max_temp, min_hum, date_min_hum, max_hum, date_max_hum, min_pressure, date_min_pressure, max_pressure, date_max_pressure, min_noise, date_min_noise, max_noise, date_max_noise, date_min_co2, date_max_co2, sum_rain (if module_id is a rain sensor)\nPlease note, the measurements sent in the response will be in the same order as in this list.\nAll measurements are expressed in metric units:\n\n  Temperature: Celsius\n\n  Humidity: %\n\n  Co2: ppm\n\n  Pressure: mbar\n\n  Noise: db\n\n  Rain: mm\n\nFor Thermostat:\n\n  max -> Temperature, Sp_Temperature, BoilerOn, BoilerOff\n\n  30min, 1hour, 3hours -> Temperature, Sp_Temperature, min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n\n  1day, 1week, 1month -> Temperature, min_temp, date_min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n\n  where\n\nTemperature: Celsius\n\n  Sp_Temperature (temperature setpoint): Celsius\n\n  BoilerOn: Duration, since the previous data point, during which the\nboiler has been on (in seconds)\n\n  BoilerOff : Duration, since the previous data point, during which\nthe boiler has been off (in seconds).\n\n  sum_boiler_on: Total duration during which the boiler has been on,\nat a specific scale (in seconds).\n\n  sum_boiler_off: Total duration during which the boiler has been\noff, at a specific scale (in seconds).\n",
+            "description": "Measures you are interested in. Data you can request depends on the scale.\n**For Weather Station:**\n  * max -> Temperature (°C), CO2 (ppm), Humidity (%), Pressure (mbar), Noise (db), Rain (mm), WindStrength (km/h), WindAngle (angles), Guststrength (km/h), GustAngle (angles)\n  * 30min, 1hour, 3hours -> Same as above + min_temp, max_temp, min_hum, max_hum, min_pressure, max_pressure, min_noise, max_noise, sum_rain, date_max_gust\n  * 1day, 1week, 1month -> Same as above + date_min_temp, date_max_temp, date_min_hum, date_max_hum, date_min_pressure, date_max_pressure, date_min_noise, date_max_noise, date_min_co2, date_max_co2\n\n**For Thermostat:**\n  * max -> temperature (°C), sp_temperature (°C), boileron (sec), boileroff (sec)\n  * 30min, 1hour, 3hours -> temperature, sp_temperature, min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n  * 1day, 1week, 1month -> temperature, min_temp, date_min_temp,\nmax_temp, sum_boiler_on, sum_boiler_off\n",
             "in": "query",
             "items": {
               "enum": [
@@ -546,6 +571,10 @@
                 "Pressure",
                 "Noise",
                 "Rain",
+                "WindStrength",
+                "WindAngle",
+                "Guststrength",
+                "GustAngle",
                 "Sp_Temperature",
                 "BoilerOn",
                 "BoilerOff",
@@ -567,6 +596,7 @@
                 "date_max_noise",
                 "date_min_co2",
                 "date_max_co2",
+                "date_max_gust",
                 "sum_rain",
                 "sum_boiler_on",
                 "sum_boiler_off"
@@ -578,18 +608,16 @@
             "type": "array"
           },
           {
-            "description": "Starting timestamp (utc) of the requested measurements.\nPlease note measurement retrieving is limited to 1024 measurements. \n",
+            "description": "Starting timestamp (utc) of the requested measurements.\nPlease note measurement retrieving is limited to 1024 measurements.\n",
             "format": "int32",
             "in": "query",
             "name": "date_begin",
-            "required": false,
             "type": "integer"
           },
           {
-            "description": "Ending timestamp (utc) of the request measurements.\nIf you want only the last measurement, do not provide date_begin, and set date_end to \"last\". \n",
+            "description": "Ending timestamp (utc) of the request measurements.\nIf you want only the last measurement, do not provide date_begin, and set date_end to `last`.\n",
             "in": "query",
             "name": "date_end",
-            "required": false,
             "type": "string"
           },
           {
@@ -598,21 +626,18 @@
             "in": "query",
             "maximum": 1024,
             "name": "limit",
-            "required": false,
             "type": "integer"
           },
           {
-            "description": "Allows you to choose the format of the answer.\nIf you build a mobile app and bandwith usage is an issue, use optimize = true.\nUse optimize = false, for an easier parse. In this case, values are indexed by sorted timestamp.\nExample of un-optimized response :\n{\"status\": \"ok\", \n  \"body\": {\n    \"1347575400\": [18.3,39],\n    \"1347586200\": [20.6,48]\n  },\n\"time_exec\": 0.012136936187744}\nIf optimize is set true, measurements are returned as an array of series of regularly spaced measurements. Each series is defined by a beginning time beg_time and a step between measurements, step_time:\n{\"status\": \"ok\",\n  \"body\": [\n    {\"beg_time\": 1347575400,\n     \"step_time\": 10800,\n     \"value\": \n        [[18.3,39],\n        [ 20.6,48]]\n    }],\n\"time_exec\": 0.014238119125366}\nDefault value is true.\n",
+            "description": "Allows you to choose the format of the answer.\nIf you build a mobile app and bandwith usage is an issue, use `optimize = true`.\nUse `optimize = false`, for an easier parse. In this case, values are indexed by sorted timestamp.\nExample of un-optimized response :\n```json\n{\"status\": \"ok\", \n  \"body\": {\n    \"1347575400\": [18.3,39],\n    \"1347586200\": [20.6,48]\n  },\n\"time_exec\": 0.012136936187744}\n```\nIf optimize is set true, measurements are returned as an array of series of regularly spaced measurements. Each series is defined by a beginning time beg_time and a step between measurements, step_time:\n```json\n{\"status\": \"ok\",\n  \"body\": [\n    {\"beg_time\": 1347575400,\n     \"step_time\": 10800,\n     \"value\": \n        [[18.3,39],\n        [ 20.6,48]]\n    }],\n\"time_exec\": 0.014238119125366}\n```\nDefault value is `true`.\n",
             "in": "query",
             "name": "optimize",
-            "required": false,
             "type": "boolean"
           },
           {
-            "description": "In scales higher than max, since the data is aggregated, the timestamps returned are by default offset by +(scale/2).\nFor instance, if you ask for measurements at a daily scale, you will receive data timestamped at 12:00 if real_time is set to false (default case), and timestamped at 00:00 if real_time is set to true.\nNB : The servers always store data with real_time set to true and data are offset by this parameter AFTER having being time-filtered, thus you could have data after date_end if real_time is set to false.\n",
+            "description": "In scales higher than max, since the data is aggregated, the timestamps returned are by default offset by +(scale/2).\nFor instance, if you ask for measurements at a daily scale, you will receive data timestamped at 12:00 if real_time is set to `false` (default case), and timestamped at 00:00 if real_time is set to `true`.\nNB : The servers always store data with real_time set to `true` and data are offset by this parameter AFTER having being time-filtered, thus you could have data after date_end if real_time is set to `false`.\n",
             "in": "query",
             "name": "real_time",
-            "required": false,
             "type": "boolean"
           }
         ],
@@ -632,7 +657,10 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "read_thermostat",
+              "read_station"
+            ]
           }
         ],
         "tags": [
@@ -645,7 +673,6 @@
     },
     "/getnextevents": {
       "get": {
-        "deprecated": false,
         "description": "Returns previous events.\n",
         "operationId": "getnextevents",
         "parameters": [
@@ -667,7 +694,6 @@
             "description": "Number of events to retrieve. Default is 30.",
             "in": "query",
             "name": "size",
-            "required": false,
             "type": "integer"
           }
         ],
@@ -675,7 +701,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/NAWelcomeEventsResponse"
+              "$ref": "#/definitions/NAWelcomeEventResponse"
             }
           }
         },
@@ -687,7 +713,10 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "access_camera",
+              "read_camera"
+            ]
           }
         ],
         "tags": [
@@ -695,17 +724,105 @@
         ]
       }
     },
+    "/getpublicdata": {
+      "get": {
+        "description": "Retrieves publicly shared weather data from Outdoor Modules within a predefined area.",
+        "operationId": "getpublicdata",
+        "parameters": [
+          {
+            "description": "Latitude of the north east corner of the requested area. -85 <= lat_ne <= 85 and lat_ne>lat_sw",
+            "format": "int32",
+            "in": "query",
+            "name": "lat_ne",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Longitude of the north east corner of the requested area. -180 <= lon_ne <= 180 and lon_ne>lon_sw",
+            "format": "int32",
+            "in": "query",
+            "name": "lon_ne",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Latitude of the south west corner of the requested area. -85 <= lat_sw <= 85",
+            "format": "int32",
+            "in": "query",
+            "name": "lat_sw",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Longitude of the south west corner of the requested area. -180 <= lon_sw <= 180",
+            "format": "int32",
+            "in": "query",
+            "name": "lon_sw",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "collectionFormat": "csv",
+            "description": "To filter stations based on relevant measurements you want (e.g. rain will only return stations with rain gauges). Default is no filter. You can find all measurements available on the Thermostat page.",
+            "in": "query",
+            "items": {
+              "enum": [
+                "temperature",
+                "humidity",
+                "pressure",
+                "wind",
+                "rain"
+              ],
+              "type": "string"
+            },
+            "name": "required_data",
+            "type": "array"
+          },
+          {
+            "description": "True to exclude stations with abnormal temperature measures. Default is false.",
+            "in": "query",
+            "name": "filter",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NAPublicDataResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "code_oauth": []
+          },
+          {
+            "password_oauth": []
+          }
+        ],
+        "tags": [
+          "public"
+        ]
+      }
+    },
     "/getstationsdata": {
       "get": {
-        "description": "The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).",
+        "description": "The method getstationsdata Returns data from a user's Weather Stations (measures and device specific data).",
         "operationId": "getstationsdata",
         "parameters": [
           {
             "description": "Id of the device you want to retrieve information of",
             "in": "query",
             "name": "device_id",
-            "required": false,
             "type": "string"
+          },
+          {
+            "default": false,
+            "description": "Whether to include the user's favorite Weather Stations in addition to the user's own Weather Stations",
+            "in": "query",
+            "name": "get_favorites",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -716,6 +833,18 @@
             }
           }
         },
+        "security": [
+          {
+            "code_oauth": [
+              "read_station"
+            ]
+          },
+          {
+            "password_oauth": [
+              "read_station"
+            ]
+          }
+        ],
         "tags": [
           "station"
         ]
@@ -730,7 +859,6 @@
             "description": "Id of the device you want to retrieve information of",
             "in": "query",
             "name": "device_id",
-            "required": false,
             "type": "string"
           }
         ],
@@ -742,6 +870,18 @@
             }
           }
         },
+        "security": [
+          {
+            "code_oauth": [
+              "read_thermostat"
+            ]
+          },
+          {
+            "password_oauth": [
+              "read_thermostat"
+            ]
+          }
+        ],
         "tags": [
           "thermostat"
         ]
@@ -783,12 +923,13 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "read_thermostat"
+            ]
           }
         ],
         "tags": [
-          "thermostat",
-          "partner"
+          "deprecated"
         ]
       }
     },
@@ -814,8 +955,7 @@
           }
         ],
         "tags": [
-          "station",
-          "thermostat"
+          "deprecated"
         ]
       }
     },
@@ -845,8 +985,7 @@
       }
     },
     "/setpersonsaway": {
-      "get": {
-        "deprecated": false,
+      "post": {
         "description": "Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user’s timeline.\n",
         "operationId": "setpersonsaway",
         "parameters": [
@@ -861,7 +1000,6 @@
             "description": "If a person_id is specified, that person will be set as 'Away'. If no person_id is specified, the Home will be set as 'Empty'.",
             "in": "query",
             "name": "person_id",
-            "required": false,
             "type": "string"
           }
         ],
@@ -880,7 +1018,54 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "write_camera"
+            ]
+          }
+        ],
+        "tags": [
+          "welcome"
+        ]
+      }
+    },
+    "/setpersonshome": {
+      "post": {
+        "description": "Sets a person as 'At home'.\n",
+        "operationId": "setpersonshome",
+        "parameters": [
+          {
+            "description": "ID of the Home you're interested in",
+            "in": "query",
+            "name": "home_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "List of persons IDs",
+            "in": "query",
+            "name": "person_ids",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NAWelcomePersonsHomeResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "code_oauth": [
+              "write_camera"
+            ]
+          },
+          {
+            "password_oauth": [
+              "write_camera"
+            ]
           }
         ],
         "tags": [
@@ -927,7 +1112,6 @@
             "format": "int32",
             "in": "query",
             "name": "setpoint_endtime",
-            "required": false,
             "type": "integer"
           },
           {
@@ -935,7 +1119,6 @@
             "format": "float",
             "in": "query",
             "name": "setpoint_temp",
-            "required": false,
             "type": "number"
           }
         ],
@@ -954,7 +1137,9 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "write_thermostat"
+            ]
           }
         ],
         "tags": [
@@ -982,7 +1167,7 @@
             "type": "string"
           },
           {
-            "description": "The schedule id. It can be found in the getthermstate response, under the keys \"therm_program_backup\" and \"therm_program\".\n",
+            "description": "The schedule id. It can be found in the getthermstate response, under the keys `therm_program_backup` and `therm_program`.\n",
             "in": "query",
             "name": "schedule_id",
             "required": true,
@@ -1004,7 +1189,9 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "write_thermostat"
+            ]
           }
         ],
         "tags": [
@@ -1056,7 +1243,9 @@
             ]
           },
           {
-            "password_oauth": []
+            "password_oauth": [
+              "write_thermostat"
+            ]
           }
         ],
         "tags": [
@@ -1136,6 +1325,11 @@
           "format": "int32",
           "type": "integer"
         },
+        "date_max_wind_str": {
+          "description": "Timestamp when max wind strength was measured",
+          "format": "int32",
+          "type": "integer"
+        },
         "date_min_temp": {
           "description": "Timestamp when min temperature was measured",
           "format": "int32",
@@ -1154,6 +1348,10 @@
           "description": "Min temperature of the day (measured @ date_min_temp)",
           "format": "float",
           "type": "number"
+        },
+        "max_wind_str": {
+          "format": "int32",
+          "type": "integer"
         },
         "min_temp": {
           "description": "Max temperature of the day (measured @ date_max_temp)",
@@ -1361,6 +1559,7 @@
           "$ref": "#/definitions/NADeviceListBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1450,6 +1649,7 @@
           "$ref": "#/definitions/NAHealthyHomeCoachDataBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1587,6 +1787,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "favorite": {
+          "description": "true when the device is a user favorite and not owned by them",
+          "type": "boolean"
+        },
         "firmware": {
           "format": "int32",
           "type": "integer"
@@ -1615,6 +1819,14 @@
         "place": {
           "$ref": "#/definitions/NAPlace"
         },
+        "reachable": {
+          "description": "true when the station was seen by the Netatmo cloud within the last 4 hours",
+          "type": "boolean"
+        },
+        "read_only": {
+          "description": "true when the user was invited to (or has favorited) a station, false when the user owns it",
+          "type": "boolean"
+        },
         "station_name": {
           "type": "string"
         },
@@ -1625,6 +1837,54 @@
         "wifi_status": {
           "description": "It contains the current wifi status. The different thresholds to take into account are\nRSSI_THRESHOLD_0 = 86 bad signal\nRSSI_THRESHOLD_1 = 71 middle quality signal\nRSSI_THRESHOLD_2 = 56 good signal\n",
           "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "NAMeasure": {
+      "properties": {
+        "gust_angle": {
+          "type": "number"
+        },
+        "gust_strength": {
+          "type": "number"
+        },
+        "rain_24h": {
+          "type": "number"
+        },
+        "rain_60min": {
+          "type": "number"
+        },
+        "rain_live": {
+          "type": "number"
+        },
+        "rain_utc": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "res": {
+          "additionalProperties": {
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "type": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "wind_angle": {
+          "type": "number"
+        },
+        "wind_strength": {
+          "type": "number"
+        },
+        "wind_timeutc\"": {
+          "format": "int64",
           "type": "integer"
         }
       }
@@ -1660,6 +1920,7 @@
           "type": "array"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1677,8 +1938,13 @@
         "_id": {
           "type": "string"
         },
+        "battery_percent": {
+          "description": "It contains the current battery level in percentage.",
+          "format": "int32",
+          "type": "integer"
+        },
         "battery_vp": {
-          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n  \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n  \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
+          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n    \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n    \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
           "format": "int32",
           "type": "integer"
         },
@@ -1749,6 +2015,7 @@
           "$ref": "#/definitions/NANewScheduleBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1774,6 +2041,7 @@
           "type": "string"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1795,6 +2063,7 @@
           "type": "array"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -1863,6 +2132,7 @@
     "NAPlug": {
       "properties": {
         "_id": {
+          "example": "70:ee:50:09:f0:xx",
           "type": "string"
         },
         "firmware": {
@@ -1908,6 +2178,63 @@
         },
         "wifi_status": {
           "description": "It contains the current wifi status. The different thresholds to take into account are\nRSSI_THRESHOLD_0 = 86 bad signal\nRSSI_THRESHOLD_1 = 71 middle quality signal\nRSSI_THRESHOLD_2 = 56 good signal\n",
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "NAPublicData": {
+      "properties": {
+        "_id": {
+          "description": "id of the station",
+          "example": "70:ee:50:09:f0:xx",
+          "type": "string"
+        },
+        "mark": {
+          "type": "integer"
+        },
+        "measures": {
+          "additionalProperties": {
+            "$ref": "#/definitions/NAMeasure"
+          },
+          "type": "object"
+        },
+        "module_types": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Latest measurements of the station, organized by module",
+          "type": "object"
+        },
+        "modules": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "place": {
+          "$ref": "#/definitions/NAPlace",
+          "description": "Information about the station location (latitude/longitude of the station, altitude (meters), timezone)"
+        }
+      }
+    },
+    "NAPublicDataResponse": {
+      "properties": {
+        "body": {
+          "items": {
+            "$ref": "#/definitions/NAPublicData"
+          },
+          "type": "array"
+        },
+        "status": {
+          "example": "ok",
+          "type": "string"
+        },
+        "time_exec": {
+          "format": "double",
+          "type": "number"
+        },
+        "time_server": {
           "format": "int32",
           "type": "integer"
         }
@@ -1994,6 +2321,7 @@
           "$ref": "#/definitions/NAStationDataBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2017,7 +2345,7 @@
           "type": "integer"
         },
         "battery_vp": {
-          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n  \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n  \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
+          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n    \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n    \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
           "format": "int32",
           "type": "integer"
         },
@@ -2049,6 +2377,10 @@
         },
         "module_name": {
           "type": "string"
+        },
+        "reachable": {
+          "description": "true when the station was seen by the Netatmo cloud within the last 4 hours",
+          "type": "boolean"
         },
         "rf_status": {
           "description": "\"It contains the current radio status. The different thresholds to take into account are :\" |\nRADIO_THRESHOLD_SIGNAL_LOW = 90 \nRADIO_THRESHOLD_SIGNAL_MEDIUM = 80\nRADIO_THRESHOLD_SIGNAL_HIGH = 70\nRADIO_THRESHOLD_SIGNAL_FULL = 60\n",
@@ -2104,6 +2436,11 @@
     },
     "NAThermStateBody": {
       "properties": {
+        "battery_percent": {
+          "description": "It contains the current battery level in percentage.",
+          "format": "int32",
+          "type": "integer"
+        },
         "battery_vp": {
           "format": "int32",
           "type": "integer"
@@ -2168,6 +2505,7 @@
           "$ref": "#/definitions/NAThermStateBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2185,8 +2523,13 @@
         "_id": {
           "type": "string"
         },
+        "battery_percent": {
+          "description": "It contains the current battery level in percentage.",
+          "format": "int32",
+          "type": "integer"
+        },
         "battery_vp": {
-          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n  \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n  \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
+          "description": "It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.\n\"Indoor module Battery range: 6000 ... 4200\" |\nINDOOR_BATTERY_LEVEL_FULL = 5640\nINDOOR_BATTERY_LEVEL_HIGH = 5280\nINDOOR_BATTERY_LEVEL_MEDIUM = 4920\nINDOOR_BATTERY_LEVEL_LOW = 4560\n\"Below 4560: very low\" |\n    \n\"Raingauge and outdoor module Battery range: 6000 ... 3600\" |\nBATTERY_LEVEL_FULL = 5500\nBATTERY_LEVEL_HIGH = 5000\nBATTERY_LEVEL_MEDIUM = 4500\nBATTERY_LEVEL_LOW = 4000\n\"Below 4000: very low\" |\n    \n\"Thermostat Battery range: 4500 ... 3000\" |\nTHERMOSTAT_BATTERY_LEVEL_FULL = 4100\nTHERMOSTAT_BATTERY_LEVEL_HIGH = 3600\nTHERMOSTAT_BATTERY_LEVEL_MEDIUM = 3300\nTHERMOSTAT_BATTERY_LEVEL_LOW = 3000\n\"Below 3000: very low\"\n",
           "format": "int32",
           "type": "integer"
         },
@@ -2268,6 +2611,7 @@
           "$ref": "#/definitions/NAThermostatDataBody"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2369,6 +2713,7 @@
           "$ref": "#/definitions/NAUser"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2381,7 +2726,7 @@
         }
       }
     },
-    "NAWelcomeCameras": {
+    "NAWelcomeCamera": {
       "properties": {
         "alim_status": {
           "description": "If power supply is ok (on/off)",
@@ -2394,6 +2739,15 @@
         "is_local": {
           "description": "Only for scope access_camera. If Camera and application requesting the information are on the same IP (true/false)",
           "type": "boolean"
+        },
+        "light_mode_status": {
+          "description": "State of (flood-)light",
+          "enum": [
+            "on",
+            "off",
+            "auto"
+          ],
+          "type": "string"
         },
         "name": {
           "description": "Name of the camera",
@@ -2417,11 +2771,26 @@
         }
       }
     },
-    "NAWelcomeEvents": {
+    "NAWelcomeEvent": {
       "properties": {
         "camera_id": {
           "description": "Camera that detected the event",
           "type": "string"
+        },
+        "category": {
+          "description": "Type of the detected object.",
+          "enum": [
+            "human",
+            "animal",
+            "vehicle"
+          ],
+          "type": "string"
+        },
+        "event_list": {
+          "items": {
+            "$ref": "#/definitions/NAWelcomeSubEvent"
+          },
+          "type": "array"
         },
         "id": {
           "description": "Identifier of the event",
@@ -2467,22 +2836,23 @@
         }
       }
     },
-    "NAWelcomeEventsData": {
+    "NAWelcomeEventData": {
       "properties": {
         "events_list": {
           "items": {
-            "$ref": "#/definitions/NAWelcomeEvents"
+            "$ref": "#/definitions/NAWelcomeEvent"
           },
           "type": "array"
         }
       }
     },
-    "NAWelcomeEventsResponse": {
+    "NAWelcomeEventResponse": {
       "properties": {
         "body": {
-          "$ref": "#/definitions/NAWelcomeEventsData"
+          "$ref": "#/definitions/NAWelcomeEventData"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2520,6 +2890,45 @@
         }
       }
     },
+    "NAWelcomeHome": {
+      "properties": {
+        "cameras": {
+          "items": {
+            "$ref": "#/definitions/NAWelcomeCamera"
+          },
+          "type": "array"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/NAWelcomeEvent"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id of the home.",
+          "type": "string"
+        },
+        "modules": {
+          "items": {
+            "$ref": "#/definitions/NAWelcomeModule"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name of the home",
+          "type": "string"
+        },
+        "persons": {
+          "items": {
+            "$ref": "#/definitions/NAWelcomePerson"
+          },
+          "type": "array"
+        },
+        "place": {
+          "$ref": "#/definitions/NAWelcomePlace"
+        }
+      }
+    },
     "NAWelcomeHomeData": {
       "properties": {
         "global_info": {
@@ -2527,7 +2936,7 @@
         },
         "homes": {
           "items": {
-            "$ref": "#/definitions/NAWelcomeHomes"
+            "$ref": "#/definitions/NAWelcomeHome"
           },
           "type": "array"
         },
@@ -2542,6 +2951,7 @@
           "$ref": "#/definitions/NAWelcomeHomeData"
         },
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2554,46 +2964,7 @@
         }
       }
     },
-    "NAWelcomeHomes": {
-      "properties": {
-        "cameras": {
-          "items": {
-            "$ref": "#/definitions/NAWelcomeCameras"
-          },
-          "type": "array"
-        },
-        "events": {
-          "items": {
-            "$ref": "#/definitions/NAWelcomeEvents"
-          },
-          "type": "array"
-        },
-        "id": {
-          "description": "Id of the home.",
-          "type": "string"
-        },
-        "modules": {
-          "items": {
-            "$ref": "#/definitions/NAWelcomeModules"
-          },
-          "type": "array"
-        },
-        "name": {
-          "description": "Name of the home",
-          "type": "string"
-        },
-        "persons": {
-          "items": {
-            "$ref": "#/definitions/NAWelcomePersons"
-          },
-          "type": "array"
-        },
-        "place": {
-          "$ref": "#/definitions/NAWelcomePlace"
-        }
-      }
-    },
-    "NAWelcomeModules": {
+    "NAWelcomeModule": {
       "properties": {
         "battery_percent": {
           "description": "remaining battery percentage",
@@ -2627,7 +2998,7 @@
         }
       }
     },
-    "NAWelcomePersons": {
+    "NAWelcomePerson": {
       "properties": {
         "face": {
           "$ref": "#/definitions/NAWelcomeFace"
@@ -2654,6 +3025,23 @@
     "NAWelcomePersonsAwayResponse": {
       "properties": {
         "status": {
+          "example": "ok",
+          "type": "string"
+        },
+        "time_exec": {
+          "format": "double",
+          "type": "number"
+        },
+        "time_server": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "NAWelcomePersonsHomeResponse": {
+      "properties": {
+        "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {
@@ -2699,6 +3087,40 @@
         }
       }
     },
+    "NAWelcomeSubEvent": {
+      "properties": {
+        "id": {
+          "description": "Identifier of the sub event",
+          "type": "string"
+        },
+        "message": {
+          "description": "User facing sub event description",
+          "type": "string"
+        },
+        "offset": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "snapshot": {
+          "$ref": "#/definitions/NAWelcomeSnapshot",
+          "description": "Snapshot id, version and key. (Used in Getcamerapicture)"
+        },
+        "time": {
+          "description": "Time of occurence of the sub event",
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "description": "Type of the detected object.",
+          "enum": [
+            "human",
+            "animal",
+            "vehicle"
+          ],
+          "type": "string"
+        }
+      }
+    },
     "NAWelcomeUser": {
       "properties": {
         "lang": {
@@ -2714,6 +3136,7 @@
     "NAWelcomeWebhookResponse": {
       "properties": {
         "status": {
+          "example": "ok",
           "type": "string"
         },
         "time_exec": {

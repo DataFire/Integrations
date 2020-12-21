@@ -13,17 +13,14 @@ let amazonaws_iam = require('@datafire/amazonaws_iam').create({
   region: ""
 });
 
-amazonaws_iam.AddClientIDToOpenIDConnectProvider({
-  "OpenIDConnectProviderArn": "",
-  "ClientID": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Identity and Access Management</fullname> <p>AWS Identity and Access Management (IAM) is a web service that you can use to manage users and user permissions under your AWS account. This guide provides descriptions of IAM actions that you can call programmatically. For general information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a>. For the user guide for IAM, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/">Using IAM</a>. </p> <note> <p>AWS provides SDKs that consist of libraries and sample code for various programming languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create programmatic access to IAM and AWS. For example, the SDKs take care of tasks such as cryptographically signing requests (see below), managing errors, and retrying requests automatically. For information about the AWS SDKs, including how to download and install them, see the <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a> page. </p> </note> <p>We recommend that you use the AWS SDKs to make programmatic API calls to IAM. However, you can also use the IAM Query API to make direct calls to the IAM web service. To learn more about the IAM Query API, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in the <i>Using IAM</i> guide. IAM supports GET and POST requests for all actions. That is, the API does not require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request. </p> <p> <b>Signing Requests</b> </p> <p>Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your AWS account access key ID and secret access key for everyday work with IAM. You can use the access key ID and secret access key for an IAM user or you can use the AWS Security Token Service to generate temporary security credentials and use those to sign requests.</p> <p>To sign requests, we recommend that you use <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>. If you have an existing application that uses Signature Version 2, you do not have to update it to use Signature Version 4. However, some operations now require Signature Version 4. The documentation for operations that require version 4 indicate this requirement. </p> <p> <b>Additional Resources</b> </p> <p>For more information, see the following:</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS Security Credentials</a>. This topic provides general information about the types of credentials used for accessing AWS. </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html">IAM Best Practices</a>. This topic presents a list of suggestions for using the IAM service to help secure your AWS resources. </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing AWS API Requests</a>. This set of topics walk you through the process of signing a request using an access key ID and secret access key. </p> </li> </ul>
+<fullname>AWS Identity and Access Management</fullname> <p>AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">AWS Identity and Access Management User Guide</a>.</p>
 
 ## Actions
 
@@ -40,8 +37,27 @@ amazonaws_iam.AddClientIDToOpenIDConnectProvider({
 
 #### Input
 * input `object`
-  * ClientID **required** [clientIDType](#clientidtype)
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required** `string`
+  * ClientID **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AddClientIDToOpenIDConnectProvider
+
+
+
+```js
+amazonaws_iam.AddClientIDToOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": null,
+  "ClientID": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientID **required**
+  * OpenIDConnectProviderArn **required**
 
 #### Output
 *Output schema unknown*
@@ -59,8 +75,27 @@ amazonaws_iam.AddRoleToInstanceProfile({
 
 #### Input
 * input `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * InstanceProfileName **required** `string`
+  * RoleName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AddRoleToInstanceProfile
+
+
+
+```js
+amazonaws_iam.AddRoleToInstanceProfile({
+  "InstanceProfileName": null,
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceProfileName **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -78,8 +113,27 @@ amazonaws_iam.AddUserToGroup({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * GroupName **required** `string`
+  * UserName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AddUserToGroup
+
+
+
+```js
+amazonaws_iam.AddUserToGroup({
+  "GroupName": null,
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -97,8 +151,27 @@ amazonaws_iam.AttachGroupPolicy({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyArn **required** [arnType](#arntype)
+  * GroupName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AttachGroupPolicy
+
+
+
+```js
+amazonaws_iam.AttachGroupPolicy({
+  "GroupName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * PolicyArn **required**
 
 #### Output
 *Output schema unknown*
@@ -116,8 +189,27 @@ amazonaws_iam.AttachRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AttachRolePolicy
+
+
+
+```js
+amazonaws_iam.AttachRolePolicy({
+  "RoleName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -135,8 +227,27 @@ amazonaws_iam.AttachUserPolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### AttachUserPolicy
+
+
+
+```js
+amazonaws_iam.AttachUserPolicy({
+  "UserName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -154,8 +265,27 @@ amazonaws_iam.ChangePassword({
 
 #### Input
 * input `object`
-  * NewPassword **required** [passwordType](#passwordtype)
-  * OldPassword **required** [passwordType](#passwordtype)
+  * OldPassword **required** `string`
+  * NewPassword **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ChangePassword
+
+
+
+```js
+amazonaws_iam.ChangePassword({
+  "OldPassword": null,
+  "NewPassword": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NewPassword **required**
+  * OldPassword **required**
 
 #### Output
 *Output schema unknown*
@@ -170,7 +300,22 @@ amazonaws_iam.CreateAccessKey({}, context)
 
 #### Input
 * input `object`
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+
+#### Output
+* output [CreateAccessKeyResponse](#createaccesskeyresponse)
+
+### CreateAccessKey
+
+
+
+```js
+amazonaws_iam.CreateAccessKey({}, context)
+```
+
+#### Input
+* input `object`
+  * UserName
 
 #### Output
 * output [CreateAccessKeyResponse](#createaccesskeyresponse)
@@ -187,7 +332,24 @@ amazonaws_iam.CreateAccountAlias({
 
 #### Input
 * input `object`
-  * AccountAlias **required** [accountAliasType](#accountaliastype)
+  * AccountAlias **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### CreateAccountAlias
+
+
+
+```js
+amazonaws_iam.CreateAccountAlias({
+  "AccountAlias": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountAlias **required**
 
 #### Output
 *Output schema unknown*
@@ -204,8 +366,26 @@ amazonaws_iam.CreateGroup({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Path [pathType](#pathtype)
+  * Path `string`
+  * GroupName **required** `string`
+
+#### Output
+* output [CreateGroupResponse](#creategroupresponse)
+
+### CreateGroup
+
+
+
+```js
+amazonaws_iam.CreateGroup({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * Path
 
 #### Output
 * output [CreateGroupResponse](#creategroupresponse)
@@ -222,8 +402,26 @@ amazonaws_iam.CreateInstanceProfile({
 
 #### Input
 * input `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * Path [pathType](#pathtype)
+  * InstanceProfileName **required** `string`
+  * Path `string`
+
+#### Output
+* output [CreateInstanceProfileResponse](#createinstanceprofileresponse)
+
+### CreateInstanceProfile
+
+
+
+```js
+amazonaws_iam.CreateInstanceProfile({
+  "InstanceProfileName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceProfileName **required**
+  * Path
 
 #### Output
 * output [CreateInstanceProfileResponse](#createinstanceprofileresponse)
@@ -241,9 +439,29 @@ amazonaws_iam.CreateLoginProfile({
 
 #### Input
 * input `object`
-  * Password **required** [passwordType](#passwordtype)
-  * PasswordResetRequired [booleanType](#booleantype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * Password **required** `string`
+  * PasswordResetRequired `boolean`
+
+#### Output
+* output [CreateLoginProfileResponse](#createloginprofileresponse)
+
+### CreateLoginProfile
+
+
+
+```js
+amazonaws_iam.CreateLoginProfile({
+  "UserName": null,
+  "Password": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Password **required**
+  * PasswordResetRequired
+  * UserName **required**
 
 #### Output
 * output [CreateLoginProfileResponse](#createloginprofileresponse)
@@ -261,9 +479,31 @@ amazonaws_iam.CreateOpenIDConnectProvider({
 
 #### Input
 * input `object`
-  * ClientIDList [clientIDListType](#clientidlisttype)
-  * ThumbprintList **required** [thumbprintListType](#thumbprintlisttype)
-  * Url **required** [OpenIDConnectProviderUrlType](#openidconnectproviderurltype)
+  * Url **required** `string`
+  * ClientIDList `array`
+  * ThumbprintList **required** `array`
+
+#### Output
+* output [CreateOpenIDConnectProviderResponse](#createopenidconnectproviderresponse)
+
+### CreateOpenIDConnectProvider
+
+
+
+```js
+amazonaws_iam.CreateOpenIDConnectProvider({
+  "Url": null,
+  "ThumbprintList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientIDList
+    * items [clientIDType](#clientidtype)
+  * ThumbprintList **required**
+    * items [thumbprintType](#thumbprinttype)
+  * Url **required**
 
 #### Output
 * output [CreateOpenIDConnectProviderResponse](#createopenidconnectproviderresponse)
@@ -281,10 +521,31 @@ amazonaws_iam.CreatePolicy({
 
 #### Input
 * input `object`
-  * Description [policyDescriptionType](#policydescriptiontype)
-  * Path [policyPathType](#policypathtype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * PolicyName **required** `string`
+  * Path `string`
+  * PolicyDocument **required** `string`
+  * Description `string`
+
+#### Output
+* output [CreatePolicyResponse](#createpolicyresponse)
+
+### CreatePolicy
+
+
+
+```js
+amazonaws_iam.CreatePolicy({
+  "PolicyName": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * Path
+  * PolicyDocument **required**
+  * PolicyName **required**
 
 #### Output
 * output [CreatePolicyResponse](#createpolicyresponse)
@@ -302,9 +563,29 @@ amazonaws_iam.CreatePolicyVersion({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * SetAsDefault [booleanType](#booleantype)
+  * PolicyArn **required** `string`
+  * PolicyDocument **required** `string`
+  * SetAsDefault `boolean`
+
+#### Output
+* output [CreatePolicyVersionResponse](#createpolicyversionresponse)
+
+### CreatePolicyVersion
+
+
+
+```js
+amazonaws_iam.CreatePolicyVersion({
+  "PolicyArn": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * PolicyDocument **required**
+  * SetAsDefault
 
 #### Output
 * output [CreatePolicyVersionResponse](#createpolicyversionresponse)
@@ -322,11 +603,38 @@ amazonaws_iam.CreateRole({
 
 #### Input
 * input `object`
-  * AssumeRolePolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * Description [roleDescriptionType](#roledescriptiontype)
-  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
-  * Path [pathType](#pathtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Path `string`
+  * RoleName **required** `string`
+  * AssumeRolePolicyDocument **required** `string`
+  * Description `string`
+  * MaxSessionDuration `integer`
+  * PermissionsBoundary `string`
+  * Tags `array`
+
+#### Output
+* output [CreateRoleResponse](#createroleresponse)
+
+### CreateRole
+
+
+
+```js
+amazonaws_iam.CreateRole({
+  "RoleName": null,
+  "AssumeRolePolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AssumeRolePolicyDocument **required**
+  * Description
+  * MaxSessionDuration
+  * Path
+  * PermissionsBoundary
+  * RoleName **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateRoleResponse](#createroleresponse)
@@ -344,8 +652,27 @@ amazonaws_iam.CreateSAMLProvider({
 
 #### Input
 * input `object`
-  * Name **required** [SAMLProviderNameType](#samlprovidernametype)
-  * SAMLMetadataDocument **required** [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
+  * SAMLMetadataDocument **required** `string`
+  * Name **required** `string`
+
+#### Output
+* output [CreateSAMLProviderResponse](#createsamlproviderresponse)
+
+### CreateSAMLProvider
+
+
+
+```js
+amazonaws_iam.CreateSAMLProvider({
+  "SAMLMetadataDocument": null,
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * SAMLMetadataDocument **required**
 
 #### Output
 * output [CreateSAMLProviderResponse](#createsamlproviderresponse)
@@ -362,9 +689,28 @@ amazonaws_iam.CreateServiceLinkedRole({
 
 #### Input
 * input `object`
-  * AWSServiceName **required** [groupNameType](#groupnametype)
-  * CustomSuffix [customSuffixType](#customsuffixtype)
-  * Description [roleDescriptionType](#roledescriptiontype)
+  * AWSServiceName **required** `string`
+  * Description `string`
+  * CustomSuffix `string`
+
+#### Output
+* output [CreateServiceLinkedRoleResponse](#createservicelinkedroleresponse)
+
+### CreateServiceLinkedRole
+
+
+
+```js
+amazonaws_iam.CreateServiceLinkedRole({
+  "AWSServiceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AWSServiceName **required**
+  * CustomSuffix
+  * Description
 
 #### Output
 * output [CreateServiceLinkedRoleResponse](#createservicelinkedroleresponse)
@@ -382,8 +728,27 @@ amazonaws_iam.CreateServiceSpecificCredential({
 
 #### Input
 * input `object`
-  * ServiceName **required** [serviceName](#servicename)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * ServiceName **required** `string`
+
+#### Output
+* output [CreateServiceSpecificCredentialResponse](#createservicespecificcredentialresponse)
+
+### CreateServiceSpecificCredential
+
+
+
+```js
+amazonaws_iam.CreateServiceSpecificCredential({
+  "UserName": null,
+  "ServiceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServiceName **required**
+  * UserName **required**
 
 #### Output
 * output [CreateServiceSpecificCredentialResponse](#createservicespecificcredentialresponse)
@@ -400,8 +765,31 @@ amazonaws_iam.CreateUser({
 
 #### Input
 * input `object`
-  * Path [pathType](#pathtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Path `string`
+  * UserName **required** `string`
+  * PermissionsBoundary `string`
+  * Tags `array`
+
+#### Output
+* output [CreateUserResponse](#createuserresponse)
+
+### CreateUser
+
+
+
+```js
+amazonaws_iam.CreateUser({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Path
+  * PermissionsBoundary
+  * Tags
+    * items [Tag](#tag)
+  * UserName **required**
 
 #### Output
 * output [CreateUserResponse](#createuserresponse)
@@ -418,8 +806,26 @@ amazonaws_iam.CreateVirtualMFADevice({
 
 #### Input
 * input `object`
-  * Path [pathType](#pathtype)
-  * VirtualMFADeviceName **required** [virtualMFADeviceName](#virtualmfadevicename)
+  * Path `string`
+  * VirtualMFADeviceName **required** `string`
+
+#### Output
+* output [CreateVirtualMFADeviceResponse](#createvirtualmfadeviceresponse)
+
+### CreateVirtualMFADevice
+
+
+
+```js
+amazonaws_iam.CreateVirtualMFADevice({
+  "VirtualMFADeviceName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Path
+  * VirtualMFADeviceName **required**
 
 #### Output
 * output [CreateVirtualMFADeviceResponse](#createvirtualmfadeviceresponse)
@@ -437,8 +843,27 @@ amazonaws_iam.DeactivateMFADevice({
 
 #### Input
 * input `object`
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * SerialNumber **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeactivateMFADevice
+
+
+
+```js
+amazonaws_iam.DeactivateMFADevice({
+  "UserName": null,
+  "SerialNumber": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SerialNumber **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -455,8 +880,26 @@ amazonaws_iam.DeleteAccessKey({
 
 #### Input
 * input `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+  * AccessKeyId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteAccessKey
+
+
+
+```js
+amazonaws_iam.DeleteAccessKey({
+  "AccessKeyId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessKeyId **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -473,7 +916,38 @@ amazonaws_iam.DeleteAccountAlias({
 
 #### Input
 * input `object`
-  * AccountAlias **required** [accountAliasType](#accountaliastype)
+  * AccountAlias **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteAccountAlias
+
+
+
+```js
+amazonaws_iam.DeleteAccountAlias({
+  "AccountAlias": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountAlias **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteAccountPasswordPolicy
+
+
+
+```js
+amazonaws_iam.DeleteAccountPasswordPolicy({}, context)
+```
+
+#### Input
+* input `object`
 
 #### Output
 *Output schema unknown*
@@ -504,7 +978,24 @@ amazonaws_iam.DeleteGroup({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
+  * GroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteGroup
+
+
+
+```js
+amazonaws_iam.DeleteGroup({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -522,8 +1013,27 @@ amazonaws_iam.DeleteGroupPolicy({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteGroupPolicy
+
+
+
+```js
+amazonaws_iam.DeleteGroupPolicy({
+  "GroupName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * PolicyName **required**
 
 #### Output
 *Output schema unknown*
@@ -540,7 +1050,24 @@ amazonaws_iam.DeleteInstanceProfile({
 
 #### Input
 * input `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
+  * InstanceProfileName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteInstanceProfile
+
+
+
+```js
+amazonaws_iam.DeleteInstanceProfile({
+  "InstanceProfileName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceProfileName **required**
 
 #### Output
 *Output schema unknown*
@@ -557,7 +1084,24 @@ amazonaws_iam.DeleteLoginProfile({
 
 #### Input
 * input `object`
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteLoginProfile
+
+
+
+```js
+amazonaws_iam.DeleteLoginProfile({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -574,7 +1118,24 @@ amazonaws_iam.DeleteOpenIDConnectProvider({
 
 #### Input
 * input `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteOpenIDConnectProvider
+
+
+
+```js
+amazonaws_iam.DeleteOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OpenIDConnectProviderArn **required**
 
 #### Output
 *Output schema unknown*
@@ -591,7 +1152,24 @@ amazonaws_iam.DeletePolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeletePolicy
+
+
+
+```js
+amazonaws_iam.DeletePolicy({
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
 
 #### Output
 *Output schema unknown*
@@ -609,8 +1187,27 @@ amazonaws_iam.DeletePolicyVersion({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required** `string`
+  * VersionId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeletePolicyVersion
+
+
+
+```js
+amazonaws_iam.DeletePolicyVersion({
+  "PolicyArn": null,
+  "VersionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * VersionId **required**
 
 #### Output
 *Output schema unknown*
@@ -627,7 +1224,58 @@ amazonaws_iam.DeleteRole({
 
 #### Input
 * input `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteRole
+
+
+
+```js
+amazonaws_iam.DeleteRole({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteRolePermissionsBoundary
+
+
+
+```js
+amazonaws_iam.DeleteRolePermissionsBoundary({
+  "RoleName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteRolePermissionsBoundary
+
+
+
+```js
+amazonaws_iam.DeleteRolePermissionsBoundary({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -645,8 +1293,27 @@ amazonaws_iam.DeleteRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteRolePolicy
+
+
+
+```js
+amazonaws_iam.DeleteRolePolicy({
+  "RoleName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyName **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -663,7 +1330,24 @@ amazonaws_iam.DeleteSAMLProvider({
 
 #### Input
 * input `object`
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLProviderArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteSAMLProvider
+
+
+
+```js
+amazonaws_iam.DeleteSAMLProvider({
+  "SAMLProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SAMLProviderArn **required**
 
 #### Output
 *Output schema unknown*
@@ -681,8 +1365,27 @@ amazonaws_iam.DeleteSSHPublicKey({
 
 #### Input
 * input `object`
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * SSHPublicKeyId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteSSHPublicKey
+
+
+
+```js
+amazonaws_iam.DeleteSSHPublicKey({
+  "UserName": null,
+  "SSHPublicKeyId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SSHPublicKeyId **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -699,7 +1402,24 @@ amazonaws_iam.DeleteServerCertificate({
 
 #### Input
 * input `object`
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * ServerCertificateName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteServerCertificate
+
+
+
+```js
+amazonaws_iam.DeleteServerCertificate({
+  "ServerCertificateName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServerCertificateName **required**
 
 #### Output
 *Output schema unknown*
@@ -716,7 +1436,24 @@ amazonaws_iam.DeleteServiceLinkedRole({
 
 #### Input
 * input `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+
+#### Output
+* output [DeleteServiceLinkedRoleResponse](#deleteservicelinkedroleresponse)
+
+### DeleteServiceLinkedRole
+
+
+
+```js
+amazonaws_iam.DeleteServiceLinkedRole({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
 
 #### Output
 * output [DeleteServiceLinkedRoleResponse](#deleteservicelinkedroleresponse)
@@ -733,8 +1470,26 @@ amazonaws_iam.DeleteServiceSpecificCredential({
 
 #### Input
 * input `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * UserName [userNameType](#usernametype)
+  * UserName `string`
+  * ServiceSpecificCredentialId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteServiceSpecificCredential
+
+
+
+```js
+amazonaws_iam.DeleteServiceSpecificCredential({
+  "ServiceSpecificCredentialId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServiceSpecificCredentialId **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -751,8 +1506,26 @@ amazonaws_iam.DeleteSigningCertificate({
 
 #### Input
 * input `object`
-  * CertificateId **required** [certificateIdType](#certificateidtype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+  * CertificateId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteSigningCertificate
+
+
+
+```js
+amazonaws_iam.DeleteSigningCertificate({
+  "CertificateId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateId **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -769,7 +1542,58 @@ amazonaws_iam.DeleteUser({
 
 #### Input
 * input `object`
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteUser
+
+
+
+```js
+amazonaws_iam.DeleteUser({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteUserPermissionsBoundary
+
+
+
+```js
+amazonaws_iam.DeleteUserPermissionsBoundary({
+  "UserName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteUserPermissionsBoundary
+
+
+
+```js
+amazonaws_iam.DeleteUserPermissionsBoundary({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -787,8 +1611,27 @@ amazonaws_iam.DeleteUserPolicy({
 
 #### Input
 * input `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteUserPolicy
+
+
+
+```js
+amazonaws_iam.DeleteUserPolicy({
+  "UserName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyName **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -805,7 +1648,24 @@ amazonaws_iam.DeleteVirtualMFADevice({
 
 #### Input
 * input `object`
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
+  * SerialNumber **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteVirtualMFADevice
+
+
+
+```js
+amazonaws_iam.DeleteVirtualMFADevice({
+  "SerialNumber": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SerialNumber **required**
 
 #### Output
 *Output schema unknown*
@@ -823,8 +1683,27 @@ amazonaws_iam.DetachGroupPolicy({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyArn **required** [arnType](#arntype)
+  * GroupName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DetachGroupPolicy
+
+
+
+```js
+amazonaws_iam.DetachGroupPolicy({
+  "GroupName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * PolicyArn **required**
 
 #### Output
 *Output schema unknown*
@@ -842,8 +1721,27 @@ amazonaws_iam.DetachRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DetachRolePolicy
+
+
+
+```js
+amazonaws_iam.DetachRolePolicy({
+  "RoleName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -861,8 +1759,27 @@ amazonaws_iam.DetachUserPolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * PolicyArn **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DetachUserPolicy
+
+
+
+```js
+amazonaws_iam.DetachUserPolicy({
+  "UserName": null,
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -882,10 +1799,33 @@ amazonaws_iam.EnableMFADevice({
 
 #### Input
 * input `object`
-  * AuthenticationCode1 **required** [authenticationCodeType](#authenticationcodetype)
-  * AuthenticationCode2 **required** [authenticationCodeType](#authenticationcodetype)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * SerialNumber **required** `string`
+  * AuthenticationCode1 **required** `string`
+  * AuthenticationCode2 **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### EnableMFADevice
+
+
+
+```js
+amazonaws_iam.EnableMFADevice({
+  "UserName": null,
+  "SerialNumber": null,
+  "AuthenticationCode1": null,
+  "AuthenticationCode2": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationCode1 **required**
+  * AuthenticationCode2 **required**
+  * SerialNumber **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -904,6 +1844,92 @@ amazonaws_iam.GenerateCredentialReport({}, context)
 #### Output
 * output [GenerateCredentialReportResponse](#generatecredentialreportresponse)
 
+### GenerateCredentialReport
+
+
+
+```js
+amazonaws_iam.GenerateCredentialReport({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GenerateCredentialReportResponse](#generatecredentialreportresponse)
+
+### GenerateOrganizationsAccessReport
+
+
+
+```js
+amazonaws_iam.GenerateOrganizationsAccessReport({
+  "EntityPath": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * EntityPath **required** `string`
+  * OrganizationsPolicyId `string`
+
+#### Output
+* output [GenerateOrganizationsAccessReportResponse](#generateorganizationsaccessreportresponse)
+
+### GenerateOrganizationsAccessReport
+
+
+
+```js
+amazonaws_iam.GenerateOrganizationsAccessReport({
+  "EntityPath": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EntityPath **required**
+  * OrganizationsPolicyId
+
+#### Output
+* output [GenerateOrganizationsAccessReportResponse](#generateorganizationsaccessreportresponse)
+
+### GenerateServiceLastAccessedDetails
+
+
+
+```js
+amazonaws_iam.GenerateServiceLastAccessedDetails({
+  "Arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Arn **required** `string`
+  * Granularity `string`
+
+#### Output
+* output [GenerateServiceLastAccessedDetailsResponse](#generateservicelastaccesseddetailsresponse)
+
+### GenerateServiceLastAccessedDetails
+
+
+
+```js
+amazonaws_iam.GenerateServiceLastAccessedDetails({
+  "Arn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Arn **required**
+  * Granularity
+
+#### Output
+* output [GenerateServiceLastAccessedDetailsResponse](#generateservicelastaccesseddetailsresponse)
+
 ### GetAccessKeyLastUsed
 
 
@@ -916,7 +1942,24 @@ amazonaws_iam.GetAccessKeyLastUsed({
 
 #### Input
 * input `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
+  * AccessKeyId **required** `string`
+
+#### Output
+* output [GetAccessKeyLastUsedResponse](#getaccesskeylastusedresponse)
+
+### GetAccessKeyLastUsed
+
+
+
+```js
+amazonaws_iam.GetAccessKeyLastUsed({
+  "AccessKeyId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessKeyId **required**
 
 #### Output
 * output [GetAccessKeyLastUsedResponse](#getaccesskeylastusedresponse)
@@ -931,14 +1974,46 @@ amazonaws_iam.GetAccountAuthorizationDetails({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * Filter `array`
+  * MaxItems `integer`
   * Marker `string`
-  * Filter [entityListType](#entitylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
 
 #### Output
 * output [GetAccountAuthorizationDetailsResponse](#getaccountauthorizationdetailsresponse)
+
+### GetAccountAuthorizationDetails
+
+
+
+```js
+amazonaws_iam.GetAccountAuthorizationDetails({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * Filter
+    * items [EntityType](#entitytype)
+  * Marker
+  * MaxItems
+
+#### Output
+* output [GetAccountAuthorizationDetailsResponse](#getaccountauthorizationdetailsresponse)
+
+### GetAccountPasswordPolicy
+
+
+
+```js
+amazonaws_iam.GetAccountPasswordPolicy({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetAccountPasswordPolicyResponse](#getaccountpasswordpolicyresponse)
 
 ### GetAccountPasswordPolicy
 
@@ -968,6 +2043,20 @@ amazonaws_iam.GetAccountSummary({}, context)
 #### Output
 * output [GetAccountSummaryResponse](#getaccountsummaryresponse)
 
+### GetAccountSummary
+
+
+
+```js
+amazonaws_iam.GetAccountSummary({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetAccountSummaryResponse](#getaccountsummaryresponse)
+
 ### GetContextKeysForCustomPolicy
 
 
@@ -980,7 +2069,25 @@ amazonaws_iam.GetContextKeysForCustomPolicy({
 
 #### Input
 * input `object`
-  * PolicyInputList **required** [SimulationPolicyListType](#simulationpolicylisttype)
+  * PolicyInputList **required** `array`
+
+#### Output
+* output [GetContextKeysForPolicyResponse](#getcontextkeysforpolicyresponse)
+
+### GetContextKeysForCustomPolicy
+
+
+
+```js
+amazonaws_iam.GetContextKeysForCustomPolicy({
+  "PolicyInputList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyInputList **required**
+    * items [policyDocumentType](#policydocumenttype)
 
 #### Output
 * output [GetContextKeysForPolicyResponse](#getcontextkeysforpolicyresponse)
@@ -997,11 +2104,44 @@ amazonaws_iam.GetContextKeysForPrincipalPolicy({
 
 #### Input
 * input `object`
-  * PolicyInputList [SimulationPolicyListType](#simulationpolicylisttype)
-  * PolicySourceArn **required** [arnType](#arntype)
+  * PolicySourceArn **required** `string`
+  * PolicyInputList `array`
 
 #### Output
 * output [GetContextKeysForPolicyResponse](#getcontextkeysforpolicyresponse)
+
+### GetContextKeysForPrincipalPolicy
+
+
+
+```js
+amazonaws_iam.GetContextKeysForPrincipalPolicy({
+  "PolicySourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicySourceArn **required**
+
+#### Output
+* output [GetContextKeysForPolicyResponse](#getcontextkeysforpolicyresponse)
+
+### GetCredentialReport
+
+
+
+```js
+amazonaws_iam.GetCredentialReport({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetCredentialReportResponse](#getcredentialreportresponse)
 
 ### GetCredentialReport
 
@@ -1029,11 +2169,30 @@ amazonaws_iam.GetGroup({
 
 #### Input
 * input `object`
+  * GroupName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [GetGroupResponse](#getgroupresponse)
+
+### GetGroup
+
+
+
+```js
+amazonaws_iam.GetGroup({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
 
 #### Output
 * output [GetGroupResponse](#getgroupresponse)
@@ -1051,8 +2210,27 @@ amazonaws_iam.GetGroupPolicy({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+* output [GetGroupPolicyResponse](#getgrouppolicyresponse)
+
+### GetGroupPolicy
+
+
+
+```js
+amazonaws_iam.GetGroupPolicy({
+  "GroupName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * PolicyName **required**
 
 #### Output
 * output [GetGroupPolicyResponse](#getgrouppolicyresponse)
@@ -1069,7 +2247,24 @@ amazonaws_iam.GetInstanceProfile({
 
 #### Input
 * input `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
+  * InstanceProfileName **required** `string`
+
+#### Output
+* output [GetInstanceProfileResponse](#getinstanceprofileresponse)
+
+### GetInstanceProfile
+
+
+
+```js
+amazonaws_iam.GetInstanceProfile({
+  "InstanceProfileName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceProfileName **required**
 
 #### Output
 * output [GetInstanceProfileResponse](#getinstanceprofileresponse)
@@ -1086,7 +2281,24 @@ amazonaws_iam.GetLoginProfile({
 
 #### Input
 * input `object`
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+
+#### Output
+* output [GetLoginProfileResponse](#getloginprofileresponse)
+
+### GetLoginProfile
+
+
+
+```js
+amazonaws_iam.GetLoginProfile({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required**
 
 #### Output
 * output [GetLoginProfileResponse](#getloginprofileresponse)
@@ -1103,10 +2315,67 @@ amazonaws_iam.GetOpenIDConnectProvider({
 
 #### Input
 * input `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required** `string`
 
 #### Output
 * output [GetOpenIDConnectProviderResponse](#getopenidconnectproviderresponse)
+
+### GetOpenIDConnectProvider
+
+
+
+```js
+amazonaws_iam.GetOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OpenIDConnectProviderArn **required**
+
+#### Output
+* output [GetOpenIDConnectProviderResponse](#getopenidconnectproviderresponse)
+
+### GetOrganizationsAccessReport
+
+
+
+```js
+amazonaws_iam.GetOrganizationsAccessReport({
+  "JobId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * MaxItems `integer`
+  * Marker `string`
+  * SortKey `string`
+
+#### Output
+* output [GetOrganizationsAccessReportResponse](#getorganizationsaccessreportresponse)
+
+### GetOrganizationsAccessReport
+
+
+
+```js
+amazonaws_iam.GetOrganizationsAccessReport({
+  "JobId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+  * SortKey
+
+#### Output
+* output [GetOrganizationsAccessReportResponse](#getorganizationsaccessreportresponse)
 
 ### GetPolicy
 
@@ -1120,7 +2389,24 @@ amazonaws_iam.GetPolicy({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
+  * PolicyArn **required** `string`
+
+#### Output
+* output [GetPolicyResponse](#getpolicyresponse)
+
+### GetPolicy
+
+
+
+```js
+amazonaws_iam.GetPolicy({
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
 
 #### Output
 * output [GetPolicyResponse](#getpolicyresponse)
@@ -1138,8 +2424,27 @@ amazonaws_iam.GetPolicyVersion({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required** `string`
+  * VersionId **required** `string`
+
+#### Output
+* output [GetPolicyVersionResponse](#getpolicyversionresponse)
+
+### GetPolicyVersion
+
+
+
+```js
+amazonaws_iam.GetPolicyVersion({
+  "PolicyArn": null,
+  "VersionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * VersionId **required**
 
 #### Output
 * output [GetPolicyVersionResponse](#getpolicyversionresponse)
@@ -1156,7 +2461,24 @@ amazonaws_iam.GetRole({
 
 #### Input
 * input `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+
+#### Output
+* output [GetRoleResponse](#getroleresponse)
+
+### GetRole
+
+
+
+```js
+amazonaws_iam.GetRole({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
 
 #### Output
 * output [GetRoleResponse](#getroleresponse)
@@ -1174,8 +2496,27 @@ amazonaws_iam.GetRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+* output [GetRolePolicyResponse](#getrolepolicyresponse)
+
+### GetRolePolicy
+
+
+
+```js
+amazonaws_iam.GetRolePolicy({
+  "RoleName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyName **required**
+  * RoleName **required**
 
 #### Output
 * output [GetRolePolicyResponse](#getrolepolicyresponse)
@@ -1192,7 +2533,24 @@ amazonaws_iam.GetSAMLProvider({
 
 #### Input
 * input `object`
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLProviderArn **required** `string`
+
+#### Output
+* output [GetSAMLProviderResponse](#getsamlproviderresponse)
+
+### GetSAMLProvider
+
+
+
+```js
+amazonaws_iam.GetSAMLProvider({
+  "SAMLProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SAMLProviderArn **required**
 
 #### Output
 * output [GetSAMLProviderResponse](#getsamlproviderresponse)
@@ -1211,9 +2569,30 @@ amazonaws_iam.GetSSHPublicKey({
 
 #### Input
 * input `object`
-  * Encoding **required** [encodingType](#encodingtype)
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * SSHPublicKeyId **required** `string`
+  * Encoding **required** `string`
+
+#### Output
+* output [GetSSHPublicKeyResponse](#getsshpublickeyresponse)
+
+### GetSSHPublicKey
+
+
+
+```js
+amazonaws_iam.GetSSHPublicKey({
+  "UserName": null,
+  "SSHPublicKeyId": null,
+  "Encoding": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Encoding **required**
+  * SSHPublicKeyId **required**
+  * UserName **required**
 
 #### Output
 * output [GetSSHPublicKeyResponse](#getsshpublickeyresponse)
@@ -1230,10 +2609,107 @@ amazonaws_iam.GetServerCertificate({
 
 #### Input
 * input `object`
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * ServerCertificateName **required** `string`
 
 #### Output
 * output [GetServerCertificateResponse](#getservercertificateresponse)
+
+### GetServerCertificate
+
+
+
+```js
+amazonaws_iam.GetServerCertificate({
+  "ServerCertificateName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServerCertificateName **required**
+
+#### Output
+* output [GetServerCertificateResponse](#getservercertificateresponse)
+
+### GetServiceLastAccessedDetails
+
+
+
+```js
+amazonaws_iam.GetServiceLastAccessedDetails({
+  "JobId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * MaxItems `integer`
+  * Marker `string`
+
+#### Output
+* output [GetServiceLastAccessedDetailsResponse](#getservicelastaccesseddetailsresponse)
+
+### GetServiceLastAccessedDetails
+
+
+
+```js
+amazonaws_iam.GetServiceLastAccessedDetails({
+  "JobId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+
+#### Output
+* output [GetServiceLastAccessedDetailsResponse](#getservicelastaccesseddetailsresponse)
+
+### GetServiceLastAccessedDetailsWithEntities
+
+
+
+```js
+amazonaws_iam.GetServiceLastAccessedDetailsWithEntities({
+  "JobId": "",
+  "ServiceNamespace": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required** `string`
+  * ServiceNamespace **required** `string`
+  * MaxItems `integer`
+  * Marker `string`
+
+#### Output
+* output [GetServiceLastAccessedDetailsWithEntitiesResponse](#getservicelastaccesseddetailswithentitiesresponse)
+
+### GetServiceLastAccessedDetailsWithEntities
+
+
+
+```js
+amazonaws_iam.GetServiceLastAccessedDetailsWithEntities({
+  "JobId": null,
+  "ServiceNamespace": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+  * ServiceNamespace **required**
+
+#### Output
+* output [GetServiceLastAccessedDetailsWithEntitiesResponse](#getservicelastaccesseddetailswithentitiesresponse)
 
 ### GetServiceLinkedRoleDeletionStatus
 
@@ -1247,7 +2723,24 @@ amazonaws_iam.GetServiceLinkedRoleDeletionStatus({
 
 #### Input
 * input `object`
-  * DeletionTaskId **required** [DeletionTaskIdType](#deletiontaskidtype)
+  * DeletionTaskId **required** `string`
+
+#### Output
+* output [GetServiceLinkedRoleDeletionStatusResponse](#getservicelinkedroledeletionstatusresponse)
+
+### GetServiceLinkedRoleDeletionStatus
+
+
+
+```js
+amazonaws_iam.GetServiceLinkedRoleDeletionStatus({
+  "DeletionTaskId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeletionTaskId **required**
 
 #### Output
 * output [GetServiceLinkedRoleDeletionStatusResponse](#getservicelinkedroledeletionstatusresponse)
@@ -1262,7 +2755,22 @@ amazonaws_iam.GetUser({}, context)
 
 #### Input
 * input `object`
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+
+#### Output
+* output [GetUserResponse](#getuserresponse)
+
+### GetUser
+
+
+
+```js
+amazonaws_iam.GetUser({}, context)
+```
+
+#### Input
+* input `object`
+  * UserName
 
 #### Output
 * output [GetUserResponse](#getuserresponse)
@@ -1280,8 +2788,27 @@ amazonaws_iam.GetUserPolicy({
 
 #### Input
 * input `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * PolicyName **required** `string`
+
+#### Output
+* output [GetUserPolicyResponse](#getuserpolicyresponse)
+
+### GetUserPolicy
+
+
+
+```js
+amazonaws_iam.GetUserPolicy({
+  "UserName": null,
+  "PolicyName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyName **required**
+  * UserName **required**
 
 #### Output
 * output [GetUserPolicyResponse](#getuserpolicyresponse)
@@ -1296,11 +2823,28 @@ amazonaws_iam.ListAccessKeys({}, context)
 
 #### Input
 * input `object`
+  * UserName `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListAccessKeysResponse](#listaccesskeysresponse)
+
+### ListAccessKeys
+
+
+
+```js
+amazonaws_iam.ListAccessKeys({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 #### Output
 * output [ListAccessKeysResponse](#listaccesskeysresponse)
@@ -1315,10 +2859,26 @@ amazonaws_iam.ListAccountAliases({}, context)
 
 #### Input
 * input `object`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListAccountAliasesResponse](#listaccountaliasesresponse)
+
+### ListAccountAliases
+
+
+
+```js
+amazonaws_iam.ListAccountAliases({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * Marker
+  * MaxItems
 
 #### Output
 * output [ListAccountAliasesResponse](#listaccountaliasesresponse)
@@ -1335,12 +2895,32 @@ amazonaws_iam.ListAttachedGroupPolicies({
 
 #### Input
 * input `object`
+  * GroupName **required** `string`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListAttachedGroupPoliciesResponse](#listattachedgrouppoliciesresponse)
+
+### ListAttachedGroupPolicies
+
+
+
+```js
+amazonaws_iam.ListAttachedGroupPolicies({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListAttachedGroupPoliciesResponse](#listattachedgrouppoliciesresponse)
@@ -1357,12 +2937,32 @@ amazonaws_iam.ListAttachedRolePolicies({
 
 #### Input
 * input `object`
+  * RoleName **required** `string`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListAttachedRolePoliciesResponse](#listattachedrolepoliciesresponse)
+
+### ListAttachedRolePolicies
+
+
+
+```js
+amazonaws_iam.ListAttachedRolePolicies({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * RoleName **required**
 
 #### Output
 * output [ListAttachedRolePoliciesResponse](#listattachedrolepoliciesresponse)
@@ -1379,12 +2979,32 @@ amazonaws_iam.ListAttachedUserPolicies({
 
 #### Input
 * input `object`
+  * UserName **required** `string`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListAttachedUserPoliciesResponse](#listattacheduserpoliciesresponse)
+
+### ListAttachedUserPolicies
+
+
+
+```js
+amazonaws_iam.ListAttachedUserPolicies({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * UserName **required**
 
 #### Output
 * output [ListAttachedUserPoliciesResponse](#listattacheduserpoliciesresponse)
@@ -1401,13 +3021,36 @@ amazonaws_iam.ListEntitiesForPolicy({
 
 #### Input
 * input `object`
+  * PolicyArn **required** `string`
+  * EntityFilter `string`
+  * PathPrefix `string`
+  * PolicyUsageFilter `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListEntitiesForPolicyResponse](#listentitiesforpolicyresponse)
+
+### ListEntitiesForPolicy
+
+
+
+```js
+amazonaws_iam.ListEntitiesForPolicy({
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * EntityFilter [EntityType](#entitytype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathType](#pathtype)
-  * PolicyArn **required** [arnType](#arntype)
+  * EntityFilter
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * PolicyArn **required**
+  * PolicyUsageFilter
 
 #### Output
 * output [ListEntitiesForPolicyResponse](#listentitiesforpolicyresponse)
@@ -1424,11 +3067,30 @@ amazonaws_iam.ListGroupPolicies({
 
 #### Input
 * input `object`
+  * GroupName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListGroupPoliciesResponse](#listgrouppoliciesresponse)
+
+### ListGroupPolicies
+
+
+
+```js
+amazonaws_iam.ListGroupPolicies({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
 
 #### Output
 * output [ListGroupPoliciesResponse](#listgrouppoliciesresponse)
@@ -1443,11 +3105,28 @@ amazonaws_iam.ListGroups({}, context)
 
 #### Input
 * input `object`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListGroupsResponse](#listgroupsresponse)
+
+### ListGroups
+
+
+
+```js
+amazonaws_iam.ListGroups({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListGroupsResponse](#listgroupsresponse)
@@ -1464,11 +3143,30 @@ amazonaws_iam.ListGroupsForUser({
 
 #### Input
 * input `object`
+  * UserName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListGroupsForUserResponse](#listgroupsforuserresponse)
+
+### ListGroupsForUser
+
+
+
+```js
+amazonaws_iam.ListGroupsForUser({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName **required**
 
 #### Output
 * output [ListGroupsForUserResponse](#listgroupsforuserresponse)
@@ -1483,11 +3181,28 @@ amazonaws_iam.ListInstanceProfiles({}, context)
 
 #### Input
 * input `object`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListInstanceProfilesResponse](#listinstanceprofilesresponse)
+
+### ListInstanceProfiles
+
+
+
+```js
+amazonaws_iam.ListInstanceProfiles({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListInstanceProfilesResponse](#listinstanceprofilesresponse)
@@ -1504,11 +3219,30 @@ amazonaws_iam.ListInstanceProfilesForRole({
 
 #### Input
 * input `object`
+  * RoleName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListInstanceProfilesForRoleResponse](#listinstanceprofilesforroleresponse)
+
+### ListInstanceProfilesForRole
+
+
+
+```js
+amazonaws_iam.ListInstanceProfilesForRole({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Marker
+  * MaxItems
+  * RoleName **required**
 
 #### Output
 * output [ListInstanceProfilesForRoleResponse](#listinstanceprofilesforroleresponse)
@@ -1523,14 +3257,45 @@ amazonaws_iam.ListMFADevices({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * UserName `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * MaxItems `integer`
 
 #### Output
 * output [ListMFADevicesResponse](#listmfadevicesresponse)
+
+### ListMFADevices
+
+
+
+```js
+amazonaws_iam.ListMFADevices({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * Marker
+  * MaxItems
+  * UserName
+
+#### Output
+* output [ListMFADevicesResponse](#listmfadevicesresponse)
+
+### ListOpenIDConnectProviders
+
+
+
+```js
+amazonaws_iam.ListOpenIDConnectProviders({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListOpenIDConnectProvidersResponse](#listopenidconnectprovidersresponse)
 
 ### ListOpenIDConnectProviders
 
@@ -1556,16 +3321,78 @@ amazonaws_iam.ListPolicies({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * Scope `string`
+  * OnlyAttached `boolean`
+  * PathPrefix `string`
+  * PolicyUsageFilter `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * OnlyAttached [booleanType](#booleantype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * Scope [policyScopeType](#policyscopetype)
+  * MaxItems `integer`
 
 #### Output
 * output [ListPoliciesResponse](#listpoliciesresponse)
+
+### ListPolicies
+
+
+
+```js
+amazonaws_iam.ListPolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * Marker
+  * MaxItems
+  * OnlyAttached
+  * PathPrefix
+  * PolicyUsageFilter
+  * Scope
+
+#### Output
+* output [ListPoliciesResponse](#listpoliciesresponse)
+
+### ListPoliciesGrantingServiceAccess
+
+
+
+```js
+amazonaws_iam.ListPoliciesGrantingServiceAccess({
+  "Arn": "",
+  "ServiceNamespaces": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * Arn **required** `string`
+  * ServiceNamespaces **required** `array`
+
+#### Output
+* output [ListPoliciesGrantingServiceAccessResponse](#listpoliciesgrantingserviceaccessresponse)
+
+### ListPoliciesGrantingServiceAccess
+
+
+
+```js
+amazonaws_iam.ListPoliciesGrantingServiceAccess({
+  "Arn": null,
+  "ServiceNamespaces": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Arn **required**
+  * Marker
+  * ServiceNamespaces **required**
+    * items [serviceNamespaceType](#servicenamespacetype)
+
+#### Output
+* output [ListPoliciesGrantingServiceAccessResponse](#listpoliciesgrantingserviceaccessresponse)
 
 ### ListPolicyVersions
 
@@ -1579,11 +3406,30 @@ amazonaws_iam.ListPolicyVersions({
 
 #### Input
 * input `object`
+  * PolicyArn **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListPolicyVersionsResponse](#listpolicyversionsresponse)
+
+### ListPolicyVersions
+
+
+
+```js
+amazonaws_iam.ListPolicyVersions({
+  "PolicyArn": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyArn **required** [arnType](#arntype)
+  * Marker
+  * MaxItems
+  * PolicyArn **required**
 
 #### Output
 * output [ListPolicyVersionsResponse](#listpolicyversionsresponse)
@@ -1600,14 +3446,88 @@ amazonaws_iam.ListRolePolicies({
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * RoleName **required** `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * MaxItems `integer`
 
 #### Output
 * output [ListRolePoliciesResponse](#listrolepoliciesresponse)
+
+### ListRolePolicies
+
+
+
+```js
+amazonaws_iam.ListRolePolicies({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * Marker
+  * MaxItems
+  * RoleName **required**
+
+#### Output
+* output [ListRolePoliciesResponse](#listrolepoliciesresponse)
+
+### ListRoleTags
+
+
+
+```js
+amazonaws_iam.ListRoleTags({
+  "RoleName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListRoleTagsResponse](#listroletagsresponse)
+
+### ListRoleTags
+
+
+
+```js
+amazonaws_iam.ListRoleTags({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker
+  * MaxItems
+  * RoleName **required**
+
+#### Output
+* output [ListRoleTagsResponse](#listroletagsresponse)
+
+### ListRoles
+
+
+
+```js
+amazonaws_iam.ListRoles({}, context)
+```
+
+#### Input
+* input `object`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListRolesResponse](#listrolesresponse)
 
 ### ListRoles
 
@@ -1621,12 +3541,26 @@ amazonaws_iam.ListRoles({}, context)
 * input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListRolesResponse](#listrolesresponse)
+
+### ListSAMLProviders
+
+
+
+```js
+amazonaws_iam.ListSAMLProviders({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [ListSAMLProvidersResponse](#listsamlprovidersresponse)
 
 ### ListSAMLProviders
 
@@ -1652,11 +3586,28 @@ amazonaws_iam.ListSSHPublicKeys({}, context)
 
 #### Input
 * input `object`
+  * UserName `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListSSHPublicKeysResponse](#listsshpublickeysresponse)
+
+### ListSSHPublicKeys
+
+
+
+```js
+amazonaws_iam.ListSSHPublicKeys({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [userNameType](#usernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 #### Output
 * output [ListSSHPublicKeysResponse](#listsshpublickeysresponse)
@@ -1671,11 +3622,28 @@ amazonaws_iam.ListServerCertificates({}, context)
 
 #### Input
 * input `object`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListServerCertificatesResponse](#listservercertificatesresponse)
+
+### ListServerCertificates
+
+
+
+```js
+amazonaws_iam.ListServerCertificates({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListServerCertificatesResponse](#listservercertificatesresponse)
@@ -1690,8 +3658,24 @@ amazonaws_iam.ListServiceSpecificCredentials({}, context)
 
 #### Input
 * input `object`
-  * ServiceName [serviceName](#servicename)
-  * UserName [userNameType](#usernametype)
+  * UserName `string`
+  * ServiceName `string`
+
+#### Output
+* output [ListServiceSpecificCredentialsResponse](#listservicespecificcredentialsresponse)
+
+### ListServiceSpecificCredentials
+
+
+
+```js
+amazonaws_iam.ListServiceSpecificCredentials({}, context)
+```
+
+#### Input
+* input `object`
+  * ServiceName
+  * UserName
 
 #### Output
 * output [ListServiceSpecificCredentialsResponse](#listservicespecificcredentialsresponse)
@@ -1706,11 +3690,28 @@ amazonaws_iam.ListSigningCertificates({}, context)
 
 #### Input
 * input `object`
+  * UserName `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListSigningCertificatesResponse](#listsigningcertificatesresponse)
+
+### ListSigningCertificates
+
+
+
+```js
+amazonaws_iam.ListSigningCertificates({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 #### Output
 * output [ListSigningCertificatesResponse](#listsigningcertificatesresponse)
@@ -1727,14 +3728,88 @@ amazonaws_iam.ListUserPolicies({
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * UserName **required** `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * MaxItems `integer`
 
 #### Output
 * output [ListUserPoliciesResponse](#listuserpoliciesresponse)
+
+### ListUserPolicies
+
+
+
+```js
+amazonaws_iam.ListUserPolicies({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * Marker
+  * MaxItems
+  * UserName **required**
+
+#### Output
+* output [ListUserPoliciesResponse](#listuserpoliciesresponse)
+
+### ListUserTags
+
+
+
+```js
+amazonaws_iam.ListUserTags({
+  "UserName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required** `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListUserTagsResponse](#listusertagsresponse)
+
+### ListUserTags
+
+
+
+```js
+amazonaws_iam.ListUserTags({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker
+  * MaxItems
+  * UserName **required**
+
+#### Output
+* output [ListUserTagsResponse](#listusertagsresponse)
+
+### ListUsers
+
+
+
+```js
+amazonaws_iam.ListUsers({}, context)
+```
+
+#### Input
+* input `object`
+  * PathPrefix `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListUsersResponse](#listusersresponse)
 
 ### ListUsers
 
@@ -1748,9 +3823,9 @@ amazonaws_iam.ListUsers({}, context)
 * input `object`
   * MaxItems `string`
   * Marker `string`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 #### Output
 * output [ListUsersResponse](#listusersresponse)
@@ -1765,11 +3840,28 @@ amazonaws_iam.ListVirtualMFADevices({}, context)
 
 #### Input
 * input `object`
+  * AssignmentStatus `string`
+  * Marker `string`
+  * MaxItems `integer`
+
+#### Output
+* output [ListVirtualMFADevicesResponse](#listvirtualmfadevicesresponse)
+
+### ListVirtualMFADevices
+
+
+
+```js
+amazonaws_iam.ListVirtualMFADevices({}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * AssignmentStatus [assignmentStatusType](#assignmentstatustype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * AssignmentStatus
+  * Marker
+  * MaxItems
 
 #### Output
 * output [ListVirtualMFADevicesResponse](#listvirtualmfadevicesresponse)
@@ -1788,9 +3880,68 @@ amazonaws_iam.PutGroupPolicy({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required** `string`
+  * PolicyName **required** `string`
+  * PolicyDocument **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutGroupPolicy
+
+
+
+```js
+amazonaws_iam.PutGroupPolicy({
+  "GroupName": null,
+  "PolicyName": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * PolicyDocument **required**
+  * PolicyName **required**
+
+#### Output
+*Output schema unknown*
+
+### PutRolePermissionsBoundary
+
+
+
+```js
+amazonaws_iam.PutRolePermissionsBoundary({
+  "RoleName": "",
+  "PermissionsBoundary": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required** `string`
+  * PermissionsBoundary **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutRolePermissionsBoundary
+
+
+
+```js
+amazonaws_iam.PutRolePermissionsBoundary({
+  "RoleName": null,
+  "PermissionsBoundary": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PermissionsBoundary **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -1809,9 +3960,68 @@ amazonaws_iam.PutRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyName **required** `string`
+  * PolicyDocument **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutRolePolicy
+
+
+
+```js
+amazonaws_iam.PutRolePolicy({
+  "RoleName": null,
+  "PolicyName": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * RoleName **required**
+
+#### Output
+*Output schema unknown*
+
+### PutUserPermissionsBoundary
+
+
+
+```js
+amazonaws_iam.PutUserPermissionsBoundary({
+  "UserName": "",
+  "PermissionsBoundary": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required** `string`
+  * PermissionsBoundary **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutUserPermissionsBoundary
+
+
+
+```js
+amazonaws_iam.PutUserPermissionsBoundary({
+  "UserName": null,
+  "PermissionsBoundary": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PermissionsBoundary **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -1830,9 +4040,30 @@ amazonaws_iam.PutUserPolicy({
 
 #### Input
 * input `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * PolicyName **required** `string`
+  * PolicyDocument **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### PutUserPolicy
+
+
+
+```js
+amazonaws_iam.PutUserPolicy({
+  "UserName": null,
+  "PolicyName": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -1850,8 +4081,27 @@ amazonaws_iam.RemoveClientIDFromOpenIDConnectProvider({
 
 #### Input
 * input `object`
-  * ClientID **required** [clientIDType](#clientidtype)
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required** `string`
+  * ClientID **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### RemoveClientIDFromOpenIDConnectProvider
+
+
+
+```js
+amazonaws_iam.RemoveClientIDFromOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": null,
+  "ClientID": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientID **required**
+  * OpenIDConnectProviderArn **required**
 
 #### Output
 *Output schema unknown*
@@ -1869,8 +4119,27 @@ amazonaws_iam.RemoveRoleFromInstanceProfile({
 
 #### Input
 * input `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * InstanceProfileName **required** `string`
+  * RoleName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### RemoveRoleFromInstanceProfile
+
+
+
+```js
+amazonaws_iam.RemoveRoleFromInstanceProfile({
+  "InstanceProfileName": null,
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InstanceProfileName **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -1888,8 +4157,27 @@ amazonaws_iam.RemoveUserFromGroup({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * GroupName **required** `string`
+  * UserName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### RemoveUserFromGroup
+
+
+
+```js
+amazonaws_iam.RemoveUserFromGroup({
+  "GroupName": null,
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -1906,8 +4194,26 @@ amazonaws_iam.ResetServiceSpecificCredential({
 
 #### Input
 * input `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * UserName [userNameType](#usernametype)
+  * UserName `string`
+  * ServiceSpecificCredentialId **required** `string`
+
+#### Output
+* output [ResetServiceSpecificCredentialResponse](#resetservicespecificcredentialresponse)
+
+### ResetServiceSpecificCredential
+
+
+
+```js
+amazonaws_iam.ResetServiceSpecificCredential({
+  "ServiceSpecificCredentialId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServiceSpecificCredentialId **required**
+  * UserName
 
 #### Output
 * output [ResetServiceSpecificCredentialResponse](#resetservicespecificcredentialresponse)
@@ -1927,10 +4233,33 @@ amazonaws_iam.ResyncMFADevice({
 
 #### Input
 * input `object`
-  * AuthenticationCode1 **required** [authenticationCodeType](#authenticationcodetype)
-  * AuthenticationCode2 **required** [authenticationCodeType](#authenticationcodetype)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * SerialNumber **required** `string`
+  * AuthenticationCode1 **required** `string`
+  * AuthenticationCode2 **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### ResyncMFADevice
+
+
+
+```js
+amazonaws_iam.ResyncMFADevice({
+  "UserName": null,
+  "SerialNumber": null,
+  "AuthenticationCode1": null,
+  "AuthenticationCode2": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthenticationCode1 **required**
+  * AuthenticationCode2 **required**
+  * SerialNumber **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -1948,8 +4277,61 @@ amazonaws_iam.SetDefaultPolicyVersion({
 
 #### Input
 * input `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required** `string`
+  * VersionId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### SetDefaultPolicyVersion
+
+
+
+```js
+amazonaws_iam.SetDefaultPolicyVersion({
+  "PolicyArn": null,
+  "VersionId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyArn **required**
+  * VersionId **required**
+
+#### Output
+*Output schema unknown*
+
+### SetSecurityTokenServicePreferences
+
+
+
+```js
+amazonaws_iam.SetSecurityTokenServicePreferences({
+  "GlobalEndpointTokenVersion": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalEndpointTokenVersion **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### SetSecurityTokenServicePreferences
+
+
+
+```js
+amazonaws_iam.SetSecurityTokenServicePreferences({
+  "GlobalEndpointTokenVersion": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GlobalEndpointTokenVersion **required**
 
 #### Output
 *Output schema unknown*
@@ -1967,18 +4349,52 @@ amazonaws_iam.SimulateCustomPolicy({
 
 #### Input
 * input `object`
+  * PolicyInputList **required** `array`
+  * PermissionsBoundaryPolicyInputList `array`
+  * ActionNames **required** `array`
+  * ResourceArns `array`
+  * ResourcePolicy `string`
+  * ResourceOwner `string`
+  * CallerArn `string`
+  * ContextEntries `array`
+  * ResourceHandlingOption `string`
+  * MaxItems `integer`
+  * Marker `string`
+
+#### Output
+* output [SimulatePolicyResponse](#simulatepolicyresponse)
+
+### SimulateCustomPolicy
+
+
+
+```js
+amazonaws_iam.SimulateCustomPolicy({
+  "PolicyInputList": null,
+  "ActionNames": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxItems `string`
   * Marker `string`
-  * ActionNames **required** [ActionNameListType](#actionnamelisttype)
-  * CallerArn [ResourceNameType](#resourcenametype)
-  * ContextEntries [ContextEntryListType](#contextentrylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyInputList **required** [SimulationPolicyListType](#simulationpolicylisttype)
-  * ResourceArns [ResourceNameListType](#resourcenamelisttype)
-  * ResourceHandlingOption [ResourceHandlingOptionType](#resourcehandlingoptiontype)
-  * ResourceOwner [ResourceNameType](#resourcenametype)
-  * ResourcePolicy [policyDocumentType](#policydocumenttype)
+  * ActionNames **required**
+    * items [ActionNameType](#actionnametype)
+  * CallerArn
+  * ContextEntries
+    * items [ContextEntry](#contextentry)
+  * Marker
+  * MaxItems
+  * PermissionsBoundaryPolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicyInputList **required**
+    * items [policyDocumentType](#policydocumenttype)
+  * ResourceArns
+    * items [ResourceNameType](#resourcenametype)
+  * ResourceHandlingOption
+  * ResourceOwner
+  * ResourcePolicy
 
 #### Output
 * output [SimulatePolicyResponse](#simulatepolicyresponse)
@@ -1996,22 +4412,213 @@ amazonaws_iam.SimulatePrincipalPolicy({
 
 #### Input
 * input `object`
-  * MaxItems `string`
+  * PolicySourceArn **required** `string`
+  * PolicyInputList `array`
+  * PermissionsBoundaryPolicyInputList `array`
+  * ActionNames **required** `array`
+  * ResourceArns `array`
+  * ResourcePolicy `string`
+  * ResourceOwner `string`
+  * CallerArn `string`
+  * ContextEntries `array`
+  * ResourceHandlingOption `string`
+  * MaxItems `integer`
   * Marker `string`
-  * ActionNames **required** [ActionNameListType](#actionnamelisttype)
-  * CallerArn [ResourceNameType](#resourcenametype)
-  * ContextEntries [ContextEntryListType](#contextentrylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyInputList [SimulationPolicyListType](#simulationpolicylisttype)
-  * PolicySourceArn **required** [arnType](#arntype)
-  * ResourceArns [ResourceNameListType](#resourcenamelisttype)
-  * ResourceHandlingOption [ResourceHandlingOptionType](#resourcehandlingoptiontype)
-  * ResourceOwner [ResourceNameType](#resourcenametype)
-  * ResourcePolicy [policyDocumentType](#policydocumenttype)
 
 #### Output
 * output [SimulatePolicyResponse](#simulatepolicyresponse)
+
+### SimulatePrincipalPolicy
+
+
+
+```js
+amazonaws_iam.SimulatePrincipalPolicy({
+  "PolicySourceArn": null,
+  "ActionNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+  * ActionNames **required**
+    * items [ActionNameType](#actionnametype)
+  * CallerArn
+  * ContextEntries
+    * items [ContextEntry](#contextentry)
+  * Marker
+  * MaxItems
+  * PermissionsBoundaryPolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicySourceArn **required**
+  * ResourceArns
+    * items [ResourceNameType](#resourcenametype)
+  * ResourceHandlingOption
+  * ResourceOwner
+  * ResourcePolicy
+
+#### Output
+* output [SimulatePolicyResponse](#simulatepolicyresponse)
+
+### TagRole
+
+
+
+```js
+amazonaws_iam.TagRole({
+  "RoleName": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required** `string`
+  * Tags **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### TagRole
+
+
+
+```js
+amazonaws_iam.TagRole({
+  "RoleName": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+*Output schema unknown*
+
+### TagUser
+
+
+
+```js
+amazonaws_iam.TagUser({
+  "UserName": "",
+  "Tags": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required** `string`
+  * Tags **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### TagUser
+
+
+
+```js
+amazonaws_iam.TagUser({
+  "UserName": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Tags **required**
+    * items [Tag](#tag)
+  * UserName **required**
+
+#### Output
+*Output schema unknown*
+
+### UntagRole
+
+
+
+```js
+amazonaws_iam.UntagRole({
+  "RoleName": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required** `string`
+  * TagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### UntagRole
+
+
+
+```js
+amazonaws_iam.UntagRole({
+  "RoleName": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoleName **required**
+  * TagKeys **required**
+    * items [tagKeyType](#tagkeytype)
+
+#### Output
+*Output schema unknown*
+
+### UntagUser
+
+
+
+```js
+amazonaws_iam.UntagUser({
+  "UserName": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * UserName **required** `string`
+  * TagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### UntagUser
+
+
+
+```js
+amazonaws_iam.UntagUser({
+  "UserName": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TagKeys **required**
+    * items [tagKeyType](#tagkeytype)
+  * UserName **required**
+
+#### Output
+*Output schema unknown*
 
 ### UpdateAccessKey
 
@@ -2026,9 +4633,29 @@ amazonaws_iam.UpdateAccessKey({
 
 #### Input
 * input `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+  * AccessKeyId **required** `string`
+  * Status **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateAccessKey
+
+
+
+```js
+amazonaws_iam.UpdateAccessKey({
+  "AccessKeyId": null,
+  "Status": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccessKeyId **required**
+  * Status **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -2043,15 +4670,38 @@ amazonaws_iam.UpdateAccountPasswordPolicy({}, context)
 
 #### Input
 * input `object`
-  * AllowUsersToChangePassword [booleanType](#booleantype)
-  * HardExpiry [booleanObjectType](#booleanobjecttype)
-  * MaxPasswordAge [maxPasswordAgeType](#maxpasswordagetype)
-  * MinimumPasswordLength [minimumPasswordLengthType](#minimumpasswordlengthtype)
-  * PasswordReusePrevention [passwordReusePreventionType](#passwordreusepreventiontype)
-  * RequireLowercaseCharacters [booleanType](#booleantype)
-  * RequireNumbers [booleanType](#booleantype)
-  * RequireSymbols [booleanType](#booleantype)
-  * RequireUppercaseCharacters [booleanType](#booleantype)
+  * MinimumPasswordLength `integer`
+  * RequireSymbols `boolean`
+  * RequireNumbers `boolean`
+  * RequireUppercaseCharacters `boolean`
+  * RequireLowercaseCharacters `boolean`
+  * AllowUsersToChangePassword `boolean`
+  * MaxPasswordAge `integer`
+  * PasswordReusePrevention `integer`
+  * HardExpiry `boolean`
+
+#### Output
+*Output schema unknown*
+
+### UpdateAccountPasswordPolicy
+
+
+
+```js
+amazonaws_iam.UpdateAccountPasswordPolicy({}, context)
+```
+
+#### Input
+* input `object`
+  * AllowUsersToChangePassword
+  * HardExpiry
+  * MaxPasswordAge
+  * MinimumPasswordLength
+  * PasswordReusePrevention
+  * RequireLowercaseCharacters
+  * RequireNumbers
+  * RequireSymbols
+  * RequireUppercaseCharacters
 
 #### Output
 *Output schema unknown*
@@ -2069,8 +4719,27 @@ amazonaws_iam.UpdateAssumeRolePolicy({
 
 #### Input
 * input `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * PolicyDocument **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateAssumeRolePolicy
+
+
+
+```js
+amazonaws_iam.UpdateAssumeRolePolicy({
+  "RoleName": null,
+  "PolicyDocument": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyDocument **required**
+  * RoleName **required**
 
 #### Output
 *Output schema unknown*
@@ -2087,9 +4756,28 @@ amazonaws_iam.UpdateGroup({
 
 #### Input
 * input `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * NewGroupName [groupNameType](#groupnametype)
-  * NewPath [pathType](#pathtype)
+  * GroupName **required** `string`
+  * NewPath `string`
+  * NewGroupName `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateGroup
+
+
+
+```js
+amazonaws_iam.UpdateGroup({
+  "GroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GroupName **required**
+  * NewGroupName
+  * NewPath
 
 #### Output
 *Output schema unknown*
@@ -2106,9 +4794,28 @@ amazonaws_iam.UpdateLoginProfile({
 
 #### Input
 * input `object`
-  * Password [passwordType](#passwordtype)
-  * PasswordResetRequired [booleanObjectType](#booleanobjecttype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * Password `string`
+  * PasswordResetRequired `boolean`
+
+#### Output
+*Output schema unknown*
+
+### UpdateLoginProfile
+
+
+
+```js
+amazonaws_iam.UpdateLoginProfile({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Password
+  * PasswordResetRequired
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -2126,8 +4833,28 @@ amazonaws_iam.UpdateOpenIDConnectProviderThumbprint({
 
 #### Input
 * input `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
-  * ThumbprintList **required** [thumbprintListType](#thumbprintlisttype)
+  * OpenIDConnectProviderArn **required** `string`
+  * ThumbprintList **required** `array`
+
+#### Output
+*Output schema unknown*
+
+### UpdateOpenIDConnectProviderThumbprint
+
+
+
+```js
+amazonaws_iam.UpdateOpenIDConnectProviderThumbprint({
+  "OpenIDConnectProviderArn": null,
+  "ThumbprintList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OpenIDConnectProviderArn **required**
+  * ThumbprintList **required**
+    * items [thumbprintType](#thumbprinttype)
 
 #### Output
 *Output schema unknown*
@@ -2144,9 +4871,28 @@ amazonaws_iam.UpdateRole({
 
 #### Input
 * input `object`
-  * Description [roleDescriptionType](#roledescriptiontype)
-  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * Description `string`
+  * MaxSessionDuration `integer`
+
+#### Output
+* output [UpdateRoleResponse](#updateroleresponse)
+
+### UpdateRole
+
+
+
+```js
+amazonaws_iam.UpdateRole({
+  "RoleName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * MaxSessionDuration
+  * RoleName **required**
 
 #### Output
 * output [UpdateRoleResponse](#updateroleresponse)
@@ -2164,8 +4910,27 @@ amazonaws_iam.UpdateRoleDescription({
 
 #### Input
 * input `object`
-  * Description **required** [roleDescriptionType](#roledescriptiontype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required** `string`
+  * Description **required** `string`
+
+#### Output
+* output [UpdateRoleDescriptionResponse](#updateroledescriptionresponse)
+
+### UpdateRoleDescription
+
+
+
+```js
+amazonaws_iam.UpdateRoleDescription({
+  "RoleName": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description **required**
+  * RoleName **required**
 
 #### Output
 * output [UpdateRoleDescriptionResponse](#updateroledescriptionresponse)
@@ -2183,8 +4948,27 @@ amazonaws_iam.UpdateSAMLProvider({
 
 #### Input
 * input `object`
-  * SAMLMetadataDocument **required** [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLMetadataDocument **required** `string`
+  * SAMLProviderArn **required** `string`
+
+#### Output
+* output [UpdateSAMLProviderResponse](#updatesamlproviderresponse)
+
+### UpdateSAMLProvider
+
+
+
+```js
+amazonaws_iam.UpdateSAMLProvider({
+  "SAMLMetadataDocument": null,
+  "SAMLProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SAMLMetadataDocument **required**
+  * SAMLProviderArn **required**
 
 #### Output
 * output [UpdateSAMLProviderResponse](#updatesamlproviderresponse)
@@ -2203,9 +4987,30 @@ amazonaws_iam.UpdateSSHPublicKey({
 
 #### Input
 * input `object`
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * SSHPublicKeyId **required** `string`
+  * Status **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateSSHPublicKey
+
+
+
+```js
+amazonaws_iam.UpdateSSHPublicKey({
+  "UserName": null,
+  "SSHPublicKeyId": null,
+  "Status": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SSHPublicKeyId **required**
+  * Status **required**
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -2222,9 +5027,28 @@ amazonaws_iam.UpdateServerCertificate({
 
 #### Input
 * input `object`
-  * NewPath [pathType](#pathtype)
-  * NewServerCertificateName [serverCertificateNameType](#servercertificatenametype)
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * ServerCertificateName **required** `string`
+  * NewPath `string`
+  * NewServerCertificateName `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateServerCertificate
+
+
+
+```js
+amazonaws_iam.UpdateServerCertificate({
+  "ServerCertificateName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NewPath
+  * NewServerCertificateName
+  * ServerCertificateName **required**
 
 #### Output
 *Output schema unknown*
@@ -2242,9 +5066,29 @@ amazonaws_iam.UpdateServiceSpecificCredential({
 
 #### Input
 * input `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * Status **required** [statusType](#statustype)
-  * UserName [userNameType](#usernametype)
+  * UserName `string`
+  * ServiceSpecificCredentialId **required** `string`
+  * Status **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateServiceSpecificCredential
+
+
+
+```js
+amazonaws_iam.UpdateServiceSpecificCredential({
+  "ServiceSpecificCredentialId": null,
+  "Status": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ServiceSpecificCredentialId **required**
+  * Status **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -2262,9 +5106,29 @@ amazonaws_iam.UpdateSigningCertificate({
 
 #### Input
 * input `object`
-  * CertificateId **required** [certificateIdType](#certificateidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+  * CertificateId **required** `string`
+  * Status **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateSigningCertificate
+
+
+
+```js
+amazonaws_iam.UpdateSigningCertificate({
+  "CertificateId": null,
+  "Status": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateId **required**
+  * Status **required**
+  * UserName
 
 #### Output
 *Output schema unknown*
@@ -2281,9 +5145,28 @@ amazonaws_iam.UpdateUser({
 
 #### Input
 * input `object`
-  * NewPath [pathType](#pathtype)
-  * NewUserName [userNameType](#usernametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required** `string`
+  * NewPath `string`
+  * NewUserName `string`
+
+#### Output
+*Output schema unknown*
+
+### UpdateUser
+
+
+
+```js
+amazonaws_iam.UpdateUser({
+  "UserName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NewPath
+  * NewUserName
+  * UserName **required**
 
 #### Output
 *Output schema unknown*
@@ -2301,8 +5184,27 @@ amazonaws_iam.UploadSSHPublicKey({
 
 #### Input
 * input `object`
-  * SSHPublicKeyBody **required** [publicKeyMaterialType](#publickeymaterialtype)
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required** `string`
+  * SSHPublicKeyBody **required** `string`
+
+#### Output
+* output [UploadSSHPublicKeyResponse](#uploadsshpublickeyresponse)
+
+### UploadSSHPublicKey
+
+
+
+```js
+amazonaws_iam.UploadSSHPublicKey({
+  "UserName": null,
+  "SSHPublicKeyBody": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SSHPublicKeyBody **required**
+  * UserName **required**
 
 #### Output
 * output [UploadSSHPublicKeyResponse](#uploadsshpublickeyresponse)
@@ -2321,11 +5223,34 @@ amazonaws_iam.UploadServerCertificate({
 
 #### Input
 * input `object`
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * CertificateChain [certificateChainType](#certificatechaintype)
-  * Path [pathType](#pathtype)
-  * PrivateKey **required** [privateKeyType](#privatekeytype)
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * Path `string`
+  * ServerCertificateName **required** `string`
+  * CertificateBody **required** `string`
+  * PrivateKey **required** `string`
+  * CertificateChain `string`
+
+#### Output
+* output [UploadServerCertificateResponse](#uploadservercertificateresponse)
+
+### UploadServerCertificate
+
+
+
+```js
+amazonaws_iam.UploadServerCertificate({
+  "ServerCertificateName": null,
+  "CertificateBody": null,
+  "PrivateKey": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateBody **required**
+  * CertificateChain
+  * Path
+  * PrivateKey **required**
+  * ServerCertificateName **required**
 
 #### Output
 * output [UploadServerCertificateResponse](#uploadservercertificateresponse)
@@ -2342,8 +5267,26 @@ amazonaws_iam.UploadSigningCertificate({
 
 #### Input
 * input `object`
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName `string`
+  * CertificateBody **required** `string`
+
+#### Output
+* output [UploadSigningCertificateResponse](#uploadsigningcertificateresponse)
+
+### UploadSigningCertificate
+
+
+
+```js
+amazonaws_iam.UploadSigningCertificate({
+  "CertificateBody": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateBody **required**
+  * UserName
 
 #### Output
 * output [UploadSigningCertificateResponse](#uploadsigningcertificateresponse)
@@ -2352,26 +5295,42 @@ amazonaws_iam.UploadSigningCertificate({
 
 ## Definitions
 
+### AccessAdvisorUsageGranularityType
+* AccessAdvisorUsageGranularityType `string` (values: SERVICE_LEVEL, ACTION_LEVEL)
+
+### AccessDetail
+* AccessDetail `object`: <p>An object that contains details about when a principal in the reported AWS Organizations entity last attempted to access an AWS service. A principal can be an IAM user, an IAM role, or the AWS account root user within the reported Organizations entity.</p> <p>This data type is a response element in the <a>GetOrganizationsAccessReport</a> operation.</p>
+  * EntityPath
+  * LastAuthenticatedTime
+  * Region
+  * ServiceName **required**
+  * ServiceNamespace **required**
+  * TotalAuthenticatedEntities
+
+### AccessDetails
+* AccessDetails `array`
+  * items [AccessDetail](#accessdetail)
+
 ### AccessKey
 * AccessKey `object`: <p>Contains information about an AWS access key.</p> <p> This data type is used as a response element in the <a>CreateAccessKey</a> and <a>ListAccessKeys</a> operations. </p> <note> <p>The <code>SecretAccessKey</code> value is returned only in response to <a>CreateAccessKey</a>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.</p> </note>
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
-  * CreateDate [dateType](#datetype)
-  * SecretAccessKey **required** [accessKeySecretType](#accesskeysecrettype)
-  * Status **required** [statusType](#statustype)
-  * UserName **required** [userNameType](#usernametype)
+  * AccessKeyId **required**
+  * CreateDate
+  * SecretAccessKey **required**
+  * Status **required**
+  * UserName **required**
 
 ### AccessKeyLastUsed
-* AccessKeyLastUsed `object`: <p>Contains information about the last time an AWS access key was used.</p> <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
-  * LastUsedDate **required** [dateType](#datetype)
-  * Region **required** [stringType](#stringtype)
-  * ServiceName **required** [stringType](#stringtype)
+* AccessKeyLastUsed `object`: <p>Contains information about the last time an AWS access key was used since IAM began tracking this information on April 22, 2015.</p> <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
+  * LastUsedDate **required**
+  * Region **required**
+  * ServiceName **required**
 
 ### AccessKeyMetadata
 * AccessKeyMetadata `object`: <p>Contains information about an AWS access key, without its secret key.</p> <p>This data type is used as a response element in the <a>ListAccessKeys</a> operation.</p>
-  * AccessKeyId [accessKeyIdType](#accesskeyidtype)
-  * CreateDate [dateType](#datetype)
-  * Status [statusType](#statustype)
-  * UserName [userNameType](#usernametype)
+  * AccessKeyId
+  * CreateDate
+  * Status
+  * UserName
 
 ### ActionNameListType
 * ActionNameListType `array`
@@ -2382,18 +5341,18 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### AddClientIDToOpenIDConnectProviderRequest
 * AddClientIDToOpenIDConnectProviderRequest `object`
-  * ClientID **required** [clientIDType](#clientidtype)
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * ClientID **required**
+  * OpenIDConnectProviderArn **required**
 
 ### AddRoleToInstanceProfileRequest
 * AddRoleToInstanceProfileRequest `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * InstanceProfileName **required**
+  * RoleName **required**
 
 ### AddUserToGroupRequest
 * AddUserToGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * GroupName **required**
+  * UserName **required**
 
 ### ArnListType
 * ArnListType `array`
@@ -2401,40 +5360,49 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### AttachGroupPolicyRequest
 * AttachGroupPolicyRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyArn **required** [arnType](#arntype)
+  * GroupName **required**
+  * PolicyArn **required**
 
 ### AttachRolePolicyRequest
 * AttachRolePolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyArn **required**
+  * RoleName **required**
 
 ### AttachUserPolicyRequest
 * AttachUserPolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * UserName **required** [userNameType](#usernametype)
+  * PolicyArn **required**
+  * UserName **required**
+
+### AttachedPermissionsBoundary
+* AttachedPermissionsBoundary `object`: <p>Contains information about an attached permissions boundary.</p> <p>An attached permissions boundary is a managed policy that has been attached to a user or role to set the permissions boundary.</p> <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
+  * PermissionsBoundaryArn
+  * PermissionsBoundaryType
 
 ### AttachedPolicy
-* AttachedPolicy `object`: <p>Contains information about an attached policy.</p> <p>An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* AttachedPolicy `object`: <p>Contains information about an attached policy.</p> <p>An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
   * PolicyArn [arnType](#arntype)
-  * PolicyName [policyNameType](#policynametype)
+  * PolicyName
 
 ### BootstrapDatum
 * BootstrapDatum `string`
 
 ### ChangePasswordRequest
 * ChangePasswordRequest `object`
-  * NewPassword **required** [passwordType](#passwordtype)
-  * OldPassword **required** [passwordType](#passwordtype)
+  * NewPassword **required**
+  * OldPassword **required**
 
 ### ColumnNumber
 * ColumnNumber `integer`
 
+### ConcurrentModificationException
+
+
 ### ContextEntry
-* ContextEntry `object`: <p>Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the <code>Condition</code> elements of the input policies.</p> <p>This data type is used as an input parameter to <code> <a>SimulateCustomPolicy</a> </code> and <code> <a>SimulateCustomPolicy</a> </code>.</p>
-  * ContextKeyName [ContextKeyNameType](#contextkeynametype)
-  * ContextKeyType [ContextKeyTypeEnum](#contextkeytypeenum)
-  * ContextKeyValues [ContextKeyValueListType](#contextkeyvaluelisttype)
+* ContextEntry `object`: <p>Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the <code>Condition</code> elements of the input policies.</p> <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a> and <a>SimulatePrincipalPolicy</a>.</p>
+  * ContextKeyName
+  * ContextKeyType
+  * ContextKeyValues
+    * items [ContextKeyValueType](#contextkeyvaluetype)
 
 ### ContextEntryListType
 * ContextEntryListType `array`
@@ -2459,250 +5427,364 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### CreateAccessKeyRequest
 * CreateAccessKeyRequest `object`
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName
 
 ### CreateAccessKeyResponse
 * CreateAccessKeyResponse `object`: Contains the response to a successful <a>CreateAccessKey</a> request. 
-  * AccessKey **required** [AccessKey](#accesskey)
+  * AccessKey **required**
+    * AccessKeyId **required**
+    * CreateDate
+    * SecretAccessKey **required**
+    * Status **required**
+    * UserName **required**
 
 ### CreateAccountAliasRequest
 * CreateAccountAliasRequest `object`
-  * AccountAlias **required** [accountAliasType](#accountaliastype)
+  * AccountAlias **required**
 
 ### CreateGroupRequest
 * CreateGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Path [pathType](#pathtype)
+  * GroupName **required**
+  * Path
 
 ### CreateGroupResponse
 * CreateGroupResponse `object`: Contains the response to a successful <a>CreateGroup</a> request. 
-  * Group **required** [Group](#group)
+  * Group **required**
+    * Arn **required**
+    * CreateDate **required**
+    * GroupId **required**
+    * GroupName **required**
+    * Path **required**
 
 ### CreateInstanceProfileRequest
 * CreateInstanceProfileRequest `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * Path [pathType](#pathtype)
+  * InstanceProfileName **required**
+  * Path
 
 ### CreateInstanceProfileResponse
 * CreateInstanceProfileResponse `object`: Contains the response to a successful <a>CreateInstanceProfile</a> request. 
-  * InstanceProfile **required** [InstanceProfile](#instanceprofile)
+  * InstanceProfile **required**
+    * Arn **required**
+    * CreateDate **required**
+    * InstanceProfileId **required**
+    * InstanceProfileName **required**
+    * Path **required**
+    * Roles **required**
+      * items [Role](#role)
 
 ### CreateLoginProfileRequest
 * CreateLoginProfileRequest `object`
-  * Password **required** [passwordType](#passwordtype)
-  * PasswordResetRequired [booleanType](#booleantype)
-  * UserName **required** [userNameType](#usernametype)
+  * Password **required**
+  * PasswordResetRequired
+  * UserName **required**
 
 ### CreateLoginProfileResponse
 * CreateLoginProfileResponse `object`: Contains the response to a successful <a>CreateLoginProfile</a> request. 
-  * LoginProfile **required** [LoginProfile](#loginprofile)
+  * LoginProfile **required**
+    * CreateDate **required**
+    * PasswordResetRequired
+    * UserName **required**
 
 ### CreateOpenIDConnectProviderRequest
 * CreateOpenIDConnectProviderRequest `object`
-  * ClientIDList [clientIDListType](#clientidlisttype)
-  * ThumbprintList **required** [thumbprintListType](#thumbprintlisttype)
-  * Url **required** [OpenIDConnectProviderUrlType](#openidconnectproviderurltype)
+  * ClientIDList
+    * items [clientIDType](#clientidtype)
+  * ThumbprintList **required**
+    * items [thumbprintType](#thumbprinttype)
+  * Url **required**
 
 ### CreateOpenIDConnectProviderResponse
 * CreateOpenIDConnectProviderResponse `object`: Contains the response to a successful <a>CreateOpenIDConnectProvider</a> request. 
-  * OpenIDConnectProviderArn [arnType](#arntype)
+  * OpenIDConnectProviderArn
 
 ### CreatePolicyRequest
 * CreatePolicyRequest `object`
-  * Description [policyDescriptionType](#policydescriptiontype)
-  * Path [policyPathType](#policypathtype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * Description
+  * Path
+  * PolicyDocument **required**
+  * PolicyName **required**
 
 ### CreatePolicyResponse
 * CreatePolicyResponse `object`: Contains the response to a successful <a>CreatePolicy</a> request. 
-  * Policy [Policy](#policy)
+  * Policy
+    * Arn [arnType](#arntype)
+    * AttachmentCount
+    * CreateDate
+    * DefaultVersionId
+    * Description
+    * IsAttachable
+    * Path
+    * PermissionsBoundaryUsageCount
+    * PolicyId
+    * PolicyName
+    * UpdateDate
 
 ### CreatePolicyVersionRequest
 * CreatePolicyVersionRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * SetAsDefault [booleanType](#booleantype)
+  * PolicyArn **required**
+  * PolicyDocument **required**
+  * SetAsDefault
 
 ### CreatePolicyVersionResponse
 * CreatePolicyVersionResponse `object`: Contains the response to a successful <a>CreatePolicyVersion</a> request. 
-  * PolicyVersion [PolicyVersion](#policyversion)
+  * PolicyVersion
+    * CreateDate
+    * Document
+    * IsDefaultVersion
+    * VersionId
 
 ### CreateRoleRequest
 * CreateRoleRequest `object`
-  * AssumeRolePolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * Description [roleDescriptionType](#roledescriptiontype)
-  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
-  * Path [pathType](#pathtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * AssumeRolePolicyDocument **required**
+  * Description
+  * MaxSessionDuration
+  * Path
+  * PermissionsBoundary
+  * RoleName **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateRoleResponse
 * CreateRoleResponse `object`: Contains the response to a successful <a>CreateRole</a> request. 
-  * Role **required** [Role](#role)
+  * Role **required**
+    * Arn **required**
+    * AssumeRolePolicyDocument
+    * CreateDate **required**
+    * Description
+    * MaxSessionDuration
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * RoleId **required**
+    * RoleLastUsed
+      * LastUsedDate
+      * Region
+    * RoleName **required**
+    * Tags
+      * items [Tag](#tag)
 
 ### CreateSAMLProviderRequest
 * CreateSAMLProviderRequest `object`
-  * Name **required** [SAMLProviderNameType](#samlprovidernametype)
-  * SAMLMetadataDocument **required** [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
+  * Name **required**
+  * SAMLMetadataDocument **required**
 
 ### CreateSAMLProviderResponse
 * CreateSAMLProviderResponse `object`: Contains the response to a successful <a>CreateSAMLProvider</a> request. 
-  * SAMLProviderArn [arnType](#arntype)
+  * SAMLProviderArn
 
 ### CreateServiceLinkedRoleRequest
 * CreateServiceLinkedRoleRequest `object`
-  * AWSServiceName **required** [groupNameType](#groupnametype)
-  * CustomSuffix [customSuffixType](#customsuffixtype)
-  * Description [roleDescriptionType](#roledescriptiontype)
+  * AWSServiceName **required**
+  * CustomSuffix
+  * Description
 
 ### CreateServiceLinkedRoleResponse
 * CreateServiceLinkedRoleResponse `object`
-  * Role [Role](#role)
+  * Role
+    * Arn **required**
+    * AssumeRolePolicyDocument
+    * CreateDate **required**
+    * Description
+    * MaxSessionDuration
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * RoleId **required**
+    * RoleLastUsed
+      * LastUsedDate
+      * Region
+    * RoleName **required**
+    * Tags
+      * items [Tag](#tag)
 
 ### CreateServiceSpecificCredentialRequest
 * CreateServiceSpecificCredentialRequest `object`
-  * ServiceName **required** [serviceName](#servicename)
-  * UserName **required** [userNameType](#usernametype)
+  * ServiceName **required**
+  * UserName **required**
 
 ### CreateServiceSpecificCredentialResponse
 * CreateServiceSpecificCredentialResponse `object`
-  * ServiceSpecificCredential [ServiceSpecificCredential](#servicespecificcredential)
+  * ServiceSpecificCredential
+    * CreateDate **required**
+    * ServiceName **required**
+    * ServicePassword **required**
+    * ServiceSpecificCredentialId **required**
+    * ServiceUserName **required**
+    * Status **required**
+    * UserName **required**
 
 ### CreateUserRequest
 * CreateUserRequest `object`
-  * Path [pathType](#pathtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Path
+  * PermissionsBoundary
+  * Tags
+    * items [Tag](#tag)
+  * UserName **required**
 
 ### CreateUserResponse
 * CreateUserResponse `object`: Contains the response to a successful <a>CreateUser</a> request. 
-  * User [User](#user)
+  * User
+    * Arn **required**
+    * CreateDate **required**
+    * PasswordLastUsed
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * Tags
+      * items [Tag](#tag)
+    * UserId **required**
+    * UserName **required**
 
 ### CreateVirtualMFADeviceRequest
 * CreateVirtualMFADeviceRequest `object`
-  * Path [pathType](#pathtype)
-  * VirtualMFADeviceName **required** [virtualMFADeviceName](#virtualmfadevicename)
+  * Path
+  * VirtualMFADeviceName **required**
 
 ### CreateVirtualMFADeviceResponse
 * CreateVirtualMFADeviceResponse `object`: Contains the response to a successful <a>CreateVirtualMFADevice</a> request. 
-  * VirtualMFADevice **required** [VirtualMFADevice](#virtualmfadevice)
+  * VirtualMFADevice **required**
+    * Base32StringSeed
+    * EnableDate
+    * QRCodePNG
+    * SerialNumber **required**
+    * User
+      * Arn **required**
+      * CreateDate **required**
+      * PasswordLastUsed
+      * Path **required**
+      * PermissionsBoundary
+        * PermissionsBoundaryArn
+        * PermissionsBoundaryType
+      * Tags
+        * items [Tag](#tag)
+      * UserId **required**
+      * UserName **required**
 
 ### CredentialReportExpiredException
-* CredentialReportExpiredException `object`: The request was rejected because the most recent credential report has expired. To generate a new credential report, use <a>GenerateCredentialReport</a>. For more information about credential report expiration, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the <i>IAM User Guide</i>.
-  * message [credentialReportExpiredExceptionMessage](#credentialreportexpiredexceptionmessage)
+
 
 ### CredentialReportNotPresentException
-* CredentialReportNotPresentException `object`: The request was rejected because the credential report does not exist. To generate a credential report, use <a>GenerateCredentialReport</a>.
-  * message [credentialReportNotPresentExceptionMessage](#credentialreportnotpresentexceptionmessage)
+
 
 ### CredentialReportNotReadyException
-* CredentialReportNotReadyException `object`: The request was rejected because the credential report is still being generated.
-  * message [credentialReportNotReadyExceptionMessage](#credentialreportnotreadyexceptionmessage)
+
 
 ### DeactivateMFADeviceRequest
 * DeactivateMFADeviceRequest `object`
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * SerialNumber **required**
+  * UserName **required**
 
 ### DeleteAccessKeyRequest
 * DeleteAccessKeyRequest `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * AccessKeyId **required**
+  * UserName
 
 ### DeleteAccountAliasRequest
 * DeleteAccountAliasRequest `object`
-  * AccountAlias **required** [accountAliasType](#accountaliastype)
+  * AccountAlias **required**
 
 ### DeleteConflictException
-* DeleteConflictException `object`: The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
-  * message [deleteConflictMessage](#deleteconflictmessage)
+
 
 ### DeleteGroupPolicyRequest
 * DeleteGroupPolicyRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required**
+  * PolicyName **required**
 
 ### DeleteGroupRequest
 * DeleteGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
+  * GroupName **required**
 
 ### DeleteInstanceProfileRequest
 * DeleteInstanceProfileRequest `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
+  * InstanceProfileName **required**
 
 ### DeleteLoginProfileRequest
 * DeleteLoginProfileRequest `object`
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required**
 
 ### DeleteOpenIDConnectProviderRequest
 * DeleteOpenIDConnectProviderRequest `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required**
 
 ### DeletePolicyRequest
 * DeletePolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
+  * PolicyArn **required**
 
 ### DeletePolicyVersionRequest
 * DeletePolicyVersionRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required**
+  * VersionId **required**
+
+### DeleteRolePermissionsBoundaryRequest
+* DeleteRolePermissionsBoundaryRequest `object`
+  * RoleName **required**
 
 ### DeleteRolePolicyRequest
 * DeleteRolePolicyRequest `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyName **required**
+  * RoleName **required**
 
 ### DeleteRoleRequest
 * DeleteRoleRequest `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required**
 
 ### DeleteSAMLProviderRequest
 * DeleteSAMLProviderRequest `object`
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLProviderArn **required**
 
 ### DeleteSSHPublicKeyRequest
 * DeleteSSHPublicKeyRequest `object`
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * UserName **required** [userNameType](#usernametype)
+  * SSHPublicKeyId **required**
+  * UserName **required**
 
 ### DeleteServerCertificateRequest
 * DeleteServerCertificateRequest `object`
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * ServerCertificateName **required**
 
 ### DeleteServiceLinkedRoleRequest
 * DeleteServiceLinkedRoleRequest `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required**
 
 ### DeleteServiceLinkedRoleResponse
 * DeleteServiceLinkedRoleResponse `object`
-  * DeletionTaskId **required** [DeletionTaskIdType](#deletiontaskidtype)
+  * DeletionTaskId **required**
 
 ### DeleteServiceSpecificCredentialRequest
 * DeleteServiceSpecificCredentialRequest `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * UserName [userNameType](#usernametype)
+  * ServiceSpecificCredentialId **required**
+  * UserName
 
 ### DeleteSigningCertificateRequest
 * DeleteSigningCertificateRequest `object`
-  * CertificateId **required** [certificateIdType](#certificateidtype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * CertificateId **required**
+  * UserName
+
+### DeleteUserPermissionsBoundaryRequest
+* DeleteUserPermissionsBoundaryRequest `object`
+  * UserName **required**
 
 ### DeleteUserPolicyRequest
 * DeleteUserPolicyRequest `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * PolicyName **required**
+  * UserName **required**
 
 ### DeleteUserRequest
 * DeleteUserRequest `object`
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * UserName **required**
 
 ### DeleteVirtualMFADeviceRequest
 * DeleteVirtualMFADeviceRequest `object`
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
+  * SerialNumber **required**
 
 ### DeletionTaskFailureReasonType
 * DeletionTaskFailureReasonType `object`: <p>The reason that the service-linked role deletion failed.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
-  * Reason [ReasonType](#reasontype)
-  * RoleUsageList [RoleUsageListType](#roleusagelisttype)
+  * Reason
+  * RoleUsageList
+    * items [RoleUsageType](#roleusagetype)
 
 ### DeletionTaskIdType
 * DeletionTaskIdType `string`
@@ -2712,64 +5794,86 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### DetachGroupPolicyRequest
 * DetachGroupPolicyRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyArn **required** [arnType](#arntype)
+  * GroupName **required**
+  * PolicyArn **required**
 
 ### DetachRolePolicyRequest
 * DetachRolePolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyArn **required**
+  * RoleName **required**
 
 ### DetachUserPolicyRequest
 * DetachUserPolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * UserName **required** [userNameType](#usernametype)
+  * PolicyArn **required**
+  * UserName **required**
 
 ### DuplicateCertificateException
-* DuplicateCertificateException `object`: The request was rejected because the same certificate is associated with an IAM user in the account.
-  * message [duplicateCertificateMessage](#duplicatecertificatemessage)
+
 
 ### DuplicateSSHPublicKeyException
-* DuplicateSSHPublicKeyException `object`: The request was rejected because the SSH public key is already associated with the specified IAM user.
-  * message [duplicateSSHPublicKeyMessage](#duplicatesshpublickeymessage)
+
 
 ### EnableMFADeviceRequest
 * EnableMFADeviceRequest `object`
-  * AuthenticationCode1 **required** [authenticationCodeType](#authenticationcodetype)
-  * AuthenticationCode2 **required** [authenticationCodeType](#authenticationcodetype)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * AuthenticationCode1 **required**
+  * AuthenticationCode2 **required**
+  * SerialNumber **required**
+  * UserName **required**
 
 ### EntityAlreadyExistsException
-* EntityAlreadyExistsException `object`: The request was rejected because it attempted to create a resource that already exists.
-  * message [entityAlreadyExistsMessage](#entityalreadyexistsmessage)
+
+
+### EntityDetails
+* EntityDetails `object`: <p>An object that contains details about when the IAM entities (users or roles) were last used in an attempt to access the specified AWS service.</p> <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
+  * EntityInfo **required**
+    * Arn **required** [arnType](#arntype)
+    * Id **required**
+    * Name **required**
+    * Path
+    * Type **required**
+  * LastAuthenticated
+
+### EntityInfo
+* EntityInfo `object`: <p>Contains details about the specified entity (user or role).</p> <p>This data type is an element of the <a>EntityDetails</a> object.</p>
+  * Arn **required** [arnType](#arntype)
+  * Id **required**
+  * Name **required**
+  * Path
+  * Type **required**
 
 ### EntityTemporarilyUnmodifiableException
-* EntityTemporarilyUnmodifiableException `object`: The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
-  * message [entityTemporarilyUnmodifiableMessage](#entitytemporarilyunmodifiablemessage)
+
 
 ### EntityType
 * EntityType `string` (values: User, Role, Group, LocalManagedPolicy, AWSManagedPolicy)
 
+### ErrorDetails
+* ErrorDetails `object`: <p>Contains information about the reason that the operation failed.</p> <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+  * Code **required**
+  * Message **required**
+
 ### EvalDecisionDetailsType
-* EvalDecisionDetailsType `array`
-  * items `object`
-    * key [EvalDecisionSourceType](#evaldecisionsourcetype)
-    * value [PolicyEvaluationDecisionType](#policyevaluationdecisiontype)
+* EvalDecisionDetailsType `object`
 
 ### EvalDecisionSourceType
 * EvalDecisionSourceType `string`
 
 ### EvaluationResult
 * EvaluationResult `object`: <p>Contains the results of a simulation.</p> <p>This data type is used by the return parameter of <code> <a>SimulateCustomPolicy</a> </code> and <code> <a>SimulatePrincipalPolicy</a> </code>.</p>
-  * EvalActionName **required** [ActionNameType](#actionnametype)
-  * EvalDecision **required** [PolicyEvaluationDecisionType](#policyevaluationdecisiontype)
-  * EvalDecisionDetails [EvalDecisionDetailsType](#evaldecisiondetailstype)
-  * EvalResourceName [ResourceNameType](#resourcenametype)
-  * MatchedStatements [StatementListType](#statementlisttype)
-  * MissingContextValues [ContextKeyNamesResultListType](#contextkeynamesresultlisttype)
-  * OrganizationsDecisionDetail [OrganizationsDecisionDetail](#organizationsdecisiondetail)
-  * ResourceSpecificResults [ResourceSpecificResultListType](#resourcespecificresultlisttype)
+  * EvalActionName **required**
+  * EvalDecision **required**
+  * EvalDecisionDetails
+  * EvalResourceName
+  * MatchedStatements
+    * items [Statement](#statement)
+  * MissingContextValues
+    * items [ContextKeyNameType](#contextkeynametype)
+  * OrganizationsDecisionDetail
+    * AllowedByOrganizations
+  * PermissionsBoundaryDecisionDetail
+    * AllowedByPermissionsBoundary
+  * ResourceSpecificResults
+    * items [ResourceSpecificResult](#resourcespecificresult)
 
 ### EvaluationResultsListType
 * EvaluationResultsListType `array`
@@ -2777,597 +5881,844 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### GenerateCredentialReportResponse
 * GenerateCredentialReportResponse `object`: Contains the response to a successful <a>GenerateCredentialReport</a> request. 
-  * Description [ReportStateDescriptionType](#reportstatedescriptiontype)
-  * State [ReportStateType](#reportstatetype)
+  * Description
+  * State
+
+### GenerateOrganizationsAccessReportRequest
+* GenerateOrganizationsAccessReportRequest `object`
+  * EntityPath **required**
+  * OrganizationsPolicyId
+
+### GenerateOrganizationsAccessReportResponse
+* GenerateOrganizationsAccessReportResponse `object`
+  * JobId
+
+### GenerateServiceLastAccessedDetailsRequest
+* GenerateServiceLastAccessedDetailsRequest `object`
+  * Arn **required**
+  * Granularity
+
+### GenerateServiceLastAccessedDetailsResponse
+* GenerateServiceLastAccessedDetailsResponse `object`
+  * JobId
 
 ### GetAccessKeyLastUsedRequest
 * GetAccessKeyLastUsedRequest `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
+  * AccessKeyId **required**
 
 ### GetAccessKeyLastUsedResponse
 * GetAccessKeyLastUsedResponse `object`: Contains the response to a successful <a>GetAccessKeyLastUsed</a> request. It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned by the <a>ListAccessKeys</a> action.
-  * AccessKeyLastUsed [AccessKeyLastUsed](#accesskeylastused)
-  * UserName [existingUserNameType](#existingusernametype)
+  * AccessKeyLastUsed
+    * LastUsedDate **required**
+    * Region **required**
+    * ServiceName **required**
+  * UserName
 
 ### GetAccountAuthorizationDetailsRequest
 * GetAccountAuthorizationDetailsRequest `object`
-  * Filter [entityListType](#entitylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * Filter
+    * items [EntityType](#entitytype)
+  * Marker
+  * MaxItems
 
 ### GetAccountAuthorizationDetailsResponse
 * GetAccountAuthorizationDetailsResponse `object`: Contains the response to a successful <a>GetAccountAuthorizationDetails</a> request. 
-  * GroupDetailList [groupDetailListType](#groupdetaillisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Policies [ManagedPolicyDetailListType](#managedpolicydetaillisttype)
-  * RoleDetailList [roleDetailListType](#roledetaillisttype)
-  * UserDetailList [userDetailListType](#userdetaillisttype)
+  * GroupDetailList
+    * items [GroupDetail](#groupdetail)
+  * IsTruncated
+  * Marker
+  * Policies
+    * items [ManagedPolicyDetail](#managedpolicydetail)
+  * RoleDetailList
+    * items [RoleDetail](#roledetail)
+  * UserDetailList
+    * items [UserDetail](#userdetail)
 
 ### GetAccountPasswordPolicyResponse
 * GetAccountPasswordPolicyResponse `object`: Contains the response to a successful <a>GetAccountPasswordPolicy</a> request. 
-  * PasswordPolicy **required** [PasswordPolicy](#passwordpolicy)
+  * PasswordPolicy **required**
+    * AllowUsersToChangePassword
+    * ExpirePasswords
+    * HardExpiry
+    * MaxPasswordAge
+    * MinimumPasswordLength
+    * PasswordReusePrevention
+    * RequireLowercaseCharacters
+    * RequireNumbers
+    * RequireSymbols
+    * RequireUppercaseCharacters
 
 ### GetAccountSummaryResponse
 * GetAccountSummaryResponse `object`: Contains the response to a successful <a>GetAccountSummary</a> request. 
-  * SummaryMap [summaryMapType](#summarymaptype)
+  * SummaryMap
 
 ### GetContextKeysForCustomPolicyRequest
 * GetContextKeysForCustomPolicyRequest `object`
-  * PolicyInputList **required** [SimulationPolicyListType](#simulationpolicylisttype)
+  * PolicyInputList **required**
+    * items [policyDocumentType](#policydocumenttype)
 
 ### GetContextKeysForPolicyResponse
 * GetContextKeysForPolicyResponse `object`: Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. 
-  * ContextKeyNames [ContextKeyNamesResultListType](#contextkeynamesresultlisttype)
+  * ContextKeyNames
+    * items [ContextKeyNameType](#contextkeynametype)
 
 ### GetContextKeysForPrincipalPolicyRequest
 * GetContextKeysForPrincipalPolicyRequest `object`
-  * PolicyInputList [SimulationPolicyListType](#simulationpolicylisttype)
-  * PolicySourceArn **required** [arnType](#arntype)
+  * PolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicySourceArn **required**
 
 ### GetCredentialReportResponse
 * GetCredentialReportResponse `object`: Contains the response to a successful <a>GetCredentialReport</a> request. 
-  * Content [ReportContentType](#reportcontenttype)
-  * GeneratedTime [dateType](#datetype)
-  * ReportFormat [ReportFormatType](#reportformattype)
+  * Content
+  * GeneratedTime
+  * ReportFormat
 
 ### GetGroupPolicyRequest
 * GetGroupPolicyRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required**
+  * PolicyName **required**
 
 ### GetGroupPolicyResponse
 * GetGroupPolicyResponse `object`: Contains the response to a successful <a>GetGroupPolicy</a> request. 
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required**
+  * PolicyDocument **required**
+  * PolicyName **required**
 
 ### GetGroupRequest
 * GetGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
 
 ### GetGroupResponse
 * GetGroupResponse `object`: Contains the response to a successful <a>GetGroup</a> request. 
-  * Group **required** [Group](#group)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Users **required** [userListType](#userlisttype)
+  * Group **required**
+    * Arn **required**
+    * CreateDate **required**
+    * GroupId **required**
+    * GroupName **required**
+    * Path **required**
+  * IsTruncated
+  * Marker
+  * Users **required**
+    * items [User](#user)
 
 ### GetInstanceProfileRequest
 * GetInstanceProfileRequest `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
+  * InstanceProfileName **required**
 
 ### GetInstanceProfileResponse
 * GetInstanceProfileResponse `object`: Contains the response to a successful <a>GetInstanceProfile</a> request. 
-  * InstanceProfile **required** [InstanceProfile](#instanceprofile)
+  * InstanceProfile **required**
+    * Arn **required**
+    * CreateDate **required**
+    * InstanceProfileId **required**
+    * InstanceProfileName **required**
+    * Path **required**
+    * Roles **required**
+      * items [Role](#role)
 
 ### GetLoginProfileRequest
 * GetLoginProfileRequest `object`
-  * UserName **required** [userNameType](#usernametype)
+  * UserName **required**
 
 ### GetLoginProfileResponse
 * GetLoginProfileResponse `object`: Contains the response to a successful <a>GetLoginProfile</a> request. 
-  * LoginProfile **required** [LoginProfile](#loginprofile)
+  * LoginProfile **required**
+    * CreateDate **required**
+    * PasswordResetRequired
+    * UserName **required**
 
 ### GetOpenIDConnectProviderRequest
 * GetOpenIDConnectProviderRequest `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * OpenIDConnectProviderArn **required**
 
 ### GetOpenIDConnectProviderResponse
 * GetOpenIDConnectProviderResponse `object`: Contains the response to a successful <a>GetOpenIDConnectProvider</a> request. 
-  * ClientIDList [clientIDListType](#clientidlisttype)
-  * CreateDate [dateType](#datetype)
-  * ThumbprintList [thumbprintListType](#thumbprintlisttype)
-  * Url [OpenIDConnectProviderUrlType](#openidconnectproviderurltype)
+  * ClientIDList
+    * items [clientIDType](#clientidtype)
+  * CreateDate
+  * ThumbprintList
+    * items [thumbprintType](#thumbprinttype)
+  * Url
+
+### GetOrganizationsAccessReportRequest
+* GetOrganizationsAccessReportRequest `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+  * SortKey
+
+### GetOrganizationsAccessReportResponse
+* GetOrganizationsAccessReportResponse `object`
+  * AccessDetails
+    * items [AccessDetail](#accessdetail)
+  * ErrorDetails [ErrorDetails](#errordetails)
+  * IsTruncated
+  * JobCompletionDate
+  * JobCreationDate **required**
+  * JobStatus **required**
+  * Marker
+  * NumberOfServicesAccessible
+  * NumberOfServicesNotAccessed
 
 ### GetPolicyRequest
 * GetPolicyRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
+  * PolicyArn **required**
 
 ### GetPolicyResponse
 * GetPolicyResponse `object`: Contains the response to a successful <a>GetPolicy</a> request. 
-  * Policy [Policy](#policy)
+  * Policy
+    * Arn [arnType](#arntype)
+    * AttachmentCount
+    * CreateDate
+    * DefaultVersionId
+    * Description
+    * IsAttachable
+    * Path
+    * PermissionsBoundaryUsageCount
+    * PolicyId
+    * PolicyName
+    * UpdateDate
 
 ### GetPolicyVersionRequest
 * GetPolicyVersionRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required**
+  * VersionId **required**
 
 ### GetPolicyVersionResponse
 * GetPolicyVersionResponse `object`: Contains the response to a successful <a>GetPolicyVersion</a> request. 
-  * PolicyVersion [PolicyVersion](#policyversion)
+  * PolicyVersion
+    * CreateDate
+    * Document
+    * IsDefaultVersion
+    * VersionId
 
 ### GetRolePolicyRequest
 * GetRolePolicyRequest `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyName **required**
+  * RoleName **required**
 
 ### GetRolePolicyResponse
 * GetRolePolicyResponse `object`: Contains the response to a successful <a>GetRolePolicy</a> request. 
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * RoleName **required**
 
 ### GetRoleRequest
 * GetRoleRequest `object`
-  * RoleName **required** [roleNameType](#rolenametype)
+  * RoleName **required**
 
 ### GetRoleResponse
 * GetRoleResponse `object`: Contains the response to a successful <a>GetRole</a> request. 
-  * Role **required** [Role](#role)
+  * Role **required**
+    * Arn **required**
+    * AssumeRolePolicyDocument
+    * CreateDate **required**
+    * Description
+    * MaxSessionDuration
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * RoleId **required**
+    * RoleLastUsed
+      * LastUsedDate
+      * Region
+    * RoleName **required**
+    * Tags
+      * items [Tag](#tag)
 
 ### GetSAMLProviderRequest
 * GetSAMLProviderRequest `object`
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLProviderArn **required**
 
 ### GetSAMLProviderResponse
 * GetSAMLProviderResponse `object`: Contains the response to a successful <a>GetSAMLProvider</a> request. 
-  * CreateDate [dateType](#datetype)
-  * SAMLMetadataDocument [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
-  * ValidUntil [dateType](#datetype)
+  * CreateDate
+  * SAMLMetadataDocument
+  * ValidUntil
 
 ### GetSSHPublicKeyRequest
 * GetSSHPublicKeyRequest `object`
-  * Encoding **required** [encodingType](#encodingtype)
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Encoding **required**
+  * SSHPublicKeyId **required**
+  * UserName **required**
 
 ### GetSSHPublicKeyResponse
 * GetSSHPublicKeyResponse `object`: Contains the response to a successful <a>GetSSHPublicKey</a> request.
-  * SSHPublicKey [SSHPublicKey](#sshpublickey)
+  * SSHPublicKey
+    * Fingerprint **required**
+    * SSHPublicKeyBody **required**
+    * SSHPublicKeyId **required**
+    * Status **required**
+    * UploadDate
+    * UserName **required**
 
 ### GetServerCertificateRequest
 * GetServerCertificateRequest `object`
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * ServerCertificateName **required**
 
 ### GetServerCertificateResponse
 * GetServerCertificateResponse `object`: Contains the response to a successful <a>GetServerCertificate</a> request. 
-  * ServerCertificate **required** [ServerCertificate](#servercertificate)
+  * ServerCertificate **required**
+    * CertificateBody **required**
+    * CertificateChain
+    * ServerCertificateMetadata **required**
+      * Arn **required**
+      * Expiration
+      * Path **required**
+      * ServerCertificateId **required**
+      * ServerCertificateName **required**
+      * UploadDate
+
+### GetServiceLastAccessedDetailsRequest
+* GetServiceLastAccessedDetailsRequest `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+
+### GetServiceLastAccessedDetailsResponse
+* GetServiceLastAccessedDetailsResponse `object`
+  * Error
+    * Code **required**
+    * Message **required**
+  * IsTruncated
+  * JobCompletionDate **required**
+  * JobCreationDate **required**
+  * JobStatus **required**
+  * JobType
+  * Marker
+  * ServicesLastAccessed **required**
+    * items [ServiceLastAccessed](#servicelastaccessed)
+
+### GetServiceLastAccessedDetailsWithEntitiesRequest
+* GetServiceLastAccessedDetailsWithEntitiesRequest `object`
+  * JobId **required**
+  * Marker
+  * MaxItems
+  * ServiceNamespace **required**
+
+### GetServiceLastAccessedDetailsWithEntitiesResponse
+* GetServiceLastAccessedDetailsWithEntitiesResponse `object`
+  * EntityDetailsList **required**
+    * items [EntityDetails](#entitydetails)
+  * Error
+    * Code **required**
+    * Message **required**
+  * IsTruncated
+  * JobCompletionDate **required**
+  * JobCreationDate **required**
+  * JobStatus **required**
+  * Marker
 
 ### GetServiceLinkedRoleDeletionStatusRequest
 * GetServiceLinkedRoleDeletionStatusRequest `object`
-  * DeletionTaskId **required** [DeletionTaskIdType](#deletiontaskidtype)
+  * DeletionTaskId **required**
 
 ### GetServiceLinkedRoleDeletionStatusResponse
 * GetServiceLinkedRoleDeletionStatusResponse `object`
-  * Reason [DeletionTaskFailureReasonType](#deletiontaskfailurereasontype)
-  * Status **required** [DeletionTaskStatusType](#deletiontaskstatustype)
+  * Reason
+    * Reason
+    * RoleUsageList
+      * items [RoleUsageType](#roleusagetype)
+  * Status **required**
 
 ### GetUserPolicyRequest
 * GetUserPolicyRequest `object`
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * PolicyName **required**
+  * UserName **required**
 
 ### GetUserPolicyResponse
 * GetUserPolicyResponse `object`: Contains the response to a successful <a>GetUserPolicy</a> request. 
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * UserName **required**
 
 ### GetUserRequest
 * GetUserRequest `object`
-  * UserName [existingUserNameType](#existingusernametype)
+  * UserName
 
 ### GetUserResponse
 * GetUserResponse `object`: Contains the response to a successful <a>GetUser</a> request. 
-  * User **required** [User](#user)
+  * User **required**
+    * Arn **required**
+    * CreateDate **required**
+    * PasswordLastUsed
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * Tags
+      * items [Tag](#tag)
+    * UserId **required**
+    * UserName **required**
 
 ### Group
 * Group `object`: <p>Contains information about an IAM group entity.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateGroup</a> </p> </li> <li> <p> <a>GetGroup</a> </p> </li> <li> <p> <a>ListGroups</a> </p> </li> </ul>
-  * Arn **required** [arnType](#arntype)
-  * CreateDate **required** [dateType](#datetype)
-  * GroupId **required** [idType](#idtype)
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Path **required** [pathType](#pathtype)
+  * Arn **required**
+  * CreateDate **required**
+  * GroupId **required**
+  * GroupName **required**
+  * Path **required**
 
 ### GroupDetail
 * GroupDetail `object`: <p>Contains information about an IAM group, including all of the group's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
-  * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * CreateDate [dateType](#datetype)
-  * GroupId [idType](#idtype)
-  * GroupName [groupNameType](#groupnametype)
-  * GroupPolicyList [policyDetailListType](#policydetaillisttype)
-  * Path [pathType](#pathtype)
+  * AttachedManagedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * CreateDate
+  * GroupId
+  * GroupName
+  * GroupPolicyList
+    * items [PolicyDetail](#policydetail)
+  * Path
 
 ### InstanceProfile
 * InstanceProfile `object`: <p>Contains information about an instance profile.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateInstanceProfile</a> </p> </li> <li> <p> <a>GetInstanceProfile</a> </p> </li> <li> <p> <a>ListInstanceProfiles</a> </p> </li> <li> <p> <a>ListInstanceProfilesForRole</a> </p> </li> </ul>
-  * Arn **required** [arnType](#arntype)
-  * CreateDate **required** [dateType](#datetype)
-  * InstanceProfileId **required** [idType](#idtype)
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * Path **required** [pathType](#pathtype)
-  * Roles **required** [roleListType](#rolelisttype)
+  * Arn **required**
+  * CreateDate **required**
+  * InstanceProfileId **required**
+  * InstanceProfileName **required**
+  * Path **required**
+  * Roles **required**
+    * items [Role](#role)
 
 ### InvalidAuthenticationCodeException
-* InvalidAuthenticationCodeException `object`: The request was rejected because the authentication code was not recognized. The error message describes the specific error.
-  * message [invalidAuthenticationCodeMessage](#invalidauthenticationcodemessage)
+
 
 ### InvalidCertificateException
-* InvalidCertificateException `object`: The request was rejected because the certificate is invalid.
-  * message [invalidCertificateMessage](#invalidcertificatemessage)
+
 
 ### InvalidInputException
-* InvalidInputException `object`: The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
-  * message [invalidInputMessage](#invalidinputmessage)
+
 
 ### InvalidPublicKeyException
-* InvalidPublicKeyException `object`: The request was rejected because the public key is malformed or otherwise invalid.
-  * message [invalidPublicKeyMessage](#invalidpublickeymessage)
+
 
 ### InvalidUserTypeException
-* InvalidUserTypeException `object`: The request was rejected because the type of user for the transaction was incorrect.
-  * message [invalidUserTypeMessage](#invalidusertypemessage)
+
 
 ### KeyPairMismatchException
-* KeyPairMismatchException `object`: The request was rejected because the public key certificate and the private key do not match.
-  * message [keyPairMismatchMessage](#keypairmismatchmessage)
+
 
 ### LimitExceededException
-* LimitExceededException `object`: The request was rejected because it attempted to create resources beyond the current AWS account limits. The error message describes the limit exceeded.
-  * message [limitExceededMessage](#limitexceededmessage)
+
 
 ### LineNumber
 * LineNumber `integer`
 
 ### ListAccessKeysRequest
 * ListAccessKeysRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 ### ListAccessKeysResponse
 * ListAccessKeysResponse `object`: Contains the response to a successful <a>ListAccessKeys</a> request. 
-  * AccessKeyMetadata **required** [accessKeyMetadataListType](#accesskeymetadatalisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * AccessKeyMetadata **required**
+    * items [AccessKeyMetadata](#accesskeymetadata)
+  * IsTruncated
+  * Marker
 
 ### ListAccountAliasesRequest
 * ListAccountAliasesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * Marker
+  * MaxItems
 
 ### ListAccountAliasesResponse
 * ListAccountAliasesResponse `object`: Contains the response to a successful <a>ListAccountAliases</a> request. 
-  * AccountAliases **required** [accountAliasListType](#accountaliaslisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * AccountAliases **required**
+    * items [accountAliasType](#accountaliastype)
+  * IsTruncated
+  * Marker
 
 ### ListAttachedGroupPoliciesRequest
 * ListAttachedGroupPoliciesRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListAttachedGroupPoliciesResponse
 * ListAttachedGroupPoliciesResponse `object`: Contains the response to a successful <a>ListAttachedGroupPolicies</a> request. 
-  * AttachedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * AttachedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * IsTruncated
+  * Marker
 
 ### ListAttachedRolePoliciesRequest
 * ListAttachedRolePoliciesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * RoleName **required**
 
 ### ListAttachedRolePoliciesResponse
 * ListAttachedRolePoliciesResponse `object`: Contains the response to a successful <a>ListAttachedRolePolicies</a> request. 
-  * AttachedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * AttachedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * IsTruncated
+  * Marker
 
 ### ListAttachedUserPoliciesRequest
 * ListAttachedUserPoliciesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * UserName **required**
 
 ### ListAttachedUserPoliciesResponse
 * ListAttachedUserPoliciesResponse `object`: Contains the response to a successful <a>ListAttachedUserPolicies</a> request. 
-  * AttachedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * AttachedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * IsTruncated
+  * Marker
 
 ### ListEntitiesForPolicyRequest
 * ListEntitiesForPolicyRequest `object`
-  * EntityFilter [EntityType](#entitytype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathType](#pathtype)
-  * PolicyArn **required** [arnType](#arntype)
+  * EntityFilter
+  * Marker
+  * MaxItems
+  * PathPrefix
+  * PolicyArn **required**
+  * PolicyUsageFilter
 
 ### ListEntitiesForPolicyResponse
 * ListEntitiesForPolicyResponse `object`: Contains the response to a successful <a>ListEntitiesForPolicy</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * PolicyGroups [PolicyGroupListType](#policygrouplisttype)
-  * PolicyRoles [PolicyRoleListType](#policyrolelisttype)
-  * PolicyUsers [PolicyUserListType](#policyuserlisttype)
+  * IsTruncated
+  * Marker
+  * PolicyGroups
+    * items [PolicyGroup](#policygroup)
+  * PolicyRoles
+    * items [PolicyRole](#policyrole)
+  * PolicyUsers
+    * items [PolicyUser](#policyuser)
 
 ### ListGroupPoliciesRequest
 * ListGroupPoliciesRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * GroupName **required**
+  * Marker
+  * MaxItems
 
 ### ListGroupPoliciesResponse
 * ListGroupPoliciesResponse `object`: Contains the response to a successful <a>ListGroupPolicies</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * PolicyNames **required** [policyNameListType](#policynamelisttype)
+  * IsTruncated
+  * Marker
+  * PolicyNames **required**
+    * items [policyNameType](#policynametype)
 
 ### ListGroupsForUserRequest
 * ListGroupsForUserRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName **required**
 
 ### ListGroupsForUserResponse
 * ListGroupsForUserResponse `object`: Contains the response to a successful <a>ListGroupsForUser</a> request. 
-  * Groups **required** [groupListType](#grouplisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * Groups **required**
+    * items [Group](#group)
+  * IsTruncated
+  * Marker
 
 ### ListGroupsRequest
 * ListGroupsRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListGroupsResponse
 * ListGroupsResponse `object`: Contains the response to a successful <a>ListGroups</a> request. 
-  * Groups **required** [groupListType](#grouplisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * Groups **required**
+    * items [Group](#group)
+  * IsTruncated
+  * Marker
 
 ### ListInstanceProfilesForRoleRequest
 * ListInstanceProfilesForRoleRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Marker
+  * MaxItems
+  * RoleName **required**
 
 ### ListInstanceProfilesForRoleResponse
 * ListInstanceProfilesForRoleResponse `object`: Contains the response to a successful <a>ListInstanceProfilesForRole</a> request. 
-  * InstanceProfiles **required** [instanceProfileListType](#instanceprofilelisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * InstanceProfiles **required**
+    * items [InstanceProfile](#instanceprofile)
+  * IsTruncated
+  * Marker
 
 ### ListInstanceProfilesRequest
 * ListInstanceProfilesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListInstanceProfilesResponse
 * ListInstanceProfilesResponse `object`: Contains the response to a successful <a>ListInstanceProfiles</a> request. 
-  * InstanceProfiles **required** [instanceProfileListType](#instanceprofilelisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * InstanceProfiles **required**
+    * items [InstanceProfile](#instanceprofile)
+  * IsTruncated
+  * Marker
 
 ### ListMFADevicesRequest
 * ListMFADevicesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 ### ListMFADevicesResponse
 * ListMFADevicesResponse `object`: Contains the response to a successful <a>ListMFADevices</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * MFADevices **required** [mfaDeviceListType](#mfadevicelisttype)
-  * Marker [markerType](#markertype)
+  * IsTruncated
+  * MFADevices **required**
+    * items [MFADevice](#mfadevice)
+  * Marker
 
 ### ListOpenIDConnectProvidersRequest
 * ListOpenIDConnectProvidersRequest `object`
 
 ### ListOpenIDConnectProvidersResponse
 * ListOpenIDConnectProvidersResponse `object`: Contains the response to a successful <a>ListOpenIDConnectProviders</a> request. 
-  * OpenIDConnectProviderList [OpenIDConnectProviderListType](#openidconnectproviderlisttype)
+  * OpenIDConnectProviderList
+    * items [OpenIDConnectProviderListEntry](#openidconnectproviderlistentry)
+
+### ListPoliciesGrantingServiceAccessEntry
+* ListPoliciesGrantingServiceAccessEntry `object`: <p>Contains details about the permissions policies that are attached to the specified identity (user, group, or role).</p> <p>This data type is used as a response element in the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
+  * Policies
+    * items [PolicyGrantingServiceAccess](#policygrantingserviceaccess)
+  * ServiceNamespace
+
+### ListPoliciesGrantingServiceAccessRequest
+* ListPoliciesGrantingServiceAccessRequest `object`
+  * Arn **required**
+  * Marker
+  * ServiceNamespaces **required**
+    * items [serviceNamespaceType](#servicenamespacetype)
+
+### ListPoliciesGrantingServiceAccessResponse
+* ListPoliciesGrantingServiceAccessResponse `object`
+  * IsTruncated
+  * Marker
+  * PoliciesGrantingServiceAccess **required**
+    * items [ListPoliciesGrantingServiceAccessEntry](#listpoliciesgrantingserviceaccessentry)
 
 ### ListPoliciesRequest
 * ListPoliciesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * OnlyAttached [booleanType](#booleantype)
-  * PathPrefix [policyPathType](#policypathtype)
-  * Scope [policyScopeType](#policyscopetype)
+  * Marker
+  * MaxItems
+  * OnlyAttached
+  * PathPrefix
+  * PolicyUsageFilter
+  * Scope
 
 ### ListPoliciesResponse
 * ListPoliciesResponse `object`: Contains the response to a successful <a>ListPolicies</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Policies [policyListType](#policylisttype)
+  * IsTruncated
+  * Marker
+  * Policies
+    * items [Policy](#policy)
 
 ### ListPolicyVersionsRequest
 * ListPolicyVersionsRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyArn **required** [arnType](#arntype)
+  * Marker
+  * MaxItems
+  * PolicyArn **required**
 
 ### ListPolicyVersionsResponse
 * ListPolicyVersionsResponse `object`: Contains the response to a successful <a>ListPolicyVersions</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Versions [policyDocumentVersionListType](#policydocumentversionlisttype)
+  * IsTruncated
+  * Marker
+  * Versions
+    * items [PolicyVersion](#policyversion)
 
 ### ListRolePoliciesRequest
 * ListRolePoliciesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Marker
+  * MaxItems
+  * RoleName **required**
 
 ### ListRolePoliciesResponse
 * ListRolePoliciesResponse `object`: Contains the response to a successful <a>ListRolePolicies</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * PolicyNames **required** [policyNameListType](#policynamelisttype)
+  * IsTruncated
+  * Marker
+  * PolicyNames **required**
+    * items [policyNameType](#policynametype)
+
+### ListRoleTagsRequest
+* ListRoleTagsRequest `object`
+  * Marker
+  * MaxItems
+  * RoleName **required**
+
+### ListRoleTagsResponse
+* ListRoleTagsResponse `object`
+  * IsTruncated
+  * Marker
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### ListRolesRequest
 * ListRolesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListRolesResponse
 * ListRolesResponse `object`: Contains the response to a successful <a>ListRoles</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Roles **required** [roleListType](#rolelisttype)
+  * IsTruncated
+  * Marker
+  * Roles **required**
+    * items [Role](#role)
 
 ### ListSAMLProvidersRequest
 * ListSAMLProvidersRequest `object`
 
 ### ListSAMLProvidersResponse
 * ListSAMLProvidersResponse `object`: Contains the response to a successful <a>ListSAMLProviders</a> request. 
-  * SAMLProviderList [SAMLProviderListType](#samlproviderlisttype)
+  * SAMLProviderList
+    * items [SAMLProviderListEntry](#samlproviderlistentry)
 
 ### ListSSHPublicKeysRequest
 * ListSSHPublicKeysRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [userNameType](#usernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 ### ListSSHPublicKeysResponse
 * ListSSHPublicKeysResponse `object`: Contains the response to a successful <a>ListSSHPublicKeys</a> request.
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * SSHPublicKeys [SSHPublicKeyListType](#sshpublickeylisttype)
+  * IsTruncated
+  * Marker
+  * SSHPublicKeys
+    * items [SSHPublicKeyMetadata](#sshpublickeymetadata)
 
 ### ListServerCertificatesRequest
 * ListServerCertificatesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListServerCertificatesResponse
 * ListServerCertificatesResponse `object`: Contains the response to a successful <a>ListServerCertificates</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * ServerCertificateMetadataList **required** [serverCertificateMetadataListType](#servercertificatemetadatalisttype)
+  * IsTruncated
+  * Marker
+  * ServerCertificateMetadataList **required**
+    * items [ServerCertificateMetadata](#servercertificatemetadata)
 
 ### ListServiceSpecificCredentialsRequest
 * ListServiceSpecificCredentialsRequest `object`
-  * ServiceName [serviceName](#servicename)
-  * UserName [userNameType](#usernametype)
+  * ServiceName
+  * UserName
 
 ### ListServiceSpecificCredentialsResponse
 * ListServiceSpecificCredentialsResponse `object`
-  * ServiceSpecificCredentials [ServiceSpecificCredentialsListType](#servicespecificcredentialslisttype)
+  * ServiceSpecificCredentials
+    * items [ServiceSpecificCredentialMetadata](#servicespecificcredentialmetadata)
 
 ### ListSigningCertificatesRequest
 * ListSigningCertificatesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName
 
 ### ListSigningCertificatesResponse
 * ListSigningCertificatesResponse `object`: Contains the response to a successful <a>ListSigningCertificates</a> request. 
-  * Certificates **required** [certificateListType](#certificatelisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * Certificates **required**
+    * items [SigningCertificate](#signingcertificate)
+  * IsTruncated
+  * Marker
 
 ### ListUserPoliciesRequest
 * ListUserPoliciesRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * Marker
+  * MaxItems
+  * UserName **required**
 
 ### ListUserPoliciesResponse
 * ListUserPoliciesResponse `object`: Contains the response to a successful <a>ListUserPolicies</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * PolicyNames **required** [policyNameListType](#policynamelisttype)
+  * IsTruncated
+  * Marker
+  * PolicyNames **required**
+    * items [policyNameType](#policynametype)
+
+### ListUserTagsRequest
+* ListUserTagsRequest `object`
+  * Marker
+  * MaxItems
+  * UserName **required**
+
+### ListUserTagsResponse
+* ListUserTagsResponse `object`
+  * IsTruncated
+  * Marker
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### ListUsersRequest
 * ListUsersRequest `object`
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PathPrefix [pathPrefixType](#pathprefixtype)
+  * Marker
+  * MaxItems
+  * PathPrefix
 
 ### ListUsersResponse
 * ListUsersResponse `object`: Contains the response to a successful <a>ListUsers</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * Users **required** [userListType](#userlisttype)
+  * IsTruncated
+  * Marker
+  * Users **required**
+    * items [User](#user)
 
 ### ListVirtualMFADevicesRequest
 * ListVirtualMFADevicesRequest `object`
-  * AssignmentStatus [assignmentStatusType](#assignmentstatustype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
+  * AssignmentStatus
+  * Marker
+  * MaxItems
 
 ### ListVirtualMFADevicesResponse
 * ListVirtualMFADevicesResponse `object`: Contains the response to a successful <a>ListVirtualMFADevices</a> request. 
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
-  * VirtualMFADevices **required** [virtualMFADeviceListType](#virtualmfadevicelisttype)
+  * IsTruncated
+  * Marker
+  * VirtualMFADevices **required**
+    * items [VirtualMFADevice](#virtualmfadevice)
 
 ### LoginProfile
 * LoginProfile `object`: <p>Contains the user name and password create date for a user.</p> <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
-  * CreateDate **required** [dateType](#datetype)
-  * PasswordResetRequired [booleanType](#booleantype)
-  * UserName **required** [userNameType](#usernametype)
+  * CreateDate **required**
+  * PasswordResetRequired
+  * UserName **required**
 
 ### MFADevice
 * MFADevice `object`: <p>Contains information about an MFA device.</p> <p>This data type is used as a response element in the <a>ListMFADevices</a> operation.</p>
-  * EnableDate **required** [dateType](#datetype)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [userNameType](#usernametype)
+  * EnableDate **required**
+  * SerialNumber **required**
+  * UserName **required**
 
 ### MalformedCertificateException
-* MalformedCertificateException `object`: The request was rejected because the certificate was malformed or expired. The error message describes the specific error.
-  * message [malformedCertificateMessage](#malformedcertificatemessage)
+
 
 ### MalformedPolicyDocumentException
-* MalformedPolicyDocumentException `object`: The request was rejected because the policy document was malformed. The error message describes the specific error.
-  * message [malformedPolicyDocumentMessage](#malformedpolicydocumentmessage)
+
 
 ### ManagedPolicyDetail
-* ManagedPolicyDetail `object`: <p>Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p> <p>For more information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* ManagedPolicyDetail `object`: <p>Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p> <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
   * Arn [arnType](#arntype)
-  * AttachmentCount [attachmentCountType](#attachmentcounttype)
-  * CreateDate [dateType](#datetype)
-  * DefaultVersionId [policyVersionIdType](#policyversionidtype)
-  * Description [policyDescriptionType](#policydescriptiontype)
-  * IsAttachable [booleanType](#booleantype)
-  * Path [policyPathType](#policypathtype)
-  * PolicyId [idType](#idtype)
-  * PolicyName [policyNameType](#policynametype)
-  * PolicyVersionList [policyDocumentVersionListType](#policydocumentversionlisttype)
-  * UpdateDate [dateType](#datetype)
+  * AttachmentCount
+  * CreateDate
+  * DefaultVersionId
+  * Description
+  * IsAttachable
+  * Path
+  * PermissionsBoundaryUsageCount
+  * PolicyId
+  * PolicyName
+  * PolicyVersionList
+    * items [PolicyVersion](#policyversion)
+  * UpdateDate
 
 ### ManagedPolicyDetailListType
 * ManagedPolicyDetailListType `array`
   * items [ManagedPolicyDetail](#managedpolicydetail)
 
 ### NoSuchEntityException
-* NoSuchEntityException `object`: The request was rejected because it referenced an entity that does not exist. The error message describes the entity.
-  * message [noSuchEntityMessage](#nosuchentitymessage)
+
 
 ### OpenIDConnectProviderListEntry
 * OpenIDConnectProviderListEntry `object`: Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.
@@ -3381,55 +6732,69 @@ amazonaws_iam.UploadSigningCertificate({
 * OpenIDConnectProviderUrlType `string`: Contains a URL that specifies the endpoint for an OpenID Connect provider.
 
 ### OrganizationsDecisionDetail
-* OrganizationsDecisionDetail `object`: Contains information about AWS Organizations's effect on a policy simulation.
-  * AllowedByOrganizations [booleanType](#booleantype)
+* OrganizationsDecisionDetail `object`: Contains information about the effect that Organizations has on a policy simulation.
+  * AllowedByOrganizations
 
 ### PasswordPolicy
 * PasswordPolicy `object`: <p>Contains information about the account password policy.</p> <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
-  * AllowUsersToChangePassword [booleanType](#booleantype)
-  * ExpirePasswords [booleanType](#booleantype)
-  * HardExpiry [booleanObjectType](#booleanobjecttype)
-  * MaxPasswordAge [maxPasswordAgeType](#maxpasswordagetype)
-  * MinimumPasswordLength [minimumPasswordLengthType](#minimumpasswordlengthtype)
-  * PasswordReusePrevention [passwordReusePreventionType](#passwordreusepreventiontype)
-  * RequireLowercaseCharacters [booleanType](#booleantype)
-  * RequireNumbers [booleanType](#booleantype)
-  * RequireSymbols [booleanType](#booleantype)
-  * RequireUppercaseCharacters [booleanType](#booleantype)
+  * AllowUsersToChangePassword
+  * ExpirePasswords
+  * HardExpiry
+  * MaxPasswordAge
+  * MinimumPasswordLength
+  * PasswordReusePrevention
+  * RequireLowercaseCharacters
+  * RequireNumbers
+  * RequireSymbols
+  * RequireUppercaseCharacters
 
 ### PasswordPolicyViolationException
-* PasswordPolicyViolationException `object`: The request was rejected because the provided password did not meet the requirements imposed by the account password policy.
-  * message [passwordPolicyViolationMessage](#passwordpolicyviolationmessage)
+
+
+### PermissionsBoundaryAttachmentType
+* PermissionsBoundaryAttachmentType `string` (values: PermissionsBoundaryPolicy)
+
+### PermissionsBoundaryDecisionDetail
+* PermissionsBoundaryDecisionDetail `object`: Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.
+  * AllowedByPermissionsBoundary
 
 ### Policy
-* Policy `object`: <p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
+* Policy `object`: <p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
   * Arn [arnType](#arntype)
-  * AttachmentCount [attachmentCountType](#attachmentcounttype)
-  * CreateDate [dateType](#datetype)
-  * DefaultVersionId [policyVersionIdType](#policyversionidtype)
-  * Description [policyDescriptionType](#policydescriptiontype)
-  * IsAttachable [booleanType](#booleantype)
-  * Path [policyPathType](#policypathtype)
-  * PolicyId [idType](#idtype)
-  * PolicyName [policyNameType](#policynametype)
-  * UpdateDate [dateType](#datetype)
+  * AttachmentCount
+  * CreateDate
+  * DefaultVersionId
+  * Description
+  * IsAttachable
+  * Path
+  * PermissionsBoundaryUsageCount
+  * PolicyId
+  * PolicyName
+  * UpdateDate
 
 ### PolicyDetail
 * PolicyDetail `object`: <p>Contains information about an IAM policy, including the policy document.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
-  * PolicyDocument [policyDocumentType](#policydocumenttype)
-  * PolicyName [policyNameType](#policynametype)
+  * PolicyDocument
+  * PolicyName
 
 ### PolicyEvaluationDecisionType
 * PolicyEvaluationDecisionType `string` (values: allowed, explicitDeny, implicitDeny)
 
 ### PolicyEvaluationException
-* PolicyEvaluationException `object`: The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.
-  * message [policyEvaluationErrorMessage](#policyevaluationerrormessage)
+
+
+### PolicyGrantingServiceAccess
+* PolicyGrantingServiceAccess `object`: <p>Contains details about the permissions policies that are attached to the specified identity (user, group, or role).</p> <p>This data type is an element of the <a>ListPoliciesGrantingServiceAccessEntry</a> object.</p>
+  * EntityName
+  * EntityType
+  * PolicyArn [arnType](#arntype)
+  * PolicyName **required**
+  * PolicyType **required**
 
 ### PolicyGroup
-* PolicyGroup `object`: <p>Contains information about a group that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
-  * GroupId [idType](#idtype)
-  * GroupName [groupNameType](#groupnametype)
+* PolicyGroup `object`: <p>Contains information about a group that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
+  * GroupId
+  * GroupName
 
 ### PolicyGroupListType
 * PolicyGroupListType `array`
@@ -3439,13 +6804,12 @@ amazonaws_iam.UploadSigningCertificate({
 * PolicyIdentifierType `string`
 
 ### PolicyNotAttachableException
-* PolicyNotAttachableException `object`: The request failed because AWS service role policies can only be attached to the service-linked role for that service.
-  * message [policyNotAttachableMessage](#policynotattachablemessage)
+
 
 ### PolicyRole
-* PolicyRole `object`: <p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
-  * RoleId [idType](#idtype)
-  * RoleName [roleNameType](#rolenametype)
+* PolicyRole `object`: <p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
+  * RoleId
+  * RoleName
 
 ### PolicyRoleListType
 * PolicyRoleListType `array`
@@ -3454,44 +6818,57 @@ amazonaws_iam.UploadSigningCertificate({
 ### PolicySourceType
 * PolicySourceType `string` (values: user, group, role, aws-managed, user-managed, resource, none)
 
+### PolicyUsageType
+* PolicyUsageType `string` (values: PermissionsPolicy, PermissionsBoundary): <p>The policy usage type that indicates whether the policy is used as a permissions policy or as the permissions boundary for an entity.</p> <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p>
+
 ### PolicyUser
-* PolicyUser `object`: <p>Contains information about a user that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
-  * UserId [idType](#idtype)
-  * UserName [userNameType](#usernametype)
+* PolicyUser `object`: <p>Contains information about a user that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
+  * UserId
+  * UserName
 
 ### PolicyUserListType
 * PolicyUserListType `array`
   * items [PolicyUser](#policyuser)
 
 ### PolicyVersion
-* PolicyVersion `object`: <p>Contains information about a version of a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
-  * CreateDate [dateType](#datetype)
-  * Document [policyDocumentType](#policydocumenttype)
-  * IsDefaultVersion [booleanType](#booleantype)
-  * VersionId [policyVersionIdType](#policyversionidtype)
+* PolicyVersion `object`: <p>Contains information about a version of a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>IAM User Guide</i>. </p>
+  * CreateDate
+  * Document
+  * IsDefaultVersion
+  * VersionId
 
 ### Position
 * Position `object`: <p>Contains the row and column of a location of a <code>Statement</code> element in a policy document.</p> <p>This data type is used as a member of the <code> <a>Statement</a> </code> type.</p>
-  * Column [ColumnNumber](#columnnumber)
-  * Line [LineNumber](#linenumber)
+  * Column
+  * Line
 
 ### PutGroupPolicyRequest
 * PutGroupPolicyRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
+  * GroupName **required**
+  * PolicyDocument **required**
+  * PolicyName **required**
+
+### PutRolePermissionsBoundaryRequest
+* PutRolePermissionsBoundaryRequest `object`
+  * PermissionsBoundary **required**
+  * RoleName **required**
 
 ### PutRolePolicyRequest
 * PutRolePolicyRequest `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * RoleName **required**
+
+### PutUserPermissionsBoundaryRequest
+* PutUserPermissionsBoundaryRequest `object`
+  * PermissionsBoundary **required**
+  * UserName **required**
 
 ### PutUserPolicyRequest
 * PutUserPolicyRequest `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * PolicyName **required** [policyNameType](#policynametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * PolicyDocument **required**
+  * PolicyName **required**
+  * UserName **required**
 
 ### ReasonType
 * ReasonType `string`
@@ -3501,24 +6878,27 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### RemoveClientIDFromOpenIDConnectProviderRequest
 * RemoveClientIDFromOpenIDConnectProviderRequest `object`
-  * ClientID **required** [clientIDType](#clientidtype)
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
+  * ClientID **required**
+  * OpenIDConnectProviderArn **required**
 
 ### RemoveRoleFromInstanceProfileRequest
 * RemoveRoleFromInstanceProfileRequest `object`
-  * InstanceProfileName **required** [instanceProfileNameType](#instanceprofilenametype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * InstanceProfileName **required**
+  * RoleName **required**
 
 ### RemoveUserFromGroupRequest
 * RemoveUserFromGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * GroupName **required**
+  * UserName **required**
 
 ### ReportContentType
 * ReportContentType `string`
 
 ### ReportFormatType
 * ReportFormatType `string` (values: text/csv)
+
+### ReportGenerationLimitExceededException
+
 
 ### ReportStateDescriptionType
 * ReportStateDescriptionType `string`
@@ -3528,12 +6908,19 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### ResetServiceSpecificCredentialRequest
 * ResetServiceSpecificCredentialRequest `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * UserName [userNameType](#usernametype)
+  * ServiceSpecificCredentialId **required**
+  * UserName
 
 ### ResetServiceSpecificCredentialResponse
 * ResetServiceSpecificCredentialResponse `object`
-  * ServiceSpecificCredential [ServiceSpecificCredential](#servicespecificcredential)
+  * ServiceSpecificCredential
+    * CreateDate **required**
+    * ServiceName **required**
+    * ServicePassword **required**
+    * ServiceSpecificCredentialId **required**
+    * ServiceUserName **required**
+    * Status **required**
+    * UserName **required**
 
 ### ResourceHandlingOptionType
 * ResourceHandlingOptionType `string`
@@ -3547,11 +6934,15 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### ResourceSpecificResult
 * ResourceSpecificResult `object`: <p>Contains the result of the simulation of a single API operation call on a single resource.</p> <p>This data type is used by a member of the <a>EvaluationResult</a> data type.</p>
-  * EvalDecisionDetails [EvalDecisionDetailsType](#evaldecisiondetailstype)
-  * EvalResourceDecision **required** [PolicyEvaluationDecisionType](#policyevaluationdecisiontype)
-  * EvalResourceName **required** [ResourceNameType](#resourcenametype)
-  * MatchedStatements [StatementListType](#statementlisttype)
-  * MissingContextValues [ContextKeyNamesResultListType](#contextkeynamesresultlisttype)
+  * EvalDecisionDetails
+  * EvalResourceDecision **required**
+  * EvalResourceName **required**
+  * MatchedStatements
+    * items [Statement](#statement)
+  * MissingContextValues
+    * items [ContextKeyNameType](#contextkeynametype)
+  * PermissionsBoundaryDecisionDetail
+    * AllowedByPermissionsBoundary
 
 ### ResourceSpecificResultListType
 * ResourceSpecificResultListType `array`
@@ -3559,33 +6950,57 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### ResyncMFADeviceRequest
 * ResyncMFADeviceRequest `object`
-  * AuthenticationCode1 **required** [authenticationCodeType](#authenticationcodetype)
-  * AuthenticationCode2 **required** [authenticationCodeType](#authenticationcodetype)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * AuthenticationCode1 **required**
+  * AuthenticationCode2 **required**
+  * SerialNumber **required**
+  * UserName **required**
 
 ### Role
 * Role `object`: Contains information about an IAM role. This structure is returned as a response element in several API operations that interact with roles.
-  * Arn **required** [arnType](#arntype)
-  * AssumeRolePolicyDocument [policyDocumentType](#policydocumenttype)
-  * CreateDate **required** [dateType](#datetype)
-  * Description [roleDescriptionType](#roledescriptiontype)
-  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
-  * Path **required** [pathType](#pathtype)
-  * RoleId **required** [idType](#idtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Arn **required**
+  * AssumeRolePolicyDocument
+  * CreateDate **required**
+  * Description
+  * MaxSessionDuration
+  * Path **required**
+  * PermissionsBoundary
+    * PermissionsBoundaryArn
+    * PermissionsBoundaryType
+  * RoleId **required**
+  * RoleLastUsed
+    * LastUsedDate
+    * Region
+  * RoleName **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### RoleDetail
 * RoleDetail `object`: <p>Contains information about an IAM role, including all of the role's policies.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
-  * AssumeRolePolicyDocument [policyDocumentType](#policydocumenttype)
-  * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * CreateDate [dateType](#datetype)
-  * InstanceProfileList [instanceProfileListType](#instanceprofilelisttype)
-  * Path [pathType](#pathtype)
-  * RoleId [idType](#idtype)
-  * RoleName [roleNameType](#rolenametype)
-  * RolePolicyList [policyDetailListType](#policydetaillisttype)
+  * AssumeRolePolicyDocument
+  * AttachedManagedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * CreateDate
+  * InstanceProfileList
+    * items [InstanceProfile](#instanceprofile)
+  * Path
+  * PermissionsBoundary
+    * PermissionsBoundaryArn
+    * PermissionsBoundaryType
+  * RoleId
+  * RoleLastUsed
+    * LastUsedDate
+    * Region
+  * RoleName
+  * RolePolicyList
+    * items [PolicyDetail](#policydetail)
+  * Tags
+    * items [Tag](#tag)
+
+### RoleLastUsed
+* RoleLastUsed `object`: <p>Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions Where Data Is Tracked</a> in the <i>IAM User Guide</i>.</p> <p>This data type is returned as a response element in the <a>GetRole</a> and <a>GetAccountAuthorizationDetails</a> operations.</p>
+  * LastUsedDate
+  * Region
 
 ### RoleUsageListType
 * RoleUsageListType `array`
@@ -3593,17 +7008,18 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### RoleUsageType
 * RoleUsageType `object`: <p>An object that contains details about how a service-linked role is used, if that information is returned by the service.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
-  * Region [RegionNameType](#regionnametype)
-  * Resources [ArnListType](#arnlisttype)
+  * Region
+  * Resources
+    * items [arnType](#arntype)
 
 ### SAMLMetadataDocumentType
 * SAMLMetadataDocumentType `string`
 
 ### SAMLProviderListEntry
 * SAMLProviderListEntry `object`: Contains the list of SAML providers for this account.
-  * Arn [arnType](#arntype)
-  * CreateDate [dateType](#datetype)
-  * ValidUntil [dateType](#datetype)
+  * Arn
+  * CreateDate
+  * ValidUntil
 
 ### SAMLProviderListType
 * SAMLProviderListType `array`
@@ -3614,12 +7030,12 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### SSHPublicKey
 * SSHPublicKey `object`: <p>Contains information about an SSH public key.</p> <p>This data type is used as a response element in the <a>GetSSHPublicKey</a> and <a>UploadSSHPublicKey</a> operations. </p>
-  * Fingerprint **required** [publicKeyFingerprintType](#publickeyfingerprinttype)
-  * SSHPublicKeyBody **required** [publicKeyMaterialType](#publickeymaterialtype)
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UploadDate [dateType](#datetype)
-  * UserName **required** [userNameType](#usernametype)
+  * Fingerprint **required**
+  * SSHPublicKeyBody **required**
+  * SSHPublicKeyId **required**
+  * Status **required**
+  * UploadDate
+  * UserName **required**
 
 ### SSHPublicKeyListType
 * SSHPublicKeyListType `array`
@@ -3627,102 +7043,138 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### SSHPublicKeyMetadata
 * SSHPublicKeyMetadata `object`: <p>Contains information about an SSH public key, without the key's body or fingerprint.</p> <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a> operation.</p>
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UploadDate **required** [dateType](#datetype)
-  * UserName **required** [userNameType](#usernametype)
+  * SSHPublicKeyId **required**
+  * Status **required**
+  * UploadDate **required**
+  * UserName **required**
 
 ### ServerCertificate
 * ServerCertificate `object`: <p>Contains information about a server certificate.</p> <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * CertificateChain [certificateChainType](#certificatechaintype)
-  * ServerCertificateMetadata **required** [ServerCertificateMetadata](#servercertificatemetadata)
+  * CertificateBody **required**
+  * CertificateChain
+  * ServerCertificateMetadata **required**
+    * Arn **required**
+    * Expiration
+    * Path **required**
+    * ServerCertificateId **required**
+    * ServerCertificateName **required**
+    * UploadDate
 
 ### ServerCertificateMetadata
 * ServerCertificateMetadata `object`: <p>Contains information about a server certificate without its certificate body, certificate chain, and private key.</p> <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a> operations. </p>
-  * Arn **required** [arnType](#arntype)
-  * Expiration [dateType](#datetype)
-  * Path **required** [pathType](#pathtype)
-  * ServerCertificateId **required** [idType](#idtype)
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
-  * UploadDate [dateType](#datetype)
+  * Arn **required**
+  * Expiration
+  * Path **required**
+  * ServerCertificateId **required**
+  * ServerCertificateName **required**
+  * UploadDate
 
 ### ServiceFailureException
-* ServiceFailureException `object`: The request processing has failed because of an unknown error, exception or failure.
-  * message [serviceFailureExceptionMessage](#servicefailureexceptionmessage)
+
+
+### ServiceLastAccessed
+* ServiceLastAccessed `object`: <p>Contains details about the most recent attempt to access the service.</p> <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+  * LastAuthenticated
+  * LastAuthenticatedEntity
+  * LastAuthenticatedRegion
+  * ServiceName **required**
+  * ServiceNamespace **required**
+  * TotalAuthenticatedEntities
+  * TrackedActionsLastAccessed
+    * items [TrackedActionLastAccessed](#trackedactionlastaccessed)
 
 ### ServiceNotSupportedException
-* ServiceNotSupportedException `object`: The specified service does not support service-specific credentials.
-  * message [serviceNotSupportedMessage](#servicenotsupportedmessage)
+
 
 ### ServiceSpecificCredential
 * ServiceSpecificCredential `object`: Contains the details of a service-specific credential.
-  * CreateDate **required** [dateType](#datetype)
-  * ServiceName **required** [serviceName](#servicename)
-  * ServicePassword **required** [servicePassword](#servicepassword)
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * ServiceUserName **required** [serviceUserName](#serviceusername)
-  * Status **required** [statusType](#statustype)
-  * UserName **required** [userNameType](#usernametype)
+  * CreateDate **required**
+  * ServiceName **required**
+  * ServicePassword **required**
+  * ServiceSpecificCredentialId **required**
+  * ServiceUserName **required**
+  * Status **required**
+  * UserName **required**
 
 ### ServiceSpecificCredentialMetadata
 * ServiceSpecificCredentialMetadata `object`: Contains additional details about a service-specific credential.
-  * CreateDate **required** [dateType](#datetype)
-  * ServiceName **required** [serviceName](#servicename)
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * ServiceUserName **required** [serviceUserName](#serviceusername)
-  * Status **required** [statusType](#statustype)
-  * UserName **required** [userNameType](#usernametype)
+  * CreateDate **required**
+  * ServiceName **required**
+  * ServiceSpecificCredentialId **required**
+  * ServiceUserName **required**
+  * Status **required**
+  * UserName **required**
 
 ### ServiceSpecificCredentialsListType
 * ServiceSpecificCredentialsListType `array`
   * items [ServiceSpecificCredentialMetadata](#servicespecificcredentialmetadata)
 
+### ServicesLastAccessed
+* ServicesLastAccessed `array`
+  * items [ServiceLastAccessed](#servicelastaccessed)
+
 ### SetDefaultPolicyVersionRequest
 * SetDefaultPolicyVersionRequest `object`
-  * PolicyArn **required** [arnType](#arntype)
-  * VersionId **required** [policyVersionIdType](#policyversionidtype)
+  * PolicyArn **required**
+  * VersionId **required**
+
+### SetSecurityTokenServicePreferencesRequest
+* SetSecurityTokenServicePreferencesRequest `object`
+  * GlobalEndpointTokenVersion **required**
 
 ### SigningCertificate
 * SigningCertificate `object`: <p>Contains information about an X.509 signing certificate.</p> <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a> operations. </p>
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * CertificateId **required** [certificateIdType](#certificateidtype)
-  * Status **required** [statusType](#statustype)
-  * UploadDate [dateType](#datetype)
-  * UserName **required** [userNameType](#usernametype)
+  * CertificateBody **required**
+  * CertificateId **required**
+  * Status **required**
+  * UploadDate
+  * UserName **required**
 
 ### SimulateCustomPolicyRequest
 * SimulateCustomPolicyRequest `object`
-  * ActionNames **required** [ActionNameListType](#actionnamelisttype)
-  * CallerArn [ResourceNameType](#resourcenametype)
-  * ContextEntries [ContextEntryListType](#contextentrylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyInputList **required** [SimulationPolicyListType](#simulationpolicylisttype)
-  * ResourceArns [ResourceNameListType](#resourcenamelisttype)
-  * ResourceHandlingOption [ResourceHandlingOptionType](#resourcehandlingoptiontype)
-  * ResourceOwner [ResourceNameType](#resourcenametype)
-  * ResourcePolicy [policyDocumentType](#policydocumenttype)
+  * ActionNames **required**
+    * items [ActionNameType](#actionnametype)
+  * CallerArn
+  * ContextEntries
+    * items [ContextEntry](#contextentry)
+  * Marker
+  * MaxItems
+  * PermissionsBoundaryPolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicyInputList **required**
+    * items [policyDocumentType](#policydocumenttype)
+  * ResourceArns
+    * items [ResourceNameType](#resourcenametype)
+  * ResourceHandlingOption
+  * ResourceOwner
+  * ResourcePolicy
 
 ### SimulatePolicyResponse
 * SimulatePolicyResponse `object`: Contains the response to a successful <a>SimulatePrincipalPolicy</a> or <a>SimulateCustomPolicy</a> request.
-  * EvaluationResults [EvaluationResultsListType](#evaluationresultslisttype)
-  * IsTruncated [booleanType](#booleantype)
-  * Marker [markerType](#markertype)
+  * EvaluationResults
+    * items [EvaluationResult](#evaluationresult)
+  * IsTruncated
+  * Marker
 
 ### SimulatePrincipalPolicyRequest
 * SimulatePrincipalPolicyRequest `object`
-  * ActionNames **required** [ActionNameListType](#actionnamelisttype)
-  * CallerArn [ResourceNameType](#resourcenametype)
-  * ContextEntries [ContextEntryListType](#contextentrylisttype)
-  * Marker [markerType](#markertype)
-  * MaxItems [maxItemsType](#maxitemstype)
-  * PolicyInputList [SimulationPolicyListType](#simulationpolicylisttype)
-  * PolicySourceArn **required** [arnType](#arntype)
-  * ResourceArns [ResourceNameListType](#resourcenamelisttype)
-  * ResourceHandlingOption [ResourceHandlingOptionType](#resourcehandlingoptiontype)
-  * ResourceOwner [ResourceNameType](#resourcenametype)
-  * ResourcePolicy [policyDocumentType](#policydocumenttype)
+  * ActionNames **required**
+    * items [ActionNameType](#actionnametype)
+  * CallerArn
+  * ContextEntries
+    * items [ContextEntry](#contextentry)
+  * Marker
+  * MaxItems
+  * PermissionsBoundaryPolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicyInputList
+    * items [policyDocumentType](#policydocumenttype)
+  * PolicySourceArn **required**
+  * ResourceArns
+    * items [ResourceNameType](#resourcenametype)
+  * ResourceHandlingOption
+  * ResourceOwner
+  * ResourcePolicy
 
 ### SimulationPolicyListType
 * SimulationPolicyListType `array`
@@ -3730,177 +7182,277 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### Statement
 * Statement `object`: <p>Contains a reference to a <code>Statement</code> element in a policy document that determines the result of the simulation.</p> <p>This data type is used by the <code>MatchedStatements</code> member of the <code> <a>EvaluationResult</a> </code> type.</p>
-  * EndPosition [Position](#position)
-  * SourcePolicyId [PolicyIdentifierType](#policyidentifiertype)
-  * SourcePolicyType [PolicySourceType](#policysourcetype)
-  * StartPosition [Position](#position)
+  * EndPosition
+    * Column
+    * Line
+  * SourcePolicyId
+  * SourcePolicyType
+  * StartPosition
+    * Column
+    * Line
 
 ### StatementListType
 * StatementListType `array`
   * items [Statement](#statement)
 
+### Tag
+* Tag `object`: A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the <i>IAM User Guide</i>.
+  * Key **required**
+  * Value **required**
+
+### TagRoleRequest
+* TagRoleRequest `object`
+  * RoleName **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### TagUserRequest
+* TagUserRequest `object`
+  * Tags **required**
+    * items [Tag](#tag)
+  * UserName **required**
+
+### TrackedActionLastAccessed
+* TrackedActionLastAccessed `object`: <p>Contains details about the most recent attempt to access an action within the service.</p> <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+  * ActionName
+  * LastAccessedEntity [arnType](#arntype)
+  * LastAccessedRegion
+  * LastAccessedTime
+
+### TrackedActionsLastAccessed
+* TrackedActionsLastAccessed `array`
+  * items [TrackedActionLastAccessed](#trackedactionlastaccessed)
+
 ### UnmodifiableEntityException
-* UnmodifiableEntityException `object`: The request was rejected because only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
-  * message [unmodifiableEntityMessage](#unmodifiableentitymessage)
+
 
 ### UnrecognizedPublicKeyEncodingException
-* UnrecognizedPublicKeyEncodingException `object`: The request was rejected because the public key encoding format is unsupported or unrecognized.
-  * message [unrecognizedPublicKeyEncodingMessage](#unrecognizedpublickeyencodingmessage)
+
+
+### UntagRoleRequest
+* UntagRoleRequest `object`
+  * RoleName **required**
+  * TagKeys **required**
+    * items [tagKeyType](#tagkeytype)
+
+### UntagUserRequest
+* UntagUserRequest `object`
+  * TagKeys **required**
+    * items [tagKeyType](#tagkeytype)
+  * UserName **required**
 
 ### UpdateAccessKeyRequest
 * UpdateAccessKeyRequest `object`
-  * AccessKeyId **required** [accessKeyIdType](#accesskeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * AccessKeyId **required**
+  * Status **required**
+  * UserName
 
 ### UpdateAccountPasswordPolicyRequest
 * UpdateAccountPasswordPolicyRequest `object`
-  * AllowUsersToChangePassword [booleanType](#booleantype)
-  * HardExpiry [booleanObjectType](#booleanobjecttype)
-  * MaxPasswordAge [maxPasswordAgeType](#maxpasswordagetype)
-  * MinimumPasswordLength [minimumPasswordLengthType](#minimumpasswordlengthtype)
-  * PasswordReusePrevention [passwordReusePreventionType](#passwordreusepreventiontype)
-  * RequireLowercaseCharacters [booleanType](#booleantype)
-  * RequireNumbers [booleanType](#booleantype)
-  * RequireSymbols [booleanType](#booleantype)
-  * RequireUppercaseCharacters [booleanType](#booleantype)
+  * AllowUsersToChangePassword
+  * HardExpiry
+  * MaxPasswordAge
+  * MinimumPasswordLength
+  * PasswordReusePrevention
+  * RequireLowercaseCharacters
+  * RequireNumbers
+  * RequireSymbols
+  * RequireUppercaseCharacters
 
 ### UpdateAssumeRolePolicyRequest
 * UpdateAssumeRolePolicyRequest `object`
-  * PolicyDocument **required** [policyDocumentType](#policydocumenttype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * PolicyDocument **required**
+  * RoleName **required**
 
 ### UpdateGroupRequest
 * UpdateGroupRequest `object`
-  * GroupName **required** [groupNameType](#groupnametype)
-  * NewGroupName [groupNameType](#groupnametype)
-  * NewPath [pathType](#pathtype)
+  * GroupName **required**
+  * NewGroupName
+  * NewPath
 
 ### UpdateLoginProfileRequest
 * UpdateLoginProfileRequest `object`
-  * Password [passwordType](#passwordtype)
-  * PasswordResetRequired [booleanObjectType](#booleanobjecttype)
-  * UserName **required** [userNameType](#usernametype)
+  * Password
+  * PasswordResetRequired
+  * UserName **required**
 
 ### UpdateOpenIDConnectProviderThumbprintRequest
 * UpdateOpenIDConnectProviderThumbprintRequest `object`
-  * OpenIDConnectProviderArn **required** [arnType](#arntype)
-  * ThumbprintList **required** [thumbprintListType](#thumbprintlisttype)
+  * OpenIDConnectProviderArn **required**
+  * ThumbprintList **required**
+    * items [thumbprintType](#thumbprinttype)
 
 ### UpdateRoleDescriptionRequest
 * UpdateRoleDescriptionRequest `object`
-  * Description **required** [roleDescriptionType](#roledescriptiontype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Description **required**
+  * RoleName **required**
 
 ### UpdateRoleDescriptionResponse
 * UpdateRoleDescriptionResponse `object`
-  * Role [Role](#role)
+  * Role
+    * Arn **required**
+    * AssumeRolePolicyDocument
+    * CreateDate **required**
+    * Description
+    * MaxSessionDuration
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * RoleId **required**
+    * RoleLastUsed
+      * LastUsedDate
+      * Region
+    * RoleName **required**
+    * Tags
+      * items [Tag](#tag)
 
 ### UpdateRoleRequest
 * UpdateRoleRequest `object`
-  * Description [roleDescriptionType](#roledescriptiontype)
-  * MaxSessionDuration [roleMaxSessionDurationType](#rolemaxsessiondurationtype)
-  * RoleName **required** [roleNameType](#rolenametype)
+  * Description
+  * MaxSessionDuration
+  * RoleName **required**
 
 ### UpdateRoleResponse
 * UpdateRoleResponse `object`
 
 ### UpdateSAMLProviderRequest
 * UpdateSAMLProviderRequest `object`
-  * SAMLMetadataDocument **required** [SAMLMetadataDocumentType](#samlmetadatadocumenttype)
-  * SAMLProviderArn **required** [arnType](#arntype)
+  * SAMLMetadataDocument **required**
+  * SAMLProviderArn **required**
 
 ### UpdateSAMLProviderResponse
 * UpdateSAMLProviderResponse `object`: Contains the response to a successful <a>UpdateSAMLProvider</a> request. 
-  * SAMLProviderArn [arnType](#arntype)
+  * SAMLProviderArn
 
 ### UpdateSSHPublicKeyRequest
 * UpdateSSHPublicKeyRequest `object`
-  * SSHPublicKeyId **required** [publicKeyIdType](#publickeyidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName **required** [userNameType](#usernametype)
+  * SSHPublicKeyId **required**
+  * Status **required**
+  * UserName **required**
 
 ### UpdateServerCertificateRequest
 * UpdateServerCertificateRequest `object`
-  * NewPath [pathType](#pathtype)
-  * NewServerCertificateName [serverCertificateNameType](#servercertificatenametype)
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * NewPath
+  * NewServerCertificateName
+  * ServerCertificateName **required**
 
 ### UpdateServiceSpecificCredentialRequest
 * UpdateServiceSpecificCredentialRequest `object`
-  * ServiceSpecificCredentialId **required** [serviceSpecificCredentialId](#servicespecificcredentialid)
-  * Status **required** [statusType](#statustype)
-  * UserName [userNameType](#usernametype)
+  * ServiceSpecificCredentialId **required**
+  * Status **required**
+  * UserName
 
 ### UpdateSigningCertificateRequest
 * UpdateSigningCertificateRequest `object`
-  * CertificateId **required** [certificateIdType](#certificateidtype)
-  * Status **required** [statusType](#statustype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * CertificateId **required**
+  * Status **required**
+  * UserName
 
 ### UpdateUserRequest
 * UpdateUserRequest `object`
-  * NewPath [pathType](#pathtype)
-  * NewUserName [userNameType](#usernametype)
-  * UserName **required** [existingUserNameType](#existingusernametype)
+  * NewPath
+  * NewUserName
+  * UserName **required**
 
 ### UploadSSHPublicKeyRequest
 * UploadSSHPublicKeyRequest `object`
-  * SSHPublicKeyBody **required** [publicKeyMaterialType](#publickeymaterialtype)
-  * UserName **required** [userNameType](#usernametype)
+  * SSHPublicKeyBody **required**
+  * UserName **required**
 
 ### UploadSSHPublicKeyResponse
 * UploadSSHPublicKeyResponse `object`: Contains the response to a successful <a>UploadSSHPublicKey</a> request.
-  * SSHPublicKey [SSHPublicKey](#sshpublickey)
+  * SSHPublicKey
+    * Fingerprint **required**
+    * SSHPublicKeyBody **required**
+    * SSHPublicKeyId **required**
+    * Status **required**
+    * UploadDate
+    * UserName **required**
 
 ### UploadServerCertificateRequest
 * UploadServerCertificateRequest `object`
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * CertificateChain [certificateChainType](#certificatechaintype)
-  * Path [pathType](#pathtype)
-  * PrivateKey **required** [privateKeyType](#privatekeytype)
-  * ServerCertificateName **required** [serverCertificateNameType](#servercertificatenametype)
+  * CertificateBody **required**
+  * CertificateChain
+  * Path
+  * PrivateKey **required**
+  * ServerCertificateName **required**
 
 ### UploadServerCertificateResponse
 * UploadServerCertificateResponse `object`: Contains the response to a successful <a>UploadServerCertificate</a> request. 
-  * ServerCertificateMetadata [ServerCertificateMetadata](#servercertificatemetadata)
+  * ServerCertificateMetadata
+    * Arn **required**
+    * Expiration
+    * Path **required**
+    * ServerCertificateId **required**
+    * ServerCertificateName **required**
+    * UploadDate
 
 ### UploadSigningCertificateRequest
 * UploadSigningCertificateRequest `object`
-  * CertificateBody **required** [certificateBodyType](#certificatebodytype)
-  * UserName [existingUserNameType](#existingusernametype)
+  * CertificateBody **required**
+  * UserName
 
 ### UploadSigningCertificateResponse
 * UploadSigningCertificateResponse `object`: Contains the response to a successful <a>UploadSigningCertificate</a> request. 
-  * Certificate **required** [SigningCertificate](#signingcertificate)
+  * Certificate **required**
+    * CertificateBody **required**
+    * CertificateId **required**
+    * Status **required**
+    * UploadDate
+    * UserName **required**
 
 ### User
 * User `object`: <p>Contains information about an IAM user entity.</p> <p>This data type is used as a response element in the following operations:</p> <ul> <li> <p> <a>CreateUser</a> </p> </li> <li> <p> <a>GetUser</a> </p> </li> <li> <p> <a>ListUsers</a> </p> </li> </ul>
-  * Arn **required** [arnType](#arntype)
-  * CreateDate **required** [dateType](#datetype)
-  * PasswordLastUsed [dateType](#datetype)
-  * Path **required** [pathType](#pathtype)
-  * UserId **required** [idType](#idtype)
-  * UserName **required** [userNameType](#usernametype)
+  * Arn **required**
+  * CreateDate **required**
+  * PasswordLastUsed
+  * Path **required**
+  * PermissionsBoundary
+    * PermissionsBoundaryArn
+    * PermissionsBoundaryType
+  * Tags
+    * items [Tag](#tag)
+  * UserId **required**
+  * UserName **required**
 
 ### UserDetail
 * UserDetail `object`: <p>Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.</p> <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
   * Arn [arnType](#arntype)
-  * AttachedManagedPolicies [attachedPoliciesListType](#attachedpolicieslisttype)
-  * CreateDate [dateType](#datetype)
-  * GroupList [groupNameListType](#groupnamelisttype)
-  * Path [pathType](#pathtype)
-  * UserId [idType](#idtype)
-  * UserName [userNameType](#usernametype)
-  * UserPolicyList [policyDetailListType](#policydetaillisttype)
+  * AttachedManagedPolicies
+    * items [AttachedPolicy](#attachedpolicy)
+  * CreateDate
+  * GroupList
+    * items [groupNameType](#groupnametype)
+  * Path
+  * PermissionsBoundary
+    * PermissionsBoundaryArn
+    * PermissionsBoundaryType
+  * Tags
+    * items [Tag](#tag)
+  * UserId
+  * UserName
+  * UserPolicyList
+    * items [PolicyDetail](#policydetail)
 
 ### VirtualMFADevice
 * VirtualMFADevice `object`: Contains information about a virtual MFA device.
-  * Base32StringSeed [BootstrapDatum](#bootstrapdatum)
-  * EnableDate [dateType](#datetype)
-  * QRCodePNG [BootstrapDatum](#bootstrapdatum)
-  * SerialNumber **required** [serialNumberType](#serialnumbertype)
-  * User [User](#user)
+  * Base32StringSeed
+  * EnableDate
+  * QRCodePNG
+  * SerialNumber **required**
+  * User
+    * Arn **required**
+    * CreateDate **required**
+    * PasswordLastUsed
+    * Path **required**
+    * PermissionsBoundary
+      * PermissionsBoundaryArn
+      * PermissionsBoundaryType
+    * Tags
+      * items [Tag](#tag)
+    * UserId **required**
+    * UserName **required**
 
 ### accessKeyIdType
 * accessKeyIdType `string`
@@ -3920,7 +7472,7 @@ amazonaws_iam.UploadSigningCertificate({
 * accountAliasType `string`
 
 ### arnType
-* arnType `string`: <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* arnType `string`: <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### assignmentStatusType
 * assignmentStatusType `string` (values: Assigned, Unassigned, Any)
@@ -3961,45 +7513,31 @@ amazonaws_iam.UploadSigningCertificate({
 ### clientIDType
 * clientIDType `string`
 
-### credentialReportExpiredExceptionMessage
-* credentialReportExpiredExceptionMessage `string`
-
-### credentialReportNotPresentExceptionMessage
-* credentialReportNotPresentExceptionMessage `string`
-
-### credentialReportNotReadyExceptionMessage
-* credentialReportNotReadyExceptionMessage `string`
-
 ### customSuffixType
 * customSuffixType `string`
 
 ### dateType
 * dateType `string`
 
-### deleteConflictMessage
-* deleteConflictMessage `string`
-
-### duplicateCertificateMessage
-* duplicateCertificateMessage `string`
-
-### duplicateSSHPublicKeyMessage
-* duplicateSSHPublicKeyMessage `string`
-
 ### encodingType
 * encodingType `string` (values: SSH, PEM)
 
-### entityAlreadyExistsMessage
-* entityAlreadyExistsMessage `string`
+### entityDetailsListType
+* entityDetailsListType `array`
+  * items [EntityDetails](#entitydetails)
 
 ### entityListType
 * entityListType `array`
   * items [EntityType](#entitytype)
 
-### entityTemporarilyUnmodifiableMessage
-* entityTemporarilyUnmodifiableMessage `string`
+### entityNameType
+* entityNameType `string`
 
 ### existingUserNameType
 * existingUserNameType `string`
+
+### globalEndpointTokenVersion
+* globalEndpointTokenVersion `string` (values: v1Token, v2Token)
 
 ### groupDetailListType
 * groupDetailListType `array`
@@ -4026,32 +7564,18 @@ amazonaws_iam.UploadSigningCertificate({
 ### instanceProfileNameType
 * instanceProfileNameType `string`
 
-### invalidAuthenticationCodeMessage
-* invalidAuthenticationCodeMessage `string`
+### integerType
+* integerType `integer`
 
-### invalidCertificateMessage
-* invalidCertificateMessage `string`
+### jobIDType
+* jobIDType `string`
 
-### invalidInputMessage
-* invalidInputMessage `string`
+### jobStatusType
+* jobStatusType `string` (values: IN_PROGRESS, COMPLETED, FAILED)
 
-### invalidPublicKeyMessage
-* invalidPublicKeyMessage `string`
-
-### invalidUserTypeMessage
-* invalidUserTypeMessage `string`
-
-### keyPairMismatchMessage
-* keyPairMismatchMessage `string`
-
-### limitExceededMessage
-* limitExceededMessage `string`
-
-### malformedCertificateMessage
-* malformedCertificateMessage `string`
-
-### malformedPolicyDocumentMessage
-* malformedPolicyDocumentMessage `string`
+### listPolicyGrantingServiceAccessResponseListType
+* listPolicyGrantingServiceAccessResponseListType `array`
+  * items [ListPoliciesGrantingServiceAccessEntry](#listpoliciesgrantingserviceaccessentry)
 
 ### markerType
 * markerType `string`
@@ -4069,11 +7593,11 @@ amazonaws_iam.UploadSigningCertificate({
 ### minimumPasswordLengthType
 * minimumPasswordLengthType `integer`
 
-### noSuchEntityMessage
-* noSuchEntityMessage `string`
+### organizationsEntityPathType
+* organizationsEntityPathType `string`
 
-### passwordPolicyViolationMessage
-* passwordPolicyViolationMessage `string`
+### organizationsPolicyIdType
+* organizationsPolicyIdType `string`
 
 ### passwordReusePreventionType
 * passwordReusePreventionType `integer`
@@ -4101,8 +7625,9 @@ amazonaws_iam.UploadSigningCertificate({
 * policyDocumentVersionListType `array`
   * items [PolicyVersion](#policyversion)
 
-### policyEvaluationErrorMessage
-* policyEvaluationErrorMessage `string`
+### policyGrantingServiceAccessListType
+* policyGrantingServiceAccessListType `array`
+  * items [PolicyGrantingServiceAccess](#policygrantingserviceaccess)
 
 ### policyListType
 * policyListType `array`
@@ -4115,14 +7640,17 @@ amazonaws_iam.UploadSigningCertificate({
 ### policyNameType
 * policyNameType `string`
 
-### policyNotAttachableMessage
-* policyNotAttachableMessage `string`
+### policyOwnerEntityType
+* policyOwnerEntityType `string` (values: USER, ROLE, GROUP)
 
 ### policyPathType
 * policyPathType `string`
 
 ### policyScopeType
 * policyScopeType `string` (values: All, AWS, Local)
+
+### policyType
+* policyType `string` (values: INLINE, MANAGED)
 
 ### policyVersionIdType
 * policyVersionIdType `string`
@@ -4138,6 +7666,9 @@ amazonaws_iam.UploadSigningCertificate({
 
 ### publicKeyMaterialType
 * publicKeyMaterialType `string`
+
+### responseMarkerType
+* responseMarkerType `string`
 
 ### roleDescriptionType
 * roleDescriptionType `string`
@@ -4166,14 +7697,18 @@ amazonaws_iam.UploadSigningCertificate({
 ### serverCertificateNameType
 * serverCertificateNameType `string`
 
-### serviceFailureExceptionMessage
-* serviceFailureExceptionMessage `string`
-
 ### serviceName
 * serviceName `string`
 
-### serviceNotSupportedMessage
-* serviceNotSupportedMessage `string`
+### serviceNameType
+* serviceNameType `string`
+
+### serviceNamespaceListType
+* serviceNamespaceListType `array`
+  * items [serviceNamespaceType](#servicenamespacetype)
+
+### serviceNamespaceType
+* serviceNamespaceType `string`
 
 ### servicePassword
 * servicePassword `string`
@@ -4184,6 +7719,9 @@ amazonaws_iam.UploadSigningCertificate({
 ### serviceUserName
 * serviceUserName `string`
 
+### sortKeyType
+* sortKeyType `string` (values: SERVICE_NAMESPACE_ASCENDING, SERVICE_NAMESPACE_DESCENDING, LAST_AUTHENTICATED_TIME_ASCENDING, LAST_AUTHENTICATED_TIME_DESCENDING)
+
 ### statusType
 * statusType `string` (values: Active, Inactive)
 
@@ -4191,29 +7729,34 @@ amazonaws_iam.UploadSigningCertificate({
 * stringType `string`
 
 ### summaryKeyType
-* summaryKeyType `string` (values: Users, UsersQuota, Groups, GroupsQuota, ServerCertificates, ServerCertificatesQuota, UserPolicySizeQuota, GroupPolicySizeQuota, GroupsPerUserQuota, SigningCertificatesPerUserQuota, AccessKeysPerUserQuota, MFADevices, MFADevicesInUse, AccountMFAEnabled, AccountAccessKeysPresent, AccountSigningCertificatesPresent, AttachedPoliciesPerGroupQuota, AttachedPoliciesPerRoleQuota, AttachedPoliciesPerUserQuota, Policies, PoliciesQuota, PolicySizeQuota, PolicyVersionsInUse, PolicyVersionsInUseQuota, VersionsPerPolicyQuota)
+* summaryKeyType `string` (values: Users, UsersQuota, Groups, GroupsQuota, ServerCertificates, ServerCertificatesQuota, UserPolicySizeQuota, GroupPolicySizeQuota, GroupsPerUserQuota, SigningCertificatesPerUserQuota, AccessKeysPerUserQuota, MFADevices, MFADevicesInUse, AccountMFAEnabled, AccountAccessKeysPresent, AccountSigningCertificatesPresent, AttachedPoliciesPerGroupQuota, AttachedPoliciesPerRoleQuota, AttachedPoliciesPerUserQuota, Policies, PoliciesQuota, PolicySizeQuota, PolicyVersionsInUse, PolicyVersionsInUseQuota, VersionsPerPolicyQuota, GlobalEndpointTokenVersion)
 
 ### summaryMapType
-* summaryMapType `array`
-  * items `object`
-    * key [summaryKeyType](#summarykeytype)
-    * value [summaryValueType](#summaryvaluetype)
+* summaryMapType `object`
 
 ### summaryValueType
 * summaryValueType `integer`
+
+### tagKeyListType
+* tagKeyListType `array`
+  * items [tagKeyType](#tagkeytype)
+
+### tagKeyType
+* tagKeyType `string`
+
+### tagListType
+* tagListType `array`
+  * items [Tag](#tag)
+
+### tagValueType
+* tagValueType `string`
 
 ### thumbprintListType
 * thumbprintListType `array`: Contains a list of thumbprints of identity provider server certificates.
   * items [thumbprintType](#thumbprinttype)
 
 ### thumbprintType
-* thumbprintType `string`: <p>Contains a thumbprint for an identity provider's server certificate.</p> <p>The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.</p>
-
-### unmodifiableEntityMessage
-* unmodifiableEntityMessage `string`
-
-### unrecognizedPublicKeyEncodingMessage
-* unrecognizedPublicKeyEncodingMessage `string`
+* thumbprintType `string`: <p>Contains a thumbprint for an identity provider's server certificate.</p> <p>The identity provider's server certificate thumbprint is the hex-encoded SHA-1 hash value of the self-signed X.509 certificate. This thumbprint is used by the domain where the OpenID Connect provider makes its keys available. The thumbprint is always a 40-character string.</p>
 
 ### userDetailListType
 * userDetailListType `array`

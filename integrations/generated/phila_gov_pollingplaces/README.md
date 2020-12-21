@@ -1,6 +1,6 @@
 # @datafire/phila_gov_pollingplaces
 
-Client library for Polling Places
+Client library for Polling Places API
 
 ## Installation and Usage
 ```bash
@@ -9,10 +9,7 @@ npm install --save @datafire/phila_gov_pollingplaces
 ```js
 let phila_gov_pollingplaces = require('@datafire/phila_gov_pollingplaces').create();
 
-phila_gov_pollingplaces..get({
-  "ward": 0,
-  "division": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

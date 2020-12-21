@@ -13,16 +13,16 @@ let amazonaws_iot1click_devices = require('@datafire/amazonaws_iot1click_devices
   region: ""
 });
 
-amazonaws_iot1click_devices.ClaimDevicesByClaimCode({
-  "claimCode": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Stub description
+Describes all of the AWS IoT 1-Click device-related API operations for the service.
+ Also provides sample requests, responses, and errors for the supported web services
+ protocols.
 
 ## Actions
 
@@ -53,6 +53,9 @@ amazonaws_iot1click_devices.ListDevices({}, context)
 
 #### Input
 * input `object`
+  * deviceType `string`
+  * maxResults `integer`
+  * nextToken `string`
 
 #### Output
 * output [ListDevicesResponse](#listdevicesresponse)
@@ -80,13 +83,19 @@ amazonaws_iot1click_devices.DescribeDevice({
 
 ```js
 amazonaws_iot1click_devices.ListDeviceEvents({
-  "deviceId": ""
+  "deviceId": "",
+  "fromTimeStamp": "",
+  "toTimeStamp": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * deviceId **required** `string`
+  * fromTimeStamp **required** `string`
+  * maxResults `integer`
+  * nextToken `string`
+  * toTimeStamp **required** `string`
 
 #### Output
 * output [ListDeviceEventsResponse](#listdeviceeventsresponse)
@@ -104,6 +113,7 @@ amazonaws_iot1click_devices.FinalizeDeviceClaim({
 #### Input
 * input `object`
   * deviceId **required** `string`
+  * tags `object`: <p>A collection of key/value pairs defining the resource tags. For example, {
 
 #### Output
 * output [FinalizeDeviceClaimResponse](#finalizedeviceclaimresponse)
@@ -155,8 +165,10 @@ amazonaws_iot1click_devices.InvokeDeviceMethod({
 #### Input
 * input `object`
   * deviceId **required** `string`
-  * DeviceMethod [DeviceMethod](#devicemethod)
-  * DeviceMethodParameters [__string](#__string)
+  * deviceMethod `object`: The device method to invoke.
+    * DeviceType
+    * MethodName
+  * deviceMethodParameters `string`: A JSON encoded string containing the device method request parameters.
 
 #### Output
 * output [InvokeDeviceMethodResponse](#invokedevicemethodresponse)
@@ -174,7 +186,7 @@ amazonaws_iot1click_devices.UpdateDeviceState({
 #### Input
 * input `object`
   * deviceId **required** `string`
-  * Enabled [__boolean](#__boolean)
+  * enabled `boolean`: If true, the device is enabled. If false, the device is
 
 #### Output
 * output [UpdateDeviceStateResponse](#updatedevicestateresponse)
@@ -196,6 +208,61 @@ amazonaws_iot1click_devices.UnclaimDevice({
 #### Output
 * output [UnclaimDeviceResponse](#unclaimdeviceresponse)
 
+### ListTagsForResource
+
+
+
+```js
+amazonaws_iot1click_devices.ListTagsForResource({
+  "resource-arn": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_iot1click_devices.TagResource({
+  "resource-arn": "",
+  "tags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tags **required** `object`: <p>A collection of key/value pairs defining the resource tags. For example, {
+
+#### Output
+*Output schema unknown*
+
+### UntagResource
+
+
+
+```js
+amazonaws_iot1click_devices.UntagResource({
+  "resource-arn": "",
+  "tagKeys": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * resource-arn **required** `string`
+  * tagKeys **required** `array`
+
+#### Output
+*Output schema unknown*
+
 
 
 ## Definitions
@@ -208,161 +275,161 @@ amazonaws_iot1click_devices.UnclaimDevice({
 
 ### ClaimDevicesByClaimCodeResponse
 * ClaimDevicesByClaimCodeResponse `object`
-  * ClaimCode [__stringMin12Max40](#__stringmin12max40)
-  * Total [__integer](#__integer)
+  * ClaimCode
+  * Total
 
 ### DescribeDeviceRequest
 * DescribeDeviceRequest `object`
 
 ### DescribeDeviceResponse
 * DescribeDeviceResponse `object`
-  * DeviceDescription [DeviceDescription](#devicedescription)
+  * DeviceDescription
+    * Arn
+    * Attributes
+    * DeviceId
+    * Enabled
+    * RemainingLife
+    * Tags
+    * Type
 
 ### Device
 * Device `object`
-  * Attributes [Attributes](#attributes)
-  * DeviceId [__string](#__string)
-  * Type [__string](#__string)
+  * Attributes
+  * DeviceId
+  * Type
 
 ### DeviceAttributes
-* DeviceAttributes `array`: 
-  * items `object`
-    * key [__string](#__string)
-    * value [__string](#__string)
-
-### DeviceClaimResponse
-* DeviceClaimResponse `object`
-  * State [__string](#__string)
+* DeviceAttributes `object`: 
 
 ### DeviceDescription
 * DeviceDescription `object`
-  * Attributes [DeviceAttributes](#deviceattributes)
-  * DeviceId [__string](#__string)
-  * Enabled [__boolean](#__boolean)
-  * RemainingLife [__doubleMin0Max100](#__doublemin0max100)
-  * Type [__string](#__string)
+  * Arn
+  * Attributes
+  * DeviceId
+  * Enabled
+  * RemainingLife
+  * Tags
+  * Type
 
 ### DeviceEvent
 * DeviceEvent `object`
-  * Device [Device](#device)
-  * StdEvent [__string](#__string)
-
-### DeviceEventsResponse
-* DeviceEventsResponse `object`
-  * Events [__listOfDeviceEvent](#__listofdeviceevent)
-  * NextToken [__string](#__string)
+  * Device
+    * Attributes
+    * DeviceId
+    * Type
+  * StdEvent
 
 ### DeviceMethod
 * DeviceMethod `object`
-  * DeviceType [__string](#__string)
-  * MethodName [__string](#__string)
-
-### Empty
-* Empty `object`: On success, an empty object is returned.
+  * DeviceType
+  * MethodName
 
 ### FinalizeDeviceClaimRequest
 * FinalizeDeviceClaimRequest `object`
+  * Tags
 
 ### FinalizeDeviceClaimResponse
 * FinalizeDeviceClaimResponse `object`
-  * State [__string](#__string)
+  * State
 
 ### ForbiddenException
-* ForbiddenException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### GetDeviceMethodsRequest
 * GetDeviceMethodsRequest `object`
 
 ### GetDeviceMethodsResponse
 * GetDeviceMethodsResponse `object`
-  * DeviceMethods [__listOfDeviceMethod](#__listofdevicemethod)
+  * DeviceMethods
+    * items [DeviceMethod](#devicemethod)
 
 ### InitiateDeviceClaimRequest
 * InitiateDeviceClaimRequest `object`
 
 ### InitiateDeviceClaimResponse
 * InitiateDeviceClaimResponse `object`
-  * State [__string](#__string)
+  * State
 
 ### InternalFailureException
-* InternalFailureException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### InvalidRequestException
-* InvalidRequestException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### InvokeDeviceMethodRequest
 * InvokeDeviceMethodRequest `object`
-  * DeviceMethod [DeviceMethod](#devicemethod)
-  * DeviceMethodParameters [__string](#__string)
+  * DeviceMethod
+    * DeviceType
+    * MethodName
+  * DeviceMethodParameters
 
 ### InvokeDeviceMethodResponse
 * InvokeDeviceMethodResponse `object`
-  * DeviceMethodResponse [__string](#__string)
+  * DeviceMethodResponse
 
 ### ListDeviceEventsRequest
 * ListDeviceEventsRequest `object`
 
 ### ListDeviceEventsResponse
 * ListDeviceEventsResponse `object`
-  * Events [__listOfDeviceEvent](#__listofdeviceevent)
-  * NextToken [__string](#__string)
+  * Events
+    * items [DeviceEvent](#deviceevent)
+  * NextToken
 
 ### ListDevicesRequest
 * ListDevicesRequest `object`
 
 ### ListDevicesResponse
 * ListDevicesResponse `object`
-  * Devices [__listOfDeviceDescription](#__listofdevicedescription)
-  * NextToken [__string](#__string)
+  * Devices
+    * items [DeviceDescription](#devicedescription)
+  * NextToken
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
 
 ### MaxResults
 * MaxResults `integer`
 
 ### PreconditionFailedException
-* PreconditionFailedException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### RangeNotSatisfiableException
-* RangeNotSatisfiableException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### ResourceConflictException
-* ResourceConflictException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
 
 ### ResourceNotFoundException
-* ResourceNotFoundException `object`
-  * Code [__string](#__string)
-  * Message [__string](#__string)
+
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * Tags **required**
 
 ### UnclaimDeviceRequest
 * UnclaimDeviceRequest `object`
 
 ### UnclaimDeviceResponse
 * UnclaimDeviceResponse `object`
-  * State [__string](#__string)
+  * State
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
 
 ### UpdateDeviceStateRequest
 * UpdateDeviceStateRequest `object`
-  * Enabled [__boolean](#__boolean)
+  * Enabled
 
 ### UpdateDeviceStateResponse
 * UpdateDeviceStateResponse `object`
 
 ### __boolean
 * __boolean `boolean`
-
-### __double
-* __double `number`
 
 ### __doubleMin0Max100
 * __doubleMin0Max100 `number`
@@ -382,8 +449,12 @@ amazonaws_iot1click_devices.UnclaimDevice({
 * __listOfDeviceMethod `array`
   * items [DeviceMethod](#devicemethod)
 
-### __long
-* __long `integer`
+### __listOf__string
+* __listOf__string `array`
+  * items [__string](#__string)
+
+### __mapOf__string
+* __mapOf__string `object`
 
 ### __string
 * __string `string`
@@ -393,8 +464,5 @@ amazonaws_iot1click_devices.UnclaimDevice({
 
 ### __timestampIso8601
 * __timestampIso8601 `string`
-
-### __timestampUnix
-* __timestampUnix `string`
 
 

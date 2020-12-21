@@ -15,7 +15,7 @@ let google_surveys = require('@datafire/google_surveys').create({
   redirect_uri: ""
 });
 
-google_surveys.surveys.insert({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

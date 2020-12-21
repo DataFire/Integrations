@@ -1,0 +1,1140 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Outposts is a fully-managed service that extends AWS infrastructure, APIs, and tools to customer premises. By providing local access to AWS-managed infrastructure, AWS Outposts enables customers to build and run applications on premises using the same programming interfaces as in AWS Regions, while using local compute and storage resources for lower latency and local data processing needs.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Outposts",
+    "version": "2019-12-03",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/outposts-2019-12-03.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "outposts",
+    "x-datafire": {
+      "name": "amazonaws_outposts",
+      "type": "openapi"
+    }
+  },
+  "host": "outposts.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/outposts": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The pagination token.",
+            "in": "query",
+            "maxLength": 1005,
+            "minLength": 1,
+            "name": "NextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum page size.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListOutpostsOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "List the Outposts for your AWS account.",
+        "operationId": "ListOutposts"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "AvailabilityZone": {
+                  "description": "<p>The Availability Zone.</p> <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
+                  "maxLength": 1000,
+                  "minLength": 1,
+                  "pattern": "[a-z\\d-]+",
+                  "type": "string"
+                },
+                "AvailabilityZoneId": {
+                  "description": "<p>The ID of the Availability Zone.</p> <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "[a-z]+[0-9]+-az[0-9]+",
+                  "type": "string"
+                },
+                "Description": {
+                  "description": "The Outpost description.",
+                  "maxLength": 1000,
+                  "minLength": 1,
+                  "pattern": "^[\\S ]+$",
+                  "type": "string"
+                },
+                "Name": {
+                  "description": "The name of the Outpost.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "^[\\S ]+$",
+                  "type": "string"
+                },
+                "SiteId": {
+                  "description": "The ID of the site.",
+                  "maxLength": 255,
+                  "minLength": 1,
+                  "pattern": "os-[a-f0-9]{17}",
+                  "type": "string"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The tags to apply to the Outpost.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Name",
+                "SiteId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateOutpostOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          }
+        },
+        "description": "Creates an Outpost.",
+        "operationId": "CreateOutpost"
+      }
+    },
+    "/outposts/{OutpostId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the Outpost.",
+            "in": "path",
+            "maxLength": 180,
+            "minLength": 1,
+            "name": "OutpostId",
+            "pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/)?op-[a-f0-9]{17}$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteOutpostOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes the Outpost.",
+        "operationId": "DeleteOutpost"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the Outpost.",
+            "in": "path",
+            "maxLength": 180,
+            "minLength": 1,
+            "name": "OutpostId",
+            "pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/)?op-[a-f0-9]{17}$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetOutpostOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Gets information about the specified Outpost.",
+        "operationId": "GetOutpost"
+      }
+    },
+    "/outposts/{OutpostId}/instanceTypes": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the Outpost.",
+            "in": "path",
+            "maxLength": 180,
+            "minLength": 1,
+            "name": "OutpostId",
+            "pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/)?op-[a-f0-9]{17}$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pagination token.",
+            "in": "query",
+            "maxLength": 1005,
+            "minLength": 1,
+            "name": "NextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum page size.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetOutpostInstanceTypesOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the instance types for the specified Outpost.",
+        "operationId": "GetOutpostInstanceTypes"
+      }
+    },
+    "/sites": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The pagination token.",
+            "in": "query",
+            "maxLength": 1005,
+            "minLength": 1,
+            "name": "NextToken",
+            "pattern": ".*\\S.*",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The maximum page size.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "MaxResults",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSitesOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Lists the sites for the specified AWS account.",
+        "operationId": "ListSites"
+      }
+    },
+    "/sites/{SiteId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the site.",
+            "in": "path",
+            "maxLength": 255,
+            "minLength": 1,
+            "name": "SiteId",
+            "pattern": "os-[a-f0-9]{17}",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSiteOutput"
+            }
+          },
+          "480": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        },
+        "description": "Deletes the site.",
+        "operationId": "DeleteSite"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AccountId": {
+      "description": "The ID of the AWS account.",
+      "maxLength": 12,
+      "minLength": 12,
+      "type": "string"
+    },
+    "AvailabilityZone": {
+      "description": "<p>The Availability Zone.</p> <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "[a-z\\d-]+",
+      "type": "string"
+    },
+    "AvailabilityZoneId": {
+      "description": "<p>The ID of the Availability Zone.</p> <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[a-z]+[0-9]+-az[0-9]+",
+      "type": "string"
+    },
+    "CreateOutpostInput": {
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/AvailabilityZone"
+        },
+        "AvailabilityZoneId": {
+          "$ref": "#/definitions/AvailabilityZoneId"
+        },
+        "Description": {
+          "$ref": "#/definitions/OutpostDescription"
+        },
+        "Name": {
+          "$ref": "#/definitions/OutpostName"
+        },
+        "SiteId": {
+          "$ref": "#/definitions/SiteId"
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The tags to apply to the Outpost."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "SiteId"
+      ],
+      "title": "CreateOutpostInput",
+      "type": "object"
+    },
+    "CreateOutpostOutput": {
+      "properties": {
+        "Outpost": {
+          "$ref": "#/definitions/Outpost"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteOutpostInput": {
+      "properties": {},
+      "title": "DeleteOutpostInput",
+      "type": "object"
+    },
+    "DeleteOutpostOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteSiteInput": {
+      "properties": {},
+      "title": "DeleteSiteInput",
+      "type": "object"
+    },
+    "DeleteSiteOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetOutpostInput": {
+      "properties": {},
+      "title": "GetOutpostInput",
+      "type": "object"
+    },
+    "GetOutpostInstanceTypesInput": {
+      "properties": {},
+      "title": "GetOutpostInstanceTypesInput",
+      "type": "object"
+    },
+    "GetOutpostInstanceTypesOutput": {
+      "properties": {
+        "InstanceTypes": {
+          "$ref": "#/definitions/InstanceTypeListDefinition"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token"
+        },
+        "OutpostArn": {
+          "$ref": "#/definitions/OutpostArn"
+        },
+        "OutpostId": {
+          "$ref": "#/definitions/OutpostId"
+        }
+      },
+      "type": "object"
+    },
+    "GetOutpostOutput": {
+      "properties": {
+        "Outpost": {
+          "$ref": "#/definitions/Outpost"
+        }
+      },
+      "type": "object"
+    },
+    "InstanceType": {
+      "description": "The instance type.",
+      "type": "string"
+    },
+    "InstanceTypeItem": {
+      "description": "Information about an instance type.",
+      "properties": {
+        "InstanceType": {
+          "$ref": "#/definitions/InstanceType"
+        }
+      },
+      "type": "object"
+    },
+    "InstanceTypeListDefinition": {
+      "description": "Information about the instance types.",
+      "items": {
+        "$ref": "#/definitions/InstanceTypeItem"
+      },
+      "type": "array"
+    },
+    "InternalServerException": {},
+    "LifeCycleStatus": {
+      "description": "The life cycle status.",
+      "type": "string"
+    },
+    "ListOutpostsInput": {
+      "properties": {},
+      "title": "ListOutpostsInput",
+      "type": "object"
+    },
+    "ListOutpostsOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token"
+        },
+        "Outposts": {
+          "$ref": "#/definitions/outpostListDefinition"
+        }
+      },
+      "type": "object"
+    },
+    "ListSitesInput": {
+      "properties": {},
+      "title": "ListSitesInput",
+      "type": "object"
+    },
+    "ListSitesOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token"
+        },
+        "Sites": {
+          "$ref": "#/definitions/siteListDefinition"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults1000": {
+      "description": "The maximum page size.",
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NotFoundException": {},
+    "Outpost": {
+      "description": "Information about an Outpost.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/AvailabilityZone"
+        },
+        "AvailabilityZoneId": {
+          "$ref": "#/definitions/AvailabilityZoneId"
+        },
+        "Description": {
+          "$ref": "#/definitions/OutpostDescription"
+        },
+        "LifeCycleStatus": {
+          "$ref": "#/definitions/LifeCycleStatus"
+        },
+        "Name": {
+          "$ref": "#/definitions/OutpostName"
+        },
+        "OutpostArn": {
+          "$ref": "#/definitions/OutpostArn"
+        },
+        "OutpostId": {
+          "$ref": "#/definitions/OutpostId"
+        },
+        "OwnerId": {
+          "$ref": "#/definitions/OwnerId"
+        },
+        "SiteId": {
+          "$ref": "#/definitions/SiteId"
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The Outpost tags."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OutpostArn": {
+      "description": "The Amazon Resource Name (ARN) of the Outpost.",
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$",
+      "type": "string"
+    },
+    "OutpostDescription": {
+      "description": "The Outpost description.",
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "^[\\S ]+$",
+      "type": "string"
+    },
+    "OutpostId": {
+      "description": "The ID of the Outpost.",
+      "maxLength": 180,
+      "minLength": 1,
+      "pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/)?op-[a-f0-9]{17}$",
+      "type": "string"
+    },
+    "OutpostName": {
+      "description": "The name of the Outpost.",
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[\\S ]+$",
+      "type": "string"
+    },
+    "OwnerId": {
+      "description": "The AWS account ID of the Outpost owner.",
+      "maxLength": 12,
+      "minLength": 12,
+      "pattern": "\\d{12}",
+      "type": "string"
+    },
+    "ServiceQuotaExceededException": {},
+    "Site": {
+      "description": "Information about a site.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "Description": {
+          "$ref": "#/definitions/SiteDescription"
+        },
+        "Name": {
+          "$ref": "#/definitions/SiteName"
+        },
+        "SiteId": {
+          "$ref": "#/definitions/SiteId"
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The site tags."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SiteDescription": {
+      "description": "The description of the site.",
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "^[\\S ]+$",
+      "type": "string"
+    },
+    "SiteId": {
+      "description": "The ID of the site.",
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "os-[a-f0-9]{17}",
+      "type": "string"
+    },
+    "SiteName": {
+      "description": "The name of the site.",
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "^[\\S ]+$",
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$",
+      "type": "string"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "^[\\S \\n]+$",
+      "type": "string"
+    },
+    "Token": {
+      "description": "The pagination token.",
+      "maxLength": 1005,
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "ValidationException": {},
+    "outpostListDefinition": {
+      "description": "Information about the Outposts.",
+      "items": {
+        "$ref": "#/definitions/Outpost"
+      },
+      "type": "array"
+    },
+    "siteListDefinition": {
+      "description": "Information about the sites.",
+      "items": {
+        "$ref": "#/definitions/Site"
+      },
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/outposts/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

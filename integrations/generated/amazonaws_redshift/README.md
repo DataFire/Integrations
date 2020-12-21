@@ -13,18 +13,54 @@ let amazonaws_redshift = require('@datafire/amazonaws_redshift').create({
   region: ""
 });
 
-amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({
-  "ClusterSecurityGroupName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>Amazon Redshift</fullname> <p> <b>Overview</b> </p> <p>This is an interface reference for Amazon Redshift. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means that some interfaces may require techniques, such as polling or asynchronous callback handlers, to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the Amazon Redshift Management Interfaces</a>.</p> <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.</p> <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <a href="http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p> <p>If you are a database developer, the <a href="http://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up your data warehouse. </p>
+<fullname>Amazon Redshift</fullname> <p> <b>Overview</b> </p> <p>This is an interface reference for Amazon Redshift. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means that some interfaces may require techniques, such as polling or asynchronous callback handlers, to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the Amazon Redshift Management Interfaces</a>.</p> <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.</p> <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <a href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p> <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up your data warehouse. </p>
 
 ## Actions
+
+### AcceptReservedNodeExchange
+
+
+
+```js
+amazonaws_redshift.AcceptReservedNodeExchange({
+  "ReservedNodeId": "",
+  "TargetReservedNodeOfferingId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReservedNodeId **required** `string`
+  * TargetReservedNodeOfferingId **required** `string`
+
+#### Output
+* output [AcceptReservedNodeExchangeOutputMessage](#acceptreservednodeexchangeoutputmessage)
+
+### AcceptReservedNodeExchange
+
+
+
+```js
+amazonaws_redshift.AcceptReservedNodeExchange({
+  "ReservedNodeId": null,
+  "TargetReservedNodeOfferingId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReservedNodeId **required**
+  * TargetReservedNodeOfferingId **required**
+
+#### Output
+* output [AcceptReservedNodeExchangeOutputMessage](#acceptreservednodeexchangeoutputmessage)
 
 ### AuthorizeClusterSecurityGroupIngress
 
@@ -38,10 +74,30 @@ amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({
 
 #### Input
 * input `object`
-  * CIDRIP [String](#string)
-  * ClusterSecurityGroupName **required** [String](#string)
-  * EC2SecurityGroupName [String](#string)
-  * EC2SecurityGroupOwnerId [String](#string)
+  * ClusterSecurityGroupName **required** `string`
+  * CIDRIP `string`
+  * EC2SecurityGroupName `string`
+  * EC2SecurityGroupOwnerId `string`
+
+#### Output
+* output [AuthorizeClusterSecurityGroupIngressResult](#authorizeclustersecuritygroupingressresult)
+
+### AuthorizeClusterSecurityGroupIngress
+
+
+
+```js
+amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({
+  "ClusterSecurityGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CIDRIP
+  * ClusterSecurityGroupName **required**
+  * EC2SecurityGroupName
+  * EC2SecurityGroupOwnerId
 
 #### Output
 * output [AuthorizeClusterSecurityGroupIngressResult](#authorizeclustersecuritygroupingressresult)
@@ -59,12 +115,142 @@ amazonaws_redshift.AuthorizeSnapshotAccess({
 
 #### Input
 * input `object`
-  * AccountWithRestoreAccess **required** [String](#string)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * SnapshotIdentifier **required** `string`
+  * SnapshotClusterIdentifier `string`
+  * AccountWithRestoreAccess **required** `string`
 
 #### Output
 * output [AuthorizeSnapshotAccessResult](#authorizesnapshotaccessresult)
+
+### AuthorizeSnapshotAccess
+
+
+
+```js
+amazonaws_redshift.AuthorizeSnapshotAccess({
+  "SnapshotIdentifier": null,
+  "AccountWithRestoreAccess": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountWithRestoreAccess **required**
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
+
+#### Output
+* output [AuthorizeSnapshotAccessResult](#authorizesnapshotaccessresult)
+
+### BatchDeleteClusterSnapshots
+
+
+
+```js
+amazonaws_redshift.BatchDeleteClusterSnapshots({
+  "Identifiers": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * Identifiers **required** `array`
+
+#### Output
+* output [BatchDeleteClusterSnapshotsResult](#batchdeleteclustersnapshotsresult)
+
+### BatchDeleteClusterSnapshots
+
+
+
+```js
+amazonaws_redshift.BatchDeleteClusterSnapshots({
+  "Identifiers": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Identifiers **required**
+    * items
+      * SnapshotClusterIdentifier
+      * SnapshotIdentifier **required**
+
+#### Output
+* output [BatchDeleteClusterSnapshotsResult](#batchdeleteclustersnapshotsresult)
+
+### BatchModifyClusterSnapshots
+
+
+
+```js
+amazonaws_redshift.BatchModifyClusterSnapshots({
+  "SnapshotIdentifierList": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * SnapshotIdentifierList **required** `array`
+  * ManualSnapshotRetentionPeriod `integer`
+  * Force `boolean`
+
+#### Output
+* output [BatchModifyClusterSnapshotsOutputMessage](#batchmodifyclustersnapshotsoutputmessage)
+
+### BatchModifyClusterSnapshots
+
+
+
+```js
+amazonaws_redshift.BatchModifyClusterSnapshots({
+  "SnapshotIdentifierList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Force
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifierList **required**
+    * items
+
+#### Output
+* output [BatchModifyClusterSnapshotsOutputMessage](#batchmodifyclustersnapshotsoutputmessage)
+
+### CancelResize
+
+
+
+```js
+amazonaws_redshift.CancelResize({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [ResizeProgressMessage](#resizeprogressmessage)
+
+### CancelResize
+
+
+
+```js
+amazonaws_redshift.CancelResize({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+
+#### Output
+* output [ResizeProgressMessage](#resizeprogressmessage)
 
 ### CopyClusterSnapshot
 
@@ -79,9 +265,31 @@ amazonaws_redshift.CopyClusterSnapshot({
 
 #### Input
 * input `object`
-  * SourceSnapshotClusterIdentifier [String](#string)
-  * SourceSnapshotIdentifier **required** [String](#string)
-  * TargetSnapshotIdentifier **required** [String](#string)
+  * SourceSnapshotIdentifier **required** `string`
+  * SourceSnapshotClusterIdentifier `string`
+  * TargetSnapshotIdentifier **required** `string`
+  * ManualSnapshotRetentionPeriod `integer`
+
+#### Output
+* output [CopyClusterSnapshotResult](#copyclustersnapshotresult)
+
+### CopyClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.CopyClusterSnapshot({
+  "SourceSnapshotIdentifier": null,
+  "TargetSnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ManualSnapshotRetentionPeriod
+  * SourceSnapshotClusterIdentifier
+  * SourceSnapshotIdentifier **required**
+  * TargetSnapshotIdentifier **required**
 
 #### Output
 * output [CopyClusterSnapshotResult](#copyclustersnapshotresult)
@@ -101,33 +309,93 @@ amazonaws_redshift.CreateCluster({
 
 #### Input
 * input `object`
-  * AdditionalInfo [String](#string)
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * AvailabilityZone [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterSubnetGroupName [String](#string)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * DBName [String](#string)
-  * ElasticIp [String](#string)
-  * Encrypted [BooleanOptional](#booleanoptional)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * IamRoles [IamRoleArnList](#iamrolearnlist)
-  * KmsKeyId [String](#string)
-  * MasterUserPassword **required** [String](#string)
-  * MasterUsername **required** [String](#string)
-  * NodeType **required** [String](#string)
-  * NumberOfNodes [IntegerOptional](#integeroptional)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * DBName `string`
+  * ClusterIdentifier **required** `string`
+  * ClusterType `string`
+  * NodeType **required** `string`
+  * MasterUsername **required** `string`
+  * MasterUserPassword **required** `string`
+  * ClusterSecurityGroups `array`
+  * VpcSecurityGroupIds `array`
+  * ClusterSubnetGroupName `string`
+  * AvailabilityZone `string`
+  * PreferredMaintenanceWindow `string`
+  * ClusterParameterGroupName `string`
+  * AutomatedSnapshotRetentionPeriod `integer`
+  * ManualSnapshotRetentionPeriod `integer`
+  * Port `integer`
+  * ClusterVersion `string`
+  * AllowVersionUpgrade `boolean`
+  * NumberOfNodes `integer`
+  * PubliclyAccessible `boolean`
+  * Encrypted `boolean`
+  * HsmClientCertificateIdentifier `string`
+  * HsmConfigurationIdentifier `string`
+  * ElasticIp `string`
+  * Tags `array`
+  * KmsKeyId `string`
+  * EnhancedVpcRouting `boolean`
+  * AdditionalInfo `string`
+  * IamRoles `array`
+  * MaintenanceTrackName `string`
+  * SnapshotScheduleIdentifier `string`
+  * AvailabilityZoneRelocation `boolean`
+
+#### Output
+* output [CreateClusterResult](#createclusterresult)
+
+### CreateCluster
+
+
+
+```js
+amazonaws_redshift.CreateCluster({
+  "ClusterIdentifier": null,
+  "NodeType": null,
+  "MasterUsername": null,
+  "MasterUserPassword": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AdditionalInfo
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterSubnetGroupName
+  * ClusterType
+  * ClusterVersion
+  * DBName
+  * ElasticIp
+  * Encrypted
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * IamRoles
+    * items
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * MasterUserPassword **required**
+  * MasterUsername **required**
+  * NodeType **required**
+  * NumberOfNodes
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * SnapshotScheduleIdentifier
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
 
 #### Output
 * output [CreateClusterResult](#createclusterresult)
@@ -146,10 +414,35 @@ amazonaws_redshift.CreateClusterParameterGroup({
 
 #### Input
 * input `object`
-  * Description **required** [String](#string)
-  * ParameterGroupFamily **required** [String](#string)
-  * ParameterGroupName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * ParameterGroupName **required** `string`
+  * ParameterGroupFamily **required** `string`
+  * Description **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateClusterParameterGroupResult](#createclusterparametergroupresult)
+
+### CreateClusterParameterGroup
+
+
+
+```js
+amazonaws_redshift.CreateClusterParameterGroup({
+  "ParameterGroupName": null,
+  "ParameterGroupFamily": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description **required**
+  * ParameterGroupFamily **required**
+  * ParameterGroupName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateClusterParameterGroupResult](#createclusterparametergroupresult)
@@ -167,9 +460,32 @@ amazonaws_redshift.CreateClusterSecurityGroup({
 
 #### Input
 * input `object`
-  * ClusterSecurityGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * ClusterSecurityGroupName **required** `string`
+  * Description **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateClusterSecurityGroupResult](#createclustersecuritygroupresult)
+
+### CreateClusterSecurityGroup
+
+
+
+```js
+amazonaws_redshift.CreateClusterSecurityGroup({
+  "ClusterSecurityGroupName": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterSecurityGroupName **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateClusterSecurityGroupResult](#createclustersecuritygroupresult)
@@ -187,9 +503,34 @@ amazonaws_redshift.CreateClusterSnapshot({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * SnapshotIdentifier **required** `string`
+  * ClusterIdentifier **required** `string`
+  * ManualSnapshotRetentionPeriod `integer`
+  * Tags `array`
+
+#### Output
+* output [CreateClusterSnapshotResult](#createclustersnapshotresult)
+
+### CreateClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.CreateClusterSnapshot({
+  "SnapshotIdentifier": null,
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateClusterSnapshotResult](#createclustersnapshotresult)
@@ -208,10 +549,36 @@ amazonaws_redshift.CreateClusterSubnetGroup({
 
 #### Input
 * input `object`
-  * ClusterSubnetGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+  * ClusterSubnetGroupName **required** `string`
+  * Description **required** `string`
+  * SubnetIds **required** `array`
+  * Tags `array`
+
+#### Output
+* output [CreateClusterSubnetGroupResult](#createclustersubnetgroupresult)
+
+### CreateClusterSubnetGroup
+
+
+
+```js
+amazonaws_redshift.CreateClusterSubnetGroup({
+  "ClusterSubnetGroupName": null,
+  "Description": null,
+  "SubnetIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterSubnetGroupName **required**
+  * Description **required**
+  * SubnetIds **required**
+    * items
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateClusterSubnetGroupResult](#createclustersubnetgroupresult)
@@ -229,14 +596,44 @@ amazonaws_redshift.CreateEventSubscription({
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Severity [String](#string)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * SubscriptionName **required** `string`
+  * SnsTopicArn **required** `string`
+  * SourceType `string`
+  * SourceIds `array`
+  * EventCategories `array`
+  * Severity `string`
+  * Enabled `boolean`
+  * Tags `array`
+
+#### Output
+* output [CreateEventSubscriptionResult](#createeventsubscriptionresult)
+
+### CreateEventSubscription
+
+
+
+```js
+amazonaws_redshift.CreateEventSubscription({
+  "SubscriptionName": null,
+  "SnsTopicArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enabled
+  * EventCategories
+    * items
+  * Severity
+  * SnsTopicArn **required**
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateEventSubscriptionResult](#createeventsubscriptionresult)
@@ -253,8 +650,29 @@ amazonaws_redshift.CreateHsmClientCertificate({
 
 #### Input
 * input `object`
-  * HsmClientCertificateIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * HsmClientCertificateIdentifier **required** `string`
+  * Tags `array`
+
+#### Output
+* output [CreateHsmClientCertificateResult](#createhsmclientcertificateresult)
+
+### CreateHsmClientCertificate
+
+
+
+```js
+amazonaws_redshift.CreateHsmClientCertificate({
+  "HsmClientCertificateIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HsmClientCertificateIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 #### Output
 * output [CreateHsmClientCertificateResult](#createhsmclientcertificateresult)
@@ -276,16 +694,111 @@ amazonaws_redshift.CreateHsmConfiguration({
 
 #### Input
 * input `object`
-  * Description **required** [String](#string)
-  * HsmConfigurationIdentifier **required** [String](#string)
-  * HsmIpAddress **required** [String](#string)
-  * HsmPartitionName **required** [String](#string)
-  * HsmPartitionPassword **required** [String](#string)
-  * HsmServerPublicCertificate **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * HsmConfigurationIdentifier **required** `string`
+  * Description **required** `string`
+  * HsmIpAddress **required** `string`
+  * HsmPartitionName **required** `string`
+  * HsmPartitionPassword **required** `string`
+  * HsmServerPublicCertificate **required** `string`
+  * Tags `array`
 
 #### Output
 * output [CreateHsmConfigurationResult](#createhsmconfigurationresult)
+
+### CreateHsmConfiguration
+
+
+
+```js
+amazonaws_redshift.CreateHsmConfiguration({
+  "HsmConfigurationIdentifier": null,
+  "Description": null,
+  "HsmIpAddress": null,
+  "HsmPartitionName": null,
+  "HsmPartitionPassword": null,
+  "HsmServerPublicCertificate": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description **required**
+  * HsmConfigurationIdentifier **required**
+  * HsmIpAddress **required**
+  * HsmPartitionName **required**
+  * HsmPartitionPassword **required**
+  * HsmServerPublicCertificate **required**
+  * Tags
+    * items
+      * Key
+      * Value
+
+#### Output
+* output [CreateHsmConfigurationResult](#createhsmconfigurationresult)
+
+### CreateScheduledAction
+
+
+
+```js
+amazonaws_redshift.CreateScheduledAction({
+  "ScheduledActionName": "",
+  "TargetAction": {},
+  "Schedule": "",
+  "IamRole": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduledActionName **required** `string`
+  * TargetAction **required** `object`
+  * Schedule **required** `string`
+  * IamRole **required** `string`
+  * ScheduledActionDescription `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Enable `boolean`
+
+#### Output
+* output [ScheduledAction](#scheduledaction)
+
+### CreateScheduledAction
+
+
+
+```js
+amazonaws_redshift.CreateScheduledAction({
+  "ScheduledActionName": null,
+  "TargetAction": null,
+  "Schedule": null,
+  "IamRole": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enable
+  * EndTime
+  * IamRole **required**
+  * Schedule **required**
+  * ScheduledActionDescription
+  * ScheduledActionName **required**
+  * StartTime
+  * TargetAction **required**
+    * PauseCluster
+      * ClusterIdentifier **required**
+    * ResizeCluster
+      * Classic
+      * ClusterIdentifier **required**
+      * ClusterType
+      * NodeType
+      * NumberOfNodes
+    * ResumeCluster
+      * ClusterIdentifier **required**
+
+#### Output
+* output [ScheduledAction](#scheduledaction)
 
 ### CreateSnapshotCopyGrant
 
@@ -299,12 +812,78 @@ amazonaws_redshift.CreateSnapshotCopyGrant({
 
 #### Input
 * input `object`
-  * KmsKeyId [String](#string)
-  * SnapshotCopyGrantName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * SnapshotCopyGrantName **required** `string`
+  * KmsKeyId `string`
+  * Tags `array`
 
 #### Output
 * output [CreateSnapshotCopyGrantResult](#createsnapshotcopygrantresult)
+
+### CreateSnapshotCopyGrant
+
+
+
+```js
+amazonaws_redshift.CreateSnapshotCopyGrant({
+  "SnapshotCopyGrantName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * KmsKeyId
+  * SnapshotCopyGrantName **required**
+  * Tags
+    * items
+      * Key
+      * Value
+
+#### Output
+* output [CreateSnapshotCopyGrantResult](#createsnapshotcopygrantresult)
+
+### CreateSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.CreateSnapshotSchedule({}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleDefinitions `array`
+  * ScheduleIdentifier `string`
+  * ScheduleDescription `string`
+  * Tags `array`
+  * DryRun `boolean`
+  * NextInvocations `integer`
+
+#### Output
+* output [SnapshotSchedule](#snapshotschedule)
+
+### CreateSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.CreateSnapshotSchedule({}, context)
+```
+
+#### Input
+* input `object`
+  * DryRun
+  * NextInvocations
+  * ScheduleDefinitions
+    * items
+  * ScheduleDescription
+  * ScheduleIdentifier
+  * Tags
+    * items
+      * Key
+      * Value
+
+#### Output
+* output [SnapshotSchedule](#snapshotschedule)
 
 ### CreateTags
 
@@ -319,11 +898,88 @@ amazonaws_redshift.CreateTags({
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceName **required** `string`
+  * Tags **required** `array`
 
 #### Output
 *Output schema unknown*
+
+### CreateTags
+
+
+
+```js
+amazonaws_redshift.CreateTags({
+  "ResourceName": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceName **required**
+  * Tags **required**
+    * items
+      * Key
+      * Value
+
+#### Output
+*Output schema unknown*
+
+### CreateUsageLimit
+
+
+
+```js
+amazonaws_redshift.CreateUsageLimit({
+  "ClusterIdentifier": "",
+  "FeatureType": "",
+  "LimitType": "",
+  "Amount": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+  * FeatureType **required** `string`
+  * LimitType **required** `string`
+  * Amount **required** `integer`
+  * Period `string`
+  * BreachAction `string`
+  * Tags `array`
+
+#### Output
+* output [UsageLimit](#usagelimit)
+
+### CreateUsageLimit
+
+
+
+```js
+amazonaws_redshift.CreateUsageLimit({
+  "ClusterIdentifier": null,
+  "FeatureType": null,
+  "LimitType": null,
+  "Amount": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Amount **required**
+  * BreachAction
+  * ClusterIdentifier **required**
+  * FeatureType **required**
+  * LimitType **required**
+  * Period
+  * Tags
+    * items
+      * Key
+      * Value
+
+#### Output
+* output [UsageLimit](#usagelimit)
 
 ### DeleteCluster
 
@@ -337,9 +993,30 @@ amazonaws_redshift.DeleteCluster({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
-  * FinalClusterSnapshotIdentifier [String](#string)
-  * SkipFinalClusterSnapshot [Boolean](#boolean)
+  * ClusterIdentifier **required** `string`
+  * SkipFinalClusterSnapshot `boolean`
+  * FinalClusterSnapshotIdentifier `string`
+  * FinalClusterSnapshotRetentionPeriod `integer`
+
+#### Output
+* output [DeleteClusterResult](#deleteclusterresult)
+
+### DeleteCluster
+
+
+
+```js
+amazonaws_redshift.DeleteCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * FinalClusterSnapshotIdentifier
+  * FinalClusterSnapshotRetentionPeriod
+  * SkipFinalClusterSnapshot
 
 #### Output
 * output [DeleteClusterResult](#deleteclusterresult)
@@ -356,7 +1033,24 @@ amazonaws_redshift.DeleteClusterParameterGroup({
 
 #### Input
 * input `object`
-  * ParameterGroupName **required** [String](#string)
+  * ParameterGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteClusterParameterGroup
+
+
+
+```js
+amazonaws_redshift.DeleteClusterParameterGroup({
+  "ParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ParameterGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -373,7 +1067,24 @@ amazonaws_redshift.DeleteClusterSecurityGroup({
 
 #### Input
 * input `object`
-  * ClusterSecurityGroupName **required** [String](#string)
+  * ClusterSecurityGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteClusterSecurityGroup
+
+
+
+```js
+amazonaws_redshift.DeleteClusterSecurityGroup({
+  "ClusterSecurityGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterSecurityGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -390,8 +1101,26 @@ amazonaws_redshift.DeleteClusterSnapshot({
 
 #### Input
 * input `object`
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * SnapshotIdentifier **required** `string`
+  * SnapshotClusterIdentifier `string`
+
+#### Output
+* output [DeleteClusterSnapshotResult](#deleteclustersnapshotresult)
+
+### DeleteClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.DeleteClusterSnapshot({
+  "SnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
 
 #### Output
 * output [DeleteClusterSnapshotResult](#deleteclustersnapshotresult)
@@ -408,7 +1137,24 @@ amazonaws_redshift.DeleteClusterSubnetGroup({
 
 #### Input
 * input `object`
-  * ClusterSubnetGroupName **required** [String](#string)
+  * ClusterSubnetGroupName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteClusterSubnetGroup
+
+
+
+```js
+amazonaws_redshift.DeleteClusterSubnetGroup({
+  "ClusterSubnetGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterSubnetGroupName **required**
 
 #### Output
 *Output schema unknown*
@@ -425,7 +1171,24 @@ amazonaws_redshift.DeleteEventSubscription({
 
 #### Input
 * input `object`
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteEventSubscription
+
+
+
+```js
+amazonaws_redshift.DeleteEventSubscription({
+  "SubscriptionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SubscriptionName **required**
 
 #### Output
 *Output schema unknown*
@@ -442,7 +1205,24 @@ amazonaws_redshift.DeleteHsmClientCertificate({
 
 #### Input
 * input `object`
-  * HsmClientCertificateIdentifier **required** [String](#string)
+  * HsmClientCertificateIdentifier **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteHsmClientCertificate
+
+
+
+```js
+amazonaws_redshift.DeleteHsmClientCertificate({
+  "HsmClientCertificateIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HsmClientCertificateIdentifier **required**
 
 #### Output
 *Output schema unknown*
@@ -459,7 +1239,58 @@ amazonaws_redshift.DeleteHsmConfiguration({
 
 #### Input
 * input `object`
-  * HsmConfigurationIdentifier **required** [String](#string)
+  * HsmConfigurationIdentifier **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteHsmConfiguration
+
+
+
+```js
+amazonaws_redshift.DeleteHsmConfiguration({
+  "HsmConfigurationIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * HsmConfigurationIdentifier **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteScheduledAction
+
+
+
+```js
+amazonaws_redshift.DeleteScheduledAction({
+  "ScheduledActionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduledActionName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteScheduledAction
+
+
+
+```js
+amazonaws_redshift.DeleteScheduledAction({
+  "ScheduledActionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduledActionName **required**
 
 #### Output
 *Output schema unknown*
@@ -476,7 +1307,58 @@ amazonaws_redshift.DeleteSnapshotCopyGrant({
 
 #### Input
 * input `object`
-  * SnapshotCopyGrantName **required** [String](#string)
+  * SnapshotCopyGrantName **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteSnapshotCopyGrant
+
+
+
+```js
+amazonaws_redshift.DeleteSnapshotCopyGrant({
+  "SnapshotCopyGrantName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SnapshotCopyGrantName **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.DeleteSnapshotSchedule({
+  "ScheduleIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleIdentifier **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.DeleteSnapshotSchedule({
+  "ScheduleIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleIdentifier **required**
 
 #### Output
 *Output schema unknown*
@@ -494,11 +1376,151 @@ amazonaws_redshift.DeleteTags({
 
 #### Input
 * input `object`
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceName **required** `string`
+  * TagKeys **required** `array`
 
 #### Output
 *Output schema unknown*
+
+### DeleteTags
+
+
+
+```js
+amazonaws_redshift.DeleteTags({
+  "ResourceName": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceName **required**
+  * TagKeys **required**
+    * items
+
+#### Output
+*Output schema unknown*
+
+### DeleteUsageLimit
+
+
+
+```js
+amazonaws_redshift.DeleteUsageLimit({
+  "UsageLimitId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UsageLimitId **required** `string`
+
+#### Output
+*Output schema unknown*
+
+### DeleteUsageLimit
+
+
+
+```js
+amazonaws_redshift.DeleteUsageLimit({
+  "UsageLimitId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * UsageLimitId **required**
+
+#### Output
+*Output schema unknown*
+
+### DescribeAccountAttributes
+
+
+
+```js
+amazonaws_redshift.DescribeAccountAttributes({}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames `array`
+
+#### Output
+* output [AccountAttributeList](#accountattributelist)
+
+### DescribeAccountAttributes
+
+
+
+```js
+amazonaws_redshift.DescribeAccountAttributes({}, context)
+```
+
+#### Input
+* input `object`
+  * AttributeNames
+    * items
+
+#### Output
+* output [AccountAttributeList](#accountattributelist)
+
+### DescribeClusterDbRevisions
+
+
+
+```js
+amazonaws_redshift.DescribeClusterDbRevisions({}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [ClusterDbRevisionsMessage](#clusterdbrevisionsmessage)
+
+### DescribeClusterDbRevisions
+
+
+
+```js
+amazonaws_redshift.DescribeClusterDbRevisions({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+
+#### Output
+* output [ClusterDbRevisionsMessage](#clusterdbrevisionsmessage)
+
+### DescribeClusterParameterGroups
+
+
+
+```js
+amazonaws_redshift.DescribeClusterParameterGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * ParameterGroupName `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [ClusterParameterGroupsMessage](#clusterparametergroupsmessage)
 
 ### DescribeClusterParameterGroups
 
@@ -512,11 +1534,13 @@ amazonaws_redshift.DescribeClusterParameterGroups({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * ParameterGroupName
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [ClusterParameterGroupsMessage](#clusterparametergroupsmessage)
@@ -533,12 +1557,32 @@ amazonaws_redshift.DescribeClusterParameters({
 
 #### Input
 * input `object`
+  * ParameterGroupName **required** `string`
+  * Source `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [ClusterParameterGroupDetails](#clusterparametergroupdetails)
+
+### DescribeClusterParameters
+
+
+
+```js
+amazonaws_redshift.DescribeClusterParameters({
+  "ParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupName **required** [String](#string)
-  * Source [String](#string)
+  * Marker
+  * MaxRecords
+  * ParameterGroupName **required**
+  * Source
 
 #### Output
 * output [ClusterParameterGroupDetails](#clusterparametergroupdetails)
@@ -553,13 +1597,34 @@ amazonaws_redshift.DescribeClusterSecurityGroups({}, context)
 
 #### Input
 * input `object`
+  * ClusterSecurityGroupName `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [ClusterSecurityGroupMessage](#clustersecuritygroupmessage)
+
+### DescribeClusterSecurityGroups
+
+
+
+```js
+amazonaws_redshift.DescribeClusterSecurityGroups({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * ClusterSecurityGroupName [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterSecurityGroupName
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [ClusterSecurityGroupMessage](#clustersecuritygroupmessage)
@@ -574,19 +1639,51 @@ amazonaws_redshift.DescribeClusterSnapshots({}, context)
 
 #### Input
 * input `object`
+  * ClusterIdentifier `string`
+  * SnapshotIdentifier `string`
+  * SnapshotType `string`
+  * StartTime `string`
+  * EndTime `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * OwnerAccount `string`
+  * TagKeys `array`
+  * TagValues `array`
+  * ClusterExists `boolean`
+  * SortingEntities `array`
+
+#### Output
+* output [SnapshotMessage](#snapshotmessage)
+
+### DescribeClusterSnapshots
+
+
+
+```js
+amazonaws_redshift.DescribeClusterSnapshots({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * ClusterExists [BooleanOptional](#booleanoptional)
-  * ClusterIdentifier [String](#string)
-  * EndTime [TStamp](#tstamp)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * OwnerAccount [String](#string)
-  * SnapshotIdentifier [String](#string)
-  * SnapshotType [String](#string)
-  * StartTime [TStamp](#tstamp)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterExists
+  * ClusterIdentifier
+  * EndTime
+  * Marker
+  * MaxRecords
+  * OwnerAccount
+  * SnapshotIdentifier
+  * SnapshotType
+  * SortingEntities
+    * items
+      * Attribute **required**
+      * SortOrder
+  * StartTime
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [SnapshotMessage](#snapshotmessage)
@@ -601,16 +1698,91 @@ amazonaws_redshift.DescribeClusterSubnetGroups({}, context)
 
 #### Input
 * input `object`
-  * MaxRecords `string`
+  * ClusterSubnetGroupName `string`
+  * MaxRecords `integer`
   * Marker `string`
-  * ClusterSubnetGroupName [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * TagKeys `array`
+  * TagValues `array`
 
 #### Output
 * output [ClusterSubnetGroupMessage](#clustersubnetgroupmessage)
+
+### DescribeClusterSubnetGroups
+
+
+
+```js
+amazonaws_redshift.DescribeClusterSubnetGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ClusterSubnetGroupName
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+#### Output
+* output [ClusterSubnetGroupMessage](#clustersubnetgroupmessage)
+
+### DescribeClusterTracks
+
+
+
+```js
+amazonaws_redshift.DescribeClusterTracks({}, context)
+```
+
+#### Input
+* input `object`
+  * MaintenanceTrackName `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [TrackListMessage](#tracklistmessage)
+
+### DescribeClusterTracks
+
+
+
+```js
+amazonaws_redshift.DescribeClusterTracks({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * MaintenanceTrackName
+  * Marker
+  * MaxRecords
+
+#### Output
+* output [TrackListMessage](#tracklistmessage)
+
+### DescribeClusterVersions
+
+
+
+```js
+amazonaws_redshift.DescribeClusterVersions({}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterVersion `string`
+  * ClusterParameterGroupFamily `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [ClusterVersionsMessage](#clusterversionsmessage)
 
 ### DescribeClusterVersions
 
@@ -624,10 +1796,10 @@ amazonaws_redshift.DescribeClusterVersions({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * ClusterParameterGroupFamily [String](#string)
-  * ClusterVersion [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * ClusterParameterGroupFamily
+  * ClusterVersion
+  * Marker
+  * MaxRecords
 
 #### Output
 * output [ClusterVersionsMessage](#clusterversionsmessage)
@@ -642,13 +1814,34 @@ amazonaws_redshift.DescribeClusters({}, context)
 
 #### Input
 * input `object`
+  * ClusterIdentifier `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [ClustersMessage](#clustersmessage)
+
+### DescribeClusters
+
+
+
+```js
+amazonaws_redshift.DescribeClusters({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * ClusterIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [ClustersMessage](#clustersmessage)
@@ -665,11 +1858,30 @@ amazonaws_redshift.DescribeDefaultClusterParameters({
 
 #### Input
 * input `object`
+  * ParameterGroupFamily **required** `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [DescribeDefaultClusterParametersResult](#describedefaultclusterparametersresult)
+
+### DescribeDefaultClusterParameters
+
+
+
+```js
+amazonaws_redshift.DescribeDefaultClusterParameters({
+  "ParameterGroupFamily": null
+}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupFamily **required** [String](#string)
+  * Marker
+  * MaxRecords
+  * ParameterGroupFamily **required**
 
 #### Output
 * output [DescribeDefaultClusterParametersResult](#describedefaultclusterparametersresult)
@@ -684,7 +1896,22 @@ amazonaws_redshift.DescribeEventCategories({}, context)
 
 #### Input
 * input `object`
-  * SourceType [String](#string)
+  * SourceType `string`
+
+#### Output
+* output [EventCategoriesMessage](#eventcategoriesmessage)
+
+### DescribeEventCategories
+
+
+
+```js
+amazonaws_redshift.DescribeEventCategories({}, context)
+```
+
+#### Input
+* input `object`
+  * SourceType
 
 #### Output
 * output [EventCategoriesMessage](#eventcategoriesmessage)
@@ -699,13 +1926,34 @@ amazonaws_redshift.DescribeEventSubscriptions({}, context)
 
 #### Input
 * input `object`
+  * SubscriptionName `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [EventSubscriptionsMessage](#eventsubscriptionsmessage)
+
+### DescribeEventSubscriptions
+
+
+
+```js
+amazonaws_redshift.DescribeEventSubscriptions({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * SubscriptionName
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [EventSubscriptionsMessage](#eventsubscriptionsmessage)
@@ -720,15 +1968,36 @@ amazonaws_redshift.DescribeEvents({}, context)
 
 #### Input
 * input `object`
+  * SourceIdentifier `string`
+  * SourceType `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Duration `integer`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [EventsMessage](#eventsmessage)
+
+### DescribeEvents
+
+
+
+```js
+amazonaws_redshift.DescribeEvents({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 #### Output
 * output [EventsMessage](#eventsmessage)
@@ -743,13 +2012,34 @@ amazonaws_redshift.DescribeHsmClientCertificates({}, context)
 
 #### Input
 * input `object`
+  * HsmClientCertificateIdentifier `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [HsmClientCertificateMessage](#hsmclientcertificatemessage)
+
+### DescribeHsmClientCertificates
+
+
+
+```js
+amazonaws_redshift.DescribeHsmClientCertificates({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * HsmClientCertificateIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * HsmClientCertificateIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [HsmClientCertificateMessage](#hsmclientcertificatemessage)
@@ -764,13 +2054,34 @@ amazonaws_redshift.DescribeHsmConfigurations({}, context)
 
 #### Input
 * input `object`
+  * HsmConfigurationIdentifier `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [HsmConfigurationMessage](#hsmconfigurationmessage)
+
+### DescribeHsmConfigurations
+
+
+
+```js
+amazonaws_redshift.DescribeHsmConfigurations({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * HsmConfigurationIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * HsmConfigurationIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 #### Output
 * output [HsmConfigurationMessage](#hsmconfigurationmessage)
@@ -787,10 +2098,98 @@ amazonaws_redshift.DescribeLoggingStatus({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
 
 #### Output
 * output [LoggingStatus](#loggingstatus)
+
+### DescribeLoggingStatus
+
+
+
+```js
+amazonaws_redshift.DescribeLoggingStatus({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+
+#### Output
+* output [LoggingStatus](#loggingstatus)
+
+### DescribeNodeConfigurationOptions
+
+
+
+```js
+amazonaws_redshift.DescribeNodeConfigurationOptions({
+  "ActionType": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ActionType **required** `string`
+  * ClusterIdentifier `string`
+  * SnapshotIdentifier `string`
+  * OwnerAccount `string`
+  * Filter `array`
+  * Marker `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [NodeConfigurationOptionsMessage](#nodeconfigurationoptionsmessage)
+
+### DescribeNodeConfigurationOptions
+
+
+
+```js
+amazonaws_redshift.DescribeNodeConfigurationOptions({
+  "ActionType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ActionType **required**
+  * ClusterIdentifier
+  * Filters
+    * items
+      * Name
+      * Operator
+      * Values
+        * items
+  * Marker
+  * MaxRecords
+  * OwnerAccount
+  * SnapshotIdentifier
+
+#### Output
+* output [NodeConfigurationOptionsMessage](#nodeconfigurationoptionsmessage)
+
+### DescribeOrderableClusterOptions
+
+
+
+```js
+amazonaws_redshift.DescribeOrderableClusterOptions({}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterVersion `string`
+  * NodeType `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [OrderableClusterOptionsMessage](#orderableclusteroptionsmessage)
 
 ### DescribeOrderableClusterOptions
 
@@ -804,10 +2203,10 @@ amazonaws_redshift.DescribeOrderableClusterOptions({}, context)
 * input `object`
   * MaxRecords `string`
   * Marker `string`
-  * ClusterVersion [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * NodeType [String](#string)
+  * ClusterVersion
+  * Marker
+  * MaxRecords
+  * NodeType
 
 #### Output
 * output [OrderableClusterOptionsMessage](#orderableclusteroptionsmessage)
@@ -822,11 +2221,28 @@ amazonaws_redshift.DescribeReservedNodeOfferings({}, context)
 
 #### Input
 * input `object`
+  * ReservedNodeOfferingId `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [ReservedNodeOfferingsMessage](#reservednodeofferingsmessage)
+
+### DescribeReservedNodeOfferings
+
+
+
+```js
+amazonaws_redshift.DescribeReservedNodeOfferings({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReservedNodeOfferingId [String](#string)
+  * Marker
+  * MaxRecords
+  * ReservedNodeOfferingId
 
 #### Output
 * output [ReservedNodeOfferingsMessage](#reservednodeofferingsmessage)
@@ -841,11 +2257,28 @@ amazonaws_redshift.DescribeReservedNodes({}, context)
 
 #### Input
 * input `object`
+  * ReservedNodeId `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [ReservedNodesMessage](#reservednodesmessage)
+
+### DescribeReservedNodes
+
+
+
+```js
+amazonaws_redshift.DescribeReservedNodes({}, context)
+```
+
+#### Input
+* input `object`
   * MaxRecords `string`
   * Marker `string`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReservedNodeId [String](#string)
+  * Marker
+  * MaxRecords
+  * ReservedNodeId
 
 #### Output
 * output [ReservedNodesMessage](#reservednodesmessage)
@@ -862,10 +2295,77 @@ amazonaws_redshift.DescribeResize({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
 
 #### Output
 * output [ResizeProgressMessage](#resizeprogressmessage)
+
+### DescribeResize
+
+
+
+```js
+amazonaws_redshift.DescribeResize({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+
+#### Output
+* output [ResizeProgressMessage](#resizeprogressmessage)
+
+### DescribeScheduledActions
+
+
+
+```js
+amazonaws_redshift.DescribeScheduledActions({}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduledActionName `string`
+  * TargetActionType `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Active `boolean`
+  * Filters `array`
+  * Marker `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [ScheduledActionsMessage](#scheduledactionsmessage)
+
+### DescribeScheduledActions
+
+
+
+```js
+amazonaws_redshift.DescribeScheduledActions({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Active
+  * EndTime
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * ScheduledActionName
+  * StartTime
+  * TargetActionType
+
+#### Output
+* output [ScheduledActionsMessage](#scheduledactionsmessage)
 
 ### DescribeSnapshotCopyGrants
 
@@ -877,14 +2377,109 @@ amazonaws_redshift.DescribeSnapshotCopyGrants({}, context)
 
 #### Input
 * input `object`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SnapshotCopyGrantName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * SnapshotCopyGrantName `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
 
 #### Output
 * output [SnapshotCopyGrantMessage](#snapshotcopygrantmessage)
+
+### DescribeSnapshotCopyGrants
+
+
+
+```js
+amazonaws_redshift.DescribeSnapshotCopyGrants({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker
+  * MaxRecords
+  * SnapshotCopyGrantName
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+#### Output
+* output [SnapshotCopyGrantMessage](#snapshotcopygrantmessage)
+
+### DescribeSnapshotSchedules
+
+
+
+```js
+amazonaws_redshift.DescribeSnapshotSchedules({}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier `string`
+  * ScheduleIdentifier `string`
+  * TagKeys `array`
+  * TagValues `array`
+  * Marker `string`
+  * MaxRecords `integer`
+
+#### Output
+* output [DescribeSnapshotSchedulesOutputMessage](#describesnapshotschedulesoutputmessage)
+
+### DescribeSnapshotSchedules
+
+
+
+```js
+amazonaws_redshift.DescribeSnapshotSchedules({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * ScheduleIdentifier
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+#### Output
+* output [DescribeSnapshotSchedulesOutputMessage](#describesnapshotschedulesoutputmessage)
+
+### DescribeStorage
+
+
+
+```js
+amazonaws_redshift.DescribeStorage({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [CustomerStorageMessage](#customerstoragemessage)
+
+### DescribeStorage
+
+
+
+```js
+amazonaws_redshift.DescribeStorage({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [CustomerStorageMessage](#customerstoragemessage)
 
 ### DescribeTableRestoreStatus
 
@@ -896,10 +2491,30 @@ amazonaws_redshift.DescribeTableRestoreStatus({}, context)
 
 #### Input
 * input `object`
-  * ClusterIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TableRestoreRequestId [String](#string)
+  * ClusterIdentifier `string`
+  * TableRestoreRequestId `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [TableRestoreStatusMessage](#tablerestorestatusmessage)
+
+### DescribeTableRestoreStatus
+
+
+
+```js
+amazonaws_redshift.DescribeTableRestoreStatus({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * TableRestoreRequestId
 
 #### Output
 * output [TableRestoreStatusMessage](#tablerestorestatusmessage)
@@ -914,15 +2529,85 @@ amazonaws_redshift.DescribeTags({}, context)
 
 #### Input
 * input `object`
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ResourceName [String](#string)
-  * ResourceType [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ResourceName `string`
+  * ResourceType `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
 
 #### Output
 * output [TaggedResourceListMessage](#taggedresourcelistmessage)
+
+### DescribeTags
+
+
+
+```js
+amazonaws_redshift.DescribeTags({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker
+  * MaxRecords
+  * ResourceName
+  * ResourceType
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+#### Output
+* output [TaggedResourceListMessage](#taggedresourcelistmessage)
+
+### DescribeUsageLimits
+
+
+
+```js
+amazonaws_redshift.DescribeUsageLimits({}, context)
+```
+
+#### Input
+* input `object`
+  * UsageLimitId `string`
+  * ClusterIdentifier `string`
+  * FeatureType `string`
+  * MaxRecords `integer`
+  * Marker `string`
+  * TagKeys `array`
+  * TagValues `array`
+
+#### Output
+* output [UsageLimitList](#usagelimitlist)
+
+### DescribeUsageLimits
+
+
+
+```js
+amazonaws_redshift.DescribeUsageLimits({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * ClusterIdentifier
+  * FeatureType
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
+  * UsageLimitId
+
+#### Output
+* output [UsageLimitList](#usagelimitlist)
 
 ### DisableLogging
 
@@ -936,7 +2621,24 @@ amazonaws_redshift.DisableLogging({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [LoggingStatus](#loggingstatus)
+
+### DisableLogging
+
+
+
+```js
+amazonaws_redshift.DisableLogging({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
 
 #### Output
 * output [LoggingStatus](#loggingstatus)
@@ -953,7 +2655,24 @@ amazonaws_redshift.DisableSnapshotCopy({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [DisableSnapshotCopyResult](#disablesnapshotcopyresult)
+
+### DisableSnapshotCopy
+
+
+
+```js
+amazonaws_redshift.DisableSnapshotCopy({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
 
 #### Output
 * output [DisableSnapshotCopyResult](#disablesnapshotcopyresult)
@@ -971,9 +2690,29 @@ amazonaws_redshift.EnableLogging({
 
 #### Input
 * input `object`
-  * BucketName **required** [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * S3KeyPrefix [String](#string)
+  * ClusterIdentifier **required** `string`
+  * BucketName **required** `string`
+  * S3KeyPrefix `string`
+
+#### Output
+* output [LoggingStatus](#loggingstatus)
+
+### EnableLogging
+
+
+
+```js
+amazonaws_redshift.EnableLogging({
+  "ClusterIdentifier": null,
+  "BucketName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * BucketName **required**
+  * ClusterIdentifier **required**
+  * S3KeyPrefix
 
 #### Output
 * output [LoggingStatus](#loggingstatus)
@@ -991,10 +2730,33 @@ amazonaws_redshift.EnableSnapshotCopy({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
-  * DestinationRegion **required** [String](#string)
-  * RetentionPeriod [IntegerOptional](#integeroptional)
-  * SnapshotCopyGrantName [String](#string)
+  * ClusterIdentifier **required** `string`
+  * DestinationRegion **required** `string`
+  * RetentionPeriod `integer`
+  * SnapshotCopyGrantName `string`
+  * ManualSnapshotRetentionPeriod `integer`
+
+#### Output
+* output [EnableSnapshotCopyResult](#enablesnapshotcopyresult)
+
+### EnableSnapshotCopy
+
+
+
+```js
+amazonaws_redshift.EnableSnapshotCopy({
+  "ClusterIdentifier": null,
+  "DestinationRegion": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * DestinationRegion **required**
+  * ManualSnapshotRetentionPeriod
+  * RetentionPeriod
+  * SnapshotCopyGrantName
 
 #### Output
 * output [EnableSnapshotCopyResult](#enablesnapshotcopyresult)
@@ -1012,15 +2774,79 @@ amazonaws_redshift.GetClusterCredentials({
 
 #### Input
 * input `object`
-  * AutoCreate [BooleanOptional](#booleanoptional)
-  * ClusterIdentifier **required** [String](#string)
-  * DbGroups [DbGroupList](#dbgrouplist)
-  * DbName [String](#string)
-  * DbUser **required** [String](#string)
-  * DurationSeconds [IntegerOptional](#integeroptional)
+  * DbUser **required** `string`
+  * DbName `string`
+  * ClusterIdentifier **required** `string`
+  * DurationSeconds `integer`
+  * AutoCreate `boolean`
+  * DbGroups `array`
 
 #### Output
 * output [ClusterCredentials](#clustercredentials)
+
+### GetClusterCredentials
+
+
+
+```js
+amazonaws_redshift.GetClusterCredentials({
+  "DbUser": null,
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AutoCreate
+  * ClusterIdentifier **required**
+  * DbGroups
+    * items
+  * DbName
+  * DbUser **required**
+  * DurationSeconds
+
+#### Output
+* output [ClusterCredentials](#clustercredentials)
+
+### GetReservedNodeExchangeOfferings
+
+
+
+```js
+amazonaws_redshift.GetReservedNodeExchangeOfferings({
+  "ReservedNodeId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ReservedNodeId **required** `string`
+  * MaxRecords `integer`
+  * Marker `string`
+
+#### Output
+* output [GetReservedNodeExchangeOfferingsOutputMessage](#getreservednodeexchangeofferingsoutputmessage)
+
+### GetReservedNodeExchangeOfferings
+
+
+
+```js
+amazonaws_redshift.GetReservedNodeExchangeOfferings({
+  "ReservedNodeId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxRecords `string`
+  * Marker `string`
+  * Marker
+  * MaxRecords
+  * ReservedNodeId **required**
+
+#### Output
+* output [GetReservedNodeExchangeOfferingsOutputMessage](#getreservednodeexchangeofferingsoutputmessage)
 
 ### ModifyCluster
 
@@ -1034,27 +2860,115 @@ amazonaws_redshift.ModifyCluster({
 
 #### Input
 * input `object`
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * ElasticIp [String](#string)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * MasterUserPassword [String](#string)
-  * NewClusterIdentifier [String](#string)
-  * NodeType [String](#string)
-  * NumberOfNodes [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * ClusterIdentifier **required** `string`
+  * ClusterType `string`
+  * NodeType `string`
+  * NumberOfNodes `integer`
+  * ClusterSecurityGroups `array`
+  * VpcSecurityGroupIds `array`
+  * MasterUserPassword `string`
+  * ClusterParameterGroupName `string`
+  * AutomatedSnapshotRetentionPeriod `integer`
+  * ManualSnapshotRetentionPeriod `integer`
+  * PreferredMaintenanceWindow `string`
+  * ClusterVersion `string`
+  * AllowVersionUpgrade `boolean`
+  * HsmClientCertificateIdentifier `string`
+  * HsmConfigurationIdentifier `string`
+  * NewClusterIdentifier `string`
+  * PubliclyAccessible `boolean`
+  * ElasticIp `string`
+  * EnhancedVpcRouting `boolean`
+  * MaintenanceTrackName `string`
+  * Encrypted `boolean`
+  * KmsKeyId `string`
+  * AvailabilityZoneRelocation `boolean`
+  * AvailabilityZone `string`
+  * Port `integer`
 
 #### Output
 * output [ModifyClusterResult](#modifyclusterresult)
+
+### ModifyCluster
+
+
+
+```js
+amazonaws_redshift.ModifyCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterType
+  * ClusterVersion
+  * ElasticIp
+  * Encrypted
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * MasterUserPassword
+  * NewClusterIdentifier
+  * NodeType
+  * NumberOfNodes
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * VpcSecurityGroupIds
+    * items
+
+#### Output
+* output [ModifyClusterResult](#modifyclusterresult)
+
+### ModifyClusterDbRevision
+
+
+
+```js
+amazonaws_redshift.ModifyClusterDbRevision({
+  "ClusterIdentifier": "",
+  "RevisionTarget": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+  * RevisionTarget **required** `string`
+
+#### Output
+* output [ModifyClusterDbRevisionResult](#modifyclusterdbrevisionresult)
+
+### ModifyClusterDbRevision
+
+
+
+```js
+amazonaws_redshift.ModifyClusterDbRevision({
+  "ClusterIdentifier": null,
+  "RevisionTarget": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * RevisionTarget **required**
+
+#### Output
+* output [ModifyClusterDbRevisionResult](#modifyclusterdbrevisionresult)
 
 ### ModifyClusterIamRoles
 
@@ -1068,12 +2982,77 @@ amazonaws_redshift.ModifyClusterIamRoles({
 
 #### Input
 * input `object`
-  * AddIamRoles [IamRoleArnList](#iamrolearnlist)
-  * ClusterIdentifier **required** [String](#string)
-  * RemoveIamRoles [IamRoleArnList](#iamrolearnlist)
+  * ClusterIdentifier **required** `string`
+  * AddIamRoles `array`
+  * RemoveIamRoles `array`
 
 #### Output
 * output [ModifyClusterIamRolesResult](#modifyclusteriamrolesresult)
+
+### ModifyClusterIamRoles
+
+
+
+```js
+amazonaws_redshift.ModifyClusterIamRoles({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AddIamRoles
+    * items
+  * ClusterIdentifier **required**
+  * RemoveIamRoles
+    * items
+
+#### Output
+* output [ModifyClusterIamRolesResult](#modifyclusteriamrolesresult)
+
+### ModifyClusterMaintenance
+
+
+
+```js
+amazonaws_redshift.ModifyClusterMaintenance({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+  * DeferMaintenance `boolean`
+  * DeferMaintenanceIdentifier `string`
+  * DeferMaintenanceStartTime `string`
+  * DeferMaintenanceEndTime `string`
+  * DeferMaintenanceDuration `integer`
+
+#### Output
+* output [ModifyClusterMaintenanceResult](#modifyclustermaintenanceresult)
+
+### ModifyClusterMaintenance
+
+
+
+```js
+amazonaws_redshift.ModifyClusterMaintenance({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * DeferMaintenance
+  * DeferMaintenanceDuration
+  * DeferMaintenanceEndTime
+  * DeferMaintenanceIdentifier
+  * DeferMaintenanceStartTime
+
+#### Output
+* output [ModifyClusterMaintenanceResult](#modifyclustermaintenanceresult)
 
 ### ModifyClusterParameterGroup
 
@@ -1088,11 +3067,116 @@ amazonaws_redshift.ModifyClusterParameterGroup({
 
 #### Input
 * input `object`
-  * ParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+  * ParameterGroupName **required** `string`
+  * Parameters **required** `array`
 
 #### Output
 * output [ClusterParameterGroupNameMessage](#clusterparametergroupnamemessage)
+
+### ModifyClusterParameterGroup
+
+
+
+```js
+amazonaws_redshift.ModifyClusterParameterGroup({
+  "ParameterGroupName": null,
+  "Parameters": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+
+#### Output
+* output [ClusterParameterGroupNameMessage](#clusterparametergroupnamemessage)
+
+### ModifyClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.ModifyClusterSnapshot({
+  "SnapshotIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * SnapshotIdentifier **required** `string`
+  * ManualSnapshotRetentionPeriod `integer`
+  * Force `boolean`
+
+#### Output
+* output [ModifyClusterSnapshotResult](#modifyclustersnapshotresult)
+
+### ModifyClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.ModifyClusterSnapshot({
+  "SnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Force
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifier **required**
+
+#### Output
+* output [ModifyClusterSnapshotResult](#modifyclustersnapshotresult)
+
+### ModifyClusterSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.ModifyClusterSnapshotSchedule({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+  * ScheduleIdentifier `string`
+  * DisassociateSchedule `boolean`
+
+#### Output
+*Output schema unknown*
+
+### ModifyClusterSnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.ModifyClusterSnapshotSchedule({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * DisassociateSchedule
+  * ScheduleIdentifier
+
+#### Output
+*Output schema unknown*
 
 ### ModifyClusterSubnetGroup
 
@@ -1107,9 +3191,30 @@ amazonaws_redshift.ModifyClusterSubnetGroup({
 
 #### Input
 * input `object`
-  * ClusterSubnetGroupName **required** [String](#string)
-  * Description [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * ClusterSubnetGroupName **required** `string`
+  * Description `string`
+  * SubnetIds **required** `array`
+
+#### Output
+* output [ModifyClusterSubnetGroupResult](#modifyclustersubnetgroupresult)
+
+### ModifyClusterSubnetGroup
+
+
+
+```js
+amazonaws_redshift.ModifyClusterSubnetGroup({
+  "ClusterSubnetGroupName": null,
+  "SubnetIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterSubnetGroupName **required**
+  * Description
+  * SubnetIds **required**
+    * items
 
 #### Output
 * output [ModifyClusterSubnetGroupResult](#modifyclustersubnetgroupresult)
@@ -1126,16 +3231,99 @@ amazonaws_redshift.ModifyEventSubscription({
 
 #### Input
 * input `object`
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Severity [String](#string)
-  * SnsTopicArn [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required** `string`
+  * SnsTopicArn `string`
+  * SourceType `string`
+  * SourceIds `array`
+  * EventCategories `array`
+  * Severity `string`
+  * Enabled `boolean`
 
 #### Output
 * output [ModifyEventSubscriptionResult](#modifyeventsubscriptionresult)
+
+### ModifyEventSubscription
+
+
+
+```js
+amazonaws_redshift.ModifyEventSubscription({
+  "SubscriptionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enabled
+  * EventCategories
+    * items
+  * Severity
+  * SnsTopicArn
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
+
+#### Output
+* output [ModifyEventSubscriptionResult](#modifyeventsubscriptionresult)
+
+### ModifyScheduledAction
+
+
+
+```js
+amazonaws_redshift.ModifyScheduledAction({
+  "ScheduledActionName": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduledActionName **required** `string`
+  * TargetAction `object`
+  * Schedule `string`
+  * IamRole `string`
+  * ScheduledActionDescription `string`
+  * StartTime `string`
+  * EndTime `string`
+  * Enable `boolean`
+
+#### Output
+* output [ScheduledAction](#scheduledaction)
+
+### ModifyScheduledAction
+
+
+
+```js
+amazonaws_redshift.ModifyScheduledAction({
+  "ScheduledActionName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Enable
+  * EndTime
+  * IamRole
+  * Schedule
+  * ScheduledActionDescription
+  * ScheduledActionName **required**
+  * StartTime
+  * TargetAction
+    * PauseCluster
+      * ClusterIdentifier **required**
+    * ResizeCluster
+      * Classic
+      * ClusterIdentifier **required**
+      * ClusterType
+      * NodeType
+      * NumberOfNodes
+    * ResumeCluster
+      * ClusterIdentifier **required**
+
+#### Output
+* output [ScheduledAction](#scheduledaction)
 
 ### ModifySnapshotCopyRetentionPeriod
 
@@ -1150,11 +3338,143 @@ amazonaws_redshift.ModifySnapshotCopyRetentionPeriod({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
-  * RetentionPeriod **required** [Integer](#integer)
+  * ClusterIdentifier **required** `string`
+  * RetentionPeriod **required** `integer`
+  * Manual `boolean`
 
 #### Output
 * output [ModifySnapshotCopyRetentionPeriodResult](#modifysnapshotcopyretentionperiodresult)
+
+### ModifySnapshotCopyRetentionPeriod
+
+
+
+```js
+amazonaws_redshift.ModifySnapshotCopyRetentionPeriod({
+  "ClusterIdentifier": null,
+  "RetentionPeriod": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * Manual
+  * RetentionPeriod **required**
+
+#### Output
+* output [ModifySnapshotCopyRetentionPeriodResult](#modifysnapshotcopyretentionperiodresult)
+
+### ModifySnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.ModifySnapshotSchedule({
+  "ScheduleIdentifier": "",
+  "ScheduleDefinitions": []
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleIdentifier **required** `string`
+  * ScheduleDefinitions **required** `array`
+
+#### Output
+* output [SnapshotSchedule](#snapshotschedule)
+
+### ModifySnapshotSchedule
+
+
+
+```js
+amazonaws_redshift.ModifySnapshotSchedule({
+  "ScheduleIdentifier": null,
+  "ScheduleDefinitions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleDefinitions **required**
+    * items
+  * ScheduleIdentifier **required**
+
+#### Output
+* output [SnapshotSchedule](#snapshotschedule)
+
+### ModifyUsageLimit
+
+
+
+```js
+amazonaws_redshift.ModifyUsageLimit({
+  "UsageLimitId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * UsageLimitId **required** `string`
+  * Amount `integer`
+  * BreachAction `string`
+
+#### Output
+* output [UsageLimit](#usagelimit)
+
+### ModifyUsageLimit
+
+
+
+```js
+amazonaws_redshift.ModifyUsageLimit({
+  "UsageLimitId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Amount
+  * BreachAction
+  * UsageLimitId **required**
+
+#### Output
+* output [UsageLimit](#usagelimit)
+
+### PauseCluster
+
+
+
+```js
+amazonaws_redshift.PauseCluster({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [PauseClusterResult](#pauseclusterresult)
+
+### PauseCluster
+
+
+
+```js
+amazonaws_redshift.PauseCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+
+#### Output
+* output [PauseClusterResult](#pauseclusterresult)
 
 ### PurchaseReservedNodeOffering
 
@@ -1168,8 +3488,26 @@ amazonaws_redshift.PurchaseReservedNodeOffering({
 
 #### Input
 * input `object`
-  * NodeCount [IntegerOptional](#integeroptional)
-  * ReservedNodeOfferingId **required** [String](#string)
+  * ReservedNodeOfferingId **required** `string`
+  * NodeCount `integer`
+
+#### Output
+* output [PurchaseReservedNodeOfferingResult](#purchasereservednodeofferingresult)
+
+### PurchaseReservedNodeOffering
+
+
+
+```js
+amazonaws_redshift.PurchaseReservedNodeOffering({
+  "ReservedNodeOfferingId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NodeCount
+  * ReservedNodeOfferingId **required**
 
 #### Output
 * output [PurchaseReservedNodeOfferingResult](#purchasereservednodeofferingresult)
@@ -1186,7 +3524,24 @@ amazonaws_redshift.RebootCluster({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [RebootClusterResult](#rebootclusterresult)
+
+### RebootCluster
+
+
+
+```js
+amazonaws_redshift.RebootCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
 
 #### Output
 * output [RebootClusterResult](#rebootclusterresult)
@@ -1203,12 +3558,83 @@ amazonaws_redshift.ResetClusterParameterGroup({
 
 #### Input
 * input `object`
-  * ParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+  * ParameterGroupName **required** `string`
+  * ResetAllParameters `boolean`
+  * Parameters `array`
 
 #### Output
 * output [ClusterParameterGroupNameMessage](#clusterparametergroupnamemessage)
+
+### ResetClusterParameterGroup
+
+
+
+```js
+amazonaws_redshift.ResetClusterParameterGroup({
+  "ParameterGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
+
+#### Output
+* output [ClusterParameterGroupNameMessage](#clusterparametergroupnamemessage)
+
+### ResizeCluster
+
+
+
+```js
+amazonaws_redshift.ResizeCluster({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+  * ClusterType `string`
+  * NodeType `string`
+  * NumberOfNodes `integer`
+  * Classic `boolean`
+
+#### Output
+* output [ResizeClusterResult](#resizeclusterresult)
+
+### ResizeCluster
+
+
+
+```js
+amazonaws_redshift.ResizeCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Classic
+  * ClusterIdentifier **required**
+  * ClusterType
+  * NodeType
+  * NumberOfNodes
+
+#### Output
+* output [ResizeClusterResult](#resizeclusterresult)
 
 ### RestoreFromClusterSnapshot
 
@@ -1223,28 +3649,80 @@ amazonaws_redshift.RestoreFromClusterSnapshot({
 
 #### Input
 * input `object`
-  * AdditionalInfo [String](#string)
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * AvailabilityZone [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterSubnetGroupName [String](#string)
-  * ElasticIp [String](#string)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * IamRoles [IamRoleArnList](#iamrolearnlist)
-  * KmsKeyId [String](#string)
-  * NodeType [String](#string)
-  * OwnerAccount [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * ClusterIdentifier **required** `string`
+  * SnapshotIdentifier **required** `string`
+  * SnapshotClusterIdentifier `string`
+  * Port `integer`
+  * AvailabilityZone `string`
+  * AllowVersionUpgrade `boolean`
+  * ClusterSubnetGroupName `string`
+  * PubliclyAccessible `boolean`
+  * OwnerAccount `string`
+  * HsmClientCertificateIdentifier `string`
+  * HsmConfigurationIdentifier `string`
+  * ElasticIp `string`
+  * ClusterParameterGroupName `string`
+  * ClusterSecurityGroups `array`
+  * VpcSecurityGroupIds `array`
+  * PreferredMaintenanceWindow `string`
+  * AutomatedSnapshotRetentionPeriod `integer`
+  * ManualSnapshotRetentionPeriod `integer`
+  * KmsKeyId `string`
+  * NodeType `string`
+  * EnhancedVpcRouting `boolean`
+  * AdditionalInfo `string`
+  * IamRoles `array`
+  * MaintenanceTrackName `string`
+  * SnapshotScheduleIdentifier `string`
+  * NumberOfNodes `integer`
+  * AvailabilityZoneRelocation `boolean`
+
+#### Output
+* output [RestoreFromClusterSnapshotResult](#restorefromclustersnapshotresult)
+
+### RestoreFromClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.RestoreFromClusterSnapshot({
+  "ClusterIdentifier": null,
+  "SnapshotIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AdditionalInfo
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterSubnetGroupName
+  * ElasticIp
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * IamRoles
+    * items
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * NodeType
+  * NumberOfNodes
+  * OwnerAccount
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
+  * SnapshotScheduleIdentifier
+  * VpcSecurityGroupIds
+    * items
 
 #### Output
 * output [RestoreFromClusterSnapshotResult](#restorefromclustersnapshotresult)
@@ -1265,17 +3743,79 @@ amazonaws_redshift.RestoreTableFromClusterSnapshot({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
-  * NewTableName **required** [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * SourceDatabaseName **required** [String](#string)
-  * SourceSchemaName [String](#string)
-  * SourceTableName **required** [String](#string)
-  * TargetDatabaseName [String](#string)
-  * TargetSchemaName [String](#string)
+  * ClusterIdentifier **required** `string`
+  * SnapshotIdentifier **required** `string`
+  * SourceDatabaseName **required** `string`
+  * SourceSchemaName `string`
+  * SourceTableName **required** `string`
+  * TargetDatabaseName `string`
+  * TargetSchemaName `string`
+  * NewTableName **required** `string`
 
 #### Output
 * output [RestoreTableFromClusterSnapshotResult](#restoretablefromclustersnapshotresult)
+
+### RestoreTableFromClusterSnapshot
+
+
+
+```js
+amazonaws_redshift.RestoreTableFromClusterSnapshot({
+  "ClusterIdentifier": null,
+  "SnapshotIdentifier": null,
+  "SourceDatabaseName": null,
+  "SourceTableName": null,
+  "NewTableName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+  * NewTableName **required**
+  * SnapshotIdentifier **required**
+  * SourceDatabaseName **required**
+  * SourceSchemaName
+  * SourceTableName **required**
+  * TargetDatabaseName
+  * TargetSchemaName
+
+#### Output
+* output [RestoreTableFromClusterSnapshotResult](#restoretablefromclustersnapshotresult)
+
+### ResumeCluster
+
+
+
+```js
+amazonaws_redshift.ResumeCluster({
+  "ClusterIdentifier": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [ResumeClusterResult](#resumeclusterresult)
+
+### ResumeCluster
+
+
+
+```js
+amazonaws_redshift.ResumeCluster({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
+
+#### Output
+* output [ResumeClusterResult](#resumeclusterresult)
 
 ### RevokeClusterSecurityGroupIngress
 
@@ -1289,10 +3829,30 @@ amazonaws_redshift.RevokeClusterSecurityGroupIngress({
 
 #### Input
 * input `object`
-  * CIDRIP [String](#string)
-  * ClusterSecurityGroupName **required** [String](#string)
-  * EC2SecurityGroupName [String](#string)
-  * EC2SecurityGroupOwnerId [String](#string)
+  * ClusterSecurityGroupName **required** `string`
+  * CIDRIP `string`
+  * EC2SecurityGroupName `string`
+  * EC2SecurityGroupOwnerId `string`
+
+#### Output
+* output [RevokeClusterSecurityGroupIngressResult](#revokeclustersecuritygroupingressresult)
+
+### RevokeClusterSecurityGroupIngress
+
+
+
+```js
+amazonaws_redshift.RevokeClusterSecurityGroupIngress({
+  "ClusterSecurityGroupName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CIDRIP
+  * ClusterSecurityGroupName **required**
+  * EC2SecurityGroupName
+  * EC2SecurityGroupOwnerId
 
 #### Output
 * output [RevokeClusterSecurityGroupIngressResult](#revokeclustersecuritygroupingressresult)
@@ -1310,9 +3870,29 @@ amazonaws_redshift.RevokeSnapshotAccess({
 
 #### Input
 * input `object`
-  * AccountWithRestoreAccess **required** [String](#string)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * SnapshotIdentifier **required** `string`
+  * SnapshotClusterIdentifier `string`
+  * AccountWithRestoreAccess **required** `string`
+
+#### Output
+* output [RevokeSnapshotAccessResult](#revokesnapshotaccessresult)
+
+### RevokeSnapshotAccess
+
+
+
+```js
+amazonaws_redshift.RevokeSnapshotAccess({
+  "SnapshotIdentifier": null,
+  "AccountWithRestoreAccess": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AccountWithRestoreAccess **required**
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
 
 #### Output
 * output [RevokeSnapshotAccessResult](#revokesnapshotaccessresult)
@@ -1329,7 +3909,24 @@ amazonaws_redshift.RotateEncryptionKey({
 
 #### Input
 * input `object`
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required** `string`
+
+#### Output
+* output [RotateEncryptionKeyResult](#rotateencryptionkeyresult)
+
+### RotateEncryptionKey
+
+
+
+```js
+amazonaws_redshift.RotateEncryptionKey({
+  "ClusterIdentifier": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClusterIdentifier **required**
 
 #### Output
 * output [RotateEncryptionKeyResult](#rotateencryptionkeyresult)
@@ -1338,33 +3935,106 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ## Definitions
 
+### AcceptReservedNodeExchangeInputMessage
+* AcceptReservedNodeExchangeInputMessage `object`
+  * ReservedNodeId **required**
+  * TargetReservedNodeOfferingId **required**
+
+### AcceptReservedNodeExchangeOutputMessage
+* AcceptReservedNodeExchangeOutputMessage `object`
+  * ExchangedReservedNode
+    * CurrencyCode
+    * Duration
+    * FixedPrice
+    * NodeCount
+    * NodeType
+    * OfferingType
+    * RecurringCharges
+      * items
+        * RecurringChargeAmount
+        * RecurringChargeFrequency
+    * ReservedNodeId
+    * ReservedNodeOfferingId
+    * ReservedNodeOfferingType
+    * StartTime
+    * State
+    * UsagePrice
+
 ### AccessToSnapshotDeniedFault
-* AccessToSnapshotDeniedFault `object`: The owner of the specified snapshot has not authorized your account to access the snapshot.
+
+
+### AccountAttribute
+* AccountAttribute `object`: A name value pair that describes an aspect of an account. 
+  * AttributeName
+  * AttributeValues
+    * items
+      * AttributeValue
+
+### AccountAttributeList
+* AccountAttributeList `object`
+  * AccountAttributes
+    * items
+      * AttributeName
+      * AttributeValues
+        * items
+          * AttributeValue
 
 ### AccountWithRestoreAccess
 * AccountWithRestoreAccess `object`: Describes an AWS customer account authorized to restore a snapshot.
-  * AccountAlias [String](#string)
-  * AccountId [String](#string)
+  * AccountAlias
+  * AccountId
 
 ### AccountsWithRestoreAccessList
 * AccountsWithRestoreAccessList `array`
-  * items [AccountWithRestoreAccess](#accountwithrestoreaccess)
+  * items
+    * AccountAlias
+    * AccountId
+
+### ActionType
+* ActionType `string` (values: restore-cluster, recommend-node-config, resize-cluster)
+
+### AssociatedClusterList
+* AssociatedClusterList `array`
+  * items
+    * ClusterIdentifier
+    * ScheduleAssociationState
+
+### AttributeList
+* AttributeList `array`
+  * items
+    * AttributeName
+    * AttributeValues
+      * items
+        * AttributeValue
+
+### AttributeNameList
+* AttributeNameList `array`
+  * items
+
+### AttributeValueList
+* AttributeValueList `array`
+  * items
+    * AttributeValue
+
+### AttributeValueTarget
+* AttributeValueTarget `object`: Describes an attribute value.
+  * AttributeValue
 
 ### AuthorizationAlreadyExistsFault
-* AuthorizationAlreadyExistsFault `object`: The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.
+
 
 ### AuthorizationNotFoundFault
-* AuthorizationNotFoundFault `object`: The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.
+
 
 ### AuthorizationQuotaExceededFault
-* AuthorizationQuotaExceededFault `object`: The authorization quota for the cluster security group has been reached.
+
 
 ### AuthorizeClusterSecurityGroupIngressMessage
 * AuthorizeClusterSecurityGroupIngressMessage `object`: <p/>
-  * CIDRIP [String](#string)
-  * ClusterSecurityGroupName **required** [String](#string)
-  * EC2SecurityGroupName [String](#string)
-  * EC2SecurityGroupOwnerId [String](#string)
+  * CIDRIP
+  * ClusterSecurityGroupName **required**
+  * EC2SecurityGroupName
+  * EC2SecurityGroupOwnerId
 
 ### AuthorizeClusterSecurityGroupIngressResult
 * AuthorizeClusterSecurityGroupIngressResult `object`
@@ -1372,9 +4042,9 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### AuthorizeSnapshotAccessMessage
 * AuthorizeSnapshotAccessMessage `object`: <p/>
-  * AccountWithRestoreAccess **required** [String](#string)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * AccountWithRestoreAccess **required**
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
 
 ### AuthorizeSnapshotAccessResult
 * AuthorizeSnapshotAccessResult `object`
@@ -1382,12 +4052,76 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### AvailabilityZone
 * AvailabilityZone `object`: Describes an availability zone.
-  * Name [String](#string)
-  * SupportedPlatforms [SupportedPlatformsList](#supportedplatformslist)
+  * Name
+  * SupportedPlatforms
+    * items
+      * Name
 
 ### AvailabilityZoneList
 * AvailabilityZoneList `array`
-  * items [AvailabilityZone](#availabilityzone)
+  * items
+    * Name
+    * SupportedPlatforms
+      * items
+        * Name
+
+### BatchDeleteClusterSnapshotsRequest
+* BatchDeleteClusterSnapshotsRequest `object`
+  * Identifiers **required**
+    * items
+      * SnapshotClusterIdentifier
+      * SnapshotIdentifier **required**
+
+### BatchDeleteClusterSnapshotsResult
+* BatchDeleteClusterSnapshotsResult `object`
+  * Errors
+    * items
+      * FailureCode
+      * FailureReason
+      * SnapshotClusterIdentifier
+      * SnapshotIdentifier
+  * Resources
+    * items
+
+### BatchDeleteRequestSizeExceededFault
+
+
+### BatchModifyClusterSnapshotsLimitExceededFault
+
+
+### BatchModifyClusterSnapshotsMessage
+* BatchModifyClusterSnapshotsMessage `object`
+  * Force
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifierList **required**
+    * items
+
+### BatchModifyClusterSnapshotsOutputMessage
+* BatchModifyClusterSnapshotsOutputMessage `object`
+  * Errors
+    * items
+      * FailureCode
+      * FailureReason
+      * SnapshotClusterIdentifier
+      * SnapshotIdentifier
+  * Resources
+    * items
+
+### BatchSnapshotOperationErrorList
+* BatchSnapshotOperationErrorList `array`
+  * items
+    * FailureCode
+    * FailureReason
+    * SnapshotClusterIdentifier
+    * SnapshotIdentifier
+
+### BatchSnapshotOperationErrors
+* BatchSnapshotOperationErrors `array`
+  * items
+    * FailureCode
+    * FailureReason
+    * SnapshotClusterIdentifier
+    * SnapshotIdentifier
 
 ### Boolean
 * Boolean `boolean`
@@ -1396,286 +4130,777 @@ amazonaws_redshift.RotateEncryptionKey({
 * BooleanOptional `boolean`
 
 ### BucketNotFoundFault
-* BucketNotFoundFault `object`: Could not find the specified S3 bucket.
+
+
+### CancelResizeMessage
+* CancelResizeMessage `object`
+  * ClusterIdentifier **required**
 
 ### Cluster
 * Cluster `object`: Describes a cluster.
-  * AllowVersionUpgrade [Boolean](#boolean)
-  * AutomatedSnapshotRetentionPeriod [Integer](#integer)
-  * AvailabilityZone [String](#string)
-  * ClusterCreateTime [TStamp](#tstamp)
-  * ClusterIdentifier [String](#string)
-  * ClusterNodes [ClusterNodesList](#clusternodeslist)
-  * ClusterParameterGroups [ClusterParameterGroupStatusList](#clusterparametergroupstatuslist)
-  * ClusterPublicKey [String](#string)
-  * ClusterRevisionNumber [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupMembershipList](#clustersecuritygroupmembershiplist)
-  * ClusterSnapshotCopyStatus [ClusterSnapshotCopyStatus](#clustersnapshotcopystatus)
-  * ClusterStatus [String](#string)
-  * ClusterSubnetGroupName [String](#string)
-  * ClusterVersion [String](#string)
-  * DBName [String](#string)
-  * ElasticIpStatus [ElasticIpStatus](#elasticipstatus)
-  * Encrypted [Boolean](#boolean)
-  * Endpoint [Endpoint](#endpoint)
-  * EnhancedVpcRouting [Boolean](#boolean)
-  * HsmStatus [HsmStatus](#hsmstatus)
-  * IamRoles [ClusterIamRoleList](#clusteriamrolelist)
-  * KmsKeyId [String](#string)
-  * MasterUsername [String](#string)
-  * ModifyStatus [String](#string)
-  * NodeType [String](#string)
-  * NumberOfNodes [Integer](#integer)
-  * PendingModifiedValues [PendingModifiedValues](#pendingmodifiedvalues)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [Boolean](#boolean)
-  * RestoreStatus [RestoreStatus](#restorestatus)
-  * Tags [TagList](#taglist)
-  * VpcId [String](#string)
-  * VpcSecurityGroups [VpcSecurityGroupMembershipList](#vpcsecuritygroupmembershiplist)
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocationStatus
+  * ClusterAvailabilityStatus
+  * ClusterCreateTime
+  * ClusterIdentifier
+  * ClusterNamespaceArn
+  * ClusterNodes
+    * items [ClusterNode](#clusternode)
+  * ClusterParameterGroups
+    * items
+      * ClusterParameterStatusList
+        * items [ClusterParameterStatus](#clusterparameterstatus)
+      * ParameterApplyStatus
+      * ParameterGroupName
+  * ClusterPublicKey
+  * ClusterRevisionNumber
+  * ClusterSecurityGroups
+    * items
+      * ClusterSecurityGroupName
+      * Status
+  * ClusterSnapshotCopyStatus
+    * DestinationRegion
+    * ManualSnapshotRetentionPeriod
+    * RetentionPeriod
+    * SnapshotCopyGrantName
+  * ClusterStatus
+  * ClusterSubnetGroupName
+  * ClusterVersion
+  * DBName
+  * DataTransferProgress
+    * CurrentRateInMegaBytesPerSecond
+    * DataTransferredInMegaBytes
+    * ElapsedTimeInSeconds
+    * EstimatedTimeToCompletionInSeconds
+    * Status
+    * TotalDataInMegaBytes
+  * DeferredMaintenanceWindows
+    * items
+      * DeferMaintenanceEndTime
+      * DeferMaintenanceIdentifier
+      * DeferMaintenanceStartTime
+  * ElasticIpStatus
+    * ElasticIp
+    * Status
+  * ElasticResizeNumberOfNodeOptions
+  * Encrypted
+  * Endpoint
+    * Address
+    * Port
+    * VpcEndpoints
+      * items
+        * VpcEndpointId
+  * EnhancedVpcRouting
+  * ExpectedNextSnapshotScheduleTime
+  * ExpectedNextSnapshotScheduleTimeStatus
+  * HsmStatus
+    * HsmClientCertificateIdentifier
+    * HsmConfigurationIdentifier
+    * Status
+  * IamRoles
+    * items
+      * ApplyStatus
+      * IamRoleArn
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * MasterUsername
+  * ModifyStatus
+  * NextMaintenanceWindowStartTime
+  * NodeType
+  * NumberOfNodes
+  * PendingActions
+    * items [String](#string)
+  * PendingModifiedValues
+    * AutomatedSnapshotRetentionPeriod
+    * ClusterIdentifier
+    * ClusterType
+    * ClusterVersion
+    * EncryptionType
+    * EnhancedVpcRouting
+    * MaintenanceTrackName
+    * MasterUserPassword
+    * NodeType
+    * NumberOfNodes
+    * PubliclyAccessible
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * ResizeInfo
+    * AllowCancelResize
+    * ResizeType
+  * RestoreStatus
+    * CurrentRestoreRateInMegaBytesPerSecond
+    * ElapsedTimeInSeconds
+    * EstimatedTimeToCompletionInSeconds
+    * ProgressInMegaBytes
+    * SnapshotSizeInMegaBytes
+    * Status
+  * SnapshotScheduleIdentifier
+  * SnapshotScheduleState
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcId
+  * VpcSecurityGroups
+    * items
+      * Status
+      * VpcSecurityGroupId
 
 ### ClusterAlreadyExistsFault
-* ClusterAlreadyExistsFault `object`: The account already has a cluster with the given identifier.
+
+
+### ClusterAssociatedToSchedule
+* ClusterAssociatedToSchedule `object`: <p/>
+  * ClusterIdentifier
+  * ScheduleAssociationState
 
 ### ClusterCredentials
 * ClusterCredentials `object`: Temporary credentials with authorization to log on to an Amazon Redshift database. 
-  * DbPassword [SensitiveString](#sensitivestring)
-  * DbUser [String](#string)
-  * Expiration [TStamp](#tstamp)
+  * DbPassword
+  * DbUser
+  * Expiration
+
+### ClusterDbRevision
+* ClusterDbRevision `object`: Describes a <code>ClusterDbRevision</code>.
+  * ClusterIdentifier
+  * CurrentDatabaseRevision
+  * DatabaseRevisionReleaseDate
+  * RevisionTargets
+    * items
+      * DatabaseRevision
+      * DatabaseRevisionReleaseDate
+      * Description
+
+### ClusterDbRevisionsList
+* ClusterDbRevisionsList `array`
+  * items
+    * ClusterIdentifier
+    * CurrentDatabaseRevision
+    * DatabaseRevisionReleaseDate
+    * RevisionTargets
+      * items
+        * DatabaseRevision
+        * DatabaseRevisionReleaseDate
+        * Description
+
+### ClusterDbRevisionsMessage
+* ClusterDbRevisionsMessage `object`
+  * ClusterDbRevisions
+    * items
+      * ClusterIdentifier
+      * CurrentDatabaseRevision
+      * DatabaseRevisionReleaseDate
+      * RevisionTargets
+        * items
+          * DatabaseRevision
+          * DatabaseRevisionReleaseDate
+          * Description
+  * Marker
 
 ### ClusterIamRole
 * ClusterIamRole `object`: An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
-  * ApplyStatus [String](#string)
-  * IamRoleArn [String](#string)
+  * ApplyStatus
+  * IamRoleArn
 
 ### ClusterIamRoleList
 * ClusterIamRoleList `array`
-  * items [ClusterIamRole](#clusteriamrole)
+  * items
+    * ApplyStatus
+    * IamRoleArn
 
 ### ClusterList
 * ClusterList `array`
-  * items [Cluster](#cluster)
+  * items
+    * AllowVersionUpgrade
+    * AutomatedSnapshotRetentionPeriod
+    * AvailabilityZone
+    * AvailabilityZoneRelocationStatus
+    * ClusterAvailabilityStatus
+    * ClusterCreateTime
+    * ClusterIdentifier
+    * ClusterNamespaceArn
+    * ClusterNodes
+      * items [ClusterNode](#clusternode)
+    * ClusterParameterGroups
+      * items
+        * ClusterParameterStatusList
+          * items [ClusterParameterStatus](#clusterparameterstatus)
+        * ParameterApplyStatus
+        * ParameterGroupName
+    * ClusterPublicKey
+    * ClusterRevisionNumber
+    * ClusterSecurityGroups
+      * items
+        * ClusterSecurityGroupName
+        * Status
+    * ClusterSnapshotCopyStatus
+      * DestinationRegion
+      * ManualSnapshotRetentionPeriod
+      * RetentionPeriod
+      * SnapshotCopyGrantName
+    * ClusterStatus
+    * ClusterSubnetGroupName
+    * ClusterVersion
+    * DBName
+    * DataTransferProgress
+      * CurrentRateInMegaBytesPerSecond
+      * DataTransferredInMegaBytes
+      * ElapsedTimeInSeconds
+      * EstimatedTimeToCompletionInSeconds
+      * Status
+      * TotalDataInMegaBytes
+    * DeferredMaintenanceWindows
+      * items
+        * DeferMaintenanceEndTime
+        * DeferMaintenanceIdentifier
+        * DeferMaintenanceStartTime
+    * ElasticIpStatus
+      * ElasticIp
+      * Status
+    * ElasticResizeNumberOfNodeOptions
+    * Encrypted
+    * Endpoint
+      * Address
+      * Port
+      * VpcEndpoints
+        * items
+          * VpcEndpointId
+    * EnhancedVpcRouting
+    * ExpectedNextSnapshotScheduleTime
+    * ExpectedNextSnapshotScheduleTimeStatus
+    * HsmStatus
+      * HsmClientCertificateIdentifier
+      * HsmConfigurationIdentifier
+      * Status
+    * IamRoles
+      * items
+        * ApplyStatus
+        * IamRoleArn
+    * KmsKeyId
+    * MaintenanceTrackName
+    * ManualSnapshotRetentionPeriod
+    * MasterUsername
+    * ModifyStatus
+    * NextMaintenanceWindowStartTime
+    * NodeType
+    * NumberOfNodes
+    * PendingActions
+      * items [String](#string)
+    * PendingModifiedValues
+      * AutomatedSnapshotRetentionPeriod
+      * ClusterIdentifier
+      * ClusterType
+      * ClusterVersion
+      * EncryptionType
+      * EnhancedVpcRouting
+      * MaintenanceTrackName
+      * MasterUserPassword
+      * NodeType
+      * NumberOfNodes
+      * PubliclyAccessible
+    * PreferredMaintenanceWindow
+    * PubliclyAccessible
+    * ResizeInfo
+      * AllowCancelResize
+      * ResizeType
+    * RestoreStatus
+      * CurrentRestoreRateInMegaBytesPerSecond
+      * ElapsedTimeInSeconds
+      * EstimatedTimeToCompletionInSeconds
+      * ProgressInMegaBytes
+      * SnapshotSizeInMegaBytes
+      * Status
+    * SnapshotScheduleIdentifier
+    * SnapshotScheduleState
+    * Tags
+      * items
+        * Key
+        * Value
+    * VpcId
+    * VpcSecurityGroups
+      * items
+        * Status
+        * VpcSecurityGroupId
 
 ### ClusterNode
 * ClusterNode `object`: The identifier of a node in a cluster.
-  * NodeRole [String](#string)
-  * PrivateIPAddress [String](#string)
-  * PublicIPAddress [String](#string)
+  * NodeRole
+  * PrivateIPAddress
+  * PublicIPAddress
 
 ### ClusterNodesList
 * ClusterNodesList `array`
   * items [ClusterNode](#clusternode)
 
 ### ClusterNotFoundFault
-* ClusterNotFoundFault `object`: The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster. 
+
+
+### ClusterOnLatestRevisionFault
+
 
 ### ClusterParameterGroup
 * ClusterParameterGroup `object`: Describes a parameter group.
-  * Description [String](#string)
-  * ParameterGroupFamily [String](#string)
-  * ParameterGroupName [String](#string)
-  * Tags [TagList](#taglist)
+  * Description
+  * ParameterGroupFamily
+  * ParameterGroupName
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### ClusterParameterGroupAlreadyExistsFault
-* ClusterParameterGroupAlreadyExistsFault `object`: A cluster parameter group with the same name already exists.
+
 
 ### ClusterParameterGroupDetails
 * ClusterParameterGroupDetails `object`: Contains the output from the <a>DescribeClusterParameters</a> action. 
-  * Marker [String](#string)
-  * Parameters [ParametersList](#parameterslist)
+  * Marker
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### ClusterParameterGroupNameMessage
 * ClusterParameterGroupNameMessage `object`: <p/>
-  * ParameterGroupName [String](#string)
-  * ParameterGroupStatus [String](#string)
+  * ParameterGroupName
+  * ParameterGroupStatus
 
 ### ClusterParameterGroupNotFoundFault
-* ClusterParameterGroupNotFoundFault `object`: The parameter group name does not refer to an existing parameter group.
+
 
 ### ClusterParameterGroupQuotaExceededFault
-* ClusterParameterGroupQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ClusterParameterGroupStatus
 * ClusterParameterGroupStatus `object`: Describes the status of a parameter group.
-  * ClusterParameterStatusList [ClusterParameterStatusList](#clusterparameterstatuslist)
-  * ParameterApplyStatus [String](#string)
-  * ParameterGroupName [String](#string)
+  * ClusterParameterStatusList
+    * items [ClusterParameterStatus](#clusterparameterstatus)
+  * ParameterApplyStatus
+  * ParameterGroupName
 
 ### ClusterParameterGroupStatusList
 * ClusterParameterGroupStatusList `array`
-  * items [ClusterParameterGroupStatus](#clusterparametergroupstatus)
+  * items
+    * ClusterParameterStatusList
+      * items [ClusterParameterStatus](#clusterparameterstatus)
+    * ParameterApplyStatus
+    * ParameterGroupName
 
 ### ClusterParameterGroupsMessage
 * ClusterParameterGroupsMessage `object`: Contains the output from the <a>DescribeClusterParameterGroups</a> action. 
-  * Marker [String](#string)
-  * ParameterGroups [ParameterGroupList](#parametergrouplist)
+  * Marker
+  * ParameterGroups
+    * items
+      * Description
+      * ParameterGroupFamily
+      * ParameterGroupName
+      * Tags
+        * items
+          * Key
+          * Value
 
 ### ClusterParameterStatus
 * ClusterParameterStatus `object`: Describes the status of a parameter group.
-  * ParameterApplyErrorDescription [String](#string)
-  * ParameterApplyStatus [String](#string)
-  * ParameterName [String](#string)
+  * ParameterApplyErrorDescription
+  * ParameterApplyStatus
+  * ParameterName
 
 ### ClusterParameterStatusList
 * ClusterParameterStatusList `array`
   * items [ClusterParameterStatus](#clusterparameterstatus)
 
 ### ClusterQuotaExceededFault
-* ClusterQuotaExceededFault `object`: The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ClusterSecurityGroup
 * ClusterSecurityGroup `object`: Describes a security group.
-  * ClusterSecurityGroupName [String](#string)
-  * Description [String](#string)
-  * EC2SecurityGroups [EC2SecurityGroupList](#ec2securitygrouplist)
-  * IPRanges [IPRangeList](#iprangelist)
-  * Tags [TagList](#taglist)
+  * ClusterSecurityGroupName
+  * Description
+  * EC2SecurityGroups
+    * items
+      * EC2SecurityGroupName
+      * EC2SecurityGroupOwnerId
+      * Status
+      * Tags
+        * items
+          * Key
+          * Value
+  * IPRanges
+    * items
+      * CIDRIP
+      * Status
+      * Tags
+        * items
+          * Key
+          * Value
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### ClusterSecurityGroupAlreadyExistsFault
-* ClusterSecurityGroupAlreadyExistsFault `object`: A cluster security group with the same name already exists.
+
 
 ### ClusterSecurityGroupMembership
 * ClusterSecurityGroupMembership `object`: Describes a cluster security group.
-  * ClusterSecurityGroupName [String](#string)
-  * Status [String](#string)
+  * ClusterSecurityGroupName
+  * Status
 
 ### ClusterSecurityGroupMembershipList
 * ClusterSecurityGroupMembershipList `array`
-  * items [ClusterSecurityGroupMembership](#clustersecuritygroupmembership)
+  * items
+    * ClusterSecurityGroupName
+    * Status
 
 ### ClusterSecurityGroupMessage
 * ClusterSecurityGroupMessage `object`: <p/>
-  * ClusterSecurityGroups [ClusterSecurityGroups](#clustersecuritygroups)
-  * Marker [String](#string)
+  * ClusterSecurityGroups
+    * items
+      * ClusterSecurityGroupName
+      * Description
+      * EC2SecurityGroups
+        * items
+          * EC2SecurityGroupName
+          * EC2SecurityGroupOwnerId
+          * Status
+          * Tags
+      * IPRanges
+        * items
+          * CIDRIP
+          * Status
+          * Tags
+      * Tags
+        * items
+          * Key
+          * Value
+  * Marker
 
 ### ClusterSecurityGroupNameList
 * ClusterSecurityGroupNameList `array`
-  * items [String](#string)
+  * items
 
 ### ClusterSecurityGroupNotFoundFault
-* ClusterSecurityGroupNotFoundFault `object`: The cluster security group name does not refer to an existing cluster security group.
+
 
 ### ClusterSecurityGroupQuotaExceededFault
-* ClusterSecurityGroupQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ClusterSecurityGroups
 * ClusterSecurityGroups `array`
-  * items [ClusterSecurityGroup](#clustersecuritygroup)
+  * items
+    * ClusterSecurityGroupName
+    * Description
+    * EC2SecurityGroups
+      * items
+        * EC2SecurityGroupName
+        * EC2SecurityGroupOwnerId
+        * Status
+        * Tags
+          * items
+    * IPRanges
+      * items
+        * CIDRIP
+        * Status
+        * Tags
+          * items
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### ClusterSnapshotAlreadyExistsFault
-* ClusterSnapshotAlreadyExistsFault `object`: The value specified as a snapshot identifier is already used by an existing snapshot.
+
 
 ### ClusterSnapshotCopyStatus
 * ClusterSnapshotCopyStatus `object`: Returns the destination region and retention period that are configured for cross-region snapshot copy.
-  * DestinationRegion [String](#string)
-  * RetentionPeriod [Long](#long)
-  * SnapshotCopyGrantName [String](#string)
+  * DestinationRegion
+  * ManualSnapshotRetentionPeriod
+  * RetentionPeriod
+  * SnapshotCopyGrantName
 
 ### ClusterSnapshotNotFoundFault
-* ClusterSnapshotNotFoundFault `object`: The snapshot identifier does not refer to an existing cluster snapshot.
+
 
 ### ClusterSnapshotQuotaExceededFault
-* ClusterSnapshotQuotaExceededFault `object`: The request would result in the user exceeding the allowed number of cluster snapshots.
+
 
 ### ClusterSubnetGroup
 * ClusterSubnetGroup `object`: Describes a subnet group.
-  * ClusterSubnetGroupName [String](#string)
-  * Description [String](#string)
-  * SubnetGroupStatus [String](#string)
-  * Subnets [SubnetList](#subnetlist)
-  * Tags [TagList](#taglist)
-  * VpcId [String](#string)
+  * ClusterSubnetGroupName
+  * Description
+  * SubnetGroupStatus
+  * Subnets
+    * items
+      * SubnetAvailabilityZone
+        * Name
+        * SupportedPlatforms
+          * items
+      * SubnetIdentifier
+      * SubnetStatus
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcId
 
 ### ClusterSubnetGroupAlreadyExistsFault
-* ClusterSubnetGroupAlreadyExistsFault `object`: A <i>ClusterSubnetGroupName</i> is already used by an existing cluster subnet group. 
+
 
 ### ClusterSubnetGroupMessage
 * ClusterSubnetGroupMessage `object`: Contains the output from the <a>DescribeClusterSubnetGroups</a> action. 
-  * ClusterSubnetGroups [ClusterSubnetGroups](#clustersubnetgroups)
-  * Marker [String](#string)
+  * ClusterSubnetGroups
+    * items
+      * ClusterSubnetGroupName
+      * Description
+      * SubnetGroupStatus
+      * Subnets
+        * items
+          * SubnetAvailabilityZone
+          * SubnetIdentifier
+          * SubnetStatus
+      * Tags
+        * items
+          * Key
+          * Value
+      * VpcId
+  * Marker
 
 ### ClusterSubnetGroupNotFoundFault
-* ClusterSubnetGroupNotFoundFault `object`: The cluster subnet group name does not refer to an existing cluster subnet group.
+
 
 ### ClusterSubnetGroupQuotaExceededFault
-* ClusterSubnetGroupQuotaExceededFault `object`: The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ClusterSubnetGroups
 * ClusterSubnetGroups `array`
-  * items [ClusterSubnetGroup](#clustersubnetgroup)
+  * items
+    * ClusterSubnetGroupName
+    * Description
+    * SubnetGroupStatus
+    * Subnets
+      * items
+        * SubnetAvailabilityZone
+          * Name
+          * SupportedPlatforms
+        * SubnetIdentifier
+        * SubnetStatus
+    * Tags
+      * items
+        * Key
+        * Value
+    * VpcId
 
 ### ClusterSubnetQuotaExceededFault
-* ClusterSubnetQuotaExceededFault `object`: The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ClusterVersion
 * ClusterVersion `object`: Describes a cluster version, including the parameter group family and description of the version.
-  * ClusterParameterGroupFamily [String](#string)
-  * ClusterVersion [String](#string)
-  * Description [String](#string)
+  * ClusterParameterGroupFamily
+  * ClusterVersion
+  * Description
 
 ### ClusterVersionList
 * ClusterVersionList `array`
-  * items [ClusterVersion](#clusterversion)
+  * items
+    * ClusterParameterGroupFamily
+    * ClusterVersion
+    * Description
 
 ### ClusterVersionsMessage
 * ClusterVersionsMessage `object`: Contains the output from the <a>DescribeClusterVersions</a> action. 
-  * ClusterVersions [ClusterVersionList](#clusterversionlist)
-  * Marker [String](#string)
+  * ClusterVersions
+    * items
+      * ClusterParameterGroupFamily
+      * ClusterVersion
+      * Description
+  * Marker
 
 ### ClustersMessage
 * ClustersMessage `object`: Contains the output from the <a>DescribeClusters</a> action. 
-  * Clusters [ClusterList](#clusterlist)
-  * Marker [String](#string)
+  * Clusters
+    * items
+      * AllowVersionUpgrade
+      * AutomatedSnapshotRetentionPeriod
+      * AvailabilityZone
+      * AvailabilityZoneRelocationStatus
+      * ClusterAvailabilityStatus
+      * ClusterCreateTime
+      * ClusterIdentifier
+      * ClusterNamespaceArn
+      * ClusterNodes
+        * items [ClusterNode](#clusternode)
+      * ClusterParameterGroups
+        * items
+          * ClusterParameterStatusList
+          * ParameterApplyStatus
+          * ParameterGroupName
+      * ClusterPublicKey
+      * ClusterRevisionNumber
+      * ClusterSecurityGroups
+        * items
+          * ClusterSecurityGroupName
+          * Status
+      * ClusterSnapshotCopyStatus
+        * DestinationRegion
+        * ManualSnapshotRetentionPeriod
+        * RetentionPeriod
+        * SnapshotCopyGrantName
+      * ClusterStatus
+      * ClusterSubnetGroupName
+      * ClusterVersion
+      * DBName
+      * DataTransferProgress
+        * CurrentRateInMegaBytesPerSecond
+        * DataTransferredInMegaBytes
+        * ElapsedTimeInSeconds
+        * EstimatedTimeToCompletionInSeconds
+        * Status
+        * TotalDataInMegaBytes
+      * DeferredMaintenanceWindows
+        * items
+          * DeferMaintenanceEndTime
+          * DeferMaintenanceIdentifier
+          * DeferMaintenanceStartTime
+      * ElasticIpStatus
+        * ElasticIp
+        * Status
+      * ElasticResizeNumberOfNodeOptions
+      * Encrypted
+      * Endpoint
+        * Address
+        * Port
+        * VpcEndpoints
+          * items
+      * EnhancedVpcRouting
+      * ExpectedNextSnapshotScheduleTime
+      * ExpectedNextSnapshotScheduleTimeStatus
+      * HsmStatus
+        * HsmClientCertificateIdentifier
+        * HsmConfigurationIdentifier
+        * Status
+      * IamRoles
+        * items
+          * ApplyStatus
+          * IamRoleArn
+      * KmsKeyId
+      * MaintenanceTrackName
+      * ManualSnapshotRetentionPeriod
+      * MasterUsername
+      * ModifyStatus
+      * NextMaintenanceWindowStartTime
+      * NodeType
+      * NumberOfNodes
+      * PendingActions
+        * items [String](#string)
+      * PendingModifiedValues
+        * AutomatedSnapshotRetentionPeriod
+        * ClusterIdentifier
+        * ClusterType
+        * ClusterVersion
+        * EncryptionType
+        * EnhancedVpcRouting
+        * MaintenanceTrackName
+        * MasterUserPassword
+        * NodeType
+        * NumberOfNodes
+        * PubliclyAccessible
+      * PreferredMaintenanceWindow
+      * PubliclyAccessible
+      * ResizeInfo
+        * AllowCancelResize
+        * ResizeType
+      * RestoreStatus
+        * CurrentRestoreRateInMegaBytesPerSecond
+        * ElapsedTimeInSeconds
+        * EstimatedTimeToCompletionInSeconds
+        * ProgressInMegaBytes
+        * SnapshotSizeInMegaBytes
+        * Status
+      * SnapshotScheduleIdentifier
+      * SnapshotScheduleState
+      * Tags
+        * items
+          * Key
+          * Value
+      * VpcId
+      * VpcSecurityGroups
+        * items
+          * Status
+          * VpcSecurityGroupId
+  * Marker
 
 ### CopyClusterSnapshotMessage
 * CopyClusterSnapshotMessage `object`: <p/>
-  * SourceSnapshotClusterIdentifier [String](#string)
-  * SourceSnapshotIdentifier **required** [String](#string)
-  * TargetSnapshotIdentifier **required** [String](#string)
+  * ManualSnapshotRetentionPeriod
+  * SourceSnapshotClusterIdentifier
+  * SourceSnapshotIdentifier **required**
+  * TargetSnapshotIdentifier **required**
 
 ### CopyClusterSnapshotResult
 * CopyClusterSnapshotResult `object`
   * Snapshot [Snapshot](#snapshot)
 
 ### CopyToRegionDisabledFault
-* CopyToRegionDisabledFault `object`: Cross-region snapshot copy was temporarily disabled. Try your request again.
+
 
 ### CreateClusterMessage
 * CreateClusterMessage `object`: <p/>
-  * AdditionalInfo [String](#string)
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * AvailabilityZone [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterSubnetGroupName [String](#string)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * DBName [String](#string)
-  * ElasticIp [String](#string)
-  * Encrypted [BooleanOptional](#booleanoptional)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * IamRoles [IamRoleArnList](#iamrolearnlist)
-  * KmsKeyId [String](#string)
-  * MasterUserPassword **required** [String](#string)
-  * MasterUsername **required** [String](#string)
-  * NodeType **required** [String](#string)
-  * NumberOfNodes [IntegerOptional](#integeroptional)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * Tags [TagList](#taglist)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AdditionalInfo
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterSubnetGroupName
+  * ClusterType
+  * ClusterVersion
+  * DBName
+  * ElasticIp
+  * Encrypted
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * IamRoles
+    * items
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * MasterUserPassword **required**
+  * MasterUsername **required**
+  * NodeType **required**
+  * NumberOfNodes
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * SnapshotScheduleIdentifier
+  * Tags
+    * items
+      * Key
+      * Value
+  * VpcSecurityGroupIds
+    * items
 
 ### CreateClusterParameterGroupMessage
 * CreateClusterParameterGroupMessage `object`: <p/>
-  * Description **required** [String](#string)
-  * ParameterGroupFamily **required** [String](#string)
-  * ParameterGroupName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * Description **required**
+  * ParameterGroupFamily **required**
+  * ParameterGroupName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateClusterParameterGroupResult
 * CreateClusterParameterGroupResult `object`
@@ -1687,9 +4912,12 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateClusterSecurityGroupMessage
 * CreateClusterSecurityGroupMessage `object`: <p/>
-  * ClusterSecurityGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * ClusterSecurityGroupName **required**
+  * Description **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateClusterSecurityGroupResult
 * CreateClusterSecurityGroupResult `object`
@@ -1697,9 +4925,13 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateClusterSnapshotMessage
 * CreateClusterSnapshotMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * ClusterIdentifier **required**
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateClusterSnapshotResult
 * CreateClusterSnapshotResult `object`
@@ -1707,10 +4939,14 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateClusterSubnetGroupMessage
 * CreateClusterSubnetGroupMessage `object`: <p/>
-  * ClusterSubnetGroupName **required** [String](#string)
-  * Description **required** [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
-  * Tags [TagList](#taglist)
+  * ClusterSubnetGroupName **required**
+  * Description **required**
+  * SubnetIds **required**
+    * items
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateClusterSubnetGroupResult
 * CreateClusterSubnetGroupResult `object`
@@ -1718,14 +4954,19 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateEventSubscriptionMessage
 * CreateEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Severity [String](#string)
-  * SnsTopicArn **required** [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * Enabled
+  * EventCategories
+    * items
+  * Severity
+  * SnsTopicArn **required**
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateEventSubscriptionResult
 * CreateEventSubscriptionResult `object`
@@ -1733,8 +4974,11 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateHsmClientCertificateMessage
 * CreateHsmClientCertificateMessage `object`: <p/>
-  * HsmClientCertificateIdentifier **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * HsmClientCertificateIdentifier **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateHsmClientCertificateResult
 * CreateHsmClientCertificateResult `object`
@@ -1742,52 +4986,146 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### CreateHsmConfigurationMessage
 * CreateHsmConfigurationMessage `object`: <p/>
-  * Description **required** [String](#string)
-  * HsmConfigurationIdentifier **required** [String](#string)
-  * HsmIpAddress **required** [String](#string)
-  * HsmPartitionName **required** [String](#string)
-  * HsmPartitionPassword **required** [String](#string)
-  * HsmServerPublicCertificate **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * Description **required**
+  * HsmConfigurationIdentifier **required**
+  * HsmIpAddress **required**
+  * HsmPartitionName **required**
+  * HsmPartitionPassword **required**
+  * HsmServerPublicCertificate **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateHsmConfigurationResult
 * CreateHsmConfigurationResult `object`
   * HsmConfiguration [HsmConfiguration](#hsmconfiguration)
 
+### CreateScheduledActionMessage
+* CreateScheduledActionMessage `object`
+  * Enable
+  * EndTime
+  * IamRole **required**
+  * Schedule **required**
+  * ScheduledActionDescription
+  * ScheduledActionName **required**
+  * StartTime
+  * TargetAction **required**
+    * PauseCluster
+      * ClusterIdentifier **required**
+    * ResizeCluster
+      * Classic
+      * ClusterIdentifier **required**
+      * ClusterType
+      * NodeType
+      * NumberOfNodes
+    * ResumeCluster
+      * ClusterIdentifier **required**
+
 ### CreateSnapshotCopyGrantMessage
 * CreateSnapshotCopyGrantMessage `object`: The result of the <code>CreateSnapshotCopyGrant</code> action.
-  * KmsKeyId [String](#string)
-  * SnapshotCopyGrantName **required** [String](#string)
-  * Tags [TagList](#taglist)
+  * KmsKeyId
+  * SnapshotCopyGrantName **required**
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### CreateSnapshotCopyGrantResult
 * CreateSnapshotCopyGrantResult `object`
   * SnapshotCopyGrant [SnapshotCopyGrant](#snapshotcopygrant)
 
+### CreateSnapshotScheduleMessage
+* CreateSnapshotScheduleMessage `object`
+  * DryRun
+  * NextInvocations
+  * ScheduleDefinitions
+    * items
+  * ScheduleDescription
+  * ScheduleIdentifier
+  * Tags
+    * items
+      * Key
+      * Value
+
 ### CreateTagsMessage
 * CreateTagsMessage `object`: Contains the output from the <code>CreateTags</code> action. 
-  * ResourceName **required** [String](#string)
-  * Tags **required** [TagList](#taglist)
+  * ResourceName **required**
+  * Tags **required**
+    * items
+      * Key
+      * Value
+
+### CreateUsageLimitMessage
+* CreateUsageLimitMessage `object`
+  * Amount **required**
+  * BreachAction
+  * ClusterIdentifier **required**
+  * FeatureType **required**
+  * LimitType **required**
+  * Period
+  * Tags
+    * items
+      * Key
+      * Value
+
+### CustomerStorageMessage
+* CustomerStorageMessage `object`
+  * TotalBackupSizeInMegaBytes
+  * TotalProvisionedStorageInMegaBytes
+
+### DataTransferProgress
+* DataTransferProgress `object`: Describes the status of a cluster while it is in the process of resizing with an incremental resize.
+  * CurrentRateInMegaBytesPerSecond
+  * DataTransferredInMegaBytes
+  * ElapsedTimeInSeconds
+  * EstimatedTimeToCompletionInSeconds
+  * Status
+  * TotalDataInMegaBytes
 
 ### DbGroupList
 * DbGroupList `array`
-  * items [String](#string)
+  * items
 
 ### DefaultClusterParameters
 * DefaultClusterParameters `object`: Describes the default cluster parameters for a parameter group family.
-  * Marker [String](#string)
-  * ParameterGroupFamily [String](#string)
-  * Parameters [ParametersList](#parameterslist)
+  * Marker
+  * ParameterGroupFamily
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+
+### DeferredMaintenanceWindow
+* DeferredMaintenanceWindow `object`: Describes a deferred maintenance window
+  * DeferMaintenanceEndTime
+  * DeferMaintenanceIdentifier
+  * DeferMaintenanceStartTime
+
+### DeferredMaintenanceWindowsList
+* DeferredMaintenanceWindowsList `array`
+  * items
+    * DeferMaintenanceEndTime
+    * DeferMaintenanceIdentifier
+    * DeferMaintenanceStartTime
 
 ### DeleteClusterMessage
 * DeleteClusterMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
-  * FinalClusterSnapshotIdentifier [String](#string)
-  * SkipFinalClusterSnapshot [Boolean](#boolean)
+  * ClusterIdentifier **required**
+  * FinalClusterSnapshotIdentifier
+  * FinalClusterSnapshotRetentionPeriod
+  * SkipFinalClusterSnapshot
 
 ### DeleteClusterParameterGroupMessage
 * DeleteClusterParameterGroupMessage `object`: <p/>
-  * ParameterGroupName **required** [String](#string)
+  * ParameterGroupName **required**
 
 ### DeleteClusterResult
 * DeleteClusterResult `object`
@@ -1795,12 +5133,18 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### DeleteClusterSecurityGroupMessage
 * DeleteClusterSecurityGroupMessage `object`: <p/>
-  * ClusterSecurityGroupName **required** [String](#string)
+  * ClusterSecurityGroupName **required**
 
 ### DeleteClusterSnapshotMessage
 * DeleteClusterSnapshotMessage `object`: <p/>
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
+
+### DeleteClusterSnapshotMessageList
+* DeleteClusterSnapshotMessageList `array`
+  * items
+    * SnapshotClusterIdentifier
+    * SnapshotIdentifier **required**
 
 ### DeleteClusterSnapshotResult
 * DeleteClusterSnapshotResult `object`
@@ -1808,100 +5152,144 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### DeleteClusterSubnetGroupMessage
 * DeleteClusterSubnetGroupMessage `object`: <p/>
-  * ClusterSubnetGroupName **required** [String](#string)
+  * ClusterSubnetGroupName **required**
 
 ### DeleteEventSubscriptionMessage
 * DeleteEventSubscriptionMessage `object`: <p/>
-  * SubscriptionName **required** [String](#string)
+  * SubscriptionName **required**
 
 ### DeleteHsmClientCertificateMessage
 * DeleteHsmClientCertificateMessage `object`: <p/>
-  * HsmClientCertificateIdentifier **required** [String](#string)
+  * HsmClientCertificateIdentifier **required**
 
 ### DeleteHsmConfigurationMessage
 * DeleteHsmConfigurationMessage `object`: <p/>
-  * HsmConfigurationIdentifier **required** [String](#string)
+  * HsmConfigurationIdentifier **required**
+
+### DeleteScheduledActionMessage
+* DeleteScheduledActionMessage `object`
+  * ScheduledActionName **required**
 
 ### DeleteSnapshotCopyGrantMessage
 * DeleteSnapshotCopyGrantMessage `object`: The result of the <code>DeleteSnapshotCopyGrant</code> action.
-  * SnapshotCopyGrantName **required** [String](#string)
+  * SnapshotCopyGrantName **required**
+
+### DeleteSnapshotScheduleMessage
+* DeleteSnapshotScheduleMessage `object`
+  * ScheduleIdentifier **required**
 
 ### DeleteTagsMessage
 * DeleteTagsMessage `object`: Contains the output from the <code>DeleteTags</code> action. 
-  * ResourceName **required** [String](#string)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * ResourceName **required**
+  * TagKeys **required**
+    * items
+
+### DeleteUsageLimitMessage
+* DeleteUsageLimitMessage `object`
+  * UsageLimitId **required**
 
 ### DependentServiceRequestThrottlingFault
-* DependentServiceRequestThrottlingFault `object`: The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
+
 
 ### DependentServiceUnavailableFault
-* DependentServiceUnavailableFault `object`: Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
+
+
+### DescribeAccountAttributesMessage
+* DescribeAccountAttributesMessage `object`
+  * AttributeNames
+    * items
+
+### DescribeClusterDbRevisionsMessage
+* DescribeClusterDbRevisionsMessage `object`
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
 
 ### DescribeClusterParameterGroupsMessage
 * DescribeClusterParameterGroupsMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * ParameterGroupName
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeClusterParametersMessage
 * DescribeClusterParametersMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupName **required** [String](#string)
-  * Source [String](#string)
+  * Marker
+  * MaxRecords
+  * ParameterGroupName **required**
+  * Source
 
 ### DescribeClusterSecurityGroupsMessage
 * DescribeClusterSecurityGroupsMessage `object`: <p/>
-  * ClusterSecurityGroupName [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterSecurityGroupName
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeClusterSnapshotsMessage
 * DescribeClusterSnapshotsMessage `object`: <p/>
-  * ClusterExists [BooleanOptional](#booleanoptional)
-  * ClusterIdentifier [String](#string)
-  * EndTime [TStamp](#tstamp)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * OwnerAccount [String](#string)
-  * SnapshotIdentifier [String](#string)
-  * SnapshotType [String](#string)
-  * StartTime [TStamp](#tstamp)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterExists
+  * ClusterIdentifier
+  * EndTime
+  * Marker
+  * MaxRecords
+  * OwnerAccount
+  * SnapshotIdentifier
+  * SnapshotType
+  * SortingEntities
+    * items
+      * Attribute **required**
+      * SortOrder
+  * StartTime
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeClusterSubnetGroupsMessage
 * DescribeClusterSubnetGroupsMessage `object`: <p/>
-  * ClusterSubnetGroupName [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterSubnetGroupName
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+### DescribeClusterTracksMessage
+* DescribeClusterTracksMessage `object`
+  * MaintenanceTrackName
+  * Marker
+  * MaxRecords
 
 ### DescribeClusterVersionsMessage
 * DescribeClusterVersionsMessage `object`: <p/>
-  * ClusterParameterGroupFamily [String](#string)
-  * ClusterVersion [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
+  * ClusterParameterGroupFamily
+  * ClusterVersion
+  * Marker
+  * MaxRecords
 
 ### DescribeClustersMessage
 * DescribeClustersMessage `object`: <p/>
-  * ClusterIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeDefaultClusterParametersMessage
 * DescribeDefaultClusterParametersMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ParameterGroupFamily **required** [String](#string)
+  * Marker
+  * MaxRecords
+  * ParameterGroupFamily **required**
 
 ### DescribeDefaultClusterParametersResult
 * DescribeDefaultClusterParametersResult `object`
@@ -1909,100 +5297,184 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### DescribeEventCategoriesMessage
 * DescribeEventCategoriesMessage `object`: <p/>
-  * SourceType [String](#string)
+  * SourceType
 
 ### DescribeEventSubscriptionsMessage
 * DescribeEventSubscriptionsMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SubscriptionName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * SubscriptionName
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeEventsMessage
 * DescribeEventsMessage `object`: <p/>
-  * Duration [IntegerOptional](#integeroptional)
-  * EndTime [TStamp](#tstamp)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
-  * StartTime [TStamp](#tstamp)
+  * Duration
+  * EndTime
+  * Marker
+  * MaxRecords
+  * SourceIdentifier
+  * SourceType
+  * StartTime
 
 ### DescribeHsmClientCertificatesMessage
 * DescribeHsmClientCertificatesMessage `object`: <p/>
-  * HsmClientCertificateIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * HsmClientCertificateIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeHsmConfigurationsMessage
 * DescribeHsmConfigurationsMessage `object`: <p/>
-  * HsmConfigurationIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * HsmConfigurationIdentifier
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
 
 ### DescribeLoggingStatusMessage
 * DescribeLoggingStatusMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
+
+### DescribeNodeConfigurationOptionsMessage
+* DescribeNodeConfigurationOptionsMessage `object`
+  * ActionType **required**
+  * ClusterIdentifier
+  * Filters
+    * items
+      * Name
+      * Operator
+      * Values
+        * items
+  * Marker
+  * MaxRecords
+  * OwnerAccount
+  * SnapshotIdentifier
 
 ### DescribeOrderableClusterOptionsMessage
 * DescribeOrderableClusterOptionsMessage `object`: <p/>
-  * ClusterVersion [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * NodeType [String](#string)
+  * ClusterVersion
+  * Marker
+  * MaxRecords
+  * NodeType
 
 ### DescribeReservedNodeOfferingsMessage
 * DescribeReservedNodeOfferingsMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReservedNodeOfferingId [String](#string)
+  * Marker
+  * MaxRecords
+  * ReservedNodeOfferingId
 
 ### DescribeReservedNodesMessage
 * DescribeReservedNodesMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ReservedNodeId [String](#string)
+  * Marker
+  * MaxRecords
+  * ReservedNodeId
 
 ### DescribeResizeMessage
 * DescribeResizeMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
+
+### DescribeScheduledActionsMessage
+* DescribeScheduledActionsMessage `object`
+  * Active
+  * EndTime
+  * Filters
+    * items
+      * Name **required**
+      * Values **required**
+        * items
+  * Marker
+  * MaxRecords
+  * ScheduledActionName
+  * StartTime
+  * TargetActionType
 
 ### DescribeSnapshotCopyGrantsMessage
 * DescribeSnapshotCopyGrantsMessage `object`: The result of the <code>DescribeSnapshotCopyGrants</code> action.
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * SnapshotCopyGrantName [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * SnapshotCopyGrantName
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+### DescribeSnapshotSchedulesMessage
+* DescribeSnapshotSchedulesMessage `object`
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * ScheduleIdentifier
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+### DescribeSnapshotSchedulesOutputMessage
+* DescribeSnapshotSchedulesOutputMessage `object`
+  * Marker
+  * SnapshotSchedules
+    * items
+      * AssociatedClusterCount
+      * AssociatedClusters
+        * items
+          * ClusterIdentifier
+          * ScheduleAssociationState
+      * NextInvocations
+        * items
+      * ScheduleDefinitions
+        * items
+      * ScheduleDescription
+      * ScheduleIdentifier
+      * Tags
+        * items
+          * Key
+          * Value
 
 ### DescribeTableRestoreStatusMessage
 * DescribeTableRestoreStatusMessage `object`: <p/>
-  * ClusterIdentifier [String](#string)
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * TableRestoreRequestId [String](#string)
+  * ClusterIdentifier
+  * Marker
+  * MaxRecords
+  * TableRestoreRequestId
 
 ### DescribeTagsMessage
 * DescribeTagsMessage `object`: <p/>
-  * Marker [String](#string)
-  * MaxRecords [IntegerOptional](#integeroptional)
-  * ResourceName [String](#string)
-  * ResourceType [String](#string)
-  * TagKeys [TagKeyList](#tagkeylist)
-  * TagValues [TagValueList](#tagvaluelist)
+  * Marker
+  * MaxRecords
+  * ResourceName
+  * ResourceType
+  * TagKeys
+    * items
+  * TagValues
+    * items
+
+### DescribeUsageLimitsMessage
+* DescribeUsageLimitsMessage `object`
+  * ClusterIdentifier
+  * FeatureType
+  * Marker
+  * MaxRecords
+  * TagKeys
+    * items
+  * TagValues
+    * items
+  * UsageLimitId
 
 ### DisableLoggingMessage
 * DisableLoggingMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
 
 ### DisableSnapshotCopyMessage
 * DisableSnapshotCopyMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
 
 ### DisableSnapshotCopyResult
 * DisableSnapshotCopyResult `object`
@@ -2016,32 +5488,52 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### EC2SecurityGroup
 * EC2SecurityGroup `object`: Describes an Amazon EC2 security group.
-  * EC2SecurityGroupName [String](#string)
-  * EC2SecurityGroupOwnerId [String](#string)
-  * Status [String](#string)
-  * Tags [TagList](#taglist)
+  * EC2SecurityGroupName
+  * EC2SecurityGroupOwnerId
+  * Status
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### EC2SecurityGroupList
 * EC2SecurityGroupList `array`
-  * items [EC2SecurityGroup](#ec2securitygroup)
+  * items
+    * EC2SecurityGroupName
+    * EC2SecurityGroupOwnerId
+    * Status
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### ElasticIpStatus
 * ElasticIpStatus `object`: Describes the status of the elastic IP (EIP) address.
-  * ElasticIp [String](#string)
-  * Status [String](#string)
+  * ElasticIp
+  * Status
+
+### EligibleTracksToUpdateList
+* EligibleTracksToUpdateList `array`
+  * items
+    * DatabaseVersion
+    * MaintenanceTrackName
+    * SupportedOperations
+      * items
+        * OperationName
 
 ### EnableLoggingMessage
 * EnableLoggingMessage `object`: <p/>
-  * BucketName **required** [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * S3KeyPrefix [String](#string)
+  * BucketName **required**
+  * ClusterIdentifier **required**
+  * S3KeyPrefix
 
 ### EnableSnapshotCopyMessage
 * EnableSnapshotCopyMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
-  * DestinationRegion **required** [String](#string)
-  * RetentionPeriod [IntegerOptional](#integeroptional)
-  * SnapshotCopyGrantName [String](#string)
+  * ClusterIdentifier **required**
+  * DestinationRegion **required**
+  * ManualSnapshotRetentionPeriod
+  * RetentionPeriod
+  * SnapshotCopyGrantName
 
 ### EnableSnapshotCopyResult
 * EnableSnapshotCopyResult `object`
@@ -2049,160 +5541,317 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### Endpoint
 * Endpoint `object`: Describes a connection endpoint.
-  * Address [String](#string)
-  * Port [Integer](#integer)
+  * Address
+  * Port
+  * VpcEndpoints
+    * items
+      * VpcEndpointId
 
 ### Event
 * Event `object`: Describes an event.
-  * Date [TStamp](#tstamp)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * EventId [String](#string)
-  * Message [String](#string)
-  * Severity [String](#string)
-  * SourceIdentifier [String](#string)
-  * SourceType [SourceType](#sourcetype)
+  * Date
+  * EventCategories
+    * items
+  * EventId
+  * Message
+  * Severity
+  * SourceIdentifier
+  * SourceType
 
 ### EventCategoriesList
 * EventCategoriesList `array`
-  * items [String](#string)
+  * items
 
 ### EventCategoriesMap
 * EventCategoriesMap `object`: Describes event categories.
-  * Events [EventInfoMapList](#eventinfomaplist)
-  * SourceType [String](#string)
+  * Events
+    * items
+      * EventCategories
+        * items
+      * EventDescription
+      * EventId
+      * Severity
+  * SourceType
 
 ### EventCategoriesMapList
 * EventCategoriesMapList `array`
-  * items [EventCategoriesMap](#eventcategoriesmap)
+  * items
+    * Events
+      * items
+        * EventCategories
+          * items
+        * EventDescription
+        * EventId
+        * Severity
+    * SourceType
 
 ### EventCategoriesMessage
 * EventCategoriesMessage `object`: <p/>
-  * EventCategoriesMapList [EventCategoriesMapList](#eventcategoriesmaplist)
+  * EventCategoriesMapList
+    * items
+      * Events
+        * items
+          * EventCategories
+          * EventDescription
+          * EventId
+          * Severity
+      * SourceType
 
 ### EventInfoMap
 * EventInfoMap `object`: Describes event information.
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * EventDescription [String](#string)
-  * EventId [String](#string)
-  * Severity [String](#string)
+  * EventCategories
+    * items
+  * EventDescription
+  * EventId
+  * Severity
 
 ### EventInfoMapList
 * EventInfoMapList `array`
-  * items [EventInfoMap](#eventinfomap)
+  * items
+    * EventCategories
+      * items
+    * EventDescription
+    * EventId
+    * Severity
 
 ### EventList
 * EventList `array`
-  * items [Event](#event)
+  * items
+    * Date
+    * EventCategories
+      * items
+    * EventId
+    * Message
+    * Severity
+    * SourceIdentifier
+    * SourceType
 
 ### EventSubscription
 * EventSubscription `object`: Describes event subscriptions.
-  * CustSubscriptionId [String](#string)
-  * CustomerAwsId [String](#string)
-  * Enabled [Boolean](#boolean)
-  * EventCategoriesList [EventCategoriesList](#eventcategorieslist)
-  * Severity [String](#string)
-  * SnsTopicArn [String](#string)
-  * SourceIdsList [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * Status [String](#string)
-  * SubscriptionCreationTime [TStamp](#tstamp)
-  * Tags [TagList](#taglist)
+  * CustSubscriptionId
+  * CustomerAwsId
+  * Enabled
+  * EventCategoriesList
+    * items
+  * Severity
+  * SnsTopicArn
+  * SourceIdsList
+    * items
+  * SourceType
+  * Status
+  * SubscriptionCreationTime
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### EventSubscriptionQuotaExceededFault
-* EventSubscriptionQuotaExceededFault `object`: The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### EventSubscriptionsList
 * EventSubscriptionsList `array`
-  * items [EventSubscription](#eventsubscription)
+  * items
+    * CustSubscriptionId
+    * CustomerAwsId
+    * Enabled
+    * EventCategoriesList
+      * items
+    * Severity
+    * SnsTopicArn
+    * SourceIdsList
+      * items
+    * SourceType
+    * Status
+    * SubscriptionCreationTime
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### EventSubscriptionsMessage
 * EventSubscriptionsMessage `object`: <p/>
-  * EventSubscriptionsList [EventSubscriptionsList](#eventsubscriptionslist)
-  * Marker [String](#string)
+  * EventSubscriptionsList
+    * items
+      * CustSubscriptionId
+      * CustomerAwsId
+      * Enabled
+      * EventCategoriesList
+        * items
+      * Severity
+      * SnsTopicArn
+      * SourceIdsList
+        * items
+      * SourceType
+      * Status
+      * SubscriptionCreationTime
+      * Tags
+        * items
+          * Key
+          * Value
+  * Marker
 
 ### EventsMessage
 * EventsMessage `object`: <p/>
-  * Events [EventList](#eventlist)
-  * Marker [String](#string)
+  * Events
+    * items
+      * Date
+      * EventCategories
+        * items
+      * EventId
+      * Message
+      * Severity
+      * SourceIdentifier
+      * SourceType
+  * Marker
 
 ### GetClusterCredentialsMessage
 * GetClusterCredentialsMessage `object`: The request parameters to get cluster credentials.
-  * AutoCreate [BooleanOptional](#booleanoptional)
-  * ClusterIdentifier **required** [String](#string)
-  * DbGroups [DbGroupList](#dbgrouplist)
-  * DbName [String](#string)
-  * DbUser **required** [String](#string)
-  * DurationSeconds [IntegerOptional](#integeroptional)
+  * AutoCreate
+  * ClusterIdentifier **required**
+  * DbGroups
+    * items
+  * DbName
+  * DbUser **required**
+  * DurationSeconds
+
+### GetReservedNodeExchangeOfferingsInputMessage
+* GetReservedNodeExchangeOfferingsInputMessage `object`: <p/>
+  * Marker
+  * MaxRecords
+  * ReservedNodeId **required**
+
+### GetReservedNodeExchangeOfferingsOutputMessage
+* GetReservedNodeExchangeOfferingsOutputMessage `object`
+  * Marker
+  * ReservedNodeOfferings
+    * items
+      * CurrencyCode
+      * Duration
+      * FixedPrice
+      * NodeType
+      * OfferingType
+      * RecurringCharges
+        * items
+          * RecurringChargeAmount
+          * RecurringChargeFrequency
+      * ReservedNodeOfferingId
+      * ReservedNodeOfferingType
+      * UsagePrice
 
 ### HsmClientCertificate
 * HsmClientCertificate `object`: Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmClientCertificatePublicKey [String](#string)
-  * Tags [TagList](#taglist)
+  * HsmClientCertificateIdentifier
+  * HsmClientCertificatePublicKey
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### HsmClientCertificateAlreadyExistsFault
-* HsmClientCertificateAlreadyExistsFault `object`: There is already an existing Amazon Redshift HSM client certificate with the specified identifier.
+
 
 ### HsmClientCertificateList
 * HsmClientCertificateList `array`
-  * items [HsmClientCertificate](#hsmclientcertificate)
+  * items
+    * HsmClientCertificateIdentifier
+    * HsmClientCertificatePublicKey
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### HsmClientCertificateMessage
 * HsmClientCertificateMessage `object`: <p/>
-  * HsmClientCertificates [HsmClientCertificateList](#hsmclientcertificatelist)
-  * Marker [String](#string)
+  * HsmClientCertificates
+    * items
+      * HsmClientCertificateIdentifier
+      * HsmClientCertificatePublicKey
+      * Tags
+        * items
+          * Key
+          * Value
+  * Marker
 
 ### HsmClientCertificateNotFoundFault
-* HsmClientCertificateNotFoundFault `object`: There is no Amazon Redshift HSM client certificate with the specified identifier.
+
 
 ### HsmClientCertificateQuotaExceededFault
-* HsmClientCertificateQuotaExceededFault `object`: The quota for HSM client certificates has been reached. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### HsmConfiguration
 * HsmConfiguration `object`: Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.
-  * Description [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * HsmIpAddress [String](#string)
-  * HsmPartitionName [String](#string)
-  * Tags [TagList](#taglist)
+  * Description
+  * HsmConfigurationIdentifier
+  * HsmIpAddress
+  * HsmPartitionName
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### HsmConfigurationAlreadyExistsFault
-* HsmConfigurationAlreadyExistsFault `object`: There is already an existing Amazon Redshift HSM configuration with the specified identifier.
+
 
 ### HsmConfigurationList
 * HsmConfigurationList `array`
-  * items [HsmConfiguration](#hsmconfiguration)
+  * items
+    * Description
+    * HsmConfigurationIdentifier
+    * HsmIpAddress
+    * HsmPartitionName
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### HsmConfigurationMessage
 * HsmConfigurationMessage `object`: <p/>
-  * HsmConfigurations [HsmConfigurationList](#hsmconfigurationlist)
-  * Marker [String](#string)
+  * HsmConfigurations
+    * items
+      * Description
+      * HsmConfigurationIdentifier
+      * HsmIpAddress
+      * HsmPartitionName
+      * Tags
+        * items
+          * Key
+          * Value
+  * Marker
 
 ### HsmConfigurationNotFoundFault
-* HsmConfigurationNotFoundFault `object`: There is no Amazon Redshift HSM configuration with the specified identifier.
+
 
 ### HsmConfigurationQuotaExceededFault
-* HsmConfigurationQuotaExceededFault `object`: The quota for HSM configurations has been reached. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### HsmStatus
 * HsmStatus `object`: Describes the status of changes to HSM settings.
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * Status [String](#string)
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * Status
 
 ### IPRange
 * IPRange `object`: Describes an IP range used in a security group.
-  * CIDRIP [String](#string)
-  * Status [String](#string)
-  * Tags [TagList](#taglist)
+  * CIDRIP
+  * Status
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### IPRangeList
 * IPRangeList `array`
-  * items [IPRange](#iprange)
+  * items
+    * CIDRIP
+    * Status
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### IamRoleArnList
 * IamRoleArnList `array`
-  * items [String](#string)
+  * items
 
 ### ImportTablesCompleted
 * ImportTablesCompleted `array`
@@ -2217,16 +5866,16 @@ amazonaws_redshift.RotateEncryptionKey({
   * items [String](#string)
 
 ### InProgressTableRestoreQuotaExceededFault
-* InProgressTableRestoreQuotaExceededFault `object`: You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.
+
 
 ### IncompatibleOrderableOptions
-* IncompatibleOrderableOptions `object`: The specified options are incompatible.
+
 
 ### InsufficientClusterCapacityFault
-* InsufficientClusterCapacityFault `object`: The number of nodes specified exceeds the allotted capacity of the cluster.
+
 
 ### InsufficientS3BucketPolicyFault
-* InsufficientS3BucketPolicyFault `object`: The cluster does not have read bucket or put object permissions on the S3 bucket specified when enabling logging.
+
 
 ### Integer
 * Integer `integer`
@@ -2235,70 +5884,91 @@ amazonaws_redshift.RotateEncryptionKey({
 * IntegerOptional `integer`
 
 ### InvalidClusterParameterGroupStateFault
-* InvalidClusterParameterGroupStateFault `object`: The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.
+
 
 ### InvalidClusterSecurityGroupStateFault
-* InvalidClusterSecurityGroupStateFault `object`: The state of the cluster security group is not <code>available</code>. 
+
+
+### InvalidClusterSnapshotScheduleStateFault
+
 
 ### InvalidClusterSnapshotStateFault
-* InvalidClusterSnapshotStateFault `object`: The specified cluster snapshot is not in the <code>available</code> state, or other accounts are authorized to access the snapshot. 
+
 
 ### InvalidClusterStateFault
-* InvalidClusterStateFault `object`: The specified cluster is not in the <code>available</code> state. 
+
 
 ### InvalidClusterSubnetGroupStateFault
-* InvalidClusterSubnetGroupStateFault `object`: The cluster subnet group cannot be deleted because it is in use.
+
 
 ### InvalidClusterSubnetStateFault
-* InvalidClusterSubnetStateFault `object`: The state of the subnet is invalid.
+
+
+### InvalidClusterTrackFault
+
 
 ### InvalidElasticIpFault
-* InvalidElasticIpFault `object`: The Elastic IP (EIP) is invalid or cannot be found.
+
 
 ### InvalidHsmClientCertificateStateFault
-* InvalidHsmClientCertificateStateFault `object`: The specified HSM client certificate is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.
+
 
 ### InvalidHsmConfigurationStateFault
-* InvalidHsmConfigurationStateFault `object`: The specified HSM configuration is not in the <code>available</code> state, or it is still in use by one or more Amazon Redshift clusters.
+
+
+### InvalidReservedNodeStateFault
+
 
 ### InvalidRestoreFault
-* InvalidRestoreFault `object`: The restore is invalid.
+
+
+### InvalidRetentionPeriodFault
+
 
 ### InvalidS3BucketNameFault
-* InvalidS3BucketNameFault `object`: The S3 bucket name is invalid. For more information about naming rules, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer Guide.
+
 
 ### InvalidS3KeyPrefixFault
-* InvalidS3KeyPrefixFault `object`: The string specified for the logging S3 key prefix does not comply with the documented constraints.
+
+
+### InvalidScheduleFault
+
+
+### InvalidScheduledActionFault
+
 
 ### InvalidSnapshotCopyGrantStateFault
-* InvalidSnapshotCopyGrantStateFault `object`: The snapshot copy grant can't be deleted because it is used by one or more clusters.
+
 
 ### InvalidSubnet
-* InvalidSubnet `object`: The requested subnet is not valid, or not all of the subnets are in the same VPC.
+
 
 ### InvalidSubscriptionStateFault
-* InvalidSubscriptionStateFault `object`: The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.
+
 
 ### InvalidTableRestoreArgumentFault
-* InvalidTableRestoreArgumentFault `object`: The value specified for the <code>sourceDatabaseName</code>, <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a combination of these, doesn't exist in the snapshot.
+
 
 ### InvalidTagFault
-* InvalidTagFault `object`: The tag is invalid.
+
+
+### InvalidUsageLimitFault
+
 
 ### InvalidVPCNetworkStateFault
-* InvalidVPCNetworkStateFault `object`: The cluster subnet group does not cover all Availability Zones.
+
 
 ### LimitExceededFault
-* LimitExceededFault `object`: The encryption key has exceeded its grant limit in AWS KMS.
+
 
 ### LoggingStatus
 * LoggingStatus `object`: Describes the status of logging for a cluster.
-  * BucketName [String](#string)
-  * LastFailureMessage [String](#string)
-  * LastFailureTime [TStamp](#tstamp)
-  * LastSuccessfulDeliveryTime [TStamp](#tstamp)
-  * LoggingEnabled [Boolean](#boolean)
-  * S3KeyPrefix [String](#string)
+  * BucketName
+  * LastFailureMessage
+  * LastFailureTime
+  * LastSuccessfulDeliveryTime
+  * LoggingEnabled
+  * S3KeyPrefix
 
 ### Long
 * Long `integer`
@@ -2306,51 +5976,126 @@ amazonaws_redshift.RotateEncryptionKey({
 ### LongOptional
 * LongOptional `integer`
 
+### MaintenanceTrack
+* MaintenanceTrack `object`: Defines a maintenance track that determines which Amazon Redshift version to apply during a maintenance window. If the value for <code>MaintenanceTrack</code> is <code>current</code>, the cluster is updated to the most recently certified maintenance release. If the value is <code>trailing</code>, the cluster is updated to the previously certified maintenance release. 
+  * DatabaseVersion
+  * MaintenanceTrackName
+  * UpdateTargets
+    * items
+      * DatabaseVersion
+      * MaintenanceTrackName
+      * SupportedOperations
+        * items
+          * OperationName
+
+### Mode
+* Mode `string` (values: standard, high-performance)
+
+### ModifyClusterDbRevisionMessage
+* ModifyClusterDbRevisionMessage `object`
+  * ClusterIdentifier **required**
+  * RevisionTarget **required**
+
+### ModifyClusterDbRevisionResult
+* ModifyClusterDbRevisionResult `object`
+  * Cluster [Cluster](#cluster)
+
 ### ModifyClusterIamRolesMessage
 * ModifyClusterIamRolesMessage `object`: <p/>
-  * AddIamRoles [IamRoleArnList](#iamrolearnlist)
-  * ClusterIdentifier **required** [String](#string)
-  * RemoveIamRoles [IamRoleArnList](#iamrolearnlist)
+  * AddIamRoles
+    * items
+  * ClusterIdentifier **required**
+  * RemoveIamRoles
+    * items
 
 ### ModifyClusterIamRolesResult
 * ModifyClusterIamRolesResult `object`
   * Cluster [Cluster](#cluster)
 
+### ModifyClusterMaintenanceMessage
+* ModifyClusterMaintenanceMessage `object`
+  * ClusterIdentifier **required**
+  * DeferMaintenance
+  * DeferMaintenanceDuration
+  * DeferMaintenanceEndTime
+  * DeferMaintenanceIdentifier
+  * DeferMaintenanceStartTime
+
+### ModifyClusterMaintenanceResult
+* ModifyClusterMaintenanceResult `object`
+  * Cluster [Cluster](#cluster)
+
 ### ModifyClusterMessage
 * ModifyClusterMessage `object`: <p/>
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * ElasticIp [String](#string)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * MasterUserPassword [String](#string)
-  * NewClusterIdentifier [String](#string)
-  * NodeType [String](#string)
-  * NumberOfNodes [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterType
+  * ClusterVersion
+  * ElasticIp
+  * Encrypted
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * MasterUserPassword
+  * NewClusterIdentifier
+  * NodeType
+  * NumberOfNodes
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * VpcSecurityGroupIds
+    * items
 
 ### ModifyClusterParameterGroupMessage
-* ModifyClusterParameterGroupMessage `object`: <p/>
-  * ParameterGroupName **required** [String](#string)
-  * Parameters **required** [ParametersList](#parameterslist)
+* ModifyClusterParameterGroupMessage `object`: Describes a modify cluster parameter group operation. 
+  * ParameterGroupName **required**
+  * Parameters **required**
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
 
 ### ModifyClusterResult
 * ModifyClusterResult `object`
   * Cluster [Cluster](#cluster)
 
+### ModifyClusterSnapshotMessage
+* ModifyClusterSnapshotMessage `object`
+  * Force
+  * ManualSnapshotRetentionPeriod
+  * SnapshotIdentifier **required**
+
+### ModifyClusterSnapshotResult
+* ModifyClusterSnapshotResult `object`
+  * Snapshot [Snapshot](#snapshot)
+
+### ModifyClusterSnapshotScheduleMessage
+* ModifyClusterSnapshotScheduleMessage `object`
+  * ClusterIdentifier **required**
+  * DisassociateSchedule
+  * ScheduleIdentifier
+
 ### ModifyClusterSubnetGroupMessage
 * ModifyClusterSubnetGroupMessage `object`: <p/>
-  * ClusterSubnetGroupName **required** [String](#string)
-  * Description [String](#string)
-  * SubnetIds **required** [SubnetIdentifierList](#subnetidentifierlist)
+  * ClusterSubnetGroupName **required**
+  * Description
+  * SubnetIds **required**
+    * items
 
 ### ModifyClusterSubnetGroupResult
 * ModifyClusterSubnetGroupResult `object`
@@ -2358,88 +6103,221 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### ModifyEventSubscriptionMessage
 * ModifyEventSubscriptionMessage `object`: <p/>
-  * Enabled [BooleanOptional](#booleanoptional)
-  * EventCategories [EventCategoriesList](#eventcategorieslist)
-  * Severity [String](#string)
-  * SnsTopicArn [String](#string)
-  * SourceIds [SourceIdsList](#sourceidslist)
-  * SourceType [String](#string)
-  * SubscriptionName **required** [String](#string)
+  * Enabled
+  * EventCategories
+    * items
+  * Severity
+  * SnsTopicArn
+  * SourceIds
+    * items
+  * SourceType
+  * SubscriptionName **required**
 
 ### ModifyEventSubscriptionResult
 * ModifyEventSubscriptionResult `object`
   * EventSubscription [EventSubscription](#eventsubscription)
 
+### ModifyScheduledActionMessage
+* ModifyScheduledActionMessage `object`
+  * Enable
+  * EndTime
+  * IamRole
+  * Schedule
+  * ScheduledActionDescription
+  * ScheduledActionName **required**
+  * StartTime
+  * TargetAction
+    * PauseCluster
+      * ClusterIdentifier **required**
+    * ResizeCluster
+      * Classic
+      * ClusterIdentifier **required**
+      * ClusterType
+      * NodeType
+      * NumberOfNodes
+    * ResumeCluster
+      * ClusterIdentifier **required**
+
 ### ModifySnapshotCopyRetentionPeriodMessage
 * ModifySnapshotCopyRetentionPeriodMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
-  * RetentionPeriod **required** [Integer](#integer)
+  * ClusterIdentifier **required**
+  * Manual
+  * RetentionPeriod **required**
 
 ### ModifySnapshotCopyRetentionPeriodResult
 * ModifySnapshotCopyRetentionPeriodResult `object`
   * Cluster [Cluster](#cluster)
 
+### ModifySnapshotScheduleMessage
+* ModifySnapshotScheduleMessage `object`
+  * ScheduleDefinitions **required**
+    * items
+  * ScheduleIdentifier **required**
+
+### ModifyUsageLimitMessage
+* ModifyUsageLimitMessage `object`
+  * Amount
+  * BreachAction
+  * UsageLimitId **required**
+
+### NodeConfigurationOption
+* NodeConfigurationOption `object`: A list of node configurations.
+  * EstimatedDiskUtilizationPercent
+  * Mode
+  * NodeType
+  * NumberOfNodes
+
+### NodeConfigurationOptionList
+* NodeConfigurationOptionList `array`
+  * items
+    * EstimatedDiskUtilizationPercent
+    * Mode
+    * NodeType
+    * NumberOfNodes
+
+### NodeConfigurationOptionsFilter
+* NodeConfigurationOptionsFilter `object`: A set of elements to filter the returned node configurations.
+  * Name
+  * Operator
+  * Values
+    * items
+
+### NodeConfigurationOptionsFilterList
+* NodeConfigurationOptionsFilterList `array`
+  * items
+    * Name
+    * Operator
+    * Values
+      * items
+
+### NodeConfigurationOptionsFilterName
+* NodeConfigurationOptionsFilterName `string` (values: NodeType, NumberOfNodes, EstimatedDiskUtilizationPercent, Mode)
+
+### NodeConfigurationOptionsMessage
+* NodeConfigurationOptionsMessage `object`
+  * Marker
+  * NodeConfigurationOptionList
+    * items
+      * EstimatedDiskUtilizationPercent
+      * Mode
+      * NodeType
+      * NumberOfNodes
+
 ### NumberOfNodesPerClusterLimitExceededFault
-* NumberOfNodesPerClusterLimitExceededFault `object`: The operation would exceed the number of nodes allowed for a cluster.
+
 
 ### NumberOfNodesQuotaExceededFault
-* NumberOfNodesQuotaExceededFault `object`: The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
+
+### OperatorType
+* OperatorType `string` (values: eq, lt, gt, le, ge, in, between)
 
 ### OrderableClusterOption
 * OrderableClusterOption `object`: Describes an orderable cluster option.
-  * AvailabilityZones [AvailabilityZoneList](#availabilityzonelist)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * NodeType [String](#string)
+  * AvailabilityZones
+    * items
+      * Name
+      * SupportedPlatforms
+        * items
+          * Name
+  * ClusterType
+  * ClusterVersion
+  * NodeType
 
 ### OrderableClusterOptionsList
 * OrderableClusterOptionsList `array`
-  * items [OrderableClusterOption](#orderableclusteroption)
+  * items
+    * AvailabilityZones
+      * items
+        * Name
+        * SupportedPlatforms
+          * items
+    * ClusterType
+    * ClusterVersion
+    * NodeType
 
 ### OrderableClusterOptionsMessage
 * OrderableClusterOptionsMessage `object`: Contains the output from the <a>DescribeOrderableClusterOptions</a> action. 
-  * Marker [String](#string)
-  * OrderableClusterOptions [OrderableClusterOptionsList](#orderableclusteroptionslist)
+  * Marker
+  * OrderableClusterOptions
+    * items
+      * AvailabilityZones
+        * items
+          * Name
+          * SupportedPlatforms
+      * ClusterType
+      * ClusterVersion
+      * NodeType
 
 ### Parameter
 * Parameter `object`: Describes a parameter in a cluster parameter group.
-  * AllowedValues [String](#string)
-  * ApplyType [ParameterApplyType](#parameterapplytype)
-  * DataType [String](#string)
-  * Description [String](#string)
-  * IsModifiable [Boolean](#boolean)
-  * MinimumEngineVersion [String](#string)
-  * ParameterName [String](#string)
-  * ParameterValue [String](#string)
-  * Source [String](#string)
+  * AllowedValues
+  * ApplyType
+  * DataType
+  * Description
+  * IsModifiable
+  * MinimumEngineVersion
+  * ParameterName
+  * ParameterValue
+  * Source
 
 ### ParameterApplyType
 * ParameterApplyType `string` (values: static, dynamic)
 
 ### ParameterGroupList
 * ParameterGroupList `array`
-  * items [ClusterParameterGroup](#clusterparametergroup)
+  * items
+    * Description
+    * ParameterGroupFamily
+    * ParameterGroupName
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### ParametersList
 * ParametersList `array`
-  * items [Parameter](#parameter)
+  * items
+    * AllowedValues
+    * ApplyType
+    * DataType
+    * Description
+    * IsModifiable
+    * MinimumEngineVersion
+    * ParameterName
+    * ParameterValue
+    * Source
+
+### PauseClusterMessage
+* PauseClusterMessage `object`: Describes a pause cluster operation. For example, a scheduled action to run the <code>PauseCluster</code> API operation. 
+  * ClusterIdentifier **required**
+
+### PauseClusterResult
+* PauseClusterResult `object`
+  * Cluster [Cluster](#cluster)
+
+### PendingActionsList
+* PendingActionsList `array`
+  * items [String](#string)
 
 ### PendingModifiedValues
 * PendingModifiedValues `object`: Describes cluster attributes that are in a pending state. A change to one or more the attributes was requested and is in progress or will be applied.
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * ClusterIdentifier [String](#string)
-  * ClusterType [String](#string)
-  * ClusterVersion [String](#string)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * MasterUserPassword [String](#string)
-  * NodeType [String](#string)
-  * NumberOfNodes [IntegerOptional](#integeroptional)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
+  * AutomatedSnapshotRetentionPeriod
+  * ClusterIdentifier
+  * ClusterType
+  * ClusterVersion
+  * EncryptionType
+  * EnhancedVpcRouting
+  * MaintenanceTrackName
+  * MasterUserPassword
+  * NodeType
+  * NumberOfNodes
+  * PubliclyAccessible
 
 ### PurchaseReservedNodeOfferingMessage
 * PurchaseReservedNodeOfferingMessage `object`: <p/>
-  * NodeCount [IntegerOptional](#integeroptional)
-  * ReservedNodeOfferingId **required** [String](#string)
+  * NodeCount
+  * ReservedNodeOfferingId **required**
 
 ### PurchaseReservedNodeOfferingResult
 * PurchaseReservedNodeOfferingResult `object`
@@ -2447,7 +6325,7 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### RebootClusterMessage
 * RebootClusterMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
 
 ### RebootClusterResult
 * RebootClusterResult `object`
@@ -2455,129 +6333,240 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### RecurringCharge
 * RecurringCharge `object`: Describes a recurring charge.
-  * RecurringChargeAmount [Double](#double)
-  * RecurringChargeFrequency [String](#string)
+  * RecurringChargeAmount
+  * RecurringChargeFrequency
 
 ### RecurringChargeList
 * RecurringChargeList `array`
-  * items [RecurringCharge](#recurringcharge)
+  * items
+    * RecurringChargeAmount
+    * RecurringChargeFrequency
 
 ### ReservedNode
 * ReservedNode `object`: Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node offerings. 
-  * CurrencyCode [String](#string)
-  * Duration [Integer](#integer)
-  * FixedPrice [Double](#double)
-  * NodeCount [Integer](#integer)
-  * NodeType [String](#string)
-  * OfferingType [String](#string)
-  * RecurringCharges [RecurringChargeList](#recurringchargelist)
-  * ReservedNodeId [String](#string)
-  * ReservedNodeOfferingId [String](#string)
-  * ReservedNodeOfferingType [ReservedNodeOfferingType](#reservednodeofferingtype)
-  * StartTime [TStamp](#tstamp)
-  * State [String](#string)
-  * UsagePrice [Double](#double)
+  * CurrencyCode
+  * Duration
+  * FixedPrice
+  * NodeCount
+  * NodeType
+  * OfferingType
+  * RecurringCharges
+    * items
+      * RecurringChargeAmount
+      * RecurringChargeFrequency
+  * ReservedNodeId
+  * ReservedNodeOfferingId
+  * ReservedNodeOfferingType
+  * StartTime
+  * State
+  * UsagePrice
 
 ### ReservedNodeAlreadyExistsFault
-* ReservedNodeAlreadyExistsFault `object`: User already has a reservation with the given identifier.
+
+
+### ReservedNodeAlreadyMigratedFault
+
 
 ### ReservedNodeList
 * ReservedNodeList `array`
-  * items [ReservedNode](#reservednode)
+  * items
+    * CurrencyCode
+    * Duration
+    * FixedPrice
+    * NodeCount
+    * NodeType
+    * OfferingType
+    * RecurringCharges
+      * items
+        * RecurringChargeAmount
+        * RecurringChargeFrequency
+    * ReservedNodeId
+    * ReservedNodeOfferingId
+    * ReservedNodeOfferingType
+    * StartTime
+    * State
+    * UsagePrice
 
 ### ReservedNodeNotFoundFault
-* ReservedNodeNotFoundFault `object`: The specified reserved compute node not found.
+
 
 ### ReservedNodeOffering
 * ReservedNodeOffering `object`: Describes a reserved node offering.
-  * CurrencyCode [String](#string)
-  * Duration [Integer](#integer)
-  * FixedPrice [Double](#double)
-  * NodeType [String](#string)
-  * OfferingType [String](#string)
-  * RecurringCharges [RecurringChargeList](#recurringchargelist)
-  * ReservedNodeOfferingId [String](#string)
-  * ReservedNodeOfferingType [ReservedNodeOfferingType](#reservednodeofferingtype)
-  * UsagePrice [Double](#double)
+  * CurrencyCode
+  * Duration
+  * FixedPrice
+  * NodeType
+  * OfferingType
+  * RecurringCharges
+    * items
+      * RecurringChargeAmount
+      * RecurringChargeFrequency
+  * ReservedNodeOfferingId
+  * ReservedNodeOfferingType
+  * UsagePrice
 
 ### ReservedNodeOfferingList
 * ReservedNodeOfferingList `array`
-  * items [ReservedNodeOffering](#reservednodeoffering)
+  * items
+    * CurrencyCode
+    * Duration
+    * FixedPrice
+    * NodeType
+    * OfferingType
+    * RecurringCharges
+      * items
+        * RecurringChargeAmount
+        * RecurringChargeFrequency
+    * ReservedNodeOfferingId
+    * ReservedNodeOfferingType
+    * UsagePrice
 
 ### ReservedNodeOfferingNotFoundFault
-* ReservedNodeOfferingNotFoundFault `object`: Specified offering does not exist.
+
 
 ### ReservedNodeOfferingType
 * ReservedNodeOfferingType `string` (values: Regular, Upgradable)
 
 ### ReservedNodeOfferingsMessage
 * ReservedNodeOfferingsMessage `object`: <p/>
-  * Marker [String](#string)
-  * ReservedNodeOfferings [ReservedNodeOfferingList](#reservednodeofferinglist)
+  * Marker
+  * ReservedNodeOfferings
+    * items
+      * CurrencyCode
+      * Duration
+      * FixedPrice
+      * NodeType
+      * OfferingType
+      * RecurringCharges
+        * items
+          * RecurringChargeAmount
+          * RecurringChargeFrequency
+      * ReservedNodeOfferingId
+      * ReservedNodeOfferingType
+      * UsagePrice
 
 ### ReservedNodeQuotaExceededFault
-* ReservedNodeQuotaExceededFault `object`: Request would exceed the user's compute node quota. For information about increasing your quota, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+
 
 ### ReservedNodesMessage
 * ReservedNodesMessage `object`: <p/>
-  * Marker [String](#string)
-  * ReservedNodes [ReservedNodeList](#reservednodelist)
+  * Marker
+  * ReservedNodes
+    * items
+      * CurrencyCode
+      * Duration
+      * FixedPrice
+      * NodeCount
+      * NodeType
+      * OfferingType
+      * RecurringCharges
+        * items
+          * RecurringChargeAmount
+          * RecurringChargeFrequency
+      * ReservedNodeId
+      * ReservedNodeOfferingId
+      * ReservedNodeOfferingType
+      * StartTime
+      * State
+      * UsagePrice
 
 ### ResetClusterParameterGroupMessage
 * ResetClusterParameterGroupMessage `object`: <p/>
-  * ParameterGroupName **required** [String](#string)
-  * Parameters [ParametersList](#parameterslist)
-  * ResetAllParameters [Boolean](#boolean)
+  * ParameterGroupName **required**
+  * Parameters
+    * items
+      * AllowedValues
+      * ApplyType
+      * DataType
+      * Description
+      * IsModifiable
+      * MinimumEngineVersion
+      * ParameterName
+      * ParameterValue
+      * Source
+  * ResetAllParameters
+
+### ResizeClusterMessage
+* ResizeClusterMessage `object`: Describes a resize cluster operation. For example, a scheduled action to run the <code>ResizeCluster</code> API operation. 
+  * Classic
+  * ClusterIdentifier **required**
+  * ClusterType
+  * NodeType
+  * NumberOfNodes
+
+### ResizeClusterResult
+* ResizeClusterResult `object`
+  * Cluster [Cluster](#cluster)
+
+### ResizeInfo
+* ResizeInfo `object`: Describes a resize operation.
+  * AllowCancelResize
+  * ResizeType
 
 ### ResizeNotFoundFault
-* ResizeNotFoundFault `object`: A resize operation for the specified cluster is not found.
+
 
 ### ResizeProgressMessage
 * ResizeProgressMessage `object`: Describes the result of a cluster resize operation.
-  * AvgResizeRateInMegaBytesPerSecond [DoubleOptional](#doubleoptional)
-  * ElapsedTimeInSeconds [LongOptional](#longoptional)
-  * EstimatedTimeToCompletionInSeconds [LongOptional](#longoptional)
-  * ImportTablesCompleted [ImportTablesCompleted](#importtablescompleted)
-  * ImportTablesInProgress [ImportTablesInProgress](#importtablesinprogress)
-  * ImportTablesNotStarted [ImportTablesNotStarted](#importtablesnotstarted)
-  * ProgressInMegaBytes [LongOptional](#longoptional)
-  * Status [String](#string)
-  * TargetClusterType [String](#string)
-  * TargetNodeType [String](#string)
-  * TargetNumberOfNodes [IntegerOptional](#integeroptional)
-  * TotalResizeDataInMegaBytes [LongOptional](#longoptional)
+  * AvgResizeRateInMegaBytesPerSecond
+  * DataTransferProgressPercent
+  * ElapsedTimeInSeconds
+  * EstimatedTimeToCompletionInSeconds
+  * ImportTablesCompleted
+    * items [String](#string)
+  * ImportTablesInProgress
+    * items [String](#string)
+  * ImportTablesNotStarted
+    * items [String](#string)
+  * Message
+  * ProgressInMegaBytes
+  * ResizeType
+  * Status
+  * TargetClusterType
+  * TargetEncryptionType
+  * TargetNodeType
+  * TargetNumberOfNodes
+  * TotalResizeDataInMegaBytes
 
 ### ResourceNotFoundFault
-* ResourceNotFoundFault `object`: The resource could not be found.
+
 
 ### RestorableNodeTypeList
 * RestorableNodeTypeList `array`
-  * items [String](#string)
+  * items
 
 ### RestoreFromClusterSnapshotMessage
 * RestoreFromClusterSnapshotMessage `object`: <p/>
-  * AdditionalInfo [String](#string)
-  * AllowVersionUpgrade [BooleanOptional](#booleanoptional)
-  * AutomatedSnapshotRetentionPeriod [IntegerOptional](#integeroptional)
-  * AvailabilityZone [String](#string)
-  * ClusterIdentifier **required** [String](#string)
-  * ClusterParameterGroupName [String](#string)
-  * ClusterSecurityGroups [ClusterSecurityGroupNameList](#clustersecuritygroupnamelist)
-  * ClusterSubnetGroupName [String](#string)
-  * ElasticIp [String](#string)
-  * EnhancedVpcRouting [BooleanOptional](#booleanoptional)
-  * HsmClientCertificateIdentifier [String](#string)
-  * HsmConfigurationIdentifier [String](#string)
-  * IamRoles [IamRoleArnList](#iamrolearnlist)
-  * KmsKeyId [String](#string)
-  * NodeType [String](#string)
-  * OwnerAccount [String](#string)
-  * Port [IntegerOptional](#integeroptional)
-  * PreferredMaintenanceWindow [String](#string)
-  * PubliclyAccessible [BooleanOptional](#booleanoptional)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * VpcSecurityGroupIds [VpcSecurityGroupIdList](#vpcsecuritygroupidlist)
+  * AdditionalInfo
+  * AllowVersionUpgrade
+  * AutomatedSnapshotRetentionPeriod
+  * AvailabilityZone
+  * AvailabilityZoneRelocation
+  * ClusterIdentifier **required**
+  * ClusterParameterGroupName
+  * ClusterSecurityGroups
+    * items
+  * ClusterSubnetGroupName
+  * ElasticIp
+  * EnhancedVpcRouting
+  * HsmClientCertificateIdentifier
+  * HsmConfigurationIdentifier
+  * IamRoles
+    * items
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRetentionPeriod
+  * NodeType
+  * NumberOfNodes
+  * OwnerAccount
+  * Port
+  * PreferredMaintenanceWindow
+  * PubliclyAccessible
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
+  * SnapshotScheduleIdentifier
+  * VpcSecurityGroupIds
+    * items
 
 ### RestoreFromClusterSnapshotResult
 * RestoreFromClusterSnapshotResult `object`
@@ -2585,34 +6574,55 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### RestoreStatus
 * RestoreStatus `object`: Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
-  * CurrentRestoreRateInMegaBytesPerSecond [Double](#double)
-  * ElapsedTimeInSeconds [Long](#long)
-  * EstimatedTimeToCompletionInSeconds [Long](#long)
-  * ProgressInMegaBytes [Long](#long)
-  * SnapshotSizeInMegaBytes [Long](#long)
-  * Status [String](#string)
+  * CurrentRestoreRateInMegaBytesPerSecond
+  * ElapsedTimeInSeconds
+  * EstimatedTimeToCompletionInSeconds
+  * ProgressInMegaBytes
+  * SnapshotSizeInMegaBytes
+  * Status
 
 ### RestoreTableFromClusterSnapshotMessage
 * RestoreTableFromClusterSnapshotMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
-  * NewTableName **required** [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
-  * SourceDatabaseName **required** [String](#string)
-  * SourceSchemaName [String](#string)
-  * SourceTableName **required** [String](#string)
-  * TargetDatabaseName [String](#string)
-  * TargetSchemaName [String](#string)
+  * ClusterIdentifier **required**
+  * NewTableName **required**
+  * SnapshotIdentifier **required**
+  * SourceDatabaseName **required**
+  * SourceSchemaName
+  * SourceTableName **required**
+  * TargetDatabaseName
+  * TargetSchemaName
 
 ### RestoreTableFromClusterSnapshotResult
 * RestoreTableFromClusterSnapshotResult `object`
   * TableRestoreStatus [TableRestoreStatus](#tablerestorestatus)
 
+### ResumeClusterMessage
+* ResumeClusterMessage `object`: Describes a resume cluster operation. For example, a scheduled action to run the <code>ResumeCluster</code> API operation. 
+  * ClusterIdentifier **required**
+
+### ResumeClusterResult
+* ResumeClusterResult `object`
+  * Cluster [Cluster](#cluster)
+
+### RevisionTarget
+* RevisionTarget `object`: Describes a <code>RevisionTarget</code>.
+  * DatabaseRevision
+  * DatabaseRevisionReleaseDate
+  * Description
+
+### RevisionTargetsList
+* RevisionTargetsList `array`
+  * items
+    * DatabaseRevision
+    * DatabaseRevisionReleaseDate
+    * Description
+
 ### RevokeClusterSecurityGroupIngressMessage
 * RevokeClusterSecurityGroupIngressMessage `object`: <p/>
-  * CIDRIP [String](#string)
-  * ClusterSecurityGroupName **required** [String](#string)
-  * EC2SecurityGroupName [String](#string)
-  * EC2SecurityGroupOwnerId [String](#string)
+  * CIDRIP
+  * ClusterSecurityGroupName **required**
+  * EC2SecurityGroupName
+  * EC2SecurityGroupOwnerId
 
 ### RevokeClusterSecurityGroupIngressResult
 * RevokeClusterSecurityGroupIngressResult `object`
@@ -2620,9 +6630,9 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### RevokeSnapshotAccessMessage
 * RevokeSnapshotAccessMessage `object`: <p/>
-  * AccountWithRestoreAccess **required** [String](#string)
-  * SnapshotClusterIdentifier [String](#string)
-  * SnapshotIdentifier **required** [String](#string)
+  * AccountWithRestoreAccess **required**
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier **required**
 
 ### RevokeSnapshotAccessResult
 * RevokeSnapshotAccessResult `object`
@@ -2630,244 +6640,728 @@ amazonaws_redshift.RotateEncryptionKey({
 
 ### RotateEncryptionKeyMessage
 * RotateEncryptionKeyMessage `object`: <p/>
-  * ClusterIdentifier **required** [String](#string)
+  * ClusterIdentifier **required**
 
 ### RotateEncryptionKeyResult
 * RotateEncryptionKeyResult `object`
   * Cluster [Cluster](#cluster)
 
 ### SNSInvalidTopicFault
-* SNSInvalidTopicFault `object`: Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.
+
 
 ### SNSNoAuthorizationFault
-* SNSNoAuthorizationFault `object`: You do not have permission to publish to the specified Amazon SNS topic.
+
 
 ### SNSTopicArnNotFoundFault
-* SNSTopicArnNotFoundFault `object`: An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.
+
+
+### ScheduleDefinitionList
+* ScheduleDefinitionList `array`
+  * items
+
+### ScheduleDefinitionTypeUnsupportedFault
+
+
+### ScheduleState
+* ScheduleState `string` (values: MODIFYING, ACTIVE, FAILED)
+
+### ScheduledAction
+* ScheduledAction `object`: Describes a scheduled action. You can use a scheduled action to trigger some Amazon Redshift API operations on a schedule. For information about which API operations can be scheduled, see <a>ScheduledActionType</a>. 
+  * EndTime
+  * IamRole
+  * NextInvocations
+    * items
+  * Schedule
+  * ScheduledActionDescription
+  * ScheduledActionName
+  * StartTime
+  * State
+  * TargetAction
+    * PauseCluster
+      * ClusterIdentifier **required**
+    * ResizeCluster
+      * Classic
+      * ClusterIdentifier **required**
+      * ClusterType
+      * NodeType
+      * NumberOfNodes
+    * ResumeCluster
+      * ClusterIdentifier **required**
+
+### ScheduledActionAlreadyExistsFault
+
+
+### ScheduledActionFilter
+* ScheduledActionFilter `object`: A set of elements to filter the returned scheduled actions. 
+  * Name **required**
+  * Values **required**
+    * items
+
+### ScheduledActionFilterList
+* ScheduledActionFilterList `array`
+  * items
+    * Name **required**
+    * Values **required**
+      * items
+
+### ScheduledActionFilterName
+* ScheduledActionFilterName `string` (values: cluster-identifier, iam-role)
+
+### ScheduledActionList
+* ScheduledActionList `array`
+  * items
+    * EndTime
+    * IamRole
+    * NextInvocations
+      * items
+    * Schedule
+    * ScheduledActionDescription
+    * ScheduledActionName
+    * StartTime
+    * State
+    * TargetAction
+      * PauseCluster
+        * ClusterIdentifier **required**
+      * ResizeCluster
+        * Classic
+        * ClusterIdentifier **required**
+        * ClusterType
+        * NodeType
+        * NumberOfNodes
+      * ResumeCluster
+        * ClusterIdentifier **required**
+
+### ScheduledActionNotFoundFault
+
+
+### ScheduledActionQuotaExceededFault
+
+
+### ScheduledActionState
+* ScheduledActionState `string` (values: ACTIVE, DISABLED)
+
+### ScheduledActionTimeList
+* ScheduledActionTimeList `array`
+  * items
+
+### ScheduledActionType
+* ScheduledActionType `object`: The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler. 
+  * PauseCluster
+    * ClusterIdentifier **required**
+  * ResizeCluster
+    * Classic
+    * ClusterIdentifier **required**
+    * ClusterType
+    * NodeType
+    * NumberOfNodes
+  * ResumeCluster
+    * ClusterIdentifier **required**
+
+### ScheduledActionTypeUnsupportedFault
+
+
+### ScheduledActionTypeValues
+* ScheduledActionTypeValues `string` (values: ResizeCluster, PauseCluster, ResumeCluster)
+
+### ScheduledActionsMessage
+* ScheduledActionsMessage `object`
+  * Marker
+  * ScheduledActions
+    * items
+      * EndTime
+      * IamRole
+      * NextInvocations
+        * items
+      * Schedule
+      * ScheduledActionDescription
+      * ScheduledActionName
+      * StartTime
+      * State
+      * TargetAction
+        * PauseCluster
+          * ClusterIdentifier **required**
+        * ResizeCluster
+          * Classic
+          * ClusterIdentifier **required**
+          * ClusterType
+          * NodeType
+          * NumberOfNodes
+        * ResumeCluster
+          * ClusterIdentifier **required**
+
+### ScheduledSnapshotTimeList
+* ScheduledSnapshotTimeList `array`
+  * items
 
 ### SensitiveString
 * SensitiveString `string`
 
 ### Snapshot
 * Snapshot `object`: Describes a snapshot.
-  * AccountsWithRestoreAccess [AccountsWithRestoreAccessList](#accountswithrestoreaccesslist)
-  * ActualIncrementalBackupSizeInMegaBytes [Double](#double)
-  * AvailabilityZone [String](#string)
-  * BackupProgressInMegaBytes [Double](#double)
-  * ClusterCreateTime [TStamp](#tstamp)
-  * ClusterIdentifier [String](#string)
-  * ClusterVersion [String](#string)
-  * CurrentBackupRateInMegaBytesPerSecond [Double](#double)
-  * DBName [String](#string)
-  * ElapsedTimeInSeconds [Long](#long)
-  * Encrypted [Boolean](#boolean)
-  * EncryptedWithHSM [Boolean](#boolean)
-  * EnhancedVpcRouting [Boolean](#boolean)
-  * EstimatedSecondsToCompletion [Long](#long)
-  * KmsKeyId [String](#string)
-  * MasterUsername [String](#string)
-  * NodeType [String](#string)
-  * NumberOfNodes [Integer](#integer)
-  * OwnerAccount [String](#string)
-  * Port [Integer](#integer)
-  * RestorableNodeTypes [RestorableNodeTypeList](#restorablenodetypelist)
-  * SnapshotCreateTime [TStamp](#tstamp)
-  * SnapshotIdentifier [String](#string)
-  * SnapshotType [String](#string)
-  * SourceRegion [String](#string)
-  * Status [String](#string)
-  * Tags [TagList](#taglist)
-  * TotalBackupSizeInMegaBytes [Double](#double)
-  * VpcId [String](#string)
+  * AccountsWithRestoreAccess
+    * items
+      * AccountAlias
+      * AccountId
+  * ActualIncrementalBackupSizeInMegaBytes
+  * AvailabilityZone
+  * BackupProgressInMegaBytes
+  * ClusterCreateTime
+  * ClusterIdentifier
+  * ClusterVersion
+  * CurrentBackupRateInMegaBytesPerSecond
+  * DBName
+  * ElapsedTimeInSeconds
+  * Encrypted
+  * EncryptedWithHSM
+  * EngineFullVersion
+  * EnhancedVpcRouting
+  * EstimatedSecondsToCompletion
+  * KmsKeyId
+  * MaintenanceTrackName
+  * ManualSnapshotRemainingDays
+  * ManualSnapshotRetentionPeriod
+  * MasterUsername
+  * NodeType
+  * NumberOfNodes
+  * OwnerAccount
+  * Port
+  * RestorableNodeTypes
+    * items
+  * SnapshotCreateTime
+  * SnapshotIdentifier
+  * SnapshotRetentionStartTime
+  * SnapshotType
+  * SourceRegion
+  * Status
+  * Tags
+    * items
+      * Key
+      * Value
+  * TotalBackupSizeInMegaBytes
+  * VpcId
+
+### SnapshotAttributeToSortBy
+* SnapshotAttributeToSortBy `string` (values: SOURCE_TYPE, TOTAL_SIZE, CREATE_TIME)
 
 ### SnapshotCopyAlreadyDisabledFault
-* SnapshotCopyAlreadyDisabledFault `object`: The cluster already has cross-region snapshot copy disabled.
+
 
 ### SnapshotCopyAlreadyEnabledFault
-* SnapshotCopyAlreadyEnabledFault `object`: The cluster already has cross-region snapshot copy enabled.
+
 
 ### SnapshotCopyDisabledFault
-* SnapshotCopyDisabledFault `object`: Cross-region snapshot copy was temporarily disabled. Try your request again.
+
 
 ### SnapshotCopyGrant
-* SnapshotCopyGrant `object`: <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-  * KmsKeyId [String](#string)
-  * SnapshotCopyGrantName [String](#string)
-  * Tags [TagList](#taglist)
+* SnapshotCopyGrant `object`: <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+  * KmsKeyId
+  * SnapshotCopyGrantName
+  * Tags
+    * items
+      * Key
+      * Value
 
 ### SnapshotCopyGrantAlreadyExistsFault
-* SnapshotCopyGrantAlreadyExistsFault `object`: The snapshot copy grant can't be created because a grant with the same name already exists.
+
 
 ### SnapshotCopyGrantList
 * SnapshotCopyGrantList `array`
-  * items [SnapshotCopyGrant](#snapshotcopygrant)
+  * items
+    * KmsKeyId
+    * SnapshotCopyGrantName
+    * Tags
+      * items
+        * Key
+        * Value
 
 ### SnapshotCopyGrantMessage
 * SnapshotCopyGrantMessage `object`: <p/>
-  * Marker [String](#string)
-  * SnapshotCopyGrants [SnapshotCopyGrantList](#snapshotcopygrantlist)
+  * Marker
+  * SnapshotCopyGrants
+    * items
+      * KmsKeyId
+      * SnapshotCopyGrantName
+      * Tags
+        * items
+          * Key
+          * Value
 
 ### SnapshotCopyGrantNotFoundFault
-* SnapshotCopyGrantNotFoundFault `object`: The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.
+
 
 ### SnapshotCopyGrantQuotaExceededFault
-* SnapshotCopyGrantQuotaExceededFault `object`: The AWS account has exceeded the maximum number of snapshot copy grants in this region.
+
+
+### SnapshotErrorMessage
+* SnapshotErrorMessage `object`: Describes the errors returned by a snapshot.
+  * FailureCode
+  * FailureReason
+  * SnapshotClusterIdentifier
+  * SnapshotIdentifier
+
+### SnapshotIdentifierList
+* SnapshotIdentifierList `array`
+  * items
 
 ### SnapshotList
 * SnapshotList `array`
-  * items [Snapshot](#snapshot)
+  * items
+    * AccountsWithRestoreAccess
+      * items
+        * AccountAlias
+        * AccountId
+    * ActualIncrementalBackupSizeInMegaBytes
+    * AvailabilityZone
+    * BackupProgressInMegaBytes
+    * ClusterCreateTime
+    * ClusterIdentifier
+    * ClusterVersion
+    * CurrentBackupRateInMegaBytesPerSecond
+    * DBName
+    * ElapsedTimeInSeconds
+    * Encrypted
+    * EncryptedWithHSM
+    * EngineFullVersion
+    * EnhancedVpcRouting
+    * EstimatedSecondsToCompletion
+    * KmsKeyId
+    * MaintenanceTrackName
+    * ManualSnapshotRemainingDays
+    * ManualSnapshotRetentionPeriod
+    * MasterUsername
+    * NodeType
+    * NumberOfNodes
+    * OwnerAccount
+    * Port
+    * RestorableNodeTypes
+      * items
+    * SnapshotCreateTime
+    * SnapshotIdentifier
+    * SnapshotRetentionStartTime
+    * SnapshotType
+    * SourceRegion
+    * Status
+    * Tags
+      * items
+        * Key
+        * Value
+    * TotalBackupSizeInMegaBytes
+    * VpcId
 
 ### SnapshotMessage
 * SnapshotMessage `object`: Contains the output from the <a>DescribeClusterSnapshots</a> action. 
-  * Marker [String](#string)
-  * Snapshots [SnapshotList](#snapshotlist)
+  * Marker
+  * Snapshots
+    * items
+      * AccountsWithRestoreAccess
+        * items
+          * AccountAlias
+          * AccountId
+      * ActualIncrementalBackupSizeInMegaBytes
+      * AvailabilityZone
+      * BackupProgressInMegaBytes
+      * ClusterCreateTime
+      * ClusterIdentifier
+      * ClusterVersion
+      * CurrentBackupRateInMegaBytesPerSecond
+      * DBName
+      * ElapsedTimeInSeconds
+      * Encrypted
+      * EncryptedWithHSM
+      * EngineFullVersion
+      * EnhancedVpcRouting
+      * EstimatedSecondsToCompletion
+      * KmsKeyId
+      * MaintenanceTrackName
+      * ManualSnapshotRemainingDays
+      * ManualSnapshotRetentionPeriod
+      * MasterUsername
+      * NodeType
+      * NumberOfNodes
+      * OwnerAccount
+      * Port
+      * RestorableNodeTypes
+        * items
+      * SnapshotCreateTime
+      * SnapshotIdentifier
+      * SnapshotRetentionStartTime
+      * SnapshotType
+      * SourceRegion
+      * Status
+      * Tags
+        * items
+          * Key
+          * Value
+      * TotalBackupSizeInMegaBytes
+      * VpcId
+
+### SnapshotSchedule
+* SnapshotSchedule `object`: Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. 
+  * AssociatedClusterCount
+  * AssociatedClusters
+    * items
+      * ClusterIdentifier
+      * ScheduleAssociationState
+  * NextInvocations
+    * items
+  * ScheduleDefinitions
+    * items
+  * ScheduleDescription
+  * ScheduleIdentifier
+  * Tags
+    * items
+      * Key
+      * Value
+
+### SnapshotScheduleAlreadyExistsFault
+
+
+### SnapshotScheduleList
+* SnapshotScheduleList `array`
+  * items
+    * AssociatedClusterCount
+    * AssociatedClusters
+      * items
+        * ClusterIdentifier
+        * ScheduleAssociationState
+    * NextInvocations
+      * items
+    * ScheduleDefinitions
+      * items
+    * ScheduleDescription
+    * ScheduleIdentifier
+    * Tags
+      * items
+        * Key
+        * Value
+
+### SnapshotScheduleNotFoundFault
+
+
+### SnapshotScheduleQuotaExceededFault
+
+
+### SnapshotScheduleUpdateInProgressFault
+
+
+### SnapshotSortingEntity
+* SnapshotSortingEntity `object`: Describes a sorting entity
+  * Attribute **required**
+  * SortOrder
+
+### SnapshotSortingEntityList
+* SnapshotSortingEntityList `array`
+  * items
+    * Attribute **required**
+    * SortOrder
+
+### SortByOrder
+* SortByOrder `string` (values: ASC, DESC)
 
 ### SourceIdsList
 * SourceIdsList `array`
-  * items [String](#string)
+  * items
 
 ### SourceNotFoundFault
-* SourceNotFoundFault `object`: The specified Amazon Redshift event source could not be found.
+
 
 ### SourceType
-* SourceType `string` (values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot)
+* SourceType `string` (values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, scheduled-action)
+
+### SpartaProxyVpcEndpoint
+* SpartaProxyVpcEndpoint `object`: The connection endpoint for connecting an Amazon Redshift cluster through the proxy.
+  * VpcEndpointId
+
+### SpartaProxyVpcEndpointList
+* SpartaProxyVpcEndpointList `array`
+  * items
+    * VpcEndpointId
 
 ### String
 * String `string`
 
 ### Subnet
 * Subnet `object`: Describes a subnet.
-  * SubnetAvailabilityZone [AvailabilityZone](#availabilityzone)
-  * SubnetIdentifier [String](#string)
-  * SubnetStatus [String](#string)
+  * SubnetAvailabilityZone
+    * Name
+    * SupportedPlatforms
+      * items
+        * Name
+  * SubnetIdentifier
+  * SubnetStatus
 
 ### SubnetAlreadyInUse
-* SubnetAlreadyInUse `object`: A specified subnet is already in use by another cluster.
+
 
 ### SubnetIdentifierList
 * SubnetIdentifierList `array`
-  * items [String](#string)
+  * items
 
 ### SubnetList
 * SubnetList `array`
-  * items [Subnet](#subnet)
+  * items
+    * SubnetAvailabilityZone
+      * Name
+      * SupportedPlatforms
+        * items
+          * Name
+    * SubnetIdentifier
+    * SubnetStatus
 
 ### SubscriptionAlreadyExistFault
-* SubscriptionAlreadyExistFault `object`: There is already an existing event notification subscription with the specified name.
+
 
 ### SubscriptionCategoryNotFoundFault
-* SubscriptionCategoryNotFoundFault `object`: The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.
+
 
 ### SubscriptionEventIdNotFoundFault
-* SubscriptionEventIdNotFoundFault `object`: An Amazon Redshift event with the specified event ID does not exist.
+
 
 ### SubscriptionNotFoundFault
-* SubscriptionNotFoundFault `object`: An Amazon Redshift event notification subscription with the specified name does not exist.
+
 
 ### SubscriptionSeverityNotFoundFault
-* SubscriptionSeverityNotFoundFault `object`: The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.
+
+
+### SupportedOperation
+* SupportedOperation `object`: Describes the operations that are allowed on a maintenance track.
+  * OperationName
+
+### SupportedOperationList
+* SupportedOperationList `array`
+  * items
+    * OperationName
 
 ### SupportedPlatform
 * SupportedPlatform `object`: A list of supported platforms for orderable clusters.
-  * Name [String](#string)
+  * Name
 
 ### SupportedPlatformsList
 * SupportedPlatformsList `array`
-  * items [SupportedPlatform](#supportedplatform)
+  * items
+    * Name
 
 ### TStamp
 * TStamp `string`
 
+### TableLimitExceededFault
+
+
 ### TableRestoreNotFoundFault
-* TableRestoreNotFoundFault `object`: The specified <code>TableRestoreRequestId</code> value was not found.
+
 
 ### TableRestoreStatus
 * TableRestoreStatus `object`: Describes the status of a <a>RestoreTableFromClusterSnapshot</a> operation.
-  * ClusterIdentifier [String](#string)
-  * Message [String](#string)
-  * NewTableName [String](#string)
-  * ProgressInMegaBytes [LongOptional](#longoptional)
-  * RequestTime [TStamp](#tstamp)
-  * SnapshotIdentifier [String](#string)
-  * SourceDatabaseName [String](#string)
-  * SourceSchemaName [String](#string)
-  * SourceTableName [String](#string)
-  * Status [TableRestoreStatusType](#tablerestorestatustype)
-  * TableRestoreRequestId [String](#string)
-  * TargetDatabaseName [String](#string)
-  * TargetSchemaName [String](#string)
-  * TotalDataInMegaBytes [LongOptional](#longoptional)
+  * ClusterIdentifier
+  * Message
+  * NewTableName
+  * ProgressInMegaBytes
+  * RequestTime
+  * SnapshotIdentifier
+  * SourceDatabaseName
+  * SourceSchemaName
+  * SourceTableName
+  * Status
+  * TableRestoreRequestId
+  * TargetDatabaseName
+  * TargetSchemaName
+  * TotalDataInMegaBytes
 
 ### TableRestoreStatusList
 * TableRestoreStatusList `array`
-  * items [TableRestoreStatus](#tablerestorestatus)
+  * items
+    * ClusterIdentifier
+    * Message
+    * NewTableName
+    * ProgressInMegaBytes
+    * RequestTime
+    * SnapshotIdentifier
+    * SourceDatabaseName
+    * SourceSchemaName
+    * SourceTableName
+    * Status
+    * TableRestoreRequestId
+    * TargetDatabaseName
+    * TargetSchemaName
+    * TotalDataInMegaBytes
 
 ### TableRestoreStatusMessage
 * TableRestoreStatusMessage `object`: <p/>
-  * Marker [String](#string)
-  * TableRestoreStatusDetails [TableRestoreStatusList](#tablerestorestatuslist)
+  * Marker
+  * TableRestoreStatusDetails
+    * items
+      * ClusterIdentifier
+      * Message
+      * NewTableName
+      * ProgressInMegaBytes
+      * RequestTime
+      * SnapshotIdentifier
+      * SourceDatabaseName
+      * SourceSchemaName
+      * SourceTableName
+      * Status
+      * TableRestoreRequestId
+      * TargetDatabaseName
+      * TargetSchemaName
+      * TotalDataInMegaBytes
 
 ### TableRestoreStatusType
 * TableRestoreStatusType `string` (values: PENDING, IN_PROGRESS, SUCCEEDED, FAILED, CANCELED)
 
 ### Tag
 * Tag `object`: A tag consisting of a name/value pair for a resource.
-  * Key [String](#string)
-  * Value [String](#string)
+  * Key
+  * Value
 
 ### TagKeyList
 * TagKeyList `array`
-  * items [String](#string)
+  * items
 
 ### TagLimitExceededFault
-* TagLimitExceededFault `object`: The request exceeds the limit of 10 tags for the resource.
+
 
 ### TagList
 * TagList `array`
-  * items [Tag](#tag)
+  * items
+    * Key
+    * Value
 
 ### TagValueList
 * TagValueList `array`
-  * items [String](#string)
+  * items
 
 ### TaggedResource
 * TaggedResource `object`: A tag and its associated resource.
-  * ResourceName [String](#string)
-  * ResourceType [String](#string)
-  * Tag [Tag](#tag)
+  * ResourceName
+  * ResourceType
+  * Tag
+    * Key
+    * Value
 
 ### TaggedResourceList
 * TaggedResourceList `array`
-  * items [TaggedResource](#taggedresource)
+  * items
+    * ResourceName
+    * ResourceType
+    * Tag
+      * Key
+      * Value
 
 ### TaggedResourceListMessage
 * TaggedResourceListMessage `object`: <p/>
-  * Marker [String](#string)
-  * TaggedResources [TaggedResourceList](#taggedresourcelist)
+  * Marker
+  * TaggedResources
+    * items
+      * ResourceName
+      * ResourceType
+      * Tag
+        * Key
+        * Value
+
+### TrackList
+* TrackList `array`
+  * items
+    * DatabaseVersion
+    * MaintenanceTrackName
+    * UpdateTargets
+      * items
+        * DatabaseVersion
+        * MaintenanceTrackName
+        * SupportedOperations
+          * items
+
+### TrackListMessage
+* TrackListMessage `object`
+  * MaintenanceTracks
+    * items
+      * DatabaseVersion
+      * MaintenanceTrackName
+      * UpdateTargets
+        * items
+          * DatabaseVersion
+          * MaintenanceTrackName
+          * SupportedOperations
+  * Marker
 
 ### UnauthorizedOperation
-* UnauthorizedOperation `object`: Your account is not authorized to perform the requested operation.
+
 
 ### UnknownSnapshotCopyRegionFault
-* UnknownSnapshotCopyRegionFault `object`: The specified region is incorrect or does not exist.
+
 
 ### UnsupportedOperationFault
-* UnsupportedOperationFault `object`: The requested operation isn't supported.
+
 
 ### UnsupportedOptionFault
-* UnsupportedOptionFault `object`: A request option was specified that is not supported.
+
+
+### UpdateTarget
+* UpdateTarget `object`: A maintenance track that you can switch the current track to.
+  * DatabaseVersion
+  * MaintenanceTrackName
+  * SupportedOperations
+    * items
+      * OperationName
+
+### UsageLimit
+* UsageLimit `object`: Describes a usage limit object for a cluster. 
+  * Amount
+  * BreachAction
+  * ClusterIdentifier
+  * FeatureType
+  * LimitType
+  * Period
+  * Tags
+    * items
+      * Key
+      * Value
+  * UsageLimitId
+
+### UsageLimitAlreadyExistsFault
+
+
+### UsageLimitBreachAction
+* UsageLimitBreachAction `string` (values: log, emit-metric, disable)
+
+### UsageLimitFeatureType
+* UsageLimitFeatureType `string` (values: spectrum, concurrency-scaling)
+
+### UsageLimitLimitType
+* UsageLimitLimitType `string` (values: time, data-scanned)
+
+### UsageLimitList
+* UsageLimitList `object`
+  * Marker
+  * UsageLimits
+    * items [UsageLimit](#usagelimit)
+
+### UsageLimitNotFoundFault
+
+
+### UsageLimitPeriod
+* UsageLimitPeriod `string` (values: daily, weekly, monthly)
+
+### UsageLimits
+* UsageLimits `array`
+  * items [UsageLimit](#usagelimit)
+
+### ValueStringList
+* ValueStringList `array`
+  * items
 
 ### VpcSecurityGroupIdList
 * VpcSecurityGroupIdList `array`
-  * items [String](#string)
+  * items
 
 ### VpcSecurityGroupMembership
 * VpcSecurityGroupMembership `object`: Describes the members of a VPC security group.
-  * Status [String](#string)
-  * VpcSecurityGroupId [String](#string)
+  * Status
+  * VpcSecurityGroupId
 
 ### VpcSecurityGroupMembershipList
 * VpcSecurityGroupMembershipList `array`
-  * items [VpcSecurityGroupMembership](#vpcsecuritygroupmembership)
+  * items
+    * Status
+    * VpcSecurityGroupId
 
 

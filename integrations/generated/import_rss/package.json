@@ -1,6 +1,6 @@
 {
   "name": "@datafire/import_rss",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for import.io",
   "repository": {

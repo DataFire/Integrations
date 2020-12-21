@@ -1,6 +1,6 @@
 {
   "name": "@datafire/gov_bc_ca_news",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for BC Gov News API Service 1.0",
   "repository": {

@@ -11,7 +11,7 @@ let blazemeter = require('@datafire/blazemeter').create({
   apiKey: ""
 });
 
-blazemeter.retrieveTests({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

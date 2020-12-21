@@ -1,6 +1,6 @@
 # @datafire/naviplancentral_plan
 
-Client library for Published Plan Service
+Client library for NaviPlan API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/naviplancentral_plan
 ```js
 let naviplancentral_plan = require('@datafire/naviplancentral_plan').create();
 
-naviplancentral_plan.StockOptions_GetByPlanidScenariotype({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,7 +32,26 @@ naviplancentral_plan.Advisors_Get(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.AdvisorsModel](#advicent.publishedplanservice.models.advisorsmodel)
+* output [AdvisorsModel](#advisorsmodel)
+
+### Advisors_GetByHouseholdidClientid
+This operation retrieves a list of all of the Advisors for the client.
+
+
+```js
+naviplancentral_plan.Advisors_GetByHouseholdidClientid({
+  "householdId": 0,
+  "clientId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * householdId **required** `integer`: Integer id of the household
+  * clientId **required** `string`: Guid id of the client.
+
+#### Output
+* output [AdvisorsModel](#advisorsmodel)
 
 ### Advisors_GetById
 This operation retrieves an Advisor from the plan.
@@ -46,112 +65,116 @@ naviplancentral_plan.Advisors_GetById({
 
 #### Input
 * input `object`
-  * id **required** `string`
+  * id **required** `string`: Guid id of the advisor
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.AdvisorModel](#advicent.publishedplanservice.models.advisormodel)
+* output [AdvisorModel](#advisormodel)
 
-### Assumptions_GetByPlanidScenariotype
+### Assumptions_GetByPlanid
 This operation retrieves an object containing all assumptions for the specified plan.
 
 
 ```js
-naviplancentral_plan.Assumptions_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.Assumptions_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.AssumptionsModel](#advicent.publishedplanservice.models.assumptionsmodel)
+* output [AssumptionsModel](#assumptionsmodel)
 
-### BusinessEntities_GetByPlanidScenariotype
+### BusinessEntities_GetByPlanid
 This operation retrieves a list of all of the business entities in the plan.
 
 
 ```js
-naviplancentral_plan.BusinessEntities_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.BusinessEntities_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.BusinessEntitiesModel](#advicent.publishedplanservice.models.businessentitiesmodel)
+* output [BusinessEntitiesModel](#businessentitiesmodel)
 
-### BusinessEntities_GetByIdPlanidScenariotype
+### BusinessEntities_GetByIdPlanid
 This operation retrieves a business entity from the plan.
 
 
 ```js
-naviplancentral_plan.BusinessEntities_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.BusinessEntities_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of business entity to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.BusinessEntityModel](#advicent.publishedplanservice.models.businessentitymodel)
+* output [BusinessEntityModel](#businessentitymodel)
 
-### Calculations_GetByPlanidScenariotype
+### Calculations_GetByPlanid
 Currently just stubbed out, POC in development
 
 
 ```js
-naviplancentral_plan.Calculations_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.Calculations_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
 * output `boolean`
 
-### DefinedBenefitPensions_GetByPlanidScenariotype
+### DefinedBenefitPensions_GetByPlanid
 This operation retrieves a list of all of the defined benefit pensions in the plan.
 
 
 ```js
-naviplancentral_plan.DefinedBenefitPensions_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.DefinedBenefitPensions_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel](#advicent.publishedplanservice.models.definedbenefitpensionsmodel)
+* output [DefinedBenefitPensionsModel](#definedbenefitpensionsmodel)
 
-### DefinedBenefitPensions_GetByIdPlanidScenariotype
+### DefinedBenefitPensions_GetByIdPlanid
 This operation retrieves a defined benefit pension from the plan.
 
 
 ```js
-naviplancentral_plan.DefinedBenefitPensions_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.DefinedBenefitPensions_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of defined benefit pension to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel](#advicent.publishedplanservice.models.definedbenefitpensionmodel)
+* output [DefinedBenefitPensionModel](#definedbenefitpensionmodel)
 
 ### Eula_Accept
 Accepts the EULA
@@ -167,309 +190,524 @@ naviplancentral_plan.Eula_Accept(null, context)
 #### Output
 *Output schema unknown*
 
-### Family_GetByPlanidScenariotype
+### Family_GetByPlanid
 This operation retrieves an object containing all familymembers for the specified plan.
 
 
 ```js
-naviplancentral_plan.Family_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.Family_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.FamilyModel](#advicent.publishedplanservice.models.familymodel)
+* output [FamilyModel](#familymodel)
 
-### GoalAdjustments_GetEducationByIdClientidClientfileid
+### GoalAdjustments_GetEducationByIdClientidPlanid
 This function retrieves a goal and the adjustments made to it
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_GetEducationByIdClientidClientfileid({
-  "id": 0
+naviplancentral_plan.GoalAdjustments_GetEducationByIdClientidPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * clientId `string`: The id of the client to retrieve adjustments for.
-  * clientFileId `integer`: The id of the client file to be operated on.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustmentsModel](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustmentsmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsEducationGoalAdjustmentsModel](#advicentnaviplanrestapigoaladjustmentsmodelseducationgoaladjustmentsmodel)
 
-### GoalAdjustments_PostEducationByIdGoaladjustments
+### GoalAdjustments_PostEducationByIdGoaladjustmentsPlanid
 This function returns the posted object and the adjusted calculation values
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_PostEducationByIdGoaladjustments({
+naviplancentral_plan.GoalAdjustments_PostEducationByIdGoaladjustmentsPlanid({
   "id": 0,
-  "goalAdjustments": {}
+  "goalAdjustments": {},
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * goalAdjustments **required** [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelEducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsmodeleducationgoaladjustments)
+  * goalAdjustments **required** [AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelsgoaladjustmentsmodeladvicentdomainlogicgoalwhatifeducationgoaladjustments)
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelEducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.coverageprojectionsresultmodeleducationgoaladjustments)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelscoverageprojectionsresultmodeladvicentdomainlogicgoalwhatifeducationgoaladjustments)
 
-### GoalAdjustments_GetGoalSuccessRatesByClientidClientfileid
+### GoalAdjustments_GetGoalSuccessRatesByClientidPlanid
 Returns a list of goals with their relevant success rates.
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_GetGoalSuccessRatesByClientidClientfileid({}, context)
+naviplancentral_plan.GoalAdjustments_GetGoalSuccessRatesByClientidPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * clientId `string`: The id of the client to retrieve adjustments for.
-  * clientFileId `integer`: The id of the client file to be operated on.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateResultsModel](#advicent.naviplanrestapiintegrationproxy.models.goalsuccessrateresultsmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateResultsModel](#advicentnaviplanrestapigoaladjustmentsmodelsgoalsuccessrateresultsmodel)
 
-### GoalAdjustments_GetMajorPurchaseByIdClientidClientfileid
+### GoalAdjustments_GetMajorPurchaseByIdClientidPlanid
 This function retrieves a goal and the adjustments made to it
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_GetMajorPurchaseByIdClientidClientfileid({
-  "id": 0
+naviplancentral_plan.GoalAdjustments_GetMajorPurchaseByIdClientidPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * clientId `string`: The id of the client to retrieve adjustments for.
-  * clientFileId `integer`: The id of the client file to be operated on.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustmentsModel](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustmentsmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsMajorPurchaseGoalAdjustmentsModel](#advicentnaviplanrestapigoaladjustmentsmodelsmajorpurchasegoaladjustmentsmodel)
 
-### GoalAdjustments_PostMajorPurchaseByIdGoaladjustments
+### GoalAdjustments_PostMajorPurchaseByIdGoaladjustmentsPlanid
 This function returns the posted object and the adjusted calculation values
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_PostMajorPurchaseByIdGoaladjustments({
+naviplancentral_plan.GoalAdjustments_PostMajorPurchaseByIdGoaladjustmentsPlanid({
   "id": 0,
-  "goalAdjustments": {}
+  "goalAdjustments": {},
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * goalAdjustments **required** [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelMajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsmodelmajorpurchasegoaladjustments)
+  * goalAdjustments **required** [AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelsgoaladjustmentsmodeladvicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelMajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.coverageprojectionsresultmodelmajorpurchasegoaladjustments)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelscoverageprojectionsresultmodeladvicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
 
-### GoalAdjustments_GetGoalAdjustmentRestrictionsByClientidClientfileid
+### GoalAdjustments_GetGoalAdjustmentRestrictionsByClientidPlanid
 This function returns a list of adjustment restrictions for all goals.
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_GetGoalAdjustmentRestrictionsByClientidClientfileid({}, context)
+naviplancentral_plan.GoalAdjustments_GetGoalAdjustmentRestrictionsByClientidPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * clientId `string`: The id of the client user to act upon.
-  * clientFileId `integer`: The id of the client file to act upon.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.RestrictionsResultModel](#advicent.naviplanrestapiintegrationproxy.models.restrictionsresultmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsResultModel](#advicentnaviplanrestapigoaladjustmentsmodelsrestrictionsresultmodel)
 
-### GoalAdjustments_GetRetirementByIdClientidClientfileid
+### GoalAdjustments_GetRetirementByClientidPlanid
 This function retrieves a goal and the adjustments made to it for a particular client
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_GetRetirementByIdClientidClientfileid({
-  "id": 0
+naviplancentral_plan.GoalAdjustments_GetRetirementByClientidPlanid({
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * clientId `string`: The id of the client to retrieve adjustments for.
-  * clientFileId `integer`: The id of the client file to be operated on.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustmentsModel](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustmentsmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsRetirementGoalAdjustmentsModel](#advicentnaviplanrestapigoaladjustmentsmodelsretirementgoaladjustmentsmodel)
 
-### GoalAdjustments_PostRetirementByIdGoaladjustments
+### GoalAdjustments_PostRetirementByGoaladjustmentsPlanid
 This function returns the posted object and the adjusted calculation values
 
 
 ```js
-naviplancentral_plan.GoalAdjustments_PostRetirementByIdGoaladjustments({
-  "id": 0,
-  "goalAdjustments": {}
+naviplancentral_plan.GoalAdjustments_PostRetirementByGoaladjustmentsPlanid({
+  "goalAdjustments": {},
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * id **required** `integer`: The id of the goal to retrieve adjustments for.
-  * goalAdjustments **required** [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelRetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsmodelretirementgoaladjustments)
+  * goalAdjustments **required** [AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelsgoaladjustmentsmodeladvicentdomainlogicgoalwhatifretirementgoaladjustments)
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelRetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.coverageprojectionsresultmodelretirementgoaladjustments)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsmodelscoverageprojectionsresultmodeladvicentdomainlogicgoalwhatifretirementgoaladjustments)
 
-### Goals_GetByPlanidScenariotype
-This operation retrieves a list of all of the goals in the plan.
+### GoalAdjustments_GetWhatAreMyOptionsByIdClientidPlanid
+Returns WAMO values for current goal
 
 
 ```js
-naviplancentral_plan.Goals_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.GoalAdjustments_GetWhatAreMyOptionsByIdClientidPlanid({
+  "id": 0,
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * id **required** `integer`: The id of the goal to retrieve WAMO values for.
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.GoalsModel](#advicent.publishedplanservice.models.goalsmodel)
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsWhatAreMyOptionsModel](#advicentnaviplanrestapigoaladjustmentsmodelswhataremyoptionsmodel)
 
-### Goals_GetByIdPlanidScenariotype
+### Goals_GetByPlanid
+This operation retrieves a list of all of the goals in the plan.
+
+
+```js
+naviplancentral_plan.Goals_GetByPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
+
+#### Output
+* output [GoalsModel](#goalsmodel)
+
+### Goals_GetByIdPlanid
 This operation retrieves a goal from the plan.
 
 
 ```js
-naviplancentral_plan.Goals_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.Goals_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of goal to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.GoalModel](#advicent.publishedplanservice.models.goalmodel)
+* output [GoalModel](#goalmodel)
 
-### HoldingCompanies_GetByPlanidScenariotype
+### HoldingCompanies_GetByPlanid
 This operation retrieves a list of all of the holding companies in the plan.
 
 
 ```js
-naviplancentral_plan.HoldingCompanies_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.HoldingCompanies_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.HoldingCompaniesModel](#advicent.publishedplanservice.models.holdingcompaniesmodel)
+* output [HoldingCompaniesModel](#holdingcompaniesmodel)
 
-### HoldingCompanies_GetByIdPlanidScenariotype
+### HoldingCompanies_GetByIdPlanid
 This operation retrieves a holding company from the plan.
 
 
 ```js
-naviplancentral_plan.HoldingCompanies_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.HoldingCompanies_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of holding company to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.HoldingCompanyModel](#advicent.publishedplanservice.models.holdingcompanymodel)
+* output [HoldingCompanyModel](#holdingcompanymodel)
 
-### Liabilities_GetByPlanidScenariotype
-This operation retrieves a list of all of the liabilities in the plan.
+### Households_GetByHouseholdid
+This operation retrieves a list of households the current user has access to or one household specified by a householdId parameter
 
 
 ```js
-naviplancentral_plan.Liabilities_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.Households_GetByHouseholdid({}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * householdId `integer`: The Id of the specific household to retrieve
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.LiabilitiesModel](#advicent.publishedplanservice.models.liabilitiesmodel)
+* output [HouseholdsModel](#householdsmodel)
 
-### Liabilities_GetByIdPlanidScenariotype
+### Liabilities_GetByPlanid
+This operation retrieves a list of all of the liabilities in the plan.
+
+
+```js
+naviplancentral_plan.Liabilities_GetByPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
+
+#### Output
+* output [LiabilitiesModel](#liabilitiesmodel)
+
+### Liabilities_GetByIdPlanid
 This operation retrieves a liability from the plan.
 
 
 ```js
-naviplancentral_plan.Liabilities_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.Liabilities_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of liability to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.LiabilityModel](#advicent.publishedplanservice.models.liabilitymodel)
+* output [LiabilityModel](#liabilitymodel)
 
-### LifestyleAssets_GetByPlanidScenariotype
+### LifestyleAssets_GetByPlanid
 This operation retrieves a list of all of the lifestyle assets in the plan.
 
 
 ```js
-naviplancentral_plan.LifestyleAssets_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.LifestyleAssets_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.LifestyleAssetsModel](#advicent.publishedplanservice.models.lifestyleassetsmodel)
+* output [LifestyleAssetsModel](#lifestyleassetsmodel)
 
-### LifestyleAssets_GetByIdPlanidScenariotype
+### LifestyleAssets_GetByIdPlanid
 This operation retrieves a lifestyle asset from the plan.
 
 
 ```js
-naviplancentral_plan.LifestyleAssets_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.LifestyleAssets_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of lifestyle asset to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.LifestyleAssetModel](#advicent.publishedplanservice.models.lifestyleassetmodel)
+* output [LifestyleAssetModel](#lifestyleassetmodel)
 
-### NetWorth_GetByPlanidScenariotype
+### LivePlan_GetGoalsByClientidPlanid
+Retrieves all goals from the live plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetGoalsByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiGoalsModelsLiveGoalBaseModel](#advicentnaviplanrestapigoalsmodelslivegoalbasemodel)
+
+### LivePlan_GetGoalFundingListByClientidPlanid
+This function retrieves a list of funding accounts for the goals in the plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetGoalFundingListByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiGoalsModelsGoalFundingListModel](#advicentnaviplanrestapigoalsmodelsgoalfundinglistmodel)
+
+### LivePlan_GetWhatAreMyOptionsByIdClientidPlanid
+This function retrieves the WAMO values for the specified goal
+
+
+```js
+naviplancentral_plan.LivePlan_GetWhatAreMyOptionsByIdClientidPlanid({
+  "id": 0,
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`: The id of the goal
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiGoalAdjustmentsModelsWhatAreMyOptionsModel](#advicentnaviplanrestapigoaladjustmentsmodelswhataremyoptionsmodel)
+
+### LivePlan_GetAccountsByClientidPlanid
+Retrieves accounts for a given plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetAccountsByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiNetWorthModelsAccountBaseModel](#advicentnaviplanrestapinetworthmodelsaccountbasemodel)
+
+### LivePlan_GetLiabilitiesByClientidPlanid
+Retrieves liabilities for a given plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetLiabilitiesByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiNetWorthModelsLiabilityBaseModel](#advicentnaviplanrestapinetworthmodelsliabilitybasemodel)
+
+### LivePlan_GetLifestyleAssetsByClientidPlanid
+Retrieves lifestyle assets for a given plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetLifestyleAssetsByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetBaseModel](#advicentnaviplanrestapinetworthmodelslifestyleassetbasemodel)
+
+### LivePlan_GetRealEstateAssetsByClientidPlanid
+Retrieves real estate accounts for a given plan
+
+
+```js
+naviplancentral_plan.LivePlan_GetRealEstateAssetsByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiNetWorthModelsRealEstateBaseModel](#advicentnaviplanrestapinetworthmodelsrealestatebasemodel)
+
+### LivePlan_GetProjectedNetWorthByClientidPlanid
+Retrieves net worth projections
+
+
+```js
+naviplancentral_plan.LivePlan_GetProjectedNetWorthByClientidPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsModel](#advicentnaviplanrestapiprojectionsmodelsnetworthprojectionsmodel)
+
+### LivePlan_GetProjectedNeedsVsAbilitiesByIdClientidPlanid
+Retrieves needs vs abilities projections
+
+
+```js
+naviplancentral_plan.LivePlan_GetProjectedNeedsVsAbilitiesByIdClientidPlanid({
+  "id": 0,
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * id **required** `integer`
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+#### Output
+* output [AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsModel](#advicentnaviplanrestapiprojectionsmodelsneedsvsabilitiesprojectionsmodel)
+
+### NetWorth_GetByPlanid
 This operation retrieves an object containing net worth values for specific dates within the plan:
               * Plan Start Date
               * Retirement Date
@@ -477,16 +715,17 @@ This operation retrieves an object containing net worth values for specific date
 
 
 ```js
-naviplancentral_plan.NetWorth_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.NetWorth_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.NetWorthModel](#advicent.publishedplanservice.models.networthmodel)
+* output [NetWorthModel](#networthmodel)
 
 ### Password_HasUserSetPassword
 Determines if the currently logged in user has set their own password
@@ -522,13 +761,16 @@ Resets the password for the supplied user name
 
 ```js
 naviplancentral_plan.Password_ResetByModel({
-  "model": {}
+  "model": {
+    "userName": "",
+    "locale": ""
+  }
 }, context)
 ```
 
 #### Input
 * input `object`
-  * model **required** [Advicent.PublishedPlanService.Password.Models.ResetPasswordModel](#advicent.publishedplanservice.password.models.resetpasswordmodel)
+  * model **required** [ResetPasswordModel](#resetpasswordmodel)
 
 #### Output
 *Output schema unknown*
@@ -545,240 +787,266 @@ naviplancentral_plan.Password_SetByModel({
 
 #### Input
 * input `object`
-  * model **required** [Advicent.PublishedPlanService.Password.Models.SetPasswordModel](#advicent.publishedplanservice.password.models.setpasswordmodel)
+  * model **required** [SetPasswordModel](#setpasswordmodel)
 
 #### Output
 *Output schema unknown*
 
-### PlanInformation_GetByPlanidScenariotype
+### PlanInformation_GetByPlanid
 This operation retrieves the high level plan information for a given plan
 
 
 ```js
-naviplancentral_plan.PlanInformation_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.PlanInformation_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.PlanInformationModel](#advicent.publishedplanservice.models.planinformationmodel)
+* output [PlanInformationModel](#planinformationmodel)
 
-### PortfolioAccounts_GetByPlanidScenariotype
+### PlanStatuses_GetByPlanid
+This operation retrieves the data statuses of the published plan if on demand updates
+            are enabled
+
+
+```js
+naviplancentral_plan.PlanStatuses_GetByPlanid({
+  "planId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3)
+
+#### Output
+* output [PlanStatusesModel](#planstatusesmodel)
+
+### PortfolioAccounts_GetByPlanid
 This operation retrieves a list of all of the portfolio accounts in the plan.
 
 
 ```js
-naviplancentral_plan.PortfolioAccounts_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.PortfolioAccounts_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.PortfolioAccountsModel](#advicent.publishedplanservice.models.portfolioaccountsmodel)
+* output [PortfolioAccountsModel](#portfolioaccountsmodel)
 
-### PortfolioAccounts_GetByIdPlanidScenariotype
+### PortfolioAccounts_GetByIdPlanid
 This operation retrieves a portfolio account from the plan.
 
 
 ```js
-naviplancentral_plan.PortfolioAccounts_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.PortfolioAccounts_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of portfolio account to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.PortfolioAccountModel](#advicent.publishedplanservice.models.portfolioaccountmodel)
+* output [PortfolioAccountModel](#portfolioaccountmodel)
 
-### ProjectedAnnualSummary_GetByPlanidScenariotype
+### ProjectedAnnualSummary_GetByPlanid
 This operation retrieves an object containing annual summary information 
               for each year of the projected plan.
 
 
 ```js
-naviplancentral_plan.ProjectedAnnualSummary_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.ProjectedAnnualSummary_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel](#advicent.publishedplanservice.models.projectedannualsummariesmodel)
+* output [ProjectedAnnualSummariesModel](#projectedannualsummariesmodel)
 
-### ProjectedAnnualSummary_GetByIdPlanidScenariotype
+### ProjectedAnnualSummary_GetByIdPlanid
 This operation retrieves an object containing annual summary information 
               for a single specified year of the projected plan.
 
 
 ```js
-naviplancentral_plan.ProjectedAnnualSummary_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.ProjectedAnnualSummary_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: Index into the list of annual projections
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel](#advicent.publishedplanservice.models.projectedannualsummarymodel)
+* output [ProjectedAnnualSummaryModel](#projectedannualsummarymodel)
 
-### ProjectedCashFlow_GetByPlanidScenariotype
+### ProjectedCashFlow_GetByPlanid
 This operation retrieves an object containing cash flow information 
               for each year of the projected plan.
 
 
 ```js
-naviplancentral_plan.ProjectedCashFlow_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.ProjectedCashFlow_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.CashFlowProjectionsModel](#advicent.publishedplanservice.models.cashflowprojectionsmodel)
+* output [CashFlowProjectionsModel](#cashflowprojectionsmodel)
 
-### ProjectedCashFlow_GetByIdPlanidScenariotype
+### ProjectedCashFlow_GetByIdPlanid
 This operation retrieves an object containing cash flow information 
               for a single specified year of the projected plan.
 
 
 ```js
-naviplancentral_plan.ProjectedCashFlow_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.ProjectedCashFlow_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: Index into the list of annual projections
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.CashFlowProjectionModel](#advicent.publishedplanservice.models.cashflowprojectionmodel)
+* output [CashFlowProjectionModel](#cashflowprojectionmodel)
 
-### ProjectedGoals_GetAssetsFundingGoalsByPlanidScenariotype
+### ProjectedGoals_GetAssetsFundingGoalsByPlanid
 This operation retrieves the assets funding each goal throughout the plan years
 
 
 ```js
-naviplancentral_plan.ProjectedGoals_GetAssetsFundingGoalsByPlanidScenariotype({}, context)
+naviplancentral_plan.ProjectedGoals_GetAssetsFundingGoalsByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.AssetsFundingGoalModel](#advicent.publishedplanservice.models.assetsfundinggoalmodel)
+* output [AssetsFundingGoalModel](#assetsfundinggoalmodel)
 
-### ProjectedGoals_GetNeedsVsAbilitiesByPlanidScenariotype
+### ProjectedGoals_GetNeedsVsAbilitiesByPlanid
 This operation retrieves a needs and abilities data for all goals throughout
               the plan years.
 
 
 ```js
-naviplancentral_plan.ProjectedGoals_GetNeedsVsAbilitiesByPlanidScenariotype({}, context)
+naviplancentral_plan.ProjectedGoals_GetNeedsVsAbilitiesByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel](#advicent.publishedplanservice.models.needsvsabilitiesmodel)
+* output [NeedsVsAbilitiesModel](#needsvsabilitiesmodel)
 
-### ProjectedNetWorth_GetByPlanidScenariotype
+### ProjectedNetWorth_GetByPlanid
 This operation retrieves an object containing net worth information 
               for each year of the projected plan. These are EOY numbers.
 
 
 ```js
-naviplancentral_plan.ProjectedNetWorth_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.ProjectedNetWorth_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.NetWorthProjectionsModel](#advicent.publishedplanservice.models.networthprojectionsmodel)
+* output [NetWorthProjectionsModel](#networthprojectionsmodel)
 
-### ProjectedNetWorth_GetByIdPlanidScenariotype
+### ProjectedNetWorth_GetByIdPlanid
 This operation retrieves an object containing net worth information 
               for a single specified year of the projected plan. These are EOY numbers.
 
 
 ```js
-naviplancentral_plan.ProjectedNetWorth_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.ProjectedNetWorth_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: Index into the list of annual projections
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.NetWorthProjectionModel](#advicent.publishedplanservice.models.networthprojectionmodel)
+* output [NetWorthProjectionModel](#networthprojectionmodel)
 
-### RestrictedStocks_GetByPlanidScenariotype
+### RestrictedStocks_GetByPlanid
 This operation retrieves a list of all of the restricted stocks in the plan.
 
 
 ```js
-naviplancentral_plan.RestrictedStocks_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.RestrictedStocks_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.RestrictedStocksModel](#advicent.publishedplanservice.models.restrictedstocksmodel)
+* output [RestrictedStocksModel](#restrictedstocksmodel)
 
-### RestrictedStocks_GetByIdPlanidScenariotype
+### RestrictedStocks_GetByIdPlanid
 This operation retrieves a restricted stock from the plan.
 
 
 ```js
-naviplancentral_plan.RestrictedStocks_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.RestrictedStocks_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of restricted stock to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.RestrictedStockModel](#advicent.publishedplanservice.models.restrictedstockmodel)
+* output [RestrictedStockModel](#restrictedstockmodel)
 
 ### ServiceInformation_Statistics
 This resource can be used to check the status of the service.
@@ -792,42 +1060,43 @@ naviplancentral_plan.ServiceInformation_Statistics(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Advicent.Altair.Common.ServiceInformation](#advicent.altair.common.serviceinformation)
+* output [ServiceInformation](#serviceinformation)
 
-### StockOptions_GetByPlanidScenariotype
+### StockOptions_GetByPlanid
 This operation retrieves a list of all of the stock options in the plan.
 
 
 ```js
-naviplancentral_plan.StockOptions_GetByPlanidScenariotype({}, context)
+naviplancentral_plan.StockOptions_GetByPlanid({
+  "planId": ""
+}, context)
 ```
 
 #### Input
 * input `object`
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.StockOptionsModel](#advicent.publishedplanservice.models.stockoptionsmodel)
+* output [StockOptionsModel](#stockoptionsmodel)
 
-### StockOptions_GetByIdPlanidScenariotype
+### StockOptions_GetByIdPlanid
 This operation retrieves a stock option from the plan.
 
 
 ```js
-naviplancentral_plan.StockOptions_GetByIdPlanidScenariotype({
-  "id": 0
+naviplancentral_plan.StockOptions_GetByIdPlanid({
+  "id": 0,
+  "planId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`: ID of stock option to retrieve
-  * planId `string`: Id of the plan to retrieve data from (e.g. 1001-11-3). Default value is the first plan the user is authorized to access.
-  * scenarioType `integer`: Type of plan to retrieve data from (0:Current-default, 1:Recommended)
+  * planId **required** `string`: Id of the plan to retrieve data from (e.g. 1001-11-3).
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.StockOptionModel](#advicent.publishedplanservice.models.stockoptionmodel)
+* output [StockOptionModel](#stockoptionmodel)
 
 ### Auth_LoginByModel
 Start a session with the DomainProviders user store
@@ -841,10 +1110,10 @@ naviplancentral_plan.Auth_LoginByModel({
 
 #### Input
 * input `object`
-  * model **required** [Advicent.PublishedPlanService.Auth.Models.LoginModel](#advicent.publishedplanservice.auth.models.loginmodel)
+  * model **required** [LoginModel](#loginmodel)
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.PublicSessionInfoModel](#advicent.publishedplanservice.models.publicsessioninfomodel)
+* output [PublicSessionInfoModel](#publicsessioninfomodel)
 
 ### Auth_PasswordRequirements
 Gets the login rules
@@ -875,7 +1144,7 @@ naviplancentral_plan.Auth_Logout(null, context)
 *Output schema unknown*
 
 ### Auth_ResumeSession
-Validate a session
+Validate and extend the duration of a session
 
 
 ```js
@@ -886,211 +1155,30 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
 *This action has no parameters*
 
 #### Output
-* output [Advicent.PublishedPlanService.Models.PublicSessionInfoModel](#advicent.publishedplanservice.models.publicsessioninfomodel)
+* output [PublicSessionInfoModel](#publicsessioninfomodel)
 
 
 
 ## Definitions
 
-### Advicent.Altair.Common.ServiceInformation
-* Advicent.Altair.Common.ServiceInformation `object`
-  * altairConnectionStatus `boolean`
-  * name `string`
-  * serviceVersion [System.Version](#system.version)
-  * status `string`
-
-### Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary
-* Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary `object`
-  * surplusDeficit `number`
-  * totalIncome `number`
-  * totalOutflowsWithTaxes `number`
-  * totalOutflowsWithoutTaxes `number`
-  * totalTaxes `number`
-
-### Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary
-* Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary `object`
-  * totalAssets `number`
-  * totalLiabilities `number`
-  * totalNetWorth `number`
-
-### Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary
-* Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary `object`
-  * cashFlow [Advicent.DomainLogic.Models.ProjectedAnnualSummary.CashFlowSummary](#advicent.domainlogic.models.projectedannualsummary.cashflowsummary)
-  * clientAge `integer`
-  * coClientAge `integer`
-  * netWorth [Advicent.DomainLogic.Models.ProjectedAnnualSummary.NetWorthSummary](#advicent.domainlogic.models.projectedannualsummary.networthsummary)
-  * year `integer`
-
-### Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary
-* Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary `object`
-  * cashFlow [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowbyowner)
-  * clientAge `integer`
-  * coClientAge `integer`
-  * year `integer`
-
-### Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary
-* Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary `object`
-  * contributions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iaccumulationcategorydata)
-  * endOfYearAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iaccumulationcategorydata)
-  * goalType `string`
-  * growthAndReinvestments [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iaccumulationcategorydata)
-  * identifier `integer`
-  * netWithdrawals `number`
-  * withdrawals [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iaccumulationcategorydata)
-
-### Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary
-* Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary `object`
-  * abilities `number`
-  * fixedNeeds `number`
-  * fixedNeedsWithTaxes `number`
-  * goalType `string`
-  * identifier `integer`
-  * totalNeeds `number`
-  * totalNeedsWithTaxes `number`
-
-### Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary]
-* Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary] `object`
-  * clientAge `integer`
-  * coClientAge `integer`
-  * goals `array`
-    * items [Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary](#advicent.domainlogic.models.projectedgoals.assetsfundinggoalsummary)
-  * year `integer`
-
-### Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary]
-* Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary] `object`
-  * clientAge `integer`
-  * coClientAge `integer`
-  * goals `array`
-    * items [Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary](#advicent.domainlogic.models.projectedgoals.goalneedsvsabilitiessummary)
-  * year `integer`
-
-### Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary
-* Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary `object`
-  * clientAge `integer`
-  * coClientAge `integer`
-  * endOfYearNetWorth [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthatdate)
-  * year `integer`
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.CalcProjection
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.CalcProjection `object`
-  * projectedAbilities `number`
-  * projectedNeed `number`
-  * projectedRetirementAssetValues `number`
-  * year `integer`
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections `object`
-  * goalId `integer`
-  * percentCovered `number`
-  * projections `array`
-    * items [Advicent.NaviPlanRestApiIntegrationProxy.Models.CalcProjection](#advicent.naviplanrestapiintegrationproxy.models.calcprojection)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelEducationGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelEducationGoalAdjustments `object`
-  * goalAdjustments [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultEducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsresulteducationgoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelMajorPurchaseGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelMajorPurchaseGoalAdjustments `object`
-  * goalAdjustments [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultMajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsresultmajorpurchasegoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelRetirementGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjectionsResultModelRetirementGoalAdjustments `object`
-  * goalAdjustments [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultRetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.goaladjustmentsresultretirementgoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments `object`
+### AdvicentDomainLogicGoalWhatIfEducationGoalAdjustments
+* AdvicentDomainLogicGoalWhatIfEducationGoalAdjustments `object`
   * duration `number`
   * expensesCovered `number`
   * lumpSumContribution `number`
   * lumpSumDate `string`
   * monthlySavingsContribution `number`
 
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustmentsModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustmentsModel `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-  * created `string`
-  * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationRestriction
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationRestriction `object`
-  * canChangeDuration `boolean`
-  * goalId `integer`
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelEducationGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelEducationGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelMajorPurchaseGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelMajorPurchaseGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelRetirementGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsModelRetirementGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultEducationGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultEducationGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-  * created `string`
-  * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.educationgoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultMajorPurchaseGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultMajorPurchaseGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-  * created `string`
-  * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultRetirementGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalAdjustmentsResultRetirementGoalAdjustments `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
-  * created `string`
-  * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateModel `object`
-  * description `string`
-  * goalId `integer`
-  * successRate `number`
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateResultsModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateResultsModel `object`
-  * goalSuccessRateResults `array`
-    * items [Advicent.NaviPlanRestApiIntegrationProxy.Models.GoalSuccessRateModel](#advicent.naviplanrestapiintegrationproxy.models.goalsuccessratemodel)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments `object`
+### AdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments
+* AdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments `object`
   * lumpSumContribution `number`
   * lumpSumDate `string`
   * monthlySavingsContribution `number`
   * targetDate `string`
   * totalNeed `number`
 
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustmentsModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustmentsModel `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-  * created `string`
-  * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.MajorPurchaseGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.majorpurchasegoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.RestrictionsResultModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.RestrictionsResultModel `object`
-  * educationRestrictions `array`
-    * items [Advicent.NaviPlanRestApiIntegrationProxy.Models.EducationRestriction](#advicent.naviplanrestapiintegrationproxy.models.educationrestriction)
-
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments `object`
+### AdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments
+* AdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments `object`
   * clientRetirementAge `number`
   * coClientRetirementAge `number`
   * discretionaryExpenseCoverage `number`
@@ -1099,28 +1187,261 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
   * lumpSumDate `string`
   * monthlySavingsContribution `number`
 
-### Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustmentsModel
-* Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustmentsModel `object`
-  * adjustedValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
+### AdvicentNaviPlanRestApiGoalAdjustmentsCalcProjection
+* AdvicentNaviPlanRestApiGoalAdjustmentsCalcProjection `object`
+  * projectedAbilities `number`
+  * projectedNeed `number`
+  * projectedRetirementAssetValues `number`
+  * year `integer`
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections
+* AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections `object`
+  * goalId `integer`
+  * percentCovered `number`
+  * projections `array`
+    * items [AdvicentNaviPlanRestApiGoalAdjustmentsCalcProjection](#advicentnaviplanrestapigoaladjustmentscalcprojection)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentdomainlogicgoalwhatifeducationgoaladjustments)
   * created `string`
   * goalId `integer`
-  * originalValues [Advicent.NaviPlanRestApiIntegrationProxy.Models.RetirementGoalAdjustments](#advicent.naviplanrestapiintegrationproxy.models.retirementgoaladjustments)
-  * projectedResults [Advicent.NaviPlanRestApiIntegrationProxy.Models.CoverageProjections](#advicent.naviplanrestapiintegrationproxy.models.coverageprojections)
 
-### Advicent.PublishedPlanService.Auth.Models.LoginModel
-* Advicent.PublishedPlanService.Auth.Models.LoginModel `object`
-  * npoIdentifiers `array`
-    * items `string`
-  * password `string`
-  * username `string`
+### AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
+  * created `string`
+  * goalId `integer`
 
-### Advicent.PublishedPlanService.GoalWhatIf.Models.ClientIdQueryParameter
-* Advicent.PublishedPlanService.GoalWhatIf.Models.ClientIdQueryParameter `object`: Client user id query parameter model so the client id query parameter is optional.
-  * clientFileId `integer`: The id of the client file to act upon.
-  * clientId `string`: The id of the client user to act upon.
+### AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentdomainlogicgoalwhatifretirementgoaladjustments)
+  * created `string`
+  * goalId `integer`
 
-### Advicent.PublishedPlanService.Models.AdvisorModel
-* Advicent.PublishedPlanService.Models.AdvisorModel `object`
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments `object`
+  * goalAdjustments [AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsgoaladjustmentsresultadvicentdomainlogicgoalwhatifeducationgoaladjustments)
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments `object`
+  * goalAdjustments [AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsgoaladjustmentsresultadvicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsCoverageProjectionsResultModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments `object`
+  * goalAdjustments [AdvicentNaviPlanRestApiGoalAdjustmentsGoalAdjustmentsResultAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentnaviplanrestapigoaladjustmentsgoaladjustmentsresultadvicentdomainlogicgoalwhatifretirementgoaladjustments)
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsEducationGoalAdjustmentsModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsEducationGoalAdjustmentsModel `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentdomainlogicgoalwhatifeducationgoaladjustments)
+  * created `string`
+  * goalId `integer`
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfEducationGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfEducationGoalAdjustments](#advicentdomainlogicgoalwhatifeducationgoaladjustments)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalAdjustmentsModelAdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentdomainlogicgoalwhatifretirementgoaladjustments)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateModel `object`
+  * description `string`
+  * goalId `integer`
+  * successRate `number`
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateResultsModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateResultsModel `object`
+  * goalSuccessRateResults `array`
+    * items [AdvicentNaviPlanRestApiGoalAdjustmentsModelsGoalSuccessRateModel](#advicentnaviplanrestapigoaladjustmentsmodelsgoalsuccessratemodel)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsMajorPurchaseGoalAdjustmentsModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsMajorPurchaseGoalAdjustmentsModel `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfMajorPurchaseGoalAdjustments](#advicentdomainlogicgoalwhatifmajorpurchasegoaladjustments)
+  * created `string`
+  * goalId `integer`
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsEducationRestriction
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsEducationRestriction `object`
+  * canChangeDuration `boolean`
+  * goalId `integer`
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsResultModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsResultModel `object`
+  * educationRestrictions `array`
+    * items [AdvicentNaviPlanRestApiGoalAdjustmentsModelsRestrictionsEducationRestriction](#advicentnaviplanrestapigoaladjustmentsmodelsrestrictionseducationrestriction)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsRetirementGoalAdjustmentsModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsRetirementGoalAdjustmentsModel `object`
+  * adjustedValues [AdvicentDomainLogicGoalWhatIfRetirementGoalAdjustments](#advicentdomainlogicgoalwhatifretirementgoaladjustments)
+  * created `string`
+  * goalId `integer`
+  * projectedResults [AdvicentNaviPlanRestApiGoalAdjustmentsCoverageProjections](#advicentnaviplanrestapigoaladjustmentscoverageprojections)
+
+### AdvicentNaviPlanRestApiGoalAdjustmentsModelsWhatAreMyOptionsModel
+* AdvicentNaviPlanRestApiGoalAdjustmentsModelsWhatAreMyOptionsModel `object`
+  * additionalMonthlySavings `number`
+  * clientRetirementAge `integer`
+  * clientRetirementAgeDate `string`
+  * coClientRetirementAge `integer`
+  * coClientRetirementAgeDate `string`
+  * expenseCoverageDollars `number`
+  * expenseCoveragePercentage `number`
+  * lumpSumSavings `number`
+  * purchaseDate `string`
+
+### AdvicentNaviPlanRestApiGoalsModelsGoalFundingAccount
+* AdvicentNaviPlanRestApiGoalsModelsGoalFundingAccount `object`
+  * accountId `integer`
+  * description `string`
+  * fundingAmount `number`
+
+### AdvicentNaviPlanRestApiGoalsModelsGoalFundingListItem
+* AdvicentNaviPlanRestApiGoalsModelsGoalFundingListItem `object`
+  * description `string`
+  * fundingAccounts `array`
+    * items [AdvicentNaviPlanRestApiGoalsModelsGoalFundingAccount](#advicentnaviplanrestapigoalsmodelsgoalfundingaccount)
+  * goalId `integer`
+
+### AdvicentNaviPlanRestApiGoalsModelsGoalFundingListModel
+* AdvicentNaviPlanRestApiGoalsModelsGoalFundingListModel `object`
+  * goals `array`
+    * items [AdvicentNaviPlanRestApiGoalsModelsGoalFundingListItem](#advicentnaviplanrestapigoalsmodelsgoalfundinglistitem)
+
+### AdvicentNaviPlanRestApiGoalsModelsLiveGoalBase
+* AdvicentNaviPlanRestApiGoalsModelsLiveGoalBase `object`
+  * amount `number`
+  * coveragePercentage `number`
+  * description `string`
+  * endDate `string`
+  * id `integer`
+  * inflationRate `number`
+  * owners `array`
+    * items [AdvicentNaviPlanRestApiModelsOwnerModel](#advicentnaviplanrestapimodelsownermodel)
+  * startDate `string`
+  * type `string`
+
+### AdvicentNaviPlanRestApiGoalsModelsLiveGoalBaseModel
+* AdvicentNaviPlanRestApiGoalsModelsLiveGoalBaseModel `object`
+  * clientDescription `string`
+  * clientId `integer`
+  * goals `array`
+    * items [AdvicentNaviPlanRestApiGoalsModelsLiveGoalBase](#advicentnaviplanrestapigoalsmodelslivegoalbase)
+  * planDescription `string`
+  * planLastUpdateTime `string`
+
+### AdvicentNaviPlanRestApiModelsOwnerModel
+* AdvicentNaviPlanRestApiModelsOwnerModel `object`
+  * firstName `string`
+  * id `integer`
+  * lastName `string`
+
+### AdvicentNaviPlanRestApiNetWorthModelsAccountBaseModel
+* AdvicentNaviPlanRestApiNetWorthModelsAccountBaseModel `object`
+  * accounts `array`
+    * items [AdvicentNaviPlanRestApiNetWorthModelsAccountModel](#advicentnaviplanrestapinetworthmodelsaccountmodel)
+
+### AdvicentNaviPlanRestApiNetWorthModelsAccountModel
+* AdvicentNaviPlanRestApiNetWorthModelsAccountModel `object`
+  * description `string`
+  * holdings `array`
+    * items [AdvicentNaviPlanRestApiNetWorthModelsHoldingModel](#advicentnaviplanrestapinetworthmodelsholdingmodel)
+  * id `integer`
+  * legacyId `string`
+  * owner [AdvicentNaviPlanRestApiModelsOwnerModel](#advicentnaviplanrestapimodelsownermodel)
+  * type `integer`
+
+### AdvicentNaviPlanRestApiNetWorthModelsHoldingModel
+* AdvicentNaviPlanRestApiNetWorthModelsHoldingModel `object`
+  * description `string`
+  * marketValue `number`
+  * valuationDate `string`
+
+### AdvicentNaviPlanRestApiNetWorthModelsLiabilityBaseModel
+* AdvicentNaviPlanRestApiNetWorthModelsLiabilityBaseModel `object`
+  * liabilities `array`
+    * items [AdvicentNaviPlanRestApiNetWorthModelsLiabilityModel](#advicentnaviplanrestapinetworthmodelsliabilitymodel)
+
+### AdvicentNaviPlanRestApiNetWorthModelsLiabilityModel
+* AdvicentNaviPlanRestApiNetWorthModelsLiabilityModel `object`
+  * description `string`
+  * endDate `string`
+  * id `integer`
+  * legacyId `string`
+  * outstandingPrincipal `number`
+  * outstandingPrincipalAsOfDate `string`
+  * owner [AdvicentNaviPlanRestApiModelsOwnerModel](#advicentnaviplanrestapimodelsownermodel)
+  * startDate `string`
+  * type `integer`
+
+### AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetBaseModel
+* AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetBaseModel `object`
+  * lifestyleAssets `array`
+    * items [AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetModel](#advicentnaviplanrestapinetworthmodelslifestyleassetmodel)
+
+### AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetModel
+* AdvicentNaviPlanRestApiNetWorthModelsLifestyleAssetModel `object`
+  * description `string`
+  * id `integer`
+  * owner [AdvicentNaviPlanRestApiModelsOwnerModel](#advicentnaviplanrestapimodelsownermodel)
+  * purchaseDate `string`
+  * purchaseValue `number`
+  * type `integer`
+  * valuationDate `string`
+  * valuationValue `number`
+
+### AdvicentNaviPlanRestApiNetWorthModelsRealEstateBaseModel
+* AdvicentNaviPlanRestApiNetWorthModelsRealEstateBaseModel `object`
+  * realEstateAssets `array`
+    * items [AdvicentNaviPlanRestApiNetWorthModelsRealEstateModel](#advicentnaviplanrestapinetworthmodelsrealestatemodel)
+
+### AdvicentNaviPlanRestApiNetWorthModelsRealEstateModel
+* AdvicentNaviPlanRestApiNetWorthModelsRealEstateModel `object`
+  * description `string`
+  * id `integer`
+  * legacyId `string`
+  * marketValue `number`
+  * owner [AdvicentNaviPlanRestApiModelsOwnerModel](#advicentnaviplanrestapimodelsownermodel)
+  * purchaseAmount `number`
+  * purchaseDate `string`
+  * valuationDate `string`
+
+### AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsModel
+* AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsModel `object`
+  * goalId `integer`
+  * percentCovered `number`
+  * projections `array`
+    * items [AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsYear](#advicentnaviplanrestapiprojectionsmodelsneedsvsabilitiesprojectionsyear)
+
+### AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsYear
+* AdvicentNaviPlanRestApiProjectionsModelsNeedsVsAbilitiesProjectionsYear `object`
+  * projectedAbilities `number`
+  * projectedNeed `number`
+  * year `integer`
+
+### AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsModel
+* AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsModel `object`
+  * netWorthProjections `array`
+    * items [AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsYearModel](#advicentnaviplanrestapiprojectionsmodelsnetworthprojectionsyearmodel)
+
+### AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsYearModel
+* AdvicentNaviPlanRestApiProjectionsModelsNetWorthProjectionsYearModel `object`
+  * endOfYearRetirementAssets `number`
+  * endOfYearTotalAssets `number`
+  * year `integer`
+
+### AdvisorModel
+* AdvisorModel `object`
   * addressLine1 `string`
   * addressLine2 `string`
   * advisorId `string`
@@ -1134,7 +1455,7 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
   * homePhone `string`
   * lastName `string`
   * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
+    * items [ObjectLink](#objectlink)
   * middleName `string`
   * officeName `string`
   * officeWebsite `string`
@@ -1142,1230 +1463,100 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
   * postalCode `string`
   * stateProvince `string`
 
-### Advicent.PublishedPlanService.Models.AdvisorsModel
-* Advicent.PublishedPlanService.Models.AdvisorsModel `object`
+### AdvisorsModel
+* AdvisorsModel `object`
   * advisors `array`
-    * items [Advicent.PublishedPlanService.Models.AdvisorModel](#advicent.publishedplanservice.models.advisormodel)
+    * items [AdvisorModel](#advisormodel)
 
-### Advicent.PublishedPlanService.Models.AssetsFundingGoalModel
-* Advicent.PublishedPlanService.Models.AssetsFundingGoalModel `object`
+### AssetsFundingGoalModel
+* AssetsFundingGoalModel `object`
   * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
+    * items [ObjectLink](#objectlink)
   * projections `array`
-    * items [Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.AssetsFundingGoalSummary]](#advicent.domainlogic.models.projectedgoals.projectedgoalssummary[advicent.domainlogic.models.projectedgoals.assetsfundinggoalsummary])
+    * items [ProjectedGoalsSummary[AssetsFundingGoalSummary]](#projectedgoalssummary[assetsfundinggoalsummary])
 
-### Advicent.PublishedPlanService.Models.AssumptionsModel
-* Advicent.PublishedPlanService.Models.AssumptionsModel `object`
-  * assumptions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iassumptions)
+### AssetsFundingGoalSummary
+* AssetsFundingGoalSummary `object`
+  * contributions [IAccumulationCategoryData](#iaccumulationcategorydata)
+  * endOfYearAssets [IAccumulationCategoryData](#iaccumulationcategorydata)
+  * goalType `string`
+  * growthAndReinvestments [IAccumulationCategoryData](#iaccumulationcategorydata)
+  * identifier `integer`
+  * netWithdrawals `number`
+  * withdrawals [IAccumulationCategoryData](#iaccumulationcategorydata)
+
+### AssumptionsModel
+* AssumptionsModel `object`
+  * assumptions [IAssumptions](#iassumptions)
   * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
+    * items [ObjectLink](#objectlink)
 
-### Advicent.PublishedPlanService.Models.BusinessEntitiesModel
-* Advicent.PublishedPlanService.Models.BusinessEntitiesModel `object`
-  * businessEntities `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity](#naviplan.planobjectmodel.planpropertiesdata.assetdata.businessentitydata.ibusinessentity)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.BusinessEntityModel
-* Advicent.PublishedPlanService.Models.BusinessEntityModel `object`
-  * businessEntity [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity](#naviplan.planobjectmodel.planpropertiesdata.assetdata.businessentitydata.ibusinessentity)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.CashFlowProjectionModel
-* Advicent.PublishedPlanService.Models.CashFlowProjectionModel `object`
-  * cashFlow [Advicent.DomainLogic.Models.ProjectedCashFlow.ProjectedCashFlowSummary](#advicent.domainlogic.models.projectedcashflow.projectedcashflowsummary)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.CashFlowProjectionsModel
-* Advicent.PublishedPlanService.Models.CashFlowProjectionsModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * projections `array`
-    * items [Advicent.PublishedPlanService.Models.CashFlowProjectionModel](#advicent.publishedplanservice.models.cashflowprojectionmodel)
-
-### Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel
-* Advicent.PublishedPlanService.Models.DefinedBenefitPensionModel `object`
-  * definedBenefitPension [NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension](#naviplan.planobjectmodel.planpropertiesdata.definedbenefitpensiondata.idefinedbenefitpension)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel
-* Advicent.PublishedPlanService.Models.DefinedBenefitPensionsModel `object`
-  * definedBenefitPensions `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension](#naviplan.planobjectmodel.planpropertiesdata.definedbenefitpensiondata.idefinedbenefitpension)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.FamilyModel
-* Advicent.PublishedPlanService.Models.FamilyModel `object`
-  * family [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.ifamily)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.GoalModel
-* Advicent.PublishedPlanService.Models.GoalModel `object`
-  * goal [NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal](#naviplan.planobjectmodel.planpropertiesdata.goaldata.igoal)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.GoalsModel
-* Advicent.PublishedPlanService.Models.GoalsModel `object`
-  * goals `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal](#naviplan.planobjectmodel.planpropertiesdata.goaldata.igoal)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.HoldingCompaniesModel
-* Advicent.PublishedPlanService.Models.HoldingCompaniesModel `object`
-  * holdingCompanies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iholdingcompany)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.HoldingCompanyModel
-* Advicent.PublishedPlanService.Models.HoldingCompanyModel `object`
-  * holdingCompany [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iholdingcompany)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.LiabilitiesModel
-* Advicent.PublishedPlanService.Models.LiabilitiesModel `object`
-  * liabilities `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.iliability)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.LiabilityModel
-* Advicent.PublishedPlanService.Models.LiabilityModel `object`
-  * liability [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.iliability)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.LifestyleAssetModel
-* Advicent.PublishedPlanService.Models.LifestyleAssetModel `object`
-  * lifestyleAsset [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset](#naviplan.planobjectmodel.planpropertiesdata.assetdata.lifestyleassetdata.ilifestyleasset)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.LifestyleAssetsModel
-* Advicent.PublishedPlanService.Models.LifestyleAssetsModel `object`
-  * lifestyleAssets `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset](#naviplan.planobjectmodel.planpropertiesdata.assetdata.lifestyleassetdata.ilifestyleasset)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel
-* Advicent.PublishedPlanService.Models.NeedsVsAbilitiesModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * projections `array`
-    * items [Advicent.DomainLogic.Models.ProjectedGoals.ProjectedGoalsSummary[Advicent.DomainLogic.Models.ProjectedGoals.GoalNeedsVsAbilitiesSummary]](#advicent.domainlogic.models.projectedgoals.projectedgoalssummary[advicent.domainlogic.models.projectedgoals.goalneedsvsabilitiessummary])
-
-### Advicent.PublishedPlanService.Models.NetWorthModel
-* Advicent.PublishedPlanService.Models.NetWorthModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * netWorth [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworth)
-
-### Advicent.PublishedPlanService.Models.NetWorthProjectionModel
-* Advicent.PublishedPlanService.Models.NetWorthProjectionModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * netWorth [Advicent.DomainLogic.Models.ProjectedNetWorth.ProjectedNetWorthSummary](#advicent.domainlogic.models.projectednetworth.projectednetworthsummary)
-
-### Advicent.PublishedPlanService.Models.NetWorthProjectionsModel
-* Advicent.PublishedPlanService.Models.NetWorthProjectionsModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * projections `array`
-    * items [Advicent.PublishedPlanService.Models.NetWorthProjectionModel](#advicent.publishedplanservice.models.networthprojectionmodel)
-
-### Advicent.PublishedPlanService.Models.PlanInformationModel
-* Advicent.PublishedPlanService.Models.PlanInformationModel `object`
-  * country `string`
-  * description `string`
-  * isJointAnalysis `boolean`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * locale `string`
-  * planDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * planDescription `string`
-  * planId `string`
-  * planLevel `string`
-  * planModules [NaviPlan.PlanObjectModel.IPlanModules](#naviplan.planobjectmodel.iplanmodules)
-  * planType `string`
-
-### Advicent.PublishedPlanService.Models.PortfolioAccountModel
-* Advicent.PublishedPlanService.Models.PortfolioAccountModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * portfolioAccount [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iportfolioaccount)
-
-### Advicent.PublishedPlanService.Models.PortfolioAccountsModel
-* Advicent.PublishedPlanService.Models.PortfolioAccountsModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * portfolioAccounts `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iportfolioaccount)
-
-### Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel
-* Advicent.PublishedPlanService.Models.ProjectedAnnualSummariesModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * projections `array`
-    * items [Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel](#advicent.publishedplanservice.models.projectedannualsummarymodel)
-
-### Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel
-* Advicent.PublishedPlanService.Models.ProjectedAnnualSummaryModel `object`
-  * annualSummary [Advicent.DomainLogic.Models.ProjectedAnnualSummary.ProjectedAnnualSummary](#advicent.domainlogic.models.projectedannualsummary.projectedannualsummary)
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-
-### Advicent.PublishedPlanService.Models.PublicSessionInfoModel
-* Advicent.PublishedPlanService.Models.PublicSessionInfoModel `object`
-  * eulaAccepted `boolean`
-  * hasAccountAggregation `boolean`
-  * hasGoalWhatIfing `boolean`
-  * hasUserSetPassword `boolean`
-  * isAdmin `boolean`
-  * isAdvisor `boolean`
-  * isClient `boolean`
-  * isPasswordExpired `boolean`
-  * planIds `array`
-    * items `string`
-  * userId `string`
-  * userName `string`
-
-### Advicent.PublishedPlanService.Models.RestrictedStockModel
-* Advicent.PublishedPlanService.Models.RestrictedStockModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * restrictedStock [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock](#naviplan.planobjectmodel.planpropertiesdata.assetdata.equitycompensationdata.irestrictedstock)
-
-### Advicent.PublishedPlanService.Models.RestrictedStocksModel
-* Advicent.PublishedPlanService.Models.RestrictedStocksModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * restrictedStocks `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock](#naviplan.planobjectmodel.planpropertiesdata.assetdata.equitycompensationdata.irestrictedstock)
-
-### Advicent.PublishedPlanService.Models.StockOptionModel
-* Advicent.PublishedPlanService.Models.StockOptionModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * stockOption [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption](#naviplan.planobjectmodel.planpropertiesdata.assetdata.equitycompensationdata.istockoption)
-
-### Advicent.PublishedPlanService.Models.StockOptionsModel
-* Advicent.PublishedPlanService.Models.StockOptionsModel `object`
-  * links `array`
-    * items [Advicent.Web.Base.Links.ObjectLink](#advicent.web.base.links.objectlink)
-  * stockOptions `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption](#naviplan.planobjectmodel.planpropertiesdata.assetdata.equitycompensationdata.istockoption)
-
-### Advicent.PublishedPlanService.Password.Models.ResetPasswordModel
-* Advicent.PublishedPlanService.Password.Models.ResetPasswordModel `object`
-  * locale `string`
-  * userName `string`
-
-### Advicent.PublishedPlanService.Password.Models.SetPasswordModel
-* Advicent.PublishedPlanService.Password.Models.SetPasswordModel `object`
-  * newPassword `string`
-  * oldPassword `string`
-
-### Advicent.Web.Base.Links.ObjectLink
-* Advicent.Web.Base.Links.ObjectLink `object`
-  * href `string`
-  * rel `string`
-
-### NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClass
-* NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClass `object`
-  * index `integer`
-  * maxConstraint [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * minConstraint [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * name `string`
-  * parentSuperAssetClassIndex `integer`
-  * weight [NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClassWeight](#naviplan.planobjectmodel.assetallocationdata.iassetclassweight)
-
-### NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClassWeight
-* NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClassWeight `object`
-  * dollarValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * percentage [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.AssetAllocationData.IAssetMix
-* NaviPlan.PlanObjectModel.AssetAllocationData.IAssetMix `object`
-  * assetClassDisplayLevel `integer`
-  * assetClassInfoForDisplayLevel `array`
-    * items `integer`
-  * classes `array`
-    * items [NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClass](#naviplan.planobjectmodel.assetallocationdata.iassetclass)
-  * superAssetClasses `array`
-    * items [NaviPlan.PlanObjectModel.AssetAllocationData.IAssetClass](#naviplan.planobjectmodel.assetallocationdata.iassetclass)
-
-### NaviPlan.PlanObjectModel.IPlanModules
-* NaviPlan.PlanObjectModel.IPlanModules `object`
-  * isCriticalIllnessModuleEnabled `boolean`
-  * isDisabilityIncomeModuleEnabled `boolean`
-  * isEstatePlanningModuleEabled `boolean`
-  * isLongTermCareModuleEnabled `boolean`
-  * isSurvivorIncomeModuleEnabled `boolean`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntity `object`
-  * activities `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity](#naviplan.planobjectmodel.planpropertiesdata.assetdata.businessentitydata.ibusinessentityactivity)
-  * assetId [NaviPlan.PlanObjectModel.Util.IAssetId](#naviplan.planobjectmodel.util.iassetid)
-  * businessType `string` (values: Undefined, LLC, Partnership, SCorporation, CCorporation)
-  * businessTypeFormatted `string`
-  * currentAnnualDistributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * currentAnnualDividends [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * currentAnnualGrowthRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * currentAnnualNetIncome [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * entityName `string`
-  * liquidationEvent [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent](#naviplan.planobjectmodel.planpropertiesdata.assetdata.businessentitydata.iliquidationevent)
-  * marketValuationDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * owner `string`
-  * purchaseAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * purchaseDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * standardDeviation [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.IBusinessEntityActivity `object`
-  * applicableDateRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * distributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * expense [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * frequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-  * income [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.BusinessEntityData.ILiquidationEvent `object`
-  * firstSaleDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * lastSaleDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * liquidationType `string` (values: SellAtPlanEnd, SellAllOnSpecificDate, SellInInstallments)
-  * liquidationTypeDescription `string`
-  * saleDatesDescription `string`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IRestrictedStock `object`
-  * annualDividendPerUnit [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * applicableRangeRetirementLiquidatedAssets [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * awardedDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * currentUnitValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * description `string`
-  * growthRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * numberOfUnits `integer`
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * pricePaidForAward [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * type `string`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IStockOption `object`
-  * annualDividendPerUnit [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * applicableRangeRetirementLiquidatedAssets [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * company `string`
-  * currentUnitPrice [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * currentUnitPriceDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * description `string`
-  * endOfPlanYearExercisableGrossValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * exerciseCost [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * expirationDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * grantDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * grantedOptions `integer`
-  * growthRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * optionsExercisable `integer`
-  * optionsExercised `integer`
-  * optionsVested `integer`
-  * owner `string`
-  * preTaxProfit [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * startOfYearAMTBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * startOfYearCostBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * startOfYearUnitPrice [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * strikePrice [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * symbol `string`
-  * type `string` (values: NonQualifiedStockOption, IncentiveStockOption)
-  * typeFormatted `string`
-  * vestingSchedule `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.equitycompensationdata.ivestingdata)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.EquityCompensationData.IVestingData `object`
-  * date [NaviPlan.Util.Date](#naviplan.util.date)
-  * percentVested [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IContributions
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IContributions `object`
-  * interCompanyDividendsReceived `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IInterCompanyDividendReceived](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.contributionsdata.iintercompanydividendreceived)
-  * sharePurchases `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.ISharePurchase](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.contributionsdata.isharepurchase)
-  * shareholderLoans `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IShareholderLoan](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.contributionsdata.ishareholderloan)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IInterCompanyDividendReceived
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IInterCompanyDividendReceived `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * dividendType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.InterCompanyDividendType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.contributionsdata.intercompanydividendtype])
-  * generalRateOfIncomePoolAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * receivedFrom `string`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.ISharePurchase
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.ISharePurchase `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * shareHolder `string` (values: Undefined, Head1, Head2, Other)
-  * shareId `integer`
-  * shareType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.PrivateCorporationShareType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.privatecorporationsharetype])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IShareholderLoan
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IShareholderLoan `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * shareHolder `string` (values: Undefined, Head1, Head2, Other)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData `object`
-  * amountWithGrowth [NaviPlan.Util.CurrencyWithGrowth](#naviplan.util.currencywithgrowth)
-  * applicableDateRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * directTo `string`
-  * frequency [NaviPlan.PlanObjectModel.Util.IFormattedFrequency](#naviplan.planobjectmodel.util.iformattedfrequency)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.ILoanRepaymentToShareholder
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.ILoanRepaymentToShareholder `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * shareholder `string` (values: Undefined, Head1, Head2, Other)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IManualDividendDistribution
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IManualDividendDistribution `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * directCoClientAfterTaxProceedsTo `string`
-  * dividendType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.DistributionDividendType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.distributiondividendtype])
-  * shareId `integer`
-  * shareType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.PrivateCorporationShareType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.privatecorporationsharetype])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IShareRedemption
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IShareRedemption `object`
-  * activityData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.IActivityData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.iactivitydata)
-  * shareId `integer`
-  * shareType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.PrivateCorporationShareType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.privatecorporationsharetype])
-  * shareholder `string` (values: Undefined, Head1, Head2, Other)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IWithdrawals
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IWithdrawals `object`
-  * loanRepaymentsToShareholder `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.ILoanRepaymentToShareholder](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.iloanrepaymenttoshareholder)
-  * manualDividendDistributions `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IManualDividendDistribution](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.imanualdividenddistribution)
-  * shareRedemptions `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IShareRedemption](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.ishareredemption)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IHistoricalData
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IHistoricalData `object`
-  * notionalAccounts [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.INotionalAccounts](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.historicaldata.inotionalaccounts)
-  * outstandingShareholderLoans [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IOutstandingShareholderLoans](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.historicaldata.ioutstandingshareholderloans)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.INotionalAccounts
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.INotionalAccounts `object`
-  * capitalDividendAccountEndOfYearValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * capitalLossesCarryoverEndOfYearValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * dividendRefund [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * generalRateOfIncomePoolEndOfYearValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * refundableDividendTaxOnHandEndOfYearValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IOutstandingShareholderLoans
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IOutstandingShareholderLoans `object`
-  * clientAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * coClientAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * otherAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ICommonShareClassDetails
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ICommonShareClassDetails `object`
-  * shareClassStructure [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IShareClassStructure](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.ishareclassstructure)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IEstateDetails
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IEstateDetails `object`
-  * enableFiftyPercentSolution [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * estateFreeze [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * estateFreezeDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * shareOptionsAtFirstDeath `string`
-  * shareOptionsAtSecondDeathAndDeathInTheSameYear `string`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IHoldingCompany `object`
-  * annualDividendYield [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * commonSharesOutstanding `integer`
-  * contributions [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.IContributions](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.contributionsdata.icontributions)
-  * corporateYearEnd [NaviPlan.Util.Date](#naviplan.util.date)
-  * description `string`
-  * dividendType `string` (values: Taxable, NonTaxable)
-  * dividendTypeFormatted `string`
-  * estateDetails [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IEstateDetails](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iestatedetails)
-  * historicalData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.HistoricalData.IHistoricalData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.historicaldata.ihistoricaldata)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * investmentAccounts `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iinvestmentaccount)
-  * liabilities `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.iliability)
-  * lifeInsurancePolicies `array`
-    * items [NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.ILifeInsurancePolicy](#naviplan.planobjectmodel.scenariopropertiesdata.insurancepolicydata.ilifeinsurancepolicy)
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * numPreferredShareClasses `integer`
-  * otherAssets `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.RealEstateAssetData.IRealEstateAsset](#naviplan.planobjectmodel.planpropertiesdata.assetdata.realestateassetdata.irealestateasset)
-  * ownershipAsOfDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * ownershipDetails [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdetails)
-  * preferredSharesOutstanding `integer`
-  * provinceOfIncorporation `string`
-  * provinceOfTaxation `string`
-  * realEstateAssets `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.RealEstateAssetData.IRealEstateAsset](#naviplan.planobjectmodel.planpropertiesdata.assetdata.realestateassetdata.irealestateasset)
-  * valueOfAllCommonShares [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * valueOfAllPreferredShares [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * withdrawals [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.IWithdrawals](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.iwithdrawals)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccount `object`
-  * annualFee [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * costBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * description `string`
-  * excludeInAA `boolean`
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * rateOfReturn [NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.irateofreturndetails)
-  * type `string`
-  * valuationDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData `object`
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * ownersName `string`
-  * ownershipPercent [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData `object`
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * ownersName `string`
-  * ownershipPercent [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * shares `integer`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipDetails `object`
-  * common `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdata)
-  * commonSharesDetails `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ICommonShareClassDetails](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.icommonshareclassdetails)
-  * preferred `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdata)
-  * preferredSharesDetails `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IPreferredShareClassDetails](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.ipreferredshareclassdetails)
-  * shareholderPercentOwnership `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IInvestmentAccountOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iinvestmentaccountownershipdata)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IPreferredShareClassDetails
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IPreferredShareClassDetails `object`
-  * annualDividendYield [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * dividendType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.DistributionDividendType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.activitydata.withdrawalsdata.distributiondividendtype])
-  * redemptionValuePerShare [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * shareClassStructure [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IShareClassStructure](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.ishareclassstructure)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IShareClassStructure
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IShareClassStructure `object`
-  * clientOwnershipData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdata)
-  * coClientOwnershipData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdata)
-  * description `string`
-  * id `integer`
-  * otherOwnershipData [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.IOwnershipData](#naviplan.planobjectmodel.planpropertiesdata.assetdata.holdingcompanydata.iownershipdata)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy `object`
-  * applicableDateRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * distributionMethod [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.seppdistributionmethod])
-  * lifeExpectancyTable [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.sepplifeexpectancytable])
-  * redemptionFrequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.LifestyleAssetData.ILifestyleAsset `object`
-  * afterTaxProceedsAccountName `string`
-  * description `string`
-  * futureValueProjectedGrossSaleValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * marketValueAsOf [NaviPlan.Util.CurrencyWithDate](#naviplan.util.currencywithdate)
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * preTaxGrowthRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * presentValueProjectedGrossSaleValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * projectedSaleDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * purchaseAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * purchaseDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * standardDeviation [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * type [NaviPlan.Util.FormattedLifestyleType](#naviplan.util.formattedlifestyletype)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IAssetValuation
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IAssetValuation `object`
-  * costBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * valuationDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IHolding
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IHolding `object`
-  * assetMix [NaviPlan.PlanObjectModel.AssetAllocationData.IAssetMix](#naviplan.planobjectmodel.assetallocationdata.iassetmix)
-  * description `string`
-  * holdAmount [NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]](#naviplan.util.percentor[naviplan.util.currency])
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * isClassified `boolean`
-  * preRetirementReturnRates [NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.iperiodrateofreturndetails)
-  * retirementReturnRates [NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.iperiodrateofreturndetails)
-  * symbol `string`
-  * valuation [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IAssetValuation](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iassetvaluation)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy `object`
-  * amountOrPercentOfValue [NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]](#naviplan.util.percentor[naviplan.util.currency])
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-  * redemptionDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy `object`
-  * amountOrPercentOfSalary [NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]](#naviplan.util.percentor[naviplan.util.currency])
-  * formattedSavingsTypeWithDash `string`
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-  * savingsDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * savingsType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.savingsstrategytype])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy `object`
-  * amountOrPercentOfValue [NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]](#naviplan.util.percentor[naviplan.util.currency])
-  * applicableDateRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-  * redemptionFrequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy `object`
-  * amountOrPercentOfSalary [NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]](#naviplan.util.percentor[naviplan.util.currency])
-  * endDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * formattedFrequencyAbbrv `string`
-  * formattedSavingsTypeWithDash `string`
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-  * savingsFrequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-  * savingsType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.savingsstrategytype])
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAccount `object`
-  * accountReturnRatesNoLongerCorrelateToAssumedAssetMixDueToOverrideInGsm `boolean`
-  * annualFee [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * applicableRangeRetirementLiquidatedAssets [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * costBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * description `string`
-  * descriptionWithOwner `string`
-  * excludeInAA `boolean`
-  * holdings `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IHolding](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iholding)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * isSystemGenerated `boolean`
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * portfolioAssets `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iportfolioasset)
-  * rateOfReturn [NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.irateofreturndetails)
-  * savingsStrategies [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.isavingsstrategies)
-  * seppRedemptionStrategy [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.ISEPPRedemptionStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.iseppredemptionstrategy)
-  * type `string`
-  * valuationDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPortfolioAsset `object`
-  * applicableRangeRetirementLiquidatedAssets [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * costBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * description `string`
-  * goalFundingDescription `string`
-  * goalFundingGoalId [NaviPlan.Util.GoalId](#naviplan.util.goalid)
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * incomeReinvested [NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails](#naviplan.planobjectmodel.util.assetallocation.ireturnincomereinvesteddetails)
-  * isSystemGenerated `boolean`
-  * marketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * parentAccountId [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * rateOfReturn [NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.irateofreturndetails)
-  * redemptionStrategies [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iredemptionstrategies)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRedemptionStrategies `object`
-  * lumpSumRedemptionStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumRedemptionStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.ilumpsumredemptionstrategy)
-  * periodicRedemptionStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicRedemptionStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iperiodicredemptionstrategy)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy `object`
-  * applicable `string`
-  * applicableRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * assetName `string`
-  * constrainedByCashflow [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * month `string`
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISavingsStrategies `object`
-  * lumpSumSavingsStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ILumpSumSavingsStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.ilumpsumsavingsstrategy)
-  * periodicSavingsStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IPeriodicSavingsStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.iperiodicsavingsstrategy)
-  * rrspMaximizerStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.IRrspMaximizerStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.irrspmaximizerstrategy)
-  * surplusSavingsStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy](#naviplan.planobjectmodel.planpropertiesdata.assetdata.portfolioassetdata.isurplussavingsstrategy)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.ISurplusSavingsStrategy `object`
-  * endDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * percentOfSurplus [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.RealEstateAssetData.IRealEstateAsset
-* NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.RealEstateAssetData.IRealEstateAsset `object`
-  * currentYearNetRentalIncome [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * description `string`
-  * id [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * marketValueAsOf [NaviPlan.Util.CurrencyWithDate](#naviplan.util.currencywithdate)
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * preTaxGrowthRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * purchaseAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * purchaseDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * standardDeviation [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * startOfYearCostBasis [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * startOfYearMarketValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension
-* NaviPlan.PlanObjectModel.PlanPropertiesData.DefinedBenefitPensionData.IDefinedBenefitPension `object`
-  * benefit [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.benefit[naviplan.util.currencywithgrowth]])
-  * description `string`
-  * isBenefitFormula `boolean`
-  * isBenefitIntegratedWithCppQpp `boolean`
-  * isFormulaIntegratedWithCppQpp `boolean`
-  * owner `string` (values: Client, CoClient)
-  * pensionType `string`
-  * percentPayableToSurvivor [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * projectedYearsOfService `integer`
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal
-* NaviPlan.PlanObjectModel.PlanPropertiesData.GoalData.IGoal `object`
-  * assetsRemainingAfterFundingGoal [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.currency])
-  * coverage [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.goalcoveragepercent])
-  * description `string`
-  * endDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * identifier [NaviPlan.Util.GoalId](#naviplan.util.goalid)
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * type `string` (values: Retirement, SurvivorIncome, CriticalIllness, LongTermCareInsurance, Cashflow, DisabilityIncome, Education, MajorPurchase, EmergencyFund, Undefined, NotSupported)
-  * yearAssetsDepleted [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.year])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies
-* NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies `object`
-  * lumpSumDebtModStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.ilumpsumdebtmodstrategy)
-  * periodicDebtModStrategies `array`
-    * items [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.iperiodicdebtmodstrategy)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability
-* NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILiability `object`
-  * annualPaymentAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * balanceAsOf [NaviPlan.Util.CurrencyWithDate](#naviplan.util.currencywithdate)
-  * balanceAsOfPlanDate [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * debtModStrategies [NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IDebtModStrategies](#naviplan.planobjectmodel.planpropertiesdata.liabilitydata.idebtmodstrategies)
-  * description `string`
-  * insuredForDisability [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * insuredForLife [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * interestRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * isInterestRateVariable [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * linkedAssetName `string`
-  * loanDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * originalBalance [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * paidOffByRetirement [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.descriptiveboolean])
-  * payOffDate [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.date])
-  * payOffOptionType [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.liabilitydata.payoffoptionstype])
-  * paymentAmount [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.util.currency])
-  * paymentFrequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-  * paymentType [NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType]](#naviplan.util.formattedenumtype[naviplan.util.paymenttype])
-  * type [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.planpropertiesdata.liabilitydata.liabilitytype])
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.ILumpSumDebtModStrategy `object`
-  * amount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * debtModificationDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-
-### NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy
-* NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.IPeriodicDebtModStrategy `object`
-  * amount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * applicableDateRange [NaviPlan.Util.FormattedDateRange](#naviplan.util.formatteddaterange)
-  * debtModificationFrequency [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.frequency])
-  * indexRate [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IAssumptions `object`
-  * anyHeadAlreadyRetired `boolean`
-  * bothRetired `boolean`
-  * bucketing [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.ibucketing)
-  * client [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iheadassumptions)
-  * coClient [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iheadassumptions)
-  * firstToDieDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * firstToDieMember `string` (values: Client, CoClient)
-  * firstToRetireDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * inflationRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * lastToDieDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * lastToDieMember `string` (values: Client, CoClient)
-  * lastToRetireDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * retirementYearAdjustedIfAlreadyRetired [NaviPlan.Util.Year](#naviplan.util.year)
-  * taxMethod `string` (values: Average, Simplified, Detailed)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IBucketing `object`
-  * distributionBucketTargetBalance [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * endDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * indexedAt [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * returnRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * standardDeviation [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions `object`
-  * canadianOrQuebecPensionPlan [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * oldAgeSecurity [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions `object`
-  * estimatedCanadianGovernmentPensions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.ICanadianGovernmentPensions](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.icanadiangovernmentpensions)
-  * estimatedSocialSecurity [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IHeadAssumptions `object`
-  * alreadyRetired `boolean`
-  * deceasedAge `integer`
-  * deceasedDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * estateIncomeTaxes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iincometaxes)
-  * governmentPensions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IGovernmentPensions](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.igovernmentpensions)
-  * maritalOrTaxFilingStatus [NaviPlan.Util.FormattedMaritalOrTaxFilingStatus](#naviplan.util.formattedmaritalortaxfilingstatus)
-  * preRetirementIncomeTaxes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iincometaxes)
-  * retirementAge `integer`
-  * retirementDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * retirementIncomeTaxes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes](#naviplan.planobjectmodel.scenariopropertiesdata.assumptionsdata.iincometaxes)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.AssumptionsData.IIncomeTaxes `object`
-  * averageTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * combinedStateAndAverageTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * combinedStateAndLongTermCapitalGainsTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * combinedStateAndMarginalTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * longTermCapitalGainsTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * marginalTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * stateTaxRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow `object`
-  * incomes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowincomes)
-  * outflows [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowoutflows)
-  * surplusDeficit [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * taxes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.itaxes)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowByOwner `object`
-  * clientCashFlow [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflow)
-  * coClientCashFlow [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflow)
-  * totalCashFlow [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlow](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflow)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory `object`
-  * isItemizedEnabled `boolean`
-  * itemized `array`
-    * items [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowitem)
-  * total [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowIncomes `object`
-  * annuityPayments [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * disabilityIncomes [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * earnedIncome [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * holdingCompanies [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * insuranceBenefits [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * investmentIncomes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lifestyleAssetLiquidations [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lockedInLiquidations [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * longTermCareBenefits [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * miscellaneousIncomes [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * nonQualifiedLiquidations [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * pension [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * qualifiedLiquidations [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * qualifiedLiquidationsNonRequiredMinimumDistributions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * requiredMinimumDistributions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * retirementIncome [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * rothLiquidations [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * socialSecurity [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * tfsaLiquidations [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * total [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * withdrawals [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowItem `object`
-  * description `string`
-  * descriptionWithOwner `string`
-  * isCPP `boolean`
-  * isOAS `boolean`
-  * sourceId [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * value [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowOutflows `object`
-  * contributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * educationExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * employerExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * employmentBusinessExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * holdingCompanyOutflows [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * investmentExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lifestyleExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lifestyleExpensesDiscretionary [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lifestyleExpensesFixed [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * lockedInContributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * medicalExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * miscellaneousExpenses [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * miscellaneousExpensesDiscretionary [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * miscellaneousExpensesFixed [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * nonQualifiedContributions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * nonQualifiedReinvestments [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * qualifiedContributions [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * rothContributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * surplusOutflows [NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ICashFlowCategory](#naviplan.planobjectmodel.scenariopropertiesdata.cashflowdata.icashflowcategory)
-  * surplusSavings [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * tfsaContributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * totalNeeds [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * totalWithTaxes [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * totalWithoutTaxes [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.CashFlowData.ITaxes `object`
-  * estate [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * federalIncome [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * giftAndGenerationSkippingTransfer [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * medicare [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * pensionEarlyDistributionPenalty [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * pensionPenaltyOnExcessDistributions [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * refundableCredits [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * socialSecurityEmployer [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * socialSecuritySelfEmployed [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * stateIncome [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * total [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent `object`
-  * address [NaviPlan.PlanObjectModel.Util.Demographics.IAddress](#naviplan.planobjectmodel.util.demographics.iaddress)
-  * ageAsOfPlanDate `integer`
-  * birthdate [NaviPlan.Util.Date](#naviplan.util.date)
-  * citizenship `string`
-  * dependentOf `string`
-  * dependentOfId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * email `string`
-  * employer [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.iemployer)
-  * gender [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.scenariopropertiesdata.clientdata.gender])
-  * name [NaviPlan.PlanObjectModel.Util.Demographics.IPersonName](#naviplan.planobjectmodel.util.demographics.ipersonname)
-  * ownershipId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * phone [NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers](#naviplan.planobjectmodel.util.demographics.iphonenumbers)
-  * relationship `string`
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer `object`
-  * address [NaviPlan.PlanObjectModel.Util.Demographics.IAddress](#naviplan.planobjectmodel.util.demographics.iaddress)
-  * name `string`
-  * phone [NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers](#naviplan.planobjectmodel.util.demographics.ibusinessphonenumbers)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamily `object`
-  * address [NaviPlan.PlanObjectModel.Util.Demographics.IAddress](#naviplan.planobjectmodel.util.demographics.iaddress)
-  * client [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.ifamilymember)
-  * coClient [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.ifamilymember)
-  * dependents `array`
-    * items [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IDependent](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.idependent)
-  * headFullNames `string`
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IFamilyMember `object`
-  * address [NaviPlan.PlanObjectModel.Util.Demographics.IAddress](#naviplan.planobjectmodel.util.demographics.iaddress)
-  * ageAsOfPlanDate `integer`
-  * birthdate [NaviPlan.Util.Date](#naviplan.util.date)
-  * citizenship `string`
-  * email `string`
-  * employer [NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.IEmployer](#naviplan.planobjectmodel.scenariopropertiesdata.clientdata.iemployer)
-  * gender [NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]](#naviplan.util.formattedenumtype[naviplan.planobjectmodel.scenariopropertiesdata.clientdata.gender])
-  * name [NaviPlan.PlanObjectModel.Util.Demographics.IPersonName](#naviplan.planobjectmodel.util.demographics.ipersonname)
-  * ownershipId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * phone [NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers](#naviplan.planobjectmodel.util.demographics.iphonenumbers)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.IInsurancePremium
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.IInsurancePremium `object`
-  * amount [NaviPlan.Util.CurrencyWithGrowth](#naviplan.util.currencywithgrowth)
-  * annualAmount [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * ceaseDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * formattedPayingMember `string`
-  * frequency [NaviPlan.PlanObjectModel.Util.IFormattedFrequency](#naviplan.planobjectmodel.util.iformattedfrequency)
-  * payingMember `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers)
-  * premiumRefundAmount [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.ILifeInsurancePolicy
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.ILifeInsurancePolicy `object`
-  * beneficiaryName `string`
-  * benefitPeriod [NaviPlan.Util.TimePeriod](#naviplan.util.timeperiod)
-  * cashSurrenderValue [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * coverageCeaseDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * dailyBenefitValue `number`
-  * description `string`
-  * effectiveDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * formattedBenefitValue `string`
-  * formattedInsuredType `string`
-  * formattedPolicyType `string`
-  * insured `string` (values: Client, CoClient, FirstToDie, SecondToDie, Other)
-  * isCSVPayableWithDeathBenefit [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * monthlyBenefitValue `number`
-  * ownerName `string`
-  * policyType `string` (values: WholeLife, UniversalLife, Term1Life, Term5Life, Term10Life, Term20Life, Term100Life, VariableLife, VariableUniversalLife, GroupLongTermDisability, GroupShortTermDisability, IndividualDisability, LongTermCare, CriticalIllness, MedicalCoveragePlan, CashToInsuredCoverage)
-  * premiumData [NaviPlan.PlanObjectModel.ScenarioPropertiesData.InsurancePolicyData.IInsurancePremium](#naviplan.planobjectmodel.scenariopropertiesdata.insurancepolicydata.iinsurancepremium)
-  * premiumsWaivedAtDisability [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * rawBenefitValue `number`
-  * waitingPeriod [NaviPlan.Util.TimePeriod](#naviplan.util.timeperiod)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAccumulationCategoryData `object`
-  * allAssets [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * lockedIn [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * nonQualified [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * qualified [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * roth [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * tfsa [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories `object`
-  * allAssets `array`
-    * items [NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]](#naviplan.planobjectmodel.util.ivaluedescriptionpair[naviplan.util.currency])
-  * businessAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * holdingCompany [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * lifestyleAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * nonQualifiedAnnuities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * nonQualifiedAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * qualifiedAnnuities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * qualifiedAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * realEstate [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * totalAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets `object`
-  * allAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassetcategories)
-  * clientAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassetcategories)
-  * coClientAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassetcategories)
-  * communityPropertyAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassetcategories)
-  * jointAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassetcategories)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities `object`
-  * clientLiabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * coClientLiabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * communityPropertyLiabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * jointLiabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * totalLiabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorth `object`
-  * netWorthAtPlanDate [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthatdate)
-  * netWorthAtPlanEnd [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthatdate])
-  * netWorthAtRetirement [NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]](#naviplan.planobjectmodel.util.ioptionalfield[naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthatdate])
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate `object`
-  * assets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IAssets](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iassets)
-  * assetsFundingRetirement [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassets)
-  * clientNetWorth [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * coClientNetWorth [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * communityPropertyNetWorth [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * jointNetWorth [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * liabilities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.ILiabilities](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iliabilities)
-  * totalNetWorth [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory `object`
-  * description `string`
-  * itemized `array`
-    * items [NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency]](#naviplan.planobjectmodel.util.ikeyedvaluedescriptionpair[naviplan.util.naviplanitemidentifier,naviplan.util.currency])
-  * total [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories `object`
-  * allAssets `array`
-    * items [NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]](#naviplan.planobjectmodel.util.ivaluedescriptionpair[naviplan.util.currency])
-  * nonQualifiedAnnuities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * nonQualifiedAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * qualifiedAnnuities [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * qualifiedAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-  * totalAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthCategory](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthcategory)
-
-### NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets
-* NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssets `object`
-  * allAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassetcategories)
-  * clientAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassetcategories)
-  * coClientAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassetcategories)
-  * communityPropertyAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassetcategories)
-  * jointAssets [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.IRetirementAssetCategories](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.iretirementassetcategories)
-  * withdrawalRate [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails
-* NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails `object`
-  * breakdown [NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown](#naviplan.planobjectmodel.util.assetallocation.irateofreturnbreakdown)
-  * standardDeviation [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * total [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown
-* NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnBreakdown `object`
-  * capitalGain [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * deferredGrowth [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * dividend [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * interest [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * taxFree [NaviPlan.Util.Percent](#naviplan.util.percent)
-
-### NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails
-* NaviPlan.PlanObjectModel.Util.AssetAllocation.IRateOfReturnDetails `object`
-  * preRetirement [NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.iperiodrateofreturndetails)
-  * retirement [NaviPlan.PlanObjectModel.Util.AssetAllocation.IPeriodRateOfReturnDetails](#naviplan.planobjectmodel.util.assetallocation.iperiodrateofreturndetails)
-
-### NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails
-* NaviPlan.PlanObjectModel.Util.AssetAllocation.IReturnIncomeReinvestedDetails `object`
-  * duringPreRetirementPeriod [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-  * duringRetirementPeriod [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-
-### NaviPlan.PlanObjectModel.Util.Demographics.IAddress
-* NaviPlan.PlanObjectModel.Util.Demographics.IAddress `object`
-  * city `string`
-  * combinedCityStateProvince `string`
-  * country `string`
-  * stateOrProvince `string`
-  * stateOrProvinceAbbrev `string`
-  * street1 `string`
-  * street2 `string`
-  * zipOrPostalCode `string`
-
-### NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers
-* NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers `object`
-  * business `string`
-  * fax `string`
-
-### NaviPlan.PlanObjectModel.Util.Demographics.IPersonName
-* NaviPlan.PlanObjectModel.Util.Demographics.IPersonName `object`
-  * firstName `string`
-  * formal `string`
-  * full `string`
-  * lastName `string`
-  * middle `string`
-  * title `string`
-
-### NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers
-* NaviPlan.PlanObjectModel.Util.Demographics.IPhoneNumbers `object`
-  * additionalNumbers [NaviPlan.PlanObjectModel.Util.Demographics.IBusinessPhoneNumbers](#naviplan.planobjectmodel.util.demographics.ibusinessphonenumbers)
-  * business `string`
-  * cell `string`
-  * fax `string`
-  * home `string`
-  * pager `string`
-
-### NaviPlan.PlanObjectModel.Util.IAssetId
-* NaviPlan.PlanObjectModel.Util.IAssetId `object`
-  * rawId `integer`
-
-### NaviPlan.PlanObjectModel.Util.IFormattedFrequency
-* NaviPlan.PlanObjectModel.Util.IFormattedFrequency `object`
-  * everyNPeriods `integer`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: Annual, SemiAnnual, Quarterly, Bimonthly, Monthly, TwiceMonthly, BiWeekly, Weekly, Daily, Continuously, Onetime, EveryXYears)
-
-### NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency]
-* NaviPlan.PlanObjectModel.Util.IKeyedValueDescriptionPair[NaviPlan.Util.NaviplanItemIdentifier,NaviPlan.Util.Currency] `object`
-  * description `string`
-  * key [NaviPlan.Util.NaviplanItemIdentifier](#naviplan.util.naviplanitemidentifier)
-  * value [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.PlanObjectModel.ScenarioPropertiesData.NetWorthData.INetWorthAtDate](#naviplan.planobjectmodel.scenariopropertiesdata.networthdata.inetworthatdate)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]](#naviplan.util.benefit[naviplan.util.currencywithgrowth])
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Currency] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Date] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.Date](#naviplan.util.date)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.DescriptiveBoolean] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.DescriptiveBoolean](#naviplan.util.descriptiveboolean)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.GoalCoveragePercent] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.GoalCoveragePercent](#naviplan.util.goalcoveragepercent)
-
-### NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year]
-* NaviPlan.PlanObjectModel.Util.IOptionalField[NaviPlan.Util.Year] `object`
-  * enabled `boolean`
-  * populated `boolean`
-  * value [NaviPlan.Util.Year](#naviplan.util.year)
-
-### NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency]
-* NaviPlan.PlanObjectModel.Util.IValueDescriptionPair[NaviPlan.Util.Currency] `object`
-  * description `string`
-  * value [NaviPlan.Util.Currency](#naviplan.util.currency)
-
-### NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth]
-* NaviPlan.Util.Benefit[NaviPlan.Util.CurrencyWithGrowth] `object`
+### Benefit[CurrencyWithGrowth]
+* Benefit[CurrencyWithGrowth] `object`
   * benefitType `string` (values: DeathBenefit, MonthlyBenefit, DailyBenefit, MaximumBenefit, WeeklyBenefit, AnnualBenefit, LumpSum)
-  * formattedBenefitType `string`
-  * value [NaviPlan.Util.CurrencyWithGrowth](#naviplan.util.currencywithgrowth)
+  * value [CurrencyWithGrowth](#currencywithgrowth)
 
-### NaviPlan.Util.Currency
-* NaviPlan.Util.Currency `object`
+### BusinessEntitiesModel
+* BusinessEntitiesModel `object`
+  * businessEntities `array`
+    * items [IBusinessEntity](#ibusinessentity)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### BusinessEntityModel
+* BusinessEntityModel `object`
+  * businessEntity [IBusinessEntity](#ibusinessentity)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### CashFlowProjectionModel
+* CashFlowProjectionModel `object`
+  * cashFlow [ProjectedCashFlowSummary](#projectedcashflowsummary)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### CashFlowProjectionsModel
+* CashFlowProjectionsModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * projections `array`
+    * items [CashFlowProjectionModel](#cashflowprojectionmodel)
+
+### CashFlowSummary
+* CashFlowSummary `object`
+  * surplusDeficit `number`
+  * totalIncome `number`
+  * totalOutflowsWithTaxes `number`
+  * totalOutflowsWithoutTaxes `number`
+  * totalTaxes `number`
+
+### ClientPlanSelectorParams
+* ClientPlanSelectorParams `object`: Parameters to select a plan from a client file
+  * clientId `string`: Id of the client user for the plan. Required if current session user is an advisor. Ignored for client user sessions.
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+### Currency
+* Currency `object`
   * formattedDecimal `string`
   * formattedNoDecimal `string`
   * raw `number`
 
-### NaviPlan.Util.CurrencyWithDate
-* NaviPlan.Util.CurrencyWithDate `object`
-  * date [NaviPlan.Util.Date](#naviplan.util.date)
+### CurrencyWithDate
+* CurrencyWithDate `object`
+  * date [Date](#date)
   * formattedDecimal `string`
   * formattedNoDecimal `string`
   * raw `number`
 
-### NaviPlan.Util.CurrencyWithGrowth
-* NaviPlan.Util.CurrencyWithGrowth `object`
+### CurrencyWithGrowth
+* CurrencyWithGrowth `object`
   * formattedDecimal `string`
   * formattedNoDecimal `string`
-  * growth [NaviPlan.Util.GrowthRateValues](#naviplan.util.growthratevalues)
+  * growth [GrowthRateValues](#growthratevalues)
   * raw `number`
 
-### NaviPlan.Util.Date
-* NaviPlan.Util.Date `object`
+### Date
+* Date `object`
   * day `integer`
   * formatted `string`
   * formattedMMMMddyyyy `string`
@@ -2378,153 +1569,1411 @@ naviplancentral_plan.Auth_ResumeSession(null, context)
   * urlEncoded `string`
   * year `integer`
 
-### NaviPlan.Util.DescriptiveBoolean
-* NaviPlan.Util.DescriptiveBoolean `object`
+### DefinedBenefitPensionModel
+* DefinedBenefitPensionModel `object`
+  * definedBenefitPension [IDefinedBenefitPension](#idefinedbenefitpension)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### DefinedBenefitPensionsModel
+* DefinedBenefitPensionsModel `object`
+  * definedBenefitPensions `array`
+    * items [IDefinedBenefitPension](#idefinedbenefitpension)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### DescriptiveBoolean
+* DescriptiveBoolean `object`
   * rawValue `boolean`
   * valueAsYesNo `string`
 
-### NaviPlan.Util.FormattedDateRange
-* NaviPlan.Util.FormattedDateRange `object`
-  * endDate [NaviPlan.Util.Date](#naviplan.util.date)
-  * formattedValue `string`
-  * startDate [NaviPlan.Util.Date](#naviplan.util.date)
+### FamilyModel
+* FamilyModel `object`
+  * family [IFamily](#ifamily)
+  * links `array`
+    * items [ObjectLink](#objectlink)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.Frequency] `object`
+### FormattedDateRange
+* FormattedDateRange `object`
+  * endDate [Date](#date)
+  * startDate [Date](#date)
+
+### FormattedEnumType[DistributionDividendType]
+* FormattedEnumType[DistributionDividendType] `object`
+  * value `string` (values: TaxableIneligible, NonTaxable, TaxableEligible)
+
+### FormattedEnumType[Frequency]
+* FormattedEnumType[Frequency] `object`
+  * value `string` (values: Annual, SemiAnnual, Quarterly, Bimonthly, Monthly, TwiceMonthly, BiWeekly, Weekly, Daily, Continuously, Onetime, EveryXYears)
+
+### FormattedEnumType[Gender]
+* FormattedEnumType[Gender] `object`
+  * value `string` (values: Male, Female)
+
+### FormattedEnumType[InterCompanyDividendType]
+* FormattedEnumType[InterCompanyDividendType] `object`
+  * value `string` (values: NonTaxable, NonTaxableCda, NonTaxableEligible, TaxableEligible, TaxableIneligible)
+
+### FormattedEnumType[LiabilityType]
+* FormattedEnumType[LiabilityType] `object`
+  * value `string` (values: Personal, Business, CreditCard, Mortgage, Vehicle, PolicyLoan)
+
+### FormattedEnumType[PayOffOptionsType]
+* FormattedEnumType[PayOffOptionsType] `object`
+  * value `string` (values: TransferToSurvivor, PayOffAtFirstDeath, PayOffAtOwnerDeath, InsuredForLife)
+
+### FormattedEnumType[PaymentType]
+* FormattedEnumType[PaymentType] `object`
+  * value `string` (values: InterestOnly, PrincipalAndInterest, SetPayment, LastPeriodPayment)
+
+### FormattedEnumType[PrivateCorporationShareType]
+* FormattedEnumType[PrivateCorporationShareType] `object`
+  * value `string` (values: Undefined, Common, Preferred)
+
+### FormattedEnumType[SEPPDistributionMethod]
+* FormattedEnumType[SEPPDistributionMethod] `object`
+  * value `string` (values: RequiredMinDistribution, Amortization, Annuitization)
+
+### FormattedEnumType[SEPPLifeExpectancyTable]
+* FormattedEnumType[SEPPLifeExpectancyTable] `object`
+  * value `string` (values: NOT_APPLICABLE_UPPER_CASE, SingleLifeExpectancy, NonSingleLifeExpectancy)
+
+### FormattedEnumType[SavingsStrategyType]
+* FormattedEnumType[SavingsStrategyType] `object`
+  * value `string` (values: PreTax, PostTax, Employer, Owner, Mandatory)
+
+### FormattedLifestyleType
+* FormattedLifestyleType `object`
+  * formatted `string`
+  * value `string` (values: Undefined, PersonalUse, ListedPersonal, PrimaryResidence, SecondaryResidence, BusinessInterest, Automobile)
+
+### FormattedMaritalOrTaxFilingStatus
+* FormattedMaritalOrTaxFilingStatus `object`
+  * value `string` (values: Undefined, Single, HeadOfHousehold, MarriedFilingJointly, MarriedFilingSeparately, SingleParent, Married, CommonLaw, Partner, Divorced, Widowed, Separated)
+
+### GoalCoveragePercent
+* GoalCoveragePercent `object`
+  * formattedRaw `number`
+  * raw `number`
+
+### GoalId
+* GoalId `object`
+  * id `integer`
+
+### GoalModel
+* GoalModel `object`
+  * goal [IGoal](#igoal)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### GoalNeedsVsAbilitiesSummary
+* GoalNeedsVsAbilitiesSummary `object`
+  * abilities `number`
+  * fixedNeeds `number`
+  * fixedNeedsWithTaxes `number`
+  * goalType `string`
+  * identifier `integer`
+  * totalNeeds `number`
+  * totalNeedsWithTaxes `number`
+
+### GoalsModel
+* GoalsModel `object`
+  * goals `array`
+    * items [IGoal](#igoal)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### GrowthRateValues
+* GrowthRateValues `object`
+  * additionalGrowthPercent [Percent](#percent)
+  * isInflationAdjusted `boolean`
+  * totalGrowth [Percent](#percent)
+
+### HoldingCompaniesModel
+* HoldingCompaniesModel `object`
+  * holdingCompanies `array`
+    * items [IHoldingCompany](#iholdingcompany)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### HoldingCompanyModel
+* HoldingCompanyModel `object`
+  * holdingCompany [IHoldingCompany](#iholdingcompany)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### HouseholdExternalModel
+* HouseholdExternalModel `object`
+  * accessiblePlans `array`
+    * items [PublishedPlanModel](#publishedplanmodel)
+  * clientDescription `string`
+  * householdId `integer`
+  * legacyClientId `string`
+
+### HouseholdModel
+* HouseholdModel `object`
+  * accessiblePlans `array`
+    * items [PublishedPlanModel](#publishedplanmodel)
+  * clientDescription `string`
+  * householdId `integer`
+
+### HouseholdsExternalDataModel
+* HouseholdsExternalDataModel `object`
+  * externalHouseholdsData `array`
+    * items [HouseholdExternalModel](#householdexternalmodel)
+
+### HouseholdsModel
+* HouseholdsModel `object`
+  * households `array`
+    * items [HouseholdModel](#householdmodel)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### IAccumulationCategoryData
+* IAccumulationCategoryData `object`
+  * allAssets [Currency](#currency)
+  * lockedIn [Currency](#currency)
+  * nonQualified [Currency](#currency)
+  * qualified [Currency](#currency)
+  * roth [Currency](#currency)
+  * tfsa [Currency](#currency)
+
+### IActivityData
+* IActivityData `object`
+  * amountWithGrowth [CurrencyWithGrowth](#currencywithgrowth)
+  * applicableDateRange [FormattedDateRange](#formatteddaterange)
+  * directTo `string`
+  * frequency [IFormattedFrequency](#iformattedfrequency)
+
+### IAddress
+* IAddress `object`
+  * city `string`
+  * combinedCityStateProvince `string`
+  * country `string`
+  * stateOrProvince `string`
+  * stateOrProvinceAbbrev `string`
+  * street1 `string`
+  * street2 `string`
+  * zipOrPostalCode `string`
+
+### IAssetCategories
+* IAssetCategories `object`
+  * allAssets `array`
+    * items [IValueDescriptionPair[Currency]](#ivaluedescriptionpair[currency])
+  * businessAssets [INetWorthCategory](#inetworthcategory)
+  * lifestyleAssets [INetWorthCategory](#inetworthcategory)
+  * nonQualifiedAnnuities [INetWorthCategory](#inetworthcategory)
+  * nonQualifiedAssets [INetWorthCategory](#inetworthcategory)
+  * privateCorporations [INetWorthCategory](#inetworthcategory)
+  * qualifiedAnnuities [INetWorthCategory](#inetworthcategory)
+  * qualifiedAssets [INetWorthCategory](#inetworthcategory)
+  * realEstate [INetWorthCategory](#inetworthcategory)
+  * totalAssets [INetWorthCategory](#inetworthcategory)
+
+### IAssetClass
+* IAssetClass `object`
+  * index `integer`
+  * maxConstraint [Percent](#percent)
+  * minConstraint [Percent](#percent)
+  * name `string`
+  * parentSuperAssetClassIndex `integer`
+  * weight [IAssetClassWeight](#iassetclassweight)
+
+### IAssetClassWeight
+* IAssetClassWeight `object`
+  * dollarValue [Currency](#currency)
+  * percentage [Percent](#percent)
+
+### IAssetId
+* IAssetId `object`
+  * rawId `integer`
+
+### IAssetMix
+* IAssetMix `object`
+  * assetClassDisplayLevel `integer`
+  * assetClassInfoForDisplayLevel `array`
+    * items `integer`
+  * classes `array`
+    * items [IAssetClass](#iassetclass)
+  * superAssetClasses `array`
+    * items [IAssetClass](#iassetclass)
+
+### IAssetValuation
+* IAssetValuation `object`
+  * costBasis [Currency](#currency)
+  * marketValue [Currency](#currency)
+  * valuationDate [Date](#date)
+
+### IAssets
+* IAssets `object`
+  * allAssets [IAssetCategories](#iassetcategories)
+  * clientAssets [IAssetCategories](#iassetcategories)
+  * coClientAssets [IAssetCategories](#iassetcategories)
+  * communityPropertyAssets [IAssetCategories](#iassetcategories)
+  * jointAssets [IAssetCategories](#iassetcategories)
+
+### IAssumptions
+* IAssumptions `object`
+  * anyHeadAlreadyRetired `boolean`
+  * bothRetired `boolean`
+  * bucketing [IBucketing](#ibucketing)
+  * client [IHeadAssumptions](#iheadassumptions)
+  * coClient [IHeadAssumptions](#iheadassumptions)
+  * firstToDieDate [Date](#date)
+  * firstToDieMember `string` (values: Client, CoClient)
+  * firstToRetireDate [Date](#date)
+  * inflationRate [Percent](#percent)
+  * lastToDieDate [Date](#date)
+  * lastToDieMember `string` (values: Client, CoClient)
+  * lastToRetireDate [Date](#date)
+  * retirementYearAdjustedIfAlreadyRetired [Year](#year)
+  * splitSurplusSavingsStrategiesEnabled `boolean`
+  * taxMethod `string` (values: Average, Simplified, Detailed)
+
+### IBucketing
+* IBucketing `object`
+  * distributionBucketTargetBalance [Currency](#currency)
+  * endDate [Date](#date)
+  * indexedAt [Percent](#percent)
+  * returnRate [Percent](#percent)
+  * standardDeviation [Percent](#percent)
+  * startDate [Date](#date)
+
+### IBusinessEntity
+* IBusinessEntity `object`
+  * activities `array`
+    * items [IBusinessEntityActivity](#ibusinessentityactivity)
+  * assetId [IAssetId](#iassetid)
+  * businessType `string` (values: Undefined, LLC, Partnership, SCorporation, CCorporation)
+  * businessTypeFormatted `string`
+  * currentAnnualDistributions [Currency](#currency)
+  * currentAnnualDividends [Currency](#currency)
+  * currentAnnualGrowthRate [Percent](#percent)
+  * currentAnnualNetIncome [Currency](#currency)
+  * entityName `string`
+  * liquidationEvent [ILiquidationEvent](#iliquidationevent)
+  * marketValuationDate [Date](#date)
+  * marketValue [Currency](#currency)
+  * owner `string`
+  * purchaseAmount [Currency](#currency)
+  * purchaseDate [Date](#date)
+  * standardDeviation [Percent](#percent)
+
+### IBusinessEntityActivity
+* IBusinessEntityActivity `object`
+  * applicableDateRange [FormattedDateRange](#formatteddaterange)
+  * distributions [Currency](#currency)
+  * expense [Currency](#currency)
+  * frequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+  * income [Currency](#currency)
+  * indexRate [GrowthRateValues](#growthratevalues)
+
+### IBusinessPhoneNumbers
+* IBusinessPhoneNumbers `object`
+  * business `string`
+  * fax `string`
+
+### ICanadianGovernmentPensions
+* ICanadianGovernmentPensions `object`
+  * canadianOrQuebecPensionPlan [Currency](#currency)
+  * oldAgeSecurity [Currency](#currency)
+
+### ICashFlow
+* ICashFlow `object`
+  * incomes [ICashFlowIncomes](#icashflowincomes)
+  * outflows [ICashFlowOutflows](#icashflowoutflows)
+  * surplusDeficit [Currency](#currency)
+  * taxes [ITaxes](#itaxes)
+
+### ICashFlowByOwner
+* ICashFlowByOwner `object`
+  * clientCashFlow [ICashFlow](#icashflow)
+  * coClientCashFlow [ICashFlow](#icashflow)
+  * totalCashFlow [ICashFlow](#icashflow)
+
+### ICashFlowCategory
+* ICashFlowCategory `object`
+  * isItemizedEnabled `boolean`
+  * itemized `array`
+    * items [ICashFlowItem](#icashflowitem)
+  * total [Currency](#currency)
+
+### ICashFlowIncomes
+* ICashFlowIncomes `object`
+  * annuityPayments [ICashFlowCategory](#icashflowcategory)
+  * disabilityIncomes [Currency](#currency)
+  * earnedIncome [ICashFlowCategory](#icashflowcategory)
+  * insuranceBenefits [ICashFlowCategory](#icashflowcategory)
+  * investmentIncomes [ICashFlowCategory](#icashflowcategory)
+  * lifestyleAssetLiquidations [ICashFlowCategory](#icashflowcategory)
+  * lockedInLiquidations [Currency](#currency)
+  * longTermCareBenefits [Currency](#currency)
+  * miscellaneousIncomes [ICashFlowCategory](#icashflowcategory)
+  * nonQualifiedLiquidations [ICashFlowCategory](#icashflowcategory)
+  * pension [ICashFlowCategory](#icashflowcategory)
+  * privateCorporations [ICashFlowCategory](#icashflowcategory)
+  * qualifiedLiquidations [ICashFlowCategory](#icashflowcategory)
+  * qualifiedLiquidationsNonRequiredMinimumDistributions [ICashFlowCategory](#icashflowcategory)
+  * requiredMinimumDistributions [ICashFlowCategory](#icashflowcategory)
+  * retirementIncome [Currency](#currency)
+  * rothLiquidations [Currency](#currency)
+  * socialSecurity [ICashFlowCategory](#icashflowcategory)
+  * tfsaLiquidations [Currency](#currency)
+  * total [ICashFlowCategory](#icashflowcategory)
+  * withdrawals [Currency](#currency)
+
+### ICashFlowItem
+* ICashFlowItem `object`
+  * description `string`
+  * descriptionWithOwner `string`
+  * isCPP `boolean`
+  * isOAS `boolean`
+  * sourceId `string`
+  * typeDescription `string`
+  * value [Currency](#currency)
+
+### ICashFlowOutflows
+* ICashFlowOutflows `object`
+  * contributions [Currency](#currency)
+  * educationExpenses [ICashFlowCategory](#icashflowcategory)
+  * employerExpenses [ICashFlowCategory](#icashflowcategory)
+  * employmentBusinessExpenses [ICashFlowCategory](#icashflowcategory)
+  * investmentExpenses [ICashFlowCategory](#icashflowcategory)
+  * lifestyleExpenses [ICashFlowCategory](#icashflowcategory)
+  * lifestyleExpensesDiscretionary [ICashFlowCategory](#icashflowcategory)
+  * lifestyleExpensesFixed [ICashFlowCategory](#icashflowcategory)
+  * lockedInContributions [Currency](#currency)
+  * medicalExpenses [ICashFlowCategory](#icashflowcategory)
+  * miscellaneousExpenses [ICashFlowCategory](#icashflowcategory)
+  * miscellaneousExpensesDiscretionary [ICashFlowCategory](#icashflowcategory)
+  * miscellaneousExpensesFixed [ICashFlowCategory](#icashflowcategory)
+  * nonQualifiedContributions [ICashFlowCategory](#icashflowcategory)
+  * nonQualifiedReinvestments [ICashFlowCategory](#icashflowcategory)
+  * privateCorporationOutflows [ICashFlowCategory](#icashflowcategory)
+  * qualifiedContributions [ICashFlowCategory](#icashflowcategory)
+  * rothContributions [Currency](#currency)
+  * surplusOutflows [ICashFlowCategory](#icashflowcategory)
+  * surplusSavings [Currency](#currency)
+  * tfsaContributions [Currency](#currency)
+  * totalNeeds [Currency](#currency)
+  * totalWithTaxes [Currency](#currency)
+  * totalWithoutTaxes [Currency](#currency)
+
+### ICommonShareClassDetails
+* ICommonShareClassDetails `object`
+  * shareClassStructure [IShareClassStructure](#ishareclassstructure)
+
+### IContributions
+* IContributions `object`
+  * interCompanyDividendsReceived `array`
+    * items [IInterCompanyDividendReceived](#iintercompanydividendreceived)
+  * sharePurchases `array`
+    * items [ISharePurchase](#isharepurchase)
+  * shareholderLoans `array`
+    * items [IShareholderLoan](#ishareholderloan)
+
+### ICorporationRealEstateAsset
+* ICorporationRealEstateAsset `object`
+  * currentYearNetRentalIncome [Currency](#currency)
+  * description `string`
+  * id `string`
+  * isActiveBusinessIncome [DescriptiveBoolean](#descriptiveboolean)
+  * marketValueAsOf [CurrencyWithDate](#currencywithdate)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * preTaxGrowthRate [Percent](#percent)
+  * purchaseAmount [Currency](#currency)
+  * purchaseDate [Date](#date)
+  * standardDeviation [Percent](#percent)
+  * startOfYearCostBasis [Currency](#currency)
+  * startOfYearMarketValue [Currency](#currency)
+
+### IDebtModStrategies
+* IDebtModStrategies `object`
+  * lumpSumDebtModStrategies `array`
+    * items [ILumpSumDebtModStrategy](#ilumpsumdebtmodstrategy)
+  * periodicDebtModStrategies `array`
+    * items [IPeriodicDebtModStrategy](#iperiodicdebtmodstrategy)
+
+### IDefinedBenefitPension
+* IDefinedBenefitPension `object`
+  * benefit [IOptionalField[Benefit[CurrencyWithGrowth]]](#ioptionalfield[benefit[currencywithgrowth]])
+  * description `string`
+  * isBenefitFormula `boolean`
+  * isBenefitIntegratedWithCppQpp `boolean`
+  * isFormulaIntegratedWithCppQpp `boolean`
+  * owner `string` (values: Client, CoClient)
+  * pensionType `string`
+  * percentPayableToSurvivor [Percent](#percent)
+  * projectedYearsOfService `integer`
+  * startDate [Date](#date)
+
+### IDependent
+* IDependent `object`
+  * address [IAddress](#iaddress)
+  * ageAsOfPlanDate `integer`
+  * birthdate [Date](#date)
+  * citizenship `string`
+  * dependentOf `string`
+  * dependentOfId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * email `string`
+  * employer [IEmployer](#iemployer)
+  * gender [FormattedEnumType[Gender]](#formattedenumtype[gender])
+  * name [IPersonName](#ipersonname)
+  * ownershipId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * phone [IPhoneNumbers](#iphonenumbers)
+  * relationship `string`
+
+### IEmployer
+* IEmployer `object`
+  * address [IAddress](#iaddress)
+  * name `string`
+  * phone [IBusinessPhoneNumbers](#ibusinessphonenumbers)
+
+### IEstateDetails
+* IEstateDetails `object`
+  * enableFiftyPercentSolution [DescriptiveBoolean](#descriptiveboolean)
+  * estateFreeze [DescriptiveBoolean](#descriptiveboolean)
+  * estateFreezeDate [Date](#date)
+  * shareOptionsAtFirstDeath `string`
+  * shareOptionsAtSecondDeathAndDeathInTheSameYear `string`
+
+### IFamily
+* IFamily `object`
+  * address [IAddress](#iaddress)
+  * client [IFamilyMember](#ifamilymember)
+  * coClient [IFamilyMember](#ifamilymember)
+  * dependents `array`
+    * items [IDependent](#idependent)
+  * headFullNames `string`
+
+### IFamilyMember
+* IFamilyMember `object`
+  * address [IAddress](#iaddress)
+  * ageAsOfPlanDate `integer`
+  * birthdate [Date](#date)
+  * citizenship `string`
+  * email `string`
+  * employer [IEmployer](#iemployer)
+  * gender [FormattedEnumType[Gender]](#formattedenumtype[gender])
+  * name [IPersonName](#ipersonname)
+  * ownershipId `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * phone [IPhoneNumbers](#iphonenumbers)
+
+### IFormattedFrequency
+* IFormattedFrequency `object`
+  * everyNPeriods `integer`
   * formatted `string`
   * formattedAbbrv `string`
   * value `string` (values: Annual, SemiAnnual, Quarterly, Bimonthly, Monthly, TwiceMonthly, BiWeekly, Weekly, Daily, Continuously, Onetime, EveryXYears)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.InterCompanyDividendType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.ContributionsData.InterCompanyDividendType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: NonTaxable, NonTaxableCda, NonTaxableEligible, TaxableEligible)
+### IGeneralSetups
+* IGeneralSetups `object`
+  * appliedBusinessLimit [Currency](#currency)
+  * goodWillFutureSalesMarketValue [Currency](#currency)
+  * percentageOfLimitToUse [Percent](#percent)
+  * previousYearAdjustedAggregateInvestmentIncome [Currency](#currency)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.DistributionDividendType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.ActivityData.WithdrawalsData.DistributionDividendType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: TaxableIneligible, NonTaxable, TaxableEligible)
+### IGoal
+* IGoal `object`
+  * assetsRemainingAfterFundingGoal [IOptionalField[Currency]](#ioptionalfield[currency])
+  * coverage [IOptionalField[GoalCoveragePercent]](#ioptionalfield[goalcoveragepercent])
+  * description `string`
+  * endDate [Date](#date)
+  * identifier [GoalId](#goalid)
+  * startDate [Date](#date)
+  * type `string` (values: Retirement, SurvivorIncome, CriticalIllness, LongTermCareInsurance, Cashflow, DisabilityIncome, Education, MajorPurchase, EmergencyFund, Undefined, NotSupported)
+  * yearAssetsDepleted [IOptionalField[Year]](#ioptionalfield[year])
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.PrivateCorporationShareType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.HoldingCompanyData.PrivateCorporationShareType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: Undefined, Common, Preferred)
+### IGovernmentPensions
+* IGovernmentPensions `object`
+  * estimatedCanadianGovernmentPensions [ICanadianGovernmentPensions](#icanadiangovernmentpensions)
+  * estimatedSocialSecurity [Currency](#currency)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.PortfolioAssetData.SavingsStrategyType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: PreTax, PostTax, Employer, Owner, Mandatory)
+### IHeadAssumptions
+* IHeadAssumptions `object`
+  * alreadyRetired `boolean`
+  * deceasedAge `integer`
+  * deceasedDate [Date](#date)
+  * estateIncomeTaxes [IIncomeTaxes](#iincometaxes)
+  * governmentPensions [IGovernmentPensions](#igovernmentpensions)
+  * maritalOrTaxFilingStatus [FormattedMaritalOrTaxFilingStatus](#formattedmaritalortaxfilingstatus)
+  * preRetirementIncomeTaxes [IIncomeTaxes](#iincometaxes)
+  * retirementAge `integer`
+  * retirementDate [Date](#date)
+  * retirementIncomeTaxes [IIncomeTaxes](#iincometaxes)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPDistributionMethod] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: RequiredMinDistribution, Amortization, Annuitization)
+### IHistoricalData
+* IHistoricalData `object`
+  * generalSetups [IGeneralSetups](#igeneralsetups)
+  * notionalAccounts [INotionalAccounts](#inotionalaccounts)
+  * outstandingShareholderLoans [IOutstandingShareholderLoans](#ioutstandingshareholderloans)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.AssetData.SEPPLifeExpectancyTable] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: NOT_APPLICABLE_UPPER_CASE, SingleLifeExpectancy, NonSingleLifeExpectancy)
+### IHolding
+* IHolding `object`
+  * assetMix [IAssetMix](#iassetmix)
+  * description `string`
+  * holdAmount [PercentOr[Currency]](#percentor[currency])
+  * id `string`
+  * isClassified `boolean`
+  * preRetirementReturnRates [IPeriodRateOfReturnDetails](#iperiodrateofreturndetails)
+  * retirementReturnRates [IPeriodRateOfReturnDetails](#iperiodrateofreturndetails)
+  * symbol `string`
+  * valuation [IAssetValuation](#iassetvaluation)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.LiabilityType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: Personal, Business, CreditCard, Mortgage, Vehicle, PolicyLoan)
+### IHoldingCompany
+* IHoldingCompany `object`
+  * annualDividendYield [Percent](#percent)
+  * ccpc [DescriptiveBoolean](#descriptiveboolean)
+  * commonSharesOutstanding `integer`
+  * contributions [IContributions](#icontributions)
+  * corporateYearEnd [Date](#date)
+  * description `string`
+  * dividendType `string` (values: Taxable, NonTaxable)
+  * dividendTypeFormatted `string`
+  * estateDetails [IEstateDetails](#iestatedetails)
+  * historicalData [IHistoricalData](#ihistoricaldata)
+  * id `string`
+  * investmentAccounts `array`
+    * items [IInvestmentAccount](#iinvestmentaccount)
+  * liabilities `array`
+    * items [ILiability](#iliability)
+  * lifeInsurancePolicies `array`
+    * items [ILifeInsurancePolicy](#ilifeinsurancepolicy)
+  * marketValue [Currency](#currency)
+  * numPreferredShareClasses `integer`
+  * otherAssets `array`
+    * items [IRealEstateAsset](#irealestateasset)
+  * ownershipAsOfDate [Date](#date)
+  * ownershipDetails [IOwnershipDetails](#iownershipdetails)
+  * preferredSharesOutstanding `integer`
+  * provinceOfIncorporation `string`
+  * provinceOfTaxation `string`
+  * realEstateAssets `array`
+    * items [ICorporationRealEstateAsset](#icorporationrealestateasset)
+  * valueOfAllCommonShares [Currency](#currency)
+  * valueOfAllPreferredShares [Currency](#currency)
+  * withdrawals [IWithdrawals](#iwithdrawals)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.PlanPropertiesData.LiabilityData.PayOffOptionsType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: TransferToSurvivor, PayOffAtFirstDeath, PayOffAtOwnerDeath, InsuredForLife)
+### IIncomeTaxes
+* IIncomeTaxes `object`
+  * averageTaxRate [Percent](#percent)
+  * combinedStateAndAverageTaxRate [Percent](#percent)
+  * combinedStateAndLongTermCapitalGainsTaxRate [Percent](#percent)
+  * combinedStateAndMarginalTaxRate [Percent](#percent)
+  * longTermCapitalGainsTaxRate [Percent](#percent)
+  * marginalTaxRate [Percent](#percent)
+  * stateTaxRate [Percent](#percent)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.PlanObjectModel.ScenarioPropertiesData.ClientData.Gender] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: Male, Female)
+### IInsurancePremium
+* IInsurancePremium `object`
+  * amount [CurrencyWithGrowth](#currencywithgrowth)
+  * annualAmount [Currency](#currency)
+  * ceaseDate [Date](#date)
+  * formattedPayingMember `string`
+  * frequency [IFormattedFrequency](#iformattedfrequency)
+  * payingMember `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * premiumRefundAmount [Percent](#percent)
+  * startDate [Date](#date)
 
-### NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType]
-* NaviPlan.Util.FormattedEnumType[NaviPlan.Util.PaymentType] `object`
-  * formatted `string`
-  * formattedAbbrv `string`
-  * value `string` (values: InterestOnly, PrincipalAndInterest, SetPayment, LastPeriodPayment)
+### IInterCompanyDividendReceived
+* IInterCompanyDividendReceived `object`
+  * activityData [IActivityData](#iactivitydata)
+  * dividendType [FormattedEnumType[InterCompanyDividendType]](#formattedenumtype[intercompanydividendtype])
+  * generalRateOfIncomePoolAmount [Currency](#currency)
+  * receivedFrom `string`
 
-### NaviPlan.Util.FormattedLifestyleType
-* NaviPlan.Util.FormattedLifestyleType `object`
-  * formatted `string`
-  * value `string` (values: Undefined, PersonalUse, ListedPersonal, PrimaryResidence, SecondaryResidence, BusinessInterest, Automobile)
+### IInvestmentAccount
+* IInvestmentAccount `object`
+  * annualFee [Percent](#percent)
+  * costBasis [Currency](#currency)
+  * description `string`
+  * excludeInAA `boolean`
+  * holdings `array`
+    * items [IHolding](#iholding)
+  * id `string`
+  * marketValue [Currency](#currency)
+  * rateOfReturn [IRateOfReturnDetails](#irateofreturndetails)
+  * type `string`
+  * valuationDate [Date](#date)
 
-### NaviPlan.Util.FormattedMaritalOrTaxFilingStatus
-* NaviPlan.Util.FormattedMaritalOrTaxFilingStatus `object`
-  * formatted `string`
-  * value `string` (values: Undefined, Single, HeadOfHousehold, MarriedFilingJointly, MarriedFilingSeparately, SingleParent, Married, CommonLaw, Partner, Divorced, Widowed, Separated)
+### IInvestmentAccountOwnershipData
+* IInvestmentAccountOwnershipData `object`
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * ownersName `string`
+  * ownershipPercent [Percent](#percent)
 
-### NaviPlan.Util.GoalCoveragePercent
-* NaviPlan.Util.GoalCoveragePercent `object`
-  * formatted `string`
-  * formattedRaw `number`
-  * raw `number`
-  * rawCappedAt100 `number`
+### ILiabilities
+* ILiabilities `object`
+  * clientLiabilities [INetWorthCategory](#inetworthcategory)
+  * coClientLiabilities [INetWorthCategory](#inetworthcategory)
+  * communityPropertyLiabilities [INetWorthCategory](#inetworthcategory)
+  * jointLiabilities [INetWorthCategory](#inetworthcategory)
+  * totalLiabilities [INetWorthCategory](#inetworthcategory)
 
-### NaviPlan.Util.GoalId
-* NaviPlan.Util.GoalId `object`
+### ILiability
+* ILiability `object`
+  * annualPaymentAmount [Currency](#currency)
+  * balanceAsOf [CurrencyWithDate](#currencywithdate)
+  * balanceAsOfPlanDate [Currency](#currency)
+  * debtModStrategies [IDebtModStrategies](#idebtmodstrategies)
+  * description `string`
+  * id `string`
+  * insuredForDisability [DescriptiveBoolean](#descriptiveboolean)
+  * insuredForLife [DescriptiveBoolean](#descriptiveboolean)
+  * interestRate [Percent](#percent)
+  * isInterestRateVariable [DescriptiveBoolean](#descriptiveboolean)
+  * isPaymentVariable [DescriptiveBoolean](#descriptiveboolean)
+  * linkedAssetId `string`
+  * linkedAssetName `string`
+  * loanDate [Date](#date)
+  * originalBalance [Currency](#currency)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * paidOffByRetirement [IOptionalField[DescriptiveBoolean]](#ioptionalfield[descriptiveboolean])
+  * payOffDate [IOptionalField[Date]](#ioptionalfield[date])
+  * payOffOptionType [FormattedEnumType[PayOffOptionsType]](#formattedenumtype[payoffoptionstype])
+  * paymentAmount [IOptionalField[Currency]](#ioptionalfield[currency])
+  * paymentFrequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+  * paymentType [FormattedEnumType[PaymentType]](#formattedenumtype[paymenttype])
+  * type [FormattedEnumType[LiabilityType]](#formattedenumtype[liabilitytype])
+
+### ILifeInsurancePolicy
+* ILifeInsurancePolicy `object`
+  * beneficiaryName `string`
+  * benefitPeriod [TimePeriod](#timeperiod)
+  * cashSurrenderValue [Currency](#currency)
+  * coverageCeaseDate [Date](#date)
+  * dailyBenefitValue `number`
+  * description `string`
+  * effectiveDate [Date](#date)
+  * formattedBenefitValue `string`
+  * formattedInsuredType `string`
+  * formattedPolicyType `string`
+  * id `string`
+  * insured `string` (values: Client, CoClient, FirstToDie, SecondToDie, Other)
+  * isCSVPayableWithDeathBenefit [DescriptiveBoolean](#descriptiveboolean)
+  * monthlyBenefitValue `number`
+  * ownerName `string`
+  * policyType `string` (values: WholeLife, UniversalLife, Term1Life, Term5Life, Term10Life, Term20Life, Term100Life, VariableLife, VariableUniversalLife, GroupLongTermDisability, GroupShortTermDisability, IndividualDisability, LongTermCare, CriticalIllness, MedicalCoveragePlan, CashToInsuredCoverage)
+  * premiumData [IInsurancePremium](#iinsurancepremium)
+  * premiumsWaivedAtDisability [DescriptiveBoolean](#descriptiveboolean)
+  * rawBenefitValue `number`
+  * waitingPeriod [TimePeriod](#timeperiod)
+
+### ILifestyleAsset
+* ILifestyleAsset `object`
+  * afterTaxProceedsAccountName `string`
+  * description `string`
+  * futureValueProjectedGrossSaleValue [Currency](#currency)
+  * id `string`
+  * isMajorPurchaseGoal `boolean`
+  * marketValueAsOf [CurrencyWithDate](#currencywithdate)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * preTaxGrowthRate [Percent](#percent)
+  * presentValueProjectedGrossSaleValue [Currency](#currency)
+  * projectedSaleDate [Date](#date)
+  * purchaseAmount [Currency](#currency)
+  * purchaseDate [Date](#date)
+  * sellingCostPercent [Percent](#percent)
+  * standardDeviation [Percent](#percent)
+  * type [FormattedLifestyleType](#formattedlifestyletype)
+
+### ILiquidationEvent
+* ILiquidationEvent `object`
+  * firstSaleDate [Date](#date)
+  * lastSaleDate [Date](#date)
+  * liquidationType `string` (values: SellAtPlanEnd, SellAllOnSpecificDate, SellInInstallments)
+  * liquidationTypeDescription `string`
+  * saleDatesDescription `string`
+
+### ILoanRepaymentToShareholder
+* ILoanRepaymentToShareholder `object`
+  * activityData [IActivityData](#iactivitydata)
+  * shareholder `string` (values: Undefined, Head1, Head2, Other)
+
+### ILumpSumDebtModStrategy
+* ILumpSumDebtModStrategy `object`
+  * amount [Currency](#currency)
+  * debtModificationDate [Date](#date)
+  * indexRate [GrowthRateValues](#growthratevalues)
+
+### ILumpSumRedemptionStrategy
+* ILumpSumRedemptionStrategy `object`
+  * amountOrPercentOfValue [PercentOr[Currency]](#percentor[currency])
+  * indexRate [GrowthRateValues](#growthratevalues)
+  * redemptionDate [Date](#date)
+
+### ILumpSumSavingsStrategy
+* ILumpSumSavingsStrategy `object`
+  * amountOrPercentOfSalary [PercentOr[Currency]](#percentor[currency])
+  * formattedSavingsTypeWithDash `string`
+  * indexRate [GrowthRateValues](#growthratevalues)
+  * savingsDate [Date](#date)
+  * savingsType [FormattedEnumType[SavingsStrategyType]](#formattedenumtype[savingsstrategytype])
+
+### IManualDividendDistribution
+* IManualDividendDistribution `object`
+  * activityData [IActivityData](#iactivitydata)
+  * directCoClientAfterTaxProceedsTo `string`
+  * dividendType [FormattedEnumType[DistributionDividendType]](#formattedenumtype[distributiondividendtype])
+  * shareId `integer`
+  * shareType [FormattedEnumType[PrivateCorporationShareType]](#formattedenumtype[privatecorporationsharetype])
+
+### INetWorth
+* INetWorth `object`
+  * netWorthAtPlanDate [INetWorthAtDate](#inetworthatdate)
+  * netWorthAtPlanEnd [IOptionalField[INetWorthAtDate]](#ioptionalfield[inetworthatdate])
+  * netWorthAtRetirement [IOptionalField[INetWorthAtDate]](#ioptionalfield[inetworthatdate])
+
+### INetWorthAtDate
+* INetWorthAtDate `object`
+  * assets [IAssets](#iassets)
+  * assetsFundingRetirement [IRetirementAssets](#iretirementassets)
+  * clientNetWorth [Currency](#currency)
+  * coClientNetWorth [Currency](#currency)
+  * communityPropertyNetWorth [Currency](#currency)
+  * jointNetWorth [Currency](#currency)
+  * liabilities [ILiabilities](#iliabilities)
+  * totalNetWorth [Currency](#currency)
+
+### INetWorthCategory
+* INetWorthCategory `object`
+  * description `string`
+  * itemized `array`
+    * items [INetWorthItem](#inetworthitem)
+  * total [Currency](#currency)
+
+### INetWorthItem
+* INetWorthItem `object`
+  * accountType `string`
+  * description `string`
+  * id `string`
+  * value [Currency](#currency)
+
+### INotionalAccounts
+* INotionalAccounts `object`
+  * capitalDividendAccountEndOfYearValue [Currency](#currency)
+  * capitalLossesCarryoverEndOfYearValue [Currency](#currency)
+  * dividendRefund [Currency](#currency)
+  * generalRateOfIncomePoolEndOfYearValue [Currency](#currency)
+  * nonEligibleRefundableDividendTaxOnHandEndOfYearValue [Currency](#currency)
+  * nrdtohDividendRefund [Currency](#currency)
+  * refundableDividendTaxOnHandEndOfYearValue [Currency](#currency)
+
+### IOptionalField[Benefit[CurrencyWithGrowth]]
+* IOptionalField[Benefit[CurrencyWithGrowth]] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [Benefit[CurrencyWithGrowth]](#benefit[currencywithgrowth])
+
+### IOptionalField[Currency]
+* IOptionalField[Currency] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [Currency](#currency)
+
+### IOptionalField[Date]
+* IOptionalField[Date] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [Date](#date)
+
+### IOptionalField[DescriptiveBoolean]
+* IOptionalField[DescriptiveBoolean] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [DescriptiveBoolean](#descriptiveboolean)
+
+### IOptionalField[GoalCoveragePercent]
+* IOptionalField[GoalCoveragePercent] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [GoalCoveragePercent](#goalcoveragepercent)
+
+### IOptionalField[INetWorthAtDate]
+* IOptionalField[INetWorthAtDate] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [INetWorthAtDate](#inetworthatdate)
+
+### IOptionalField[Year]
+* IOptionalField[Year] `object`
+  * enabled `boolean`
+  * populated `boolean`
+  * value [Year](#year)
+
+### IOutstandingShareholderLoans
+* IOutstandingShareholderLoans `object`
+  * clientAmount [Currency](#currency)
+  * coClientAmount [Currency](#currency)
+  * otherAmount [Currency](#currency)
+
+### IOwnershipData
+* IOwnershipData `object`
+  * marketValue [Currency](#currency)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * ownersName `string`
+  * ownershipPercent [Percent](#percent)
+  * shares `integer`
+
+### IOwnershipDetails
+* IOwnershipDetails `object`
+  * common `array`
+    * items [IOwnershipData](#iownershipdata)
+  * commonSharesDetails `array`
+    * items [ICommonShareClassDetails](#icommonshareclassdetails)
+  * preferred `array`
+    * items [IOwnershipData](#iownershipdata)
+  * preferredSharesDetails `array`
+    * items [IPreferredShareClassDetails](#ipreferredshareclassdetails)
+  * shareholderPercentOwnership `array`
+    * items [IInvestmentAccountOwnershipData](#iinvestmentaccountownershipdata)
+
+### IPeriodRateOfReturnDetails
+* IPeriodRateOfReturnDetails `object`
+  * breakdown [IRateOfReturnBreakdown](#irateofreturnbreakdown)
+  * standardDeviation [Percent](#percent)
+  * total [Percent](#percent)
+
+### IPeriodicDebtModStrategy
+* IPeriodicDebtModStrategy `object`
+  * amount [Currency](#currency)
+  * applicableDateRange [FormattedDateRange](#formatteddaterange)
+  * debtModificationFrequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+  * indexRate [GrowthRateValues](#growthratevalues)
+
+### IPeriodicRedemptionStrategy
+* IPeriodicRedemptionStrategy `object`
+  * amountOrPercentOfValue [PercentOr[Currency]](#percentor[currency])
+  * applicableDateRange [FormattedDateRange](#formatteddaterange)
+  * indexRate [GrowthRateValues](#growthratevalues)
+  * redemptionFrequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+
+### IPeriodicSavingsStrategy
+* IPeriodicSavingsStrategy `object`
+  * amountOrPercentOfSalary [PercentOr[Currency]](#percentor[currency])
+  * endDate [Date](#date)
+  * formattedFrequencyAbbrv `string`
+  * formattedSavingsTypeWithDash `string`
+  * indexRate [GrowthRateValues](#growthratevalues)
+  * isMaxContribution `boolean`
+  * savingsFrequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+  * savingsType [FormattedEnumType[SavingsStrategyType]](#formattedenumtype[savingsstrategytype])
+  * startDate [Date](#date)
+
+### IPersonName
+* IPersonName `object`
+  * firstName `string`
+  * formal `string`
+  * full `string`
+  * lastName `string`
+  * middle `string`
+  * title `string`
+
+### IPhoneNumbers
+* IPhoneNumbers `object`
+  * additionalNumbers [IBusinessPhoneNumbers](#ibusinessphonenumbers)
+  * business `string`
+  * cell `string`
+  * fax `string`
+  * home `string`
+  * pager `string`
+
+### IPlanModules
+* IPlanModules `object`
+  * isCriticalIllnessModuleEnabled `boolean`
+  * isDisabilityIncomeModuleEnabled `boolean`
+  * isEstatePlanningModuleEabled `boolean`
+  * isLongTermCareModuleEnabled `boolean`
+  * isSurvivorIncomeModuleEnabled `boolean`
+
+### IPortfolioAccount
+* IPortfolioAccount `object`
+  * accountReturnRatesNoLongerCorrelateToAssumedAssetMixDueToOverrideInGsm `boolean`
+  * annualFee [Percent](#percent)
+  * applicableRangeRetirementLiquidatedAssets [FormattedDateRange](#formatteddaterange)
+  * costBasis [Currency](#currency)
+  * description `string`
+  * descriptionWithOwner `string`
+  * excludeInAA `boolean`
+  * holdings `array`
+    * items [IHolding](#iholding)
+  * id `string`
+  * isSystemGenerated `boolean`
+  * marketValue [Currency](#currency)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * portfolioAssets `array`
+    * items [IPortfolioAsset](#iportfolioasset)
+  * rateOfReturn [IRateOfReturnDetails](#irateofreturndetails)
+  * savingsStrategies [ISavingsStrategies](#isavingsstrategies)
+  * seppRedemptionStrategy [ISEPPRedemptionStrategy](#iseppredemptionstrategy)
+  * type `string`
+  * valuationDate [Date](#date)
+
+### IPortfolioAsset
+* IPortfolioAsset `object`
+  * applicableRangeRetirementLiquidatedAssets [FormattedDateRange](#formatteddaterange)
+  * costBasis [Currency](#currency)
+  * description `string`
+  * goalFundingDescription `string`
+  * goalFundingGoalId [GoalId](#goalid)
+  * id `string`
+  * incomeReinvested [IReturnIncomeReinvestedDetails](#ireturnincomereinvesteddetails)
+  * isSystemGenerated `boolean`
+  * marketValue [Currency](#currency)
+  * parentAccountId `string`
+  * rateOfReturn [IRateOfReturnDetails](#irateofreturndetails)
+  * redemptionStrategies [IRedemptionStrategies](#iredemptionstrategies)
+
+### IPreferredShareClassDetails
+* IPreferredShareClassDetails `object`
+  * annualDividendYield [Percent](#percent)
+  * dividendType [FormattedEnumType[DistributionDividendType]](#formattedenumtype[distributiondividendtype])
+  * redemptionValuePerShare [Currency](#currency)
+  * shareClassStructure [IShareClassStructure](#ishareclassstructure)
+
+### IRateOfReturnBreakdown
+* IRateOfReturnBreakdown `object`
+  * capitalGain [Percent](#percent)
+  * deferredGrowth [Percent](#percent)
+  * dividend [Percent](#percent)
+  * interest [Percent](#percent)
+  * taxFree [Percent](#percent)
+
+### IRateOfReturnDetails
+* IRateOfReturnDetails `object`
+  * preRetirement [IPeriodRateOfReturnDetails](#iperiodrateofreturndetails)
+  * retirement [IPeriodRateOfReturnDetails](#iperiodrateofreturndetails)
+
+### IRealEstateAsset
+* IRealEstateAsset `object`
+  * currentYearNetRentalIncome [Currency](#currency)
+  * description `string`
+  * id `string`
+  * marketValueAsOf [CurrencyWithDate](#currencywithdate)
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * preTaxGrowthRate [Percent](#percent)
+  * purchaseAmount [Currency](#currency)
+  * purchaseDate [Date](#date)
+  * standardDeviation [Percent](#percent)
+  * startOfYearCostBasis [Currency](#currency)
+  * startOfYearMarketValue [Currency](#currency)
+
+### IRedemptionStrategies
+* IRedemptionStrategies `object`
+  * lumpSumRedemptionStrategies `array`
+    * items [ILumpSumRedemptionStrategy](#ilumpsumredemptionstrategy)
+  * periodicRedemptionStrategies `array`
+    * items [IPeriodicRedemptionStrategy](#iperiodicredemptionstrategy)
+
+### IRestrictedStock
+* IRestrictedStock `object`
+  * annualDividendPerUnit [Currency](#currency)
+  * applicableRangeRetirementLiquidatedAssets [FormattedDateRange](#formatteddaterange)
+  * awardedDate [Date](#date)
+  * currentUnitValue [Currency](#currency)
+  * description `string`
+  * growthRate [Percent](#percent)
+  * id `string`
+  * numberOfUnits `integer`
+  * owner `string` (values: All, Head1, Head2, NonHead1, NonHead2, NonHead3, NonHead4, NonHead5, NonHead6, NonHead7, NonHead8, NonHead9, CommunityProperty, Joint, Other, AllDependents, AllFamilyMembers, Corporation)
+  * pricePaidForAward [Currency](#currency)
+  * type `string`
+
+### IRetirementAssetCategories
+* IRetirementAssetCategories `object`
+  * allAssets `array`
+    * items [IValueDescriptionPair[Currency]](#ivaluedescriptionpair[currency])
+  * nonQualifiedAnnuities [INetWorthCategory](#inetworthcategory)
+  * nonQualifiedAssets [INetWorthCategory](#inetworthcategory)
+  * qualifiedAnnuities [INetWorthCategory](#inetworthcategory)
+  * qualifiedAssets [INetWorthCategory](#inetworthcategory)
+  * totalAssets [INetWorthCategory](#inetworthcategory)
+
+### IRetirementAssets
+* IRetirementAssets `object`
+  * allAssets [IRetirementAssetCategories](#iretirementassetcategories)
+  * clientAssets [IRetirementAssetCategories](#iretirementassetcategories)
+  * coClientAssets [IRetirementAssetCategories](#iretirementassetcategories)
+  * communityPropertyAssets [IRetirementAssetCategories](#iretirementassetcategories)
+  * jointAssets [IRetirementAssetCategories](#iretirementassetcategories)
+  * withdrawalRate [Percent](#percent)
+
+### IReturnIncomeReinvestedDetails
+* IReturnIncomeReinvestedDetails `object`
+  * duringPreRetirementPeriod [DescriptiveBoolean](#descriptiveboolean)
+  * duringRetirementPeriod [DescriptiveBoolean](#descriptiveboolean)
+
+### IRrspMaximizerStrategy
+* IRrspMaximizerStrategy `object`
+  * applicable `string`
+  * applicableRange [FormattedDateRange](#formatteddaterange)
+  * assetName `string`
+  * constrainedByCashflow [DescriptiveBoolean](#descriptiveboolean)
+  * month `string`
+
+### ISEPPRedemptionStrategy
+* ISEPPRedemptionStrategy `object`
+  * applicableDateRange [FormattedDateRange](#formatteddaterange)
+  * distributionMethod [FormattedEnumType[SEPPDistributionMethod]](#formattedenumtype[seppdistributionmethod])
+  * lifeExpectancyTable [FormattedEnumType[SEPPLifeExpectancyTable]](#formattedenumtype[sepplifeexpectancytable])
+  * redemptionFrequency [FormattedEnumType[Frequency]](#formattedenumtype[frequency])
+
+### ISavingsStrategies
+* ISavingsStrategies `object`
+  * lumpSumSavingsStrategies `array`
+    * items [ILumpSumSavingsStrategy](#ilumpsumsavingsstrategy)
+  * periodicSavingsStrategies `array`
+    * items [IPeriodicSavingsStrategy](#iperiodicsavingsstrategy)
+  * rrspMaximizerStrategies `array`
+    * items [IRrspMaximizerStrategy](#irrspmaximizerstrategy)
+  * surplusSavingsStrategies `array`
+    * items [ISurplusSavingsStrategy](#isurplussavingsstrategy)
+
+### IShareClassStructure
+* IShareClassStructure `object`
+  * clientOwnershipData [IOwnershipData](#iownershipdata)
+  * coClientOwnershipData [IOwnershipData](#iownershipdata)
+  * description `string`
   * id `integer`
+  * otherOwnershipData [IOwnershipData](#iownershipdata)
+  * parentCorporationOwnershipData [IOwnershipData](#iownershipdata)
 
-### NaviPlan.Util.GrowthRateValues
-* NaviPlan.Util.GrowthRateValues `object`
-  * additionalGrowthPercent [NaviPlan.Util.Percent](#naviplan.util.percent)
-  * isInflationAdjusted `boolean`
-  * totalGrowth [NaviPlan.Util.Percent](#naviplan.util.percent)
+### ISharePurchase
+* ISharePurchase `object`
+  * activityData [IActivityData](#iactivitydata)
+  * shareHolder `string` (values: Undefined, Head1, Head2, Other)
+  * shareId `integer`
+  * shareType [FormattedEnumType[PrivateCorporationShareType]](#formattedenumtype[privatecorporationsharetype])
 
-### NaviPlan.Util.NaviplanItemIdentifier
-* NaviPlan.Util.NaviplanItemIdentifier `object`
+### IShareRedemption
+* IShareRedemption `object`
+  * activityData [IActivityData](#iactivitydata)
+  * shareId `integer`
+  * shareType [FormattedEnumType[PrivateCorporationShareType]](#formattedenumtype[privatecorporationsharetype])
+  * shareholder `string` (values: Undefined, Head1, Head2, Other)
 
-### NaviPlan.Util.Percent
-* NaviPlan.Util.Percent `object`
+### IShareholderLoan
+* IShareholderLoan `object`
+  * activityData [IActivityData](#iactivitydata)
+  * shareHolder `string` (values: Undefined, Head1, Head2, Other)
+
+### IStockOption
+* IStockOption `object`
+  * annualDividendPerUnit [Currency](#currency)
+  * applicableRangeRetirementLiquidatedAssets [FormattedDateRange](#formatteddaterange)
+  * company `string`
+  * currentUnitPrice [Currency](#currency)
+  * currentUnitPriceDate [Date](#date)
+  * description `string`
+  * endOfPlanYearExercisableGrossValue [Currency](#currency)
+  * exerciseCost [Currency](#currency)
+  * expirationDate [Date](#date)
+  * grantDate [Date](#date)
+  * grantedOptions `integer`
+  * growthRate [Percent](#percent)
+  * id `string`
+  * optionsExercisable `integer`
+  * optionsExercised `integer`
+  * optionsVested `integer`
+  * owner `string`
+  * preTaxProfit [Currency](#currency)
+  * startOfYearAMTBasis [Currency](#currency)
+  * startOfYearCostBasis [Currency](#currency)
+  * startOfYearUnitPrice [Currency](#currency)
+  * strikePrice [Currency](#currency)
+  * symbol `string`
+  * type `string` (values: NonQualifiedStockOption, IncentiveStockOption)
+  * typeFormatted `string`
+  * vestingSchedule `array`
+    * items [IVestingData](#ivestingdata)
+
+### ISurplusSavingsStrategy
+* ISurplusSavingsStrategy `object`
+  * endDate [Date](#date)
+  * percentOfSurplus [Percent](#percent)
+  * percentOfSurplusClient [Percent](#percent)
+  * percentOfSurplusCoClient [Percent](#percent)
+  * startDate [Date](#date)
+
+### ITaxes
+* ITaxes `object`
+  * estate [Currency](#currency)
+  * federalIncome [Currency](#currency)
+  * giftAndGenerationSkippingTransfer [Currency](#currency)
+  * medicare [Currency](#currency)
+  * pensionEarlyDistributionPenalty [Currency](#currency)
+  * pensionPenaltyOnExcessDistributions [Currency](#currency)
+  * refundableCredits [Currency](#currency)
+  * socialSecurityEmployer [Currency](#currency)
+  * socialSecuritySelfEmployed [Currency](#currency)
+  * stateIncome [Currency](#currency)
+  * total [Currency](#currency)
+
+### IValueDescriptionPair[Currency]
+* IValueDescriptionPair[Currency] `object`
+  * description `string`
+  * value [Currency](#currency)
+
+### IVestingData
+* IVestingData `object`
+  * date [Date](#date)
+  * percentVested [Percent](#percent)
+
+### IWithdrawals
+* IWithdrawals `object`
+  * loanRepaymentsToShareholder `array`
+    * items [ILoanRepaymentToShareholder](#iloanrepaymenttoshareholder)
+  * manualDividendDistributions `array`
+    * items [IManualDividendDistribution](#imanualdividenddistribution)
+  * shareRedemptions `array`
+    * items [IShareRedemption](#ishareredemption)
+
+### LiabilitiesModel
+* LiabilitiesModel `object`
+  * liabilities `array`
+    * items [ILiability](#iliability)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### LiabilityModel
+* LiabilityModel `object`
+  * liability [ILiability](#iliability)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### LifestyleAssetModel
+* LifestyleAssetModel `object`
+  * lifestyleAsset [ILifestyleAsset](#ilifestyleasset)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### LifestyleAssetsModel
+* LifestyleAssetsModel `object`
+  * lifestyleAssets `array`
+    * items [ILifestyleAsset](#ilifestyleasset)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### LoginModel
+* LoginModel `object`
+  * password `string`
+  * username `string`
+
+### NeedsVsAbilitiesModel
+* NeedsVsAbilitiesModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * projections `array`
+    * items [ProjectedGoalsSummary[GoalNeedsVsAbilitiesSummary]](#projectedgoalssummary[goalneedsvsabilitiessummary])
+
+### NetWorthModel
+* NetWorthModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * netWorth [INetWorth](#inetworth)
+
+### NetWorthProjectionModel
+* NetWorthProjectionModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * netWorth [ProjectedNetWorthSummary](#projectednetworthsummary)
+
+### NetWorthProjectionsModel
+* NetWorthProjectionsModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * projections `array`
+    * items [NetWorthProjectionModel](#networthprojectionmodel)
+
+### NetWorthSummary
+* NetWorthSummary `object`
+  * totalAssets `number`
+  * totalLiabilities `number`
+  * totalNetWorth `number`
+
+### Object
+* Object `object`
+
+### ObjectLink
+* ObjectLink `object`
+  * href `string`
+  * rel `string`
+
+### Percent
+* Percent `object`
   * formattedDoubleDecimal `string`
   * formattedNoDecimal `string`
   * formattedSingleDecimal `string`
   * raw `number`
   * rawCappedAt100 `number`
 
-### NaviPlan.Util.PercentOr[NaviPlan.Util.Currency]
-* NaviPlan.Util.PercentOr[NaviPlan.Util.Currency] `object`
-  * currency [NaviPlan.Util.Currency](#naviplan.util.currency)
-  * formattedDecimal `string`
-  * formattedNoDecimal `string`
-  * formattedPercentDoubleDecimalCurrenyNoDecimal `string`
-  * isCurrency `boolean`
-  * isNonZero `boolean`
-  * isPercent `boolean`
-  * percent [NaviPlan.Util.Percent](#naviplan.util.percent)
+### PercentOr[Currency]
+* PercentOr[Currency] `object`
+  * currency [Currency](#currency)
+  * percent [Percent](#percent)
 
-### NaviPlan.Util.TimePeriod
-* NaviPlan.Util.TimePeriod `object`
+### PlanInformationModel
+* PlanInformationModel `object`
+  * country `string`
+  * description `string`
+  * isJointAnalysis `boolean`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * locale `string`
+  * planDate [Date](#date)
+  * planDescription `string`
+  * planId `string`
+  * planLevel `string` (values: Calculator, FinancialAssessment, AssetAllocation, Level1, Level2, Level3, Undefined)
+  * planModules [IPlanModules](#iplanmodules)
+  * planType `string`
+  * publishDate [Date](#date)
+
+### PlanSelectorParam
+* PlanSelectorParam `object`
+  * planId **required** `string`: Id of the Plan to retrieve or update data for (e.g. 1001-11-3).
+
+### PlanStatusesModel
+* PlanStatusesModel `object`
+  * hasIntegratedAccounts `string` (values: Unknown, Yes, No)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * planDataStatus `string` (values: UpdateNotRequired, UpdateRequired, UpdateInProgress, UpdateFailed, NoSuchPlan)
+  * serializedDataStatus `string` (values: UpdateNotRequired, UpdateRequired, UpdateInProgress, UpdateFailed, NoSuchPlan)
+
+### PortfolioAccountModel
+* PortfolioAccountModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * portfolioAccount [IPortfolioAccount](#iportfolioaccount)
+
+### PortfolioAccountsModel
+* PortfolioAccountsModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * portfolioAccounts `array`
+    * items [IPortfolioAccount](#iportfolioaccount)
+
+### ProjectedAnnualSummariesModel
+* ProjectedAnnualSummariesModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * projections `array`
+    * items [ProjectedAnnualSummaryModel](#projectedannualsummarymodel)
+
+### ProjectedAnnualSummary
+* ProjectedAnnualSummary `object`
+  * cashFlow [CashFlowSummary](#cashflowsummary)
+  * clientAge `integer`
+  * coClientAge `integer`
+  * netWorth [NetWorthSummary](#networthsummary)
+  * year `integer`
+
+### ProjectedAnnualSummaryModel
+* ProjectedAnnualSummaryModel `object`
+  * annualSummary [ProjectedAnnualSummary](#projectedannualsummary)
+  * links `array`
+    * items [ObjectLink](#objectlink)
+
+### ProjectedCashFlowSummary
+* ProjectedCashFlowSummary `object`
+  * cashFlow [ICashFlowByOwner](#icashflowbyowner)
+  * clientAge `integer`
+  * coClientAge `integer`
+  * year `integer`
+
+### ProjectedGoalsSummary[AssetsFundingGoalSummary]
+* ProjectedGoalsSummary[AssetsFundingGoalSummary] `object`
+  * clientAge `integer`
+  * coClientAge `integer`
+  * goals `array`
+    * items [AssetsFundingGoalSummary](#assetsfundinggoalsummary)
+  * year `integer`
+
+### ProjectedGoalsSummary[GoalNeedsVsAbilitiesSummary]
+* ProjectedGoalsSummary[GoalNeedsVsAbilitiesSummary] `object`
+  * clientAge `integer`
+  * coClientAge `integer`
+  * goals `array`
+    * items [GoalNeedsVsAbilitiesSummary](#goalneedsvsabilitiessummary)
+  * year `integer`
+
+### ProjectedNetWorthSummary
+* ProjectedNetWorthSummary `object`
+  * clientAge `integer`
+  * coClientAge `integer`
+  * endOfYearNetWorth [INetWorthAtDate](#inetworthatdate)
+  * year `integer`
+
+### PublicSessionInfoModel
+* PublicSessionInfoModel `object`
+  * eulaAccepted `boolean`
+  * hasAccountAggregation `boolean`
+  * hasGoalWhatIfing `boolean`
+  * hasUserSetPassword `boolean`
+  * isAdmin `boolean`
+  * isAdvisor `boolean`
+  * isClient `boolean`
+  * isPasswordExpired `boolean`
+  * userId `string`
+  * userName `string`
+
+### PublishedPlanModel
+* PublishedPlanModel `object`
+  * internalPlanId `integer`
+  * planId `string`
+  * planPublishDate `string`
+
+### ResetPasswordModel
+* ResetPasswordModel `object`
+  * locale **required** `string`: Supported locales are: "en-US", "en-CA", and "fr-CA"
+  * userName **required** `string`
+
+### RestrictedStockModel
+* RestrictedStockModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * restrictedStock [IRestrictedStock](#irestrictedstock)
+
+### RestrictedStocksModel
+* RestrictedStocksModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * restrictedStocks `array`
+    * items [IRestrictedStock](#irestrictedstock)
+
+### ServiceInformation
+* ServiceInformation `object`
+  * altairConnectionStatus `boolean`
+  * name `string`
+  * pomVersion `string`
+  * serviceVersion `string`
+  * status `string`
+
+### SetPasswordModel
+* SetPasswordModel `object`
+  * newPassword `string`
+  * oldPassword `string`
+
+### StockOptionModel
+* StockOptionModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * stockOption [IStockOption](#istockoption)
+
+### StockOptionsModel
+* StockOptionsModel `object`
+  * links `array`
+    * items [ObjectLink](#objectlink)
+  * stockOptions `array`
+    * items [IStockOption](#istockoption)
+
+### TimePeriod
+* TimePeriod `object`
   * count `integer`
   * duration `string` (values: Days, Weeks, Months, Years, YearsOfAge)
-  * formatedTimePeriod `string`
 
-### NaviPlan.Util.Year
-* NaviPlan.Util.Year `object`
-  * formatted `string`
+### Year
+* Year `object`
   * raw `integer`
-
-### System.Object
-* System.Object `object`
-
-### System.Version
-* System.Version `object`
-  * build `integer`
-  * major `integer`
-  * majorRevision `integer`
-  * minor `integer`
-  * minorRevision `integer`
-  * revision `integer`
 
 

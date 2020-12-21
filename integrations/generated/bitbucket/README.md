@@ -18,7 +18,7 @@ let bitbucket = require('@datafire/bitbucket').create({
   redirect_uri: ""
 });
 
-bitbucket.teams.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

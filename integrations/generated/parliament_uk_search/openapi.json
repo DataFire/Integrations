@@ -1,0 +1,223 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "data@parliament.uk",
+      "name": "Data & Search team at UK Parliament",
+      "url": "https://twitter.com/UKParliData"
+    },
+    "description": "Performs search on parliament.uk domain. Implements [OpenSearch specification](https://github.com/dewitt/opensearch). Throttled at 10 requests per second per IP address.",
+    "license": {
+      "name": "Open Parliament Licence",
+      "url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence"
+    },
+    "title": "UK Parliament Search Service",
+    "version": "Live",
+    "x-TODO-termsOfService": null,
+    "x-apisguru-categories": [
+      "open_data"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://api.parliament.uk/search/openapi.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "parliament.uk",
+    "x-serviceName": "search",
+    "x-datafire": {
+      "name": "parliament_uk_search",
+      "type": "openapi"
+    }
+  },
+  "host": "api.parliament.uk",
+  "basePath": "/search",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/description": {
+      "get": {
+        "produces": [
+          "application/opensearchdescription+xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Open Search Description"
+          }
+        },
+        "tags": [
+          "Description"
+        ],
+        "externalDocs": {
+          "description": "OpenSearch github repository",
+          "url": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-description-document"
+        },
+        "summary": "OpenSearch description document"
+      }
+    },
+    "/query": {
+      "get": {
+        "produces": [
+          "application/atom+xml",
+          "application/json",
+          "application/rss+xml",
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "count",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "subdomains",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "inUrlPrefixes",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results"
+          }
+        },
+        "tags": [
+          "Query"
+        ],
+        "externalDocs": {
+          "description": "OpenSearch github repository",
+          "url": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-response-elements"
+        },
+        "summary": "Search results"
+      }
+    },
+    "/query.{extension}": {
+      "get": {
+        "produces": [
+          "application/atom+xml",
+          "application/json",
+          "application/rss+xml",
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "description": "extension",
+            "enum": [
+              "atom",
+              "rss",
+              "html",
+              "json"
+            ],
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "count",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "subdomains",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "inUrlPrefixes",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results"
+          }
+        },
+        "tags": [
+          "Query"
+        ],
+        "externalDocs": {
+          "description": "OpenSearch github repository",
+          "url": "https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-response-elements"
+        },
+        "summary": "Search results"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "OpenSearch github repository",
+    "url": "https://github.com/dewitt/opensearch"
+  },
+  "x-components": {
+    "parameters": {
+      "count": {
+        "in": "query",
+        "name": "count",
+        "type": "number"
+      },
+      "inUrlPrefixes": {
+        "in": "query",
+        "name": "inUrlPrefixes",
+        "type": "string"
+      },
+      "q": {
+        "in": "query",
+        "name": "q",
+        "required": true,
+        "type": "string"
+      },
+      "start": {
+        "in": "query",
+        "name": "start",
+        "type": "number"
+      },
+      "subdomains": {
+        "in": "query",
+        "name": "subdomains",
+        "type": "string"
+      }
+    },
+    "responses": {
+      "searchResponse": {
+        "content": {
+          "application/atom+xml": {},
+          "application/json": {},
+          "application/rss+xml": {},
+          "text/html": {}
+        },
+        "description": "Search results"
+      }
+    }
+  }
+}

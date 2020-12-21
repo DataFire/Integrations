@@ -15,12 +15,7 @@ let azure_azsadmin_commerceadmin = require('@datafire/azure_azsadmin_commerceadm
   redirect_uri: ""
 });
 
-azure_azsadmin_commerceadmin.SubscriberUsageAggregates_List({
-  "subscriptionId": "",
-  "api-version": "",
-  "reportedStartTime": "",
-  "reportedEndTime": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

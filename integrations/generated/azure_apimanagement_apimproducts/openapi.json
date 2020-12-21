@@ -7,7 +7,7 @@
   "info": {
     "description": "Use these REST APIs for performing operations on Product entity associated with your Azure API Management deployment. The Product entity represents a product in API Management. Products include one or more APIs and their associated terms of use. Once a product is published, developers can subscribe to the product and begin to use the product’s APIs.",
     "title": "ApiManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-12-01-preview",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2018-01-01/apimproducts.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/apimanagement/resource-manager/Microsoft.ApiManagement/preview/2019-12-01-preview/apimproducts.json",
         "version": "2.0"
       }
     ],
@@ -57,19 +57,7 @@
       ]
     }
   ],
-  "parameters": {
-    "ProductIdParameter": {
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "in": "path",
-      "maxLength": 80,
-      "minLength": 1,
-      "name": "productId",
-      "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    }
-  },
+  "parameters": {},
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products": {
       "get": {
@@ -96,7 +84,7 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| terms       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state       | eq                     |                                             |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| terms | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| state | filter | eq |     | </br>| groups | expand |     |     | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -130,6 +118,13 @@
             "type": "boolean"
           },
           {
+            "description": "Products which are part of a specific tag.",
+            "in": "query",
+            "name": "tags",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Version of the API to be used with the client request.",
             "in": "query",
             "name": "api-version",
@@ -148,7 +143,101 @@
           "200": {
             "description": "A Collection of the Product entities for the specified API Management service instance.",
             "schema": {
-              "$ref": "#/definitions/ProductCollection"
+              "description": "Paged Products list representation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Page values.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Product details.",
+                    "properties": {
+                      "properties": {
+                        "allOf": [
+                          {
+                            "description": "Product Entity Base Parameters",
+                            "properties": {
+                              "approvalRequired": {
+                                "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                                "type": "boolean"
+                              },
+                              "description": {
+                                "description": "Product description. May include HTML formatting tags.",
+                                "maxLength": 1000,
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "state": {
+                                "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                                "enum": [
+                                  "notPublished",
+                                  "published"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": false,
+                                  "name": "ProductState"
+                                }
+                              },
+                              "subscriptionRequired": {
+                                "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                                "type": "boolean"
+                              },
+                              "subscriptionsLimit": {
+                                "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "terms": {
+                                "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Product profile.",
+                        "properties": {
+                          "displayName": {
+                            "description": "Product name.",
+                            "maxLength": 300,
+                            "minLength": 1,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
             }
           },
           "default": {
@@ -195,12 +284,12 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
           "ApiManagementListProducts": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
               "subscriptionId": "subid"
@@ -254,7 +343,7 @@
             }
           }
         },
-        "x-ms-odata": "#/definitions/ProductContract",
+        "x-ms-odata": "./definitions.json#/definitions/ProductContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -285,14 +374,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
-          },
-          {
-            "description": "Delete existing subscriptions associated with the product or not.",
-            "in": "query",
-            "name": "deleteSubscriptions",
-            "required": false,
-            "type": "boolean"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "ETag of the Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.",
@@ -301,6 +390,13 @@
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Delete existing subscriptions associated with the product or not.",
+            "in": "query",
+            "name": "deleteSubscriptions",
+            "required": false,
+            "type": "boolean"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -319,10 +415,10 @@
         ],
         "responses": {
           "200": {
-            "description": "The product was successfully deleted."
+            "description": "Product was successfully removed."
           },
           "204": {
-            "description": "The product was successfully deleted."
+            "description": "Product was successfully removed by previous request or does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -368,13 +464,13 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteProduct": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "deleteSubscriptions": true,
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -412,7 +508,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -439,7 +542,88 @@
               }
             },
             "schema": {
-              "$ref": "#/definitions/ProductContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Product details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "Product Entity Base Parameters",
+                      "properties": {
+                        "approvalRequired": {
+                          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "type": "boolean"
+                        },
+                        "description": {
+                          "description": "Product description. May include HTML formatting tags.",
+                          "maxLength": 1000,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "state": {
+                          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                          "enum": [
+                            "notPublished",
+                            "published"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "ProductState"
+                          }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                          "type": "boolean"
+                        },
+                        "subscriptionsLimit": {
+                          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "terms": {
+                          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Product profile.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Product name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -486,12 +670,12 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
           "ApiManagementGetProduct": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "unlimited",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -541,7 +725,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Version of the API to be used with the client request.",
@@ -612,12 +803,12 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
           "ApiManagementHeadProduct": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "unlimited",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -634,7 +825,7 @@
         }
       },
       "patch": {
-        "description": "Update product.",
+        "description": "Update existing product details.",
         "operationId": "Product_Update",
         "parameters": [
           {
@@ -657,7 +848,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Update parameters.",
@@ -665,7 +863,62 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ProductUpdateParameters"
+              "description": "Product Update parameters.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "Product Entity Base Parameters",
+                      "properties": {
+                        "approvalRequired": {
+                          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "type": "boolean"
+                        },
+                        "description": {
+                          "description": "Product description. May include HTML formatting tags.",
+                          "maxLength": 1000,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "state": {
+                          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                          "enum": [
+                            "notPublished",
+                            "published"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "ProductState"
+                          }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                          "type": "boolean"
+                        },
+                        "subscriptionsLimit": {
+                          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "terms": {
+                          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Parameters supplied to the Update Product operation.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Product name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           },
           {
@@ -693,7 +946,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content in case of Update Successfull."
+            "description": "Product details was successfully updated."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -739,13 +992,13 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
-          "ApiManagementUpdateProductBasic": {
+          "ApiManagementUpdateProduct": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
                 "properties": {
                   "displayName": "Test Template ProductName 4"
@@ -786,7 +1039,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Create or update parameters.",
@@ -794,7 +1054,88 @@
             "name": "parameters",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ProductContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Product details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "Product Entity Base Parameters",
+                      "properties": {
+                        "approvalRequired": {
+                          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "type": "boolean"
+                        },
+                        "description": {
+                          "description": "Product description. May include HTML formatting tags.",
+                          "maxLength": 1000,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "state": {
+                          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                          "enum": [
+                            "notPublished",
+                            "published"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "ProductState"
+                          }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                          "type": "boolean"
+                        },
+                        "subscriptionsLimit": {
+                          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "terms": {
+                          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Product profile.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Product name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           {
@@ -823,14 +1164,188 @@
         "responses": {
           "200": {
             "description": "Product was successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/ProductContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Product details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "Product Entity Base Parameters",
+                      "properties": {
+                        "approvalRequired": {
+                          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "type": "boolean"
+                        },
+                        "description": {
+                          "description": "Product description. May include HTML formatting tags.",
+                          "maxLength": 1000,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "state": {
+                          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                          "enum": [
+                            "notPublished",
+                            "published"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "ProductState"
+                          }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                          "type": "boolean"
+                        },
+                        "subscriptionsLimit": {
+                          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "terms": {
+                          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Product profile.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Product name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "201": {
             "description": "Product was successfully created.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
-              "$ref": "#/definitions/ProductContract"
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Product details.",
+              "properties": {
+                "properties": {
+                  "allOf": [
+                    {
+                      "description": "Product Entity Base Parameters",
+                      "properties": {
+                        "approvalRequired": {
+                          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "type": "boolean"
+                        },
+                        "description": {
+                          "description": "Product description. May include HTML formatting tags.",
+                          "maxLength": 1000,
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "state": {
+                          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
+                          "enum": [
+                            "notPublished",
+                            "published"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "ProductState"
+                          }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
+                          "type": "boolean"
+                        },
+                        "subscriptionsLimit": {
+                          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.",
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "terms": {
+                          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "Product profile.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Product name.",
+                      "maxLength": 300,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
             }
           },
           "default": {
@@ -877,12 +1392,12 @@
           }
         },
         "tags": [
-          "Products"
+          "Product"
         ],
         "x-ms-examples": {
-          "ApiManagementCreateProductBasic": {
+          "ApiManagementCreateProduct": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
                 "properties": {
                   "displayName": "Test Template ProductName 4"
@@ -950,10 +1465,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| serviceUrl  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| path        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| description | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| serviceUrl | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| path | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -1031,7 +1553,7 @@
                         "x-ms-azure-resource": true
                       }
                     ],
-                    "description": "API details.",
+                    "description": "Api details.",
                     "properties": {
                       "properties": {
                         "allOf": [
@@ -1044,9 +1566,19 @@
                                 "minLength": 1,
                                 "type": "string"
                               },
+                              "apiRevisionDescription": {
+                                "description": "Description of the Api Revision.",
+                                "maxLength": 256,
+                                "type": "string"
+                              },
                               "apiVersion": {
                                 "description": "Indicates the Version identifier of the API if the API is versioned",
                                 "maxLength": 100,
+                                "type": "string"
+                              },
+                              "apiVersionDescription": {
+                                "description": "Description of the Api Version.",
+                                "maxLength": 256,
                                 "type": "string"
                               },
                               "apiVersionSetId": {
@@ -1068,6 +1600,41 @@
                                         "type": "string"
                                       }
                                     }
+                                  },
+                                  "openid": {
+                                    "description": "API OAuth2 Authentication settings details.",
+                                    "properties": {
+                                      "bearerTokenSendingMethods": {
+                                        "description": "How to send token to the server.",
+                                        "items": {
+                                          "description": "Form of an authorization grant, which the client uses to request the access token.",
+                                          "enum": [
+                                            "authorizationHeader",
+                                            "query"
+                                          ],
+                                          "type": "string",
+                                          "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "bearerTokenSendingMethods",
+                                            "values": [
+                                              {
+                                                "description": "Access token will be transmitted in the Authorization header using Bearer schema",
+                                                "value": "authorizationHeader"
+                                              },
+                                              {
+                                                "description": "Access token will be transmitted as query parameters.",
+                                                "value": "query"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "type": "array"
+                                      },
+                                      "openidProviderId": {
+                                        "description": "OAuth authorization server identifier.",
+                                        "type": "string"
+                                      }
+                                    }
                                   }
                                 }
                               },
@@ -1077,7 +1644,6 @@
                               },
                               "isCurrent": {
                                 "description": "Indicates if API revision is current api revision.",
-                                "readOnly": true,
                                 "type": "boolean"
                               },
                               "isOnline": {
@@ -1103,6 +1669,10 @@
                                     "type": "string"
                                   }
                                 }
+                              },
+                              "subscriptionRequired": {
+                                "description": "Specifies whether an API or Product subscription is required for accessing the API.",
+                                "type": "boolean"
                               },
                               "type": {
                                 "description": "Type of API.",
@@ -1133,6 +1703,10 @@
                                 "description": "Identifier for existing API Version Set. Omit this value to create a new Version Set.",
                                 "type": "string"
                               },
+                              "name": {
+                                "description": "The display Name of the API Version Set.",
+                                "type": "string"
+                              },
                               "versionHeaderName": {
                                 "description": "Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.",
                                 "type": "string"
@@ -1153,7 +1727,7 @@
                             }
                           },
                           "displayName": {
-                            "description": "API name.",
+                            "description": "API name. Must be 1 to 300 characters long.",
                             "maxLength": 300,
                             "minLength": 1,
                             "type": "string"
@@ -1180,9 +1754,13 @@
                             "type": "array"
                           },
                           "serviceUrl": {
-                            "description": "Absolute URL of the backend service implementing this API.",
+                            "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.",
                             "maxLength": 2000,
                             "minLength": 0,
+                            "type": "string"
+                          },
+                          "sourceApiId": {
+                            "description": "API identifier of the source API.",
                             "type": "string"
                           }
                         },
@@ -1242,12 +1820,12 @@
           }
         },
         "tags": [
-          "ProductApis"
+          "ProductApi"
         ],
         "x-ms-examples": {
           "ApiManagementListProductApis": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "5768181ea40f7eb6c49f6ac7",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -1280,7 +1858,7 @@
             }
           }
         },
-        "x-ms-odata": "./apimapis.json#/definitions/ApiContract",
+        "x-ms-odata": "./definitions.json#/definitions/ApiContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -1311,15 +1889,22 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "API identifier. Must be unique in the current API Management service instance.",
+            "description": "API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "apiId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "pattern": "^[^*#&+:<>?]+$",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1341,10 +1926,10 @@
         ],
         "responses": {
           "200": {
-            "description": "The API was successfully removed from the product."
+            "description": "API was successfully removed from product"
           },
           "204": {
-            "description": "The API was successfully removed from the product."
+            "description": "API successfully removed by previous request or does not exist in product"
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -1390,13 +1975,13 @@
           }
         },
         "tags": [
-          "ProductApis"
+          "ProductApi"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteProductApi": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "apiId": "echo-api",
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -1434,15 +2019,22 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "API identifier. Must be unique in the current API Management service instance.",
+            "description": "API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "apiId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "pattern": "^[^*#&+:<>?]+$",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1465,9 +2057,6 @@
         "responses": {
           "204": {
             "description": "Entity exists"
-          },
-          "404": {
-            "description": "API is not associated with the product."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -1513,12 +2102,12 @@
           }
         },
         "tags": [
-          "ProductApis"
+          "ProductApi"
         ],
         "x-ms-examples": {
           "ApiManagementHeadProductApi": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "apiId": "59306a29e4bbd510dc24e5f9",
               "productId": "5931a75ae4bbd512a88c680b",
               "resourceGroupName": "rg1",
@@ -1526,8 +2115,7 @@
               "subscriptionId": "subid"
             },
             "responses": {
-              "204": {},
-              "404": {}
+              "204": {}
             }
           }
         }
@@ -1556,15 +2144,22 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "API identifier. Must be unique in the current API Management service instance.",
+            "description": "API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "apiId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+            "pattern": "^[^*#&+:<>?]+$",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -1611,7 +2206,7 @@
                   "x-ms-azure-resource": true
                 }
               ],
-              "description": "API details.",
+              "description": "Api details.",
               "properties": {
                 "properties": {
                   "allOf": [
@@ -1624,9 +2219,19 @@
                           "minLength": 1,
                           "type": "string"
                         },
+                        "apiRevisionDescription": {
+                          "description": "Description of the Api Revision.",
+                          "maxLength": 256,
+                          "type": "string"
+                        },
                         "apiVersion": {
                           "description": "Indicates the Version identifier of the API if the API is versioned",
                           "maxLength": 100,
+                          "type": "string"
+                        },
+                        "apiVersionDescription": {
+                          "description": "Description of the Api Version.",
+                          "maxLength": 256,
                           "type": "string"
                         },
                         "apiVersionSetId": {
@@ -1648,6 +2253,41 @@
                                   "type": "string"
                                 }
                               }
+                            },
+                            "openid": {
+                              "description": "API OAuth2 Authentication settings details.",
+                              "properties": {
+                                "bearerTokenSendingMethods": {
+                                  "description": "How to send token to the server.",
+                                  "items": {
+                                    "description": "Form of an authorization grant, which the client uses to request the access token.",
+                                    "enum": [
+                                      "authorizationHeader",
+                                      "query"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "bearerTokenSendingMethods",
+                                      "values": [
+                                        {
+                                          "description": "Access token will be transmitted in the Authorization header using Bearer schema",
+                                          "value": "authorizationHeader"
+                                        },
+                                        {
+                                          "description": "Access token will be transmitted as query parameters.",
+                                          "value": "query"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "type": "array"
+                                },
+                                "openidProviderId": {
+                                  "description": "OAuth authorization server identifier.",
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         },
@@ -1657,7 +2297,6 @@
                         },
                         "isCurrent": {
                           "description": "Indicates if API revision is current api revision.",
-                          "readOnly": true,
                           "type": "boolean"
                         },
                         "isOnline": {
@@ -1683,6 +2322,10 @@
                               "type": "string"
                             }
                           }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Specifies whether an API or Product subscription is required for accessing the API.",
+                          "type": "boolean"
                         },
                         "type": {
                           "description": "Type of API.",
@@ -1713,6 +2356,10 @@
                           "description": "Identifier for existing API Version Set. Omit this value to create a new Version Set.",
                           "type": "string"
                         },
+                        "name": {
+                          "description": "The display Name of the API Version Set.",
+                          "type": "string"
+                        },
                         "versionHeaderName": {
                           "description": "Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.",
                           "type": "string"
@@ -1733,7 +2380,7 @@
                       }
                     },
                     "displayName": {
-                      "description": "API name.",
+                      "description": "API name. Must be 1 to 300 characters long.",
                       "maxLength": 300,
                       "minLength": 1,
                       "type": "string"
@@ -1760,9 +2407,13 @@
                       "type": "array"
                     },
                     "serviceUrl": {
-                      "description": "Absolute URL of the backend service implementing this API.",
+                      "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.",
                       "maxLength": 2000,
                       "minLength": 0,
+                      "type": "string"
+                    },
+                    "sourceApiId": {
+                      "description": "API identifier of the source API.",
                       "type": "string"
                     }
                   },
@@ -1799,7 +2450,7 @@
                   "x-ms-azure-resource": true
                 }
               ],
-              "description": "API details.",
+              "description": "Api details.",
               "properties": {
                 "properties": {
                   "allOf": [
@@ -1812,9 +2463,19 @@
                           "minLength": 1,
                           "type": "string"
                         },
+                        "apiRevisionDescription": {
+                          "description": "Description of the Api Revision.",
+                          "maxLength": 256,
+                          "type": "string"
+                        },
                         "apiVersion": {
                           "description": "Indicates the Version identifier of the API if the API is versioned",
                           "maxLength": 100,
+                          "type": "string"
+                        },
+                        "apiVersionDescription": {
+                          "description": "Description of the Api Version.",
+                          "maxLength": 256,
                           "type": "string"
                         },
                         "apiVersionSetId": {
@@ -1836,6 +2497,41 @@
                                   "type": "string"
                                 }
                               }
+                            },
+                            "openid": {
+                              "description": "API OAuth2 Authentication settings details.",
+                              "properties": {
+                                "bearerTokenSendingMethods": {
+                                  "description": "How to send token to the server.",
+                                  "items": {
+                                    "description": "Form of an authorization grant, which the client uses to request the access token.",
+                                    "enum": [
+                                      "authorizationHeader",
+                                      "query"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "bearerTokenSendingMethods",
+                                      "values": [
+                                        {
+                                          "description": "Access token will be transmitted in the Authorization header using Bearer schema",
+                                          "value": "authorizationHeader"
+                                        },
+                                        {
+                                          "description": "Access token will be transmitted as query parameters.",
+                                          "value": "query"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "type": "array"
+                                },
+                                "openidProviderId": {
+                                  "description": "OAuth authorization server identifier.",
+                                  "type": "string"
+                                }
+                              }
                             }
                           }
                         },
@@ -1845,7 +2541,6 @@
                         },
                         "isCurrent": {
                           "description": "Indicates if API revision is current api revision.",
-                          "readOnly": true,
                           "type": "boolean"
                         },
                         "isOnline": {
@@ -1871,6 +2566,10 @@
                               "type": "string"
                             }
                           }
+                        },
+                        "subscriptionRequired": {
+                          "description": "Specifies whether an API or Product subscription is required for accessing the API.",
+                          "type": "boolean"
                         },
                         "type": {
                           "description": "Type of API.",
@@ -1901,6 +2600,10 @@
                           "description": "Identifier for existing API Version Set. Omit this value to create a new Version Set.",
                           "type": "string"
                         },
+                        "name": {
+                          "description": "The display Name of the API Version Set.",
+                          "type": "string"
+                        },
                         "versionHeaderName": {
                           "description": "Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.",
                           "type": "string"
@@ -1921,7 +2624,7 @@
                       }
                     },
                     "displayName": {
-                      "description": "API name.",
+                      "description": "API name. Must be 1 to 300 characters long.",
                       "maxLength": 300,
                       "minLength": 1,
                       "type": "string"
@@ -1948,9 +2651,13 @@
                       "type": "array"
                     },
                     "serviceUrl": {
-                      "description": "Absolute URL of the backend service implementing this API.",
+                      "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.",
                       "maxLength": 2000,
                       "minLength": 0,
+                      "type": "string"
+                    },
+                    "sourceApiId": {
+                      "description": "API identifier of the source API.",
                       "type": "string"
                     }
                   },
@@ -2005,12 +2712,12 @@
           }
         },
         "tags": [
-          "ProductApis"
+          "ProductApi"
         ],
         "x-ms-examples": {
           "ApiManagementCreateProductApi": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "apiId": "echo-api",
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -2092,10 +2799,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| type        | eq, ne                 | N/A                                         |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt |     | </br>| displayName | filter | eq, ne |     | </br>| description | filter | eq, ne |     | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -2194,7 +2908,7 @@
                             "type": "string"
                           },
                           "externalId": {
-                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                            "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                             "type": "string"
                           },
                           "type": {
@@ -2266,12 +2980,12 @@
           }
         },
         "tags": [
-          "ProductGroups"
+          "ProductGroup"
         ],
         "x-ms-examples": {
           "ApiManagementListProductGroups": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "5600b57e7e8880006a060002",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -2321,7 +3035,7 @@
             }
           }
         },
-        "x-ms-odata": "./apimgroups.json#/definitions/GroupContract",
+        "x-ms-odata": "./definitions.json#/definitions/GroupContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -2352,15 +3066,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Group identifier. Must be unique in the current API Management service instance.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "groupId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -2431,13 +3151,13 @@
           }
         },
         "tags": [
-          "ProductGroups"
+          "ProductGroup"
         ],
         "x-ms-examples": {
           "ApiManagementDeleteProductGroup": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "templateGroup",
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -2475,15 +3195,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Group identifier. Must be unique in the current API Management service instance.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "groupId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -2506,9 +3232,6 @@
         "responses": {
           "204": {
             "description": "The Group is associated with the Product."
-          },
-          "404": {
-            "description": "The Group entity is not associated with the Product."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -2554,12 +3277,12 @@
           }
         },
         "tags": [
-          "ProductGroups"
+          "ProductGroup"
         ],
         "x-ms-examples": {
           "ApiManagementHeadProductGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "59306a29e4bbd510dc24e5f9",
               "productId": "5931a75ae4bbd512a88c680b",
               "resourceGroupName": "rg1",
@@ -2567,8 +3290,7 @@
               "subscriptionId": "subid"
             },
             "responses": {
-              "204": {},
-              "404": {}
+              "204": {}
             }
           }
         }
@@ -2597,15 +3319,21 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "Group identifier. Must be unique in the current API Management service instance.",
             "in": "path",
-            "maxLength": 80,
+            "maxLength": 256,
             "minLength": 1,
             "name": "groupId",
-            "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
             "required": true,
             "type": "string",
             "x-ms-parameter-location": "method"
@@ -2674,7 +3402,7 @@
                       "type": "string"
                     },
                     "externalId": {
-                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                       "type": "string"
                     },
                     "type": {
@@ -2746,7 +3474,7 @@
                       "type": "string"
                     },
                     "externalId": {
-                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.",
+                      "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.",
                       "type": "string"
                     },
                     "type": {
@@ -2814,12 +3542,12 @@
           }
         },
         "tags": [
-          "ProductGroups"
+          "ProductGroup"
         ],
         "x-ms-examples": {
           "ApiManagementCreateProductGroup": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "groupId": "templateGroup",
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -2883,6 +3611,16 @@
             "x-ms-parameter-location": "method"
           },
           {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
             "description": "Version of the API to be used with the client request.",
             "in": "query",
             "name": "api-version",
@@ -2895,20 +3633,11 @@
             "name": "subscriptionId",
             "required": true,
             "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ProductIdParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "Product Policy information.",
-            "headers": {
-              "ETag": {
-                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
-                "type": "string"
-              }
-            },
             "schema": {
               "description": "The response of the list policy operation.",
               "properties": {
@@ -2947,7 +3676,7 @@
                       "properties": {
                         "description": "Policy contract Properties.",
                         "properties": {
-                          "contentFormat": {
+                          "format": {
                             "default": "xml",
                             "description": "Format of the policyContent.",
                             "enum": [
@@ -2980,13 +3709,13 @@
                               ]
                             }
                           },
-                          "policyContent": {
-                            "description": "Json escaped Xml Encoded contents of the Policy.",
+                          "value": {
+                            "description": "Contents of the Policy as defined by the format.",
                             "type": "string"
                           }
                         },
                         "required": [
-                          "policyContent"
+                          "value"
                         ]
                       }
                     }
@@ -3043,9 +3772,9 @@
           "ProductPolicy"
         ],
         "x-ms-examples": {
-          "ApiManagementListProductPolicy": {
+          "ApiManagementListProductPolicies": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "armTemplateProduct4",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -3060,7 +3789,7 @@
                       "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/armTemplateProduct4/policies/policy",
                       "name": "policy",
                       "properties": {
-                        "policyContent": "<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>"
+                        "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>"
                       },
                       "type": "Microsoft.ApiManagement/service/products/policies"
                     }
@@ -3097,7 +3826,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The identifier of the Policy.",
@@ -3194,7 +3930,7 @@
           "ApiManagementDeleteProductPolicy": {
             "parameters": {
               "If-Match": "*",
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "policyId": "policy",
               "productId": "testproduct",
               "resourceGroupName": "rg1",
@@ -3232,21 +3968,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
             "in": "path",
-            "name": "subscriptionId",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ProductIdParameter"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The identifier of the Policy.",
@@ -3262,6 +3991,47 @@
               "name": "PolicyIdName"
             },
             "x-ms-parameter-location": "method"
+          },
+          {
+            "default": "xml",
+            "description": "Policy Export Format.",
+            "enum": [
+              "xml",
+              "rawxml"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string",
+            "x-ms-enum": {
+              "modelAsString": true,
+              "name": "PolicyExportFormat",
+              "values": [
+                {
+                  "description": "The contents are inline and Content type is an XML document.",
+                  "value": "xml"
+                },
+                {
+                  "description": "The contents are inline and Content type is a non XML encoded policy document.",
+                  "value": "rawxml"
+                }
+              ]
+            },
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3302,7 +4072,7 @@
                 "properties": {
                   "description": "Policy contract Properties.",
                   "properties": {
-                    "contentFormat": {
+                    "format": {
                       "default": "xml",
                       "description": "Format of the policyContent.",
                       "enum": [
@@ -3335,13 +4105,13 @@
                         ]
                       }
                     },
-                    "policyContent": {
-                      "description": "Json escaped Xml Encoded contents of the Policy.",
+                    "value": {
+                      "description": "Contents of the Policy as defined by the format.",
                       "type": "string"
                     }
                   },
                   "required": [
-                    "policyContent"
+                    "value"
                   ]
                 }
               }
@@ -3396,7 +4166,7 @@
         "x-ms-examples": {
           "ApiManagementGetProductPolicy": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "policyId": "policy",
               "productId": "kjoshiarmTemplateProduct4",
               "resourceGroupName": "rg1",
@@ -3409,7 +4179,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/kjoshiarmTemplateProduct4/policies/policy",
                   "name": "policy",
                   "properties": {
-                    "policyContent": "<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>"
+                    "value": "<policies>\r\n  <inbound>\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>"
                   },
                   "type": "Microsoft.ApiManagement/service/products/policies"
                 }
@@ -3442,21 +4212,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "description": "Version of the API to be used with the client request.",
-            "in": "query",
-            "name": "api-version",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
             "in": "path",
-            "name": "subscriptionId",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ProductIdParameter"
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The identifier of the Policy.",
@@ -3472,6 +4235,20 @@
               "name": "PolicyIdName"
             },
             "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3533,7 +4310,7 @@
         "x-ms-examples": {
           "ApiManagementHeadProductPolicy": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "policyId": "policy",
               "productId": "unlimited",
               "resourceGroupName": "rg1",
@@ -3574,7 +4351,14 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
             "description": "The identifier of the Policy.",
@@ -3633,7 +4417,7 @@
                 "properties": {
                   "description": "Policy contract Properties.",
                   "properties": {
-                    "contentFormat": {
+                    "format": {
                       "default": "xml",
                       "description": "Format of the policyContent.",
                       "enum": [
@@ -3666,13 +4450,13 @@
                         ]
                       }
                     },
-                    "policyContent": {
-                      "description": "Json escaped Xml Encoded contents of the Policy.",
+                    "value": {
+                      "description": "Contents of the Policy as defined by the format.",
                       "type": "string"
                     }
                   },
                   "required": [
-                    "policyContent"
+                    "value"
                   ]
                 }
               }
@@ -3696,6 +4480,12 @@
         "responses": {
           "200": {
             "description": "Product policy configuration of the tenant was successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
               "allOf": [
                 {
@@ -3725,7 +4515,7 @@
                 "properties": {
                   "description": "Policy contract Properties.",
                   "properties": {
-                    "contentFormat": {
+                    "format": {
                       "default": "xml",
                       "description": "Format of the policyContent.",
                       "enum": [
@@ -3758,13 +4548,13 @@
                         ]
                       }
                     },
-                    "policyContent": {
-                      "description": "Json escaped Xml Encoded contents of the Policy.",
+                    "value": {
+                      "description": "Contents of the Policy as defined by the format.",
                       "type": "string"
                     }
                   },
                   "required": [
-                    "policyContent"
+                    "value"
                   ]
                 }
               }
@@ -3772,6 +4562,12 @@
           },
           "201": {
             "description": "Product policy configuration was successfully created.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
             "schema": {
               "allOf": [
                 {
@@ -3801,7 +4597,7 @@
                 "properties": {
                   "description": "Policy contract Properties.",
                   "properties": {
-                    "contentFormat": {
+                    "format": {
                       "default": "xml",
                       "description": "Format of the policyContent.",
                       "enum": [
@@ -3834,13 +4630,13 @@
                         ]
                       }
                     },
-                    "policyContent": {
-                      "description": "Json escaped Xml Encoded contents of the Policy.",
+                    "value": {
+                      "description": "Contents of the Policy as defined by the format.",
                       "type": "string"
                     }
                   },
                   "required": [
-                    "policyContent"
+                    "value"
                   ]
                 }
               }
@@ -3895,11 +4691,11 @@
         "x-ms-examples": {
           "ApiManagementCreateProductPolicy": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "parameters": {
                 "properties": {
-                  "contentFormat": "xml",
-                  "policyContent": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{call-count}}\" renewal-period=\"15\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
+                  "format": "xml",
+                  "value": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{call-count}}\" renewal-period=\"15\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
                 }
               },
               "policyId": "policy",
@@ -3914,7 +4710,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5702e97e5157a50f48dce801/policies/policy",
                   "name": "policy",
                   "properties": {
-                    "policyContent": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{58c884fed8d14f127cec38f0}}\" renewal-period=\"15\" version=\"2\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
+                    "value": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{58c884fed8d14f127cec38f0}}\" renewal-period=\"15\" version=\"2\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
                   },
                   "type": "Microsoft.ApiManagement/service/products/policies"
                 }
@@ -3924,7 +4720,7 @@
                   "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5702e97e5157a50f48dce801/policies/policy",
                   "name": "policy",
                   "properties": {
-                    "policyContent": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{58c884fed8d14f127cec38f0}}\" renewal-period=\"15\" version=\"2\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
+                    "value": "<policies>\r\n  <inbound>\r\n    <rate-limit calls=\"{{58c884fed8d14f127cec38f0}}\" renewal-period=\"15\" version=\"2\"></rate-limit>\r\n    <log-to-eventhub logger-id=\"16\">\r\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \r\n                  </log-to-eventhub>\r\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\r\n    <base />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n</policies>"
                   },
                   "type": "Microsoft.ApiManagement/service/products/policies"
                 }
@@ -3959,10 +4755,17 @@
             "x-ms-parameter-location": "method"
           },
           {
-            "$ref": "#/parameters/ProductIdParameter"
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
           },
           {
-            "description": "| Field        | Supported operators    | Supported functions                         |\n|--------------|------------------------|---------------------------------------------|\n| id           | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| stateComment | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| userId       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| productId    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state        | eq                     |                                             |",
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| stateComment | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| ownerId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| scope | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| userId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| productId | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| state | filter | eq |     | </br>| user | expand |     |     | </br>",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -4044,6 +4847,11 @@
                       "properties": {
                         "description": "Subscription details.",
                         "properties": {
+                          "allowTracing": {
+                            "description": "Determines whether tracing is enabled",
+                            "type": "boolean",
+                            "x-apim-code-nillable": true
+                          },
                           "createdDate": {
                             "description": "Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
                             "format": "date-time",
@@ -4071,21 +4879,27 @@
                             "format": "date-time",
                             "type": "string"
                           },
-                          "primaryKey": {
-                            "description": "Subscription primary key.",
-                            "maxLength": 256,
-                            "minLength": 1,
+                          "ownerId": {
+                            "description": "The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.",
                             "type": "string"
                           },
-                          "productId": {
-                            "description": "The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.",
+                          "primaryKey": {
+                            "description": "Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.",
+                            "maxLength": 256,
+                            "minLength": 1,
+                            "type": "string",
+                            "x-ms-secret": true
+                          },
+                          "scope": {
+                            "description": "Scope like /products/{productId} or /apis or /apis/{apiId}.",
                             "type": "string"
                           },
                           "secondaryKey": {
-                            "description": "Subscription secondary key.",
+                            "description": "Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.",
                             "maxLength": 256,
                             "minLength": 1,
-                            "type": "string"
+                            "type": "string",
+                            "x-ms-secret": true
                           },
                           "startDate": {
                             "description": "Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n",
@@ -4111,18 +4925,11 @@
                           "stateComment": {
                             "description": "Optional subscription comment added by an administrator.",
                             "type": "string"
-                          },
-                          "userId": {
-                            "description": "The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.",
-                            "type": "string"
                           }
                         },
                         "required": [
-                          "userId",
-                          "productId",
-                          "state",
-                          "primaryKey",
-                          "secondaryKey"
+                          "scope",
+                          "state"
                         ]
                       }
                     }
@@ -4176,12 +4983,12 @@
           }
         },
         "tags": [
-          "ProductSubscriptions"
+          "ProductSubscription"
         ],
         "x-ms-examples": {
           "ApiManagementListProductSubscriptions": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-12-01-preview",
               "productId": "5600b57e7e8880006a060002",
               "resourceGroupName": "rg1",
               "serviceName": "apimService1",
@@ -4197,11 +5004,9 @@
                       "name": "5600b57e7e8880006a070002",
                       "properties": {
                         "createdDate": "2015-09-22T01:57:18.723Z",
-                        "primaryKey": "ba95768e868648848e215f0290eec023",
-                        "productId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b57e7e8880006a060002",
-                        "secondaryKey": "140f866def81419b9bb9732d05d24535",
-                        "state": "active",
-                        "userId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1"
+                        "ownerId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+                        "scope": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b57e7e8880006a060002",
+                        "state": "active"
                       },
                       "type": "Microsoft.ApiManagement/service/products/subscriptions"
                     }
@@ -4211,147 +5016,907 @@
             }
           }
         },
-        "x-ms-odata": "./apimsubscriptions.json#/definitions/SubscriptionContract",
+        "x-ms-odata": "./definitions.json#/definitions/SubscriptionContract",
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
-    }
-  },
-  "definitions": {
-    "ProductCollection": {
-      "description": "Paged Products list representation.",
-      "properties": {
-        "nextLink": {
-          "description": "Next page link if any.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Page values.",
-          "items": {
-            "$ref": "#/definitions/ProductContract"
-          },
-          "type": "array"
-        }
-      }
     },
-    "ProductContract": {
-      "allOf": [
-        {
-          "description": "The Resource definition.",
-          "properties": {
-            "id": {
-              "description": "Resource ID.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "name": {
-              "description": "Resource name.",
-              "readOnly": true,
-              "type": "string"
-            },
-            "type": {
-              "description": "Resource type for API Management resource.",
-              "readOnly": true,
-              "type": "string"
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags": {
+      "get": {
+        "description": "Lists all Tags associated with the Product.",
+        "operationId": "Tag_ListByProduct",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "|   Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith | </br>",
+            "in": "query",
+            "name": "$filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Number of records to return.",
+            "format": "int32",
+            "in": "query",
+            "minimum": 1,
+            "name": "$top",
+            "required": false,
+            "type": "integer",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Number of records to skip.",
+            "format": "int32",
+            "in": "query",
+            "minimum": 0,
+            "name": "$skip",
+            "required": false,
+            "type": "integer",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The operation returns a collection of tags associated with the Product entity.",
+            "schema": {
+              "description": "Paged Tag list representation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Next page link if any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Page values.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type for API Management resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Tag Contract details.",
+                    "properties": {
+                      "properties": {
+                        "description": "Tag contract Properties.",
+                        "properties": {
+                          "displayName": {
+                            "description": "Tag name.",
+                            "maxLength": 160,
+                            "minLength": 1,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "displayName"
+                        ]
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
             }
           },
-          "x-ms-azure-resource": true
-        }
-      ],
-      "description": "Product details.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/ProductContractProperties",
-          "description": "Product entity contract properties.",
-          "x-ms-client-flatten": true
-        }
-      }
-    },
-    "ProductContractProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ProductEntityBaseParameters"
-        }
-      ],
-      "description": "Product profile.",
-      "properties": {
-        "displayName": {
-          "description": "Product name.",
-          "maxLength": 300,
-          "minLength": 1,
-          "type": "string"
-        }
-      },
-      "required": [
-        "displayName"
-      ]
-    },
-    "ProductEntityBaseParameters": {
-      "description": "Product Entity Base Parameters",
-      "properties": {
-        "approvalRequired": {
-          "description": "whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "Product description. May include HTML formatting tags.",
-          "maxLength": 1000,
-          "minLength": 1,
-          "type": "string"
-        },
-        "state": {
-          "description": "whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.",
-          "enum": [
-            "notPublished",
-            "published"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "ProductState"
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
-        "subscriptionRequired": {
-          "description": "Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as \"protected\" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as \"open\" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.",
-          "type": "boolean"
+        "tags": [
+          "ProductTag"
+        ],
+        "x-ms-examples": {
+          "ApiManagementListProductTags": {
+            "parameters": {
+              "api-version": "2019-12-01-preview",
+              "productId": "57d2ef278aa04f0888cba3f1",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "nextLink": "",
+                  "value": [
+                    {
+                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/5600b539c53f5b0062060002",
+                      "name": "5600b539c53f5b0062060002",
+                      "properties": {
+                        "displayName": "tag1"
+                      },
+                      "type": "Microsoft.ApiManagement/service/tags"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         },
-        "subscriptionsLimit": {
-          "description": "Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "terms": {
-          "description": "Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.",
-          "type": "string"
+        "x-ms-odata": "./definitions.json#/definitions/TagContract",
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       }
     },
-    "ProductUpdateParameters": {
-      "description": "Product Update parameters.",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/ProductUpdateProperties",
-          "description": "Product entity Update contract properties.",
-          "x-ms-client-flatten": true
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}": {
+      "delete": {
+        "description": "Detach the tag from the Product.",
+        "operationId": "Tag_DetachFromProduct",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Tag identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "tagId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully detached the tag from the Product."
+          },
+          "204": {
+            "description": "Successfully detached the tag from the Product."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProductTag"
+        ],
+        "x-ms-examples": {
+          "ApiManagementDeleteProductTag": {
+            "parameters": {
+              "If-Match": "*",
+              "api-version": "2019-12-01-preview",
+              "productId": "59d5b28d1f7fab116c282650",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid",
+              "tagId": "59d5b28e1f7fab116402044e"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
         }
-      }
-    },
-    "ProductUpdateProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ProductEntityBaseParameters"
+      },
+      "get": {
+        "description": "Get tag associated with the Product.",
+        "operationId": "Tag_GetByProduct",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Tag identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "tagId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets the details of the tag specified by its identifier.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Tag Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Tag contract Properties.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Tag name.",
+                      "maxLength": 160,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProductTag"
+        ],
+        "x-ms-examples": {
+          "ApiManagementGetProductTag": {
+            "parameters": {
+              "api-version": "2019-12-01-preview",
+              "productId": "59d6bb8f1f7fab13dc67ec9b",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid",
+              "tagId": "59306a29e4bbd510dc24e5f9"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/59306a29e4bbd510dc24e5f9",
+                  "name": "59306a29e4bbd510dc24e5f9",
+                  "properties": {
+                    "displayName": "tag1"
+                  },
+                  "type": "Microsoft.ApiManagement/service/tags"
+                }
+              }
+            }
+          }
         }
-      ],
-      "description": "Parameters supplied to the Update Product operation.",
-      "properties": {
-        "displayName": {
-          "description": "Product name.",
-          "maxLength": 300,
-          "minLength": 1,
-          "type": "string"
+      },
+      "head": {
+        "description": "Gets the entity state version of the tag specified by its identifier.",
+        "operationId": "Tag_GetEntityStateByProduct",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Tag identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "tagId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty response body, ETag header entity state version.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProductTag"
+        ],
+        "x-ms-examples": {
+          "ApiManagementHeadProductTag": {
+            "parameters": {
+              "api-version": "2019-12-01-preview",
+              "productId": "59306a29e4bbd510dc24e5f8",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid",
+              "tagId": "59306a29e4bbd510dc24e5f9"
+            },
+            "responses": {
+              "200": {
+                "headers": {
+                  "Etag": "AAAAAAAACCI="
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Assign tag to the Product.",
+        "operationId": "Tag_AssignToProduct",
+        "parameters": [
+          {
+            "description": "The name of the resource group.",
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "The name of the API Management service.",
+            "in": "path",
+            "maxLength": 50,
+            "minLength": 1,
+            "name": "serviceName",
+            "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Product identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 256,
+            "minLength": 1,
+            "name": "productId",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Tag identifier. Must be unique in the current API Management service instance.",
+            "in": "path",
+            "maxLength": 80,
+            "minLength": 1,
+            "name": "tagId",
+            "pattern": "^[^*#&+:<>?]+$",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "description": "Version of the API to be used with the client request.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tag is already assigned to the Product.",
+            "schema": {
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Tag Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Tag contract Properties.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Tag name.",
+                      "maxLength": 160,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Tag was assigned to the Product.",
+            "schema": {
+              "allOf": [
+                {
+                  "description": "The Resource definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource ID.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type for API Management resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Tag Contract details.",
+              "properties": {
+                "properties": {
+                  "description": "Tag contract Properties.",
+                  "properties": {
+                    "displayName": {
+                      "description": "Tag name.",
+                      "maxLength": 160,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProductTag"
+        ],
+        "x-ms-examples": {
+          "ApiManagementCreateProductTag": {
+            "parameters": {
+              "api-version": "2019-12-01-preview",
+              "productId": "5931a75ae4bbd512a88c680b",
+              "resourceGroupName": "rg1",
+              "serviceName": "apimService1",
+              "subscriptionId": "subid",
+              "tagId": "tagId1"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1",
+                  "name": "tagId1",
+                  "properties": {
+                    "displayName": "tag1"
+                  },
+                  "type": "Microsoft.ApiManagement/service/tags"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1",
+                  "name": "tagId1",
+                  "properties": {
+                    "displayName": "tag1"
+                  },
+                  "type": "Microsoft.ApiManagement/service/tags"
+                }
+              }
+            }
+          }
         }
       }
     }
-  }
+  },
+  "definitions": {}
 }

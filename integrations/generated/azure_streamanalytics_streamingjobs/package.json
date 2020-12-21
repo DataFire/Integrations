@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_streamanalytics_streamingjobs",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for StreamAnalyticsManagementClient",
   "repository": {

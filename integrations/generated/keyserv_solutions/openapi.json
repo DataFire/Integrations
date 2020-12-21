@@ -1,0 +1,1114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "x-twitter": "theTechComp"
+    },
+    "description": "KeyServ API",
+    "title": "KeyServ",
+    "version": "1.2.5",
+    "x-apisguru-categories": [
+      "iot"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_theTechComp_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://keyserv.solutions/v1/spec.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "keyserv.solutions",
+    "x-datafire": {
+      "name": "keyserv_solutions",
+      "type": "openapi"
+    }
+  },
+  "host": "keyserv.solutions",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/KeysApi/Current/{serial}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "KeysApi"
+        ],
+        "operationId": "KeysApi_Current"
+      }
+    },
+    "/v1/KeysApi/Custom/{serial}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "KeysApi"
+        ],
+        "operationId": "KeysApi_Custom"
+      }
+    },
+    "/v1/KeysApi/Expiry/{serial}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "KeysApi"
+        ],
+        "operationId": "KeysApi_Expiry"
+      }
+    },
+    "/v1/KeysApi/Find/{serial}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "KeysApi"
+        ],
+        "operationId": "KeysApi_Find"
+      }
+    },
+    "/v1/ProductsApi": {
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "productJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_PatchProduct"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "productJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_PatchProduct2"
+      }
+    },
+    "/v1/ProductsApi/Count": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_Count"
+      }
+    },
+    "/v1/ProductsApi/Find": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_Find"
+      }
+    },
+    "/v1/ProductsApi/List": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProductView"
+              },
+              "type": "array",
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_List"
+      }
+    },
+    "/v1/ProductsApi/Save": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "productJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_Save"
+      }
+    },
+    "/v1/ProductsApi/{serial}": {
+      "delete": {
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "header",
+            "name": "X-Api-Key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_DeleteProduct"
+      },
+      "post": {
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "header",
+            "name": "X-Api-Key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductsApi"
+        ],
+        "operationId": "ProductsApi_DeleteProduct2"
+      }
+    },
+    "/v1/SubscriptionsApi": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "subscriptionJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_PutSubscription2"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "subscriptionJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_PutSubscription"
+      }
+    },
+    "/v1/SubscriptionsApi/Count": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Count"
+      }
+    },
+    "/v1/SubscriptionsApi/Disable": {
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Disable"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Disable2"
+      }
+    },
+    "/v1/SubscriptionsApi/Enable": {
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Enable"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Enable2"
+      }
+    },
+    "/v1/SubscriptionsApi/Find": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Find"
+      }
+    },
+    "/v1/SubscriptionsApi/List": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "apiCreds",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/SubscriptionView"
+              },
+              "type": "array",
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_List"
+      }
+    },
+    "/v1/SubscriptionsApi/Save": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "x-nullable": true
+            },
+            "x-name": "subscriptionJson",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "x-nullable": true
+            }
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_Save"
+      }
+    },
+    "/v1/SubscriptionsApi/{serial}": {
+      "delete": {
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "header",
+            "name": "X-Api-Key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          },
+          {
+            "in": "query",
+            "name": "keep",
+            "required": true,
+            "type": "boolean",
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_DeleteSubscription"
+      },
+      "post": {
+        "parameters": [
+          {
+            "format": "guid",
+            "in": "header",
+            "name": "X-Api-Key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "guid",
+            "in": "path",
+            "name": "serial",
+            "required": true,
+            "type": "string",
+            "x-position": 1
+          },
+          {
+            "in": "query",
+            "name": "keep",
+            "required": true,
+            "type": "boolean",
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "SubscriptionsApi"
+        ],
+        "operationId": "SubscriptionsApi_DeleteSubscription2"
+      }
+    }
+  },
+  "definitions": {
+    "ApiCredentials": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "format": "guid",
+          "type": "string"
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ApiKey": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "format": "guid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CountOf": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "CurrentKey": {
+      "additionalProperties": false,
+      "properties": {
+        "current": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Expiry": {
+      "additionalProperties": false,
+      "properties": {
+        "expires": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "time": {
+          "format": "time-span",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FindCredentials": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "format": "guid",
+          "type": "string"
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "KeyView": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "callbackOnModify": {
+          "title": "Callback On Modified",
+          "type": "boolean"
+        },
+        "callbackUrl": {
+          "format": "uri",
+          "maxLength": 800,
+          "minLength": 0,
+          "title": "Callback Url",
+          "type": "string",
+          "x-nullable": true
+        },
+        "commenced": {
+          "format": "date-time",
+          "minLength": 1,
+          "title": "Start From",
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "current": {
+          "type": "boolean"
+        },
+        "custom": {
+          "x-nullable": true
+        },
+        "frequency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string"
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "required": [
+        "commenced",
+        "callbackOnModify",
+        "frequency",
+        "action"
+      ],
+      "type": "object"
+    },
+    "ProductCreateModify": {
+      "additionalProperties": false,
+      "properties": {
+        "custom": {
+          "x-nullable": true
+        },
+        "key": {
+          "format": "guid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ProductView": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "custom": {
+          "x-nullable": true
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string"
+        },
+        "subscriptions": {
+          "items": {
+            "$ref": "#/definitions/SubscriptionView"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionCreateModify": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "callbackOnModify": {
+          "type": "boolean",
+          "x-nullable": true
+        },
+        "callbackUrl": {
+          "format": "uri",
+          "maxLength": 800,
+          "minLength": 0,
+          "title": "Callback Url",
+          "type": "string",
+          "x-nullable": true
+        },
+        "custom": {
+          "x-nullable": true
+        },
+        "frequency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "key": {
+          "format": "guid",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "serial": {
+          "format": "guid",
+          "type": "string"
+        },
+        "startFrom": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "required": [
+        "frequency",
+        "action"
+      ],
+      "type": "object"
+    },
+    "SubscriptionView": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "callbackOnModify": {
+          "title": "Callback On Modified",
+          "type": "boolean"
+        },
+        "callbackUrl": {
+          "format": "uri",
+          "maxLength": 800,
+          "minLength": 0,
+          "title": "Callback Url",
+          "type": "string",
+          "x-nullable": true
+        },
+        "commenced": {
+          "format": "date-time",
+          "minLength": 1,
+          "title": "Start From",
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "custom": {
+          "x-nullable": true
+        },
+        "frequency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "keys": {
+          "items": {
+            "$ref": "#/definitions/KeyView"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "required": [
+        "commenced",
+        "callbackOnModify",
+        "frequency",
+        "action"
+      ],
+      "type": "object"
+    }
+  },
+  "x-components": {},
+  "x-generator": "NSwag v13.0.6.0 (NJsonSchema v10.0.23.0 (Newtonsoft.Json v11.0.0.0))"
+}

@@ -11,10 +11,7 @@ let stormglass = require('@datafire/stormglass').create({
   authenticationToken: ""
 });
 
-stormglass.getForecast({
-  "lat": 0,
-  "lng": 0
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

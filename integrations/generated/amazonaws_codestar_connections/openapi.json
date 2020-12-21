@@ -1,0 +1,2207 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS CodeStar Connections</fullname> <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of the operations and data types for the AWS CodeStar Connections API. You can use the connections API to work with connections and installations.</p> <p> <i>Connections</i> are configurations that you use to connect AWS resources to external code repositories. Each connection is a resource that can be given to services such as CodePipeline to connect to a third-party repository such as Bitbucket. For example, you can add the connection in CodePipeline so that it triggers your pipeline when a code change is made to your third-party code repository. Each connection is named and associated with a unique ARN that is used to reference the connection.</p> <p>When you create a connection, the console initiates a third-party connection handshake. <i>Installations</i> are the apps that are used to conduct this handshake. For example, the installation for the Bitbucket provider type is the Bitbucket app. When you create a connection, you can choose an existing installation or create one.</p> <p>When you want to create a connection to an installed provider type such as GitHub Enterprise Server, you create a <i>host</i> for your connections.</p> <p>You can work with connections by calling:</p> <ul> <li> <p> <a>CreateConnection</a>, which creates a uniquely named connection that can be referenced by services such as CodePipeline.</p> </li> <li> <p> <a>DeleteConnection</a>, which deletes the specified connection.</p> </li> <li> <p> <a>GetConnection</a>, which returns information about the connection, including the connection status.</p> </li> <li> <p> <a>ListConnections</a>, which lists the connections associated with your account.</p> </li> </ul> <p>You can work with hosts by calling:</p> <ul> <li> <p> <a>CreateHost</a>, which creates a host that represents the infrastructure where your provider is installed.</p> </li> <li> <p> <a>DeleteHost</a>, which deletes the specified host.</p> </li> <li> <p> <a>GetHost</a>, which returns information about the host, including the setup status.</p> </li> <li> <p> <a>ListHosts</a>, which lists the hosts associated with your account.</p> </li> </ul> <p>You can work with tags in AWS CodeStar Connections by calling the following:</p> <ul> <li> <p> <a>ListTagsForResource</a>, which gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS CodeStar Connections.</p> </li> <li> <p> <a>TagResource</a>, which adds or updates tags for a resource in AWS CodeStar Connections.</p> </li> <li> <p> <a>UntagResource</a>, which removes tags for a resource in AWS CodeStar Connections.</p> </li> </ul> <p>For information about how to use AWS CodeStar Connections, see the <a href=\"https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html\">Developer Tools User Guide</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS CodeStar connections",
+    "version": "2019-12-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/codestar-connections-2019-12-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "codestar-connections",
+    "x-datafire": {
+      "name": "amazonaws_codestar_connections",
+      "type": "openapi"
+    }
+  },
+  "host": "codestar-connections.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateConnection": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateConnection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateConnectionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateConnectionOutput"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        },
+        "description": "Creates a connection that can then be given to other AWS services like CodePipeline so that it can access third-party code repositories. The connection is in pending status until the third-party connection handshake is completed from the console.",
+        "operationId": "CreateConnection"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateHost": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateHost"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateHostInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateHostOutput"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "<p>Creates a resource that represents the infrastructure where a third-party provider is installed. The host is used when you create connections to an installed third-party provider type, such as GitHub Enterprise Server. You create one host for all connections to that provider.</p> <note> <p>A host created through the CLI or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by setting up the host in the console.</p> </note>",
+        "operationId": "CreateHost"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteConnection": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteConnection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteConnectionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteConnectionOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "The connection to be deleted.",
+        "operationId": "DeleteConnection"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteHost": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.DeleteHost"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteHostInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteHostOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        },
+        "description": "<p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p> <note> <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p> </note>",
+        "operationId": "DeleteHost"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetConnection": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetConnection"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetConnectionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetConnectionOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        },
+        "description": "Returns the connection ARN and details such as status, owner, and provider type.",
+        "operationId": "GetConnection"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetHost": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.GetHost"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetHostInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetHostOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        },
+        "description": "Returns the host ARN and details such as status, provider type, endpoint, and, if applicable, the VPC configuration.",
+        "operationId": "GetHost"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListConnections": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListConnections"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListConnectionsInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConnectionsOutput"
+            }
+          }
+        },
+        "description": "Lists the connections associated with your account.",
+        "operationId": "ListConnections"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListHosts": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListHosts"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListHostsInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListHostsOutput"
+            }
+          }
+        },
+        "description": "Lists the hosts associated with your account.",
+        "operationId": "ListHosts"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListTagsForResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.ListTagsForResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Gets the set of key-value pairs (metadata) that are used to manage the resource.",
+        "operationId": "ListTagsForResource"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.TagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.TagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        },
+        "description": "Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.",
+        "operationId": "TagResource"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.UntagResource": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.UntagResource"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Removes tags from an AWS resource.",
+        "operationId": "UntagResource"
+      }
+    },
+    "/#X-Amz-Target=com.amazonaws.codestar.connections.CodeStar_connections_20191201.UpdateHost": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "enum": [
+              "com.amazonaws.codestar.connections.CodeStar_connections_20191201.UpdateHost"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateHostInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateHostOutput"
+            }
+          },
+          "480": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          },
+          "483": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          }
+        },
+        "description": "Updates a specified host with the provided configurations.",
+        "operationId": "UpdateHost"
+      }
+    }
+  },
+  "definitions": {
+    "AccountId": {
+      "maxLength": 12,
+      "minLength": 12,
+      "pattern": "[0-9]{12}",
+      "type": "string"
+    },
+    "AmazonResourceName": {
+      "maxLength": 1011,
+      "minLength": 1,
+      "pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+",
+      "type": "string"
+    },
+    "ConflictException": {},
+    "Connection": {
+      "description": "<p>A resource that is used to connect third-party source providers with services like AWS CodePipeline.</p> <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.</p>",
+      "properties": {
+        "ConnectionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionArn"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection reference when the connection is shared between AWS services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>"
+            }
+          ]
+        },
+        "ConnectionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionName"
+            },
+            {
+              "description": "The name of the connection. Connection names must be unique in an AWS user account."
+            }
+          ]
+        },
+        "ConnectionStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionStatus"
+            },
+            {
+              "description": "The current status of the connection. "
+            }
+          ]
+        },
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host associated with the connection."
+            }
+          ]
+        },
+        "OwnerAccountId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AccountId"
+            },
+            {
+              "description": "The identifier of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository."
+            }
+          ]
+        },
+        "ProviderType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "The name of the external provider where your third-party code repository is configured."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionArn": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+",
+      "type": "string"
+    },
+    "ConnectionList": {
+      "items": {
+        "$ref": "#/definitions/Connection"
+      },
+      "type": "array"
+    },
+    "ConnectionName": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "ConnectionStatus": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "CreateConnectionInput": {
+      "properties": {
+        "ConnectionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionName"
+            },
+            {
+              "description": "The name of the connection to be created. The name must be unique in the calling AWS account."
+            }
+          ]
+        },
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host associated with the connection to be created."
+            }
+          ]
+        },
+        "ProviderType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "The name of the external provider where your third-party code repository is configured."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The key-value pair to use when tagging the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ConnectionName"
+      ],
+      "title": "CreateConnectionInput",
+      "type": "object"
+    },
+    "CreateConnectionOutput": {
+      "properties": {
+        "ConnectionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionArn"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the connection reference when the connection is shared between AWS services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>"
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "Specifies the tags applied to the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ConnectionArn"
+      ],
+      "type": "object"
+    },
+    "CreateHostInput": {
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostName"
+            },
+            {
+              "description": "The name of the host to be created. The name must be unique in the calling AWS account."
+            }
+          ]
+        },
+        "ProviderEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The endpoint of the infrastructure to be represented by the host after it is created."
+            }
+          ]
+        },
+        "ProviderType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "The name of the installed provider to be associated with your connection. The host resource represents the infrastructure where your provider type is installed. The valid provider type is GitHub Enterprise Server."
+            }
+          ]
+        },
+        "VpcConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfiguration"
+            },
+            {
+              "description": "The VPC configuration to be provisioned for the host. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "ProviderType",
+        "ProviderEndpoint"
+      ],
+      "title": "CreateHostInput",
+      "type": "object"
+    },
+    "CreateHostOutput": {
+      "properties": {
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host to be created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteConnectionInput": {
+      "properties": {
+        "ConnectionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionArn"
+            },
+            {
+              "description": "<p>The Amazon Resource Name (ARN) of the connection to be deleted.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ConnectionArn"
+      ],
+      "title": "DeleteConnectionInput",
+      "type": "object"
+    },
+    "DeleteConnectionOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteHostInput": {
+      "properties": {
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host to be deleted."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HostArn"
+      ],
+      "title": "DeleteHostInput",
+      "type": "object"
+    },
+    "DeleteHostOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetConnectionInput": {
+      "properties": {
+        "ConnectionArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of a connection."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ConnectionArn"
+      ],
+      "title": "GetConnectionInput",
+      "type": "object"
+    },
+    "GetConnectionOutput": {
+      "properties": {
+        "Connection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Connection"
+            },
+            {
+              "description": "The connection details, such as status, owner, and provider type."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetHostInput": {
+      "properties": {
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the requested host."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HostArn"
+      ],
+      "title": "GetHostInput",
+      "type": "object"
+    },
+    "GetHostOutput": {
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostName"
+            },
+            {
+              "description": "The name of the requested host."
+            }
+          ]
+        },
+        "ProviderEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The endpoint of the infrastructure represented by the requested host."
+            }
+          ]
+        },
+        "ProviderType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "The provider type of the requested host, such as GitHub Enterprise Server."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostStatus"
+            },
+            {
+              "description": "The status of the requested host."
+            }
+          ]
+        },
+        "VpcConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfiguration"
+            },
+            {
+              "description": "The VPC configuration of the requested host."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Host": {
+      "description": "<p>A resource that represents the infrastructure where a third-party provider is installed. The host is used when you create connections to an installed third-party provider type, such as GitHub Enterprise Server. You create one host for all connections to that provider.</p> <note> <p>A host created through the CLI or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by setting up the host in the console.</p> </note>",
+      "properties": {
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostName"
+            },
+            {
+              "description": "The name of the host."
+            }
+          ]
+        },
+        "ProviderEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The endpoint of the infrastructure where your provider type is installed."
+            }
+          ]
+        },
+        "ProviderType": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "The name of the installed provider to be associated with your connection. The host resource represents the infrastructure where your provider type is installed. The valid provider type is GitHub Enterprise Server."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostStatus"
+            },
+            {
+              "description": "The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING, VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION."
+            }
+          ]
+        },
+        "StatusMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostStatusMessage"
+            },
+            {
+              "description": "The status description for the host."
+            }
+          ]
+        },
+        "VpcConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfiguration"
+            },
+            {
+              "description": "The VPC configuration provisioned for the host."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HostArn": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+",
+      "type": "string"
+    },
+    "HostList": {
+      "items": {
+        "$ref": "#/definitions/Host"
+      },
+      "type": "array"
+    },
+    "HostName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "HostStatus": {
+      "type": "string"
+    },
+    "HostStatusMessage": {
+      "type": "string"
+    },
+    "LimitExceededException": {},
+    "ListConnectionsInput": {
+      "properties": {
+        "HostArnFilter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "Filters the list of connections to those associated with a specified host."
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token that was returned from the previous <code>ListConnections</code> call, which can be used to return the next set of connections in the list."
+            }
+          ]
+        },
+        "ProviderTypeFilter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProviderType"
+            },
+            {
+              "description": "Filters the list of connections to those associated with a specified provider, such as Bitbucket."
+            }
+          ]
+        }
+      },
+      "title": "ListConnectionsInput",
+      "type": "object"
+    },
+    "ListConnectionsOutput": {
+      "properties": {
+        "Connections": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConnectionList"
+            },
+            {
+              "description": "A list of connections and the details for each connection, such as status, owner, and provider type."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token that can be used in the next <code>ListConnections</code> call. To view all items in the list, continue to call this operation with each subsequent token until no more <code>nextToken</code> values are returned."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListHostsInput": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "The token that was returned from the previous <code>ListHosts</code> call, which can be used to return the next set of hosts in the list."
+            }
+          ]
+        }
+      },
+      "title": "ListHostsInput",
+      "type": "object"
+    },
+    "ListHostsOutput": {
+      "properties": {
+        "Hosts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostList"
+            },
+            {
+              "description": "A list of hosts and the details for each host, such as status, endpoint, and provider type."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextToken"
+            },
+            {
+              "description": "A token that can be used in the next <code>ListHosts</code> call. To view all items in the list, continue to call this operation with each subsequent token until no more <code>nextToken</code> values are returned."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceInput": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "title": "ListTagsForResourceInput",
+      "type": "object"
+    },
+    "ListTagsForResourceOutput": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "A list of tag key and value pairs associated with the specified resource."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NextToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "ProviderType": {
+      "enum": [
+        "Bitbucket",
+        "GitHub",
+        "GitHubEnterpriseServer"
+      ],
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "ResourceUnavailableException": {},
+    "SecurityGroupId": {
+      "maxLength": 20,
+      "minLength": 11,
+      "pattern": "sg-\\w{8}(\\w{9})?",
+      "type": "string"
+    },
+    "SecurityGroupIds": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroupId"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SubnetId": {
+      "maxLength": 24,
+      "minLength": 15,
+      "pattern": "subnet-\\w{8}(\\w{9})?",
+      "type": "string"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Tag": {
+      "description": "<p>A tag is a key-value pair that is used to manage the resource.</p> <p>This tag is available for use by AWS services that support tags.</p>",
+      "properties": {
+        "Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKey"
+            },
+            {
+              "description": "The tag's key."
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagValue"
+            },
+            {
+              "description": "The tag's value."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagResourceInput": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource to which you want to add or update tags."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagList"
+            },
+            {
+              "description": "The tags you want to modify or add to the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "Tags"
+      ],
+      "title": "TagResourceInput",
+      "type": "object"
+    },
+    "TagResourceOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "TlsCertificate": {
+      "maxLength": 16384,
+      "minLength": 1,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "UnsupportedOperationException": {},
+    "UntagResourceInput": {
+      "properties": {
+        "ResourceArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AmazonResourceName"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the resource to remove tags from."
+            }
+          ]
+        },
+        "TagKeys": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagKeyList"
+            },
+            {
+              "description": "The list of keys for the tags to be removed from the resource."
+            }
+          ]
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagKeys"
+      ],
+      "title": "UntagResourceInput",
+      "type": "object"
+    },
+    "UntagResourceOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateHostInput": {
+      "properties": {
+        "HostArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HostArn"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the host to be updated."
+            }
+          ]
+        },
+        "ProviderEndpoint": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Url"
+            },
+            {
+              "description": "The URL or endpoint of the host to be updated."
+            }
+          ]
+        },
+        "VpcConfiguration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfiguration"
+            },
+            {
+              "description": "The VPC configuration of the host to be updated. A VPC must be configured and the infrastructure to be represented by the host must already be connected to the VPC."
+            }
+          ]
+        }
+      },
+      "required": [
+        "HostArn"
+      ],
+      "title": "UpdateHostInput",
+      "type": "object"
+    },
+    "UpdateHostOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "Url": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "VpcConfiguration": {
+      "description": "The VPC configuration provisioned for the host.",
+      "properties": {
+        "SecurityGroupIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIds"
+            },
+            {
+              "description": "The ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed."
+            }
+          ]
+        },
+        "SubnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIds"
+            },
+            {
+              "description": "The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed."
+            }
+          ]
+        },
+        "TlsCertificate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TlsCertificate"
+            },
+            {
+              "description": "The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed."
+            }
+          ]
+        },
+        "VpcId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcId"
+            },
+            {
+              "description": "The ID of the Amazon VPC connected to the infrastructure where your provider type is installed."
+            }
+          ]
+        }
+      },
+      "required": [
+        "VpcId",
+        "SubnetIds",
+        "SecurityGroupIds"
+      ],
+      "type": "object"
+    },
+    "VpcId": {
+      "maxLength": 21,
+      "minLength": 12,
+      "pattern": "vpc-\\w{8}(\\w{9})?",
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/codestar-connections/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

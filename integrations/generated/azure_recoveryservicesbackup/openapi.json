@@ -381,7 +381,7 @@
             "type": "string"
           },
           {
-            "description": "expand eq {extendedinfo}. This filter enables you to choose (or filter) specific items in the list of backup items.",
+            "description": "expand eq {extendedInfo}. This filter enables you to choose (or filter) specific items in the list of backup items.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -703,7 +703,9 @@
           "RecoveryPoints"
         ],
         "x-ms-odata": "#/definitions/BMSRPQueryObject",
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}": {
@@ -1363,7 +1365,9 @@
           "ProtectionPolicies"
         ],
         "x-ms-odata": "#/definitions/ProtectionPolicyQueryObject",
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}": {
@@ -1652,7 +1656,7 @@
             "$ref": "#/parameters/SubscriptionId"
           },
           {
-            "description": " itemType eq { VM , FileFolder , AzureSqlDb , SQLDB , Exchange , Sharepoint , DPMUnknown } and providerType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql } and policyName eq {policyname} and containerName eq {containername} and backupManagementType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql }.",
+            "description": " itemType eq { VM , FileFolder , AzureSqlDb , SQLDB , Exchange , Sharepoint , DPMUnknown } and providerType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql } and policyName eq {policyName} and containerName eq {containername} and backupManagementType eq { AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql }.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -1721,7 +1725,9 @@
           "ProtectionContainers"
         ],
         "x-ms-odata": "#/definitions/BMSContainerQueryObject",
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     }
   },
@@ -1828,7 +1834,7 @@
           "$ref": "#/definitions/Job"
         }
       ],
-      "description": "The Azure IaaS VM workload-specifc job object.",
+      "description": "The Azure IaaS VM workload-specific job object.",
       "properties": {
         "actionsInfo": {
           "description": "Gets or sets the state, or actions, applicable on this job. Examples of the actions are: Cancel or Retry.",
@@ -2113,7 +2119,7 @@
       "x-ms-discriminator-value": "AzureSql"
     },
     "BEKDetails": {
-      "description": "BEK is Bitlocker Encrpytion Key.",
+      "description": "BEK is Bitlocker Encryption Key.",
       "properties": {
         "secretData": {
           "description": "Bitlocker Encryption Key (BEK) data.",
@@ -2311,7 +2317,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -2425,7 +2431,7 @@
           "$ref": "#/definitions/Job"
         }
       ],
-      "description": "The DPM workload-specifc job object.",
+      "description": "The DPM workload-specific job object.",
       "properties": {
         "actionsInfo": {
           "description": "The state or actions applicable on this job, such as Cancel or Retry.",
@@ -2622,7 +2628,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -2887,7 +2893,7 @@
           "type": "string"
         },
         "jobType": {
-          "description": "This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.",
+          "description": "This property is the discriminator for deciding between the specific types in the polymorphic chain of types.",
           "type": "string"
         },
         "operation": {
@@ -2910,7 +2916,7 @@
       "description": "The filters to list the jobs.",
       "properties": {
         "backupManagementType": {
-          "description": "Type of backup managmenent for the job.",
+          "description": "Type of backup management for the job.",
           "enum": [
             "Invalid",
             "AzureIaasVM",
@@ -3029,7 +3035,7 @@
       "properties": {
         "bekDetails": {
           "$ref": "#/definitions/BEKDetails",
-          "description": "BEK is Bitlocker Encrpytion Key."
+          "description": "BEK is Bitlocker Encryption Key."
         },
         "kekDetails": {
           "$ref": "#/definitions/KEKDetails",
@@ -3453,7 +3459,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is the discriminator for deciding between the specific types in the polymorhpic chain of types.",
+          "description": "This property is the discriminator for deciding between the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -3538,7 +3544,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is used as the discriminator for deciding between types, in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding between types, in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -3680,7 +3686,7 @@
       "discriminator": "protectedItemType",
       "properties": {
         "backupManagementType": {
-          "description": "The backup managemenent type associated with the backup item.",
+          "description": "The backup management type associated with the backup item.",
           "enum": [
             "Invalid",
             "AzureIaasVM",
@@ -3817,7 +3823,7 @@
       "discriminator": "protectableObjectType",
       "properties": {
         "backupManagementType": {
-          "description": "The backup managemenent type for the container.",
+          "description": "The backup management type for the container.",
           "enum": [
             "Invalid",
             "AzureIaasVM",
@@ -3833,7 +3839,7 @@
           }
         },
         "containerType": {
-          "description": "The type assigned to the container. The values to use for each of these propertes are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.",
+          "description": "The type assigned to the container. The values to use for each of these properties are:<br/> 1. Compute Azure VM is Microsoft.Compute/virtualMachines<br/> 2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines<br/> 3. Windows machines (like Azure Backup Server and DPM) is Windows<br/> 4. Azure SQL instance is AzureSqlContainer.",
           "readOnly": true,
           "type": "string"
         },
@@ -3892,7 +3898,7 @@
       "discriminator": "backupManagementType",
       "properties": {
         "backupManagementType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         },
         "protectedItemsCount": {
@@ -3961,7 +3967,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -4047,7 +4053,7 @@
       "discriminator": "objectType",
       "properties": {
         "objectType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -4097,7 +4103,7 @@
       "discriminator": "retentionPolicyType",
       "properties": {
         "retentionPolicyType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -4108,7 +4114,7 @@
       "discriminator": "schedulePolicyType",
       "properties": {
         "schedulePolicyType": {
-          "description": "This property is used as the discriminator for deciding the specific types in the polymorhpic chain of types.",
+          "description": "This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.",
           "type": "string"
         }
       },
@@ -4275,7 +4281,7 @@
       "discriminator": "protectableItemType",
       "properties": {
         "backupManagementType": {
-          "description": "The backup managemenent type.",
+          "description": "The backup management type.",
           "type": "string"
         },
         "friendlyName": {

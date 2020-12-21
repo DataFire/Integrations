@@ -9,11 +9,7 @@ npm install --save @datafire/victorops
 ```js
 let victorops = require('@datafire/victorops').create();
 
-victorops.api_public.v1.alerts.uuid.get({
-  "X-VO-Api-Id": "",
-  "X-VO-Api-Key": "",
-  "uuid": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,7 +30,7 @@ submitting the curl request.
 ### api_public.v1.alerts.uuid.get
 Retrieve the details of an alert that was sent VictorOps by you.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -57,7 +53,8 @@ victorops.api_public.v1.alerts.uuid.get({
 
 ### api_public.v1.incidents.get
 Get a list of the currently open, acknowledged and recently resolved incidents.
-This API may be called a maximum of 6 times per minute.
+
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -85,7 +82,7 @@ Monitoring tools and custom integrations
 should be configured using our
 <a href="https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/">REST Endpoint</a>.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -114,7 +111,7 @@ victorops.api_public.v1.incidents.post({
 ### api_public.v1.incidents.ack.patch
 The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -141,7 +138,7 @@ victorops.api_public.v1.incidents.ack.patch({
 ### api_public.v1.incidents.byUser.ack.patch
 The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -167,7 +164,7 @@ victorops.api_public.v1.incidents.byUser.ack.patch({
 ### api_public.v1.incidents.byUser.resolve.patch
 The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -192,6 +189,8 @@ victorops.api_public.v1.incidents.byUser.resolve.patch({
 
 ### api_public.v1.incidents.reroute.post
 Reroute one or more incidents to one or more users and/or escalation policies
+
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -218,7 +217,7 @@ victorops.api_public.v1.incidents.reroute.post({
 ### api_public.v1.incidents.resolve.patch
 The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -242,10 +241,75 @@ victorops.api_public.v1.incidents.resolve.patch({
 #### Output
 * output [AckOrResolveResponse](#ackorresolveresponse)
 
-### api_public.v1.oncall.current.get
-Get all on-call uesrs/teams for your organization.
+### api_public.v1.maintenancemode.get
+Get an organization's current maintenance mode state
 
-This API may be called a maximum of 1 times per minute.
+
+```js
+victorops.api_public.v1.maintenancemode.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output [MaintenanceModeState](#maintenancemodestate)
+
+### api_public.v1.maintenancemode.start.post
+Start maintenance mode for routing keys
+
+
+```js
+victorops.api_public.v1.maintenancemode.start.post({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** `object`
+    * names `array`: Routing keys that maintenance mode state covers. An empty list indicates global maintenance mode
+      * items `string`
+    * purpose `string`: the reason for the maintenance mode
+    * type `string` (values: RoutingKeys)
+
+#### Output
+* output [MaintenanceModeState](#maintenancemodestate)
+
+### api_public.v1.maintenancemode.maintenancemodeid.end.put
+End maintenance mode for routing keys
+
+
+```js
+victorops.api_public.v1.maintenancemode.maintenancemodeid.end.put({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "maintenancemodeid": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * maintenancemodeid **required** `string`: The id of the maintenance mode found in the active maintenance mode object
+
+#### Output
+* output [MaintenanceModeState](#maintenancemodestate)
+
+### api_public.v1.oncall.current.get
+Get all on-call users/teams for your organization.
+
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -268,7 +332,7 @@ victorops.api_public.v1.oncall.current.get({
 
 ### api_public.v1.org.routing_keys.get
 Retrieves a list of routing keys and associated teams.
-This API may be called a maximum of once a minute.
+This API may be called a maximum of 60 times per minute.
 
 
 ```js
@@ -286,9 +350,217 @@ victorops.api_public.v1.org.routing_keys.get({
 #### Output
 * output [ListRoutingKeysResponse](#listroutingkeysresponse)
 
+### api_public.v1.overrides.get
+List all the scheduled overrides on the organization
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * overrides `array`
+    * items [ScheduledOverride](#scheduledoverride)
+
+### api_public.v1.overrides.post
+Creates a new scheduled override. Start and end dates are in ISO8601 format. E.g. `2018-09-28'T'05:00:00Z`
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.post({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "body": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * body **required** [ScheduledOverridePayload](#scheduledoverridepayload)
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * schedule [ScheduledOverride](#scheduledoverride)
+
+### api_public.v1.overrides.publicId.delete
+Deletes a scheduled override
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.delete({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+
+#### Output
+*Output schema unknown*
+
+### api_public.v1.overrides.publicId.get
+Get the specified scheduled override
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+
+#### Output
+* output `object`
+  * _selfUrl `string`
+  * override [ScheduledOverride](#scheduledoverride)
+
+### api_public.v1.overrides.publicId.assignments.get
+Get the specified scheduled override assignments
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.assignments.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+
+#### Output
+* output `array`
+  * items [Assignment](#assignment)
+
+### api_public.v1.overrides.publicId.assignments.policySlug.delete
+Delete the scheduled override assignment
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.assignments.policySlug.delete({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": "",
+  "policySlug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+  * policySlug **required** `string`: The policySlug of the assignment
+
+#### Output
+* output [Assignment](#assignment)
+
+### api_public.v1.overrides.publicId.assignments.policySlug.get
+Get the specified scheduled override assignments
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.assignments.policySlug.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": "",
+  "policySlug": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+  * policySlug **required** `string`: The policySlug of the assignment
+
+#### Output
+* output [Assignment](#assignment)
+
+### api_public.v1.overrides.publicId.assignments.policySlug.put
+Update the scheduled override assignment
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.overrides.publicId.assignments.policySlug.put({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "publicId": "",
+  "policySlug": "",
+  "body": {
+    "policy": ""
+  }
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * publicId **required** `string`: The publicId of the scheduled override
+  * policySlug **required** `string`: The policySlug of the assignment
+  * body **required** [UpdateAssignment](#updateassignment)
+
+#### Output
+* output [Assignment](#assignment)
+
 ### api_public.v1.policies.get
 Retrieves a list of escalation policy information.
-This API may be called a maximum of once a minute
+This API may be called a maximum of once a minute.
 
 
 ```js
@@ -312,7 +584,7 @@ Get the available contact types
 description: "Email Address", type: "email"
 description: "Phone Number", type: "phone"
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -342,7 +614,7 @@ description: "Send an email to an email address", type: "email"
 description: "Send an SMS to a phone number", type: "sms"
 description: "Make a phone call to a phone number", type: "phone"
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -377,7 +649,7 @@ description: "If still unacked after 30 minutes", type: 30
 description: "If still unacked after 45 minutes", type: 45
 description: "If still unacked after 60 minutes", type: 60
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -403,7 +675,7 @@ victorops.api_public.v1.policies.types.timeouts.get({
 Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug
 will match the slug of the team that contains it.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -432,7 +704,7 @@ victorops.api_public.v1.policies.policy.oncall.user.patch({
 ### api_public.v1.profile.username.policies.get
 Get all the paging policy steps for the user on the org associated with the API key
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -458,7 +730,7 @@ victorops.api_public.v1.profile.username.policies.get({
 ### api_public.v1.profile.username.policies.post
 Create a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -486,7 +758,7 @@ victorops.api_public.v1.profile.username.policies.post({
 ### api_public.v1.profile.username.policies.step.get
 Get a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -514,7 +786,7 @@ victorops.api_public.v1.profile.username.policies.step.get({
 ### api_public.v1.profile.username.policies.step.post
 Create a rule for a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -544,7 +816,7 @@ victorops.api_public.v1.profile.username.policies.step.post({
 ### api_public.v1.profile.username.policies.step.put
 Update a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -574,7 +846,7 @@ victorops.api_public.v1.profile.username.policies.step.put({
 ### api_public.v1.profile.username.policies.step.rule.delete
 Delete a rule from a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -604,7 +876,7 @@ victorops.api_public.v1.profile.username.policies.step.rule.delete({
 ### api_public.v1.profile.username.policies.step.rule.get
 Get a rule from a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -634,7 +906,7 @@ victorops.api_public.v1.profile.username.policies.step.rule.get({
 ### api_public.v1.profile.username.policies.step.rule.put
 Update a rule for a paging policy step
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -666,7 +938,7 @@ victorops.api_public.v1.profile.username.policies.step.rule.put({
 ### api_public.v1.team.get
 Get a list of teams for your organization.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -688,7 +960,7 @@ victorops.api_public.v1.team.get({
 ### api_public.v1.team.post
 Add a team to your organization.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -714,7 +986,7 @@ victorops.api_public.v1.team.post({
 ### api_public.v1.team.team.delete
 Remove a team from your organization.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -738,7 +1010,7 @@ victorops.api_public.v1.team.team.delete({
 ### api_public.v1.team.team.get
 Get the information for the specified team.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -762,7 +1034,7 @@ victorops.api_public.v1.team.team.get({
 ### api_public.v1.team.team.put
 Update the designated team
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -787,10 +1059,34 @@ victorops.api_public.v1.team.team.put({
 #### Output
 * output [AddTeamResponse](#addteamresponse)
 
+### api_public.v1.team.team.admins.get
+Get the team admins for the specified team.
+
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.team.team.admins.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "team": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * team **required** `string`: The VictorOps team
+
+#### Output
+* output [TeamAdminsResponse](#teamadminsresponse)
+
 ### api_public.v1.team.team.members.get
 Get the members for the specified team.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -814,7 +1110,7 @@ victorops.api_public.v1.team.team.members.get({
 ### api_public.v1.team.team.members.post
 Add a team member to your team.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -842,7 +1138,7 @@ victorops.api_public.v1.team.team.members.post({
 ### api_public.v1.team.team.members.user.delete
 Remove a team from your organization.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -874,7 +1170,7 @@ __NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/onca
 
 Get the on-call schedule for a team, including on-call overrides.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -903,7 +1199,7 @@ __NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{
 
 Replaces a currently on-call user on the team with another.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -932,7 +1228,7 @@ victorops.api_public.v1.team.team.oncall.user.patch({
 ### api_public.v1.team.team.policies.get
 Get the escalation policies for the specified team.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -956,7 +1252,7 @@ victorops.api_public.v1.team.team.policies.get({
 ### api_public.v1.user.get
 Get a list of users for your organization
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -978,7 +1274,7 @@ victorops.api_public.v1.user.get({
 ### api_public.v1.user.post
 Add a user to your organization
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1005,9 +1301,9 @@ victorops.api_public.v1.user.post({
 * output [AddUserResponse](#adduserresponse)
 
 ### api_public.v1.user.user.delete
-Remove a user from your organization
+Remove a user from your organization. If no replacement is specified, an empty JSON payload ("{}") is still required.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1016,9 +1312,7 @@ victorops.api_public.v1.user.user.delete({
   "X-VO-Api-Id": "",
   "X-VO-Api-Key": "",
   "user": "",
-  "body": {
-    "replacement": ""
-  }
+  "body": {}
 }, context)
 ```
 
@@ -1035,7 +1329,7 @@ victorops.api_public.v1.user.user.delete({
 ### api_public.v1.user.user.get
 Get the information for the specified user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1059,7 +1353,7 @@ victorops.api_public.v1.user.user.get({
 ### api_public.v1.user.user.put
 Update the designated user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1090,7 +1384,7 @@ victorops.api_public.v1.user.user.put({
 ### api_public.v1.user.user.contact_methods.get
 Get the contact methods for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1120,7 +1414,7 @@ victorops.api_public.v1.user.user.contact_methods.get({
 ### api_public.v1.user.user.contact_methods.devices.get
 Get the contact methods for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1145,7 +1439,7 @@ victorops.api_public.v1.user.user.contact_methods.devices.get({
 ### api_public.v1.user.user.contact_methods.devices.contactId.delete
 Delete a contact device for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1171,7 +1465,7 @@ victorops.api_public.v1.user.user.contact_methods.devices.contactId.delete({
 ### api_public.v1.user.user.contact_methods.devices.contactId.get
 Get the indicated contact device for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1198,7 +1492,7 @@ victorops.api_public.v1.user.user.contact_methods.devices.contactId.get({
 ### api_public.v1.user.user.contact_methods.devices.contactId.put
 Update a contact device for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1226,7 +1520,7 @@ victorops.api_public.v1.user.user.contact_methods.devices.contactId.put({
 ### api_public.v1.user.user.contact_methods.emails.get
 Get the contact emails for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1251,7 +1545,7 @@ victorops.api_public.v1.user.user.contact_methods.emails.get({
 ### api_public.v1.user.user.contact_methods.emails.post
 Create a contact email for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1280,7 +1574,7 @@ victorops.api_public.v1.user.user.contact_methods.emails.post({
 ### api_public.v1.user.user.contact_methods.emails.contactId.delete
 Delete the indicated contact email for the user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1306,7 +1600,7 @@ victorops.api_public.v1.user.user.contact_methods.emails.contactId.delete({
 ### api_public.v1.user.user.contact_methods.emails.contactId.get
 Get the indicated contact email for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1333,7 +1627,7 @@ victorops.api_public.v1.user.user.contact_methods.emails.contactId.get({
 ### api_public.v1.user.user.contact_methods.phones.get
 Get the contact phones for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1358,7 +1652,7 @@ victorops.api_public.v1.user.user.contact_methods.phones.get({
 ### api_public.v1.user.user.contact_methods.phones.post
 Create a contact phone for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1387,7 +1681,7 @@ victorops.api_public.v1.user.user.contact_methods.phones.post({
 ### api_public.v1.user.user.contact_methods.phones.contactId.delete
 Delete the indicated contact phone for the user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1413,7 +1707,7 @@ victorops.api_public.v1.user.user.contact_methods.phones.contactId.delete({
 ### api_public.v1.user.user.contact_methods.phones.contactId.get
 Get the indicated contact phone for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1442,7 +1736,7 @@ __NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/onca
 
 Get the on-call schedule for a user for all teams, including on-call overrides.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1470,7 +1764,7 @@ victorops.api_public.v1.user.user.oncall.schedule.get({
 ### api_public.v1.user.user.policies.get
 Get paging policies for a user
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1491,10 +1785,32 @@ victorops.api_public.v1.user.user.policies.get({
 #### Output
 * output [Policies](#policies)
 
+### api_public.v1.user.user.teams.get
+This API may be called a maximum of 60 times per minute.
+
+
+
+```js
+victorops.api_public.v1.user.user.teams.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "user": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * X-VO-Api-Id **required** `string`: Your API ID
+  * X-VO-Api-Key **required** `string`: Your API Key
+  * user **required** `string`: The VictorOps user
+
+#### Output
+* output [UserTeamsResponse](#userteamsresponse)
+
 ### api_public.v2.team.team.oncall.schedule.get
 Get the on-call schedule for a team, including on-call overrides.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1521,7 +1837,7 @@ victorops.api_public.v2.team.team.oncall.schedule.get({
 ### api_public.v2.user.user.oncall.schedule.get
 Get the on-call schedule for a user for all teams the user is on, including on-call overrides.
 
-This API may be called a maximum of 15 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1592,7 +1908,7 @@ victorops.api_reporting.v1.incidents.get({
 Returns a log of user shift changes for the specified team. This is historical
 data, and may be up to 15 minutes behind real-time log data.
 
-This API may be called a maximum of 6 times per minute.
+This API may be called a maximum of 60 times per minute.
 
 
 
@@ -1716,6 +2032,15 @@ victorops.api_reporting.v2.incidents.get({
   * incidents `array`: The incident data
     * items [ActiveIncidentInfo](#activeincidentinfo)
 
+### ActiveMaintenanceMode
+* ActiveMaintenanceMode `object`
+  * instanceId `string`: external friendly unique id for maintenance mode
+  * isGlobal `boolean`: whether this instance is a global maintenance mode or for specific routing keys
+  * startedAt `number`: millis from epoch marking the start time
+  * startedBy `string`: username of the user that started maintenance mode
+  * targets `array`
+    * items [MaintenanceModeTarget](#maintenancemodetarget)
+
 ### AddGroupPayload
 * AddGroupPayload `object`
   * rules `array`
@@ -1750,20 +2075,13 @@ victorops.api_reporting.v2.incidents.get({
 ### AddUserResponse
 * AddUserResponse [V1User](#v1user)
 
-### AlertBatchResponse
-* AlertBatchResponse `object`: A collection of requested alerts
-  * alerts `array`
-    * items [GetAlertResponse](#getalertresponse)
-  * requestId `string`
-  * requestSize `integer`
-  * responseSize `integer`
-
-### AlertId
-* AlertId `string`
-
-### AlertRequest
-* AlertRequest `object`
-  * alertId **required** `string`
+### Assignment
+* Assignment `object`
+  * _selfUrl `string`
+  * assigned `boolean`
+  * policy `string`
+  * team `string`
+  * user `string`
 
 ### Contact
 * Contact `object`
@@ -1807,11 +2125,6 @@ victorops.api_reporting.v2.incidents.get({
 ### ContactType
 * ContactType `string` (values: email, phone)
 
-### CreateBatchAlertRequestPayload
-* CreateBatchAlertRequestPayload `object`: A collection of IDs (uuid) for the alerts to be returned
-  * alertIds `array`
-    * items [AlertId](#alertid)
-
 ### CreateIncidentRequest
 * CreateIncidentRequest `object`
   * details **required** `string`
@@ -1827,7 +2140,7 @@ victorops.api_reporting.v2.incidents.get({
 
 ### DeleteUserPayload
 * DeleteUserPayload `object`: The information about what to do with the deleted user
-  * replacement **required** `string`: The user to take the place of the deleted user in escalations
+  * replacement `string`: The user to take the place of the deleted user in escalations
 
 ### EscalationPolicy
 * EscalationPolicy `object`
@@ -1926,6 +2239,18 @@ victorops.api_reporting.v2.incidents.get({
   * _selfUrl `string`
   * users `array`
     * items [V1User](#v1user)
+
+### MaintenanceModeState
+* MaintenanceModeState `object`
+  * activeInstances `array`
+    * items [ActiveMaintenanceMode](#activemaintenancemode)
+  * companyId `string`
+
+### MaintenanceModeTarget
+* MaintenanceModeTarget `object`
+  * names `array`: Routing keys that maintenance mode state covers. An empty list indicates global maintenance mode
+    * items `string`
+  * type `string` (values: RoutingKeys)
 
 ### NotificationDescription
 * NotificationDescription `string` (values: Send a push notification to all my devices, Send an email to an email address, Send an SMS to a phone number, Make a phone call to a phone number)
@@ -2058,11 +2383,6 @@ victorops.api_reporting.v2.incidents.get({
   * schedule `array`
     * items [OnCallEntry](#oncallentry)
 
-### RelLink
-* RelLink `object`
-  * href `string`
-  * rel `string`
-
 ### RemoveTeamMemberPayload
 * RemoveTeamMemberPayload `object`: The user information
   * replacement **required** `string`
@@ -2111,6 +2431,45 @@ victorops.api_reporting.v2.incidents.get({
   * policyName `string`
   * policySlug `string`
 
+### ScheduledOverride
+* ScheduledOverride `object`
+  * assignments `array`
+    * items [Assignment](#assignment)
+  * end `string`: The override end time (ISO 8601)
+  * publicId `string`
+  * start `string`: The override start time (ISO 8601).
+  * timezone `string`
+  * user [ScheduledUser](#scheduleduser)
+
+### ScheduledOverridePayload
+* ScheduledOverridePayload `object`
+  * end `string`: The override end time (ISO 8601)
+  * start `string`: The override start time (ISO 8601)
+  * timezone `string`
+  * username `string`
+
+### ScheduledOverridePayloadUpdate
+* ScheduledOverridePayloadUpdate `object`
+  * end `string`: The override end time (ISO 8601)
+  * policySlug `string`
+  * start `string`: The override start time (ISO 8601)
+  * username `string`
+
+### ScheduledUser
+* ScheduledUser `object`
+  * firstName `string`
+  * lastName `string`
+  * username `string`
+
+### SimpleTeamDetail
+* SimpleTeamDetail `object`: Some info about the team
+  * _adminsUrl `string`
+  * _membersUrl `string`
+  * _policiesUrl `string`
+  * _selfUrl `string`
+  * name `string`
+  * slug `string`
+
 ### TakeRequest
 * TakeRequest `object`
   * fromUser **required** `string`
@@ -2125,14 +2484,21 @@ victorops.api_reporting.v2.incidents.get({
   * name `string`
   * slug `string`
 
-### TeamAndPolicies
-* TeamAndPolicies `object`
-  * policies `array`
-    * items [EscalationPolicy](#escalationpolicy)
-  * team [Team](#team)
+### TeamAdmin
+* TeamAdmin `object`: Some info about the user
+  * _selfUrl `string`
+  * firstName `string`
+  * lastName `string`
+  * username `string`
+
+### TeamAdminsResponse
+* TeamAdminsResponse `object`: A list of team admins for the team
+  * teamAdmins `array`
+    * items [TeamAdmin](#teamadmin)
 
 ### TeamDetail
 * TeamDetail `object`: Some info about the team
+  * _adminsUrl `string`
   * _membersUrl `string`
   * _policiesUrl `string`
   * _selfUrl `string`
@@ -2192,6 +2558,11 @@ victorops.api_reporting.v2.incidents.get({
 ### TimeoutType
 * TimeoutType `integer` (values: 1, 5, 10, 15, 20, 25, 30, 45, 60)
 
+### UpdateAssignment
+* UpdateAssignment `object`
+  * policy **required** `string`: The policy slug
+  * username `string`: The username being assinged
+
 ### User
 * User `object`
   * username `string`
@@ -2223,6 +2594,11 @@ victorops.api_reporting.v2.incidents.get({
 * UserSchedule `object`
   * teamSchedules `array`
     * items [TeamSchedule](#teamschedule)
+
+### UserTeamsResponse
+* UserTeamsResponse `object`: A list of teams to which the user belongs
+  * teams `array`
+    * items [SimpleTeamDetail](#simpleteamdetail)
 
 ### V1User
 * V1User `object`: Some info about the user

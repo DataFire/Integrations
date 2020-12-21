@@ -9,9 +9,7 @@ npm install --save @datafire/azure_powerbiembedded
 ```js
 let azure_powerbiembedded = require('@datafire/azure_powerbiembedded').create();
 
-azure_powerbiembedded.getAvailableOperations({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -323,8 +321,8 @@ azure_powerbiembedded.Workspaces_List({
   * description `string`: The localized friendly description for the operation as shown to the user. This description should be thorough, yet concise. It will be used in tool-tips and detailed views.
   * operation `string`: The localized friendly name for the operation as shown to the user. This name should be concise (to fit in drop downs), but clear (self-documenting). Use Title Casing and include the entity/resource to which it applies.
   * origin `string`: The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. Default value is 'user,system'
-  * provider `string`: The localized friendly form of the resource provider name. This form is also expected to include the publisher/company responsible. Use Title Casing. Begin with “Microsoft” for 1st party services.
-  * resource `string`: The localized friendly form of the resource type related to this action/operation. This form should match the public documentation for the resource provider. Use Title Casing. For examples, refer to the “name” section.
+  * provider `string`: The localized friendly form of the resource provider name. This form is also expected to include the publisher/company responsible. Use Title Casing. Begin with "Microsoft" for 1st party services.
+  * resource `string`: The localized friendly form of the resource type related to this action/operation. This form should match the public documentation for the resource provider. Use Title Casing. For examples, refer to the "name" section.
 
 ### Error
 * Error `object`

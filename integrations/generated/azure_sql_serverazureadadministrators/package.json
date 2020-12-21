@@ -1,8 +1,8 @@
 {
   "name": "@datafire/azure_sql_serverazureadadministrators",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
-  "description": "DataFire integration for Azure SQL Database API spec",
+  "description": "DataFire integration for SqlManagementClient",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

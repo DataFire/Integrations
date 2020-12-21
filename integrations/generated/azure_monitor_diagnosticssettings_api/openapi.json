@@ -19,7 +19,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/microsoft.insights/preview/2017-05-01-preview/diagnosticsSettings_API.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/monitor/resource-manager/Microsoft.Insights/preview/2017-05-01-preview/diagnosticsSettings_API.json",
         "version": "2.0"
       }
     ],
@@ -81,7 +81,8 @@
       "name": "resourceUri",
       "required": true,
       "type": "string",
-      "x-ms-parameter-location": "method"
+      "x-ms-parameter-location": "method",
+      "x-ms-skip-url-encoding": true
     }
   },
   "paths": {
@@ -100,43 +101,6 @@
         "responses": {
           "200": {
             "description": "Successful request to get more information about diagnostic setting",
-            "examples": {
-              "application/json": {
-                "value": [
-                  {
-                    "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/diagnosticSettings/mysetting",
-                    "location": "eastus",
-                    "name": "mysetting",
-                    "properties": {
-                      "eventHubAuthorizationRuleId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/andy1101/providers/Microsoft.EventHub/namespaces/andy1101/authorizationrules/RootManageSharedAccessKey",
-                      "logs": [
-                        {
-                          "category": "WorkflowRuntime",
-                          "enabled": true,
-                          "retentionPolicy": {
-                            "days": 0,
-                            "enabled": false
-                          }
-                        }
-                      ],
-                      "metrics": [
-                        {
-                          "category": "WorkflowMetrics",
-                          "enabled": true,
-                          "retentionPolicy": {
-                            "days": 0,
-                            "enabled": false
-                          }
-                        }
-                      ],
-                      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-                      "workspaceId": ""
-                    },
-                    "type": "microsoft.logic/workflows"
-                  }
-                ]
-              }
-            },
             "schema": {
               "$ref": "#/definitions/DiagnosticSettingsResourceCollection"
             }
@@ -155,7 +119,7 @@
           "Gets the diagnostic setting": {
             "parameters": {
               "api-version": "2017-05-01-preview",
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
               "200": {
@@ -237,15 +201,11 @@
             "parameters": {
               "api-version": "2017-05-01-preview",
               "name": "mysetting",
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
-              "200": {
-                "headers": {}
-              },
-              "204": {
-                "headers": {}
-              }
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -267,39 +227,6 @@
         "responses": {
           "200": {
             "description": "Successful request to get more information about diagnostic setting",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/diagnosticSettings/mysetting",
-                "location": "eastus",
-                "name": "mysetting",
-                "properties": {
-                  "eventHubAuthorizationRuleId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/andy1101/providers/Microsoft.EventHub/namespaces/andy1101/authorizationrules/RootManageSharedAccessKey",
-                  "logs": [
-                    {
-                      "category": "WorkflowRuntime",
-                      "enabled": true,
-                      "retentionPolicy": {
-                        "days": 0,
-                        "enabled": false
-                      }
-                    }
-                  ],
-                  "metrics": [
-                    {
-                      "category": "WorkflowMetrics",
-                      "enabled": true,
-                      "retentionPolicy": {
-                        "days": 0,
-                        "enabled": false
-                      }
-                    }
-                  ],
-                  "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-                  "workspaceId": ""
-                },
-                "type": "microsoft.logic/workflows"
-              }
-            },
             "schema": {
               "$ref": "#/definitions/DiagnosticSettingsResource"
             }
@@ -319,7 +246,7 @@
             "parameters": {
               "api-version": "2017-05-01-preview",
               "name": "mysetting",
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
               "200": {
@@ -385,39 +312,6 @@
         "responses": {
           "200": {
             "description": "Successful request to create a diagnostic setting",
-            "examples": {
-              "application/json": {
-                "id": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6/diagnosticSettings/mysetting",
-                "location": "eastus",
-                "name": "mysetting",
-                "properties": {
-                  "eventHubAuthorizationRuleId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/andy1101/providers/Microsoft.EventHub/namespaces/andy1101/authorizationrules/RootManageSharedAccessKey",
-                  "logs": [
-                    {
-                      "category": "WorkflowRuntime",
-                      "enabled": true,
-                      "retentionPolicy": {
-                        "days": 0,
-                        "enabled": false
-                      }
-                    }
-                  ],
-                  "metrics": [
-                    {
-                      "category": "WorkflowMetrics",
-                      "enabled": true,
-                      "retentionPolicy": {
-                        "days": 0,
-                        "enabled": false
-                      }
-                    }
-                  ],
-                  "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-                  "workspaceId": ""
-                },
-                "type": "microsoft.logic/workflows"
-              }
-            },
             "schema": {
               "$ref": "#/definitions/DiagnosticSettingsResource"
             }
@@ -441,6 +335,7 @@
                 "properties": {
                   "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
                   "eventHubName": "myeventhub",
+                  "logAnalyticsDestinationType": "Dedicated",
                   "logs": [
                     {
                       "category": "WorkflowRuntime",
@@ -465,7 +360,7 @@
                   "workspaceId": ""
                 }
               },
-              "resourceUri": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
+              "resourceUri": "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6"
             },
             "responses": {
               "200": {
@@ -475,6 +370,7 @@
                   "properties": {
                     "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
                     "eventHubName": "myeventhub",
+                    "logAnalyticsDestinationType": "Dedicated",
                     "logs": [
                       {
                         "category": "WorkflowRuntime",
@@ -520,26 +416,34 @@
           "description": "The name of the event hub. If none is specified, the default event hub will be selected.",
           "type": "string"
         },
+        "logAnalyticsDestinationType": {
+          "description": "A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)",
+          "type": "string"
+        },
         "logs": {
-          "description": "the list of logs settings.",
+          "description": "The list of logs settings.",
           "items": {
             "$ref": "#/definitions/LogSettings"
           },
           "type": "array"
         },
         "metrics": {
-          "description": "the list of metric settings.",
+          "description": "The list of metric settings.",
           "items": {
             "$ref": "#/definitions/MetricSettings"
           },
           "type": "array"
+        },
+        "serviceBusRuleId": {
+          "description": "The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.",
+          "type": "string"
         },
         "storageAccountId": {
           "description": "The resource ID of the storage account to which you would like to send Diagnostic Logs.",
           "type": "string"
         },
         "workspaceId": {
-          "description": "The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2",
+          "description": "The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2",
           "type": "string"
         }
       }
@@ -554,6 +458,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/DiagnosticSettings",
+          "description": "Properties of a Diagnostic Settings Resource.",
           "x-ms-client-flatten": true
         }
       },

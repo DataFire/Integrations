@@ -1,6 +1,6 @@
 # @datafire/google_groupssettings
 
-Client library for Groups Settings
+Client library for Groups Settings API
 
 ## Installation and Usage
 ```bash
@@ -15,16 +15,14 @@ let google_groupssettings = require('@datafire/google_groupssettings').create({
   redirect_uri: ""
 });
 
-google_groupssettings.groups.get({
-  "groupUniqueId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Lets you manage permission levels and related settings of a group.
+Manages permission levels and related settings of a group.
 
 ## Actions
 
@@ -69,19 +67,19 @@ google_groupssettings.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### groups.get
+### groupsSettings.groups.get
 Gets one resource by id.
 
 
 ```js
-google_groupssettings.groups.get({
+google_groupssettings.groupsSettings.groups.get({
   "groupUniqueId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * groupUniqueId **required** `string`: The resource ID
+  * groupUniqueId **required** `string`: The group's email address.
   * alt `string` (values: atom, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -93,20 +91,20 @@ google_groupssettings.groups.get({
 #### Output
 * output [Groups](#groups)
 
-### groups.patch
+### groupsSettings.groups.patch
 Updates an existing resource. This method supports patch semantics.
 
 
 ```js
-google_groupssettings.groups.patch({
+google_groupssettings.groupsSettings.groups.patch({
   "groupUniqueId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * groupUniqueId **required** `string`: The group's email address.
   * body [Groups](#groups)
-  * groupUniqueId **required** `string`: The resource ID
   * alt `string` (values: atom, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -118,20 +116,20 @@ google_groupssettings.groups.patch({
 #### Output
 * output [Groups](#groups)
 
-### groups.update
+### groupsSettings.groups.update
 Updates an existing resource.
 
 
 ```js
-google_groupssettings.groups.update({
+google_groupssettings.groupsSettings.groups.update({
   "groupUniqueId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * groupUniqueId **required** `string`: The group's email address.
   * body [Groups](#groups)
-  * groupUniqueId **required** `string`: The resource ID
   * alt `string` (values: atom, json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -149,36 +147,66 @@ google_groupssettings.groups.update({
 
 ### Groups
 * Groups `object`: JSON template for Group resource
-  * allowExternalMembers `string`: Are external members allowed to join the group.
-  * allowGoogleCommunication `string`: Is google allowed to contact admins.
-  * allowWebPosting `string`: If posting from web is allowed.
-  * archiveOnly `string`: If the group is archive only
-  * customFooterText `string`: Custom footer text.
-  * customReplyTo `string`: Default email to which reply to any message should go.
-  * defaultMessageDenyNotificationText `string`: Default message deny notification message
-  * description `string`: Description of the group
-  * email `string`: Email id of the group
-  * includeCustomFooter `string`: Whether to include custom footer.
-  * includeInGlobalAddressList `string`: If this groups should be included in global address list or not.
-  * isArchived `string`: If the contents of the group are archived.
-  * kind `string`: The type of the resource.
-  * maxMessageBytes `integer`: Maximum message size allowed.
-  * membersCanPostAsTheGroup `string`: Can members post using the group email address.
-  * messageDisplayFont `string`: Default message display font. Possible values are: DEFAULT_FONT FIXED_WIDTH_FONT
-  * messageModerationLevel `string`: Moderation level for messages. Possible values are: MODERATE_ALL_MESSAGES MODERATE_NON_MEMBERS MODERATE_NEW_MEMBERS MODERATE_NONE
-  * name `string`: Name of the Group
-  * primaryLanguage `string`: Primary language for the group.
-  * replyTo `string`: Whome should the default reply to a message go to. Possible values are: REPLY_TO_CUSTOM REPLY_TO_SENDER REPLY_TO_LIST REPLY_TO_OWNER REPLY_TO_IGNORE REPLY_TO_MANAGERS
-  * sendMessageDenyNotification `string`: Should the member be notified if his message is denied by owner.
-  * showInGroupDirectory `string`: Is the group listed in groups directory
-  * spamModerationLevel `string`: Moderation level for messages detected as spam. Possible values are: ALLOW MODERATE SILENTLY_MODERATE REJECT
-  * whoCanAdd `string`: Permissions to add members. Possible values are: ALL_MANAGERS_CAN_ADD ALL_OWNERS_CAN_ADD ALL_MEMBERS_CAN_ADD NONE_CAN_ADD
-  * whoCanContactOwner `string`: Permission to contact owner of the group via web UI. Possible values are: ANYONE_CAN_CONTACT ALL_IN_DOMAIN_CAN_CONTACT ALL_MEMBERS_CAN_CONTACT ALL_MANAGERS_CAN_CONTACT
-  * whoCanInvite `string`: Permissions to invite members. Possible values are: ALL_MEMBERS_CAN_INVITE ALL_MANAGERS_CAN_INVITE ALL_OWNERS_CAN_INVITE NONE_CAN_INVITE
-  * whoCanJoin `string`: Permissions to join the group. Possible values are: ANYONE_CAN_JOIN ALL_IN_DOMAIN_CAN_JOIN INVITED_CAN_JOIN CAN_REQUEST_TO_JOIN
-  * whoCanLeaveGroup `string`: Permission to leave the group. Possible values are: ALL_MANAGERS_CAN_LEAVE ALL_OWNERS_CAN_LEAVE ALL_MEMBERS_CAN_LEAVE NONE_CAN_LEAVE
-  * whoCanPostMessage `string`: Permissions to post messages to the group. Possible values are: NONE_CAN_POST ALL_MANAGERS_CAN_POST ALL_MEMBERS_CAN_POST ALL_OWNERS_CAN_POST ALL_IN_DOMAIN_CAN_POST ANYONE_CAN_POST
-  * whoCanViewGroup `string`: Permissions to view group. Possible values are: ANYONE_CAN_VIEW ALL_IN_DOMAIN_CAN_VIEW ALL_MEMBERS_CAN_VIEW ALL_MANAGERS_CAN_VIEW ALL_OWNERS_CAN_VIEW
-  * whoCanViewMembership `string`: Permissions to view membership. Possible values are: ALL_IN_DOMAIN_CAN_VIEW ALL_MEMBERS_CAN_VIEW ALL_MANAGERS_CAN_VIEW
+  * allowExternalMembers `string`: Identifies whether members external to your organization can join the group. Possible values are:  
+  * allowGoogleCommunication `string`: Deprecated. Allows Google to contact administrator of the group.  
+  * allowWebPosting `string`: Allows posting from web. Possible values are:  
+  * archiveOnly `string`: Allows the group to be archived only. Possible values are:  
+  * customFooterText `string`: Set the content of custom footer text. The maximum number of characters is 1,000.
+  * customReplyTo `string`: An email address used when replying to a message if the replyTo property is set to REPLY_TO_CUSTOM. This address is defined by an account administrator.  
+  * customRolesEnabledForSettingsToBeMerged `string`: Specifies whether the group has a custom role that's included in one of the settings being merged. This field is read-only and update/patch requests to it are ignored. Possible values are:  
+  * defaultMessageDenyNotificationText `string`: When a message is rejected, this is text for the rejection notification sent to the message's author. By default, this property is empty and has no value in the API's response body. The maximum notification text size is 10,000 characters. Note: Requires sendMessageDenyNotification property to be true.
+  * description `string`: Description of the group. This property value may be an empty string if no group description has been entered. If entered, the maximum group description is no more than 300 characters.
+  * email `string`: The group's email address. This property can be updated using the Directory API. Note: Only a group owner can change a group's email address. A group manager can't do this.
+  * enableCollaborativeInbox `string`: Specifies whether a collaborative inbox will remain turned on for the group. Possible values are:  
+  * favoriteRepliesOnTop `string`: Indicates if favorite replies should be displayed above other replies.  
+  * includeCustomFooter `string`: Whether to include custom footer. Possible values are:  
+  * includeInGlobalAddressList `string`: Enables the group to be included in the Global Address List. For more information, see the help center. Possible values are:  
+  * isArchived `string`: Allows the Group contents to be archived. Possible values are:  
+  * kind `string`: The type of the resource. It is always groupsSettings#groups.
+  * maxMessageBytes `integer`: Deprecated. The maximum size of a message is 25Mb.
+  * membersCanPostAsTheGroup `string`: Enables members to post messages as the group. Possible values are:  
+  * messageDisplayFont `string`: Deprecated. The default message display font always has a value of "DEFAULT_FONT".
+  * messageModerationLevel `string`: Moderation level of incoming messages. Possible values are:  
+  * name `string`: Name of the group, which has a maximum size of 75 characters.
+  * primaryLanguage `string`: The primary language for group. For a group's primary language use the language tags from the G Suite languages found at G Suite Email Settings API Email Language Tags.
+  * replyTo `string`: Specifies who receives the default reply. Possible values are:  
+  * sendMessageDenyNotification `string`: Allows a member to be notified if the member's message to the group is denied by the group owner. Possible values are:  
+  * showInGroupDirectory `string`: Deprecated. This is merged into the new whoCanDiscoverGroup setting. Allows the group to be visible in the Groups Directory. Possible values are:  
+  * spamModerationLevel `string`: Specifies moderation levels for messages detected as spam. Possible values are:  
+  * whoCanAdd `string`: Deprecated. This is merged into the new whoCanModerateMembers setting. Permissions to add members. Possible values are:  
+  * whoCanAddReferences `string`: Deprecated. This functionality is no longer supported in the Google Groups UI. The value is always "NONE".
+  * whoCanApproveMembers `string`: Specifies who can approve members who ask to join groups. This permission will be deprecated once it is merged into the new whoCanModerateMembers setting. Possible values are:  
+  * whoCanApproveMessages `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can approve pending messages in the moderation queue. Possible values are:  
+  * whoCanAssignTopics `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to assign topics in a forum to another user. Possible values are:  
+  * whoCanAssistContent `string`: Specifies who can moderate metadata. Possible values are:  
+  * whoCanBanUsers `string`: Specifies who can deny membership to users. This permission will be deprecated once it is merged into the new whoCanModerateMembers setting. Possible values are:  
+  * whoCanContactOwner `string`: Permission to contact owner of the group via web UI. Possible values are:  
+  * whoCanDeleteAnyPost `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can delete replies to topics. (Authors can always delete their own posts). Possible values are:  
+  * whoCanDeleteTopics `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can delete topics. Possible values are:  
+  * whoCanDiscoverGroup `string`: Specifies the set of users for whom this group is discoverable. Possible values are:  
+  * whoCanEnterFreeFormTags `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to enter free form tags for topics in a forum. Possible values are:  
+  * whoCanHideAbuse `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can hide posts by reporting them as abuse. Possible values are:  
+  * whoCanInvite `string`: Deprecated. This is merged into the new whoCanModerateMembers setting. Permissions to invite new members. Possible values are:  
+  * whoCanJoin `string`: Permission to join group. Possible values are:  
+  * whoCanLeaveGroup `string`: Permission to leave the group. Possible values are:  
+  * whoCanLockTopics `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can prevent users from posting replies to topics. Possible values are:  
+  * whoCanMakeTopicsSticky `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can make topics appear at the top of the topic list. Possible values are:  
+  * whoCanMarkDuplicate `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark a topic as a duplicate of another topic. Possible values are:  
+  * whoCanMarkFavoriteReplyOnAnyTopic `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark any other user's post as a favorite reply. Possible values are:  
+  * whoCanMarkFavoriteReplyOnOwnTopic `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark a post for a topic they started as a favorite reply. Possible values are:  
+  * whoCanMarkNoResponseNeeded `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark a topic as not needing a response. Possible values are:  
+  * whoCanModerateContent `string`: Specifies who can moderate content. Possible values are:  
+  * whoCanModerateMembers `string`: Specifies who can manage members. Possible values are:  
+  * whoCanModifyMembers `string`: Deprecated. This is merged into the new whoCanModerateMembers setting. Specifies who can change group members' roles. Possible values are:  
+  * whoCanModifyTagsAndCategories `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to change tags and categories. Possible values are:  
+  * whoCanMoveTopicsIn `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can move topics into the group or forum. Possible values are:  
+  * whoCanMoveTopicsOut `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can move topics out of the group or forum. Possible values are:  
+  * whoCanPostAnnouncements `string`: Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can post announcements, a special topic type. Possible values are:  
+  * whoCanPostMessage `string`: Permissions to post messages. Possible values are:  
+  * whoCanTakeTopics `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to take topics in a forum. Possible values are:  
+  * whoCanUnassignTopic `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to unassign any topic in a forum. Possible values are:  
+  * whoCanUnmarkFavoriteReplyOnAnyTopic `string`: Deprecated. This is merged into the new whoCanAssistContent setting. Permission to unmark any post from a favorite reply. Possible values are:  
+  * whoCanViewGroup `string`: Permissions to view group messages. Possible values are:  
+  * whoCanViewMembership `string`: Permissions to view membership. Possible values are:  
 
 

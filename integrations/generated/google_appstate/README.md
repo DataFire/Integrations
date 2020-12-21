@@ -15,7 +15,7 @@ let google_appstate = require('@datafire/google_appstate').create({
   redirect_uri: ""
 });
 
-google_appstate.states.list({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

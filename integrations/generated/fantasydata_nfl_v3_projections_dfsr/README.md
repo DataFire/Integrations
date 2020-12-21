@@ -12,11 +12,7 @@ let fantasydata_nfl_v3_projections_dfsr = require('@datafire/fantasydata_nfl_v3_
   apiKeyQuery: ""
 });
 
-fantasydata_nfl_v3_projections_dfsr.DfsrProjectedFantasyDefenseGameStats({
-  "format": "",
-  "season": "",
-  "week": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

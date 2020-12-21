@@ -15,9 +15,7 @@ let azure_authorization_authorization_rolebasedcalls = require('@datafire/azure_
   redirect_uri: ""
 });
 
-azure_authorization_authorization_rolebasedcalls.ProviderOperationsMetadata_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

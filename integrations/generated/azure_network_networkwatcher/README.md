@@ -15,10 +15,7 @@ let azure_network_networkwatcher = require('@datafire/azure_network_networkwatch
   redirect_uri: ""
 });
 
-azure_network_networkwatcher.NetworkWatchers_ListAll({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -217,7 +214,7 @@ azure_network_networkwatcher.NetworkWatchers_GetAzureReachabilityReport({
 * output [AzureReachabilityReport](#azurereachabilityreport)
 
 ### NetworkWatchers_SetFlowLogConfiguration
-Configures flow log on a specified resource.
+Configures flow log and traffic analytics (optional) on a specified resource.
 
 
 ```js
@@ -240,181 +237,6 @@ azure_network_networkwatcher.NetworkWatchers_SetFlowLogConfiguration({
 
 #### Output
 * output [FlowLogInformation](#flowloginformation)
-
-### ConnectionMonitors_List
-Lists all connection monitors for the specified Network Watcher.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_List({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [ConnectionMonitorListResult](#connectionmonitorlistresult)
-
-### ConnectionMonitors_Delete
-Deletes the specified connection monitor.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_Delete({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name of the connection monitor.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-*Output schema unknown*
-
-### ConnectionMonitors_Get
-Gets a connection monitor by name.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_Get({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name of the connection monitor.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [ConnectionMonitorResult](#connectionmonitorresult)
-
-### ConnectionMonitors_CreateOrUpdate
-Create or update a connection monitor.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_CreateOrUpdate({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "parameters": null,
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name of the connection monitor.
-  * parameters **required** [ConnectionMonitor](#connectionmonitor)
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [ConnectionMonitorResult](#connectionmonitorresult)
-
-### ConnectionMonitors_Query
-Query a snapshot of the most recent connection states.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_Query({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name given to the connection monitor.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-* output [ConnectionMonitorQueryResult](#connectionmonitorqueryresult)
-
-### ConnectionMonitors_Start
-Starts the specified connection monitor.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_Start({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name of the connection monitor.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-*Output schema unknown*
-
-### ConnectionMonitors_Stop
-Stops the specified connection monitor.
-
-
-```js
-azure_network_networkwatcher.ConnectionMonitors_Stop({
-  "resourceGroupName": "",
-  "networkWatcherName": "",
-  "connectionMonitorName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * resourceGroupName **required** `string`: The name of the resource group containing Network Watcher.
-  * networkWatcherName **required** `string`: The name of the Network Watcher resource.
-  * connectionMonitorName **required** `string`: The name of the connection monitor.
-  * api-version **required** `string`: Client API version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-
-#### Output
-*Output schema unknown*
 
 ### NetworkWatchers_CheckConnectivity
 Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server.
@@ -465,6 +287,31 @@ azure_network_networkwatcher.NetworkWatchers_VerifyIPFlow({
 
 #### Output
 * output [VerificationIPFlowResult](#verificationipflowresult)
+
+### NetworkWatchers_GetNetworkConfigurationDiagnostic
+Gets Network Configuration Diagnostic data to help customers understand and debug network behavior. It provides detailed information on what security rules were applied to a specified traffic flow and the result of evaluating these rules. Customers must provide details of a flow like source, destination, protocol, etc. The API returns whether traffic was allowed or denied, the rules evaluated for the specified flow and the evaluation results.
+
+
+```js
+azure_network_networkwatcher.NetworkWatchers_GetNetworkConfigurationDiagnostic({
+  "resourceGroupName": "",
+  "networkWatcherName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * networkWatcherName **required** `string`: The name of the network watcher.
+  * parameters **required** [NetworkConfigurationDiagnosticParameters](#networkconfigurationdiagnosticparameters)
+  * api-version **required** `string`: Client API version.
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NetworkConfigurationDiagnosticResponse](#networkconfigurationdiagnosticresponse)
 
 ### NetworkWatchers_GetNextHop
 Gets the next hop from the specified VM.
@@ -642,7 +489,7 @@ azure_network_networkwatcher.PacketCaptures_Stop({
 *Output schema unknown*
 
 ### NetworkWatchers_GetFlowLogStatus
-Queries status of flow log on a specified resource.
+Queries status of flow log and traffic analytics (optional) on a specified resource.
 
 
 ```js
@@ -667,7 +514,7 @@ azure_network_networkwatcher.NetworkWatchers_GetFlowLogStatus({
 * output [FlowLogInformation](#flowloginformation)
 
 ### NetworkWatchers_GetTroubleshootingResult
-Get the last completed troubleshooting result on a specified resource
+Get the last completed troubleshooting result on a specified resource.
 
 
 ```js
@@ -742,7 +589,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTopology({
 * output [Topology](#topology)
 
 ### NetworkWatchers_GetTroubleshooting
-Initiate troubleshooting on a specified resource
+Initiate troubleshooting on a specified resource.
 
 
 ```js
@@ -840,69 +687,6 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
     * items `string`
   * startTime **required** `string`: The start time for the Azure reachability report.
 
-### ConnectionMonitor
-* ConnectionMonitor `object`: Parameters that define the operation to create a connection monitor.
-  * location `string`: Connection monitor location.
-  * properties **required** [ConnectionMonitorParameters](#connectionmonitorparameters)
-  * tags `object`: Connection monitor tags.
-
-### ConnectionMonitorDestination
-* ConnectionMonitorDestination `object`: Describes the destination of connection monitor.
-  * address `string`: Address of the connection monitor destination (IP or domain name).
-  * port `integer`: The destination port used by connection monitor.
-  * resourceId `string`: The ID of the resource used as the destination by connection monitor.
-
-### ConnectionMonitorListResult
-* ConnectionMonitorListResult `object`: List of connection monitors.
-  * value `array`: Information about connection monitors.
-    * items [ConnectionMonitorResult](#connectionmonitorresult)
-
-### ConnectionMonitorParameters
-* ConnectionMonitorParameters `object`: Parameters that define the operation to create a connection monitor.
-  * autoStart `boolean`: Determines if the connection monitor will start automatically once created.
-  * destination **required** [ConnectionMonitorDestination](#connectionmonitordestination)
-  * monitoringIntervalInSeconds `integer`: Monitoring interval in seconds.
-  * source **required** [ConnectionMonitorSource](#connectionmonitorsource)
-
-### ConnectionMonitorQueryResult
-* ConnectionMonitorQueryResult `object`: List of connection states snaphots.
-  * states `array`: Information about connection states.
-    * items [ConnectionStateSnapshot](#connectionstatesnapshot)
-
-### ConnectionMonitorResult
-* ConnectionMonitorResult `object`: Information about the connection monitor.
-  * etag `string`
-  * id `string`: ID of the connection monitor.
-  * location `string`: Connection monitor location.
-  * name `string`: Name of the connection monitor.
-  * properties [ConnectionMonitorResultProperties](#connectionmonitorresultproperties)
-  * tags `object`: Connection monitor tags.
-  * type `string`: Connection monitor type.
-
-### ConnectionMonitorResultProperties
-* ConnectionMonitorResultProperties `object`: Describes the properties of a connection monitor.
-  * monitoringStatus `string`: The monitoring status of the connection monitor.
-  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The provisioning state of the connection monitor.
-  * startTime `string`: The date and time when the connection monitor was started.
-  * autoStart `boolean`: Determines if the connection monitor will start automatically once created.
-  * destination **required** [ConnectionMonitorDestination](#connectionmonitordestination)
-  * monitoringIntervalInSeconds `integer`: Monitoring interval in seconds.
-  * source **required** [ConnectionMonitorSource](#connectionmonitorsource)
-
-### ConnectionMonitorSource
-* ConnectionMonitorSource `object`: Describes the source of connection monitor.
-  * port `integer`: The source port used by connection monitor.
-  * resourceId **required** `string`: The ID of the resource used as the source by connection monitor.
-
-### ConnectionStateSnapshot
-* ConnectionStateSnapshot `object`: Connection state snapshot.
-  * connectionState `string` (values: Reachable, Unreachable, Unknown): The connection state.
-  * endTime `string`: The end time of the connection snapshot.
-  * evaluationState `string` (values: NotStarted, InProgress, Completed): Connectivity analysis evaluation state.
-  * hops `array`: List of hops between the source and the destination.
-    * items [ConnectivityHop](#connectivityhop)
-  * startTime `string`: The start time of the connection snapshot.
-
 ### ConnectivityDestination
 * ConnectivityDestination `object`: Parameters that define destination of connection.
   * address `string`: The IP address or URI the resource to which a connection attempt will be made.
@@ -942,6 +726,8 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 ### ConnectivityParameters
 * ConnectivityParameters `object`: Parameters that determine how the connectivity check will be performed.
   * destination **required** [ConnectivityDestination](#connectivitydestination)
+  * protocol `string` (values: Tcp, Http, Https, Icmp): Network protocol.
+  * protocolConfiguration [ProtocolConfiguration](#protocolconfiguration)
   * source **required** [ConnectivitySource](#connectivitysource)
 
 ### ConnectivitySource
@@ -949,23 +735,91 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
   * port `integer`: The source port from which a connectivity check will be performed.
   * resourceId **required** `string`: The ID of the resource from which a connectivity check will be initiated.
 
+### Direction
+* Direction `string` (values: Inbound, Outbound): The direction of the traffic.
+
+### ErrorResponse
+* ErrorResponse `object`: The error object.
+  * error `object`: Common error details representation.
+    * code `string`: Error code.
+    * message `string`: Error message.
+    * target `string`: Error target.
+
+### EvaluatedNetworkSecurityGroup
+* EvaluatedNetworkSecurityGroup `object`: Results of network security group evaluation.
+  * appliedTo `string`: Resource ID of nic or subnet to which network security group is applied.
+  * matchedRule [MatchedRule](#matchedrule)
+  * networkSecurityGroupId `string`: Network security group ID.
+  * rulesEvaluationResult `array`: List of network security rules evaluation results.
+    * items [NetworkSecurityRulesEvaluationResult](#networksecurityrulesevaluationresult)
+
+### FlowLogFormatParameters
+* FlowLogFormatParameters `object`: Parameters that define the flow log format.
+  * type `string` (values: JSON): The file type of flow log.
+  * version `integer`: The version (revision) of the flow log.
+
 ### FlowLogInformation
-* FlowLogInformation `object`: Information on the configuration of flow log.
+* FlowLogInformation `object`: Information on the configuration of flow log and traffic analytics (optional) .
+  * flowAnalyticsConfiguration [TrafficAnalyticsProperties](#trafficanalyticsproperties)
   * properties **required** [FlowLogProperties](#flowlogproperties)
-  * targetResourceId **required** `string`: The ID of the resource to configure for flow logging.
+  * targetResourceId **required** `string`: The ID of the resource to configure for flow log and traffic analytics (optional) .
 
 ### FlowLogProperties
 * FlowLogProperties `object`: Parameters that define the configuration of flow log.
   * enabled **required** `boolean`: Flag to enable/disable flow logging.
+  * format [FlowLogFormatParameters](#flowlogformatparameters)
   * retentionPolicy [RetentionPolicyParameters](#retentionpolicyparameters)
   * storageId **required** `string`: ID of the storage account which is used to store the flow log.
 
 ### FlowLogStatusParameters
-* FlowLogStatusParameters `object`: Parameters that define a resource to query flow log status.
-  * targetResourceId **required** `string`: The target resource where getting the flow logging status.
+* FlowLogStatusParameters `object`: Parameters that define a resource to query flow log and traffic analytics (optional) status.
+  * targetResourceId **required** `string`: The target resource where getting the flow log and traffic analytics (optional) status.
+
+### HTTPConfiguration
+* HTTPConfiguration `object`: HTTP configuration of the connectivity check.
+  * headers `array`: List of HTTP headers.
+    * items [HTTPHeader](#httpheader)
+  * method `string` (values: Get): HTTP method.
+  * validStatusCodes `array`: Valid status codes.
+    * items `integer`
+
+### HTTPHeader
+* HTTPHeader `object`: Describes the HTTP header.
+  * name `string`: The name in HTTP header.
+  * value `string`: The value in HTTP header.
 
 ### IssueContext
 * IssueContext `object`: A key-value pair that provides additional context on the issue.
+
+### MatchedRule
+* MatchedRule `object`: Matched rule.
+  * action `string`: The network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'.
+  * ruleName `string`: Name of the matched network security rule.
+
+### NetworkConfigurationDiagnosticParameters
+* NetworkConfigurationDiagnosticParameters `object`: Parameters to get network configuration diagnostic.
+  * profiles **required** `array`: List of network configuration diagnostic profiles.
+    * items [NetworkConfigurationDiagnosticProfile](#networkconfigurationdiagnosticprofile)
+  * targetResourceId **required** `string`: The ID of the target resource to perform network configuration diagnostic. Valid options are VM, NetworkInterface, VMSS/NetworkInterface and Application Gateway.
+  * verbosityLevel `string` (values: Normal, Minimum, Full): Verbosity level.
+
+### NetworkConfigurationDiagnosticProfile
+* NetworkConfigurationDiagnosticProfile `object`: Parameters to compare with network configuration.
+  * destination **required** `string`: Traffic destination. Accepted values are: '*', IP Address/CIDR, Service Tag.
+  * destinationPort **required** `string`: Traffic destination port. Accepted values are '*', port (for example, 3389) and port range (for example, 80-100).
+  * direction **required** [Direction](#direction)
+  * protocol **required** `string`: Protocol to be verified on. Accepted values are '*', TCP, UDP.
+  * source **required** `string`: Traffic source. Accepted values are '*', IP Address/CIDR, Service Tag.
+
+### NetworkConfigurationDiagnosticResponse
+* NetworkConfigurationDiagnosticResponse `object`: Results of network configuration diagnostic on the target resource.
+  * results `array`: List of network configuration diagnostic results.
+    * items [NetworkConfigurationDiagnosticResult](#networkconfigurationdiagnosticresult)
+
+### NetworkConfigurationDiagnosticResult
+* NetworkConfigurationDiagnosticResult `object`: Network configuration diagnostic result corresponded to provided traffic query.
+  * networkSecurityGroupResult [NetworkSecurityGroupResult](#networksecuritygroupresult)
+  * profile [NetworkConfigurationDiagnosticProfile](#networkconfigurationdiagnosticprofile)
 
 ### NetworkInterfaceAssociation
 * NetworkInterfaceAssociation `object`: Network interface and its custom security rules.
@@ -975,47 +829,44 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
       * etag `string`: A unique read-only string that changes whenever the resource is updated.
       * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
       * properties `object`: Security rule resource.
-        * access **required** `string` (values: Allow, Deny): The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        * access **required** `string` (values: Allow, Deny): Whether network traffic is allowed or denied.
         * description `string`: A description for this rule. Restricted to 140 chars.
-        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         * destinationAddressPrefixes `array`: The destination address prefixes. CIDR or destination IP ranges.
           * items `string`
         * destinationApplicationSecurityGroups `array`: The application security group specified as destination.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * destinationPortRanges `array`: The destination port ranges.
           * items `string`: The destination port.
-        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outcoming traffic. Possible values are: 'Inbound' and 'Outbound'.
+        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         * priority `integer`: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        * protocol **required** `string` (values: Tcp, Udp, *): Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-        * provisioningState `string`: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        * protocol **required** `string` (values: Tcp, Udp, Icmp, Esp, *): Network protocol this rule applies to.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         * sourceAddressPrefixes `array`: The CIDR or source IP ranges.
           * items `string`
         * sourceApplicationSecurityGroups `array`: The application security group specified as source.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * sourcePortRanges `array`: The source port ranges.
           * items `string`: The source port.
       * id `string`: Resource ID.
+
+### NetworkSecurityGroupResult
+* NetworkSecurityGroupResult `object`: Network configuration diagnostic result corresponded provided traffic query.
+  * evaluatedNetworkSecurityGroups `array`: List of results network security groups diagnostic.
+    * items [EvaluatedNetworkSecurityGroup](#evaluatednetworksecuritygroup)
+  * securityRuleAccessResult `string` (values: Allow, Deny): Whether network traffic is allowed or denied.
+
+### NetworkSecurityRulesEvaluationResult
+* NetworkSecurityRulesEvaluationResult `object`: Network security rules evaluation result.
+  * destinationMatched `boolean`: Value indicating whether destination is matched.
+  * destinationPortMatched `boolean`: Value indicating whether destination port is matched.
+  * name `string`: Name of the network security rule.
+  * protocolMatched `boolean`: Value indicating whether protocol is matched.
+  * sourceMatched `boolean`: Value indicating whether source is matched.
+  * sourcePortMatched `boolean`: Value indicating whether source port is matched.
 
 ### NetworkWatcher
 * NetworkWatcher `object`: Network watcher in a resource group.
@@ -1028,13 +879,13 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
   * type `string`: Resource type.
 
 ### NetworkWatcherListResult
-* NetworkWatcherListResult `object`: List of network watcher resources.
-  * value `array`
+* NetworkWatcherListResult `object`: Response for ListNetworkWatchers API service call.
+  * value `array`: List of network watcher resources.
     * items [NetworkWatcher](#networkwatcher)
 
 ### NetworkWatcherPropertiesFormat
 * NetworkWatcherPropertiesFormat `object`: The network watcher properties.
-  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The provisioning state of the resource.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
 
 ### NextHopParameters
 * NextHopParameters `object`: Parameters that define the source and destination endpoint.
@@ -1045,7 +896,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 
 ### NextHopResult
 * NextHopResult `object`: The information about next hop from the specified VM.
-  * nextHopIpAddress `string`: Next hop IP Address
+  * nextHopIpAddress `string`: Next hop IP Address.
   * nextHopType `string` (values: Internet, VirtualAppliance, VirtualNetworkGateway, VnetLocal, HyperNetGateway, None): Next hop type.
   * routeTableId `string`: The resource identifier for the route table associated with the route being returned. If the route being returned does not correspond to any user created routes then this field will be the string 'System Route'.
 
@@ -1069,7 +920,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 ### PacketCaptureParameters
 * PacketCaptureParameters `object`: Parameters that define the create packet capture operation.
   * bytesToCapturePerPacket `integer`: Number of bytes captured per packet, the remaining bytes are truncated.
-  * filters `array`
+  * filters `array`: A list of packet capture filters.
     * items [PacketCaptureFilter](#packetcapturefilter)
   * storageLocation **required** [PacketCaptureStorageLocation](#packetcapturestoragelocation)
   * target **required** `string`: The ID of the targeted resource, only VM is currently supported.
@@ -1088,16 +939,16 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 
 ### PacketCaptureResult
 * PacketCaptureResult `object`: Information about packet capture session.
-  * etag `string`
+  * etag `string`: A unique read-only string that changes whenever the resource is updated.
   * id `string`: ID of the packet capture operation.
   * name `string`: Name of the packet capture session.
   * properties [PacketCaptureResultProperties](#packetcaptureresultproperties)
 
 ### PacketCaptureResultProperties
 * PacketCaptureResultProperties `object`: Describes the properties of a packet capture session.
-  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The provisioning state of the packet capture session.
+  * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
   * bytesToCapturePerPacket `integer`: Number of bytes captured per packet, the remaining bytes are truncated.
-  * filters `array`
+  * filters `array`: A list of packet capture filters.
     * items [PacketCaptureFilter](#packetcapturefilter)
   * storageLocation **required** [PacketCaptureStorageLocation](#packetcapturestoragelocation)
   * target **required** `string`: The ID of the targeted resource, only VM is currently supported.
@@ -1109,6 +960,10 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
   * filePath `string`: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
   * storageId `string`: The ID of the storage account to save the packet capture session. Required if no local file path is provided.
   * storagePath `string`: The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
+
+### ProtocolConfiguration
+* ProtocolConfiguration `object`: Configuration of the protocol.
+  * HTTPConfiguration [HTTPConfiguration](#httpconfiguration)
 
 ### QueryTroubleshootingParameters
 * QueryTroubleshootingParameters `object`: Parameters that define the resource to query the troubleshooting result.
@@ -1140,119 +995,83 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
       * etag `string`: A unique read-only string that changes whenever the resource is updated.
       * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
       * properties `object`: Security rule resource.
-        * access **required** `string` (values: Allow, Deny): The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        * access **required** `string` (values: Allow, Deny): Whether network traffic is allowed or denied.
         * description `string`: A description for this rule. Restricted to 140 chars.
-        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         * destinationAddressPrefixes `array`: The destination address prefixes. CIDR or destination IP ranges.
           * items `string`
         * destinationApplicationSecurityGroups `array`: The application security group specified as destination.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * destinationPortRanges `array`: The destination port ranges.
           * items `string`: The destination port.
-        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outcoming traffic. Possible values are: 'Inbound' and 'Outbound'.
+        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         * priority `integer`: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        * protocol **required** `string` (values: Tcp, Udp, *): Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-        * provisioningState `string`: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        * protocol **required** `string` (values: Tcp, Udp, Icmp, Esp, *): Network protocol this rule applies to.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         * sourceAddressPrefixes `array`: The CIDR or source IP ranges.
           * items `string`
         * sourceApplicationSecurityGroups `array`: The application security group specified as source.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * sourcePortRanges `array`: The source port ranges.
           * items `string`: The source port.
       * id `string`: Resource ID.
   * effectiveSecurityRules `array`: Collection of effective security rules.
     * items `object`: Effective network security rules.
-      * access `string` (values: Allow, Deny): Whether network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+      * access `string` (values: Allow, Deny): Whether network traffic is allowed or denied.
       * destinationAddressPrefix `string`: The destination address prefix.
-      * destinationAddressPrefixes `array`: The destination address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AureLoadBalancer, Internet), System Tags, and the asterix (*).
+      * destinationAddressPrefixes `array`: The destination address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AzureLoadBalancer, Internet), System Tags, and the asterisk (*).
         * items `string`
       * destinationPortRange `string`: The destination port or range.
-      * destinationPortRanges `array`: The destination port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as seperator (e.g. 100-400), or an asterix (*)
+      * destinationPortRanges `array`: The destination port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as separator (e.g. 100-400), or an asterisk (*).
         * items `string`
-      * direction `string` (values: Inbound, Outbound): The direction of the rule. Possible values are: 'Inbound and Outbound'.
+      * direction `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
       * expandedDestinationAddressPrefix `array`: Expanded destination address prefix.
         * items `string`
       * expandedSourceAddressPrefix `array`: The expanded source address prefix.
         * items `string`
       * name `string`: The name of the security rule specified by the user (if created by the user).
       * priority `integer`: The priority of the rule.
-      * protocol `string` (values: Tcp, Udp, All): The network protocol this rule applies to. Possible values are: 'Tcp', 'Udp', and 'All'.
+      * protocol `string` (values: Tcp, Udp, All): The network protocol this rule applies to.
       * sourceAddressPrefix `string`: The source address prefix.
-      * sourceAddressPrefixes `array`: The source address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AureLoadBalancer, Internet), System Tags, and the asterix (*).
+      * sourceAddressPrefixes `array`: The source address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AzureLoadBalancer, Internet), System Tags, and the asterisk (*).
         * items `string`
       * sourcePortRange `string`: The source port or range.
-      * sourcePortRanges `array`: The source port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as seperator (e.g. 100-400), or an asterix (*)
+      * sourcePortRanges `array`: The source port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as separator (e.g. 100-400), or an asterisk (*).
         * items `string`
   * networkInterfaceAssociation [NetworkInterfaceAssociation](#networkinterfaceassociation)
   * subnetAssociation [SubnetAssociation](#subnetassociation)
 
 ### SubnetAssociation
-* SubnetAssociation `object`: Network interface and its custom security rules.
+* SubnetAssociation `object`: Subnet and it's custom security rules.
   * id `string`: Subnet ID.
   * securityRules `array`: Collection of custom security rules.
     * items `object`: Network security rule.
       * etag `string`: A unique read-only string that changes whenever the resource is updated.
       * name `string`: The name of the resource that is unique within a resource group. This name can be used to access the resource.
       * properties `object`: Security rule resource.
-        * access **required** `string` (values: Allow, Deny): The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        * access **required** `string` (values: Allow, Deny): Whether network traffic is allowed or denied.
         * description `string`: A description for this rule. Restricted to 140 chars.
-        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        * destinationAddressPrefix `string`: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         * destinationAddressPrefixes `array`: The destination address prefixes. CIDR or destination IP ranges.
           * items `string`
         * destinationApplicationSecurityGroups `array`: The application security group specified as destination.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * destinationPortRange `string`: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * destinationPortRanges `array`: The destination port ranges.
           * items `string`: The destination port.
-        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outcoming traffic. Possible values are: 'Inbound' and 'Outbound'.
+        * direction **required** `string` (values: Inbound, Outbound): The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         * priority `integer`: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        * protocol **required** `string` (values: Tcp, Udp, *): Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-        * provisioningState `string`: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterix '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        * protocol **required** `string` (values: Tcp, Udp, Icmp, Esp, *): Network protocol this rule applies to.
+        * provisioningState `string` (values: Succeeded, Updating, Deleting, Failed): The current provisioning state.
+        * sourceAddressPrefix `string`: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         * sourceAddressPrefixes `array`: The CIDR or source IP ranges.
           * items `string`
         * sourceApplicationSecurityGroups `array`: The application security group specified as source.
           * items `object`: An application security group in a resource group.
-            * etag `string`: A unique read-only string that changes whenever the resource is updated.
-            * properties `object`: Application security group properties.
-              * provisioningState `string`: The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-              * resourceGuid `string`: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-            * id `string`: Resource ID.
-            * location `string`: Resource location.
-            * name `string`: Resource name.
-            * tags `object`: Resource tags.
-            * type `string`: Resource type.
-        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterix '*' can also be used to match all ports.
+        * sourcePortRange `string`: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         * sourcePortRanges `array`: The source port ranges.
           * items `string`: The source port.
       * id `string`: Resource ID.
@@ -1262,7 +1081,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
   * createdDateTime `string`: The datetime when the topology was initially created for the resource group.
   * id `string`: GUID representing the operation id.
   * lastModified `string`: The datetime when the topology was last modified.
-  * resources `array`
+  * resources `array`: A list of topology resources.
     * items [TopologyResource](#topologyresource)
 
 ### TopologyAssociation
@@ -1286,6 +1105,18 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
   * id `string`: ID of the resource.
   * location `string`: Resource location.
   * name `string`: Name of the resource.
+
+### TrafficAnalyticsConfigurationProperties
+* TrafficAnalyticsConfigurationProperties `object`: Parameters that define the configuration of traffic analytics.
+  * enabled **required** `boolean`: Flag to enable/disable traffic analytics.
+  * trafficAnalyticsInterval `integer`: The interval in minutes which would decide how frequently TA service should do flow analytics.
+  * workspaceId `string`: The resource guid of the attached workspace.
+  * workspaceRegion `string`: The location of the attached workspace.
+  * workspaceResourceId `string`: Resource Id of the attached workspace.
+
+### TrafficAnalyticsProperties
+* TrafficAnalyticsProperties `object`: Parameters that define the configuration of traffic analytics.
+  * networkWatcherFlowAnalyticsConfiguration **required** [TrafficAnalyticsConfigurationProperties](#trafficanalyticsconfigurationproperties)
 
 ### TroubleshootingDetails
 * TroubleshootingDetails `object`: Information gained from troubleshooting of specified resource.
@@ -1323,7 +1154,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 
 ### VerificationIPFlowParameters
 * VerificationIPFlowParameters `object`: Parameters that define the IP flow to be verified.
-  * direction **required** `string` (values: Inbound, Outbound): The direction of the packet represented as a 5-tuple.
+  * direction **required** [Direction](#direction)
   * localIPAddress **required** `string`: The local IP address. Acceptable values are valid IPv4 addresses.
   * localPort **required** `string`: The local port. Acceptable values are a single integer in the range (0-65535). Support for * for the source port, which depends on the direction.
   * protocol **required** `string` (values: TCP, UDP): Protocol to be verified on.
@@ -1334,7 +1165,7 @@ azure_network_networkwatcher.NetworkWatchers_GetTroubleshooting({
 
 ### VerificationIPFlowResult
 * VerificationIPFlowResult `object`: Results of IP flow verification on the target resource.
-  * access `string` (values: Allow, Deny): Indicates whether the traffic is allowed or denied.
+  * access `string` (values: Allow, Deny): Access to be allowed or denied.
   * ruleName `string`: Name of the rule. If input is not matched against any security rule, it is not displayed.
 
 

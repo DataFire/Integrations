@@ -9,7 +9,7 @@ npm install --save @datafire/apis_guru
 ```js
 let apis_guru = require('@datafire/apis_guru').create();
 
-apis_guru.listAPIs(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

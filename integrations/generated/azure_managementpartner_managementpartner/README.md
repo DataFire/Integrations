@@ -15,9 +15,7 @@ let azure_managementpartner_managementpartner = require('@datafire/azure_managem
   redirect_uri: ""
 });
 
-azure_managementpartner_managementpartner.Operation_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -44,6 +42,23 @@ azure_managementpartner_managementpartner.Operation_List({
 
 #### Output
 * output [OperationList](#operationlist)
+
+### Partners_Get
+Get the management partner using the objectId and tenantId.
+
+
+```js
+azure_managementpartner_managementpartner.Partners_Get({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: Supported version.
+
+#### Output
+* output [PartnerResponse](#partnerresponse)
 
 ### Partner_Delete
 Delete the management partner for the objectId and tenantId.

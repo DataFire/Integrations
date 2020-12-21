@@ -1,0 +1,2630 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@unicorn-solutions.com",
+      "name": "Unicorn Solutions",
+      "url": "https://unicorn-solutions.com"
+    },
+    "description": "Web API for TL mobile and web app",
+    "license": {
+      "name": "Use under Unicorn",
+      "url": "https://unicorn-solutions.com"
+    },
+    "termsOfService": "None",
+    "title": "API",
+    "version": "2020-08-10_6-22",
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://tl-api.azurewebsites.net/swagger/default/swagger.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "tl-api.azurewebsites.net",
+    "x-datafire": {
+      "name": "tl_api_azurewebsites",
+      "type": "openapi"
+    }
+  },
+  "host": "tl-api.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Article": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "indentity number(primary key) for article object",
+            "format": "int32",
+            "in": "query",
+            "name": "ArticleId",
+            "type": "integer",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operation was success(true) or fail(false) ",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfInteger"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfInteger"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_Delete",
+        "summary": "Delete article from the system\n            "
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "article object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ArticleDTO"
+            },
+            "x-name": "article",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "messageId that can use to get the status of import later on.!",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_Post",
+        "summary": "Add new article\n            "
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "article object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ArticleDTO"
+            },
+            "x-name": "article",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "messageId that can use to get the status of import later on.!",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_Put",
+        "summary": "update existing article\n            "
+      }
+    },
+    "/api/Article/ArticleGymDetails": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/GymArticleDetailsDTO"
+              },
+              "type": "array"
+            },
+            "x-name": "articleDetails",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "messageId that can use to get the status of import later on.!",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_UpdateArticleGymDetails",
+        "summary": "Add article details that associate with a Gym\n            "
+      }
+    },
+    "/api/Article/GetAddons": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Search text - will be search by the name",
+            "in": "query",
+            "name": "searchText",
+            "type": "string",
+            "x-position": 1
+          },
+          {
+            "default": "-1",
+            "description": "Comma separated gymIds deafult \"-1\" for all gyms",
+            "in": "query",
+            "name": "gymIds",
+            "type": "string",
+            "x-position": 2
+          },
+          {
+            "default": "all",
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-position": 3
+          },
+          {
+            "default": 100,
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-position": 4
+          },
+          {
+            "default": 0,
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfArticleSearchDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfArticleSearchDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_GetAddons"
+      }
+    },
+    "/api/Article/GymArticle/{articleId}/{gymId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "indentity number(primary key) for article object",
+            "format": "int32",
+            "in": "path",
+            "name": "articleId",
+            "required": true,
+            "type": "integer",
+            "x-position": 1
+          },
+          {
+            "description": "indentity number(primary key) for gym object",
+            "format": "int32",
+            "in": "path",
+            "name": "gymId",
+            "required": true,
+            "type": "integer",
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response with Article entity",
+            "schema": {
+              "$ref": "#/definitions/GymArticleDetailsDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfArticleSearchDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_GymArticleDetails",
+        "summary": "Get Gym specific properties for article\n            "
+      }
+    },
+    "/api/Article/MeasureUnit": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "list of measureUnit",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MeasureUnitDTO"
+              },
+              "type": "array"
+            },
+            "x-name": "measureUnits",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_AddMeasureUnit",
+        "summary": "Add measure unit"
+      }
+    },
+    "/api/Article/MeasureUnits": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "type of the measure unit (all, item, service)",
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_GetMeasureUnits",
+        "summary": "Get mesure units"
+      }
+    },
+    "/api/Article/RevenueAccounts": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_GetRevenueAccounts",
+        "summary": "Get Revenue Accounts "
+      }
+    },
+    "/api/Article/Search": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "part of article name",
+            "in": "query",
+            "name": "searchText",
+            "type": "string",
+            "x-position": 1
+          },
+          {
+            "default": -1,
+            "description": "-1 for all gyms ",
+            "format": "int32",
+            "in": "query",
+            "name": "gymId",
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "default": "all",
+            "description": "filter article type. default is 'all'",
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-position": 3
+          },
+          {
+            "default": "1",
+            "description": "order by column.!-- invalid column will give internal server error",
+            "in": "query",
+            "name": "orderBy",
+            "type": "string",
+            "x-position": 4
+          },
+          {
+            "default": 100,
+            "description": "number of recode in result and default is 100. use negative numbers to order by desc",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-position": 5
+          },
+          {
+            "default": 0,
+            "description": "number of recodes to skip",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-position": 6
+          },
+          {
+            "default": 1,
+            "description": "Active Status 1 : Active, 2: Inactive, 3: All, Default : 1",
+            "format": "int32",
+            "in": "query",
+            "name": "activeStatus",
+            "type": "integer",
+            "x-position": 7
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response with set of a Article entities",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfArticleSearchDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfArticleSearchDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_Search",
+        "summary": "Search articles\nIt will only return basic information of article\n            "
+      }
+    },
+    "/api/Article/UpdateStatus": {
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "query",
+            "name": "ArticleId",
+            "type": "integer",
+            "x-position": 1
+          },
+          {
+            "description": "1 : activate , 2 deactivate",
+            "format": "int32",
+            "in": "query",
+            "name": "status",
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "description": "Updating user",
+            "in": "query",
+            "name": "userName",
+            "type": "string",
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfInteger"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfInteger"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_UpdateStatus",
+        "summary": "Deactivate existing article "
+      }
+    },
+    "/api/Article/{articleID}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "indentity number (primary key) for article object",
+            "format": "int32",
+            "in": "path",
+            "name": "articleID",
+            "required": true,
+            "type": "integer",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response with Article entity",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfArticleDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Article"
+        ],
+        "operationId": "Article_get",
+        "summary": "Get article details\nThis will return all properties related to article entity\n            "
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Login Credentials",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginDTO"
+            },
+            "x-name": "user",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorizized with a new token or unauthorized request.",
+            "schema": {
+              "format": "binary",
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_Login",
+        "summary": "Authenticate and provide token for autherizations.\n            "
+      }
+    },
+    "/api/Gym/{gymID}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "indentity number (primary key) for gym object",
+            "format": "int32",
+            "in": "path",
+            "name": "gymID",
+            "required": true,
+            "type": "integer",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response with Gym entity",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfGymDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "Gym"
+        ],
+        "operationId": "Gym_get",
+        "summary": "Get gym details\nThis will return all properties related to gym entity\n            "
+      }
+    },
+    "/api/Membership": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "API Response with all Members entity as a list.",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MemberDTO"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Membership"
+        ],
+        "operationId": "Membership_Get",
+        "summary": "Get all of the members details\nThis will return all properties related to member entity\n            "
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "member object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MemberDTO"
+            },
+            "x-name": "member",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "newly created member entity",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Membership"
+        ],
+        "operationId": "Membership_Post",
+        "summary": "Add new Member\n            "
+      }
+    },
+    "/api/Package": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "primary key of package entity",
+            "format": "int32",
+            "in": "query",
+            "name": "PackageId",
+            "type": "integer",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "status 1  : success, status 404 : package not found, status -2: package already in use ",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfBoolean"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfString"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfString"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_Delete",
+        "summary": "Delete existing package\n            "
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "primary key of package entity",
+            "format": "int32",
+            "in": "query",
+            "name": "packageId",
+            "type": "integer",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "all the fields that related to the package",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfPackageDTO"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfPackageDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_Get",
+        "summary": "Get package details by packageId\n            "
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "package object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PackageDTO"
+            },
+            "x-name": "package",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "messageId that can use to get the status of import later on.!",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_Post",
+        "summary": "Insert new package into the system\n            "
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "package object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PackageDTO"
+            },
+            "x-name": "package",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "messageId that can use to get the status of import later on.!",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfStatusDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_Put",
+        "summary": "Update existing package by its ID\n            "
+      }
+    },
+    "/api/Package/Search": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "part of package name",
+            "in": "query",
+            "name": "searchText",
+            "type": "string",
+            "x-position": 1
+          },
+          {
+            "default": -1,
+            "description": "primary key of TL gym entity",
+            "format": "int32",
+            "in": "query",
+            "name": "gymId",
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "default": "all",
+            "description": "filter package type.!-- default is 'all'",
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-position": 3
+          },
+          {
+            "default": "1",
+            "description": "order by column.!-- invalid column will give internal server error",
+            "in": "query",
+            "name": "orderBy",
+            "type": "string",
+            "x-position": 4
+          },
+          {
+            "default": 100,
+            "description": "number of recode in result and default is 100. use negative numbers to order by desc",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-position": 5
+          },
+          {
+            "default": 0,
+            "description": "number of recodes to skip",
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-position": 6
+          },
+          {
+            "default": 1,
+            "description": "active status active : 1, inactive : 2, all 3, deafult : 1",
+            "format": "int32",
+            "in": "query",
+            "name": "activeStatus",
+            "type": "integer",
+            "x-position": 7
+          },
+          {
+            "default": -1,
+            "description": "Packge Category Id",
+            "format": "int32",
+            "in": "query",
+            "name": "categoryId",
+            "type": "integer",
+            "x-position": 8
+          },
+          {
+            "default": 0,
+            "description": "Start price of the price Range",
+            "format": "decimal",
+            "in": "query",
+            "name": "startpPrice",
+            "type": "number",
+            "x-position": 9
+          },
+          {
+            "default": 9999999,
+            "description": "End Price of the price Range",
+            "format": "decimal",
+            "in": "query",
+            "name": "endPrice",
+            "type": "number",
+            "x-position": 10
+          },
+          {
+            "default": 1,
+            "description": "1 : MRM, 2 : Mobile ",
+            "format": "int32",
+            "in": "query",
+            "name": "requestSource",
+            "type": "integer",
+            "x-position": 11
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "basic information of package entity",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/DefaultResponseDTOOfPackageSearchDTO"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfListOfPackageSearchDTO"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_Search",
+        "summary": "Search packages\n            "
+      }
+    },
+    "/api/Package/UpdateStatus": {
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "package Id",
+            "format": "int32",
+            "in": "query",
+            "name": "packageId",
+            "type": "integer",
+            "x-position": 1
+          },
+          {
+            "default": 1,
+            "description": "status : 1 activate, 2 : deactivate",
+            "format": "int32",
+            "in": "query",
+            "name": "status",
+            "type": "integer",
+            "x-position": 2
+          },
+          {
+            "default": "system",
+            "description": "Status updated User",
+            "in": "query",
+            "name": "userName",
+            "type": "string",
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "status 1 : success, status 404 : package not found, status -2: package already in use ",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfBoolean"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfString"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DefaultResponseDTOOfString"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiException"
+            }
+          }
+        },
+        "tags": [
+          "Package"
+        ],
+        "operationId": "Package_UpdateStatus",
+        "summary": "Status update of existing package "
+      }
+    },
+    "/api/Status": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "respose of POST request",
+            "in": "query",
+            "name": "messageId",
+            "type": "string",
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "same response result will retrun with different status and messageText",
+            "schema": {
+              "$ref": "#/definitions/MessageStatus"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          }
+        },
+        "tags": [
+          "Status"
+        ],
+        "operationId": "Status_Get",
+        "summary": "Get the current status of message"
+      }
+    },
+    "/api/Test": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "API Response with test objects as a list.",
+            "schema": {
+              "$ref": "#/definitions/TestDTO"
+            }
+          }
+        },
+        "tags": [
+          "Test"
+        ],
+        "operationId": "Test_get",
+        "summary": "Get the all Test objects.\n            "
+      }
+    },
+    "/api/User": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "API Response with User entity",
+            "schema": {
+              "$ref": "#/definitions/UserDTO"
+            }
+          }
+        },
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Get",
+        "summary": "Get all Users detail\nThis will return all properties related to User entity\n            "
+      }
+    },
+    "/api/User/registerUser": {
+      "post": {
+        "parameters": [
+          {
+            "description": "Indentity number(primary key) for user object. Generated in DB table when inserting a record.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "UserId",
+            "type": "integer",
+            "x-position": 1
+          },
+          {
+            "description": "Account number of the user.It can be any stakeholder of the application.even can be a gym.\n            ",
+            "in": "query",
+            "name": "AccountNumber",
+            "type": "string",
+            "x-position": 2
+          },
+          {
+            "description": "If this user is a gym, then the gym number.\n            ",
+            "in": "query",
+            "name": "GymNumber",
+            "type": "string",
+            "x-position": 3
+          },
+          {
+            "description": "Entity number that make a relationship with BOX API DB.\n            ",
+            "in": "query",
+            "name": "ExternalEntityNumber",
+            "type": "string",
+            "x-position": 4
+          },
+          {
+            "description": "Name of the user.\n            ",
+            "in": "query",
+            "name": "Name",
+            "type": "string",
+            "x-position": 5
+          },
+          {
+            "description": "Unique number maintain by application to idenify user.\n            ",
+            "in": "query",
+            "name": "Number",
+            "type": "string",
+            "x-position": 6
+          },
+          {
+            "description": "If Someone introduced this user to the system, then that user's UserId.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "IntroduceBy",
+            "type": "integer",
+            "x-position": 7
+          },
+          {
+            "description": "Gaurdian of the this user if he/she is under 18 years old.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "Guardian",
+            "type": "integer",
+            "x-position": 8
+          },
+          {
+            "description": "Type of the user.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "TypeId",
+            "type": "integer",
+            "x-position": 9
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response"
+          },
+          "404": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_registerUser",
+        "summary": "Register a new User\n            "
+      }
+    },
+    "/api/User/updateuser": {
+      "put": {
+        "parameters": [
+          {
+            "description": "Indentity number(primary key) for user object. Generated in DB table when inserting a record.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "UserId",
+            "type": "integer",
+            "x-position": 1
+          },
+          {
+            "description": "Account number of the user.It can be any stakeholder of the application.even can be a gym.\n            ",
+            "in": "query",
+            "name": "AccountNumber",
+            "type": "string",
+            "x-position": 2
+          },
+          {
+            "description": "If this user is a gym, then the gym number.\n            ",
+            "in": "query",
+            "name": "GymNumber",
+            "type": "string",
+            "x-position": 3
+          },
+          {
+            "description": "Entity number that make a relationship with BOX API DB.\n            ",
+            "in": "query",
+            "name": "ExternalEntityNumber",
+            "type": "string",
+            "x-position": 4
+          },
+          {
+            "description": "Name of the user.\n            ",
+            "in": "query",
+            "name": "Name",
+            "type": "string",
+            "x-position": 5
+          },
+          {
+            "description": "Unique number maintain by application to idenify user.\n            ",
+            "in": "query",
+            "name": "Number",
+            "type": "string",
+            "x-position": 6
+          },
+          {
+            "description": "If Someone introduced this user to the system, then that user's UserId.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "IntroduceBy",
+            "type": "integer",
+            "x-position": 7
+          },
+          {
+            "description": "Gaurdian of the this user if he/she is under 18 years old.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "Guardian",
+            "type": "integer",
+            "x-position": 8
+          },
+          {
+            "description": "Type of the user.\n            ",
+            "format": "int32",
+            "in": "query",
+            "name": "TypeId",
+            "type": "integer",
+            "x-position": 9
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API Response true or false"
+          },
+          "404": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_updateUser",
+        "summary": "Update an exsisting User\n            "
+      }
+    }
+  },
+  "definitions": {
+    "ApiException": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "customError": {
+              "x-nullable": true
+            },
+            "errors": {
+              "items": {
+                "$ref": "#/definitions/ValidationError"
+              },
+              "type": "array",
+              "x-nullable": true
+            },
+            "isCustomErrorObject": {
+              "type": "boolean"
+            },
+            "isModelValidatonError": {
+              "type": "boolean"
+            },
+            "referenceDocumentLink": {
+              "type": "string",
+              "x-nullable": true
+            },
+            "referenceErrorCode": {
+              "type": "string",
+              "x-nullable": true
+            },
+            "statusCode": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ApiResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        },
+        "statusCode": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "version": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "ArticleDTO": {
+      "additionalProperties": false,
+      "description": "The ArticleDTO Class.\nContains relevant fields of Article DTO by masking actual Article entity's fields in application.\n            ",
+      "properties": {
+        "tags": {
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "activeStatus": {
+          "description": "Active Status ",
+          "type": "boolean"
+        },
+        "applyForAllGyms": {
+          "type": "boolean"
+        },
+        "articleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "availableGyms": {
+          "items": {
+            "$ref": "#/definitions/GymDTO"
+          },
+          "type": "array"
+        },
+        "availableQty": {
+          "description": "Default AvailableQty",
+          "format": "decimal",
+          "type": "number"
+        },
+        "barcode": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string",
+          "x-nullable": true
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdUser": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "cronExpression": {
+          "description": "Access Schedule CRON Expression ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "description": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "discount": {
+          "format": "decimal",
+          "pattern": "^\\d+.\\d{0,2}$|^\\d",
+          "type": "number"
+        },
+        "employeeDiscount": {
+          "description": "Default EmployeeDiscount",
+          "format": "decimal",
+          "type": "number"
+        },
+        "employeePrice": {
+          "description": "Default EmployeePrice",
+          "format": "decimal",
+          "type": "number"
+        },
+        "gymArticles": {
+          "description": "Gym Customizations ",
+          "items": {
+            "$ref": "#/definitions/GymArticleDetailsDTO"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "isAddOn": {
+          "type": "boolean"
+        },
+        "isInventoryItem": {
+          "description": "Default IsInventoryItem of the Article ",
+          "type": "boolean"
+        },
+        "isObsolete": {
+          "description": "Default IsObsolete of the Article ",
+          "type": "boolean"
+        },
+        "measureUnit": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedUser": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string"
+        },
+        "number": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "format": "decimal",
+          "pattern": "^\\d+.\\d{0,2}$|^\\d",
+          "type": "number"
+        },
+        "reorderLevel": {
+          "description": "Deafault ReorderLevel",
+          "format": "decimal",
+          "type": "number"
+        },
+        "revenueAccountId": {
+          "description": "Default Revenue account",
+          "format": "int32",
+          "type": "integer"
+        },
+        "sellingPrice": {
+          "description": "Default SellingPrice",
+          "format": "decimal",
+          "type": "number"
+        },
+        "type": {
+          "minLength": 1,
+          "pattern": "item|service|access",
+          "type": "string"
+        },
+        "vat": {
+          "format": "decimal",
+          "pattern": "^\\d+.\\d{0,2}$|^\\d",
+          "type": "number"
+        },
+        "vatApplicable": {
+          "description": "VAT Applicable ",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "price",
+        "measureUnit",
+        "availableGyms"
+      ],
+      "type": "object"
+    },
+    "ArticleSearchDTO": {
+      "additionalProperties": false,
+      "description": "The ArticleSearchDTO Class.\nContains relevant fields of ArticleSearch DTO by masking actual Article entity's fields in application.\n            ",
+      "properties": {
+        "tags": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "activeStatus": {
+          "description": "Active Status ",
+          "type": "boolean"
+        },
+        "applyForAllGyms": {
+          "type": "boolean"
+        },
+        "articleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdUser": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "description": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "measureUnit": {
+          "description": "MeasureUnit ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedUser": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "number": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "format": "decimal",
+          "type": "number"
+        },
+        "sellingPrice": {
+          "description": "Actual Selling price of the article ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "totalCount": {
+          "description": "total number of recode for particular search ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "description": "article type",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfArticleDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfBoolean": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfGymDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfInteger": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfListOfArticleSearchDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "items": {
+            "$ref": "#/definitions/ArticleSearchDTO"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfListOfPackageSearchDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "items": {
+            "$ref": "#/definitions/PackageSearchDTO"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfPackageDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfPackageSearchDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfStatusDTO": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "DefaultResponseDTOOfString": {
+      "additionalProperties": false,
+      "description": "The DefaultResponseDTO Class.\nContains fields of DefaultResponse DTO in application.\n            ",
+      "properties": {
+        "isError": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "responseException": {
+          "x-nullable": true
+        },
+        "result": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "Exception": {
+      "additionalProperties": false,
+      "properties": {
+        "InnerException": {
+          "x-nullable": true
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "StackTrace": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "GymArticleDetailsDTO": {
+      "additionalProperties": false,
+      "description": "The GymArticleDetailsDTO Class.\nContains fields of GymArticleDetails DTO in application.\n            ",
+      "properties": {
+        "articleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "availableQty": {
+          "format": "decimal",
+          "type": "number"
+        },
+        "createdUser": {
+          "description": "Created User ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "employeeDiscount": {
+          "format": "decimal",
+          "type": "number"
+        },
+        "employeePrice": {
+          "format": "decimal",
+          "type": "number"
+        },
+        "gymId": {
+          "description": "Gym Id where article is related ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "gymIdList": {
+          "description": "GymId - Gym Id string with comma separated GymIds ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "gymName": {
+          "description": "Gym Name",
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isDefault": {
+          "description": "Set as the default values for the article ",
+          "type": "boolean"
+        },
+        "isInventoryItem": {
+          "type": "boolean"
+        },
+        "isObsolete": {
+          "type": "boolean"
+        },
+        "modifiedUser": {
+          "description": "Modified user",
+          "type": "string",
+          "x-nullable": true
+        },
+        "reorderLevel": {
+          "format": "decimal",
+          "type": "number"
+        },
+        "revenueAccountId": {
+          "description": "Revenue account Id",
+          "format": "int32",
+          "type": "integer"
+        },
+        "sellingPrice": {
+          "format": "decimal",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "GymDTO": {
+      "additionalProperties": false,
+      "description": "The GymDTO Class.\nContains relevant fields of Gym DTO by masking actual Gym entity's fields in application.\n            ",
+      "properties": {
+        "externalGymNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gymId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gymName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "location": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "LoginDTO": {
+      "additionalProperties": false,
+      "description": "The LoginDTO Class.\nContains relevant fields of Login DTO.\n            ",
+      "properties": {
+        "password": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "remember": {
+          "type": "boolean"
+        },
+        "username": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "MeasureUnitDTO": {
+      "additionalProperties": false,
+      "description": "Mesure unit to represent article mesure unit ",
+      "properties": {
+        "id": {
+          "description": "Id of the table",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Mesure Unit Type",
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "description": "Type of the article used with (all, service, item)",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "MemberDTO": {
+      "additionalProperties": false,
+      "description": "The MemeberDTO Class.\nContains relevant fields of Member DTO by masking actual Member entity's fields in application.\n            ",
+      "properties": {
+        "name": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "MessageStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "referenceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "source": {
+          "x-nullable": true
+        },
+        "statusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "statusText": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "PackageDTO": {
+      "additionalProperties": false,
+      "description": "The PackageDTO Class.\nContains relevant fields of Package DTO by masking actual Package entity's fields in application.\n            ",
+      "properties": {
+        "tags": {
+          "description": "Comma separated string values in case of need of maintain some labels kind of \n             stuff relevant to the package.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "addOns": {
+          "description": "Extra articles list added to the given package.\n            ",
+          "items": {
+            "$ref": "#/definitions/PackageItemDTO"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "addonFee": {
+          "description": "sum of addon fees.\nincoming values for this filed will ignore.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "applyForAllGyms": {
+          "description": "Boolean value to indicate wheather package is available in all the gyms.\n            ",
+          "type": "boolean"
+        },
+        "availableGyms": {
+          "description": "Gyms list where this package is available.\n            ",
+          "items": {
+            "$ref": "#/definitions/GymDTO"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "bindingPeriod": {
+          "description": "Range of period a member is bound to the contract if he/she choose this package.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "description": "Package created DateTime.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdUser": {
+          "description": "Package created user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "description": {
+          "description": "Common descriptions about package.If there are more instructions \n             can be stored as comma separated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "endDate": {
+          "description": "End date of the package.After that package is not valid for use.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "expireInMonths": {
+          "description": "No of months the fixed package is valid for sale\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "features": {
+          "description": "What are the facilities, features available for package.ex:- wifi,\nACm etc.Can be stored as comma seperated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "freeMonths": {
+          "description": "No of months gym member can come without payments.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "instructionsToGymUsers": {
+          "description": "Instruction to the gym members relevant to the package.\n             If there are more instructions can be stored as comma seperated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "instructionsToWebUsers": {
+          "description": "Instruction to the MRM members relevant to the package.\n             If there are more instructions can be stored as comma seperated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "isActive": {
+          "description": "Boolean value to indicate this package is still active or not.\n            ",
+          "type": "boolean"
+        },
+        "isAtg": {
+          "description": "Boolean value to indicate ATG transaction from bank is applicable or not.\n            ",
+          "type": "boolean"
+        },
+        "isAutoRenew": {
+          "description": "Boolean value to indicate the contract will auto renew after expiration \n             if this package would be chosen.\n            ",
+          "type": "boolean"
+        },
+        "isFirstMonthFree": {
+          "description": "Boolean value to indicate if the first month charges is free.\n            ",
+          "type": "boolean"
+        },
+        "isRegistrationFee": {
+          "description": "Boolean value to indicate this package has registration fee or not.\n            ",
+          "type": "boolean"
+        },
+        "isRestAmount": {
+          "description": "Boolean value to indicate rest amount is applicable or not.\n            ",
+          "type": "boolean"
+        },
+        "isShownInMobile": {
+          "description": "Boolean value to indicate package is visible in Mobile App or not.\n            ",
+          "type": "boolean"
+        },
+        "isSponsorPackage": {
+          "description": "Boolean value to indicate package can be sponsored or not by other party.\n            ",
+          "type": "boolean"
+        },
+        "maximumGiveAwayRestAmount": {
+          "description": "If a member join the gym middle of a month via this package, \n             what is the maximum amount of price can be neglected from payment from the member.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "memberCanAddAddOns": {
+          "description": "Boolean value to indicate member can add extra addons he wish if he choose this package.\n            ",
+          "type": "boolean"
+        },
+        "memberCanLeaveWithinFreePeriod": {
+          "description": "Boolean value to indicate if member can leave from contract within \n             free period if he/she choose this package.\n            ",
+          "type": "boolean"
+        },
+        "memberCanRemoveAddOns": {
+          "description": "Boolean value to indicate member can remove already added addons if he choose this package.\n            ",
+          "type": "boolean"
+        },
+        "modifiedDate": {
+          "description": "Package last modified DateTime.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedUser": {
+          "description": "Package last modified user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "monthlyFee": {
+          "description": "Monthly installment fee if package is not fixed visit.\naddition of the servicefee and addon fees divided by binding period.\n             read only\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "nextPackageNumber": {
+          "description": "Next Package the contract continue after the binding period of this package.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfInstallments": {
+          "description": "Maximum Number of installment a member can divide the package price/cost to pay.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfVisits": {
+          "description": "If package is fixed visit type, then how many visits are available for this package.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "packageNumber": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "packageType": {
+          "description": "Package type can be either fixed visit or unlimited.\n            ",
+          "minLength": 1,
+          "pattern": "fixedvisit|unlimited",
+          "type": "string"
+        },
+        "perVisitPrice": {
+          "description": "Cost/Price of the single visit to gym.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "registrationFee": {
+          "description": "Registartion fee for the package at a gym.\n             read only\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "serviceFee": {
+          "description": "total Service charge of the package for entire period.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "shownInWeb": {
+          "description": "Boolean value to show this package in MRM system or not.\n            ",
+          "type": "boolean"
+        },
+        "startDate": {
+          "description": "Start date of the package.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "totalPrice": {
+          "description": "total price for the package including Addon fees, service fee and registration fee.\nincoming values for this field will ignore.\n            ",
+          "format": "decimal",
+          "type": "number"
+        }
+      },
+      "required": [
+        "packageName",
+        "registrationFee",
+        "packageType",
+        "serviceFee"
+      ],
+      "type": "object"
+    },
+    "PackageItemDTO": {
+      "additionalProperties": false,
+      "description": "The PackageItemDTO Class.\nContains relevant fields of PackageItem DTO by masking actual Package entity's fields in application.\n            ",
+      "properties": {
+        "articleId": {
+          "description": "Refer to ArticleId in Article table in DB.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "articleName": {
+          "description": "Name of the article(Addon) in a particular package.\n             read only\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "articleNumber": {
+          "description": "Number assigned the article(Addon) in a particular package.\n             read only\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "articlePrice": {
+          "description": "Price of the article determined from that package.\nPrice of a same article can be varied from package to package.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "endOrder": {
+          "description": "Number of the installment this article is available to.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "isIncludeServiceInCharge": {
+          "description": "Is Included in service charge ",
+          "type": "boolean"
+        },
+        "measureUnit": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "numberOfItems": {
+          "description": "How many article(Addon) is available for that package from that type.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "startOrder": {
+          "description": "Number of the installment this article is available from.\n            ",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "articleId"
+      ],
+      "type": "object"
+    },
+    "PackageSearchDTO": {
+      "additionalProperties": false,
+      "description": "The PackageSearchDTO Class.\nContains relevant fields of PackageSearch DTO by masking actual Package entity's fields in application.\n               ",
+      "properties": {
+        "tags": {
+          "description": "Comma separated string values in case of need of maintain some labels kind of stuff relevant to the package.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "activeStatus": {
+          "description": "Active Status ",
+          "type": "boolean"
+        },
+        "addonFee": {
+          "description": "sum of addon fees.\nincoming values for this filed will ignore.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "applyForAllGyms": {
+          "description": "Boolean value to indicate wheather package is available in all the gyms.\n            ",
+          "type": "boolean"
+        },
+        "bindingPeriod": {
+          "description": "Range of period a member is bound to the contract if he/she choose this package.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "description": "Package created DateTime.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdUser": {
+          "description": "Package created user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "description": {
+          "description": "Common descriptions about package.If there are more instructions can be stored as comma separated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "features": {
+          "description": "What are the facilities, features available for package.ex:- wifi, ACm etc.Can be stored as comma seperated values.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "freeMonths": {
+          "description": "No of months gym member can come without payments.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "memberCanRemoveAddOns": {
+          "description": "Boolean value to indicate member can remove already added addons if he choose this package.\n            ",
+          "type": "boolean"
+        },
+        "modifiedDate": {
+          "description": "Package last modified DateTime.\n            ",
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedUser": {
+          "description": "Package last modified user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "monthlyFee": {
+          "description": "Monthly installment fee if package is not fixed visit.\naddition of the servicefee and addon fees divided by binding period.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "numberOfVisits": {
+          "description": "No of visits for fixed package ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageName": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "packageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageType": {
+          "description": "Package type can be either fixed visit or unlimited.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "registrationFee": {
+          "description": "Registartion fee for the package at a gym.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "serviceFee": {
+          "description": "total Service charge of the package for entire period.\n            ",
+          "format": "decimal",
+          "type": "number"
+        },
+        "totalCount": {
+          "description": "total number of recode for particular search ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalPrice": {
+          "description": "total price for the package including Addon fees, service fee and registration fee.\nincoming values for this field will ignore.\n            ",
+          "format": "decimal",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "ProblemDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "extensions": {
+          "additionalProperties": {},
+          "type": "object",
+          "x-nullable": true
+        },
+        "instance": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "title": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "type": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "StatusDTO": {
+      "additionalProperties": false,
+      "description": "Imideate response for long running api call.\n            ",
+      "properties": {
+        "messageId": {
+          "description": "Reference id for status endpoint\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "statusText": {
+          "description": "Status of API Call\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "url": {
+          "description": "Relative url for stauts check\n            ",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "TestDTO": {
+      "additionalProperties": false,
+      "description": "The TestDTO Class.\nContains relevant fields of Test DTO by masking actual Test entity's fields in application.\n            ",
+      "properties": {
+        "id": {
+          "description": "Id of the Test object\n            ",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "UserDTO": {
+      "additionalProperties": false,
+      "description": "The UserDTO Class.\nContains relevant fields of User DTO by masking actual User entity's fields in application.\n            ",
+      "properties": {
+        "accountNumber": {
+          "description": "Account number of the user.It can be any stakeholder of the application.even can be a gym.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "externalEntityNumber": {
+          "description": "Entity number that make a relationship with BOX API DB.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "guardian": {
+          "description": "Gaurdian of the this user if he/she is under 18 years old.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "gymNumber": {
+          "description": "If this user is a gym, then the gym number.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "introduceBy": {
+          "description": "If Someone introduced this user to the system, then that user's UserId.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of the user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "number": {
+          "description": "Unique number maintain by application to idenify user.\n            ",
+          "type": "string",
+          "x-nullable": true
+        },
+        "typeId": {
+          "description": "Type of the user.\n            ",
+          "format": "int32",
+          "type": "integer"
+        },
+        "userId": {
+          "description": "Indentity number(primary key) for user object. Generated in DB table when inserting a record.\n            ",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ValidationError": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "x-nullable": true
+        },
+        "message": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "apikey": {
+      "in": "header",
+      "name": "Ocp-Apim-Subscription-Key",
+      "type": "apiKey"
+    },
+    "bearer": {
+      "authorizationUrl": "https://tldev.eu.auth0.com/authorize",
+      "description": "auth0 authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "read:tl_articles": "read:tl_articles",
+        "read:tl_packages": "read:tl_packages"
+      },
+      "tokenUrl": "https://tldev.eu.auth0.com/oauth/token",
+      "type": "oauth2"
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "x-components": {},
+  "x-generator": "NSwag v13.4.2.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))"
+}

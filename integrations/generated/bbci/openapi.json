@@ -1,11 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "host": "ibl.api.bbci.co.uk",
-  "basePath": "/ibl/v1",
   "info": {
     "contact": {
       "email": "ibl-team@lists.forge.bbc.co.uk",
@@ -24,18 +18,18 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_828722.png"
     },
     "x-origin": [
       {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Mermade/bbcparse/master/iblApi/swagger.json",
-        "version": "2.0"
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/Mermade/bbcparse/master/iblApi/openapi.yaml",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
     "x-providerName": "bbci.co.uk",
-    "x-release": "1.0.0-375",
+    "x-release": "1.0.0-490",
     "x-schema-id": "https://ibl.api.bbci.co.uk/ibl/v1/schema/ibl.json",
     "x-unofficialSpec": true,
     "x-datafire": {
@@ -43,175 +37,17 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "BBC iPlayer documentation",
-    "url": "http://smethur.st/posts/176135860"
-  },
-  "consumes": [
-    "application/json"
+  "host": "ibl.api.bbci.co.uk",
+  "basePath": "/ibl/v1",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "api_key": {
-      "in": "query",
-      "name": "api_key",
-      "type": "apiKey"
-    },
-    "basic": {
-      "description": "Used only by store purchases.",
-      "type": "basic"
-    }
-  },
-  "security": [
-    {
-      "api_key": []
-    }
-  ],
-  "parameters": {
-    "availability": {
-      "default": "available",
-      "description": "Whether to return all, or available programmes",
-      "enum": [
-        "all",
-        "available"
-      ],
-      "in": "query",
-      "name": "availability",
-      "required": true,
-      "type": "string"
-    },
-    "category": {
-      "description": "The category identifier to return results from.",
-      "in": "path",
-      "name": "category",
-      "required": true,
-      "type": "string"
-    },
-    "channel": {
-      "description": "The channel identifier to limit results to.",
-      "in": "path",
-      "name": "channel",
-      "required": true,
-      "type": "string"
-    },
-    "identity_cookie": {
-      "description": "The BBC-id cookie value",
-      "format": "double",
-      "in": "query",
-      "name": "identity_cookie",
-      "required": true,
-      "type": "number"
-    },
-    "initial_child_count": {
-      "default": 4,
-      "description": "The depth to return child entities.",
-      "in": "query",
-      "maximum": 4,
-      "minimum": 1,
-      "name": "initial_child_count",
-      "required": true,
-      "type": "integer"
-    },
-    "lang": {
-      "description": "The language for any applicable localised strings.",
-      "enum": [
-        "en",
-        "cy",
-        "ga",
-        "gd",
-        "pi"
-      ],
-      "in": "query",
-      "name": "lang",
-      "required": true,
-      "type": "string"
-    },
-    "mixin": {
-      "collectionFormat": "multi",
-      "description": "Request additional data in the output",
-      "enum": [
-        "live",
-        "promotions"
-      ],
-      "in": "query",
-      "items": {
-        "type": "string"
-      },
-      "name": "mixin",
-      "required": false,
-      "type": "array"
-    },
-    "page": {
-      "description": "The page index.",
-      "format": "int64",
-      "in": "query",
-      "name": "page",
-      "required": true,
-      "type": "integer"
-    },
-    "per_page": {
-      "description": "The number of results to return.",
-      "format": "int64",
-      "in": "query",
-      "name": "per_page",
-      "required": true,
-      "type": "integer"
-    },
-    "pid": {
-      "description": "The programme identifier.",
-      "in": "path",
-      "minLength": 8,
-      "name": "pid",
-      "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
-      "required": true,
-      "type": "string"
-    },
-    "q": {
-      "description": "The term to search for.",
-      "in": "query",
-      "name": "q",
-      "required": true,
-      "type": "string"
-    },
-    "rights": {
-      "default": "web",
-      "description": "The rights group to limit results to.",
-      "enum": [
-        "mobile",
-        "tv",
-        "web"
-      ],
-      "in": "query",
-      "name": "rights",
-      "required": true,
-      "type": "string"
-    },
-    "sort": {
-      "description": "The sort order of the results.",
-      "in": "query",
-      "name": "sort",
-      "required": true,
-      "type": "string"
-    },
-    "sort_direction": {
-      "description": "Whether to sort ascending or descending",
-      "enum": [
-        "asc",
-        "desc"
-      ],
-      "in": "query",
-      "name": "sort_direction",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/atoz/{letter}/programmes": {
       "get": {
-        "description": "Get the Programmes whose title begins with the given initial character.",
-        "operationId": "atoz.letter.programmes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Letter to search by, a to z or the string '0-9'",
@@ -222,16 +58,43 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/initial_child_count"
+            "default": 4,
+            "description": "The depth to return child entities.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "initial_child_count",
+            "required": true,
+            "type": "integer"
           },
           {
             "description": "The sort order of the results.",
@@ -244,10 +107,27 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/sort_direction"
+            "description": "Whether to sort ascending or descending",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "sort_direction",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -259,19 +139,33 @@
           }
         },
         "security": [],
-        "summary": "Programmes by initial title character",
         "tags": [
           "A to Z"
-        ]
+        ],
+        "description": "Get the Programmes whose title begins with the given initial character.",
+        "operationId": "Get_Programmes AtoZ search_",
+        "summary": "Programmes by initial title character"
       }
     },
     "/categories": {
       "get": {
-        "description": "Get the list of all the categories in TV & iPlayer.",
-        "operationId": "Get_Categories_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -283,22 +177,40 @@
           }
         },
         "security": [],
-        "summary": "Get categories",
         "tags": [
           "Categories"
-        ]
+        ],
+        "description": "Get the list of all the categories in TV & iPlayer.",
+        "operationId": "Get_Categories_",
+        "summary": "Get categories"
       }
     },
     "/categories/{category}": {
       "get": {
-        "description": "Get sub-categories",
-        "operationId": "categories.category.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/category"
+            "description": "The category identifier to return results from.",
+            "in": "path",
+            "name": "category",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -310,34 +222,81 @@
           }
         },
         "security": [],
-        "summary": "Get sub-categories",
         "tags": [
           "Categories"
-        ]
+        ],
+        "description": "Get sub-categories",
+        "operationId": "Get_Sub-categories_",
+        "summary": "Get sub-categories"
       }
     },
     "/categories/{category}/episodes": {
       "get": {
-        "description": "Get the list of all the episodes for a given category in TV & iPlayer.",
-        "operationId": "categories.category.episodes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/category"
+            "description": "The category identifier to return results from.",
+            "in": "path",
+            "name": "category",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           },
           {
             "description": "The sort order of the results.",
@@ -360,31 +319,80 @@
           }
         },
         "security": [],
-        "summary": "List all the episodes for a category.",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get the list of all the episodes for a given category in TV & iPlayer.",
+        "operationId": "Get_Episodes by category_",
+        "summary": "List all the episodes for a category."
       }
     },
     "/categories/{category}/highlights": {
       "get": {
-        "description": "Get the editorial highlights of a given category in TV & iPlayer.",
-        "operationId": "categories.category.highlights.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/category"
+            "description": "The category identifier to return results from.",
+            "in": "path",
+            "name": "category",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -396,34 +404,81 @@
           }
         },
         "security": [],
-        "summary": "List the highlights for a category.",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get the editorial highlights of a given category in TV & iPlayer.",
+        "operationId": "Get_Highlights by category_",
+        "summary": "List the highlights for a category."
       }
     },
     "/categories/{category}/programmes": {
       "get": {
-        "description": "Get the list of all the Programmes (TLEOs) for a given category in TV & iPlayer.",
-        "operationId": "categories.category.programmes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/category"
+            "description": "The category identifier to return results from.",
+            "in": "path",
+            "name": "category",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -435,16 +490,19 @@
           }
         },
         "security": [],
-        "summary": "List all the programmes for a category.",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get the list of all the Programmes (TLEOs) for a given category in TV & iPlayer.",
+        "operationId": "Get_Programmes by category_",
+        "summary": "List all the programmes for a category."
       }
     },
     "/channels": {
       "get": {
-        "description": "Get the list of all the channels TV & iPlayer.",
-        "operationId": "Get_Channels_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "The region to get the channels for.",
@@ -454,7 +512,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -466,34 +535,88 @@
           }
         },
         "security": [],
-        "summary": "List all the channels.",
         "tags": [
           "Channels"
-        ]
+        ],
+        "description": "Get the list of all the channels TV & iPlayer.",
+        "operationId": "Get_Channels_",
+        "summary": "List all the channels."
       }
     },
     "/channels/{channel}/broadcasts": {
       "get": {
-        "description": "Get broadcasts by channel",
-        "operationId": "channels.channel.broadcasts.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/channel"
+            "description": "The channel identifier to limit results to.",
+            "in": "path",
+            "name": "channel",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           },
           {
             "description": "Time to return results from, e.g. -3h",
@@ -512,28 +635,65 @@
           }
         },
         "security": [],
-        "summary": "Get broadcasts by channel",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get broadcasts by channel",
+        "operationId": "Get_Broadcasts by channel_",
+        "summary": "Get broadcasts by channel"
       }
     },
     "/channels/{channel}/highlights": {
       "get": {
-        "description": "Get the editorial highlights of a given channel in TV & iPlayer.",
-        "operationId": "channels.channel.highlights.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/channel"
+            "description": "The channel identifier to limit results to.",
+            "in": "path",
+            "name": "channel",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Whether to include live programmes",
@@ -543,7 +703,19 @@
             "type": "boolean"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -555,34 +727,81 @@
           }
         },
         "security": [],
-        "summary": "List the highlights for a channel.",
         "tags": [
           "Channels"
-        ]
+        ],
+        "description": "Get the editorial highlights of a given channel in TV & iPlayer.",
+        "operationId": "Get_Highlights by channel_",
+        "summary": "List the highlights for a channel."
       }
     },
     "/channels/{channel}/programmes": {
       "get": {
-        "description": "Get programmes by channel",
-        "operationId": "channels.channel.programmes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/channel"
+            "description": "The channel identifier to limit results to.",
+            "in": "path",
+            "name": "channel",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -594,19 +813,26 @@
           }
         },
         "security": [],
-        "summary": "Get programmes by channel",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get programmes by channel",
+        "operationId": "Get_Programmes by channel_",
+        "summary": "Get programmes by channel"
       }
     },
     "/channels/{channel}/schedule/{date}": {
       "get": {
-        "description": "Get schedule by channel",
-        "operationId": "channels.channel.schedule.date.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/channel"
+            "description": "The channel identifier to limit results to.",
+            "in": "path",
+            "name": "channel",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The date to return the schedule for, yyyy-mm-dd format",
@@ -616,13 +842,43 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -634,25 +890,53 @@
           }
         },
         "security": [],
-        "summary": "Get schedule by channel",
         "tags": [
           "Channels"
-        ]
+        ],
+        "description": "Get schedule by channel",
+        "operationId": "Get_Schedule by channel_",
+        "summary": "Get schedule by channel"
       }
     },
     "/clips/{pid}": {
       "get": {
-        "description": "Get Clips",
-        "operationId": "Get_Clips_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -664,28 +948,68 @@
           }
         },
         "security": [],
-        "summary": "Get Clips",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get Clips",
+        "operationId": "Get_Clips_",
+        "summary": "Get Clips"
       }
     },
     "/episodes/{pid}": {
       "get": {
-        "description": "Get the episode for a given episode identifier.",
-        "operationId": "episodes.pid.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -697,25 +1021,53 @@
           }
         },
         "security": [],
-        "summary": "Episode for a given pid.",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get the episode for a given episode identifier.",
+        "operationId": "Get_Programme by PID_",
+        "summary": "Episode for a given pid."
       }
     },
     "/episodes/{pid}/next": {
       "get": {
-        "description": "Get Onward Journey (next programme)",
-        "operationId": "Get_Onward_Journey",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -727,25 +1079,53 @@
           }
         },
         "security": [],
-        "summary": "Get Onward Journey",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get Onward Journey (next programme)",
+        "operationId": "Get_Onward_Journey",
+        "summary": "Get Onward Journey"
       }
     },
     "/episodes/{pid}/postrolls": {
       "get": {
-        "description": "Get Follow-ups (post-rolls)",
-        "operationId": "getPostRolls",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -757,25 +1137,53 @@
           }
         },
         "security": [],
-        "summary": "Get Follow-ups (post-rolls)",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get Follow-ups (post-rolls)",
+        "operationId": "getPostRolls",
+        "summary": "Get Follow-ups (post-rolls)"
       }
     },
     "/episodes/{pid}/prerolls": {
       "get": {
-        "description": "Get Trailers (pre-rolls)",
-        "operationId": "episodes.pid.prerolls.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -787,31 +1195,69 @@
           }
         },
         "security": [],
-        "summary": "Get Trailers (pre-rolls)",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get Trailers (pre-rolls)",
+        "operationId": "Get_Trailers (pre-rolls)_",
+        "summary": "Get Trailers (pre-rolls)"
       }
     },
     "/episodes/{pid}/recommendations": {
       "get": {
-        "description": "Get programme recommendations",
-        "operationId": "episodes.pid.recommendations.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -823,40 +1269,103 @@
           }
         },
         "security": [],
-        "summary": "Get programme recommendations",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get programme recommendations",
+        "operationId": "Get_Programme recommendations_",
+        "summary": "Get programme recommendations"
       }
     },
     "/groups/popular/episodes": {
       "get": {
-        "description": "Get programmes popular",
-        "operationId": "groups.popular.episodes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/initial_child_count"
+            "default": 4,
+            "description": "The depth to return child entities.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "initial_child_count",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/sort"
+            "description": "The sort order of the results.",
+            "in": "query",
+            "name": "sort",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/sort_direction"
+            "description": "Whether to sort ascending or descending",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "sort_direction",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -868,43 +1377,112 @@
           }
         },
         "security": [],
-        "summary": "Get programmes popular",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get programmes popular",
+        "operationId": "Get_Programmes popular_",
+        "summary": "Get programmes popular"
       }
     },
     "/groups/{pid}/episodes": {
       "get": {
-        "description": "Get episodes by group, brand or series",
-        "operationId": "groups.pid.episodes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/page"
+            "description": "The page index.",
+            "format": "int64",
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/per_page"
+            "description": "The number of results to return.",
+            "format": "int64",
+            "in": "query",
+            "name": "per_page",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/initial_child_count"
+            "default": 4,
+            "description": "The depth to return child entities.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "initial_child_count",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/sort"
+            "description": "The sort order of the results.",
+            "in": "query",
+            "name": "sort",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/sort_direction"
+            "description": "Whether to sort ascending or descending",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "sort_direction",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -916,28 +1494,73 @@
           }
         },
         "security": [],
-        "summary": "Get episodes by group, brand or series",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get episodes by group, brand or series",
+        "operationId": "Get_Episodes by group_",
+        "summary": "Get episodes by group, brand or series"
       }
     },
     "/home/highlights": {
       "get": {
-        "description": "Get programme highlights",
-        "operationId": "home.highlights.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/mixin"
+            "collectionFormat": "multi",
+            "description": "Request additional data in the output",
+            "enum": [
+              "live",
+              "promotions"
+            ],
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "mixin",
+            "required": false,
+            "type": "array"
           }
         ],
         "responses": {
@@ -949,28 +1572,63 @@
           }
         },
         "security": [],
-        "summary": "Get programme highlights",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get programme highlights",
+        "operationId": "Get_Programme highlights_",
+        "summary": "Get programme highlights"
       }
     },
     "/programmes/{pid}": {
       "get": {
-        "description": "Get the programme for a given programme identifier.",
-        "operationId": "programmes.pid.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/initial_child_count"
+            "default": 4,
+            "description": "The depth to return child entities.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "initial_child_count",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -982,28 +1640,63 @@
           }
         },
         "security": [],
-        "summary": "Programme for a given pid.",
         "tags": [
           "Programmes (TLEOs)"
-        ]
+        ],
+        "description": "Get the programme for a given programme identifier.",
+        "operationId": "Get_Programmes by parent PID_",
+        "summary": "Programme for a given pid."
       }
     },
     "/programmes/{pid}/episodes": {
       "get": {
-        "description": "Get the child episodes belonging to a given programme identifier.",
-        "operationId": "programmes.pid.episodes.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/pid"
+            "description": "The programme identifier.",
+            "in": "path",
+            "minLength": 8,
+            "name": "pid",
+            "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/initial_child_count"
+            "default": 4,
+            "description": "The depth to return child entities.",
+            "in": "query",
+            "maximum": 4,
+            "minimum": 1,
+            "name": "initial_child_count",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1015,19 +1708,33 @@
           }
         },
         "security": [],
-        "summary": "Child episodes for a given programme pid.",
         "tags": [
           "Episodes"
-        ]
+        ],
+        "description": "Get the child episodes belonging to a given programme identifier.",
+        "operationId": "Get_Episodes by parent PID_",
+        "summary": "Child episodes for a given programme pid."
       }
     },
     "/regions": {
       "get": {
-        "description": "Get the list of all the regions TV & iPlayer.",
-        "operationId": "Get_Regions_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1039,16 +1746,19 @@
           }
         },
         "security": [],
-        "summary": "List all regions",
         "tags": [
           "Regions"
-        ]
+        ],
+        "description": "Get the list of all the regions TV & iPlayer.",
+        "operationId": "Get_Regions_",
+        "summary": "List all regions"
       }
     },
     "/schema/ibl.json": {
       "get": {
-        "description": "Get schema",
-        "operationId": "Get_Schema_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -1059,28 +1769,65 @@
           }
         },
         "security": [],
-        "summary": "Get schema",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "description": "Get schema",
+        "operationId": "Get_Schema_",
+        "summary": "Get schema"
       }
     },
     "/search": {
       "get": {
-        "description": "Search",
-        "operationId": "Search_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/q"
+            "description": "The term to search for.",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1092,28 +1839,65 @@
           }
         },
         "security": [],
-        "summary": "Search",
         "tags": [
           "Search"
-        ]
+        ],
+        "description": "Search",
+        "operationId": "Search_",
+        "summary": "Search"
       }
     },
     "/search-suggest": {
       "get": {
-        "description": "Search-suggest",
-        "operationId": "search_suggest.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/q"
+            "description": "The term to search for.",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/lang"
+            "description": "The language for any applicable localised strings.",
+            "enum": [
+              "en",
+              "cy",
+              "ga",
+              "gd",
+              "pi"
+            ],
+            "in": "query",
+            "name": "lang",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/rights"
+            "default": "web",
+            "description": "The rights group to limit results to.",
+            "enum": [
+              "mobile",
+              "tv",
+              "web"
+            ],
+            "in": "query",
+            "name": "rights",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/availability"
+            "default": "available",
+            "description": "Whether to return all, or available programmes",
+            "enum": [
+              "all",
+              "available"
+            ],
+            "in": "query",
+            "name": "availability",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1125,16 +1909,19 @@
           }
         },
         "security": [],
-        "summary": "Search-suggest",
         "tags": [
           "Search"
-        ]
+        ],
+        "description": "Search-suggest",
+        "operationId": "Search-suggest_",
+        "summary": "Search-suggest"
       }
     },
     "/status": {
       "get": {
-        "description": "Get the current iPlayer business layer status. This tells the caller the status of the iPlayer data, but not necessarily the overall status of the website. In the future it might include the status of the dependent data services within the BBC.",
-        "operationId": "Get_Status_",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -1145,19 +1932,27 @@
           }
         },
         "security": [],
-        "summary": "Get status",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "description": "Get the current iPlayer business layer status. This tells the caller the status of the iPlayer data, but not necessarily the overall status of the website. In the future it might include the status of the dependent data services within the BBC.",
+        "operationId": "Get_Status_",
+        "summary": "Get status"
       }
     },
     "/user/purchases": {
       "get": {
-        "description": "Get user store purchases",
-        "operationId": "user.purchases.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/identity_cookie"
+            "description": "The BBC-id cookie value",
+            "format": "double",
+            "in": "query",
+            "name": "identity_cookie",
+            "required": true,
+            "type": "number"
           }
         ],
         "responses": {
@@ -1173,19 +1968,27 @@
             "basic": []
           }
         ],
-        "summary": "Get user store purchases",
         "tags": [
           "User"
-        ]
+        ],
+        "description": "Get user store purchases",
+        "operationId": "Get_User store purchases_",
+        "summary": "Get user store purchases"
       }
     },
     "/user/recommendations": {
       "get": {
-        "description": "Get user store recommendations",
-        "operationId": "user.recommendations.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/identity_cookie"
+            "description": "The BBC-id cookie value",
+            "format": "double",
+            "in": "query",
+            "name": "identity_cookie",
+            "required": true,
+            "type": "number"
           }
         ],
         "responses": {
@@ -1197,19 +2000,27 @@
           }
         },
         "security": [],
-        "summary": "Get user store recommendations",
         "tags": [
           "User"
-        ]
+        ],
+        "description": "Get user store recommendations",
+        "operationId": "Get_User store recommendations_",
+        "summary": "Get user store recommendations"
       }
     },
     "/user/watching": {
       "get": {
-        "description": "Get user watching",
-        "operationId": "user.watching.get",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/identity_cookie"
+            "description": "The BBC-id cookie value",
+            "format": "double",
+            "in": "query",
+            "name": "identity_cookie",
+            "required": true,
+            "type": "number"
           }
         ],
         "responses": {
@@ -1221,10 +2032,12 @@
           }
         },
         "security": [],
-        "summary": "Get user watching",
         "tags": [
           "User"
-        ]
+        ],
+        "description": "Get user watching",
+        "operationId": "Get_User watching_",
+        "summary": "Get user watching"
       }
     }
   },
@@ -1251,41 +2064,12 @@
       ],
       "type": "object"
     },
-    "autoplay": {
-      "additionalProperties": false,
-      "properties": {
-        "episode": {
-          "$ref": "#/definitions/episode"
-        },
-        "source": {
-          "enum": [
-            "precs",
-            "receng",
-            "next",
-            "watching"
-          ]
-        },
-        "type": {
-          "enum": [
-            "autoplay"
-          ]
-        }
-      },
-      "required": [
-        "episode",
-        "type",
-        "source"
-      ],
-      "type": "object"
-    },
     "broadcast": {
       "additionalProperties": false,
       "properties": {
         "available_on_hd_service": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string",
+          "x-nullable": true
         },
         "blanked": {
           "type": "boolean"
@@ -1314,6 +2098,29 @@
         },
         "episode_id": {
           "type": "string"
+        },
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "system": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "system",
+              "time"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         },
         "id": {
           "type": "string"
@@ -1474,6 +2281,9 @@
         "labels": {
           "additionalProperties": false,
           "properties": {
+            "category": {
+              "type": "string"
+            },
             "editorial": {
               "type": "string"
             }
@@ -1595,7 +2405,14 @@
                 ],
                 "type": "object"
               },
+              "events": {
+                "items": {},
+                "type": "array"
+              },
               "first_broadcast": {
+                "type": "string"
+              },
+              "first_broadcast_date_time": {
                 "type": "string"
               },
               "guidance": {
@@ -1632,7 +2449,27 @@
                 "type": "string"
               },
               "kind": {
-                "type": "string"
+                "enum": [
+                  "legal",
+                  "editorial",
+                  "technical-replacement",
+                  "original",
+                  "iplayer-version",
+                  "lengthened",
+                  "shortened",
+                  "pre-watershed",
+                  "post-watershed",
+                  "warnings-higher",
+                  "warnings-lower",
+                  "warnings-none",
+                  "duplication",
+                  "open-subtitled",
+                  "other",
+                  "audio-described",
+                  "signed",
+                  "webcast",
+                  "simulcast"
+                ]
               },
               "rrc": {
                 "additionalProperties": false,
@@ -1670,12 +2507,16 @@
                   "version",
                   "version_large"
                 ]
+              },
+              "uhd": {
+                "type": "boolean"
               }
             },
             "required": [
               "id",
               "type",
               "hd",
+              "uhd",
               "download",
               "duration",
               "kind",
@@ -1710,10 +2551,16 @@
           },
           "type": "array"
         },
+        "childrens": {
+          "type": "boolean"
+        },
         "editorial_subtitle": {
           "type": "string"
         },
         "editorial_title": {
+          "type": "string"
+        },
+        "event_group_id": {
           "type": "string"
         },
         "guidance": {
@@ -1728,7 +2575,25 @@
         "images": {
           "additionalProperties": false,
           "properties": {
+            "character_image": {
+              "type": "string"
+            },
             "inherited_from": {
+              "type": "string"
+            },
+            "live": {
+              "type": "string"
+            },
+            "portrait": {
+              "type": "string"
+            },
+            "programme_logo": {
+              "type": "string"
+            },
+            "promotional": {
+              "type": "string"
+            },
+            "promotional_with_logo": {
               "type": "string"
             },
             "standard": {
@@ -1770,6 +2635,12 @@
         "live": {
           "type": "boolean"
         },
+        "live_subtitle": {
+          "type": "string"
+        },
+        "live_title": {
+          "type": "string"
+        },
         "master_brand": {
           "$ref": "#/definitions/master_brand"
         },
@@ -1789,6 +2660,9 @@
           ],
           "type": "object"
         },
+        "numeric_tleo_position": {
+          "type": "number"
+        },
         "original_title": {
           "type": "string"
         },
@@ -1800,6 +2674,16 @@
         },
         "preview_id": {
           "type": "string"
+        },
+        "programme_type": {
+          "enum": [
+            "narrative",
+            "sequential",
+            "self-contained",
+            "strand",
+            "unclassified",
+            "one-off"
+          ]
         },
         "promoted": {
           "type": "boolean"
@@ -1843,6 +2727,20 @@
         "release_date_time": {
           "type": "string"
         },
+        "requires_ab": {
+          "items": {
+            "enum": [
+              "u13",
+              "u16",
+              "u18",
+              "o18"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
         "requires_sign_in": {
           "type": "boolean"
         },
@@ -1851,6 +2749,12 @@
         },
         "signed": {
           "type": "boolean"
+        },
+        "slice_id": {
+          "type": "string"
+        },
+        "slice_subtitle": {
+          "type": "string"
         },
         "status": {
           "enum": [
@@ -1861,25 +2765,6 @@
         "subtitle": {
           "type": "string"
         },
-        "suppliers": {
-          "additionalProperties": false,
-          "items": {
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "title"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
         "synopses": {
           "additionalProperties": false,
           "properties": {
@@ -1889,10 +2774,16 @@
             "large": {
               "type": "string"
             },
+            "live": {
+              "type": "string"
+            },
             "medium": {
               "type": "string"
             },
             "preview": {
+              "type": "string"
+            },
+            "programme_small": {
               "type": "string"
             },
             "small": {
@@ -1900,6 +2791,69 @@
             }
           },
           "type": "object"
+        },
+        "tests": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "active"
+                ],
+                "type": "string"
+              },
+              "variants": {
+                "items": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "images": {
+                          "properties": {
+                            "standard": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "enum": [
+                                "episode",
+                                "episode_large"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "standard"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "images"
+                      ],
+                      "type": "object"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "data"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "id",
+              "variants",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         },
         "title": {
           "type": "string"
@@ -1921,280 +2875,7 @@
           ]
         },
         "versions": {
-          "items": {
-            "x-anyOf": [
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "availability": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "accurate_start": {
-                        "type": "string"
-                      },
-                      "end": {
-                        "type": "string"
-                      },
-                      "remaining": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "text": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "text"
-                        ],
-                        "type": "object"
-                      },
-                      "start": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "start"
-                    ],
-                    "type": "object"
-                  },
-                  "credits_start": {
-                    "type": "number"
-                  },
-                  "download": {
-                    "type": "boolean"
-                  },
-                  "duration": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "text": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "text",
-                      "value"
-                    ],
-                    "type": "object"
-                  },
-                  "first_broadcast": {
-                    "type": "string"
-                  },
-                  "guidance": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "text": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "large": {
-                            "type": "string"
-                          },
-                          "medium": {
-                            "type": "string"
-                          },
-                          "small": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "type": "object"
-                  },
-                  "hd": {
-                    "type": "boolean"
-                  },
-                  "id": {
-                    "type": "string"
-                  },
-                  "kind": {
-                    "type": "string"
-                  },
-                  "rrc": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "description": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "large": {
-                            "type": "string"
-                          },
-                          "small": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "small",
-                          "large"
-                        ],
-                        "type": "object"
-                      },
-                      "url": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "description"
-                    ],
-                    "type": "object"
-                  },
-                  "service_id": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "enum": [
-                      "version",
-                      "version_large"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "type",
-                  "hd",
-                  "download",
-                  "duration",
-                  "kind",
-                  "availability"
-                ],
-                "type": "object"
-              },
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "download": {
-                    "type": "boolean"
-                  },
-                  "duration": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "text": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "text",
-                      "value"
-                    ],
-                    "type": "object"
-                  },
-                  "guidance": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "text": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "large": {
-                            "type": "string"
-                          },
-                          "medium": {
-                            "type": "string"
-                          },
-                          "small": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "type": "object"
-                  },
-                  "hd": {
-                    "type": "boolean"
-                  },
-                  "id": {
-                    "type": "string"
-                  },
-                  "kind": {
-                    "type": "string"
-                  },
-                  "store_id": {
-                    "type": "string"
-                  },
-                  "store_profile": {
-                    "type": "string"
-                  },
-                  "store_session": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "ceiling": {
-                        "type": "number"
-                      },
-                      "stats": {
-                        "properties": {
-                          "assetName": {
-                            "type": "string"
-                          },
-                          "contentType": {
-                            "type": "string"
-                          },
-                          "contentVariant": {
-                            "type": "string"
-                          },
-                          "episodeName": {
-                            "type": "string"
-                          },
-                          "parentPID": {
-                            "type": "string"
-                          },
-                          "parentPIDType": {
-                            "type": "string"
-                          },
-                          "productVariant": {
-                            "type": "string"
-                          },
-                          "viewerId": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "token": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "token",
-                      "stats"
-                    ],
-                    "type": "object"
-                  },
-                  "type": {
-                    "enum": [
-                      "store_version"
-                    ]
-                  }
-                },
-                "required": [
-                  "id",
-                  "type",
-                  "store_id",
-                  "store_profile",
-                  "hd",
-                  "download",
-                  "duration",
-                  "kind"
-                ],
-                "type": "object"
-              }
-            ]
-          },
+          "items": {},
           "type": "array"
         }
       },
@@ -2210,7 +2891,6 @@
         "guidance",
         "synopses",
         "versions",
-        "suppliers",
         "tleo_type",
         "categories",
         "master_brand",
@@ -2231,7 +2911,9 @@
         "group_type": {
           "enum": [
             "tleo",
-            "curated"
+            "curated",
+            "automated",
+            "event"
           ]
         },
         "id": {
@@ -2260,16 +2942,7 @@
           "type": "object"
         },
         "initial_children": {
-          "items": {
-            "x-anyOf": [
-              {
-                "$ref": "#/definitions/episode"
-              },
-              {
-                "$ref": "#/definitions/broadcast"
-              }
-            ]
-          },
+          "items": {},
           "type": "array"
         },
         "master_brand": {
@@ -2297,6 +2970,9 @@
             "type": "object"
           },
           "type": "array"
+        },
+        "short_title": {
+          "type": "string"
         },
         "stacked": {
           "type": "boolean"
@@ -2332,603 +3008,7 @@
       ],
       "type": "object"
     },
-    "ibl": {
-      "additionalProperties": false,
-      "properties": {
-        "added": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "count_all": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/added"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements",
-            "count",
-            "count_all"
-          ],
-          "type": "object"
-        },
-        "adds": {
-          "additionalProperties": false,
-          "properties": {
-            "added": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "added"
-          ],
-          "type": "object"
-        },
-        "atoz_programmes": {
-          "additionalProperties": false,
-          "properties": {
-            "character": {
-              "type": "string"
-            },
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/programme"
-              },
-              "type": "array"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "character",
-            "page",
-            "count",
-            "per_page",
-            "elements"
-          ],
-          "type": "object"
-        },
-        "autoplay": {
-          "items": {
-            "$ref": "#/definitions/autoplay"
-          },
-          "maxItems": 1,
-          "minItems": 0,
-          "type": "array"
-        },
-        "broadcasts": {
-          "additionalProperties": false,
-          "properties": {
-            "channel": {
-              "$ref": "#/definitions/channel"
-            },
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/broadcast"
-              },
-              "type": "array"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "elements",
-            "page",
-            "per_page",
-            "count",
-            "channel"
-          ],
-          "type": "object"
-        },
-        "categories": {
-          "items": {
-            "$ref": "#/definitions/category"
-          },
-          "type": "array"
-        },
-        "category": {
-          "$ref": "#/definitions/category"
-        },
-        "category_highlights": {
-          "additionalProperties": false,
-          "properties": {
-            "category": {
-              "$ref": "#/definitions/category"
-            },
-            "elements": {
-              "items": {
-                "x-anyOf": [
-                  {
-                    "$ref": "#/definitions/episode"
-                  },
-                  {
-                    "$ref": "#/definitions/group"
-                  },
-                  {
-                    "$ref": "#/definitions/promotion"
-                  }
-                ]
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "category",
-            "elements"
-          ],
-          "type": "object"
-        },
-        "category_programmes": {
-          "additionalProperties": false,
-          "properties": {
-            "category": {
-              "$ref": "#/definitions/category"
-            },
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/programme"
-              },
-              "type": "array"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "category",
-            "page",
-            "count",
-            "per_page",
-            "elements"
-          ],
-          "type": "object"
-        },
-        "channel_highlights": {
-          "additionalProperties": false,
-          "properties": {
-            "channel": {
-              "$ref": "#/definitions/channel"
-            },
-            "elements": {
-              "items": {
-                "x-anyOf": [
-                  {
-                    "$ref": "#/definitions/episode"
-                  },
-                  {
-                    "$ref": "#/definitions/group"
-                  },
-                  {
-                    "$ref": "#/definitions/promotion"
-                  }
-                ]
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "channel",
-            "elements"
-          ],
-          "type": "object"
-        },
-        "channels": {
-          "items": {
-            "$ref": "#/definitions/channel"
-          },
-          "type": "array"
-        },
-        "clips": {
-          "items": {
-            "$ref": "#/definitions/clip"
-          },
-          "maxItems": 1,
-          "type": "array"
-        },
-        "episode_recommendations": {
-          "additionalProperties": false,
-          "properties": {
-            "blend": {
-              "enum": [
-                "curated",
-                "algorithmic"
-              ]
-            },
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/episode"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements",
-            "count",
-            "blend"
-          ],
-          "type": "object"
-        },
-        "episodes": {
-          "items": {
-            "$ref": "#/definitions/episode"
-          },
-          "type": "array"
-        },
-        "error": {
-          "additionalProperties": false,
-          "properties": {
-            "details": {
-              "type": "string"
-            },
-            "http_response_code": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "details",
-            "http_response_code"
-          ],
-          "type": "object"
-        },
-        "group_episodes": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/episode"
-              },
-              "type": "array"
-            },
-            "group": {
-              "$ref": "#/definitions/group"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "elements",
-            "page",
-            "per_page",
-            "count"
-          ],
-          "type": "object"
-        },
-        "home_highlights": {
-          "additionalProperties": false,
-          "properties": {
-            "elements": {
-              "items": {
-                "x-anyOf": [
-                  {
-                    "$ref": "#/definitions/episode"
-                  },
-                  {
-                    "$ref": "#/definitions/group"
-                  },
-                  {
-                    "$ref": "#/definitions/promotion"
-                  }
-                ]
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements"
-          ],
-          "type": "object"
-        },
-        "next": {
-          "properties": {
-            "programme": {
-              "items": {
-                "$ref": "#/definitions/episode"
-              },
-              "maxItems": 1,
-              "minItems": 0,
-              "type": "array"
-            }
-          },
-          "type": "object"
-        },
-        "postrolls": {
-          "items": {
-            "$ref": "#/definitions/trailer"
-          },
-          "type": "array"
-        },
-        "prerolls": {
-          "items": {
-            "$ref": "#/definitions/trailer"
-          },
-          "type": "array"
-        },
-        "programme_episodes": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/episode"
-              },
-              "type": "array"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "elements",
-            "page",
-            "per_page",
-            "count"
-          ],
-          "type": "object"
-        },
-        "programmes": {
-          "items": {
-            "$ref": "#/definitions/programme"
-          },
-          "type": "array"
-        },
-        "purchases": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/episode"
-              },
-              "type": "array"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            },
-            "revocations": {
-              "type": "boolean"
-            },
-            "value_added_material": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "elements",
-            "page",
-            "per_page",
-            "count",
-            "revocations",
-            "value_added_material"
-          ],
-          "type": "object"
-        },
-        "regions": {
-          "items": {
-            "$ref": "#/definitions/region"
-          },
-          "type": "array"
-        },
-        "schedule": {
-          "additionalProperties": false,
-          "properties": {
-            "channel": {
-              "$ref": "#/definitions/channel"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/broadcast"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements",
-            "channel"
-          ],
-          "type": "object"
-        },
-        "schema": {
-          "type": "string"
-        },
-        "search": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "page": {
-              "type": "number"
-            },
-            "per_page": {
-              "type": "number"
-            },
-            "query": {
-              "type": "string"
-            },
-            "results": {
-              "items": {
-                "x-anyOf": [
-                  {
-                    "$ref": "#/definitions/episode"
-                  },
-                  {
-                    "$ref": "#/definitions/programme"
-                  },
-                  {
-                    "$ref": "#/definitions/search_group"
-                  }
-                ]
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "results",
-            "query"
-          ],
-          "type": "object"
-        },
-        "search_suggest": {
-          "additionalProperties": false,
-          "properties": {
-            "query": {
-              "type": "string"
-            },
-            "results": {
-              "items": {
-                "$ref": "#/definitions/programme"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "results",
-            "query"
-          ],
-          "type": "object"
-        },
-        "status": {
-          "additionalProperties": false,
-          "properties": {
-            "release": {
-              "type": "string"
-            },
-            "service": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "service",
-            "release"
-          ],
-          "type": "object"
-        },
-        "trailers": {
-          "additionalProperties": false,
-          "properties": {
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/clip"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements"
-          ],
-          "type": "object"
-        },
-        "user_recommendations": {
-          "additionalProperties": false,
-          "properties": {
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/user_recommendation"
-              },
-              "type": "array"
-            },
-            "rec_set": {
-              "type": "string"
-            },
-            "rec_source": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "elements",
-            "rec_source",
-            "rec_set"
-          ],
-          "type": "object"
-        },
-        "version": {
-          "type": "string"
-        },
-        "versions": {
-          "items": {
-            "$ref": "#/definitions/store_version"
-          },
-          "type": "array"
-        },
-        "watching": {
-          "additionalProperties": false,
-          "properties": {
-            "count": {
-              "type": "number"
-            },
-            "count_all": {
-              "type": "number"
-            },
-            "elements": {
-              "items": {
-                "$ref": "#/definitions/watching"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "elements",
-            "count",
-            "count_all"
-          ],
-          "type": "object"
-        }
-      },
-      "required": [
-        "schema",
-        "version"
-      ],
-      "type": "object"
-    },
+    "ibl": {},
     "master_brand": {
       "additionalProperties": false,
       "properties": {
@@ -3026,30 +3106,21 @@
         "master_brand": {
           "$ref": "#/definitions/master_brand"
         },
+        "programme_type": {
+          "enum": [
+            "narrative",
+            "sequential",
+            "self-contained",
+            "strand",
+            "unclassified",
+            "one-off"
+          ]
+        },
         "status": {
           "enum": [
             "available",
             "unavailable"
           ]
-        },
-        "suppliers": {
-          "additionalProperties": false,
-          "items": {
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "title"
-            ],
-            "type": "object"
-          },
-          "type": "array"
         },
         "synopses": {
           "additionalProperties": false,
@@ -3091,7 +3162,6 @@
         "lexical_sort_letter",
         "images",
         "master_brand",
-        "suppliers",
         "categories",
         "status",
         "count",
@@ -3365,9 +3435,14 @@
         "kind": {
           "enum": [
             "available_now",
+            "watch_now",
             "coming_soon",
+            "streaming_now_sounds",
             "other"
           ]
+        },
+        "message": {
+          "type": "string"
         },
         "title": {
           "type": "string"
@@ -3386,7 +3461,8 @@
         "type",
         "title",
         "kind",
-        "version_id"
+        "version_id",
+        "message"
       ],
       "type": "object"
     },
@@ -3467,7 +3543,14 @@
           ],
           "type": "object"
         },
+        "events": {
+          "items": {},
+          "type": "array"
+        },
         "first_broadcast": {
+          "type": "string"
+        },
+        "first_broadcast_date_time": {
           "type": "string"
         },
         "guidance": {
@@ -3504,7 +3587,27 @@
           "type": "string"
         },
         "kind": {
-          "type": "string"
+          "enum": [
+            "legal",
+            "editorial",
+            "technical-replacement",
+            "original",
+            "iplayer-version",
+            "lengthened",
+            "shortened",
+            "pre-watershed",
+            "post-watershed",
+            "warnings-higher",
+            "warnings-lower",
+            "warnings-none",
+            "duplication",
+            "open-subtitled",
+            "other",
+            "audio-described",
+            "signed",
+            "webcast",
+            "simulcast"
+          ]
         },
         "rrc": {
           "additionalProperties": false,
@@ -3542,12 +3645,16 @@
             "version",
             "version_large"
           ]
+        },
+        "uhd": {
+          "type": "boolean"
         }
       },
       "required": [
         "id",
         "type",
         "hd",
+        "uhd",
         "download",
         "duration",
         "kind",
@@ -3579,7 +3686,8 @@
         "status": {
           "enum": [
             "current",
-            "next"
+            "next",
+            "ended"
           ]
         },
         "type": {
@@ -3603,6 +3711,166 @@
         "has_next"
       ],
       "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "query",
+      "name": "api_key",
+      "type": "apiKey"
+    },
+    "basic": {
+      "description": "Used only by store purchases.",
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "externalDocs": {
+    "description": "BBC iPlayer documentation",
+    "url": "http://smethur.st/posts/176135860"
+  },
+  "x-components": {
+    "parameters": {
+      "availability": {
+        "default": "available",
+        "description": "Whether to return all, or available programmes",
+        "enum": [
+          "all",
+          "available"
+        ],
+        "in": "query",
+        "name": "availability",
+        "required": true,
+        "type": "string"
+      },
+      "category": {
+        "description": "The category identifier to return results from.",
+        "in": "path",
+        "name": "category",
+        "required": true,
+        "type": "string"
+      },
+      "channel": {
+        "description": "The channel identifier to limit results to.",
+        "in": "path",
+        "name": "channel",
+        "required": true,
+        "type": "string"
+      },
+      "identity_cookie": {
+        "description": "The BBC-id cookie value",
+        "format": "double",
+        "in": "query",
+        "name": "identity_cookie",
+        "required": true,
+        "type": "number"
+      },
+      "initial_child_count": {
+        "default": 4,
+        "description": "The depth to return child entities.",
+        "in": "query",
+        "maximum": 4,
+        "minimum": 1,
+        "name": "initial_child_count",
+        "required": true,
+        "type": "integer"
+      },
+      "lang": {
+        "description": "The language for any applicable localised strings.",
+        "enum": [
+          "en",
+          "cy",
+          "ga",
+          "gd",
+          "pi"
+        ],
+        "in": "query",
+        "name": "lang",
+        "required": true,
+        "type": "string"
+      },
+      "mixin": {
+        "collectionFormat": "multi",
+        "description": "Request additional data in the output",
+        "enum": [
+          "live",
+          "promotions"
+        ],
+        "in": "query",
+        "items": {
+          "type": "string"
+        },
+        "name": "mixin",
+        "required": false,
+        "type": "array"
+      },
+      "page": {
+        "description": "The page index.",
+        "format": "int64",
+        "in": "query",
+        "name": "page",
+        "required": true,
+        "type": "integer"
+      },
+      "per_page": {
+        "description": "The number of results to return.",
+        "format": "int64",
+        "in": "query",
+        "name": "per_page",
+        "required": true,
+        "type": "integer"
+      },
+      "pid": {
+        "description": "The programme identifier.",
+        "in": "path",
+        "minLength": 8,
+        "name": "pid",
+        "pattern": "^([0-9,a-d,f-h,j-n,p-t,v-z]){8,}$",
+        "required": true,
+        "type": "string"
+      },
+      "q": {
+        "description": "The term to search for.",
+        "in": "query",
+        "name": "q",
+        "required": true,
+        "type": "string"
+      },
+      "rights": {
+        "default": "web",
+        "description": "The rights group to limit results to.",
+        "enum": [
+          "mobile",
+          "tv",
+          "web"
+        ],
+        "in": "query",
+        "name": "rights",
+        "required": true,
+        "type": "string"
+      },
+      "sort": {
+        "description": "The sort order of the results.",
+        "in": "query",
+        "name": "sort",
+        "required": true,
+        "type": "string"
+      },
+      "sort_direction": {
+        "description": "Whether to sort ascending or descending",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "in": "query",
+        "name": "sort_direction",
+        "required": true,
+        "type": "string"
+      }
     }
   }
 }

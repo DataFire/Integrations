@@ -15,11 +15,7 @@ let azure_sql_capabilities = require('@datafire/azure_sql_capabilities').create(
   redirect_uri: ""
 });
 
-azure_sql_capabilities.Capabilities_ListByLocation({
-  "locationName": "",
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -45,6 +41,7 @@ azure_sql_capabilities.Capabilities_ListByLocation({
 #### Input
 * input `object`
   * locationName **required** `string`: The location name whose capabilities are retrieved.
+  * include `string` (values: supportedEditions, supportedElasticPoolEditions, supportedManagedInstanceVersions): If specified, restricts the response to only include the selected item.
   * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
   * api-version **required** `string`: The API version to use for the request.
 
@@ -61,41 +58,59 @@ azure_sql_capabilities.Capabilities_ListByLocation({
   * reason `string`: The reason for the capability not being available.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
   * supportedServiceLevelObjectives `array`: The list of supported service objectives for the edition.
-    * items [ServiceLevelObjectiveCapability](#servicelevelobjectivecapability)
-
-### ElasticPoolDtuCapability
-* ElasticPoolDtuCapability `object`: The Elastic Pool DTU capability.
-  * includedMaxSize [MaxSizeCapability](#maxsizecapability)
-  * limit `integer`: The DTU limit for the pool.
-  * maxDatabaseCount `integer`: The maximum number of databases supported.
-  * reason `string`: The reason for the capability not being available.
-  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
-  * supportedMaxSizes `array`: The list of supported max sizes.
-    * items [MaxSizeCapability](#maxsizecapability)
-  * supportedPerDatabaseMaxDtus `array`: The list of supported per database max DTUs.
-    * items [ElasticPoolPerDatabaseMaxDtuCapability](#elasticpoolperdatabasemaxdtucapability)
-  * supportedPerDatabaseMaxSizes `array`: The list of supported per database max sizes.
-    * items [MaxSizeCapability](#maxsizecapability)
+    * items [ServiceObjectiveCapability](#serviceobjectivecapability)
+  * zoneRedundant `boolean`: Whether or not zone redundancy is supported for the edition.
 
 ### ElasticPoolEditionCapability
 * ElasticPoolEditionCapability `object`: The elastic pool edition capability.
   * name `string`: The elastic pool edition name.
   * reason `string`: The reason for the capability not being available.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
-  * supportedElasticPoolDtus `array`: The list of supported elastic pool DTU levels for the edition.
-    * items [ElasticPoolDtuCapability](#elasticpooldtucapability)
+  * supportedElasticPoolPerformanceLevels `array`: The list of supported elastic pool DTU levels for the edition.
+    * items [ElasticPoolPerformanceLevelCapability](#elasticpoolperformancelevelcapability)
+  * zoneRedundant `boolean`: Whether or not zone redundancy is supported for the edition.
 
-### ElasticPoolPerDatabaseMaxDtuCapability
-* ElasticPoolPerDatabaseMaxDtuCapability `object`: The max per-database DTU capability.
-  * limit `integer`: The maximum DTUs per database.
+### ElasticPoolPerDatabaseMaxPerformanceLevelCapability
+* ElasticPoolPerDatabaseMaxPerformanceLevelCapability `object`: The max per-database performance level capability.
+  * limit `number`: The maximum performance level per database.
   * reason `string`: The reason for the capability not being available.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
-  * supportedPerDatabaseMinDtus `array`: The list of supported min database DTUs.
-    * items [ElasticPoolPerDatabaseMinDtuCapability](#elasticpoolperdatabasemindtucapability)
+  * supportedPerDatabaseMinPerformanceLevels `array`: The list of supported min database performance levels.
+    * items [ElasticPoolPerDatabaseMinPerformanceLevelCapability](#elasticpoolperdatabaseminperformancelevelcapability)
+  * unit `string` (values: DTU, VCores): Unit type used to measure performance level.
 
-### ElasticPoolPerDatabaseMinDtuCapability
-* ElasticPoolPerDatabaseMinDtuCapability `object`: The minimum per-database DTU capability.
-  * limit `integer`: The minimum DTUs per database.
+### ElasticPoolPerDatabaseMinPerformanceLevelCapability
+* ElasticPoolPerDatabaseMinPerformanceLevelCapability `object`: The minimum per-database performance level capability.
+  * limit `number`: The minimum performance level per database.
+  * reason `string`: The reason for the capability not being available.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * unit `string` (values: DTU, VCores): Unit type used to measure performance level.
+
+### ElasticPoolPerformanceLevelCapability
+* ElasticPoolPerformanceLevelCapability `object`: The Elastic Pool performance level capability.
+  * includedMaxSize [MaxSizeCapability](#maxsizecapability)
+  * maxDatabaseCount `integer`: The maximum number of databases supported.
+  * performanceLevel [PerformanceLevelCapability](#performancelevelcapability)
+  * reason `string`: The reason for the capability not being available.
+  * sku `object`: An ARM Resource SKU.
+    * capacity `integer`: Capacity of the particular SKU.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
+    * size `string`: Size of the particular SKU
+    * tier `string`: The tier or edition of the particular SKU, e.g. Basic, Premium.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * supportedLicenseTypes `array`: List of supported license types.
+    * items [LicenseTypeCapability](#licensetypecapability)
+  * supportedMaxSizes `array`: The list of supported max sizes.
+    * items [MaxSizeRangeCapability](#maxsizerangecapability)
+  * supportedPerDatabaseMaxPerformanceLevels `array`: The list of supported per database max performance levels.
+    * items [ElasticPoolPerDatabaseMaxPerformanceLevelCapability](#elasticpoolperdatabasemaxperformancelevelcapability)
+  * supportedPerDatabaseMaxSizes `array`: The list of supported per database max sizes.
+    * items [MaxSizeRangeCapability](#maxsizerangecapability)
+
+### LicenseTypeCapability
+* LicenseTypeCapability `object`: The license type capability
+  * name `string`: License type identifier.
   * reason `string`: The reason for the capability not being available.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
 
@@ -104,20 +119,71 @@ azure_sql_capabilities.Capabilities_ListByLocation({
   * name `string`: The location name.
   * reason `string`: The reason for the capability not being available.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * supportedManagedInstanceVersions `array`: The list of supported managed instance versions.
+    * items [ManagedInstanceVersionCapability](#managedinstanceversioncapability)
   * supportedServerVersions `array`: The list of supported server versions.
     * items [ServerVersionCapability](#serverversioncapability)
+
+### LogSizeCapability
+* LogSizeCapability `object`: The log size capability.
+  * limit `integer`: The log size limit (see 'unit' for the units).
+  * unit `string` (values: Megabytes, Gigabytes, Terabytes, Petabytes, Percent): The units that the limit is expressed in.
+
+### ManagedInstanceEditionCapability
+* ManagedInstanceEditionCapability `object`: The managed server capability
+  * name `string`: The managed server version name.
+  * reason `string`: The reason for the capability not being available.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * supportedFamilies `array`: The supported families.
+    * items [ManagedInstanceFamilyCapability](#managedinstancefamilycapability)
+
+### ManagedInstanceFamilyCapability
+* ManagedInstanceFamilyCapability `object`: The managed server family capability.
+  * includedMaxSize [MaxSizeCapability](#maxsizecapability)
+  * name `string`: Family name.
+  * reason `string`: The reason for the capability not being available.
+  * sku `string`: SKU name.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * supportedLicenseTypes `array`: List of supported license types.
+    * items [LicenseTypeCapability](#licensetypecapability)
+  * supportedStorageSizes `array`: Storage size ranges.
+    * items [MaxSizeRangeCapability](#maxsizerangecapability)
+  * supportedVcoresValues `array`: List of supported virtual cores values.
+    * items [ManagedInstanceVcoresCapability](#managedinstancevcorescapability)
+
+### ManagedInstanceVcoresCapability
+* ManagedInstanceVcoresCapability `object`: The managed instance virtual cores capability.
+  * name `string`: The virtual cores identifier.
+  * reason `string`: The reason for the capability not being available.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * value `integer`: The virtual cores value.
+
+### ManagedInstanceVersionCapability
+* ManagedInstanceVersionCapability `object`: The managed instance capability
+  * name `string`: The server version name.
+  * reason `string`: The reason for the capability not being available.
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
+  * supportedEditions `array`: The list of supported managed instance editions.
+    * items [ManagedInstanceEditionCapability](#managedinstanceeditioncapability)
 
 ### MaxSizeCapability
 * MaxSizeCapability `object`: The maximum size capability.
   * limit `integer`: The maximum size limit (see 'unit' for the units).
-  * reason `string`: The reason for the capability not being available.
-  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
   * unit `string` (values: Megabytes, Gigabytes, Terabytes, Petabytes): The units that the limit is expressed in.
+
+### MaxSizeRangeCapability
+* MaxSizeRangeCapability `object`: The maximum size range capability.
+  * logSize [LogSizeCapability](#logsizecapability)
+  * maxValue [MaxSizeCapability](#maxsizecapability)
+  * minValue [MaxSizeCapability](#maxsizecapability)
+  * reason `string`: The reason for the capability not being available.
+  * scaleSize [MaxSizeCapability](#maxsizecapability)
+  * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
 
 ### PerformanceLevelCapability
 * PerformanceLevelCapability `object`: The performance level capability.
-  * unit `string` (values: DTU): Unit type used to measure service objective performance level.
-  * value `integer`: Performance level value.
+  * unit `string` (values: DTU, VCores): Unit type used to measure performance level.
+  * value `number`: Performance level value.
 
 ### ServerVersionCapability
 * ServerVersionCapability `object`: The server capability
@@ -129,15 +195,23 @@ azure_sql_capabilities.Capabilities_ListByLocation({
   * supportedElasticPoolEditions `array`: The list of supported elastic pool editions.
     * items [ElasticPoolEditionCapability](#elasticpooleditioncapability)
 
-### ServiceLevelObjectiveCapability
-* ServiceLevelObjectiveCapability `object`: The service objectives capability.
+### ServiceObjectiveCapability
+* ServiceObjectiveCapability `object`: The service objectives capability.
   * id `string`: The unique ID of the service objective.
   * includedMaxSize [MaxSizeCapability](#maxsizecapability)
   * name `string`: The service objective name.
   * performanceLevel [PerformanceLevelCapability](#performancelevelcapability)
   * reason `string`: The reason for the capability not being available.
+  * sku `object`: An ARM Resource SKU.
+    * capacity `integer`: Capacity of the particular SKU.
+    * family `string`: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+    * name **required** `string`: The name of the SKU, typically, a letter + Number code, e.g. P3.
+    * size `string`: Size of the particular SKU
+    * tier `string`: The tier or edition of the particular SKU, e.g. Basic, Premium.
   * status `string` (values: Visible, Available, Default, Disabled): The status of the capability.
-  * supportedMaxSizes `array`: The list of supported maximum database sizes for this service objective.
-    * items [MaxSizeCapability](#maxsizecapability)
+  * supportedLicenseTypes `array`: List of supported license types.
+    * items [LicenseTypeCapability](#licensetypecapability)
+  * supportedMaxSizes `array`: The list of supported maximum database sizes.
+    * items [MaxSizeRangeCapability](#maxsizerangecapability)
 
 

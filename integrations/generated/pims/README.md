@@ -12,7 +12,7 @@ let pims = require('@datafire/pims').create({
   password: ""
 });
 
-pims.fetchAllVenues({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -80,7 +80,15 @@ Please note that this documentation describes all responses “as if” they wer
 ### Errors
 Errors return JSON too and tries to match the [Problem Details for HTTP APIs specification](https://tools.ietf.org/html/rfc7807). If it does not match this spec, that's either a bug or a compatibility issue. Please contact us to solve the problem.
 
-The `Content-Type` of errors will be `application/problem+json`.
+The `Content-Type` of errors will be `application/problem+json`. The content will match the following JSON:
+```json
+{
+	"type": "https://tools.ietf.org/html/rfc2616#section-10",
+    "title": "Not Found",
+	"status": 404,
+    "detail": "Entity not found"
+}
+```
 
 ## Versioning
 The API is fully versionned, using an URL-versioning scheme: `https://demo.pims.io/api/v1/events`, `https://demo.pims.io/api/v2/events`,...
@@ -144,9 +152,85 @@ Once you retrieved the events you were interested in, you can look for the sales
     2. [`/events/:id/channels`](#operation/fetchAllEventsChannels)
     3. [`/events/:id/ticket-counts/detailed`](#operation/fetchAllDetailedTicketCounts)
 
-Eventually, you may also want to [fetch the promotions](#tag/Promotions). A <span class="definition">promotion</span> can be any leverage on the sales: ads, marketing campaigns, buzz or news around the event, etc. A promotion can be linked to any combination of events and/or series.
+Eventually, you may also want to fetch the [promotions](#tag/Promotions). A <span class="definition">promotion</span> can be anything meant to leverage the sales: ads, marketing campaigns, buzz or news around the event, etc. A promotion can be linked to any combination of events and/or series.
 
 ## Actions
+
+### fetchAllCategories
+Find all categories
+
+
+```js
+pims.fetchAllCategories({}, context)
+```
+
+#### Input
+* input `object`
+  * label `string`: Find only the categories whose label/short label contains this value.
+  * show_ignored `boolean`: If set to `false`, show only the categories which are not ignored. If set to `true`, show all categories.
+  * sort `string` (values: label, -label, order, -order): Sort the categories in the corresponding order.
+  * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output `array`
+  * items [CategoriesEntity](#categoriesentity)
+
+### fetchOneCategory
+Get one category by ID
+
+
+```js
+pims.fetchOneCategory({
+  "category_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * category_id **required** `integer`: ID of the targeted category.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output [CategoriesEntity](#categoriesentity)
+
+### fetchAllChannels
+Find all channels
+
+
+```js
+pims.fetchAllChannels({}, context)
+```
+
+#### Input
+* input `object`
+  * label `string`: Find only the channels whose label contains this value.
+  * show_ignored `boolean`: If set to `false`, show only the channels which are not ignored. If set to `true`, show all channels.
+  * sort `string` (values: label, -label, order, -order): Sort the channels in the corresponding order.
+  * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output `array`
+  * items [ChannelsEntity](#channelsentity)
+
+### fetchOneChannel
+Get one channel by ID
+
+
+```js
+pims.fetchOneChannel({
+  "channel_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * channel_id **required** `integer`: ID of the targeted channel.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output [ChannelsEntity](#channelsentity)
 
 ### fetchAllEvents
 Find all events
@@ -201,6 +285,7 @@ pims.fetchAllEventsCapacities({
 #### Input
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories which are not ignored. If set to `true`, show everything.
   * sort `string` (values: date, -date): Sort the capacities in the corresponding order.
   * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
 
@@ -223,6 +308,7 @@ pims.fetchOneEventCapacity({
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
   * capacity_id **required** `integer`: ID of the targeted capacity.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories which are not ignored. If set to `true`, show everything.
 
 #### Output
 * output [EventsCapacitiesEntity](#eventscapacitiesentity)
@@ -240,6 +326,7 @@ pims.fetchAllEventsCategories({
 #### Input
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories/[event-]price ranges which are not ignored. If set to `true`, show everything.
   * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
 
 #### Output
@@ -261,6 +348,7 @@ pims.fetchOneEventCategory({
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
   * category_id **required** `number`: ID of the targeted event category.
+  * show_ignored `boolean`: If set to `false`, show only the embedded [event-]price ranges which are not ignored. If set to `true`, show everything.
 
 #### Output
 * output [EventsCategoriesEntity](#eventscategoriesentity)
@@ -278,6 +366,7 @@ pims.fetchAllEventsChannels({
 #### Input
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]channels which are not ignored. If set to `true`, show everything.
   * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
 
 #### Output
@@ -344,6 +433,8 @@ pims.fetchAllTicketCounts({
   * event_id **required** `integer`: ID of the targeted event.
   * from_date `string`: Find only the ticket counts after this date.
   * to_date `string`: Find only the ticket counts before this date.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories/[event-]price ranges/[event]channels which are not ignored. If set to `true`, show everything.
+  * show_not_approved `boolean`: If set to `false`, show only the approved ticket counts. If set to `true`, show all the ticket counts.
   * sort `string` (values: date, -date): Sort the ticket counts in the corresponding order.
   * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
 
@@ -366,6 +457,8 @@ pims.fetchAllDetailedTicketCounts({
   * event_id **required** `integer`: ID of the targeted event.
   * from_date `string`: Find only the ticket counts after this date.
   * to_date `string`: Find only the ticket counts before this date.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories/[event-]price ranges/[event]channels which are not ignored. If set to `true`, show everything.
+  * show_not_approved `boolean`: If set to `false`, show only the approved ticket counts. If set to `true`, show all the ticket counts.
   * sort `string` (values: date, -date): Sort the ticket counts in the corresponding order.
   * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
 
@@ -373,12 +466,12 @@ pims.fetchAllDetailedTicketCounts({
 * output `array`
   * items [TicketCountsDetailedEntity](#ticketcountsdetailedentity)
 
-### fetchOneDetailedTicketCoun
+### fetchOneDetailedTicketCount
 Get one detailed ticket count by ID
 
 
 ```js
-pims.fetchOneDetailedTicketCoun({
+pims.fetchOneDetailedTicketCount({
   "event_id": 0,
   "ticket_count_id": 0
 }, context)
@@ -388,6 +481,7 @@ pims.fetchOneDetailedTicketCoun({
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
   * ticket_count_id **required** `integer`: ID of the targeted ticket count.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories/[event-]price ranges/[event]channels which are not ignored. If set to `true`, show everything.
 
 #### Output
 * output [TicketCountsDetailedEntity](#ticketcountsdetailedentity)
@@ -407,9 +501,48 @@ pims.fetchOneTicketCount({
 * input `object`
   * event_id **required** `integer`: ID of the targeted event.
   * ticket_count_id **required** `integer`: ID of the targeted ticket count.
+  * show_ignored `boolean`: If set to `false`, show only the [event-]categories/[event-]price ranges/[event]channels which are not ignored. If set to `true`, show everything.
 
 #### Output
 * output [TicketCountsEntity](#ticketcountsentity)
+
+### fetchAllPriceRanges
+Find all price ranges
+
+
+```js
+pims.fetchAllPriceRanges({}, context)
+```
+
+#### Input
+* input `object`
+  * label `string`: Find only the price ranges whose label contains this value.
+  * show_ignored `boolean`: If set to `false`, show only the price ranges which are not ignored. If set to `true`, show all price ranges.
+  * sort `string` (values: label, -label, order, -order): Sort the price ranges in the corresponding order.
+  * page_size `integer`: Pagination size, i.e. maximum number of items to be displayed in the response.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output `array`
+  * items [PriceRangesEntity](#pricerangesentity)
+
+### fetchOnePriceRange
+Get one price range by ID
+
+
+```js
+pims.fetchOnePriceRange({
+  "price_range_id": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * price_range_id **required** `integer`: ID of the targeted price range.
+  * Accept-Language `string` (values: de, en, fr): Language used for the translatable labels.
+
+#### Output
+* output [VenuesEntity](#venuesentity)
 
 ### fetchAllPromotions
 Find all promotions
@@ -610,6 +743,22 @@ pims.fetchAllVenuesEvents({
 
 ## Definitions
 
+### CategoriesEntity
+* Category `object`
+  * id **required** `integer`: Unique ID of the category.
+  * ignored **required** `boolean`: Defines whether this category is ignored or not.
+  * label **required** `string`: Full label of the category.
+  * last_update_timestamp **required** `integer`: Timestamp for when the category was last updated in the customer's database.
+  * short_label **required** `string`: Short label of the category (generally less than 5 characters).
+
+### ChannelsEntity
+* Channel `object`
+  * id **required** `integer`: Unique ID of the channel.
+  * ignored **required** `boolean`: Defines whether this channel is ignored or not.
+  * label **required** `string`: Full label of the channel.
+  * last_update_timestamp **required** `integer`: Timestamp for when the channel was last updated in the customer's database.
+  * short_label **required** `string`: Short label of the channel (generally less than 5 characters).
+
 ### Error401
 * Error401 `object`
   * detail **required** `string`: Description of the error.
@@ -647,7 +796,8 @@ pims.fetchAllVenuesEvents({
 
 ### EventsCapacitiesEntity
 * Event capacity `object`
-  * categories **required** `array`: Array of categories with their detailed capacities.
+  * date **required** `string`: Date from which the capacity is active.
+  * event_categories `array`: Array of categories with their detailed capacities.
     * items `object`
       * comps **required** `integer`: Number of comps in the category.
       * holds **required** `integer`: Number of *holds* in the category. <span class="definition">Holds</span> are seats/places that are not in sale at the date of the capacity, but will eventually be later.
@@ -655,29 +805,27 @@ pims.fetchAllVenuesEvents({
       * kills **required** `integer`: Number of *kills* in the category. <span class="definition">Kills</span> are seats/places that will not be sold for technical reasons.
       * sellable_capacity **required** `integer`: Number of sellable seats/places in the category. This is calculated by the formula: `total_capacity - kills - comps - holds`.
       * total_capacity **required** `integer`: Total number of seats/places in the category.
-  * date **required** `string`: Date from which the capacity is active.
   * id **required** `integer`: Unique ID of the event capacity.
 
 ### EventsCategoriesEntity
 * Event category `object`
-  * category_id **required** `integer`: Unique ID of the category.
-  * id **required** `integer`: Unique ID of the event category.
-  * label **required** `string`: Full label of the category.
-  * price_ranges `array`: Array of price ranges.
+  * category **required** [CategoriesEntity](#categoriesentity)
+  * event_price_ranges `array`: Array of event price ranges.
     * items `object`
-      * base_price **required** `number`: Base price of the price range (i.e. including VAT but excluding all commissions).
+      * base_price **required** `number`: Base price of the event price range (i.e. including VAT but excluding all commissions).
       * currency **required** `string`: Currency of the prices.
-      * id **required** `integer`: ID of the price range.
-      * label **required** `string`: Full label of the price range.
-      * public_price **required** `number`: Public price of the price range (i.e. including VAT and all commissions).
-      * short_label **required** `string`: Short label of the price range (generally less than 5 characters).
-  * short_label **required** `string`: Short label of the category (generally less than 5 characters).
+      * id **required** `integer`: ID of the event price range.
+      * ignored `boolean`: Defines whether this event price range is ignored or not.
+      * price_range **required** [PriceRangesEntity](#pricerangesentity)
+      * public_price **required** `number`: Public price of the event price range (i.e. including VAT and all commissions).
+  * id **required** `integer`: Unique ID of the event category.
+  * ignored **required** `boolean`: Defines whether this event category is ignored or not.
 
 ### EventsChannelsEntity
 * Event channel `object`
+  * channel **required** [ChannelsEntity](#channelsentity)
   * id **required** `integer`: Unique ID of the event channel.
-  * label **required** `string`: Full label of the channel.
-  * short_label **required** `string`: Short label of the channel (generally less than 5 characters).
+  * ignored **required** `boolean`: Defines whether this event channel is ignored or not.
 
 ### EventsEntity
 * Event `object`
@@ -708,6 +856,14 @@ pims.fetchAllVenuesEvents({
   * sold_out_date `string`: Date the event was sold out.
   * venue **required** [VenuesEntity](#venuesentity)
 
+### PriceRangesEntity
+* Price range `object`
+  * id **required** `integer`: Unique ID of the price range.
+  * ignored **required** `boolean`: Defines whether this price range is ignored or not.
+  * label **required** `string`: Full label of the price range.
+  * last_update_timestamp **required** `integer`: Timestamp for when the price range was last updated in the customer's database.
+  * short_label **required** `string`: Short label of the price range (generally less than 5 characters).
+
 ### PromotionsEntity
 * Promotion `object`
   * applied_to **required** `array`: List of events and/or series where the promotion is applied. A promotion can be applied on several events, and its costs can be split between those events.
@@ -715,23 +871,23 @@ pims.fetchAllVenuesEvents({
       * event_id `integer`: ID of the event the promotion applies to. This property is exclusive with 'series_id': if defined, then 'series_id' will not be displayed.
       * quantity `number`: Quantity share of the promotion devoted to this event/series.
       * series_id `integer`: ID of the series the promotion applies to. This property is exclusive with 'event_id': if defined, then 'event_id' will not be displayed.
-      * unit_cost `number`: Unit cost share of the promotion devoted to this event/series. The total cost of the share can be calculated with: quantity × unit_cost.
-      * valorized_quantity `number`: Valorized quantity share of the promotion devoted to this event/series.
+      * unit_cost `number`: Unit cost share of the promotion devoted to this event/series. The total cost of the share can be calculated with: quantity × unit_cost. *This field may be omitted according to the customer configuration.*
+      * valorized_quantity `number`: Valorized quantity share of the promotion devoted to this event/series. *This field may be omitted according to the customer configuration.*
       * valorized_unit_cost `number`: Valorized unit cost share of the promotion devoted to this event/series. The total valorized cost of the share can be calculated with: valorized_quantity × valorized_unit_cost.
   * comments **required** `string`: Comments on the promotion.
   * cost **required** `object`: Cost of the promotion.
     * currency `string`: Currency of the unit_cost (<a href='https://en.wikipedia.org/wiki/ISO_4217#Active_codes'>ISO 4212 alphabetic code</a>).
     * exchange `string`: What was offered in exchange of the promotion.
     * quantity `number`: Quantity of the promotion (see unit_cost).
-    * state `object`: State of the promotion cost.
+    * state `object`: State of the promotion cost. *This object may be omitted according to the customer configuration.*
       * id **required** `string` (values: PRE, ENG, FAC, PAY): String identifying the state of the promotion cost.
       * label **required** `string`: Label of the state of the promotion cost. This value is translated according to the 'Accept-Language' header.
     * type **required** `object`: Type of the promotion cost.
       * id **required** `string` (values: PAY, ECH, GRA): String identifying the type of the promotion cost.
       * label **required** `string`: Label of the type of the promotion cost. This value is translated according to the 'Accept-Language' header.
     * unit_cost `number`: Unit cost of the promotion. The total cost of the promotion can be calculated with: quantity × unit_cost.
-    * valorized_quantity `number`: Valorized quantity of the promotion (see valorized_unit_cost).
-    * valorized_unit_cost `number`: Valorized unit cost of the promotion. The total valorized cost of the promotion can be calculated with: valorized_quantity × valorized_unit_cost.
+    * valorized_quantity `number`: Valorized quantity of the promotion (see valorized_unit_cost). *This field may be omitted according to the customer configuration.*
+    * valorized_unit_cost `number`: Valorized unit cost of the promotion. The total valorized cost of the promotion can be calculated with: valorized_quantity × valorized_unit_cost. *This field may be omitted according to the customer configuration.*
   * end_date **required** `string`: Date the promotion ends. (If null, has the same value as start_date.)
   * file `string`: File associated to the promotion.
   * id **required** `integer`: Unique ID of the promotion.
@@ -770,30 +926,30 @@ pims.fetchAllVenuesEvents({
 
 ### TicketCountsDetailedEntity
 * Detailed ticket count `object`
-  * channels **required** `array`: Array of channels where the sales were made.
-    * items `object`
-      * categories **required** `array`: Array of categories which where sold.
-        * items `object`
-          * id **required** `integer`: ID of the category.
-          * price_ranges **required** `array`: Array of price ranges which where sold.
-            * items `object`
-              * count **required** `integer`: Detailed ticket count (= number of sold tickets for the current channel/category/price range).
-              * id **required** `integer`: ID the price range.
-      * id **required** `integer`: ID of the channel.
+  * approved **required** `boolean`: Defines whether this ticket count is approved or not.
   * comment **required** `string`: Comment for the ticket count.
   * date **required** `string`: Date of the ticket count.
+  * event_channels `array`: Array of event channels where the sales were made.
+    * items `object`
+      * event_categories **required** `array`: Array of event categories which where sold.
+        * items `object`
+          * event_price_ranges **required** `array`: Array of event price ranges which where sold.
+          * id **required** `integer`: ID of the event category.
+      * id **required** `integer`: ID of the event channel.
   * final **required** `boolean`: Whether this ticket count is the last and final one of its event or not. If it is, it means that no further ticket counts will be added for the event it belongs to.
   * id **required** `integer`: Unique ID of the ticket count.
 
 ### TicketCountsEntity
 * Ticket count `object`
+  * approved **required** `boolean`: Defines whether this ticket count is approved or not.
   * comment **required** `string`: Comment for the ticket count.
-  * count **required** `integer`: Ticket count (i.e. number of sold tickets).
   * currency `string`: Currency of the gross (<a href='https://en.wikipedia.org/wiki/ISO_4217#Active_codes'>ISO 4212 alphabetic code</a>).
   * date **required** `string`: Date of the ticket count.
   * final **required** `boolean`: Whether this ticket count is the last and final one of its event or not. If it is, it means that no further ticket counts will be added for the event it belongs to.
-  * gross `number`: Gross (i.e. income for the sold tickets, including VAT but excluding all commissions).
+  * gross `number`: Gross (= income for the sold tickets, including VAT but excluding all commissions).
   * id **required** `integer`: Unique ID of the ticket count.
+  * reservations `integer`: Ticket reservations (= number of reserved tickets). *This field may be omitted according to the customer configuration.*
+  * sales **required** `integer`: Ticket sales (= number of sold tickets).
 
 ### VenuesEntity
 * Venue `object`

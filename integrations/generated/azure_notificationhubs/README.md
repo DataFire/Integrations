@@ -15,9 +15,7 @@ let azure_notificationhubs = require('@datafire/azure_notificationhubs').create(
   redirect_uri: ""
 });
 
-azure_notificationhubs.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -294,7 +292,7 @@ azure_notificationhubs.Namespaces_CreateOrUpdateAuthorizationRule({
 * input `object`
   * resourceGroupName **required** `string`: The name of the resource group.
   * namespaceName **required** `string`: The namespace name.
-  * authorizationRuleName **required** `string`: Aauthorization Rule Name.
+  * authorizationRuleName **required** `string`: Authorization Rule Name.
   * parameters **required** [SharedAccessAuthorizationRuleCreateOrUpdateParameters](#sharedaccessauthorizationrulecreateorupdateparameters)
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
@@ -446,6 +444,32 @@ azure_notificationhubs.NotificationHubs_Get({
   * resourceGroupName **required** `string`: The name of the resource group.
   * namespaceName **required** `string`: The namespace name.
   * notificationHubName **required** `string`: The notification hub name.
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [NotificationHubResource](#notificationhubresource)
+
+### NotificationHubs_Patch
+Patch a NotificationHub in a namespace.
+
+
+```js
+azure_notificationhubs.NotificationHubs_Patch({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "notificationHubName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * namespaceName **required** `string`: The namespace name.
+  * notificationHubName **required** `string`: The notification hub name.
+  * parameters [NotificationHubPatchParameters](#notificationhubpatchparameters)
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
@@ -643,6 +667,32 @@ azure_notificationhubs.NotificationHubs_RegenerateKeys({
 #### Output
 * output [ResourceListKeys](#resourcelistkeys)
 
+### NotificationHubs_DebugSend
+test send a push notification
+
+
+```js
+azure_notificationhubs.NotificationHubs_DebugSend({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "notificationHubName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * namespaceName **required** `string`: The namespace name.
+  * notificationHubName **required** `string`: The notification hub name.
+  * parameters [DebugSendParameters](#debugsendparameters)
+  * api-version **required** `string`: Client Api Version.
+  * subscriptionId **required** `string`: Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+#### Output
+* output [DebugSendResponse](#debugsendresponse)
+
 ### NotificationHubs_GetPnsCredentials
 Lists the PNS Credentials associated with a notification hub .
 
@@ -694,7 +744,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
   * certificateKey `string`: The certificate key.
   * endpoint `string`: The endpoint of this credential.
   * keyId `string`: A 10-character key identifier (kid) key, obtained from your developer account
-  * thumbprint `string`: The Apns certificate Thumbprint
+  * thumbprint `string`: The APNS certificate Thumbprint
   * token `string`: Provider Authentication Token, obtained through your developer account
 
 ### BaiduCredential
@@ -711,14 +761,14 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * CheckAvailabilityParameters `object`: Parameters supplied to the Check Name Availability for Namespace and NotificationHubs.
   * id `string`: Resource Id
   * isAvailiable `boolean`: True if the name is available and can be used to create new Namespace/NotificationHub. Otherwise false.
-  * location **required** `string`: Resource location
+  * location `string`: Resource location
   * name **required** `string`: Resource name
   * sku [Sku](#sku)
   * tags `object`: Resource tags
   * type `string`: Resource type
 
 ### CheckAvailabilityResult
-* CheckAvailabilityResult `object`: Description of a CheckAvailibility resource.
+* CheckAvailabilityResult `object`: Description of a CheckAvailability resource.
   * isAvailiable `boolean`: True if the name is available and can be used to create new Namespace/NotificationHub. Otherwise false.
   * id `string`: Resource Id
   * location `string`: Resource location
@@ -727,8 +777,27 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
   * tags `object`: Resource tags
   * type `string`: Resource type
 
+### DebugSendParameters
+* DebugSendParameters `object`: Debug Send payload
+
+### DebugSendResponse
+* DebugSendResponse `object`: Description of a NotificationHub Resource.
+  * properties [DebugSendResult](#debugsendresult)
+  * id `string`: Resource Id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * sku [Sku](#sku)
+  * tags `object`: Resource tags
+  * type `string`: Resource type
+
+### DebugSendResult
+* DebugSendResult `object`
+  * failure `number`: send failure
+  * results `object`: actual failure description
+  * success `number`: successful send
+
 ### ErrorResponse
-* ErrorResponse `object`: Error reponse indicates NotificationHubs service is not able to process the incoming request. The reason is provided in the error message.
+* ErrorResponse `object`: Error response indicates NotificationHubs service is not able to process the incoming request. The reason is provided in the error message.
   * code `string`: Error code.
   * message `string`: Error message indicating why the operation failed.
 
@@ -749,7 +818,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
 * MpnsCredentialProperties `object`: Description of a NotificationHub MpnsCredential.
   * certificateKey `string`: The certificate key for this credential.
   * mpnsCertificate `string`: The MPNS certificate.
-  * thumbprint `string`: The Mpns certificate Thumbprint
+  * thumbprint `string`: The MPNS certificate Thumbprint
 
 ### NamespaceCreateOrUpdateParameters
 * NamespaceCreateOrUpdateParameters `object`: Parameters supplied to the CreateOrUpdate Namespace operation.
@@ -782,7 +851,7 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
   * name `string`: The name of the namespace.
   * namespaceType `string` (values: Messaging, NotificationHub): The namespace type.
   * provisioningState `string`: Provisioning state of the Namespace.
-  * region `string`: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia EastAustralia SoutheastCentral USEast USEast US 2West USNorth Central USSouth Central USEast AsiaSoutheast AsiaBrazil SouthJapan EastJapan WestNorth EuropeWest Europe
+  * region `string`: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
   * scaleUnit `string`: ScaleUnit where the namespace gets created
   * serviceBusEndpoint `string`: Endpoint you can use to perform NotificationHub operations.
   * status `string`: Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
@@ -814,6 +883,16 @@ azure_notificationhubs.NotificationHubs_GetPnsCredentials({
   * nextLink `string`: Link to the next set of results. Not empty if Value contains incomplete list of NotificationHub
   * value `array`: Result of the List NotificationHub operation.
     * items [NotificationHubResource](#notificationhubresource)
+
+### NotificationHubPatchParameters
+* NotificationHubPatchParameters `object`: Parameters supplied to the patch NotificationHub operation.
+  * properties [NotificationHubProperties](#notificationhubproperties)
+  * id `string`: Resource Id
+  * location `string`: Resource location
+  * name `string`: Resource name
+  * sku [Sku](#sku)
+  * tags `object`: Resource tags
+  * type `string`: Resource type
 
 ### NotificationHubProperties
 * NotificationHubProperties `object`: NotificationHub properties.

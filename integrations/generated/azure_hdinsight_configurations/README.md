@@ -15,13 +15,7 @@ let azure_hdinsight_configurations = require('@datafire/azure_hdinsight_configur
   redirect_uri: ""
 });
 
-azure_hdinsight_configurations.Configurations_Get({
-  "resourceGroupName": "",
-  "clusterName": "",
-  "configurationName": "",
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -32,54 +26,77 @@ The HDInsight Management Client.
 
 ## Actions
 
+### Configurations_List
+Gets all configuration information for an HDI cluster.
+
+
+```js
+azure_hdinsight_configurations.Configurations_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "clusterName": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * resourceGroupName **required** `string`: The name of the resource group.
+  * clusterName **required** `string`: The name of the cluster.
+  * api-version **required** `string`: The HDInsight client API Version.
+
+#### Output
+* output [ClusterConfigurations](#clusterconfigurations)
+
 ### Configurations_Get
-The configuration object for the specified cluster.
+The configuration object for the specified cluster. This API is not recommended and might be removed in the future. Please consider using List configurations API instead.
 
 
 ```js
 azure_hdinsight_configurations.Configurations_Get({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "configurationName": "",
-  "api-version": "",
-  "subscriptionId": ""
+  "api-version": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * configurationName **required** `string`: The constant for configuration type of gateway.
+  * configurationName **required** `string`: The name of the cluster configuration.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
 #### Output
-* output `object`
+* output [ClusterConfiguration](#clusterconfiguration)
 
-### Configurations_UpdateHTTPSettings
-Configures the HTTP settings on the specified cluster.
+### Configurations_Update
+Configures the HTTP settings on the specified cluster. This API is deprecated, please use UpdateGatewaySettings in cluster endpoint instead.
 
 
 ```js
-azure_hdinsight_configurations.Configurations_UpdateHTTPSettings({
+azure_hdinsight_configurations.Configurations_Update({
+  "subscriptionId": "",
   "resourceGroupName": "",
   "clusterName": "",
   "configurationName": "",
-  "parameters": null,
   "api-version": "",
-  "subscriptionId": ""
+  "parameters": {}
 }, context)
 ```
 
 #### Input
 * input `object`
+  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group.
   * clusterName **required** `string`: The name of the cluster.
-  * configurationName **required** `string` (values: gateway): The constant for configuration type of gateway.
-  * parameters **required** [HttpConnectivitySettings](#httpconnectivitysettings)
+  * configurationName **required** `string`: The name of the cluster configuration.
   * api-version **required** `string`: The HDInsight client API Version.
-  * subscriptionId **required** `string`: The subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+  * parameters **required** [ClusterConfiguration](#clusterconfiguration)
 
 #### Output
 *Output schema unknown*
@@ -88,29 +105,11 @@ azure_hdinsight_configurations.Configurations_UpdateHTTPSettings({
 
 ## Definitions
 
-### HttpConnectivitySettings
-* HttpConnectivitySettings `object`: The payload for a Configure HTTP settings request.
-  * restAuthCredential.isEnabled `string` (values: true, false): Whether or not the HTTP based authorization is enabled.
-  * restAuthCredential.password `string`: The HTTP user password.
-  * restAuthCredential.username `string`: The HTTP username.
+### ClusterConfiguration
+* ClusterConfiguration `object`: The configuration object for the specified configuration for the specified cluster.
 
-### LinuxOperatingSystemProfile
-* LinuxOperatingSystemProfile `object`: The ssh username, password, and ssh public key.
-  * password `string`: The password.
-  * sshProfile [SshProfile](#sshprofile)
-  * username `string`: The username.
-
-### OsProfile
-* OsProfile `object`: The Linux operation systems profile.
-  * linuxOperatingSystemProfile [LinuxOperatingSystemProfile](#linuxoperatingsystemprofile)
-
-### SshProfile
-* SshProfile `object`: The list of SSH public keys.
-  * publicKeys `array`: The list of SSH public keys.
-    * items [SshPublicKey](#sshpublickey)
-
-### SshPublicKey
-* SshPublicKey `object`: The SSH public key for the cluster nodes.
-  * certificateData `string`: The certificate for SSH.
+### ClusterConfigurations
+* ClusterConfigurations `object`: The configuration object for the specified cluster.
+  * configurations `object`: The configuration object for the specified configuration for the specified cluster.
 
 

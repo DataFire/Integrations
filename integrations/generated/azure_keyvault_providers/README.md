@@ -15,9 +15,7 @@ let azure_keyvault_providers = require('@datafire/azure_keyvault_providers').cre
   redirect_uri: ""
 });
 
-azure_keyvault_providers.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -58,7 +56,7 @@ azure_keyvault_providers.Operations_List({
 ### Operation
 * Operation `object`: Key Vault REST API operation definition.
   * display `object`: Display metadata associated with the operation.
-    * description `string`: Decription of operation.
+    * description `string`: Description of operation.
     * operation `string`: Type of operation: get, read, delete, etc.
     * provider `string`: Service provider: Microsoft Key Vault.
     * resource `string`: Resource on which the operation is performed etc.

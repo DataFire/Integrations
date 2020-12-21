@@ -7,7 +7,7 @@
   "info": {
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     "title": "NetworkManagementClient",
-    "version": "2018-01-01",
+    "version": "2019-08-01",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -17,7 +17,7 @@
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-01-01/routeTable.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2019-08-01/routeTable.json",
         "version": "2.0"
       }
     ],
@@ -34,17 +34,15 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
-      "description": "Azure Active Directory OAuth2 Flow",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "flow": "implicit",
       "scopes": {
         "user_impersonation": "impersonate your user account"
@@ -59,22 +57,6 @@
       ]
     }
   ],
-  "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client API version.",
-      "in": "query",
-      "name": "api-version",
-      "required": true,
-      "type": "string"
-    },
-    "SubscriptionIdParameter": {
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "in": "path",
-      "name": "subscriptionId",
-      "required": true,
-      "type": "string"
-    }
-  },
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.Network/routeTables": {
       "get": {
@@ -82,10 +64,18 @@
         "operationId": "RouteTables_ListAll",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -102,7 +92,7 @@
         "x-ms-examples": {
           "List all route tables": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "subscriptionId": "subid"
             },
             "responses": {
@@ -163,10 +153,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -183,7 +181,7 @@
         "x-ms-examples": {
           "List route tables in resource group": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "subscriptionId": "subid"
             },
@@ -254,10 +252,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -277,7 +283,7 @@
         "x-ms-examples": {
           "Delete route table": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeTableName": "testrt",
               "subscriptionId": "subid"
@@ -289,7 +295,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       },
       "get": {
         "description": "Gets the specified route table.",
@@ -310,10 +319,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "Expands referenced resources.",
@@ -337,7 +354,7 @@
         "x-ms-examples": {
           "Get route table": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeTableName": "testrt",
               "subscriptionId": "subid"
@@ -407,10 +424,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -427,7 +452,7 @@
         "x-ms-examples": {
           "Update route table tags": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "parameters": {
                 "tags": {
                   "tag1": "value1",
@@ -488,10 +513,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -514,8 +547,10 @@
         "x-ms-examples": {
           "Create route table": {
             "parameters": {
-              "api-version": "2018-01-01",
-              "parameters": {},
+              "api-version": "2019-08-01",
+              "parameters": {
+                "location": "westus"
+              },
               "resourceGroupName": "rg1",
               "routeTableName": "testrt",
               "subscriptionId": "subid"
@@ -551,8 +586,9 @@
           },
           "Create route table with route": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "parameters": {
+                "location": "westus",
                 "properties": {
                   "disableBgpRoutePropagation": true,
                   "routes": [
@@ -619,7 +655,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes": {
@@ -642,10 +681,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -662,7 +709,7 @@
         "x-ms-examples": {
           "List routes": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeTableName": "testrt",
               "subscriptionId": "subid"
@@ -727,10 +774,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -750,7 +805,7 @@
         "x-ms-examples": {
           "Delete route": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeName": "route1",
               "routeTableName": "testrt",
@@ -763,7 +818,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
       },
       "get": {
         "description": "Gets the specified route from a route table.",
@@ -791,10 +849,18 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -811,7 +877,7 @@
         "x-ms-examples": {
           "Get route": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeName": "route1",
               "routeTableName": "testrt",
@@ -868,10 +934,18 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "Client API version.",
+            "in": "query",
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -894,7 +968,7 @@
         "x-ms-examples": {
           "Create route": {
             "parameters": {
-              "api-version": "2018-01-01",
+              "api-version": "2019-08-01",
               "resourceGroupName": "rg1",
               "routeName": "route1",
               "routeParameters": {
@@ -932,7 +1006,10 @@
             }
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
       }
     }
   },
@@ -950,7 +1027,7 @@
           "x-ms-azure-resource": true
         }
       ],
-      "description": "Route resource",
+      "description": "Route resource.",
       "properties": {
         "etag": {
           "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -961,7 +1038,7 @@
           "type": "string"
         },
         "properties": {
-          "description": "Route resource",
+          "description": "Route resource.",
           "properties": {
             "addressPrefix": {
               "description": "The destination CIDR to which the route applies.",
@@ -972,7 +1049,7 @@
               "type": "string"
             },
             "nextHopType": {
-              "description": "The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'",
+              "description": "The type of Azure hop the packet should be sent to.",
               "enum": [
                 "VirtualNetworkGateway",
                 "VnetLocal",
@@ -987,8 +1064,19 @@
               }
             },
             "provisioningState": {
-              "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-              "type": "string"
+              "description": "The current provisioning state.",
+              "enum": [
+                "Succeeded",
+                "Updating",
+                "Deleting",
+                "Failed"
+              ],
+              "readOnly": true,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "ProvisioningState"
+              }
             }
           },
           "required": [
@@ -998,14 +1086,14 @@
       }
     },
     "RouteListResult": {
-      "description": "Response for the ListRoute API service call",
+      "description": "Response for the ListRoute API service call.",
       "properties": {
         "nextLink": {
           "description": "The URL to get the next set of results.",
           "type": "string"
         },
         "value": {
-          "description": "Gets a list of routes in a resource group.",
+          "description": "A list of routes in a resource group.",
           "items": {
             "$ref": "#/definitions/Route"
           },
@@ -1013,8 +1101,23 @@
         }
       }
     },
+    "RouteNextHopType": {
+      "description": "The type of Azure hop the packet should be sent to.",
+      "enum": [
+        "VirtualNetworkGateway",
+        "VnetLocal",
+        "Internet",
+        "VirtualAppliance",
+        "None"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "RouteNextHopType"
+      }
+    },
     "RoutePropertiesFormat": {
-      "description": "Route resource",
+      "description": "Route resource.",
       "properties": {
         "addressPrefix": {
           "description": "The destination CIDR to which the route applies.",
@@ -1025,7 +1128,7 @@
           "type": "string"
         },
         "nextHopType": {
-          "description": "The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'",
+          "description": "The type of Azure hop the packet should be sent to.",
           "enum": [
             "VirtualNetworkGateway",
             "VnetLocal",
@@ -1040,8 +1143,19 @@
           }
         },
         "provisioningState": {
-          "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-          "type": "string"
+          "description": "The current provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Updating",
+            "Deleting",
+            "Failed"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
         }
       },
       "required": [
@@ -1085,7 +1199,7 @@
       "description": "Route table resource.",
       "properties": {
         "etag": {
-          "description": "Gets a unique read-only string that changes whenever the resource is updated.",
+          "description": "A unique read-only string that changes whenever the resource is updated.",
           "type": "string"
         },
         "properties": {
@@ -1103,7 +1217,7 @@
           "type": "string"
         },
         "value": {
-          "description": "Gets a list of route tables in a resource group.",
+          "description": "A list of route tables in a resource group.",
           "items": {
             "$ref": "#/definitions/RouteTable"
           },
@@ -1112,15 +1226,26 @@
       }
     },
     "RouteTablePropertiesFormat": {
-      "description": "Route Table resource",
+      "description": "Route Table resource.",
       "properties": {
         "disableBgpRoutePropagation": {
-          "description": "Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.",
+          "description": "Whether to disable the routes learned by BGP on that route table. True means disable.",
           "type": "boolean"
         },
         "provisioningState": {
-          "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-          "type": "string"
+          "description": "The current provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Updating",
+            "Deleting",
+            "Failed"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
         },
         "routes": {
           "description": "Collection of routes contained within a route table.",
@@ -1137,7 +1262,7 @@
                 "x-ms-azure-resource": true
               }
             ],
-            "description": "Route resource",
+            "description": "Route resource.",
             "properties": {
               "etag": {
                 "description": "A unique read-only string that changes whenever the resource is updated.",
@@ -1148,7 +1273,7 @@
                 "type": "string"
               },
               "properties": {
-                "description": "Route resource",
+                "description": "Route resource.",
                 "properties": {
                   "addressPrefix": {
                     "description": "The destination CIDR to which the route applies.",
@@ -1159,7 +1284,7 @@
                     "type": "string"
                   },
                   "nextHopType": {
-                    "description": "The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'",
+                    "description": "The type of Azure hop the packet should be sent to.",
                     "enum": [
                       "VirtualNetworkGateway",
                       "VnetLocal",
@@ -1174,8 +1299,19 @@
                     }
                   },
                   "provisioningState": {
-                    "description": "The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
-                    "type": "string"
+                    "description": "The current provisioning state.",
+                    "enum": [
+                      "Succeeded",
+                      "Updating",
+                      "Deleting",
+                      "Failed"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ProvisioningState"
+                    }
                   }
                 },
                 "required": [

@@ -1,0 +1,1383 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "Pinpoint SMS and Voice Messaging public facing APIs",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Pinpoint SMS and Voice Service",
+    "version": "2018-09-05",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sms-voice-2018-09-05.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "sms-voice",
+    "x-datafire": {
+      "name": "amazonaws_sms_voice",
+      "type": "openapi"
+    }
+  },
+  "host": "sms-voice.pinpoint.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/v1/sms-voice/configuration-sets": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "A token returned from a previous call to the API that indicates the position in the list of results.",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to specify the number of items that should be returned in the response.",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListConfigurationSetsResponse"
+            }
+          },
+          "480": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "List all of the configuration sets associated with your Amazon Pinpoint account in the current region.",
+        "operationId": "ListConfigurationSets"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ConfigurationSetName": {
+                  "description": "The name that you want to give the configuration set.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateConfigurationSetResponse"
+            }
+          },
+          "480": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "484": {
+            "description": "AlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/AlreadyExistsException"
+            }
+          }
+        },
+        "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+        "operationId": "CreateConfigurationSet"
+      }
+    },
+    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ConfigurationSetName",
+            "in": "path",
+            "name": "ConfigurationSetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteConfigurationSetResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Deletes an existing configuration set.",
+        "operationId": "DeleteConfigurationSet"
+      }
+    },
+    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ConfigurationSetName",
+            "in": "path",
+            "name": "ConfigurationSetName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetConfigurationSetEventDestinationsResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+        "operationId": "GetConfigurationSetEventDestinations"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ConfigurationSetName",
+            "in": "path",
+            "name": "ConfigurationSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "EventDestination": {
+                  "description": "An object that defines a single event destination.",
+                  "properties": {
+                    "CloudWatchLogsDestination": {
+                      "$ref": "#/definitions/CloudWatchLogsDestination"
+                    },
+                    "Enabled": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Boolean"
+                        },
+                        {
+                          "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+                        }
+                      ]
+                    },
+                    "KinesisFirehoseDestination": {
+                      "$ref": "#/definitions/KinesisFirehoseDestination"
+                    },
+                    "MatchingEventTypes": {
+                      "$ref": "#/definitions/EventTypes"
+                    },
+                    "SnsDestination": {
+                      "$ref": "#/definitions/SnsDestination"
+                    }
+                  },
+                  "type": "object"
+                },
+                "EventDestinationName": {
+                  "description": "A name that identifies the event destination.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateConfigurationSetEventDestinationResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "485": {
+            "description": "AlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/AlreadyExistsException"
+            }
+          }
+        },
+        "description": "Create a new event destination in a configuration set.",
+        "operationId": "CreateConfigurationSetEventDestination"
+      }
+    },
+    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ConfigurationSetName",
+            "in": "path",
+            "name": "ConfigurationSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "EventDestinationName",
+            "in": "path",
+            "name": "EventDestinationName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteConfigurationSetEventDestinationResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Deletes an event destination in a configuration set.",
+        "operationId": "DeleteConfigurationSetEventDestination"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ConfigurationSetName",
+            "in": "path",
+            "name": "ConfigurationSetName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "EventDestinationName",
+            "in": "path",
+            "name": "EventDestinationName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "EventDestination": {
+                  "description": "An object that defines a single event destination.",
+                  "properties": {
+                    "CloudWatchLogsDestination": {
+                      "$ref": "#/definitions/CloudWatchLogsDestination"
+                    },
+                    "Enabled": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Boolean"
+                        },
+                        {
+                          "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+                        }
+                      ]
+                    },
+                    "KinesisFirehoseDestination": {
+                      "$ref": "#/definitions/KinesisFirehoseDestination"
+                    },
+                    "MatchingEventTypes": {
+                      "$ref": "#/definitions/EventTypes"
+                    },
+                    "SnsDestination": {
+                      "$ref": "#/definitions/SnsDestination"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateConfigurationSetEventDestinationResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+        "operationId": "UpdateConfigurationSetEventDestination"
+      }
+    },
+    "/v1/sms-voice/voice/message": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "CallerId": {
+                  "description": "The phone number that appears on recipients' devices when they receive the message.",
+                  "type": "string"
+                },
+                "ConfigurationSetName": {
+                  "description": "The name of the configuration set that you want to use to send the message.",
+                  "type": "string"
+                },
+                "Content": {
+                  "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+                  "properties": {
+                    "CallInstructionsMessage": {
+                      "$ref": "#/definitions/CallInstructionsMessageType"
+                    },
+                    "PlainTextMessage": {
+                      "$ref": "#/definitions/PlainTextMessageType"
+                    },
+                    "SSMLMessage": {
+                      "$ref": "#/definitions/SSMLMessageType"
+                    }
+                  },
+                  "type": "object"
+                },
+                "DestinationPhoneNumber": {
+                  "description": "The phone number that you want to send the voice message to.",
+                  "type": "string"
+                },
+                "OriginationPhoneNumber": {
+                  "description": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendVoiceMessageResponse"
+            }
+          },
+          "480": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        },
+        "description": "Create a new voice message and send it to a recipient's phone number.",
+        "operationId": "SendVoiceMessage"
+      }
+    }
+  },
+  "definitions": {
+    "AlreadyExistsException": {},
+    "BadRequestException": {},
+    "Boolean": {
+      "type": "boolean"
+    },
+    "CallInstructionsMessageType": {
+      "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+      "properties": {
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudWatchLogsDestination": {
+      "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+      "properties": {
+        "IamRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination."
+            }
+          ]
+        },
+        "LogGroupArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the Amazon CloudWatch Log Group that you want to record events in."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationSets": {
+      "description": "An array that contains all of the configuration sets in your Amazon Pinpoint account in the current AWS Region.",
+      "items": {
+        "$ref": "#/definitions/WordCharactersWithDelimiters"
+      },
+      "type": "array"
+    },
+    "CreateConfigurationSetEventDestinationRequest": {
+      "description": "Create a new event destination in a configuration set.",
+      "properties": {
+        "EventDestination": {
+          "$ref": "#/definitions/EventDestinationDefinition"
+        },
+        "EventDestinationName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "A name that identifies the event destination."
+            }
+          ]
+        }
+      },
+      "title": "CreateConfigurationSetEventDestinationRequest",
+      "type": "object"
+    },
+    "CreateConfigurationSetEventDestinationResponse": {
+      "description": "An empty object that indicates that the event destination was created successfully.",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateConfigurationSetRequest": {
+      "description": "A request to create a new configuration set.",
+      "properties": {
+        "ConfigurationSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WordCharactersWithDelimiters"
+            },
+            {
+              "description": "The name that you want to give the configuration set."
+            }
+          ]
+        }
+      },
+      "title": "CreateConfigurationSetRequest",
+      "type": "object"
+    },
+    "CreateConfigurationSetResponse": {
+      "description": "An empty object that indicates that the configuration set was successfully created.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteConfigurationSetEventDestinationRequest": {
+      "properties": {},
+      "title": "DeleteConfigurationSetEventDestinationRequest",
+      "type": "object"
+    },
+    "DeleteConfigurationSetEventDestinationResponse": {
+      "description": "An empty object that indicates that the event destination was deleted successfully.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteConfigurationSetRequest": {
+      "properties": {},
+      "title": "DeleteConfigurationSetRequest",
+      "type": "object"
+    },
+    "DeleteConfigurationSetResponse": {
+      "description": "An empty object that indicates that the configuration set was deleted successfully.",
+      "properties": {},
+      "type": "object"
+    },
+    "EventDestination": {
+      "description": "An object that defines an event destination.",
+      "properties": {
+        "CloudWatchLogsDestination": {
+          "$ref": "#/definitions/CloudWatchLogsDestination"
+        },
+        "Enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+            }
+          ]
+        },
+        "KinesisFirehoseDestination": {
+          "$ref": "#/definitions/KinesisFirehoseDestination"
+        },
+        "MatchingEventTypes": {
+          "$ref": "#/definitions/EventTypes"
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A name that identifies the event destination configuration."
+            }
+          ]
+        },
+        "SnsDestination": {
+          "$ref": "#/definitions/SnsDestination"
+        }
+      },
+      "type": "object"
+    },
+    "EventDestinationDefinition": {
+      "description": "An object that defines a single event destination.",
+      "properties": {
+        "CloudWatchLogsDestination": {
+          "$ref": "#/definitions/CloudWatchLogsDestination"
+        },
+        "Enabled": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Boolean"
+            },
+            {
+              "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+            }
+          ]
+        },
+        "KinesisFirehoseDestination": {
+          "$ref": "#/definitions/KinesisFirehoseDestination"
+        },
+        "MatchingEventTypes": {
+          "$ref": "#/definitions/EventTypes"
+        },
+        "SnsDestination": {
+          "$ref": "#/definitions/SnsDestination"
+        }
+      },
+      "type": "object"
+    },
+    "EventDestinations": {
+      "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+      "items": {
+        "$ref": "#/definitions/EventDestination"
+      },
+      "type": "array"
+    },
+    "EventType": {
+      "description": "The types of events that are sent to the event destination.",
+      "enum": [
+        "INITIATED_CALL",
+        "RINGING",
+        "ANSWERED",
+        "COMPLETED_CALL",
+        "BUSY",
+        "FAILED",
+        "NO_ANSWER"
+      ],
+      "type": "string"
+    },
+    "EventTypes": {
+      "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+      "items": {
+        "$ref": "#/definitions/EventType"
+      },
+      "type": "array"
+    },
+    "GetConfigurationSetEventDestinationsRequest": {
+      "properties": {},
+      "title": "GetConfigurationSetEventDestinationsRequest",
+      "type": "object"
+    },
+    "GetConfigurationSetEventDestinationsResponse": {
+      "description": "An object that contains information about an event destination.",
+      "properties": {
+        "EventDestinations": {
+          "$ref": "#/definitions/EventDestinations"
+        }
+      },
+      "type": "object"
+    },
+    "InternalServiceErrorException": {},
+    "KinesisFirehoseDestination": {
+      "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+      "properties": {
+        "DeliveryStreamArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream."
+            }
+          ]
+        },
+        "IamRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {},
+    "ListConfigurationSetsRequest": {
+      "properties": {},
+      "title": "ListConfigurationSetsRequest",
+      "type": "object"
+    },
+    "ListConfigurationSetsResponse": {
+      "description": "An object that contains information about the configuration sets for your account in the current region.",
+      "properties": {
+        "ConfigurationSets": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ConfigurationSets"
+            },
+            {
+              "description": "An object that contains a list of configuration sets for your account in the current region."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NextTokenString"
+            },
+            {
+              "description": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NextTokenString": {
+      "type": "string"
+    },
+    "NonEmptyString": {
+      "type": "string"
+    },
+    "NotFoundException": {},
+    "PlainTextMessageType": {
+      "description": "An object that defines a message that contains unformatted text.",
+      "properties": {
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The plain (not SSML-formatted) text to deliver to the recipient."
+            }
+          ]
+        },
+        "VoiceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SSMLMessageType": {
+      "description": "An object that defines a message that contains SSML-formatted text.",
+      "properties": {
+        "LanguageCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+            }
+          ]
+        },
+        "Text": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The SSML-formatted text to deliver to the recipient."
+            }
+          ]
+        },
+        "VoiceId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SendVoiceMessageRequest": {
+      "description": "SendVoiceMessageRequest",
+      "properties": {
+        "CallerId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The phone number that appears on recipients' devices when they receive the message."
+            }
+          ]
+        },
+        "ConfigurationSetName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WordCharactersWithDelimiters"
+            },
+            {
+              "description": "The name of the configuration set that you want to use to send the message."
+            }
+          ]
+        },
+        "Content": {
+          "$ref": "#/definitions/VoiceMessageContent"
+        },
+        "DestinationPhoneNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The phone number that you want to send the voice message to."
+            }
+          ]
+        },
+        "OriginationPhoneNumber": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            {
+              "description": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request."
+            }
+          ]
+        }
+      },
+      "title": "SendVoiceMessageRequest",
+      "type": "object"
+    },
+    "SendVoiceMessageResponse": {
+      "description": "An object that that contains the Message ID of a Voice message that was sent successfully.",
+      "properties": {
+        "MessageId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A unique identifier for the voice message."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SnsDestination": {
+      "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+      "properties": {
+        "TopicArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "TooManyRequestsException": {},
+    "UpdateConfigurationSetEventDestinationRequest": {
+      "description": "UpdateConfigurationSetEventDestinationRequest",
+      "properties": {
+        "EventDestination": {
+          "$ref": "#/definitions/EventDestinationDefinition"
+        }
+      },
+      "title": "UpdateConfigurationSetEventDestinationRequest",
+      "type": "object"
+    },
+    "UpdateConfigurationSetEventDestinationResponse": {
+      "description": "An empty object that indicates that the event destination was updated successfully.",
+      "properties": {},
+      "type": "object"
+    },
+    "VoiceMessageContent": {
+      "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+      "properties": {
+        "CallInstructionsMessage": {
+          "$ref": "#/definitions/CallInstructionsMessageType"
+        },
+        "PlainTextMessage": {
+          "$ref": "#/definitions/PlainTextMessageType"
+        },
+        "SSMLMessage": {
+          "$ref": "#/definitions/SSMLMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "WordCharactersWithDelimiters": {
+      "type": "string"
+    },
+    "__string": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/pinpoint/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

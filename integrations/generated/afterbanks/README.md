@@ -1,6 +1,6 @@
 # @datafire/afterbanks
 
-Client library for Afterbanks
+Client library for Afterbanks API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/afterbanks
 ```js
 let afterbanks = require('@datafire/afterbanks').create();
 
-afterbanks.forms.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

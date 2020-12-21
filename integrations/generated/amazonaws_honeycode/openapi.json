@@ -1,0 +1,3909 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " Amazon Honeycode is a fully managed service that allows you to quickly build mobile and web apps for teams—without programming. Build Honeycode apps for managing almost anything, like projects, customers, operations, approvals, resources, and even your team. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Honeycode",
+    "version": "2020-03-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/honeycode-2020-03-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "honeycode",
+    "x-datafire": {
+      "name": "amazonaws_honeycode",
+      "type": "openapi"
+    }
+  },
+  "host": "honeycode.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/screendata": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "appId": {
+                  "description": "The ID of the app that contains the screem.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                  "type": "string"
+                },
+                "maxResults": {
+                  "description": "<p> The number of results to be returned on a single page. Specify a number between 1 and 100. The maximum value is 100. </p> <p> This parameter is optional. If you don't specify this parameter, the default page size is 100. </p>",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "screenId": {
+                  "description": "The ID of the screen.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                  "type": "string"
+                },
+                "variables": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/VariableValue"
+                  },
+                  "description": " Variables are optional and are needed only if the screen requires them to render correctly. Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. ",
+                  "type": "object"
+                },
+                "workbookId": {
+                  "description": "The ID of the workbook that contains the screen.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "workbookId",
+                "appId",
+                "screenId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetScreenDataResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The GetScreenData API allows retrieval of data from a screen in a Honeycode app. The API allows setting local variables in the screen to filter, sort or otherwise affect what will be displayed on the screen. ",
+        "operationId": "GetScreenData"
+      }
+    },
+    "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{automationId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the workbook that contains the screen automation.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the app that contains the screen automation.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "appId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the screen that contains the screen automation.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "screenId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the automation action to be performed.",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "automationId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the automation action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will return the response of the previous call rather than performing the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowId": {
+                  "description": " The row ID for the automation if the automation is defined inside a block with source or list. ",
+                  "maxLength": 77,
+                  "minLength": 77,
+                  "pattern": "row:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                  "type": "string"
+                },
+                "variables": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/VariableValue"
+                  },
+                  "description": " Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. Any variables defined in a screen are required to be passed in the call. ",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InvokeScreenAutomationResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "AutomationExecutionException",
+            "schema": {
+              "$ref": "#/definitions/AutomationExecutionException"
+            }
+          },
+          "487": {
+            "description": "AutomationExecutionTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/AutomationExecutionTimeoutException"
+            }
+          },
+          "488": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          }
+        },
+        "description": " The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app. The API allows setting local variables, which can then be used in the automation being invoked. This allows automating the Honeycode app interactions to write, update or delete data in the workbook. ",
+        "operationId": "InvokeScreenAutomation"
+      }
+    },
+    "/workbooks/{workbookId}/tables": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook whose tables are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of tables to return in each page of the results.",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "maxResults",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "^(?!\\s*$).+",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTablesResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The ListTables API allows you to retrieve a list of all the tables in a workbook. ",
+        "operationId": "ListTables"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/columns": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook that contains the table whose columns are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table whose columns are being retrieved.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>",
+            "in": "query",
+            "maxLength": 1024,
+            "minLength": 1,
+            "name": "nextToken",
+            "pattern": "^(?!\\s*$).+",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTableColumnsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook. ",
+        "operationId": "ListTableColumns"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/import": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook where the rows are being imported.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table where the rows are being imported.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "dataFormat": {
+                  "description": " The format of the data that is being imported. Currently the only option supported is \"DELIMITED_TEXT\". ",
+                  "enum": [
+                    "DELIMITED_TEXT"
+                  ],
+                  "type": "string"
+                },
+                "dataSource": {
+                  "description": "An object that has details about the source of the data that was submitted for import.",
+                  "properties": {
+                    "dataSourceConfig": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ImportDataSourceConfig"
+                        },
+                        {
+                          "description": "The configuration parameters for the data source of the import"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "importOptions": {
+                  "description": "An object that contains the options specified by the sumitter of the import request.",
+                  "properties": {
+                    "delimitedTextOptions": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DelimitedTextImportOptions"
+                        },
+                        {
+                          "description": "Options relating to parsing delimited text. Required if dataFormat is DELIMITED_TEXT."
+                        }
+                      ]
+                    },
+                    "destinationOptions": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/DestinationOptions"
+                        },
+                        {
+                          "description": "Options relating to the destination of the import request."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "dataSource",
+                "dataFormat",
+                "importOptions",
+                "clientRequestToken"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartTableDataImportJobResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The StartTableDataImportJob API allows you to start an import job on a table. This API will only return the id of the job that was started. To find out the status of the import request, you need to call the DescribeTableDataImportJob API. ",
+        "operationId": "StartTableDataImportJob"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook into which data was imported.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table into which data was imported.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the job that was returned by the StartTableDataImportJob request.</p> <p> If a job with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "jobId",
+            "pattern": "^[^\\n\\r\\x00\\x08\\x0B\\x0C\\x0E\\x1F]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTableDataImportJobResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job. ",
+        "operationId": "DescribeTableDataImportJob"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook where the new rows are being added.</p> <p> If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table where the new rows are being added.</p> <p> If a table with the specified ID could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the batch create operation. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the operation again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowsToCreate": {
+                  "description": "<p> The list of rows to create at the end of the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request and the cells to create for that row. You need to specify at least one item in this list. </p> <p> Note that if one of the column ids in any of the rows in the request does not exist in the table, then the request fails and no updates are made to the table. </p>",
+                  "items": {
+                    "$ref": "#/definitions/CreateRowData"
+                  },
+                  "maxItems": 100,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "rowsToCreate"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchCreateTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "487": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p> The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook. The API allows you to specify the values to set in some or all of the columns in the new rows. </p> <p> If a column is not explicitly set in a specific row, then the column level formula specified in the table will be applied to the new row. If there is no column level formula but the last row of the table has a formula, then that formula will be copied down to the new row. If there is no column level formula and no formula in the last row of the table, then that column will be left blank for the new rows. </p>",
+        "operationId": "BatchCreateTableRows"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook where the rows are being deleted.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table where the rows are being deleted.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the delete action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowIds": {
+                  "description": "<p> The list of row ids to delete from the table. You need to specify at least one row id in this list. </p> <p> Note that if one of the row ids provided in the request does not exist in the table, then the request fails and no rows are deleted from the table. </p>",
+                  "items": {
+                    "$ref": "#/definitions/RowId"
+                  },
+                  "maxItems": 100,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "rowIds"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchDeleteTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": " The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook. You need to specify the ids of the rows that you want to delete from the table. ",
+        "operationId": "BatchDeleteTableRows"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook where the rows are being updated.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table where the rows are being updated.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowsToUpdate": {
+                  "description": "<p> The list of rows to update in the table. Each item in this list needs to contain the row id to update along with the map of column id to cell values for each column in that row that needs to be updated. You need to specify at least one row in this list, and for each row, you need to specify at least one column to update. </p> <p> Note that if one of the row or column ids in the request does not exist in the table, then the request fails and no updates are made to the table. </p>",
+                  "items": {
+                    "$ref": "#/definitions/UpdateRowData"
+                  },
+                  "maxItems": 100,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "rowsToUpdate"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchUpdateTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": "<p> The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook. </p> <p> You can specify the values to set in some or all of the columns in the table for the specified rows. If a column is not explicitly specified in a particular row, then that column will not be updated for that row. To clear out the data in a specific cell, you need to set the value as an empty string (\"\"). </p>",
+        "operationId": "BatchUpdateTableRows"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook where the rows are being upserted.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table where the rows are being upserted.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "clientRequestToken": {
+                  "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>",
+                  "maxLength": 64,
+                  "minLength": 32,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowsToUpsert": {
+                  "description": "<p> The list of rows to upsert in the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request, a filter expression to find the rows to update for that element and the cell values to set for each column in the upserted rows. You need to specify at least one item in this list. </p> <p> Note that if one of the filter formulas in the request fails to evaluate because of an error or one of the column ids in any of the rows does not exist in the table, then the request fails and no updates are made to the table. </p>",
+                  "items": {
+                    "$ref": "#/definitions/UpsertRowData"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "rowsToUpsert"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchUpsertTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "487": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p> The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert operation takes a filter expression as input and evaluates it to find matching rows on the destination table. If matching rows are found, it will update the cells in the matching rows to new values specified in the request. If no matching rows are found, a new row is added at the end of the table and the cells in that row are set to the new values specified in the request. </p> <p> You can specify the values to set in some or all of the columns in the table for the matching or newly appended rows. If a column is not explicitly specified for a particular row, then that column will not be updated for that row. To clear out the data in a specific cell, you need to set the value as an empty string (\"\"). </p>",
+        "operationId": "BatchUpsertTableRows"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/list": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook that contains the table whose rows are being retrieved.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table whose rows are being retrieved.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "maxResults": {
+                  "description": "The maximum number of rows to return in each page of the results.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                },
+                "rowIds": {
+                  "description": " This parameter is optional. If one or more row ids are specified in this list, then only the specified row ids are returned in the result. If no row ids are specified here, then all the rows in the table are returned. ",
+                  "items": {
+                    "$ref": "#/definitions/RowId"
+                  },
+                  "maxItems": 100,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "485": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "486": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        },
+        "description": " The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook. ",
+        "operationId": "ListTableRows"
+      }
+    },
+    "/workbooks/{workbookId}/tables/{tableId}/rows/query": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ID of the workbook whose table rows are being queried.</p> <p> If a workbook with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "workbookId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "<p>The ID of the table whose rows are being queried.</p> <p> If a table with the specified id could not be found, this API throws ResourceNotFoundException. </p>",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "tableId",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "filterFormula": {
+                  "description": " An object that represents a filter formula along with the id of the context row under which the filter function needs to evaluate. ",
+                  "properties": {
+                    "contextRowId": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/RowId"
+                        },
+                        {
+                          "description": " The optional contextRowId attribute can be used to specify the row id of the context row if the filter formula contains unqualified references to table columns and needs a context row to evaluate them successfully. "
+                        }
+                      ]
+                    },
+                    "formula": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Formula"
+                        },
+                        {
+                          "description": " A formula representing a filter function that returns zero or more matching rows from a table. Valid formulas in this field return a list of rows from a table. The most common ways of writing a formula to return a list of rows are to use the FindRow() or Filter() functions. Any other formula that returns zero or more rows is also acceptable. For example, you can use a formula that points to a cell that contains a filter function. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "maxResults": {
+                  "description": "The maximum number of rows to return in each page of the results.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "nextToken": {
+                  "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "pattern": "^(?!\\s*$).+",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "filterFormula"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/QueryTableRowsResult"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "RequestTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/RequestTimeoutException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " The QueryTableRows API allows you to use a filter formula to query for specific rows in a table. ",
+        "operationId": "QueryTableRows"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AutomationExecutionException": {},
+    "AutomationExecutionTimeoutException": {},
+    "AwsUserArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string"
+    },
+    "BatchCreateTableRowsRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the batch create operation. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the operation again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "rowsToCreate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreateRowDataList"
+            },
+            {
+              "description": "<p> The list of rows to create at the end of the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request and the cells to create for that row. You need to specify at least one item in this list. </p> <p> Note that if one of the column ids in any of the rows in the request does not exist in the table, then the request fails and no updates are made to the table. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowsToCreate"
+      ],
+      "title": "BatchCreateTableRowsRequest",
+      "type": "object"
+    },
+    "BatchCreateTableRowsResult": {
+      "properties": {
+        "createdRows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CreatedRowsMap"
+            },
+            {
+              "description": "The map of batch item id to the row id that was created for that item."
+            }
+          ]
+        },
+        "failedBatchItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedBatchItems"
+            },
+            {
+              "description": " The list of batch items in the request that could not be added to the table. Each element in this list contains one item from the request that could not be added to the table along with the reason why that item could not be added. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": "The updated workbook cursor after adding the new rows at the end of the table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workbookCursor",
+        "createdRows"
+      ],
+      "type": "object"
+    },
+    "BatchDeleteTableRowsRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the delete action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "rowIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowIdList"
+            },
+            {
+              "description": "<p> The list of row ids to delete from the table. You need to specify at least one row id in this list. </p> <p> Note that if one of the row ids provided in the request does not exist in the table, then the request fails and no rows are deleted from the table. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowIds"
+      ],
+      "title": "BatchDeleteTableRowsRequest",
+      "type": "object"
+    },
+    "BatchDeleteTableRowsResult": {
+      "properties": {
+        "failedBatchItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedBatchItems"
+            },
+            {
+              "description": " The list of row ids in the request that could not be deleted from the table. Each element in this list contains one row id from the request that could not be deleted along with the reason why that item could not be deleted. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": "The updated workbook cursor after deleting the rows from the table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "BatchErrorMessage": {
+      "pattern": "^(?!\\s*$).+",
+      "type": "string"
+    },
+    "BatchItemId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^(?!\\s*$).+",
+      "type": "string"
+    },
+    "BatchUpdateTableRowsRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "rowsToUpdate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateRowDataList"
+            },
+            {
+              "description": "<p> The list of rows to update in the table. Each item in this list needs to contain the row id to update along with the map of column id to cell values for each column in that row that needs to be updated. You need to specify at least one row in this list, and for each row, you need to specify at least one column to update. </p> <p> Note that if one of the row or column ids in the request does not exist in the table, then the request fails and no updates are made to the table. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowsToUpdate"
+      ],
+      "title": "BatchUpdateTableRowsRequest",
+      "type": "object"
+    },
+    "BatchUpdateTableRowsResult": {
+      "properties": {
+        "failedBatchItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedBatchItems"
+            },
+            {
+              "description": " The list of batch items in the request that could not be updated in the table. Each element in this list contains one item from the request that could not be updated in the table along with the reason why that item could not be updated. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": "The updated workbook cursor after adding the new rows at the end of the table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "BatchUpsertTableRowsRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "rowsToUpsert": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpsertRowDataList"
+            },
+            {
+              "description": "<p> The list of rows to upsert in the table. Each item in this list needs to have a batch item id to uniquely identify the element in the request, a filter expression to find the rows to update for that element and the cell values to set for each column in the upserted rows. You need to specify at least one item in this list. </p> <p> Note that if one of the filter formulas in the request fails to evaluate because of an error or one of the column ids in any of the rows does not exist in the table, then the request fails and no updates are made to the table. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowsToUpsert"
+      ],
+      "title": "BatchUpsertTableRowsRequest",
+      "type": "object"
+    },
+    "BatchUpsertTableRowsResult": {
+      "properties": {
+        "failedBatchItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FailedBatchItems"
+            },
+            {
+              "description": " The list of batch items in the request that could not be updated or appended in the table. Each element in this list contains one item from the request that could not be updated in the table along with the reason why that item could not be updated or appended. "
+            }
+          ]
+        },
+        "rows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpsertRowsResultMap"
+            },
+            {
+              "description": " A map with the batch item id as the key and the result of the upsert operation as the value. The result of the upsert operation specifies whether existing rows were updated or a new row was appended, along with the list of row ids that were affected. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": "The updated workbook cursor after updating or appending rows in the table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "rows",
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "Cell": {
+      "description": "An object that represents a single cell in a table.",
+      "properties": {
+        "format": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Format"
+            },
+            {
+              "description": "The format of the cell. If this field is empty, then the format is either not specified in the workbook or the format is set to AUTO."
+            }
+          ]
+        },
+        "formattedValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FormattedValue"
+            },
+            {
+              "description": "<p> The formatted value of the cell. This is the value that you see displayed in the cell in the UI. </p> <p> Note that the formatted value of a cell is always represented as a string irrespective of the data that is stored in the cell. For example, if a cell contains a date, the formatted value of the cell is the string representation of the formatted date being shown in the cell in the UI. See details in the rawValue field below for how cells of different formats will have different raw and formatted values. </p>"
+            }
+          ]
+        },
+        "formula": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Formula"
+            },
+            {
+              "description": " The formula contained in the cell. This field is empty if a cell does not have a formula. "
+            }
+          ]
+        },
+        "rawValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RawValue"
+            },
+            {
+              "description": "<p> The raw value of the data contained in the cell. The raw value depends on the format of the data in the cell. However the attribute in the API return value is always a string containing the raw value. </p> <p> Cells with format DATE, DATE_TIME or TIME have the raw value as a floating point number where the whole number represents the number of days since 1/1/1900 and the fractional part represents the fraction of the day since midnight. For example, a cell with date 11/3/2020 has the raw value \"44138\". A cell with the time 9:00 AM has the raw value \"0.375\" and a cell with date/time value of 11/3/2020 9:00 AM has the raw value \"44138.375\". Notice that even though the raw value is a number in all three cases, it is still represented as a string. </p> <p> Cells with format NUMBER, CURRENCY, PERCENTAGE and ACCOUNTING have the raw value of the data as the number representing the data being displayed. For example, the number 1.325 with two decimal places in the format will have it's raw value as \"1.325\" and formatted value as \"1.33\". A currency value for $10 will have the raw value as \"10\" and formatted value as \"$10.00\". A value representing 20% with two decimal places in the format will have its raw value as \"0.2\" and the formatted value as \"20.00%\". An accounting value of -$25 will have \"-25\" as the raw value and \"$ (25.00)\" as the formatted value. </p> <p> Cells with format TEXT will have the raw text as the raw value. For example, a cell with text \"John Smith\" will have \"John Smith\" as both the raw value and the formatted value. </p> <p> Cells with format CONTACT will have the name of the contact as a formatted value and the email address of the contact as the raw value. For example, a contact for John Smith will have \"John Smith\" as the formatted value and \"john.smith@example.com\" as the raw value. </p> <p> Cells with format ROWLINK (aka picklist) will have the first column of the linked row as the formatted value and the row id of the linked row as the raw value. For example, a cell containing a picklist to a table that displays task status might have \"Completed\" as the formatted value and \"row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03\" as the raw value. </p> <p> Cells with format AUTO or cells without any format that are auto-detected as one of the formats above will contain the raw and formatted values as mentioned above, based on the auto-detected formats. If there is no auto-detected format, the raw and formatted values will be the same as the data in the cell. </p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CellInput": {
+      "description": " CellInput object contains the data needed to create or update cells in a table. ",
+      "properties": {
+        "fact": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Fact"
+            },
+            {
+              "description": " Fact represents the data that is entered into a cell. This data can be free text or a formula. Formulas need to start with the equals (=) sign. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Cells": {
+      "items": {
+        "$ref": "#/definitions/Cell"
+      },
+      "type": "array"
+    },
+    "ClientRequestToken": {
+      "maxLength": 64,
+      "minLength": 32,
+      "pattern": "^(?!\\s*$).+",
+      "type": "string"
+    },
+    "ColumnMetadata": {
+      "description": "Metadata for column in the table.",
+      "properties": {
+        "format": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Format"
+            },
+            {
+              "description": "The format of the column."
+            }
+          ]
+        },
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "description": "The name of the column."
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "format"
+      ],
+      "type": "object"
+    },
+    "CreateRowData": {
+      "description": " Data needed to create a single row in a table as part of the BatchCreateTableRows request. ",
+      "properties": {
+        "batchItemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchItemId"
+            },
+            {
+              "description": " An external identifier that represents the single row that is being created as part of the BatchCreateTableRows request. This can be any string that you can use to identify the row in the request. The BatchCreateTableRows API puts the batch item id in the results to allow you to link data in the request to data in the results. "
+            }
+          ]
+        },
+        "cellsToCreate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowDataInput"
+            },
+            {
+              "description": " A map representing the cells to create in the new row. The key is the column id of the cell and the value is the CellInput object that represents the data to set in that cell. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "batchItemId",
+        "cellsToCreate"
+      ],
+      "type": "object"
+    },
+    "CreateRowDataList": {
+      "items": {
+        "$ref": "#/definitions/CreateRowData"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "CreatedRowsMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/RowId"
+      },
+      "type": "object"
+    },
+    "DataItem": {
+      "description": "The data in a particular data cell defined on the screen.",
+      "properties": {
+        "formattedValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FormattedValue"
+            },
+            {
+              "description": "The formatted value of the data. e.g. John Smith."
+            }
+          ]
+        },
+        "overrideFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Format"
+            },
+            {
+              "description": " The overrideFormat is optional and is specified only if a particular row of data has a different format for the data than the default format defined on the screen or the table. "
+            }
+          ]
+        },
+        "rawValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RawValue"
+            },
+            {
+              "description": "The raw value of the data. e.g. jsmith@example.com"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DataItems": {
+      "items": {
+        "$ref": "#/definitions/DataItem"
+      },
+      "type": "array"
+    },
+    "DelimitedTextDelimiter": {
+      "maxLength": 1,
+      "minLength": 1,
+      "pattern": "^[^\\n\\r\\x00\\x08\\x0B\\x0C\\x0E\\x1F]?$",
+      "type": "string"
+    },
+    "DelimitedTextImportOptions": {
+      "description": " An object that contains the options relating to parsing delimited text as part of an import request. ",
+      "properties": {
+        "dataCharacterEncoding": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportDataCharacterEncoding"
+            },
+            {
+              "description": "The encoding of the data in the input file."
+            }
+          ]
+        },
+        "delimiter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DelimitedTextDelimiter"
+            },
+            {
+              "description": "The delimiter to use for separating columns in a single row of the input."
+            }
+          ]
+        },
+        "hasHeaderRow": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/HasHeaderRow"
+            },
+            {
+              "description": "Indicates whether the input file has a header row at the top containing the column names."
+            }
+          ]
+        },
+        "ignoreEmptyRows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/IgnoreEmptyRows"
+            },
+            {
+              "description": "A parameter to indicate whether empty rows should be ignored or be included in the import."
+            }
+          ]
+        }
+      },
+      "required": [
+        "delimiter"
+      ],
+      "type": "object"
+    },
+    "DescribeTableDataImportJobRequest": {
+      "properties": {},
+      "title": "DescribeTableDataImportJobRequest",
+      "type": "object"
+    },
+    "DescribeTableDataImportJobResult": {
+      "properties": {
+        "jobMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableDataImportJobMetadata"
+            },
+            {
+              "description": " The metadata about the job that was submitted for import. "
+            }
+          ]
+        },
+        "jobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableDataImportJobStatus"
+            },
+            {
+              "description": " The current status of the import job. "
+            }
+          ]
+        },
+        "message": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableDataImportJobMessage"
+            },
+            {
+              "description": " A message providing more details about the current status of the import job. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "jobStatus",
+        "message",
+        "jobMetadata"
+      ],
+      "type": "object"
+    },
+    "DestinationOptions": {
+      "description": "An object that contains the options relating to the destination of the import request.",
+      "properties": {
+        "columnMap": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportColumnMap"
+            },
+            {
+              "description": "A map of the column id to the import properties for each column."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Email": {
+      "format": "password",
+      "maxLength": 254,
+      "minLength": 3,
+      "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
+      "type": "string"
+    },
+    "Fact": {
+      "format": "password",
+      "maxLength": 8192,
+      "minLength": 0,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "FailedBatchItem": {
+      "description": " A single item in a batch that failed to perform the intended action because of an error preventing it from succeeding. ",
+      "properties": {
+        "errorMessage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchErrorMessage"
+            },
+            {
+              "description": " The error message that indicates why the batch item failed. "
+            }
+          ]
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchItemId"
+            },
+            {
+              "description": " The id of the batch item that failed. This is the batch item id for the BatchCreateTableRows and BatchUpsertTableRows operations and the row id for the BatchUpdateTableRows and BatchDeleteTableRows operations. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "errorMessage"
+      ],
+      "type": "object"
+    },
+    "FailedBatchItems": {
+      "items": {
+        "$ref": "#/definitions/FailedBatchItem"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Filter": {
+      "description": " An object that represents a filter formula along with the id of the context row under which the filter function needs to evaluate. ",
+      "properties": {
+        "contextRowId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowId"
+            },
+            {
+              "description": " The optional contextRowId attribute can be used to specify the row id of the context row if the filter formula contains unqualified references to table columns and needs a context row to evaluate them successfully. "
+            }
+          ]
+        },
+        "formula": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Formula"
+            },
+            {
+              "description": " A formula representing a filter function that returns zero or more matching rows from a table. Valid formulas in this field return a list of rows from a table. The most common ways of writing a formula to return a list of rows are to use the FindRow() or Filter() functions. Any other formula that returns zero or more rows is also acceptable. For example, you can use a formula that points to a cell that contains a filter function. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "formula"
+      ],
+      "type": "object"
+    },
+    "Format": {
+      "enum": [
+        "AUTO",
+        "NUMBER",
+        "CURRENCY",
+        "DATE",
+        "TIME",
+        "DATE_TIME",
+        "PERCENTAGE",
+        "TEXT",
+        "ACCOUNTING",
+        "CONTACT",
+        "ROWLINK"
+      ],
+      "type": "string"
+    },
+    "FormattedValue": {
+      "maxLength": 8192,
+      "minLength": 0,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "Formula": {
+      "format": "password",
+      "maxLength": 8192,
+      "minLength": 0,
+      "pattern": "^=.*",
+      "type": "string"
+    },
+    "GetScreenDataRequest": {
+      "properties": {
+        "appId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The ID of the app that contains the screem."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "<p> The number of results to be returned on a single page. Specify a number between 1 and 100. The maximum value is 100. </p> <p> This parameter is optional. If you don't specify this parameter, the default page size is 100. </p>"
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>"
+            }
+          ]
+        },
+        "screenId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The ID of the screen."
+            }
+          ]
+        },
+        "variables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableValueMap"
+            },
+            {
+              "description": " Variables are optional and are needed only if the screen requires them to render correctly. Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. "
+            }
+          ]
+        },
+        "workbookId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The ID of the workbook that contains the screen."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workbookId",
+        "appId",
+        "screenId"
+      ],
+      "title": "GetScreenDataRequest",
+      "type": "object"
+    },
+    "GetScreenDataResult": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " Provides the pagination token to load the next page if there are more results matching the request. If a pagination token is not present in the response, it means that all data matching the query has been loaded. "
+            }
+          ]
+        },
+        "results": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResultSetMap"
+            },
+            {
+              "description": "A map of all the rows on the screen keyed by block name."
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": " Indicates the cursor of the workbook at which the data returned by this workbook is read. Workbook cursor keeps increasing with every update and the increments are not sequential. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "results",
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "HasHeaderRow": {
+      "type": "boolean"
+    },
+    "IgnoreEmptyRows": {
+      "type": "boolean"
+    },
+    "ImportColumnMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/SourceDataColumnProperties"
+      },
+      "maxProperties": 100,
+      "type": "object"
+    },
+    "ImportDataCharacterEncoding": {
+      "enum": [
+        "UTF-8",
+        "US-ASCII",
+        "ISO-8859-1",
+        "UTF-16BE",
+        "UTF-16LE",
+        "UTF-16"
+      ],
+      "type": "string"
+    },
+    "ImportDataSource": {
+      "description": "An object that has details about the source of the data that was submitted for import.",
+      "properties": {
+        "dataSourceConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportDataSourceConfig"
+            },
+            {
+              "description": "The configuration parameters for the data source of the import"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataSourceConfig"
+      ],
+      "type": "object"
+    },
+    "ImportDataSourceConfig": {
+      "description": " An object that contains the configuration parameters for the data source of an import request. ",
+      "properties": {
+        "dataSourceUrl": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecureURL"
+            },
+            {
+              "description": " The URL from which source data will be downloaded for the import request. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImportJobSubmitter": {
+      "description": "An object that contains the attributes of the submitter of the import job.",
+      "properties": {
+        "email": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Email"
+            },
+            {
+              "description": "The email id of the submitter of the import job, if available."
+            }
+          ]
+        },
+        "userArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AwsUserArn"
+            },
+            {
+              "description": "The AWS user ARN of the submitter of the import job, if available."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImportOptions": {
+      "description": "An object that contains the options specified by the sumitter of the import request.",
+      "properties": {
+        "delimitedTextOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DelimitedTextImportOptions"
+            },
+            {
+              "description": "Options relating to parsing delimited text. Required if dataFormat is DELIMITED_TEXT."
+            }
+          ]
+        },
+        "destinationOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DestinationOptions"
+            },
+            {
+              "description": "Options relating to the destination of the import request."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ImportSourceDataFormat": {
+      "enum": [
+        "DELIMITED_TEXT"
+      ],
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "InvokeScreenAutomationRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the automation action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will return the response of the previous call rather than performing the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "rowId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowId"
+            },
+            {
+              "description": " The row ID for the automation if the automation is defined inside a block with source or list. "
+            }
+          ]
+        },
+        "variables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VariableValueMap"
+            },
+            {
+              "description": " Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an object which currently has only one property, rawValue, which holds the value of the variable to be passed to the screen. Any variables defined in a screen are required to be passed in the call. "
+            }
+          ]
+        }
+      },
+      "title": "InvokeScreenAutomationRequest",
+      "type": "object"
+    },
+    "InvokeScreenAutomationResult": {
+      "properties": {
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": "The updated workbook cursor after performing the automation action."
+            }
+          ]
+        }
+      },
+      "required": [
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "JobId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[^\\n\\r\\x00\\x08\\x0B\\x0C\\x0E\\x1F]*$",
+      "type": "string"
+    },
+    "ListTableColumnsRequest": {
+      "properties": {},
+      "title": "ListTableColumnsRequest",
+      "type": "object"
+    },
+    "ListTableColumnsResult": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " Provides the pagination token to load the next page if there are more results matching the request. If a pagination token is not present in the response, it means that all data matching the request has been loaded. "
+            }
+          ]
+        },
+        "tableColumns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableColumns"
+            },
+            {
+              "description": " The list of columns in the table. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": " Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor keeps increasing with every update and the increments are not sequential. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "tableColumns"
+      ],
+      "type": "object"
+    },
+    "ListTableRowsRequest": {
+      "properties": {
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of rows to return in each page of the results."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>"
+            }
+          ]
+        },
+        "rowIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowIdList"
+            },
+            {
+              "description": " This parameter is optional. If one or more row ids are specified in this list, then only the specified row ids are returned in the result. If no row ids are specified here, then all the rows in the table are returned. "
+            }
+          ]
+        }
+      },
+      "title": "ListTableRowsRequest",
+      "type": "object"
+    },
+    "ListTableRowsResult": {
+      "properties": {
+        "columnIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIds"
+            },
+            {
+              "description": " The list of columns in the table whose row data is returned in the result. "
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " Provides the pagination token to load the next page if there are more results matching the request. If a pagination token is not present in the response, it means that all data matching the request has been loaded. "
+            }
+          ]
+        },
+        "rowIdsNotFound": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowIdList"
+            },
+            {
+              "description": " The list of row ids included in the request that were not found in the table. "
+            }
+          ]
+        },
+        "rows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableRows"
+            },
+            {
+              "description": " The list of rows in the table. Note that this result is paginated, so this list contains a maximum of 100 rows. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": " Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor keeps increasing with every update and the increments are not sequential. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "columnIds",
+        "rows",
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "ListTablesRequest": {
+      "properties": {},
+      "title": "ListTablesRequest",
+      "type": "object"
+    },
+    "ListTablesResult": {
+      "properties": {
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " Provides the pagination token to load the next page if there are more results matching the request. If a pagination token is not present in the response, it means that all data matching the request has been loaded. "
+            }
+          ]
+        },
+        "tables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Tables"
+            },
+            {
+              "description": " The list of tables in the workbook. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": " Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor keeps increasing with every update and the increments are not sequential. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "tables"
+      ],
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Name": {
+      "format": "password",
+      "type": "string"
+    },
+    "PaginationToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!\\s*$).+",
+      "type": "string"
+    },
+    "QueryTableRowsRequest": {
+      "properties": {
+        "filterFormula": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filter"
+            },
+            {
+              "description": "An object that represents a filter formula along with the id of the context row under which the filter function needs to evaluate."
+            }
+          ]
+        },
+        "maxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxResults"
+            },
+            {
+              "description": "The maximum number of rows to return in each page of the results."
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": "<p> This parameter is optional. If a nextToken is not specified, the API returns the first page of data. </p> <p> Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API will throw ValidationException. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "filterFormula"
+      ],
+      "title": "QueryTableRowsRequest",
+      "type": "object"
+    },
+    "QueryTableRowsResult": {
+      "properties": {
+        "columnIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceIds"
+            },
+            {
+              "description": " The list of columns in the table whose row data is returned in the result. "
+            }
+          ]
+        },
+        "nextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/PaginationToken"
+            },
+            {
+              "description": " Provides the pagination token to load the next page if there are more results matching the request. If a pagination token is not present in the response, it means that all data matching the request has been loaded. "
+            }
+          ]
+        },
+        "rows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableRows"
+            },
+            {
+              "description": " The list of rows in the table that match the query filter. "
+            }
+          ]
+        },
+        "workbookCursor": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/WorkbookCursor"
+            },
+            {
+              "description": " Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor keeps increasing with every update and the increments are not sequential. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "columnIds",
+        "rows",
+        "workbookCursor"
+      ],
+      "type": "object"
+    },
+    "RawValue": {
+      "maxLength": 32767,
+      "minLength": 0,
+      "pattern": "[\\s\\S]*",
+      "type": "string"
+    },
+    "RequestTimeoutException": {},
+    "ResourceId": {
+      "maxLength": 36,
+      "minLength": 36,
+      "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "type": "string"
+    },
+    "ResourceIds": {
+      "items": {
+        "$ref": "#/definitions/ResourceId"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "ResultHeader": {
+      "items": {
+        "$ref": "#/definitions/ColumnMetadata"
+      },
+      "type": "array"
+    },
+    "ResultRow": {
+      "description": "A single row in the ResultSet.",
+      "properties": {
+        "dataItems": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataItems"
+            },
+            {
+              "description": "List of all the data cells in a row."
+            }
+          ]
+        },
+        "rowId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowId"
+            },
+            {
+              "description": "The ID for a particular row."
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataItems"
+      ],
+      "type": "object"
+    },
+    "ResultRows": {
+      "items": {
+        "$ref": "#/definitions/ResultRow"
+      },
+      "type": "array"
+    },
+    "ResultSet": {
+      "description": " ResultSet contains the results of the request for a single block or list defined on the screen. ",
+      "properties": {
+        "headers": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResultHeader"
+            },
+            {
+              "description": "<p> List of headers for all the data cells in the block. The header identifies the name and default format of the data cell. Data cells appear in the same order in all rows as defined in the header. The names and formats are not repeated in the rows. If a particular row does not have a value for a data cell, a blank value is used. </p> <p> For example, a task list that displays the task name, due date and assigned person might have headers [ { \"name\": \"Task Name\"}, {\"name\": \"Due Date\", \"format\": \"DATE\"}, {\"name\": \"Assigned\", \"format\": \"CONTACT\"} ]. Every row in the result will have the task name as the first item, due date as the second item and assigned person as the third item. If a particular task does not have a due date, that row will still have a blank value in the second element and the assigned person will still be in the third element. </p>"
+            }
+          ]
+        },
+        "rows": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResultRows"
+            },
+            {
+              "description": " List of rows returned by the request. Each row has a row Id and a list of data cells in that row. The data cells will be present in the same order as they are defined in the header. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "headers",
+        "rows"
+      ],
+      "type": "object"
+    },
+    "ResultSetMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ResultSet"
+      },
+      "type": "object"
+    },
+    "RowDataInput": {
+      "additionalProperties": {
+        "$ref": "#/definitions/CellInput"
+      },
+      "maxProperties": 100,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "RowId": {
+      "maxLength": 77,
+      "minLength": 77,
+      "pattern": "row:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+      "type": "string"
+    },
+    "RowIdList": {
+      "items": {
+        "$ref": "#/definitions/RowId"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SecureURL": {
+      "maxLength": 8000,
+      "minLength": 1,
+      "pattern": "^https:\\/\\/[^\\n\\r\\x00\\x08\\x0B\\x0C\\x0E\\x1F]*$",
+      "type": "string"
+    },
+    "ServiceQuotaExceededException": {},
+    "ServiceUnavailableException": {},
+    "SourceDataColumnIndex": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "SourceDataColumnProperties": {
+      "description": "An object that contains the properties for importing data to a specific column in a table.",
+      "properties": {
+        "columnIndex": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SourceDataColumnIndex"
+            },
+            {
+              "description": "The index of the column in the input file."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "StartTableDataImportJobRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ClientRequestToken"
+            },
+            {
+              "description": "<p> The request token for performing the update action. Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error like a failed network connection, you can retry the call with the same request token. The service ensures that if the first call using that request token is successfully performed, the second call will not perform the action again. </p> <p> Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests spanning hours or days. </p>"
+            }
+          ]
+        },
+        "dataFormat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportSourceDataFormat"
+            },
+            {
+              "description": " The format of the data that is being imported. Currently the only option supported is \"DELIMITED_TEXT\". "
+            }
+          ]
+        },
+        "dataSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportDataSource"
+            },
+            {
+              "description": " The source of the data that is being imported. The size of source must be no larger than 100 MB. Source must have no more than 100,000 cells and no more than 1,000 rows. "
+            }
+          ]
+        },
+        "importOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportOptions"
+            },
+            {
+              "description": " The options for customizing this import request. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataSource",
+        "dataFormat",
+        "importOptions",
+        "clientRequestToken"
+      ],
+      "title": "StartTableDataImportJobRequest",
+      "type": "object"
+    },
+    "StartTableDataImportJobResult": {
+      "properties": {
+        "jobId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/JobId"
+            },
+            {
+              "description": " The id that is assigned to this import job. Future requests to find out the status of this import job need to send this id in the appropriate parameter in the request. "
+            }
+          ]
+        },
+        "jobStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableDataImportJobStatus"
+            },
+            {
+              "description": " The status of the import job immediately after submitting the request. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "jobId",
+        "jobStatus"
+      ],
+      "type": "object"
+    },
+    "Table": {
+      "description": "An object representing the properties of a table in a workbook.",
+      "properties": {
+        "tableId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The id of the table."
+            }
+          ]
+        },
+        "tableName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableName"
+            },
+            {
+              "description": "The name of the table."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TableColumn": {
+      "description": "An object that contains attributes about a single column in a table",
+      "properties": {
+        "format": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Format"
+            },
+            {
+              "description": " The column level format that is applied in the table. An empty value in this field means that the column format is the default value 'AUTO'. "
+            }
+          ]
+        },
+        "tableColumnId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            },
+            {
+              "description": "The id of the column in the table."
+            }
+          ]
+        },
+        "tableColumnName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TableColumnName"
+            },
+            {
+              "description": "The name of the column in the table."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "TableColumnName": {
+      "type": "string"
+    },
+    "TableColumns": {
+      "items": {
+        "$ref": "#/definitions/TableColumn"
+      },
+      "type": "array"
+    },
+    "TableDataImportJobMessage": {
+      "type": "string"
+    },
+    "TableDataImportJobMetadata": {
+      "description": "The metadata associated with the table data import job that was submitted.",
+      "properties": {
+        "dataSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportDataSource"
+            },
+            {
+              "description": "The source of the data that was submitted for import."
+            }
+          ]
+        },
+        "importOptions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportOptions"
+            },
+            {
+              "description": "The options that was specified at the time of submitting the import request."
+            }
+          ]
+        },
+        "submitTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TimestampInMillis"
+            },
+            {
+              "description": "The timestamp when the job was submitted for import."
+            }
+          ]
+        },
+        "submitter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ImportJobSubmitter"
+            },
+            {
+              "description": "Details about the submitter of the import request."
+            }
+          ]
+        }
+      },
+      "required": [
+        "submitter",
+        "submitTime",
+        "importOptions",
+        "dataSource"
+      ],
+      "type": "object"
+    },
+    "TableDataImportJobStatus": {
+      "enum": [
+        "SUBMITTED",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "TableName": {
+      "type": "string"
+    },
+    "TableRow": {
+      "description": "An object that contains attributes about a single row in a table",
+      "properties": {
+        "cells": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Cells"
+            },
+            {
+              "description": "A list of cells in the table row. The cells appear in the same order as the columns of the table. "
+            }
+          ]
+        },
+        "rowId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowId"
+            },
+            {
+              "description": "The id of the row in the table."
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowId",
+        "cells"
+      ],
+      "type": "object"
+    },
+    "TableRows": {
+      "items": {
+        "$ref": "#/definitions/TableRow"
+      },
+      "type": "array"
+    },
+    "Tables": {
+      "items": {
+        "$ref": "#/definitions/Table"
+      },
+      "type": "array"
+    },
+    "ThrottlingException": {},
+    "TimestampInMillis": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UpdateRowData": {
+      "description": " Data needed to create a single row in a table as part of the BatchCreateTableRows request. ",
+      "properties": {
+        "cellsToUpdate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowDataInput"
+            },
+            {
+              "description": " A map representing the cells to update in the given row. The key is the column id of the cell and the value is the CellInput object that represents the data to set in that cell. "
+            }
+          ]
+        },
+        "rowId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowId"
+            },
+            {
+              "description": " The id of the row that needs to be updated. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowId",
+        "cellsToUpdate"
+      ],
+      "type": "object"
+    },
+    "UpdateRowDataList": {
+      "items": {
+        "$ref": "#/definitions/UpdateRowData"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "UpsertAction": {
+      "enum": [
+        "UPDATED",
+        "APPENDED"
+      ],
+      "type": "string"
+    },
+    "UpsertRowData": {
+      "description": " Data needed to upsert rows in a table as part of a single item in the BatchUpsertTableRows request. ",
+      "properties": {
+        "batchItemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchItemId"
+            },
+            {
+              "description": " An external identifier that represents a single item in the request that is being upserted as part of the BatchUpsertTableRows request. This can be any string that you can use to identify the item in the request. The BatchUpsertTableRows API puts the batch item id in the results to allow you to link data in the request to data in the results. "
+            }
+          ]
+        },
+        "cellsToUpdate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowDataInput"
+            },
+            {
+              "description": " A map representing the cells to update for the matching rows or an appended row. The key is the column id of the cell and the value is the CellInput object that represents the data to set in that cell. "
+            }
+          ]
+        },
+        "filter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Filter"
+            },
+            {
+              "description": "<p> The filter formula to use to find existing matching rows to update. The formula needs to return zero or more rows. If the formula returns 0 rows, then a new row will be appended in the target table. If the formula returns one or more rows, then the returned rows will be updated. </p> <p> Note that the filter formula needs to return rows from the target table for the upsert operation to succeed. If the filter formula has a syntax error or it doesn't evaluate to zero or more rows in the target table for any one item in the input list, then the entire BatchUpsertTableRows request fails and no updates are made to the table. </p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "batchItemId",
+        "filter",
+        "cellsToUpdate"
+      ],
+      "type": "object"
+    },
+    "UpsertRowDataList": {
+      "items": {
+        "$ref": "#/definitions/UpsertRowData"
+      },
+      "type": "array"
+    },
+    "UpsertRowsResult": {
+      "description": " An object that represents the result of a single upsert row request. ",
+      "properties": {
+        "rowIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RowIdList"
+            },
+            {
+              "description": " The list of row ids that were changed as part of an upsert row operation. If the upsert resulted in an update, this list could potentially contain multiple rows that matched the filter and hence got updated. If the upsert resulted in an append, this list would only have the single row that was appended. "
+            }
+          ]
+        },
+        "upsertAction": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpsertAction"
+            },
+            {
+              "description": " The result of the upsert action. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "rowIds",
+        "upsertAction"
+      ],
+      "type": "object"
+    },
+    "UpsertRowsResultMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/UpsertRowsResult"
+      },
+      "type": "object"
+    },
+    "ValidationException": {},
+    "VariableName": {
+      "format": "password",
+      "pattern": "^(?!\\s*$).+",
+      "type": "string"
+    },
+    "VariableValue": {
+      "description": "The input variables to the app to be used by the InvokeScreenAutomation action request.",
+      "properties": {
+        "rawValue": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RawValue"
+            },
+            {
+              "description": "Raw value of the variable."
+            }
+          ]
+        }
+      },
+      "required": [
+        "rawValue"
+      ],
+      "type": "object"
+    },
+    "VariableValueMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/VariableValue"
+      },
+      "type": "object"
+    },
+    "WorkbookCursor": {
+      "type": "integer"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/honeycode/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

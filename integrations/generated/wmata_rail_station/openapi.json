@@ -14,7 +14,7 @@
       "transport"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wmata_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wmata_profile_image.png"
     },
     "x-origin": [
       {
@@ -51,6 +51,7 @@
       "apiKeyQuery": []
     }
   ],
+  "tags": [],
   "paths": {
     "/Lines": {
       "get": {
@@ -114,7 +115,7 @@
     },
     "/SrcStationToDstStationInfo": {
       "get": {
-        "description": "<h4 class=\"text-primary\">Description</h4>\r\n\r\n<p>Returns a distance, fare information, and estimated travel time between any\r\ntwo stations, including those on different lines. Omit both parameters to\r\nretrieve data for all stations.</p>\r\n\r\n<h4 class=\"text-primary\">Response Elements</h4>\r\n\r\n<table class=\"table table-condensed table-hover\">\r\n<thead>\r\n<tr>\r\n<th class=\"col-md-3\">Element</th>\r\n\r\n<th>Description</th>\r\n</tr>\r\n</thead>\r\n\r\n<tbody>\r\n<tr>\r\n<td>StationToStationInfos</td>\r\n\r\n<td>\r\nArray containing station to station information (<a href=\r\n\"#StationToStationInfo\">StationToStationInfo</a>).\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td colspan=\"2\">\r\n<div class=\"text-primary\" style=\"margin-top: 1em\">\r\n<a id=\"StationToStationInfo\" name=\r\n\"StationToStationInfo\">StationToStationInfo Elements</a>\r\n</div>\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>CompositeMiles</td>\r\n\r\n<td>Distance in miles from the source to destination station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>DestinationStation</td>\r\n\r\n<td>Destination station code. Use this value in other rail-related\r\nAPIs to retrieve data about a station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>RailFare</td>\r\n\r\n<td>\r\nStructure containing <a href=\"#RailFare\">fare</a> information.\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>RailTime</td>\r\n\r\n<td>Estimated travel time (schedule time) in minutes between the source and destination station. This is not correlated to minutes <span class=\"text-info\">(Min)</span> in Real-Time Rail Predictions.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>SourceStation</td>\r\n\r\n<td>Origin station code. Use this value in other rail-related APIs\r\nto retrieve data about a station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td colspan=\"2\">\r\n<div class=\"text-primary\" style=\"margin-top: 1em\">\r\n<a id=\"RailFare\" name=\"RailFare\">RailFare Elements</a>\r\n</div>\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>OffPeakTime</td>\r\n\r\n<td>Fare during off-peak times (times other than the ones described\r\nbelow).</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>PeakTime</td>\r\n\r\n<td>Fare during peak times (weekdays from opening to 9:30 AM and\r\n3-7 PM, and weekends from midnight to closing).</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>SeniorDisabled</td>\r\n\r\n<td>\r\nReduced fare for <a href=\r\n\"http://www.wmata.com/fares/reduced.cfm\">senior citizens or\r\npeople with disabilities</a>.\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+        "description": "<h4 class=\"text-primary\">Description</h4>\n\n<p>Returns a distance, fare information, and estimated travel time between any\ntwo stations, including those on different lines. Omit both parameters to\nretrieve data for all stations.</p>\n\n<h4 class=\"text-primary\">Response Elements</h4>\n\n<table class=\"table table-condensed table-hover\">\n<thead>\n<tr>\n<th class=\"col-md-3\">Element</th>\n\n<th>Description</th>\n</tr>\n</thead>\n\n<tbody>\n<tr>\n<td>StationToStationInfos</td>\n\n<td>\nArray containing station to station information (<a href=\n\"#StationToStationInfo\">StationToStationInfo</a>).\n</td>\n</tr>\n\n<tr>\n<td colspan=\"2\">\n<div class=\"text-primary\" style=\"margin-top: 1em\">\n<a id=\"StationToStationInfo\" name=\n\"StationToStationInfo\">StationToStationInfo Elements</a>\n</div>\n</td>\n</tr>\n\n<tr>\n<td>CompositeMiles</td>\n\n<td>Average of distance traveled between two stations and straight-line distance (as used for WMATA fare calculations).  For more details, please refer to WMATA's <a href=\"https://www.wmata.com/about/records/public_docs/upload/Tariff-on-Fares-Annotated-2-12-18.pdf#page=6\" target=\"_blank\" rel=\"noopener noreferrer\">Tariff on Fares</a>.</td>\n</tr>\n\n<tr>\n<td>DestinationStation</td>\n\n<td>Destination station code. Use this value in other rail-related\nAPIs to retrieve data about a station.</td>\n</tr>\n\n<tr>\n<td>RailFare</td>\n\n<td>\nStructure containing <a href=\"#RailFare\">fare</a> information.\n</td>\n</tr>\n\n<tr>\n<td>RailTime</td>\n\n<td>Estimated travel time (schedule time) in minutes between the source and\ndestination station. This is not correlated to minutes <span class=\"text-info\">(Min)</span> in Real-Time Rail Predictions.</td>\n</tr>\n\n<tr>\n<td>SourceStation</td>\n\n<td>Origin station code. Use this value in other rail-related APIs\nto retrieve data about a station.</td>\n</tr>\n\n<tr>\n<td colspan=\"2\">\n<div class=\"text-primary\" style=\"margin-top: 1em\">\n<a id=\"RailFare\" name=\"RailFare\">RailFare Elements</a>\n</div>\n</td>\n</tr>\n\n<tr>\n<td>OffPeakTime</td>\n\n<td>Fare during off-peak times (times other than the ones described\nbelow).</td>\n</tr>\n\n<tr>\n<td>PeakTime</td>\n\n<td>Fare during peak times (weekdays from opening to 9:30 AM and\n3-7 PM, and weekends from midnight to closing).</td>\n</tr>\n\n<tr>\n<td>SeniorDisabled</td>\n\n<td>\nReduced fare for <a href=\n\"http://www.wmata.com/fares/reduced.cfm\">senior citizens or\npeople with disabilities</a>.\n</td>\n</tr>\n</tbody>\n</table>",
         "operationId": "5476364f031f5909e4fe331b",
         "parameters": [
           {
@@ -158,27 +159,30 @@
         "operationId": "5476364f031f5909e4fe3317",
         "parameters": [
           {
+            "default": 38.8978168,
             "description": "Center point Latitude, required if Longitude and Radius are specified.",
             "enum": [
-              "38.8978168"
+              38.8978168
             ],
             "in": "query",
             "name": "Lat",
             "type": "number"
           },
           {
+            "default": -77.0404246,
             "description": "Center point Longitude, required if Latitude and Radius are specified.",
             "enum": [
-              "-77.0404246"
+              -77.0404246
             ],
             "in": "query",
             "name": "Lon",
             "type": "number"
           },
           {
+            "default": 500,
             "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
             "enum": [
-              "500"
+              500
             ],
             "in": "query",
             "name": "Radius",
@@ -636,7 +640,7 @@
     },
     "/json/jSrcStationToDstStationInfo": {
       "get": {
-        "description": "<h4 class=\"text-primary\">Description</h4>\r\n\r\n<p>Returns a distance, fare information, and estimated travel time between any\r\ntwo stations, including those on different lines. Omit both parameters to\r\nretrieve data for all stations.</p>\r\n\r\n<h4 class=\"text-primary\">Response Elements</h4>\r\n\r\n<table class=\"table table-condensed table-hover\">\r\n<thead>\r\n<tr>\r\n<th class=\"col-md-3\">Element</th>\r\n\r\n<th>Description</th>\r\n</tr>\r\n</thead>\r\n\r\n<tbody>\r\n<tr>\r\n<td>StationToStationInfos</td>\r\n\r\n<td>\r\nArray containing station to station information (<a href=\r\n\"#StationToStationInfo\">StationToStationInfo</a>).\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td colspan=\"2\">\r\n<div class=\"text-primary\" style=\"margin-top: 1em\">\r\n<a id=\"StationToStationInfo\" name=\r\n\"StationToStationInfo\">StationToStationInfo Elements</a>\r\n</div>\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>CompositeMiles</td>\r\n\r\n<td>Distance in miles from the source to destination station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>DestinationStation</td>\r\n\r\n<td>Destination station code. Use this value in other rail-related\r\nAPIs to retrieve data about a station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>RailFare</td>\r\n\r\n<td>\r\nStructure containing <a href=\"#RailFare\">fare</a> information.\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>RailTime</td>\r\n\r\n<td>Estimated travel time (schedule time) in minutes between the source and\r\ndestination station. This is not correlated to minutes <span class=\"text-info\">(Min)</span> in Real-Time Rail Predictions.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>SourceStation</td>\r\n\r\n<td>Origin station code. Use this value in other rail-related APIs\r\nto retrieve data about a station.</td>\r\n</tr>\r\n\r\n<tr>\r\n<td colspan=\"2\">\r\n<div class=\"text-primary\" style=\"margin-top: 1em\">\r\n<a id=\"RailFare\" name=\"RailFare\">RailFare Elements</a>\r\n</div>\r\n</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>OffPeakTime</td>\r\n\r\n<td>Fare during off-peak times (times other than the ones described\r\nbelow).</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>PeakTime</td>\r\n\r\n<td>Fare during peak times (weekdays from opening to 9:30 AM and\r\n3-7 PM, and weekends from midnight to closing).</td>\r\n</tr>\r\n\r\n<tr>\r\n<td>SeniorDisabled</td>\r\n\r\n<td>\r\nReduced fare for <a href=\r\n\"http://www.wmata.com/fares/reduced.cfm\">senior citizens or\r\npeople with disabilities</a>.\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+        "description": "<h4 class=\"text-primary\">Description</h4>\n\n<p>Returns a distance, fare information, and estimated travel time between any\ntwo stations, including those on different lines. Omit both parameters to\nretrieve data for all stations.</p>\n\n<h4 class=\"text-primary\">Response Elements</h4>\n\n<table class=\"table table-condensed table-hover\">\n<thead>\n<tr>\n<th class=\"col-md-3\">Element</th>\n\n<th>Description</th>\n</tr>\n</thead>\n\n<tbody>\n<tr>\n<td>StationToStationInfos</td>\n\n<td>\nArray containing station to station information (<a href=\n\"#StationToStationInfo\">StationToStationInfo</a>).\n</td>\n</tr>\n\n<tr>\n<td colspan=\"2\">\n<div class=\"text-primary\" style=\"margin-top: 1em\">\n<a id=\"StationToStationInfo\" name=\n\"StationToStationInfo\">StationToStationInfo Elements</a>\n</div>\n</td>\n</tr>\n\n<tr>\n<td>CompositeMiles</td>\n\n<td>Average of distance traveled between two stations and straight-line distance (as used for WMATA fare calculations).  For more details, please refer to WMATA's <a href=\"https://www.wmata.com/about/records/public_docs/upload/Tariff-on-Fares-Annotated-2-12-18.pdf#page=6\" target=\"_blank\" rel=\"noopener noreferrer\">Tariff on Fares</a>.</td>\n</tr>\n\n<tr>\n<td>DestinationStation</td>\n\n<td>Destination station code. Use this value in other rail-related\nAPIs to retrieve data about a station.</td>\n</tr>\n\n<tr>\n<td>RailFare</td>\n\n<td>\nStructure containing <a href=\"#RailFare\">fare</a> information.\n</td>\n</tr>\n\n<tr>\n<td>RailTime</td>\n\n<td>Estimated travel time (schedule time) in minutes between the source and\ndestination station. This is not correlated to minutes <span class=\"text-info\">(Min)</span> in Real-Time Rail Predictions.</td>\n</tr>\n\n<tr>\n<td>SourceStation</td>\n\n<td>Origin station code. Use this value in other rail-related APIs\nto retrieve data about a station.</td>\n</tr>\n\n<tr>\n<td colspan=\"2\">\n<div class=\"text-primary\" style=\"margin-top: 1em\">\n<a id=\"RailFare\" name=\"RailFare\">RailFare Elements</a>\n</div>\n</td>\n</tr>\n\n<tr>\n<td>OffPeakTime</td>\n\n<td>Fare during off-peak times (times other than the ones described\nbelow).</td>\n</tr>\n\n<tr>\n<td>PeakTime</td>\n\n<td>Fare during peak times (weekdays from opening to 9:30 AM and\n3-7 PM, and weekends from midnight to closing).</td>\n</tr>\n\n<tr>\n<td>SeniorDisabled</td>\n\n<td>\nReduced fare for <a href=\n\"http://www.wmata.com/fares/reduced.cfm\">senior citizens or\npeople with disabilities</a>.\n</td>\n</tr>\n</tbody>\n</table>",
         "operationId": "5476364f031f5909e4fe3313",
         "parameters": [
           {
@@ -694,27 +698,30 @@
         "operationId": "5476364f031f5909e4fe330f",
         "parameters": [
           {
+            "default": 38.8978168,
             "description": "Center point Latitude, required if Longitude and Radius are specified.",
             "enum": [
-              "38.8978168"
+              38.8978168
             ],
             "in": "query",
             "name": "Lat",
             "type": "number"
           },
           {
+            "default": -77.0404246,
             "description": "Center point Longitude, required if Latitude and Radius are specified.",
             "enum": [
-              "-77.0404246"
+              -77.0404246
             ],
             "in": "query",
             "name": "Lon",
             "type": "number"
           },
           {
+            "default": 500,
             "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
             "enum": [
-              "500"
+              500
             ],
             "in": "query",
             "name": "Radius",
@@ -790,6 +797,9 @@
                 "Code": "A01",
                 "Lat": 38.8983144732,
                 "LineCode1": "RD",
+                "LineCode2": null,
+                "LineCode3": null,
+                "LineCode4": null,
                 "Lon": -77.0280779971,
                 "Name": "Metro Center",
                 "StationTogether1": "C01",
@@ -901,7 +911,7 @@
                       "LastTrains": [
                         {
                           "DestinationStation": "F11",
-                          "Time": "23:30"
+                          "Time": 1410
                         }
                       ],
                       "OpeningTime": "04:50"
@@ -932,7 +942,7 @@
                       "LastTrains": [
                         {
                           "DestinationStation": "F11",
-                          "Time": "23:30"
+                          "Time": 1410
                         }
                       ],
                       "OpeningTime": "06:50"
@@ -947,7 +957,7 @@
                       "LastTrains": [
                         {
                           "DestinationStation": "F11",
-                          "Time": "23:30"
+                          "Time": 1410
                         }
                       ],
                       "OpeningTime": "04:50"
@@ -962,7 +972,7 @@
                       "LastTrains": [
                         {
                           "DestinationStation": "F11",
-                          "Time": "23:30"
+                          "Time": 1410
                         }
                       ],
                       "OpeningTime": "04:50"
@@ -977,7 +987,7 @@
                       "LastTrains": [
                         {
                           "DestinationStation": "F11",
-                          "Time": "23:30"
+                          "Time": 1410
                         }
                       ],
                       "OpeningTime": "04:50"
@@ -1030,6 +1040,9 @@
                     "Code": "A15",
                     "Lat": 39.1199273249,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.1646273343,
                     "Name": "Shady Grove",
                     "StationTogether1": "",
@@ -1045,6 +1058,9 @@
                     "Code": "A14",
                     "Lat": 39.0843216075,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.1461253392,
                     "Name": "Rockville",
                     "StationTogether1": "",
@@ -1060,6 +1076,9 @@
                     "Code": "A13",
                     "Lat": 39.0624676517,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.1208179517,
                     "Name": "Twinbrook",
                     "StationTogether1": "",
@@ -1075,6 +1094,9 @@
                     "Code": "A12",
                     "Lat": 39.0481513573,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.112829859,
                     "Name": "White Flint",
                     "StationTogether1": "",
@@ -1090,6 +1112,9 @@
                     "Code": "A11",
                     "Lat": 39.02926895,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.10384972,
                     "Name": "Grosvenor",
                     "StationTogether1": "",
@@ -1105,6 +1130,9 @@
                     "Code": "A10",
                     "Lat": 39.0000564843,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0969522905,
                     "Name": "Medical Center",
                     "StationTogether1": "",
@@ -1120,6 +1148,9 @@
                     "Code": "A09",
                     "Lat": 38.9843936603,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0941291922,
                     "Name": "Bethesda",
                     "StationTogether1": "",
@@ -1135,6 +1166,9 @@
                     "Code": "A08",
                     "Lat": 38.9594838736,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.084995805,
                     "Name": "Friendship Heights",
                     "StationTogether1": "",
@@ -1150,6 +1184,9 @@
                     "Code": "A07",
                     "Lat": 38.9488514351,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0795873255,
                     "Name": "Tenleytown",
                     "StationTogether1": "",
@@ -1165,6 +1202,9 @@
                     "Code": "A06",
                     "Lat": 38.9432652883,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0629861805,
                     "Name": "Van Ness UDC",
                     "StationTogether1": "",
@@ -1180,6 +1220,9 @@
                     "Code": "A05",
                     "Lat": 38.9347628908,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0580425191,
                     "Name": "Cleveland Park",
                     "StationTogether1": "",
@@ -1195,6 +1238,9 @@
                     "Code": "A04",
                     "Lat": 38.9250851371,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0524180207,
                     "Name": "Woodley Park Zoo",
                     "StationTogether1": "",
@@ -1210,6 +1256,9 @@
                     "Code": "A03",
                     "Lat": 38.9095980575,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0434143597,
                     "Name": "Dupont Circle",
                     "StationTogether1": "",
@@ -1225,6 +1274,9 @@
                     "Code": "A02",
                     "Lat": 38.9032019462,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0397008272,
                     "Name": "Farragut North",
                     "StationTogether1": "",
@@ -1240,6 +1292,9 @@
                     "Code": "A01",
                     "Lat": 38.8983144732,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0280779971,
                     "Name": "Metro Center",
                     "StationTogether1": "C01",
@@ -1255,6 +1310,9 @@
                     "Code": "B01",
                     "Lat": 38.8983168097,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0219153904,
                     "Name": "Gallery Place",
                     "StationTogether1": "F01",
@@ -1270,6 +1328,9 @@
                     "Code": "B02",
                     "Lat": 38.8960903176,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0166389566,
                     "Name": "Judiciary Square",
                     "StationTogether1": "",
@@ -1285,6 +1346,9 @@
                     "Code": "B03",
                     "Lat": 38.8977660392,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0074142921,
                     "Name": "Union Station",
                     "StationTogether1": "",
@@ -1300,6 +1364,9 @@
                     "Code": "B35",
                     "Lat": 38.9070162121,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0030204472,
                     "Name": "New York Avenue",
                     "StationTogether1": "",
@@ -1315,6 +1382,9 @@
                     "Code": "B04",
                     "Lat": 38.9210596891,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -76.9959369166,
                     "Name": "Rhode Island Avenue",
                     "StationTogether1": "",
@@ -1330,6 +1400,9 @@
                     "Code": "B05",
                     "Lat": 38.9332109913,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -76.9945342851,
                     "Name": "Brookland",
                     "StationTogether1": "",
@@ -1345,6 +1418,9 @@
                     "Code": "B06",
                     "Lat": 38.9518467675,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0022030768,
                     "Name": "Fort Totten",
                     "StationTogether1": "E06",
@@ -1360,6 +1436,9 @@
                     "Code": "B07",
                     "Lat": 38.976078531,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0181766987,
                     "Name": "Takoma",
                     "StationTogether1": "",
@@ -1375,6 +1454,9 @@
                     "Code": "B08",
                     "Lat": 38.9939493747,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0310178268,
                     "Name": "Silver Spring",
                     "StationTogether1": "",
@@ -1390,6 +1472,9 @@
                     "Code": "B09",
                     "Lat": 39.0149542752,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0429165548,
                     "Name": "Forest Glen",
                     "StationTogether1": "",
@@ -1405,6 +1490,9 @@
                     "Code": "B10",
                     "Lat": 39.0375271436,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0501070535,
                     "Name": "Wheaton",
                     "StationTogether1": "",
@@ -1420,6 +1508,9 @@
                     "Code": "B11",
                     "Lat": 39.0617837655,
                     "LineCode1": "RD",
+                    "LineCode2": null,
+                    "LineCode3": null,
+                    "LineCode4": null,
                     "Lon": -77.0535573593,
                     "Name": "Glenmont",
                     "StationTogether1": "",

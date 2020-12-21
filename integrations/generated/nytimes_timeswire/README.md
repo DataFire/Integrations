@@ -1,6 +1,6 @@
 # @datafire/nytimes_timeswire
 
-Client library for Times Newswire
+Client library for Times Newswire API
 
 ## Installation and Usage
 ```bash
@@ -11,9 +11,7 @@ let nytimes_timeswire = require('@datafire/nytimes_timeswire').create({
   apikey: ""
 });
 
-nytimes_timeswire.content.json.get({
-  "url": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

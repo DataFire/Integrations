@@ -15,14 +15,16 @@ let netatmo = require('@datafire/netatmo').create({
   redirect_uri: ""
 });
 
-netatmo.getthermostatsdata({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<h3>Welcome to the Netatmo swagger on-line documentation !</h3>This site is a complement to the official <a href="https://dev.netatmo.com/">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the "try it" button (authenticate with the authorization code 0Auth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href="https://github.com/cbornet/netatmo-swagger-ui">netatmo-swagger-ui</a>. You can also use the online <a href="./swagger.json">swagger declaration</a> file to generate code or static documentation (see <a href="https://github.com/cbornet/netatmo-swagger-api">netatmo-swagger-api</a>).
+<h3>Welcome to the Netatmo swagger on-line documentation !</h3>
+This site is a complement to the official <a href="https://dev.netatmo.com/">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the "try it" button (authenticate with the authorization code OAuth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href="https://github.com/cbornet/netatmo-swagger-ui">netatmo-swagger-ui</a>. You can also use the online <a href="./swagger.json">swagger declaration</a> file to generate code or static documentation (see <a href="https://github.com/cbornet/netatmo-swagger-api">netatmo-swagger-api</a>).
+
 
 ## Actions
 
@@ -183,7 +185,7 @@ netatmo.geteventsuntil({
   * event_id **required** `string`: Your request will retrieve all the events until this one
 
 #### Output
-* output [NAWelcomeEventsResponse](#nawelcomeeventsresponse)
+* output [NAWelcomeEventResponse](#nawelcomeeventresponse)
 
 ### gethomecoachsdata
 The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).
@@ -212,7 +214,7 @@ netatmo.gethomedata({}, context)
 #### Input
 * input `object`
   * home_id `string`: Specify if you're looking for the events of a specific Home.
-  * size `integer`: Number of events to retrieve. Default is 30.
+  * size `integer`: Number of events to retrieve. Default is `30`.
 
 #### Output
 * output [NAWelcomeHomeDataResponse](#nawelcomehomedataresponse)
@@ -236,7 +238,7 @@ netatmo.getlasteventof({
   * offset `integer`: Number of events to retrieve. Default is 30.
 
 #### Output
-* output [NAWelcomeEventsResponse](#nawelcomeeventsresponse)
+* output [NAWelcomeEventResponse](#nawelcomeeventresponse)
 
 ### getmeasure
 The method getmeasure returns the measurements of a device or a module.
@@ -256,7 +258,7 @@ netatmo.getmeasure({
   * device_id **required** `string`: Id of the device whose module's measurements you want to retrieve. This _id can be found in the user's devices field.
   * module_id `string`: If you don't specify any module_id you will retrieve the device's measurements. If you specify a module_id you will retrieve the module's measurements.
   * scale **required** `string` (values: max, 30min, 1hour, 3hours, 1day, 1week, 1month): Defines the time interval between two measurements.
-  * type **required** `array`: Sets the type of measurement you want to retrieve.
+  * type **required** `array`: Measures you are interested in. Data you can request depends on the scale.
   * date_begin `integer`: Starting timestamp (utc) of the requested measurements.
   * date_end `string`: Ending timestamp (utc) of the request measurements.
   * limit `integer`: Limits the number of measurements returned (default & max is 1024)
@@ -285,10 +287,35 @@ netatmo.getnextevents({
   * size `integer`: Number of events to retrieve. Default is 30.
 
 #### Output
-* output [NAWelcomeEventsResponse](#nawelcomeeventsresponse)
+* output [NAWelcomeEventResponse](#nawelcomeeventresponse)
+
+### getpublicdata
+Retrieves publicly shared weather data from Outdoor Modules within a predefined area.
+
+
+```js
+netatmo.getpublicdata({
+  "lat_ne": 0,
+  "lon_ne": 0,
+  "lat_sw": 0,
+  "lon_sw": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * lat_ne **required** `integer`: Latitude of the north east corner of the requested area. -85 <= lat_ne <= 85 and lat_ne>lat_sw
+  * lon_ne **required** `integer`: Longitude of the north east corner of the requested area. -180 <= lon_ne <= 180 and lon_ne>lon_sw
+  * lat_sw **required** `integer`: Latitude of the south west corner of the requested area. -85 <= lat_sw <= 85
+  * lon_sw **required** `integer`: Longitude of the south west corner of the requested area. -180 <= lon_sw <= 180
+  * required_data `array`: To filter stations based on relevant measurements you want (e.g. rain will only return stations with rain gauges). Default is no filter. You can find all measurements available on the Thermostat page.
+  * filter `boolean`: True to exclude stations with abnormal temperature measures. Default is false.
+
+#### Output
+* output [NAPublicDataResponse](#napublicdataresponse)
 
 ### getstationsdata
-The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).
+The method getstationsdata Returns data from a user's Weather Stations (measures and device specific data).
 
 
 ```js
@@ -298,6 +325,7 @@ netatmo.getstationsdata({}, context)
 #### Input
 * input `object`
   * device_id `string`: Id of the device you want to retrieve information of
+  * get_favorites `boolean`: Whether to include the user's favorite Weather Stations in addition to the user's own Weather Stations
 
 #### Output
 * output [NAStationDataResponse](#nastationdataresponse)
@@ -384,6 +412,26 @@ netatmo.setpersonsaway({
 #### Output
 * output [NAWelcomePersonsAwayResponse](#nawelcomepersonsawayresponse)
 
+### setpersonshome
+Sets a person as 'At home'.
+
+
+
+```js
+netatmo.setpersonshome({
+  "home_id": "",
+  "person_ids": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * home_id **required** `string`: ID of the Home you're interested in
+  * person_ids **required** `string`: List of persons IDs
+
+#### Output
+* output [NAWelcomePersonsHomeResponse](#nawelcomepersonshomeresponse)
+
 ### setthermpoint
 The method setthermpoint changes the Thermostat manual temperature setpoint.
 
@@ -423,7 +471,7 @@ netatmo.switchschedule({
 * input `object`
   * device_id **required** `string`: The relay id
   * module_id **required** `string`: The thermostat id
-  * schedule_id **required** `string`: The schedule id. It can be found in the getthermstate response, under the keys "therm_program_backup" and "therm_program".
+  * schedule_id **required** `string`: The schedule id. It can be found in the getthermstate response, under the keys `therm_program_backup` and `therm_program`.
 
 #### Output
 * output [NAOkResponse](#naokresponse)
@@ -469,10 +517,12 @@ netatmo.syncschedule({
   * WindAngle `integer`: Current 5 min average wind direction measured @ time_utc (in °)
   * WindStrength `integer`: Current 5 min average wind speed measured @ time_utc (in km/h)
   * date_max_temp `integer`: Timestamp when max temperature was measured
+  * date_max_wind_str `integer`: Timestamp when max wind strength was measured
   * date_min_temp `integer`: Timestamp when min temperature was measured
   * device_id `number`
   * health_idx `integer`: Current health index: 0 = Healthy, 1 = Fine, 2 = Fair, 3 = Poor, 4 = Unhealthy
   * max_temp `number`: Min temperature of the day (measured @ date_min_temp)
+  * max_wind_str `integer`
   * min_temp `number`: Max temperature of the day (measured @ date_max_temp)
   * pressure_trend `string`: Pressure evolution trend
   * sum_rain_1 `number`: Amount of rain in last hour
@@ -614,6 +664,7 @@ netatmo.syncschedule({
   * data_type `array`
     * items `string`
   * date_setup `integer`
+  * favorite `boolean`: true when the device is a user favorite and not owned by them
   * firmware `integer`
   * last_setup `integer`
   * last_status_store `integer`
@@ -622,9 +673,25 @@ netatmo.syncschedule({
   * modules `array`
     * items [NAStationModule](#nastationmodule)
   * place [NAPlace](#naplace)
+  * reachable `boolean`: true when the station was seen by the Netatmo cloud within the last 4 hours
+  * read_only `boolean`: true when the user was invited to (or has favorited) a station, false when the user owns it
   * station_name `string`
   * type `string`: Included in every device or module. It defines the type of the device/module. Its values are among :
   * wifi_status `integer`: It contains the current wifi status. The different thresholds to take into account are
+
+### NAMeasure
+* NAMeasure `object`
+  * gust_angle `number`
+  * gust_strength `number`
+  * rain_24h `number`
+  * rain_60min `number`
+  * rain_live `number`
+  * rain_utc `integer`
+  * type `array`
+    * items `string`
+  * wind_angle `number`
+  * wind_strength `number`
+  * wind_timeutc" `integer`
 
 ### NAMeasureBodyElem
 * NAMeasureBodyElem `object`
@@ -645,6 +712,7 @@ netatmo.syncschedule({
 ### NAModule
 * NAModule `object`
   * _id `string`
+  * battery_percent `integer`: It contains the current battery level in percentage.
   * battery_vp `integer`: It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.
   * dashboard_data [NADashboardData](#nadashboarddata)
   * data_type `array`
@@ -727,6 +795,24 @@ netatmo.syncschedule({
   * udp_conn `boolean`
   * wifi_status `integer`: It contains the current wifi status. The different thresholds to take into account are
 
+### NAPublicData
+* NAPublicData `object`
+  * _id `string`: id of the station
+  * mark `integer`
+  * measures `object`
+  * module_types `object`: Latest measurements of the station, organized by module
+  * modules `array`
+    * items `string`
+  * place [NAPlace](#naplace)
+
+### NAPublicDataResponse
+* NAPublicDataResponse `object`
+  * body `array`
+    * items [NAPublicData](#napublicdata)
+  * status `string`
+  * time_exec `number`
+  * time_server `integer`
+
 ### NASetpoint
 * NASetpoint `object`
   * setpoint_endtime `integer`
@@ -777,6 +863,7 @@ netatmo.syncschedule({
   * last_seen `integer`
   * last_setup `integer`
   * module_name `string`
+  * reachable `boolean`: true when the station was seen by the Netatmo cloud within the last 4 hours
   * rf_status `integer`: "It contains the current radio status. The different thresholds to take into account are :" |
   * type `string`: Included in every device or module. It defines the type of the device/module. Its values are among :
 
@@ -798,6 +885,7 @@ netatmo.syncschedule({
 
 ### NAThermStateBody
 * NAThermStateBody `object`
+  * battery_percent `integer`: It contains the current battery level in percentage.
   * battery_vp `integer`
   * last_plug_seen `integer`
   * last_therm_seen `integer`
@@ -825,6 +913,7 @@ netatmo.syncschedule({
 ### NAThermostat
 * NAThermostat `object`
   * _id `string`
+  * battery_percent `integer`: It contains the current battery level in percentage.
   * battery_vp `integer`: It contains the current battery status. The threshold depends on the kind of module, below is the list of the different threshold to take into account according the module type.
   * firmware `integer`
   * last_message `integer`
@@ -890,20 +979,24 @@ netatmo.syncschedule({
   * time_exec `number`
   * time_server `integer`
 
-### NAWelcomeCameras
-* NAWelcomeCameras `object`
+### NAWelcomeCamera
+* NAWelcomeCamera `object`
   * alim_status `string`: If power supply is ok (on/off)
   * id `string`: Id of the camera
   * is_local `boolean`: Only for scope access_camera. If Camera and application requesting the information are on the same IP (true/false)
+  * light_mode_status `string` (values: on, off, auto): State of (flood-)light
   * name `string`: Name of the camera
   * sd_status `string`: If SD card status is ok (on/off)
   * status `string`: If camera is monitoring (on/off)
   * type `string`: Type of the camera
   * vpn_url `string`: Only for scope access_camera. Address of the camera
 
-### NAWelcomeEvents
-* NAWelcomeEvents `object`
+### NAWelcomeEvent
+* NAWelcomeEvent `object`
   * camera_id `string`: Camera that detected the event
+  * category `string` (values: human, animal, vehicle): Type of the detected object.
+  * event_list `array`
+    * items [NAWelcomeSubEvent](#nawelcomesubevent)
   * id `string`: Identifier of the event
   * is_arrival `boolean`: If person was considered away before being seen during this event
   * message `string`: User facing event description
@@ -915,14 +1008,14 @@ netatmo.syncschedule({
   * video_id `string`: Identifier of the video
   * video_status `string`: Status of the video (recording, deleted or available)
 
-### NAWelcomeEventsData
-* NAWelcomeEventsData `object`
+### NAWelcomeEventData
+* NAWelcomeEventData `object`
   * events_list `array`
-    * items [NAWelcomeEvents](#nawelcomeevents)
+    * items [NAWelcomeEvent](#nawelcomeevent)
 
-### NAWelcomeEventsResponse
-* NAWelcomeEventsResponse `object`
-  * body [NAWelcomeEventsData](#nawelcomeeventsdata)
+### NAWelcomeEventResponse
+* NAWelcomeEventResponse `object`
+  * body [NAWelcomeEventData](#nawelcomeeventdata)
   * status `string`
   * time_exec `number`
   * time_server `integer`
@@ -937,11 +1030,25 @@ netatmo.syncschedule({
 * NAWelcomeGlobalInfo `object`
   * show_tags `boolean`: show tags
 
+### NAWelcomeHome
+* NAWelcomeHome `object`
+  * cameras `array`
+    * items [NAWelcomeCamera](#nawelcomecamera)
+  * events `array`
+    * items [NAWelcomeEvent](#nawelcomeevent)
+  * id `string`: Id of the home.
+  * modules `array`
+    * items [NAWelcomeModule](#nawelcomemodule)
+  * name `string`: Name of the home
+  * persons `array`
+    * items [NAWelcomePerson](#nawelcomeperson)
+  * place [NAWelcomePlace](#nawelcomeplace)
+
 ### NAWelcomeHomeData
 * NAWelcomeHomeData `object`
   * global_info [NAWelcomeGlobalInfo](#nawelcomeglobalinfo)
   * homes `array`
-    * items [NAWelcomeHomes](#nawelcomehomes)
+    * items [NAWelcomeHome](#nawelcomehome)
   * user [NAWelcomeUser](#nawelcomeuser)
 
 ### NAWelcomeHomeDataResponse
@@ -951,22 +1058,8 @@ netatmo.syncschedule({
   * time_exec `number`
   * time_server `integer`
 
-### NAWelcomeHomes
-* NAWelcomeHomes `object`
-  * cameras `array`
-    * items [NAWelcomeCameras](#nawelcomecameras)
-  * events `array`
-    * items [NAWelcomeEvents](#nawelcomeevents)
-  * id `string`: Id of the home.
-  * modules `array`
-    * items [NAWelcomeModules](#nawelcomemodules)
-  * name `string`: Name of the home
-  * persons `array`
-    * items [NAWelcomePersons](#nawelcomepersons)
-  * place [NAWelcomePlace](#nawelcomeplace)
-
-### NAWelcomeModules
-* NAWelcomeModules `object`
+### NAWelcomeModule
+* NAWelcomeModule `object`
   * battery_percent `integer`: remaining battery percentage
   * id `string`: mac address of the module
   * last_activity `integer`: Timestamp of last move detected by the module
@@ -975,8 +1068,8 @@ netatmo.syncschedule({
   * status `string`: status of the module
   * type `string`: NACamDoorTag for tags
 
-### NAWelcomePersons
-* NAWelcomePersons `object`
+### NAWelcomePerson
+* NAWelcomePerson `object`
   * face [NAWelcomeFace](#nawelcomeface)
   * id `string`: Id of the person.
   * last_seen `integer`: Time at which the person was last seen.
@@ -985,6 +1078,12 @@ netatmo.syncschedule({
 
 ### NAWelcomePersonsAwayResponse
 * NAWelcomePersonsAwayResponse `object`
+  * status `string`
+  * time_exec `number`
+  * time_server `integer`
+
+### NAWelcomePersonsHomeResponse
+* NAWelcomePersonsHomeResponse `object`
   * status `string`
   * time_exec `number`
   * time_server `integer`
@@ -1000,6 +1099,15 @@ netatmo.syncschedule({
   * id `string`: Id of the snapshot.
   * key `string`: Key for this snapshot.
   * version `integer`: Version of the snapshot.
+
+### NAWelcomeSubEvent
+* NAWelcomeSubEvent `object`
+  * id `string`: Identifier of the sub event
+  * message `string`: User facing sub event description
+  * offset `integer`
+  * snapshot [NAWelcomeSnapshot](#nawelcomesnapshot)
+  * time `integer`: Time of occurence of the sub event
+  * type `string` (values: human, animal, vehicle): Type of the detected object.
 
 ### NAWelcomeUser
 * NAWelcomeUser `object`

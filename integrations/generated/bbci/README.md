@@ -13,16 +13,7 @@ let bbci = require('@datafire/bbci').create({
   password: ""
 });
 
-bbci.atoz.letter.programmes.get({
-  "letter": "",
-  "rights": "",
-  "page": 0,
-  "per_page": 0,
-  "initial_child_count": 0,
-  "sort": "",
-  "sort_direction": "",
-  "availability": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -714,12 +705,6 @@ bbci.user.watching.get({
   * type **required** `string` (values: added)
   * urn **required** `string`
 
-### autoplay
-* autoplay `object`
-  * episode **required** [episode](#episode)
-  * source **required** `string` (values: precs, receng, next, watching)
-  * type **required** `string` (values: autoplay)
-
 ### broadcast
 * broadcast `object`
   * available_on_hd_service `string`
@@ -730,6 +715,11 @@ bbci.user.watching.get({
     * value **required** `string`
   * episode **required** [episode](#episode)
   * episode_id **required** `string`
+  * events `array`
+    * items `object`
+      * name **required** `string`
+      * system **required** `string`
+      * time **required** `string`
   * id **required** `string`
   * repeat **required** `boolean`
   * scheduled_end **required** `string`
@@ -771,6 +761,7 @@ bbci.user.watching.get({
     * standard **required** `string`
     * type **required** `string` (values: image)
   * labels `object`
+    * category `string`
     * editorial `string`
   * master_brand **required** [master_brand](#master_brand)
   * onward_journey `object`
@@ -799,7 +790,9 @@ bbci.user.watching.get({
       * duration **required** `object`
         * text **required** `string`
         * value **required** `string`
+      * events `array`
       * first_broadcast `string`
+      * first_broadcast_date_time `string`
       * guidance `object`
         * id **required** `string`
         * text `object`
@@ -808,7 +801,7 @@ bbci.user.watching.get({
           * small `string`
       * hd **required** `boolean`
       * id **required** `string`
-      * kind **required** `string`
+      * kind **required** `string` (values: legal, editorial, technical-replacement, original, iplayer-version, lengthened, shortened, pre-watershed, post-watershed, warnings-higher, warnings-lower, warnings-none, duplication, open-subtitled, other, audio-described, signed, webcast, simulcast)
       * rrc `object`
         * description **required** `object`
           * large **required** `string`
@@ -816,19 +809,28 @@ bbci.user.watching.get({
         * url `string`
       * service_id `string`
       * type **required** `string` (values: version, version_large)
+      * uhd **required** `boolean`
 
 ### episode
 * episode `object`
   * audio_described **required** `boolean`
   * categories **required** `array`
     * items `string`
+  * childrens `boolean`
   * editorial_subtitle `string`
   * editorial_title `string`
+  * event_group_id `string`
   * guidance **required** `boolean`
   * has_credits `boolean`
   * id **required** `string`
   * images **required** `object`
+    * character_image `string`
     * inherited_from `string`
+    * live `string`
+    * portrait `string`
+    * programme_logo `string`
+    * promotional `string`
+    * promotional_with_logo `string`
     * standard **required** `string`
     * type **required** `string` (values: image)
   * labels `object`
@@ -838,14 +840,18 @@ bbci.user.watching.get({
     * time `string`
   * lexical_sort_letter **required** `string`
   * live `boolean`
+  * live_subtitle `string`
+  * live_title `string`
   * master_brand **required** [master_brand](#master_brand)
   * next_broadcast `object`
     * channel_title **required** `string`
     * scheduled_start **required** `string`
+  * numeric_tleo_position `number`
   * original_title `string`
   * parent_id `string`
   * parent_position `number`
   * preview_id `string`
+  * programme_type `string` (values: narrative, sequential, self-contained, strand, unclassified, one-off)
   * promoted `boolean`
   * related_links `array`
     * items `object`
@@ -856,46 +862,55 @@ bbci.user.watching.get({
       * url **required** `string`
   * release_date `string`
   * release_date_time `string`
+  * requires_ab `array`
+    * items `string` (values: u13, u16, u18, o18)
   * requires_sign_in **required** `boolean`
   * requires_tv_licence `boolean`
   * signed **required** `boolean`
+  * slice_id `string`
+  * slice_subtitle `string`
   * status **required** `string` (values: available, unavailable)
   * subtitle `string`
-  * suppliers **required** `array`
-    * items `object`
-      * id **required** `string`
-      * title **required** `string`
   * synopses **required** `object`
     * editorial `string`
     * large `string`
+    * live `string`
     * medium `string`
     * preview `string`
+    * programme_small `string`
     * small `string`
+  * tests `array`
+    * items `object`
+      * id **required** `string`
+      * status **required** `string` (values: active)
+      * variants **required** `array`
+        * items `object`
+          * data **required** `object`
+          * id **required** `string`
   * title **required** `string`
   * tleo_id **required** `string`
   * tleo_type **required** `string` (values: episode, brand, series)
   * type **required** `string` (values: episode, episode_large)
   * versions **required** `array`
 
-
 ### group
 * group `object`
   * count `number`
   * episode_sort_direction `string`
-  * group_type `string` (values: tleo, curated)
+  * group_type `string` (values: tleo, curated, automated, event)
   * id **required** `string`
   * images `object`
     * standard **required** `string`
     * type **required** `string` (values: image)
     * vertical **required** `string`
   * initial_children `array`
-
   * master_brand [master_brand](#master_brand)
   * related_links `array`
     * items `object`
       * kind **required** `string`
       * title **required** `string`
       * url **required** `string`
+  * short_title `string`
   * stacked `boolean`
   * synopses `object`
     * large `string`
@@ -905,133 +920,7 @@ bbci.user.watching.get({
   * type **required** `string` (values: group, group_large)
 
 ### ibl
-* ibl `object`
-  * added `object`
-    * count **required** `number`
-    * count_all **required** `number`
-    * elements **required** `array`
-      * items [added](#added)
-  * adds `object`
-    * added **required** `string`
-    * id **required** `string`
-  * atoz_programmes `object`
-    * character **required** `string`
-    * count **required** `number`
-    * elements **required** `array`
-      * items [programme](#programme)
-    * page **required** `number`
-    * per_page **required** `number`
-  * autoplay `array`
-    * items [autoplay](#autoplay)
-  * broadcasts `object`
-    * channel **required** [channel](#channel)
-    * count **required** `number`
-    * elements **required** `array`
-      * items [broadcast](#broadcast)
-    * page **required** `number`
-    * per_page **required** `number`
-  * categories `array`
-    * items [category](#category)
-  * category [category](#category)
-  * category_highlights `object`
-    * category **required** [category](#category)
-    * elements **required** `array`
 
-  * category_programmes `object`
-    * category **required** [category](#category)
-    * count **required** `number`
-    * elements **required** `array`
-      * items [programme](#programme)
-    * page **required** `number`
-    * per_page **required** `number`
-  * channel_highlights `object`
-    * channel **required** [channel](#channel)
-    * elements **required** `array`
-
-  * channels `array`
-    * items [channel](#channel)
-  * clips `array`
-    * items [clip](#clip)
-  * episode_recommendations `object`
-    * blend **required** `string` (values: curated, algorithmic)
-    * count **required** `number`
-    * elements **required** `array`
-      * items [episode](#episode)
-  * episodes `array`
-    * items [episode](#episode)
-  * error `object`
-    * details **required** `string`
-    * http_response_code **required** `number`
-  * group_episodes `object`
-    * count **required** `number`
-    * elements **required** `array`
-      * items [episode](#episode)
-    * group [group](#group)
-    * page **required** `number`
-    * per_page **required** `number`
-  * home_highlights `object`
-    * elements **required** `array`
-
-  * next `object`
-    * programme `array`
-      * items [episode](#episode)
-  * postrolls `array`
-    * items [trailer](#trailer)
-  * prerolls `array`
-    * items [trailer](#trailer)
-  * programme_episodes `object`
-    * count **required** `number`
-    * elements **required** `array`
-      * items [episode](#episode)
-    * page **required** `number`
-    * per_page **required** `number`
-  * programmes `array`
-    * items [programme](#programme)
-  * purchases `object`
-    * count **required** `number`
-    * elements **required** `array`
-      * items [episode](#episode)
-    * page **required** `number`
-    * per_page **required** `number`
-    * revocations **required** `boolean`
-    * value_added_material **required** `boolean`
-  * regions `array`
-    * items [region](#region)
-  * schedule `object`
-    * channel **required** [channel](#channel)
-    * elements **required** `array`
-      * items [broadcast](#broadcast)
-  * schema **required** `string`
-  * search `object`
-    * count `number`
-    * page `number`
-    * per_page `number`
-    * query **required** `string`
-    * results **required** `array`
-
-  * search_suggest `object`
-    * query **required** `string`
-    * results **required** `array`
-      * items [programme](#programme)
-  * status `object`
-    * release **required** `string`
-    * service **required** `string`
-  * trailers `object`
-    * elements **required** `array`
-      * items [clip](#clip)
-  * user_recommendations `object`
-    * elements **required** `array`
-      * items [user_recommendation](#user_recommendation)
-    * rec_set **required** `string`
-    * rec_source **required** `string`
-  * version **required** `string`
-  * versions `array`
-    * items [store_version](#store_version)
-  * watching `object`
-    * count **required** `number`
-    * count_all **required** `number`
-    * elements **required** `array`
-      * items [watching](#watching)
 
 ### master_brand
 * master_brand `object`
@@ -1059,11 +948,8 @@ bbci.user.watching.get({
     * category `string`
   * lexical_sort_letter **required** `string`
   * master_brand **required** [master_brand](#master_brand)
+  * programme_type `string` (values: narrative, sequential, self-contained, strand, unclassified, one-off)
   * status **required** `string` (values: available, unavailable)
-  * suppliers **required** `array`
-    * items `object`
-      * id **required** `string`
-      * title **required** `string`
   * synopses **required** `object`
     * large `string`
     * medium `string`
@@ -1138,7 +1024,8 @@ bbci.user.watching.get({
 ### trailer
 * trailer `object`
   * id **required** `string`
-  * kind **required** `string` (values: available_now, coming_soon, other)
+  * kind **required** `string` (values: available_now, watch_now, coming_soon, streaming_now_sounds, other)
+  * message **required** `string`
   * title **required** `string`
   * type **required** `string` (values: trailer)
   * version_id **required** `string`
@@ -1162,7 +1049,9 @@ bbci.user.watching.get({
   * duration **required** `object`
     * text **required** `string`
     * value **required** `string`
+  * events `array`
   * first_broadcast `string`
+  * first_broadcast_date_time `string`
   * guidance `object`
     * id **required** `string`
     * text `object`
@@ -1171,7 +1060,7 @@ bbci.user.watching.get({
       * small `string`
   * hd **required** `boolean`
   * id **required** `string`
-  * kind **required** `string`
+  * kind **required** `string` (values: legal, editorial, technical-replacement, original, iplayer-version, lengthened, shortened, pre-watershed, post-watershed, warnings-higher, warnings-lower, warnings-none, duplication, open-subtitled, other, audio-described, signed, webcast, simulcast)
   * rrc `object`
     * description **required** `object`
       * large **required** `string`
@@ -1179,6 +1068,7 @@ bbci.user.watching.get({
     * url `string`
   * service_id `string`
   * type **required** `string` (values: version, version_large)
+  * uhd **required** `boolean`
 
 ### watching
 * watching `object`
@@ -1188,7 +1078,7 @@ bbci.user.watching.get({
   * programme **required** [programme](#programme)
   * progress `number`
   * remaining `number`
-  * status `string` (values: current, next)
+  * status `string` (values: current, next, ended)
   * type **required** `string` (values: watching)
   * urn **required** `string`
   * version **required** [version](#version)

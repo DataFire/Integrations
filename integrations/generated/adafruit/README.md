@@ -1,6 +1,6 @@
 # @datafire/adafruit
 
-Client library for Adafruit IO
+Client library for Adafruit IO REST API
 
 ## Installation and Usage
 ```bash
@@ -13,7 +13,7 @@ let adafruit = require('@datafire/adafruit').create({
   QueryKey: ""
 });
 
-adafruit.currentUser(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -158,6 +158,38 @@ adafruit.currentUser(null, context)
 
 #### Output
 * output [User](#user)
+
+### createWebhookFeedData
+Send data to a feed via webhook URL.
+
+
+```js
+adafruit.createWebhookFeedData({
+  "payload": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * payload **required** `object`
+    * value `string`
+
+#### Output
+* output [Data](#data)
+
+### createRawWebhookFeedData
+The raw data webhook receiver accepts POST requests and stores the raw request body on your feed. This is useful when you don't have control of the webhook sender. If feed history is turned on, payloads will be truncated at 1024 bytes. If feed history is turned off, payloads will be truncated at 100KB.
+
+
+```js
+adafruit.createRawWebhookFeedData(null, context)
+```
+
+#### Input
+*This action has no parameters*
+
+#### Output
+* output [Data](#data)
 
 ### destroyActivities
 Delete all your activities.
@@ -674,7 +706,9 @@ adafruit.allData({
   * items [DataResponse](#dataresponse)
 
 ### createData
-Create new Data
+Create new data records on the given feed.
+
+**NOTE:** when feed history is on, data `value` size is limited to 1KB, when feed history is turned off data value size is limited to 100KB.
 
 
 ```js

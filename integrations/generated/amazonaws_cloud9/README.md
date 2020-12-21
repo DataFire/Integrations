@@ -13,17 +13,14 @@ let amazonaws_cloud9 = require('@datafire/amazonaws_cloud9').create({
   region: ""
 });
 
-amazonaws_cloud9.CreateEnvironmentEC2({
-  "name": "",
-  "instanceType": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>For more information about AWS Cloud9, see the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide">AWS Cloud9 User Guide</a>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>
+<fullname>AWS Cloud9</fullname> <p>AWS Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and release software in the cloud.</p> <p>For more information about AWS Cloud9, see the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide">AWS Cloud9 User Guide</a>.</p> <p>AWS Cloud9 supports these operations:</p> <ul> <li> <p> <code>CreateEnvironmentEC2</code>: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.</p> </li> <li> <p> <code>CreateEnvironmentMembership</code>: Adds an environment member to an environment.</p> </li> <li> <p> <code>DeleteEnvironment</code>: Deletes an environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p> </li> <li> <p> <code>DeleteEnvironmentMembership</code>: Deletes an environment member from an environment.</p> </li> <li> <p> <code>DescribeEnvironmentMemberships</code>: Gets information about environment members for an environment.</p> </li> <li> <p> <code>DescribeEnvironments</code>: Gets information about environments.</p> </li> <li> <p> <code>DescribeEnvironmentStatus</code>: Gets status information for an environment.</p> </li> <li> <p> <code>ListEnvironments</code>: Gets a list of environment identifiers.</p> </li> <li> <p> <code>ListTagsForResource</code>: Gets the tags for an environment.</p> </li> <li> <p> <code>TagResource</code>: Adds tags to an environment.</p> </li> <li> <p> <code>UntagResource</code>: Removes tags from an environment.</p> </li> <li> <p> <code>UpdateEnvironment</code>: Changes the settings of an existing environment.</p> </li> <li> <p> <code>UpdateEnvironmentMembership</code>: Changes the settings of an existing environment member for an environment.</p> </li> </ul>
 
 ## Actions
 
@@ -33,20 +30,23 @@ amazonaws_cloud9.CreateEnvironmentEC2({
 
 ```js
 amazonaws_cloud9.CreateEnvironmentEC2({
-  "name": "",
-  "instanceType": ""
+  "name": null,
+  "instanceType": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * automaticStopTimeMinutes [AutomaticStopTimeMinutes](#automaticstoptimeminutes)
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * description [EnvironmentDescription](#environmentdescription)
-  * instanceType **required** [InstanceType](#instancetype)
-  * name **required** [EnvironmentName](#environmentname)
-  * ownerArn [UserArn](#userarn)
-  * subnetId [SubnetId](#subnetid)
+  * tags
+    * items [Tag](#tag)
+  * automaticStopTimeMinutes
+  * clientRequestToken
+  * connectionType
+  * description
+  * instanceType **required**
+  * name **required**
+  * ownerArn
+  * subnetId
 
 #### Output
 * output [CreateEnvironmentEC2Result](#createenvironmentec2result)
@@ -57,17 +57,17 @@ amazonaws_cloud9.CreateEnvironmentEC2({
 
 ```js
 amazonaws_cloud9.CreateEnvironmentMembership({
-  "environmentId": "",
-  "userArn": "",
-  "permissions": ""
+  "environmentId": null,
+  "userArn": null,
+  "permissions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * permissions **required** [MemberPermissions](#memberpermissions)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * permissions **required**
+  * userArn **required**
 
 #### Output
 * output [CreateEnvironmentMembershipResult](#createenvironmentmembershipresult)
@@ -78,13 +78,13 @@ amazonaws_cloud9.CreateEnvironmentMembership({
 
 ```js
 amazonaws_cloud9.DeleteEnvironment({
-  "environmentId": ""
+  "environmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
+  * environmentId **required**
 
 #### Output
 * output [DeleteEnvironmentResult](#deleteenvironmentresult)
@@ -95,15 +95,15 @@ amazonaws_cloud9.DeleteEnvironment({
 
 ```js
 amazonaws_cloud9.DeleteEnvironmentMembership({
-  "environmentId": "",
-  "userArn": ""
+  "environmentId": null,
+  "userArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * userArn **required**
 
 #### Output
 * output [DeleteEnvironmentMembershipResult](#deleteenvironmentmembershipresult)
@@ -120,11 +120,12 @@ amazonaws_cloud9.DescribeEnvironmentMemberships({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * environmentId [EnvironmentId](#environmentid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [String](#string)
-  * permissions [PermissionsList](#permissionslist)
-  * userArn [UserArn](#userarn)
+  * environmentId
+  * maxResults
+  * nextToken
+  * permissions
+    * items [Permissions](#permissions)
+  * userArn
 
 #### Output
 * output [DescribeEnvironmentMembershipsResult](#describeenvironmentmembershipsresult)
@@ -135,13 +136,13 @@ amazonaws_cloud9.DescribeEnvironmentMemberships({}, context)
 
 ```js
 amazonaws_cloud9.DescribeEnvironmentStatus({
-  "environmentId": ""
+  "environmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
+  * environmentId **required**
 
 #### Output
 * output [DescribeEnvironmentStatusResult](#describeenvironmentstatusresult)
@@ -152,13 +153,14 @@ amazonaws_cloud9.DescribeEnvironmentStatus({
 
 ```js
 amazonaws_cloud9.DescribeEnvironments({
-  "environmentIds": []
+  "environmentIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentIds **required** [BoundedEnvironmentIdList](#boundedenvironmentidlist)
+  * environmentIds **required**
+    * items [EnvironmentId](#environmentid)
 
 #### Output
 * output [DescribeEnvironmentsResult](#describeenvironmentsresult)
@@ -175,11 +177,68 @@ amazonaws_cloud9.ListEnvironments({}, context)
 * input `object`
   * maxResults `string`
   * nextToken `string`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [String](#string)
+  * maxResults
+  * nextToken
 
 #### Output
 * output [ListEnvironmentsResult](#listenvironmentsresult)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_cloud9.ListTagsForResource({
+  "ResourceARN": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+
+#### Output
+* output [ListTagsForResourceResponse](#listtagsforresourceresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_cloud9.TagResource({
+  "ResourceARN": null,
+  "Tags": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_cloud9.UntagResource({
+  "ResourceARN": null,
+  "TagKeys": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UpdateEnvironment
 
@@ -187,15 +246,15 @@ amazonaws_cloud9.ListEnvironments({}, context)
 
 ```js
 amazonaws_cloud9.UpdateEnvironment({
-  "environmentId": ""
+  "environmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * description [EnvironmentDescription](#environmentdescription)
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * name [EnvironmentName](#environmentname)
+  * description
+  * environmentId **required**
+  * name
 
 #### Output
 * output [UpdateEnvironmentResult](#updateenvironmentresult)
@@ -206,17 +265,17 @@ amazonaws_cloud9.UpdateEnvironment({
 
 ```js
 amazonaws_cloud9.UpdateEnvironmentMembership({
-  "environmentId": "",
-  "userArn": "",
-  "permissions": ""
+  "environmentId": null,
+  "userArn": null,
+  "permissions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * permissions **required** [MemberPermissions](#memberpermissions)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * permissions **required**
+  * userArn **required**
 
 #### Output
 * output [UpdateEnvironmentMembershipResult](#updateenvironmentmembershipresult)
@@ -229,7 +288,7 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 * AutomaticStopTimeMinutes `integer`
 
 ### BadRequestException
-* BadRequestException `object`: The target request is invalid.
+
 
 ### BoundedEnvironmentIdList
 * BoundedEnvironmentIdList `array`
@@ -238,86 +297,112 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 ### ClientRequestToken
 * ClientRequestToken `string`
 
+### ConcurrentAccessException
+
+
 ### ConflictException
-* ConflictException `object`: A conflict occurred.
+
+
+### ConnectionType
+* ConnectionType `string` (values: CONNECT_SSH, CONNECT_SSM)
 
 ### CreateEnvironmentEC2Request
 * CreateEnvironmentEC2Request `object`
-  * automaticStopTimeMinutes [AutomaticStopTimeMinutes](#automaticstoptimeminutes)
-  * clientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * description [EnvironmentDescription](#environmentdescription)
-  * instanceType **required** [InstanceType](#instancetype)
-  * name **required** [EnvironmentName](#environmentname)
-  * ownerArn [UserArn](#userarn)
-  * subnetId [SubnetId](#subnetid)
+  * tags
+    * items [Tag](#tag)
+  * automaticStopTimeMinutes
+  * clientRequestToken
+  * connectionType
+  * description
+  * instanceType **required**
+  * name **required**
+  * ownerArn
+  * subnetId
 
 ### CreateEnvironmentEC2Result
 * CreateEnvironmentEC2Result `object`
-  * environmentId [EnvironmentId](#environmentid)
+  * environmentId
 
 ### CreateEnvironmentMembershipRequest
 * CreateEnvironmentMembershipRequest `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * permissions **required** [MemberPermissions](#memberpermissions)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * permissions **required**
+  * userArn **required**
 
 ### CreateEnvironmentMembershipResult
 * CreateEnvironmentMembershipResult `object`
-  * membership [EnvironmentMember](#environmentmember)
+  * membership
+    * environmentId
+    * lastAccess
+    * permissions
+    * userArn
+    * userId
 
 ### DeleteEnvironmentMembershipRequest
 * DeleteEnvironmentMembershipRequest `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * userArn **required**
 
 ### DeleteEnvironmentMembershipResult
 * DeleteEnvironmentMembershipResult `object`
 
 ### DeleteEnvironmentRequest
 * DeleteEnvironmentRequest `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
+  * environmentId **required**
 
 ### DeleteEnvironmentResult
 * DeleteEnvironmentResult `object`
 
 ### DescribeEnvironmentMembershipsRequest
 * DescribeEnvironmentMembershipsRequest `object`
-  * environmentId [EnvironmentId](#environmentid)
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [String](#string)
-  * permissions [PermissionsList](#permissionslist)
-  * userArn [UserArn](#userarn)
+  * environmentId
+  * maxResults
+  * nextToken
+  * permissions
+    * items [Permissions](#permissions)
+  * userArn
 
 ### DescribeEnvironmentMembershipsResult
 * DescribeEnvironmentMembershipsResult `object`
-  * memberships [EnvironmentMembersList](#environmentmemberslist)
-  * nextToken [String](#string)
+  * memberships
+    * items [EnvironmentMember](#environmentmember)
+  * nextToken
 
 ### DescribeEnvironmentStatusRequest
 * DescribeEnvironmentStatusRequest `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
+  * environmentId **required**
 
 ### DescribeEnvironmentStatusResult
 * DescribeEnvironmentStatusResult `object`
-  * message [String](#string)
-  * status [EnvironmentStatus](#environmentstatus)
+  * message
+  * status
 
 ### DescribeEnvironmentsRequest
 * DescribeEnvironmentsRequest `object`
-  * environmentIds **required** [BoundedEnvironmentIdList](#boundedenvironmentidlist)
+  * environmentIds **required**
+    * items [EnvironmentId](#environmentid)
 
 ### DescribeEnvironmentsResult
 * DescribeEnvironmentsResult `object`
-  * environments [EnvironmentList](#environmentlist)
+  * environments
+    * items [Environment](#environment)
 
 ### Environment
 * Environment `object`: Information about an AWS Cloud9 development environment.
-  * arn [String](#string)
-  * description [EnvironmentDescription](#environmentdescription)
-  * id [EnvironmentId](#environmentid)
-  * name [EnvironmentName](#environmentname)
-  * ownerArn [String](#string)
-  * type [EnvironmentType](#environmenttype)
+  * arn
+  * connectionType
+  * description
+  * id
+  * lifecycle
+    * failureResource
+    * reason
+    * status
+  * name
+  * ownerArn
+  * type
+
+### EnvironmentArn
+* EnvironmentArn `string`
 
 ### EnvironmentDescription
 * EnvironmentDescription `string`
@@ -329,17 +414,26 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 * EnvironmentIdList `array`
   * items [EnvironmentId](#environmentid)
 
+### EnvironmentLifecycle
+* EnvironmentLifecycle `object`: Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.
+  * failureResource
+  * reason
+  * status
+
+### EnvironmentLifecycleStatus
+* EnvironmentLifecycleStatus `string` (values: CREATING, CREATED, CREATE_FAILED, DELETING, DELETE_FAILED)
+
 ### EnvironmentList
 * EnvironmentList `array`
   * items [Environment](#environment)
 
 ### EnvironmentMember
 * EnvironmentMember `object`: Information about an environment member for an AWS Cloud9 development environment.
-  * environmentId [EnvironmentId](#environmentid)
-  * lastAccess [Timestamp](#timestamp)
-  * permissions [Permissions](#permissions)
-  * userArn [UserArn](#userarn)
-  * userId [String](#string)
+  * environmentId
+  * lastAccess
+  * permissions
+  * userArn
+  * userId
 
 ### EnvironmentMembersList
 * EnvironmentMembersList `array`
@@ -355,26 +449,36 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 * EnvironmentType `string` (values: ssh, ec2)
 
 ### ForbiddenException
-* ForbiddenException `object`: An access permissions issue occurred.
+
 
 ### InstanceType
 * InstanceType `string`
 
 ### InternalServerErrorException
-* InternalServerErrorException `object`: An internal server error occurred.
+
 
 ### LimitExceededException
-* LimitExceededException `object`: A service limit was exceeded.
+
 
 ### ListEnvironmentsRequest
 * ListEnvironmentsRequest `object`
-  * maxResults [MaxResults](#maxresults)
-  * nextToken [String](#string)
+  * maxResults
+  * nextToken
 
 ### ListEnvironmentsResult
 * ListEnvironmentsResult `object`
-  * environmentIds [EnvironmentIdList](#environmentidlist)
-  * nextToken [String](#string)
+  * environmentIds
+    * items [EnvironmentId](#environmentid)
+  * nextToken
+
+### ListTagsForResourceRequest
+* ListTagsForResourceRequest `object`
+  * ResourceARN **required**
+
+### ListTagsForResourceResponse
+* ListTagsForResourceResponse `object`
+  * Tags
+    * items [Tag](#tag)
 
 ### MaxResults
 * MaxResults `integer`
@@ -383,7 +487,7 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 * MemberPermissions `string` (values: read-write, read-only)
 
 ### NotFoundException
-* NotFoundException `object`: The target resource cannot be found.
+
 
 ### Permissions
 * Permissions `string` (values: owner, read-write, read-only)
@@ -398,27 +502,69 @@ amazonaws_cloud9.UpdateEnvironmentMembership({
 ### SubnetId
 * SubnetId `string`
 
+### Tag
+* Tag `object`: Metadata that is associated with AWS resources. In particular, a name-value pair that can be associated with an AWS Cloud9 development environment. There are two types of tags: <i>user tags</i> and <i>system tags</i>. A user tag is created by the user. A system tag is automatically created by AWS services. A system tag is prefixed with "aws:" and cannot be modified by the user.
+  * Key **required**
+  * Value **required**
+
+### TagKey
+* TagKey `string`
+
+### TagKeyList
+* TagKeyList `array`
+  * items [TagKey](#tagkey)
+
+### TagList
+* TagList `array`
+  * items [Tag](#tag)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceARN **required**
+  * Tags **required**
+    * items [Tag](#tag)
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
+
 ### Timestamp
 * Timestamp `string`
 
 ### TooManyRequestsException
-* TooManyRequestsException `object`: Too many service requests were made over the given time period.
+
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceARN **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UpdateEnvironmentMembershipRequest
 * UpdateEnvironmentMembershipRequest `object`
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * permissions **required** [MemberPermissions](#memberpermissions)
-  * userArn **required** [UserArn](#userarn)
+  * environmentId **required**
+  * permissions **required**
+  * userArn **required**
 
 ### UpdateEnvironmentMembershipResult
 * UpdateEnvironmentMembershipResult `object`
-  * membership [EnvironmentMember](#environmentmember)
+  * membership
+    * environmentId
+    * lastAccess
+    * permissions
+    * userArn
+    * userId
 
 ### UpdateEnvironmentRequest
 * UpdateEnvironmentRequest `object`
-  * description [EnvironmentDescription](#environmentdescription)
-  * environmentId **required** [EnvironmentId](#environmentid)
-  * name [EnvironmentName](#environmentname)
+  * description
+  * environmentId **required**
+  * name
 
 ### UpdateEnvironmentResult
 * UpdateEnvironmentResult `object`

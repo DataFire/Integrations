@@ -1,8 +1,8 @@
 {
   "name": "@datafire/mozilla_kinto",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
-  "description": "DataFire integration for kinto",
+  "description": "DataFire integration for Remote Settings",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/mozilla.com/kinto/1.19/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/mozilla.com/kinto/1.22/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

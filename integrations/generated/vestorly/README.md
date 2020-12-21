@@ -1,6 +1,6 @@
 # @datafire/vestorly
 
-Client library for Vestorly
+Client library for Vestorly API
 
 ## Installation and Usage
 ```bash
@@ -15,10 +15,7 @@ let vestorly = require('@datafire/vestorly').create({
   redirect_uri: ""
 });
 
-vestorly.findAdvisorByID({
-  "vestorly-auth": "",
-  "id": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -35,19 +32,40 @@ Returns a single advisor given their ID
 
 ```js
 vestorly.findAdvisorByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: Advisor Id to fetch
 
 #### Output
 * output [Advisor](#advisor)
+
+### findArticlePhrases
+Returns phrases used in Categories
+
+
+```js
+vestorly.findArticlePhrases({
+  "vestorly_auth": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * text_search `string`: Text to search phrases
+  * size `integer`: Number of returned phrases
+  * from `integer`: Number of phrases to skip
+
+#### Output
+* output [ArticlePhrases](#articlephrases)
 
 ### findArticles
 Returns all articles
@@ -55,13 +73,13 @@ Returns all articles
 
 ```js
 vestorly.findArticles({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * limit `integer`: Limit on the number of articles to return
   * text_query `string`: Search query parameter
@@ -77,19 +95,264 @@ Returns a single article
 
 ```js
 vestorly.findArticleByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: Article Id to fetch
 
 #### Output
 * output [Articleresponse](#articleresponse)
+
+### findCustomFeedFilters
+Returns all Categorie's filters
+
+
+```js
+vestorly.findCustomFeedFilters({
+  "vestorly_auth": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+
+#### Output
+* output [CustomFeedFilters](#customfeedfilters)
+
+### createCustomFeedFilter
+Creates a new Category filter
+
+
+```js
+vestorly.createCustomFeedFilter({
+  "vestorly_auth": "",
+  "custom_feed_filter": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * custom_feed_filter **required** [CustomFeedFilterInput](#customfeedfilterinput)
+
+#### Output
+* output [CustomFeedFilterresponse](#customfeedfilterresponse)
+
+### deleteCustomFeedFilter
+Deletes the Category's filter
+
+
+```js
+vestorly.deleteCustomFeedFilter({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of category filter to delete
+
+#### Output
+* output [CustomFeedFilterresponse](#customfeedfilterresponse)
+
+### findCustomFeedFilterByID
+Returns a single Category's filter
+
+
+```js
+vestorly.findCustomFeedFilterByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: Custom Feed Filter Id to fetch
+
+#### Output
+* output [CustomFeedFilterresponse](#customfeedfilterresponse)
+
+### updateCustomFeedFilterById
+Updates a Category Feed Filter
+
+
+```js
+vestorly.updateCustomFeedFilterById({
+  "vestorly_auth": "",
+  "id": "",
+  "custom_feed_filter": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of category filter to update
+  * custom_feed_filter **required** [CustomFeedFilterInput](#customfeedfilterinput)
+
+#### Output
+* output [CustomFeedFilterresponse](#customfeedfilterresponse)
+
+### findCustomFeeds
+Returns all Categories
+
+
+```js
+vestorly.findCustomFeeds({
+  "vestorly_auth": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+
+#### Output
+* output [CustomFeeds](#customfeeds)
+
+### createCustomFeed
+Creates a new Category
+
+
+```js
+vestorly.createCustomFeed({
+  "vestorly_auth": "",
+  "custom_feed": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * custom_feed **required** [CustomFeedInput](#customfeedinput)
+
+#### Output
+* output [CustomFeedresponse](#customfeedresponse)
+
+### deleteCustomFeed
+Deletes a new Category
+
+
+```js
+vestorly.deleteCustomFeed({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of category to delete
+
+#### Output
+* output [CustomFeedresponse](#customfeedresponse)
+
+### findCustomFeedByID
+Returns a single Category
+
+
+```js
+vestorly.findCustomFeedByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: Custom Feed Id to fetch
+
+#### Output
+* output [CustomFeedresponse](#customfeedresponse)
+
+### updateCategoryById
+Updates a Category
+
+
+```js
+vestorly.updateCategoryById({
+  "vestorly_auth": "",
+  "id": "",
+  "custom_feed": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of category to update
+  * custom_feed **required** [CustomFeedInput](#customfeedinput)
+
+#### Output
+* output [CustomFeedresponse](#customfeedresponse)
+
+### findCustomFeedArticles
+Returns Articles by Category
+
+
+```js
+vestorly.findCustomFeedArticles({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: Category Id to fetch
+  * limit `integer`: Limit on the number of articles to return
+  * sort_by `string`: Field on model to sort by
+  * start `integer`: Field where the fetch will start from
+  * created_at_gte_days_ago `string`: Filter retrieved articles since this date
+  * text_query `string`: Search query parameter
+
+#### Output
+* output [Articles](#articles)
+
+### duplicateCustomFeed
+Duplicates Category
+
+
+```js
+vestorly.duplicateCustomFeed({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of category to duplicate
+
+#### Output
+* output [CustomFeedresponse](#customfeedresponse)
 
 ### findEvents
 Returns all events
@@ -97,13 +360,13 @@ Returns all events
 
 ```js
 vestorly.findEvents({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -115,14 +378,14 @@ Creates a new event in the system
 
 ```js
 vestorly.createEvent({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "event": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * event **required** [EventInput](#eventinput)
 
@@ -136,7 +399,7 @@ Returns a single event if the user has access
 ```js
 vestorly.findEventByID({
   "id": "",
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
@@ -144,7 +407,7 @@ vestorly.findEventByID({
 * input `object`
   * id **required** `string`: Mongo ID of event to fetch
   * access_token `string`: OAuth Token
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
 
 #### Output
 * output [Eventresponse](#eventresponse)
@@ -155,13 +418,13 @@ Returns all groups
 
 ```js
 vestorly.findGroups({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -173,14 +436,14 @@ Creates a new Group
 
 ```js
 vestorly.createGroup({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "group": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * group **required** [GroupInput](#groupinput)
 
@@ -193,14 +456,14 @@ Deletes a Group
 
 ```js
 vestorly.deleteGroup({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: id of group to delete
 
@@ -213,14 +476,14 @@ Returns a single group if user has access
 
 ```js
 vestorly.findGroupByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: Mongo ID of group to fetch
 
@@ -233,7 +496,7 @@ Updates a Group
 
 ```js
 vestorly.updateGroupById({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": "",
   "group": null
 }, context)
@@ -241,7 +504,7 @@ vestorly.updateGroupById({
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: id of group to update
   * group **required** [GroupInput](#groupinput)
@@ -255,13 +518,13 @@ Returns all MemberEvents
 
 ```js
 vestorly.findMemberEvents({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -273,13 +536,13 @@ Returns all member reports
 
 ```js
 vestorly.findMemberReports({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -291,13 +554,13 @@ Returns all members
 
 ```js
 vestorly.findMembers({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * start `integer`: Skips number of members from start
   * limit `integer`: Number of members to return
@@ -311,14 +574,14 @@ Create a new member in the Vestorly Platform
 
 ```js
 vestorly.createMember({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "member": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * member **required** [Member](#member)
 
@@ -332,14 +595,14 @@ Returns a single member
 ```js
 vestorly.findMemberByID({
   "id": "",
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `string`: Mongo ID of member to fetch
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -352,7 +615,7 @@ Updates a single member
 ```js
 vestorly.updateMemberByID({
   "id": "",
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "member": null
 }, context)
 ```
@@ -360,7 +623,7 @@ vestorly.updateMemberByID({
 #### Input
 * input `object`
   * id **required** `string`: Mongo ID of member to fetch
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * member **required** [Member](#member)
 
@@ -373,13 +636,13 @@ Returns all newsletter settings
 
 ```js
 vestorly.findNewsletterSettings({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -392,14 +655,14 @@ Returns a single newsletter settings if the user has access
 ```js
 vestorly.findNewsletterSettingsByID({
   "id": "",
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `string`: Mongo ID of newsletter settings to fetch
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -412,7 +675,7 @@ Update a single newsletter setting by ID
 ```js
 vestorly.updateNewsletterSettingsByID({
   "id": "",
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "newsletter_setting": null
 }, context)
 ```
@@ -420,7 +683,7 @@ vestorly.updateNewsletterSettingsByID({
 #### Input
 * input `object`
   * id **required** `string`: Mongo ID of newsletter settings to update
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * newsletter_setting **required** [NewsletterSettingsInput](#newslettersettingsinput)
 
@@ -433,13 +696,13 @@ Returns all newsletters
 
 ```js
 vestorly.findNewsletters({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -451,14 +714,14 @@ Get a newsletter by ID
 
 ```js
 vestorly.getNewsletterByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: Mongo ID of event to get
 
@@ -471,7 +734,7 @@ Updates a newsletter
 
 ```js
 vestorly.updateNewsletterByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": "",
   "newsletter": null
 }, context)
@@ -479,7 +742,7 @@ vestorly.updateNewsletterByID({
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: Mongo ID of event to update
   * newsletter **required** [NewsletterInput](#newsletterinput)
@@ -493,13 +756,13 @@ Query all posts
 
 ```js
 vestorly.findPosts({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * text_query `string`: Filter post by parameters
   * external_url `string`: Filter by External URL
@@ -514,14 +777,14 @@ Create a new post in the Vestorly Platform
 
 ```js
 vestorly.createPost({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "post": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * post **required** [PostInput](#postinput)
 
@@ -534,14 +797,14 @@ Query all posts
 
 ```js
 vestorly.getPostByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: ID of post to fetch
 
@@ -554,7 +817,7 @@ Update A Post
 
 ```js
 vestorly.updatePostByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": "",
   "post": null
 }, context)
@@ -562,13 +825,113 @@ vestorly.updatePostByID({
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: id of post to update
   * post **required** [Post](#post)
 
 #### Output
 * output [Postresponse](#postresponse)
+
+### findSeedCustomFeeds
+Returns all Categories keywords
+
+
+```js
+vestorly.findSeedCustomFeeds({
+  "vestorly_auth": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+
+#### Output
+* output [SeedCustomFeeds](#seedcustomfeeds)
+
+### createSeedCustomFeed
+Creates a new Category Keyword
+
+
+```js
+vestorly.createSeedCustomFeed({
+  "vestorly_auth": "",
+  "seed_custom_feed": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * seed_custom_feed **required** [SeedCustomFeedInput](#seedcustomfeedinput)
+
+#### Output
+* output [SeedCustomFeedresponse](#seedcustomfeedresponse)
+
+### deleteSeedCustomFeed
+Deletes a Category keywords
+
+
+```js
+vestorly.deleteSeedCustomFeed({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of seed category to delete
+
+#### Output
+* output [SeedCustomFeedresponse](#seedcustomfeedresponse)
+
+### findSeedCustomFeedByID
+Returns a single Category keyword
+
+
+```js
+vestorly.findSeedCustomFeedByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: Seed Custom Feed Id to fetch
+
+#### Output
+* output [SeedCustomFeedresponse](#seedcustomfeedresponse)
+
+### updateSeedCustomFeedById
+Updates a Category keywords
+
+
+```js
+vestorly.updateSeedCustomFeedById({
+  "vestorly_auth": "",
+  "id": "",
+  "seed_custom_feed": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * vestorly_auth **required** `string`: Vestorly Auth Token
+  * access_token `string`: OAuth Token
+  * id **required** `string`: id of seed category to update
+  * seed_custom_feed **required** [SeedCustomFeedInput](#seedcustomfeedinput)
+
+#### Output
+* output [SeedCustomFeedresponse](#seedcustomfeedresponse)
 
 ### login
 Login To Vestorly Platform
@@ -595,14 +958,14 @@ Logout of the vestorly platform
 
 ```js
 vestorly.logout({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Authenication token
+  * vestorly_auth **required** `string`: Authenication token
   * id **required** `string`: ID of pet to session
 
 #### Output
@@ -614,13 +977,13 @@ Returns all sources
 
 ```js
 vestorly.findSources({
-  "vestorly-auth": ""
+  "vestorly_auth": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
 
 #### Output
@@ -632,14 +995,14 @@ Create source
 
 ```js
 vestorly.createSource({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "source": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * source **required** [SourceInput](#sourceinput)
 
@@ -652,14 +1015,14 @@ Get Source By ID
 
 ```js
 vestorly.getSourceByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: ID of source to fetch
 
@@ -672,7 +1035,7 @@ Update Source By ID
 
 ```js
 vestorly.updateSourceByID({
-  "vestorly-auth": "",
+  "vestorly_auth": "",
   "id": "",
   "source": null
 }, context)
@@ -680,7 +1043,7 @@ vestorly.updateSourceByID({
 
 #### Input
 * input `object`
-  * vestorly-auth **required** `string`: Vestorly Auth Token
+  * vestorly_auth **required** `string`: Vestorly Auth Token
   * access_token `string`: OAuth Token
   * id **required** `string`: ID of source to fetch
   * source **required** [SourceInput](#sourceinput)
@@ -748,12 +1111,28 @@ vestorly.updateSourceByID({
   * logo_url `string`
   * needs_sanitize `boolean`
   * proxy_url `string`
+  * redirector_link `string`
   * square_logo_url `string`
   * suitability_score `string`
   * summary `string`
   * title **required** `string`
   * topic `string`
   * url `string`
+
+### ArticlePhrase
+* ArticlePhrase `object`
+  * created_at `integer`
+  * length `integer`
+  * text `string`
+
+### ArticlePhraseresponse
+* ArticlePhraseresponse `object`
+  * article_phrase [ArticlePhrase](#articlephrase)
+
+### ArticlePhrases
+* ArticlePhrases `object`
+  * article_phrases `array`
+    * items [ArticlePhrase](#articlephrase)
 
 ### Articleresponse
 * Articleresponse `object`
@@ -763,6 +1142,68 @@ vestorly.updateSourceByID({
 * Articles `object`
   * articles `array`
     * items [Article](#article)
+
+### CustomFeed
+* CustomFeed `object`
+  * _id **required** `string`
+  * custom_feed_filter_id `string`
+  * custom_feed_permission_id `string`
+  * custom_feed_template_id `string`
+  * custom_feed_visibility `integer`
+  * default `boolean`
+  * display_label `string`
+  * is_auto_curated_newsletter_custom_feed `boolean`
+  * label **required** `string`
+  * links `string`
+  * popularity `number`
+  * premium_content `boolean`
+  * seed_custom_feed_id `string`
+  * third_party_articles_custom_feed_id `string`
+
+### CustomFeedFilter
+* CustomFeedFilter `object`
+  * _id **required** `string`
+  * custom_feed_id **required** `string`
+  * source_ids `array`
+    * items `string`
+
+### CustomFeedFilterInput
+* CustomFeedFilterInput `object`
+  * custom_feed_id **required** `string`
+  * source_ids `array`
+    * items `string`
+
+### CustomFeedFilterresponse
+* CustomFeedFilterresponse `object`
+  * custom_feed_filter [CustomFeedFilter](#customfeedfilter)
+
+### CustomFeedFilters
+* CustomFeedFilters `object`
+  * custom_feed_filters `array`
+    * items [CustomFeedFilter](#customfeedfilter)
+
+### CustomFeedInput
+* CustomFeedInput `object`
+  * custom_feed_filter_id `string`
+  * custom_feed_permission_id `string`
+  * custom_feed_visibility `integer`
+  * default `boolean`
+  * is_auto_curated_newsletter_custom_feed `boolean`
+  * label **required** `string`
+  * popularity `number`
+  * premium_content `boolean`
+  * seed_custom_feed_id `string`
+  * social_posting_id `string`
+  * third_party_articles_custom_feed_id `string`
+
+### CustomFeedresponse
+* CustomFeedresponse `object`
+  * custom_feed [CustomFeed](#customfeed)
+
+### CustomFeeds
+* CustomFeeds `object`
+  * custom_feeds `array`
+    * items [CustomFeed](#customfeed)
 
 ### Event
 * Event `object`
@@ -989,9 +1430,6 @@ vestorly.updateSourceByID({
   * email_hour `integer`
   * email_status `string`
   * facebook_active_wall `string`
-  * facebook_day_of_week `integer`
-  * facebook_hour `integer`
-  * facebook_status `string`
   * footer_email_font `string`
   * footer_html `string`
   * footer_image_url `string`
@@ -1000,9 +1438,6 @@ vestorly.updateSourceByID({
   * header_image_url `string`
   * intro_text `string`
   * linkedin_active_wall `string`
-  * linkedin_day_of_week `integer`
-  * linkedin_hour `integer`
-  * linkedin_status `string`
   * montage_enabled `boolean`
   * montage_facebook_image_url `string`
   * montage_linkedin_image_url `string`
@@ -1012,19 +1447,13 @@ vestorly.updateSourceByID({
     * items `string`
   * newsletter_type `string`
   * primary_email_font `string`
-  * render_version `string`
   * salutation_text `string`
   * social_day_of_week `integer`
   * social_description `string`
-  * social_hour `integer`
   * social_posting_text `string`
-  * social_subtitle `string`
   * social_title `string`
   * subject `string`
   * title_color `string`
-  * twitter_day_of_week `integer`
-  * twitter_hour `integer`
-  * twitter_status `string`
 
 ### NewsletterSettings
 * NewsletterSettings `object`
@@ -1054,7 +1483,6 @@ vestorly.updateSourceByID({
   * company_address `string`
   * company_contact_email `string`
   * company_homepage_url `string`
-  * email_theme_name `string`
   * is_default `boolean`
   * name `string`
   * privacy_policy_url `string`
@@ -1096,9 +1524,9 @@ vestorly.updateSourceByID({
   * needs_sanitize `string`
   * newsletter_ids `array`
     * items `string`
-  * pdf_attachment_url `string`
   * post_date `string`
   * proxy_url `string`
+  * redirector_link `string`
   * slug `string`
   * square_logo_url `string`
   * suitability_score `string`
@@ -1140,7 +1568,6 @@ vestorly.updateSourceByID({
   * needs_sanitize `string`
   * newsletter_ids `array`
     * items `string`
-  * pdf_attachment_url `string`
   * post_date `string`
   * proxy_url `string`
   * slug `string`
@@ -1166,6 +1593,38 @@ vestorly.updateSourceByID({
 * Posts `object`
   * posts `array`
     * items [Post](#post)
+
+### SeedCustomFeed
+* SeedCustomFeed `object`
+  * _id **required** `string`
+  * article_id `string`
+  * custom_feed_id `string`
+  * not_article_id `string`
+  * not_seeds `array`
+    * items `string`
+  * seeds `array`
+    * items `string`
+  * sort_by `string`
+
+### SeedCustomFeedInput
+* SeedCustomFeedInput `object`
+  * article_id `string`
+  * custom_feed_id **required** `string`
+  * not_article_id `string`
+  * not_seeds `array`
+    * items `string`
+  * seeds `array`
+    * items `string`
+  * sort_by `string`
+
+### SeedCustomFeedresponse
+* SeedCustomFeedresponse `object`
+  * seed_custom_feed [SeedCustomFeed](#seedcustomfeed)
+
+### SeedCustomFeeds
+* SeedCustomFeeds `object`
+  * seed_custom_feeds `array`
+    * items [SeedCustomFeed](#seedcustomfeed)
 
 ### Session
 * Session `object`

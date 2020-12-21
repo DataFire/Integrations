@@ -15,12 +15,7 @@ let azure_sql_backuplongtermretentionvaults = require('@datafire/azure_sql_backu
   redirect_uri: ""
 });
 
-azure_sql_backuplongtermretentionvaults.BackupLongTermRetentionVaults_ListByServer({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

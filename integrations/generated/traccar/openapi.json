@@ -1,14 +1,18 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "demo.traccar.org",
-  "basePath": "/api",
   "info": {
+    "contact": {
+      "email": "support@traccar.org",
+      "name": "Traccar Support",
+      "url": "https://www.traccar.org/"
+    },
     "description": "Open Source GPS Tracking Platform",
-    "title": "traccar",
-    "version": "3.17",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "title": "Traccar",
+    "version": "4.11",
     "x-apisguru-categories": [
       "location"
     ],
@@ -17,9 +21,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/tananaev/traccar/master/swagger.json",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -29,202 +33,46 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
+  "host": "demo.traccar.org",
+  "basePath": "/api",
+  "schemes": [
+    "https"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "basicAuth": {
-      "description": "Basic HTTP authorization with _email_ and _password_",
-      "type": "basic"
-    }
-  },
-  "security": [
-    {
-      "basicAuth": []
-    }
-  ],
-  "parameters": {
-    "Attribute": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Attribute"
-      }
-    },
-    "Calendar": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Calendar"
-      }
-    },
-    "Command": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Command"
-      }
-    },
-    "Device": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Device"
-      }
-    },
-    "Driver": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Driver"
-      }
-    },
-    "Geofence": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Geofence"
-      }
-    },
-    "Group": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Group"
-      }
-    },
-    "Maintenance": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Maintenance"
-      }
-    },
-    "Notification": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Notification"
-      }
-    },
-    "Permission": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/Permission"
-      }
-    },
-    "User": {
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/User"
-      }
-    },
-    "all": {
-      "description": "Can only be used by admins or managers to fetch all entities",
-      "in": "query",
-      "name": "all",
-      "type": "boolean"
-    },
-    "deviceId": {
-      "description": "Standard users can use this only with _deviceId_s, they have access to",
-      "in": "query",
-      "name": "deviceId",
-      "type": "integer"
-    },
-    "deviceIdArray": {
-      "collectionFormat": "multi",
-      "in": "query",
-      "items": {
-        "type": "integer"
-      },
-      "name": "deviceId",
-      "type": "array"
-    },
-    "entityId": {
-      "in": "path",
-      "name": "id",
-      "required": true,
-      "type": "integer"
-    },
-    "fromTime": {
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
-      "format": "date-time",
-      "in": "query",
-      "name": "from",
-      "required": true,
-      "type": "string"
-    },
-    "groupId": {
-      "description": "Standard users can use this only with _groupId_s, they have access to",
-      "in": "query",
-      "name": "groupId",
-      "type": "integer"
-    },
-    "groupIdArray": {
-      "collectionFormat": "multi",
-      "in": "query",
-      "items": {
-        "type": "integer"
-      },
-      "name": "groupId",
-      "type": "array"
-    },
-    "refresh": {
-      "in": "query",
-      "name": "refresh",
-      "required": false,
-      "type": "boolean"
-    },
-    "toTime": {
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
-      "format": "date-time",
-      "in": "query",
-      "name": "to",
-      "required": true,
-      "type": "string"
-    },
-    "userId": {
-      "description": "Standard users can use this only with their own _userId_",
-      "in": "query",
-      "name": "userId",
-      "type": "integer"
-    }
-  },
   "paths": {
     "/attributes/computed": {
       "get": {
-        "description": "Without params, it returns a list of Attributes the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -238,13 +86,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Attributes",
-        "operationId": "attributes.computed.get"
+        "tags": [
+          "Attributes"
+        ],
+        "description": "Without params, it returns a list of Attributes the user has access to",
+        "summary": "Fetch a list of Attributes"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Attribute"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Attribute"
+            }
           }
         ],
         "responses": {
@@ -255,15 +117,21 @@
             }
           }
         },
+        "tags": [
+          "Attributes"
+        ],
         "summary": "Create an Attribute",
-        "operationId": "attributes.computed.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/attributes/computed/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -271,16 +139,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete an Attribute",
-        "operationId": "attributes.computed.id.delete"
+        "tags": [
+          "Attributes"
+        ],
+        "summary": "Delete an Attribute"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Attribute"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Attribute"
+            }
           }
         ],
         "responses": {
@@ -291,19 +175,30 @@
             }
           }
         },
+        "tags": [
+          "Attributes"
+        ],
         "summary": "Update an Attribute",
-        "operationId": "attributes.computed.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/calendars": {
       "get": {
-        "description": "Without params, it returns a list of Calendars the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -317,13 +212,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Calendars",
-        "operationId": "calendars.get"
+        "tags": [
+          "Calendars"
+        ],
+        "description": "Without params, it returns a list of Calendars the user has access to",
+        "summary": "Fetch a list of Calendars"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Calendar"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
           }
         ],
         "responses": {
@@ -334,15 +243,21 @@
             }
           }
         },
+        "tags": [
+          "Calendars"
+        ],
         "summary": "Create a Calendar",
-        "operationId": "calendars.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/calendars/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -350,16 +265,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Calendar",
-        "operationId": "calendars.id.delete"
+        "tags": [
+          "Calendars"
+        ],
+        "summary": "Delete a Calendar"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Calendar"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
           }
         ],
         "responses": {
@@ -370,28 +301,47 @@
             }
           }
         },
+        "tags": [
+          "Calendars"
+        ],
         "summary": "Update a Calendar",
-        "operationId": "calendars.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/commands": {
       "get": {
-        "description": "Without params, it returns a list of Drivers the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -405,13 +355,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Saved Commands",
-        "operationId": "commands.get"
+        "tags": [
+          "Commands"
+        ],
+        "description": "Without params, it returns a list of Saved Commands the user has access to",
+        "summary": "Fetch a list of Saved Commands"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Command"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
           }
         ],
         "responses": {
@@ -422,16 +386,24 @@
             }
           }
         },
+        "tags": [
+          "Commands"
+        ],
         "summary": "Create a Saved Command",
-        "operationId": "commands.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/commands/send": {
       "get": {
-        "description": "Return a list of saved commands linked to Device and its groups, filtered by current Device protocol support",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -448,11 +420,19 @@
             "description": "Could happen when the user doesn't have permission for the device"
           }
         },
-        "summary": "Fetch a list of Saved Commands supported by Device at the moment",
-        "operationId": "commands.send.get"
+        "tags": [
+          "Commands"
+        ],
+        "description": "Return a list of saved commands linked to Device and its groups, filtered by current Device protocol support",
+        "summary": "Fetch a list of Saved Commands supported by Device at the moment"
       },
       "post": {
-        "description": "Dispatch a new command or Saved Command if _body.id_ set",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -480,19 +460,34 @@
             "description": "Could happen when the user doesn't have permission or an incorrect command _type_ for the device"
           }
         },
+        "tags": [
+          "Commands"
+        ],
+        "description": "Dispatch a new command or Saved Command if _body.id_ set",
         "summary": "Dispatch commands to device",
-        "operationId": "commands.send.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/commands/types": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
+            "description": "Internal device identifier. Only works if device has already reported some locations",
             "in": "query",
             "name": "deviceId",
             "type": "integer"
           },
           {
+            "description": "Protocol name. Can be used instead of device id",
+            "in": "query",
+            "name": "protocol",
+            "type": "string"
+          },
+          {
+            "description": "When `true` return SMS commands. If not specified or `false` return data commands",
             "in": "query",
             "name": "textChannel",
             "type": "boolean"
@@ -512,15 +507,20 @@
             "description": "Could happen when trying to fetch from a device the user does not have permission"
           }
         },
-        "summary": "Fetch a list of available Commands for the Device or all possible Commands if Device ommited",
-        "operationId": "commands.types.get"
+        "tags": [
+          "Commands"
+        ],
+        "summary": "Fetch a list of available Commands for the Device or all possible Commands if Device ommited"
       }
     },
     "/commands/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -528,16 +528,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Saved Command",
-        "operationId": "commands.id.delete"
+        "tags": [
+          "Commands"
+        ],
+        "summary": "Delete a Saved Command"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Command"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
           }
         ],
         "responses": {
@@ -548,34 +564,41 @@
             }
           }
         },
+        "tags": [
+          "Commands"
+        ],
         "summary": "Update a Saved Command",
-        "operationId": "commands.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/devices": {
       "get": {
-        "description": "Without any params, returns a list of the user's devices",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
-          },
-          {
-            "$ref": "#/parameters/userId"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "To fetch one or more devices. Multiple params can be passed like `id=31&id=42`",
+            "description": "Can only be used by admins or managers to fetch all entities",
             "in": "query",
-            "name": "id",
-            "required": false,
+            "name": "all",
+            "type": "boolean"
+          },
+          {
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
             "type": "integer"
           },
           {
-            "collectionFormat": "multi",
+            "description": "To fetch one or more devices. Multiple params can be passed like `id=31&id=42`",
+            "in": "query",
+            "name": "id",
+            "type": "integer"
+          },
+          {
             "description": "To fetch one or more devices. Multiple params can be passed like `uniqueId=333331&uniqieId=44442`",
             "in": "query",
             "name": "uniqueId",
-            "required": false,
             "type": "string"
           }
         ],
@@ -593,13 +616,27 @@
             "description": "No permission"
           }
         },
-        "summary": "Fetch a list of Devices",
-        "operationId": "devices.get"
+        "tags": [
+          "Devices"
+        ],
+        "description": "Without any params, returns a list of the user's devices",
+        "summary": "Fetch a list of Devices"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Device"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
           }
         ],
         "responses": {
@@ -610,15 +647,21 @@
             }
           }
         },
+        "tags": [
+          "Devices"
+        ],
         "summary": "Create a Device",
-        "operationId": "devices.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/devices/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -626,16 +669,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Device",
-        "operationId": "devices.id.delete"
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Delete a Device"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Device"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
           }
         ],
         "responses": {
@@ -646,22 +705,31 @@
             }
           }
         },
+        "tags": [
+          "Devices"
+        ],
         "summary": "Update a Device",
-        "operationId": "devices.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
-    "/devices/{id}/distance": {
+    "/devices/{id}/accumulators": {
       "put": {
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
             "in": "body",
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/DeviceTotalDistance"
+              "$ref": "#/definitions/DeviceAccumulators"
             }
           }
         ],
@@ -670,28 +738,47 @@
             "description": "No Content"
           }
         },
-        "summary": "Update the distance counter of the Device",
-        "operationId": "devices.id.distance.put"
+        "tags": [
+          "Devices"
+        ],
+        "summary": "Update total distance and hours of the Device",
+        "x-codegen-request-body-name": "body"
       }
     },
     "/drivers": {
       "get": {
-        "description": "Without params, it returns a list of Drivers the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -705,13 +792,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Drivers",
-        "operationId": "drivers.get"
+        "tags": [
+          "Drivers"
+        ],
+        "description": "Without params, it returns a list of Drivers the user has access to",
+        "summary": "Fetch a list of Drivers"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Driver"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Driver"
+            }
           }
         ],
         "responses": {
@@ -722,15 +823,21 @@
             }
           }
         },
+        "tags": [
+          "Drivers"
+        ],
         "summary": "Create a Driver",
-        "operationId": "drivers.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/drivers/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -738,16 +845,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Driver",
-        "operationId": "drivers.id.delete"
+        "tags": [
+          "Drivers"
+        ],
+        "summary": "Delete a Driver"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Driver"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Driver"
+            }
           }
         ],
         "responses": {
@@ -758,15 +881,24 @@
             }
           }
         },
+        "tags": [
+          "Drivers"
+        ],
         "summary": "Update a Driver",
-        "operationId": "drivers.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/events/{id}": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -777,27 +909,45 @@
             }
           }
         },
-        "operationId": "events.id.get"
+        "tags": [
+          "Events"
+        ]
       }
     },
     "/geofences": {
       "get": {
-        "description": "Without params, it returns a list of Geofences the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -811,13 +961,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Geofences",
-        "operationId": "geofences.get"
+        "tags": [
+          "Geofences"
+        ],
+        "description": "Without params, it returns a list of Geofences the user has access to",
+        "summary": "Fetch a list of Geofences"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Geofence"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Geofence"
+            }
           }
         ],
         "responses": {
@@ -828,15 +992,21 @@
             }
           }
         },
+        "tags": [
+          "Geofences"
+        ],
         "summary": "Create a Geofence",
-        "operationId": "geofences.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/geofences/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -844,16 +1014,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Geofence",
-        "operationId": "geofences.id.delete"
+        "tags": [
+          "Geofences"
+        ],
+        "summary": "Delete a Geofence"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Geofence"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Geofence"
+            }
           }
         ],
         "responses": {
@@ -864,19 +1050,30 @@
             }
           }
         },
+        "tags": [
+          "Geofences"
+        ],
         "summary": "Update a Geofence",
-        "operationId": "geofences.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/groups": {
       "get": {
-        "description": "Without any params, returns a list of the Groups the user belongs to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           }
         ],
         "responses": {
@@ -890,13 +1087,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Groups",
-        "operationId": "groups.get"
+        "tags": [
+          "Groups"
+        ],
+        "description": "Without any params, returns a list of the Groups the user belongs to",
+        "summary": "Fetch a list of Groups"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Group"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
           }
         ],
         "responses": {
@@ -910,15 +1121,21 @@
             "description": "No permission"
           }
         },
+        "tags": [
+          "Groups"
+        ],
         "summary": "Create a Group",
-        "operationId": "groups.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/groups/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -926,16 +1143,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Group",
-        "operationId": "groups.id.delete"
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Delete a Group"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Group"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
           }
         ],
         "responses": {
@@ -946,28 +1179,47 @@
             }
           }
         },
+        "tags": [
+          "Groups"
+        ],
         "summary": "Update a Group",
-        "operationId": "groups.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
-    "/maintenances": {
+    "/maintenance": {
       "get": {
-        "description": "Without params, it returns a list of Maintenances the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -981,13 +1233,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Maintenances",
-        "operationId": "maintenances.get"
+        "tags": [
+          "Maintenance"
+        ],
+        "description": "Without params, it returns a list of Maintenance the user has access to",
+        "summary": "Fetch a list of Maintenance"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Maintenance"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Maintenance"
+            }
           }
         ],
         "responses": {
@@ -998,15 +1264,21 @@
             }
           }
         },
+        "tags": [
+          "Maintenance"
+        ],
         "summary": "Create a Maintenance",
-        "operationId": "maintenances.post"
+        "x-codegen-request-body-name": "body"
       }
     },
-    "/maintenances/{id}": {
+    "/maintenance/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1014,16 +1286,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Maintenance",
-        "operationId": "maintenances.id.delete"
+        "tags": [
+          "Maintenance"
+        ],
+        "summary": "Delete a Maintenance"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Maintenance"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Maintenance"
+            }
           }
         ],
         "responses": {
@@ -1034,28 +1322,47 @@
             }
           }
         },
+        "tags": [
+          "Maintenance"
+        ],
         "summary": "Update a Maintenance",
-        "operationId": "maintenances.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/notifications": {
       "get": {
-        "description": "Without params, it returns a list of Notifications the user has access to",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/all"
+            "description": "Can only be used by admins or managers to fetch all entities",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/userId"
+            "description": "Standard users can use this only with their own _userId_",
+            "in": "query",
+            "name": "userId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/deviceId"
+            "description": "Standard users can use this only with _deviceId_s, they have access to",
+            "in": "query",
+            "name": "deviceId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/groupId"
+            "description": "Standard users can use this only with _groupId_s, they have access to",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/refresh"
+            "in": "query",
+            "name": "refresh",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1069,13 +1376,27 @@
             }
           }
         },
-        "summary": "Fetch a list of Notifications",
-        "operationId": "notifications.get"
+        "tags": [
+          "Notifications"
+        ],
+        "description": "Without params, it returns a list of Notifications the user has access to",
+        "summary": "Fetch a list of Notifications"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Notification"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
           }
         ],
         "responses": {
@@ -1086,8 +1407,11 @@
             }
           }
         },
+        "tags": [
+          "Notifications"
+        ],
         "summary": "Create a Notification",
-        "operationId": "notifications.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/notifications/test": {
@@ -1101,12 +1425,17 @@
             "description": "Could happen if sending has failed"
           }
         },
-        "summary": "Send test notification to current user via Email and SMS",
-        "operationId": "notifications.test.post"
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Send test notification to current user via Email and SMS"
       }
     },
     "/notifications/types": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -1119,15 +1448,20 @@
             }
           }
         },
-        "summary": "Fetch a list of available Notification types",
-        "operationId": "notifications.types.get"
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Fetch a list of available Notification types"
       }
     },
     "/notifications/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1135,16 +1469,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Notification",
-        "operationId": "notifications.id.delete"
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Delete a Notification"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/Notification"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
           }
         ],
         "responses": {
@@ -1155,15 +1505,26 @@
             }
           }
         },
+        "tags": [
+          "Notifications"
+        ],
         "summary": "Update a Notification",
-        "operationId": "notifications.id.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/permissions": {
       "delete": {
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Permission"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
           }
         ],
         "responses": {
@@ -1171,13 +1532,27 @@
             "description": "No Content"
           }
         },
+        "tags": [
+          "Permissions"
+        ],
         "summary": "Unlink an Object from another Object",
-        "operationId": "permissions.delete"
+        "x-codegen-request-body-name": "body"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/Permission"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
           }
         ],
         "responses": {
@@ -1191,24 +1566,25 @@
             "description": "No permission"
           }
         },
+        "tags": [
+          "Permissions"
+        ],
         "summary": "Link an Object to another Object",
-        "operationId": "permissions.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/positions": {
       "get": {
-        "consumes": [
+        "produces": [
+          "application/gpx+xml",
           "application/json",
-          "text/csv",
-          "application/gpx+xml"
+          "text/csv"
         ],
-        "description": "Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_",
         "parameters": [
           {
             "description": "_deviceId_ is optional, but requires the _from_ and _to_ parameters when used",
             "in": "query",
             "name": "deviceId",
-            "required": false,
             "type": "integer"
           },
           {
@@ -1216,7 +1592,6 @@
             "format": "date-time",
             "in": "query",
             "name": "from",
-            "required": false,
             "type": "string"
           },
           {
@@ -1224,22 +1599,14 @@
             "format": "date-time",
             "in": "query",
             "name": "to",
-            "required": false,
             "type": "string"
           },
           {
-            "collectionFormat": "multi",
             "description": "To fetch one or more positions. Multiple params can be passed like `id=31&id=42`",
             "in": "query",
             "name": "id",
-            "required": false,
             "type": "integer"
           }
-        ],
-        "produces": [
-          "application/json",
-          "text/csv",
-          "application/gpx+xml"
         ],
         "responses": {
           "200": {
@@ -1252,25 +1619,40 @@
             }
           }
         },
-        "summary": "Fetches a list of Positions",
-        "operationId": "positions.get"
+        "tags": [
+          "Positions"
+        ],
+        "description": "We strongly recommend using [Traccar WebSocket API](https://www.traccar.org/traccar-api/) instead of periodically polling positions endpoint. Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_.",
+        "summary": "Fetches a list of Positions"
       }
     },
     "/reports/events": {
       "get": {
-        "consumes": [
+        "produces": [
           "application/json",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ],
-        "description": "At least one _deviceId_ or one _groupId_ must be passed",
         "parameters": [
           {
-            "$ref": "#/parameters/deviceIdArray"
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "deviceId",
+            "type": "array"
           },
           {
-            "$ref": "#/parameters/groupIdArray"
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "groupId",
+            "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "% can be used to return events of all types",
             "in": "query",
             "items": {
@@ -1280,15 +1662,21 @@
             "type": "array"
           },
           {
-            "$ref": "#/parameters/fromTime"
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/toTime"
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
           }
-        ],
-        "produces": [
-          "application/json",
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ],
         "responses": {
           "200": {
@@ -1301,34 +1689,54 @@
             }
           }
         },
-        "summary": "Fetch a list of Events within the time period for the Devices or Groups",
-        "operationId": "reports.events.get"
+        "tags": [
+          "Reports"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "summary": "Fetch a list of Events within the time period for the Devices or Groups"
       }
     },
     "/reports/route": {
       "get": {
-        "consumes": [
-          "application/json",
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ],
-        "description": "At least one _deviceId_ or one _groupId_ must be passed",
-        "parameters": [
-          {
-            "$ref": "#/parameters/deviceIdArray"
-          },
-          {
-            "$ref": "#/parameters/groupIdArray"
-          },
-          {
-            "$ref": "#/parameters/fromTime"
-          },
-          {
-            "$ref": "#/parameters/toTime"
-          }
-        ],
         "produces": [
           "application/json",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "deviceId",
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "groupId",
+            "type": "array"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -1341,34 +1749,54 @@
             }
           }
         },
-        "summary": "Fetch a list of Positions within the time period for the Devices or Groups",
-        "operationId": "reports.route.get"
+        "tags": [
+          "Reports"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "summary": "Fetch a list of Positions within the time period for the Devices or Groups"
       }
     },
     "/reports/stops": {
       "get": {
-        "consumes": [
-          "application/json",
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ],
-        "description": "At least one _deviceId_ or one _groupId_ must be passed",
-        "parameters": [
-          {
-            "$ref": "#/parameters/deviceIdArray"
-          },
-          {
-            "$ref": "#/parameters/groupIdArray"
-          },
-          {
-            "$ref": "#/parameters/fromTime"
-          },
-          {
-            "$ref": "#/parameters/toTime"
-          }
-        ],
         "produces": [
           "application/json",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "deviceId",
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "groupId",
+            "type": "array"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -1381,34 +1809,54 @@
             }
           }
         },
-        "summary": "Fetch a list of ReportStops within the time period for the Devices or Groups",
-        "operationId": "reports.stops.get"
+        "tags": [
+          "Reports"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "summary": "Fetch a list of ReportStops within the time period for the Devices or Groups"
       }
     },
     "/reports/summary": {
       "get": {
-        "consumes": [
-          "application/json",
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ],
-        "description": "At least one _deviceId_ or one _groupId_ must be passed",
-        "parameters": [
-          {
-            "$ref": "#/parameters/deviceIdArray"
-          },
-          {
-            "$ref": "#/parameters/groupIdArray"
-          },
-          {
-            "$ref": "#/parameters/fromTime"
-          },
-          {
-            "$ref": "#/parameters/toTime"
-          }
-        ],
         "produces": [
           "application/json",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "deviceId",
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "groupId",
+            "type": "array"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -1421,34 +1869,54 @@
             }
           }
         },
-        "summary": "Fetch a list of ReportSummary within the time period for the Devices or Groups",
-        "operationId": "reports.summary.get"
+        "tags": [
+          "Reports"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "summary": "Fetch a list of ReportSummary within the time period for the Devices or Groups"
       }
     },
     "/reports/trips": {
       "get": {
-        "consumes": [
-          "application/json",
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        ],
-        "description": "At least one _deviceId_ or one _groupId_ must be passed",
-        "parameters": [
-          {
-            "$ref": "#/parameters/deviceIdArray"
-          },
-          {
-            "$ref": "#/parameters/groupIdArray"
-          },
-          {
-            "$ref": "#/parameters/fromTime"
-          },
-          {
-            "$ref": "#/parameters/toTime"
-          }
-        ],
         "produces": [
           "application/json",
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "deviceId",
+            "type": "array"
+          },
+          {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+              "type": "integer"
+            },
+            "name": "groupId",
+            "type": "array"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -1461,12 +1929,19 @@
             }
           }
         },
-        "summary": "Fetch a list of ReportTrips within the time period for the Devices or Groups",
-        "operationId": "reports.trips.get"
+        "tags": [
+          "Reports"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "summary": "Fetch a list of ReportTrips within the time period for the Devices or Groups"
       }
     },
     "/server": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -1475,10 +1950,18 @@
             }
           }
         },
-        "summary": "Fetch Server information",
-        "operationId": "server.get"
+        "tags": [
+          "Server"
+        ],
+        "summary": "Fetch Server information"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "body",
@@ -1497,33 +1980,34 @@
             }
           }
         },
+        "tags": [
+          "Server"
+        ],
         "summary": "Update Server information",
-        "operationId": "server.put"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/session": {
       "delete": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ],
         "parameters": [],
         "responses": {
           "204": {
             "description": "No Content"
           }
         },
-        "summary": "Close the Session",
-        "operationId": "session.delete"
+        "tags": [
+          "Session"
+        ],
+        "summary": "Close the Session"
       },
       "get": {
-        "consumes": [
-          "application/x-www-form-urlencoded"
+        "produces": [
+          "application/json"
         ],
         "parameters": [
           {
             "in": "query",
             "name": "token",
-            "required": false,
             "type": "string"
           }
         ],
@@ -1538,26 +2022,23 @@
             "description": "Not Found"
           }
         },
-        "summary": "Fetch Session information",
-        "operationId": "session.get"
+        "tags": [
+          "Session"
+        ],
+        "summary": "Fetch Session information"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "in": "formData",
-            "name": "email",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "format": "password",
-            "in": "formData",
-            "name": "password",
-            "required": true,
-            "type": "string"
+            "name": "body",
+            "required": true
           }
         ],
         "responses": {
@@ -1571,18 +2052,33 @@
             "description": "Unauthorized"
           }
         },
-        "summary": "Create a new Session",
-        "operationId": "session.post"
+        "tags": [
+          "Session"
+        ],
+        "summary": "Create a new Session"
       }
     },
     "/statistics": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/fromTime"
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/toTime"
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1596,18 +2092,22 @@
             }
           }
         },
-        "summary": "Fetch server Statistics",
-        "operationId": "statistics.get"
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Fetch server Statistics"
       }
     },
     "/users": {
       "get": {
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "description": "Can only be used by admin or manager users",
             "in": "query",
             "name": "userId",
-            "required": false,
             "type": "string"
           }
         ],
@@ -1625,13 +2125,26 @@
             "description": "No Permission"
           }
         },
-        "summary": "Fetch a list of Users",
-        "operationId": "users.get"
+        "tags": [
+          "Users"
+        ],
+        "summary": "Fetch a list of Users"
       },
       "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/User"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
         ],
         "responses": {
@@ -1642,15 +2155,21 @@
             }
           }
         },
+        "tags": [
+          "Users"
+        ],
         "summary": "Create a User",
-        "operationId": "users.post"
+        "x-codegen-request-body-name": "body"
       }
     },
     "/users/{id}": {
       "delete": {
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -1658,16 +2177,32 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a User",
-        "operationId": "users.id.delete"
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete a User"
       },
       "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/entityId"
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/User"
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
         ],
         "responses": {
@@ -1678,8 +2213,11 @@
             }
           }
         },
+        "tags": [
+          "Users"
+        ],
         "summary": "Update a User",
-        "operationId": "users.id.put"
+        "x-codegen-request-body-name": "body"
       }
     }
   },
@@ -1702,11 +2240,15 @@
           "description": "String|Number|Boolean",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Calendar": {
       "properties": {
-        "atributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "data": {
           "description": "base64 encoded in iCalendar format",
           "type": "string"
@@ -1717,11 +2259,15 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Command": {
       "properties": {
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "description": {
           "type": "string"
         },
@@ -1734,18 +2280,23 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "CommandType": {
       "properties": {
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Device": {
       "properties": {
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "category": {
           "type": "string"
         },
@@ -1790,22 +2341,30 @@
         "uniqueId": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "DeviceTotalDistance": {
+    "DeviceAccumulators": {
       "properties": {
         "deviceId": {
           "type": "integer"
+        },
+        "hours": {
+          "type": "number"
         },
         "totalDistance": {
           "description": "in meters",
           "type": "number"
         }
-      }
+      },
+      "type": "object"
     },
     "Driver": {
       "properties": {
-        "atributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "id": {
           "type": "integer"
         },
@@ -1815,11 +2374,15 @@
         "uniqueId": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Event": {
       "properties": {
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "deviceId": {
           "type": "integer"
         },
@@ -1843,14 +2406,18 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Geofence": {
       "properties": {
         "area": {
           "type": "string"
         },
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "calendarId": {
           "type": "integer"
         },
@@ -1863,11 +2430,15 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Group": {
       "properties": {
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "groupId": {
           "type": "integer"
         },
@@ -1877,11 +2448,15 @@
         "name": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Maintenance": {
       "properties": {
-        "atributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "id": {
           "type": "integer"
         },
@@ -1897,14 +2472,18 @@
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Notification": {
       "properties": {
         "always": {
           "type": "boolean"
         },
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "calendarId": {
           "type": "integer"
         },
@@ -1923,14 +2502,16 @@
         "web": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "NotificationType": {
       "properties": {
         "type": {
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Permission": {
       "description": "This is a permission map that contain two object indexes. It is used to link/unlink objects. Order is important. Example: { deviceId:8, geofenceId: 16 }",
@@ -1940,7 +2521,7 @@
           "type": "integer"
         },
         "calendarId": {
-          "description": "Geofence Id, can be second parameter only and only in combination with userId",
+          "description": "Calendar Id, can be second parameter only and only in combination with userId",
           "type": "integer"
         },
         "deviceId": {
@@ -1967,7 +2548,8 @@
           "description": "User Id, can be only first parameter",
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "Position": {
       "properties": {
@@ -1980,7 +2562,10 @@
         "altitude": {
           "type": "number"
         },
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "course": {
           "type": "number"
         },
@@ -2007,7 +2592,8 @@
           "type": "number"
         },
         "network": {
-          "type": "string"
+          "properties": {},
+          "type": "object"
         },
         "outdated": {
           "type": "boolean"
@@ -2027,7 +2613,8 @@
         "valid": {
           "type": "boolean"
         }
-      }
+      },
+      "type": "object"
     },
     "ReportStops": {
       "properties": {
@@ -2066,7 +2653,8 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "ReportSummary": {
       "properties": {
@@ -2095,7 +2683,8 @@
           "description": "in liters",
           "type": "number"
         }
-      }
+      },
+      "type": "object"
     },
     "ReportTrips": {
       "properties": {
@@ -2158,11 +2747,15 @@
           "format": "date-time",
           "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
     "Server": {
       "properties": {
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "bingKey": {
           "type": "string"
         },
@@ -2211,7 +2804,8 @@
         "zoom": {
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "Statistics": {
       "properties": {
@@ -2235,14 +2829,18 @@
         "requests": {
           "type": "integer"
         }
-      }
+      },
+      "type": "object"
     },
     "User": {
       "properties": {
         "administrator": {
           "type": "boolean"
         },
-        "attributes": {},
+        "attributes": {
+          "properties": {},
+          "type": "object"
+        },
         "coordinateFormat": {
           "type": "string"
         },
@@ -2284,6 +2882,9 @@
         "password": {
           "type": "string"
         },
+        "phone": {
+          "type": "string"
+        },
         "poiLayer": {
           "type": "string"
         },
@@ -2302,6 +2903,295 @@
         "zoom": {
           "type": "integer"
         }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "description": "Basic HTTP authorization with _email_ and _password_",
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "description": "Server information",
+      "name": "Server"
+    },
+    {
+      "description": "User session management",
+      "name": "Session"
+    },
+    {
+      "description": "Device management",
+      "name": "Devices"
+    },
+    {
+      "description": "Group management",
+      "name": "Groups"
+    },
+    {
+      "description": "User management",
+      "name": "Users"
+    },
+    {
+      "description": "User permissions and other object linking",
+      "name": "Permissions"
+    },
+    {
+      "description": "Retrieving raw location information",
+      "name": "Positions"
+    },
+    {
+      "description": "Retrieving event information",
+      "name": "Events"
+    },
+    {
+      "description": "Reports generation",
+      "name": "Reports"
+    },
+    {
+      "description": "User notifications management",
+      "name": "Notifications"
+    },
+    {
+      "description": "Geofence management",
+      "name": "Geofences"
+    },
+    {
+      "description": "Sending commands to devices and stored command management",
+      "name": "Commands"
+    },
+    {
+      "description": "Computed attributes management",
+      "name": "Attributes"
+    },
+    {
+      "description": "Drivers management",
+      "name": "Drivers"
+    },
+    {
+      "description": "Maintenance management",
+      "name": "Maintenance"
+    },
+    {
+      "description": "Calendar management",
+      "name": "Calendars"
+    },
+    {
+      "description": "Retrieving server statistics",
+      "name": "Statistics"
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "all": {
+        "description": "Can only be used by admins or managers to fetch all entities",
+        "in": "query",
+        "name": "all",
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "deviceId": {
+        "description": "Standard users can use this only with _deviceId_s, they have access to",
+        "in": "query",
+        "name": "deviceId",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "deviceIdArray": {
+        "explode": true,
+        "in": "query",
+        "name": "deviceId",
+        "schema": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "style": "form"
+      },
+      "entityId": {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "fromTime": {
+        "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+        "in": "query",
+        "name": "from",
+        "required": true,
+        "schema": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "groupId": {
+        "description": "Standard users can use this only with _groupId_s, they have access to",
+        "in": "query",
+        "name": "groupId",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "groupIdArray": {
+        "explode": true,
+        "in": "query",
+        "name": "groupId",
+        "schema": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "style": "form"
+      },
+      "refresh": {
+        "in": "query",
+        "name": "refresh",
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "toTime": {
+        "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+        "in": "query",
+        "name": "to",
+        "required": true,
+        "schema": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "userId": {
+        "description": "Standard users can use this only with their own _userId_",
+        "in": "query",
+        "name": "userId",
+        "schema": {
+          "type": "integer"
+        }
+      }
+    },
+    "requestBodies": {
+      "Attribute": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Attribute"
+            }
+          }
+        },
+        "required": true
+      },
+      "Calendar": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
+          }
+        },
+        "required": true
+      },
+      "Command": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
+          }
+        },
+        "required": true
+      },
+      "Device": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "required": true
+      },
+      "Driver": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Driver"
+            }
+          }
+        },
+        "required": true
+      },
+      "Geofence": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Geofence"
+            }
+          }
+        },
+        "required": true
+      },
+      "Group": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "required": true
+      },
+      "Maintenance": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Maintenance"
+            }
+          }
+        },
+        "required": true
+      },
+      "Notification": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "required": true
+      },
+      "Permission": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
+          }
+        },
+        "required": true
+      },
+      "User": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "required": true
       }
     }
   }

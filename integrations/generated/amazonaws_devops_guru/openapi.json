@@ -1,0 +1,5165 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in business critical operational applications. You specify the AWS resources that you want DevOps Guru to cover, then the Amazon CloudWatch metrics and AWS CloudTrail events related to those resources are analyzed. When anomalous behavior is detected, DevOps Guru creates an <i>insight</i> that includes recommendations, related events, and related metrics that can help you improve your operational applications. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html\">What is Amazon DevOps Guru</a>. </p> <p> You can specify 1 or 2 Amazon Simple Notification Service topics so you are notified every time a new insight is created. You can also enable DevOps Guru to generate an OpsItem in AWS Systems Manager for each insight to help you manage and track your work addressing insights. </p> <p> To learn about the DevOps Guru workflow, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works\">How DevOps Guru works</a>. To learn about DevOps Guru concepts, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html\">Concepts in DevOps Guru</a>. </p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon DevOps Guru",
+    "version": "2020-12-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/devops-guru-2020-12-01.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "devops-guru",
+    "x-datafire": {
+      "name": "amazonaws_devops_guru",
+      "type": "openapi"
+    }
+  },
+  "host": "devops-guru.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/accounts/health": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountHealthResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your AWS account. Use these numbers to gauge the health of operations in your AWS account. ",
+        "operationId": "DescribeAccountHealth"
+      }
+    },
+    "/accounts/health/resource-collection/{ResourceCollectionType}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " An AWS resource collection type. This type specifies how analyzed AWS resources are defined. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. ",
+            "enum": [
+              "AWS_CLOUD_FORMATION"
+            ],
+            "in": "path",
+            "name": "ResourceCollectionType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+            "in": "query",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "NextToken",
+            "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeResourceCollectionHealthResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in resource collections in your account. You specify the type of AWS resources collection. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. ",
+        "operationId": "DescribeResourceCollectionHealth"
+      }
+    },
+    "/accounts/overview": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "FromTime": {
+                  "description": " The start of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred after this day. ",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "ToTime": {
+                  "description": " The end of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred before this day. If this is not specified, then the current day is used. ",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "FromTime"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAccountOverviewResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " For the time range passed in, returns the number of open reactive insight that were created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all closed reactive insights. ",
+        "operationId": "DescribeAccountOverview"
+      }
+    },
+    "/anomalies/insight/{InsightId}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ID of the insight. The returned anomalies belong to this insight. ",
+            "in": "path",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "InsightId",
+            "pattern": "^[\\w-]*$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                },
+                "StartTimeRange": {
+                  "description": " A time range used to specify when the behavior of an insight or anomaly started. ",
+                  "properties": {
+                    "FromTime": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Timestamp"
+                        },
+                        {
+                          "description": " The start time of the time range. "
+                        }
+                      ]
+                    },
+                    "ToTime": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Timestamp"
+                        },
+                        {
+                          "description": " The end time of the time range. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAnomaliesForInsightResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns a list of the anomalies that belong to an insight that you specify using its ID. ",
+        "operationId": "ListAnomaliesForInsight"
+      }
+    },
+    "/anomalies/{Id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ID of the anomaly. ",
+            "in": "path",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "Id",
+            "pattern": "^[\\w-]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAnomalyResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns details about an anomaly that you specify using its ID. ",
+        "operationId": "DescribeAnomaly"
+      }
+    },
+    "/channels": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNotificationChannelsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns a list of notification channels configured for DevOps Guru. Each notification channel is used to notify you when DevOps Guru generates an insight that contains information about how to improve your operations. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS). ",
+        "operationId": "ListNotificationChannels"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Config": {
+                  "description": " Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).",
+                  "properties": {
+                    "Sns": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SnsChannelConfig"
+                        },
+                        {
+                          "description": "<p> Information about a notification channel configured in DevOps Guru to send notifications when insights are created. </p> <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html\">Permissions for cross account Amazon SNS topics</a>.</p> <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html\">Permissions for AWS KMS–encrypted Amazon SNS topics</a>.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Config"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddNotificationChannelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceQuotaExceededException",
+            "schema": {
+              "$ref": "#/definitions/ServiceQuotaExceededException"
+            }
+          },
+          "485": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "486": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you about important DevOps Guru events, such as when an insight is generated. </p> <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html\">Permissions for cross account Amazon SNS topics</a>.</p> <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html\">Permissions for AWS KMS–encrypted Amazon SNS topics</a>.</p>",
+        "operationId": "AddNotificationChannel"
+      }
+    },
+    "/channels/{Id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ID of the notification channel to be removed. ",
+            "in": "path",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "Id",
+            "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RemoveNotificationChannelResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Removes a notification channel from DevOps Guru. A notification channel is used to notify you when DevOps Guru generates an insight that contains information about how to improve your operations. ",
+        "operationId": "RemoveNotificationChannel"
+      }
+    },
+    "/events": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Filters": {
+                  "description": " Filters you can use to specify which events are returned when <code>ListEvents</code> is called. ",
+                  "properties": {
+                    "DataSource": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventDataSource"
+                        },
+                        {
+                          "description": " The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, of the events you want returned. "
+                        }
+                      ]
+                    },
+                    "EventClass": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventClass"
+                        },
+                        {
+                          "description": " The class of the events you want to filter for, such as an infrastructure change, a deployment, or a schema change. "
+                        }
+                      ]
+                    },
+                    "EventSource": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventSource"
+                        },
+                        {
+                          "description": " The AWS source that emitted the events you want to filter for. "
+                        }
+                      ]
+                    },
+                    "EventTimeRange": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EventTimeRange"
+                        },
+                        {
+                          "description": " A time range during which you want the filtered events to have occurred. "
+                        }
+                      ]
+                    },
+                    "InsightId": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InsightId"
+                        },
+                        {
+                          "description": " An ID of an insight that is related to the events you want to filter for. "
+                        }
+                      ]
+                    },
+                    "ResourceCollection": {
+                      "$ref": "#/definitions/ResourceCollection"
+                    }
+                  },
+                  "type": "object"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 200,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Filters"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEventsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns a list of the events emitted by the resources that are evaluated by DevOps Guru. You can use filters to specify which events are returned. ",
+        "operationId": "ListEvents"
+      }
+    },
+    "/feedback": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "InsightFeedback": {
+                  "description": " Information about insight feedback received from a customer. ",
+                  "properties": {
+                    "Feedback": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InsightFeedbackOption"
+                        },
+                        {
+                          "description": " The feedback provided by the customer. "
+                        }
+                      ]
+                    },
+                    "Id": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InsightId"
+                        },
+                        {
+                          "description": " The insight feedback ID. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutFeedbackResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "485": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Collects customer feedback about the specified insight. ",
+        "operationId": "PutFeedback"
+      }
+    },
+    "/insights": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                },
+                "StatusFilter": {
+                  "description": " A filter used by <code>ListInsights</code> to specify which insights to return. ",
+                  "properties": {
+                    "Any": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ListInsightsAnyStatusFilter"
+                        },
+                        {
+                          "description": " A <code>ListInsightsAnyStatusFilter</code> that specifies insights of any status that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+                        }
+                      ]
+                    },
+                    "Closed": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ListInsightsClosedStatusFilter"
+                        },
+                        {
+                          "description": " A <code>ListInsightsClosedStatusFilter</code> that specifies closed insights that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+                        }
+                      ]
+                    },
+                    "Ongoing": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/ListInsightsOngoingStatusFilter"
+                        },
+                        {
+                          "description": " A <code>ListInsightsAnyStatusFilter</code> that specifies ongoing insights that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "StatusFilter"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInsightsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns a list of insights in your AWS account. You can specify which insights are returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or <code>ANY</code>). ",
+        "operationId": "ListInsights"
+      }
+    },
+    "/insights/search": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Filters": {
+                  "description": " Specifies one or more severity values and one or more status values that are used to search for insights. ",
+                  "properties": {
+                    "ResourceCollection": {
+                      "$ref": "#/definitions/ResourceCollection"
+                    },
+                    "Severities": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InsightSeverities"
+                        },
+                        {
+                          "description": " An array of severity values used to search for insights. "
+                        }
+                      ]
+                    },
+                    "Statuses": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/InsightStatuses"
+                        },
+                        {
+                          "description": " An array of status values used to search for insights. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "MaxResults": {
+                  "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                },
+                "StartTimeRange": {
+                  "description": " A time range used to specify when the behavior of an insight or anomaly started. ",
+                  "properties": {
+                    "FromTime": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Timestamp"
+                        },
+                        {
+                          "description": " The start time of the time range. "
+                        }
+                      ]
+                    },
+                    "ToTime": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Timestamp"
+                        },
+                        {
+                          "description": " The end time of the time range. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "Type": {
+                  "description": " The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>). ",
+                  "enum": [
+                    "REACTIVE",
+                    "PROACTIVE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "StartTimeRange",
+                "Type"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchInsightsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p> Returns a list of insights in your AWS account. You can specify which insights are returned by their start time, one or more statuses (<code>ONGOING</code>, <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>). </p> <p> Use the <code>Filters</code> parameter to specify status and severity search parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code> in your search. </p>",
+        "operationId": "SearchInsights"
+      }
+    },
+    "/insights/{Id}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The ID of the insight. ",
+            "in": "path",
+            "maxLength": 100,
+            "minLength": 1,
+            "name": "Id",
+            "pattern": "^[\\w-]*$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeInsightResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns details about an insight that you specify using its ID. ",
+        "operationId": "DescribeInsight"
+      }
+    },
+    "/recommendations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "InsightId": {
+                  "description": " The ID of the requested insight. ",
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "pattern": "^[\\w-]*$",
+                  "type": "string"
+                },
+                "NextToken": {
+                  "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "InsightId"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRecommendationsResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns a list of a specified insight's recommendations. Each recommendation includes a list of related metrics and a list of related events. ",
+        "operationId": "ListRecommendations"
+      }
+    },
+    "/resource-collections": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Action": {
+                  "description": " Specifies if the resource collection in the request is added or deleted to the resource collection. ",
+                  "enum": [
+                    "ADD",
+                    "REMOVE"
+                  ],
+                  "type": "string"
+                },
+                "ResourceCollection": {
+                  "description": " Contains information used to update a collection of AWS resources. ",
+                  "properties": {
+                    "CloudFormation": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/UpdateCloudFormationCollectionFilter"
+                        },
+                        {
+                          "description": " An collection of AWS CloudFormation stacks. "
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Action",
+                "ResourceCollection"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateResourceCollectionResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Updates the collection of resources that DevOps Guru analyzes. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. This method also creates the IAM role required for you to use DevOps Guru. ",
+        "operationId": "UpdateResourceCollection"
+      }
+    },
+    "/resource-collections/{ResourceCollectionType}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": " The type of AWS resource collections to return. The one valid value is <code>CLOUD_FORMATION</code> for AWS CloudFormation stacks. ",
+            "enum": [
+              "AWS_CLOUD_FORMATION"
+            ],
+            "in": "path",
+            "name": "ResourceCollectionType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.",
+            "in": "query",
+            "maxLength": 36,
+            "minLength": 36,
+            "name": "NextToken",
+            "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetResourceCollectionResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns lists AWS resources that are of the specified resource collection type. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. ",
+        "operationId": "GetResourceCollection"
+      }
+    },
+    "/service-integrations": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeServiceIntegrationResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Returns the integration status of services that are integrated with DevOps Guru. The one service that can be integrated with DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight. ",
+        "operationId": "DescribeServiceIntegration"
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ServiceIntegration": {
+                  "description": " Information about updating the integration status of an AWS service, such as AWS Systems Manager, with DevOps Guru. ",
+                  "properties": {
+                    "OpsCenter": {
+                      "$ref": "#/definitions/OpsCenterIntegrationConfig"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ServiceIntegration"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateServiceIntegrationResponse"
+            }
+          },
+          "480": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": " Enables or disables integration with a service that can be integrated with DevOps Guru. The one service that can be integrated with DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight. ",
+        "operationId": "UpdateServiceIntegration"
+      }
+    }
+  },
+  "definitions": {
+    "AccessDeniedException": {},
+    "AddNotificationChannelRequest": {
+      "properties": {
+        "Config": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationChannelConfig"
+            },
+            {
+              "description": " A <code>NotificationChannelConfig</code> object that specifies what type of notification channel to add. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS). "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Config"
+      ],
+      "title": "AddNotificationChannelRequest",
+      "type": "object"
+    },
+    "AddNotificationChannelResponse": {
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationChannelId"
+            },
+            {
+              "description": " The ID of the added notification channel. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "AnomalyId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[\\w-]*$",
+      "type": "string"
+    },
+    "AnomalyLimit": {
+      "format": "double",
+      "type": "number"
+    },
+    "AnomalySeverity": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "type": "string"
+    },
+    "AnomalySourceDetails": {
+      "description": " Details about the source of the anomalous operational data that triggered the anomaly. The one supported source is Amazon CloudWatch metrics. ",
+      "properties": {
+        "CloudWatchMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsDetails"
+            },
+            {
+              "description": " An array of <code>CloudWatchMetricsDetail</code> object that contains information about the analyzed metrics that displayed anomalous behavior. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "AnomalyStatus": {
+      "enum": [
+        "ONGOING",
+        "CLOSED"
+      ],
+      "type": "string"
+    },
+    "AnomalyTimeRange": {
+      "description": " A time range that specifies when the observed unusual behavior in an anomaly started and ended. ",
+      "properties": {
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the anomalous behavior ended. "
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the anomalous behavior started. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "StartTime"
+      ],
+      "type": "object"
+    },
+    "Channels": {
+      "items": {
+        "$ref": "#/definitions/NotificationChannel"
+      },
+      "type": "array"
+    },
+    "CloudFormationCollection": {
+      "description": " Information about AWS CloudFormation stacks. You can use stacks to specify which AWS resources in your account to analyze. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html\">Stacks</a> in the <i>AWS CloudFormation User Guide</i>. ",
+      "properties": {
+        "StackNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StackNames"
+            },
+            {
+              "description": " An array of CloudFormation stack names. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudFormationCollectionFilter": {
+      "description": " Information about AWS CloudFormation stacks. You can use stacks to specify which AWS resources in your account to analyze. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html\">Stacks</a> in the <i>AWS CloudFormation User Guide</i>. ",
+      "properties": {
+        "StackNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StackNames"
+            },
+            {
+              "description": " An array of CloudFormation stack names. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudFormationHealth": {
+      "description": " Information about the health of AWS resources in your account that are specified by an AWS CloudFormation stack. ",
+      "properties": {
+        "Insight": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightHealth"
+            },
+            {
+              "description": " Information about the health of the AWS resources in your account that are specified by an AWS CloudFormation stack, including the number of open proactive, open reactive insights, and the Mean Time to Recover (MTTR) of closed insights. "
+            }
+          ]
+        },
+        "StackName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StackName"
+            },
+            {
+              "description": " The name of the CloudFormation stack. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudFormationHealths": {
+      "items": {
+        "$ref": "#/definitions/CloudFormationHealth"
+      },
+      "type": "array"
+    },
+    "CloudWatchMetricsDetail": {
+      "description": " Information about an Amazon CloudWatch metric. ",
+      "properties": {
+        "Dimensions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsDimensions"
+            },
+            {
+              "description": " An array of CloudWatch dimensions associated with "
+            }
+          ]
+        },
+        "MetricName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsMetricName"
+            },
+            {
+              "description": " The name of the CloudWatch metric. "
+            }
+          ]
+        },
+        "Namespace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsNamespace"
+            },
+            {
+              "description": " The namespace of the CloudWatch metric. A namespace is a container for CloudWatch metrics. "
+            }
+          ]
+        },
+        "Period": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsPeriod"
+            },
+            {
+              "description": " The length of time associated with the CloudWatch metric in number of seconds. "
+            }
+          ]
+        },
+        "Stat": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsStat"
+            },
+            {
+              "description": " The type of statistic associated with the CloudWatch metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic\">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. "
+            }
+          ]
+        },
+        "Unit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsUnit"
+            },
+            {
+              "description": " The unit of measure used for the CloudWatch metric. For example, <code>Bytes</code>, <code>Seconds</code>, <code>Count</code>, and <code>Percent</code>. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudWatchMetricsDetails": {
+      "items": {
+        "$ref": "#/definitions/CloudWatchMetricsDetail"
+      },
+      "type": "array"
+    },
+    "CloudWatchMetricsDimension": {
+      "description": " The dimension of a Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in your account for operational problems and anomalous behaviour. A dimension is a name/value pair that is part of the identity of a metric. A metric can have up to 10 dimensions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension\">Dimensions</a> in the <i>Amazon CloudWatch User Guide</i>. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsDimensionName"
+            },
+            {
+              "description": " The name of the CloudWatch dimension. "
+            }
+          ]
+        },
+        "Value": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudWatchMetricsDimensionValue"
+            },
+            {
+              "description": " The value of the CloudWatch dimension. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudWatchMetricsDimensionName": {
+      "type": "string"
+    },
+    "CloudWatchMetricsDimensionValue": {
+      "type": "string"
+    },
+    "CloudWatchMetricsDimensions": {
+      "items": {
+        "$ref": "#/definitions/CloudWatchMetricsDimension"
+      },
+      "type": "array"
+    },
+    "CloudWatchMetricsMetricName": {
+      "type": "string"
+    },
+    "CloudWatchMetricsNamespace": {
+      "type": "string"
+    },
+    "CloudWatchMetricsPeriod": {
+      "type": "integer"
+    },
+    "CloudWatchMetricsStat": {
+      "enum": [
+        "Sum",
+        "Average",
+        "SampleCount",
+        "Minimum",
+        "Maximum",
+        "p99",
+        "p90",
+        "p50"
+      ],
+      "type": "string"
+    },
+    "CloudWatchMetricsUnit": {
+      "type": "string"
+    },
+    "ConflictException": {},
+    "DescribeAccountHealthRequest": {
+      "properties": {},
+      "title": "DescribeAccountHealthRequest",
+      "type": "object"
+    },
+    "DescribeAccountHealthResponse": {
+      "properties": {
+        "MetricsAnalyzed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumMetricsAnalyzed"
+            },
+            {
+              "description": " An integer that specifies the number of metrics that have been analyzed in your AWS account. "
+            }
+          ]
+        },
+        "OpenProactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumOpenProactiveInsights"
+            },
+            {
+              "description": " An integer that specifies the number of open proactive insights in your AWS account. "
+            }
+          ]
+        },
+        "OpenReactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumOpenReactiveInsights"
+            },
+            {
+              "description": " An integer that specifies the number of open reactive insights in your AWS account. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "OpenReactiveInsights",
+        "OpenProactiveInsights",
+        "MetricsAnalyzed"
+      ],
+      "type": "object"
+    },
+    "DescribeAccountOverviewRequest": {
+      "properties": {
+        "FromTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The start of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred after this day. "
+            }
+          ]
+        },
+        "ToTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The end of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred before this day. If this is not specified, then the current day is used. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "FromTime"
+      ],
+      "title": "DescribeAccountOverviewRequest",
+      "type": "object"
+    },
+    "DescribeAccountOverviewResponse": {
+      "properties": {
+        "MeanTimeToRecoverInMilliseconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MeanTimeToRecoverInMilliseconds"
+            },
+            {
+              "description": " The Mean Time to Recover (MTTR) for all closed insights that were created during the time range passed in. "
+            }
+          ]
+        },
+        "ProactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumProactiveInsights"
+            },
+            {
+              "description": " An integer that specifies the number of open proactive insights in your AWS account that were created during the time range passed in. "
+            }
+          ]
+        },
+        "ReactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumReactiveInsights"
+            },
+            {
+              "description": " An integer that specifies the number of open reactive insights in your AWS account that were created during the time range passed in. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ReactiveInsights",
+        "ProactiveInsights",
+        "MeanTimeToRecoverInMilliseconds"
+      ],
+      "type": "object"
+    },
+    "DescribeAnomalyRequest": {
+      "properties": {},
+      "title": "DescribeAnomalyRequest",
+      "type": "object"
+    },
+    "DescribeAnomalyResponse": {
+      "properties": {
+        "ProactiveAnomaly": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveAnomaly"
+            },
+            {
+              "description": " An <code>ReactiveAnomaly</code> object that represents the requested anomaly. "
+            }
+          ]
+        },
+        "ReactiveAnomaly": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReactiveAnomaly"
+            },
+            {
+              "description": " An <code>ProactiveAnomaly</code> object that represents the requested anomaly. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInsightRequest": {
+      "properties": {},
+      "title": "DescribeInsightRequest",
+      "type": "object"
+    },
+    "DescribeInsightResponse": {
+      "properties": {
+        "ProactiveInsight": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveInsight"
+            },
+            {
+              "description": " An <code>ProactiveInsight</code> object that represents the requested insight. "
+            }
+          ]
+        },
+        "ReactiveInsight": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReactiveInsight"
+            },
+            {
+              "description": " An <code>ReactiveInsight</code> object that represents the requested insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeResourceCollectionHealthRequest": {
+      "properties": {},
+      "title": "DescribeResourceCollectionHealthRequest",
+      "type": "object"
+    },
+    "DescribeResourceCollectionHealthResponse": {
+      "properties": {
+        "CloudFormation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudFormationHealths"
+            },
+            {
+              "description": " The returned <code>CloudFormationHealthOverview</code> object that contains an <code>InsightHealthOverview</code> object with the requested system health information. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        }
+      },
+      "required": [
+        "CloudFormation"
+      ],
+      "type": "object"
+    },
+    "DescribeServiceIntegrationRequest": {
+      "properties": {},
+      "title": "DescribeServiceIntegrationRequest",
+      "type": "object"
+    },
+    "DescribeServiceIntegrationResponse": {
+      "properties": {
+        "ServiceIntegration": {
+          "$ref": "#/definitions/ServiceIntegrationConfig"
+        }
+      },
+      "type": "object"
+    },
+    "EndTimeRange": {
+      "description": " A range of time that specifies when anomalous behavior in an anomaly or insight ended. ",
+      "properties": {
+        "FromTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The earliest end time in the time range. "
+            }
+          ]
+        },
+        "ToTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The latest end time in the time range. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Event": {
+      "description": " An AWS resource event. AWS resource events and metrics are analyzed by DevOps Guru to find anomalous behavior and provide recommendations to improve your operational solutions. ",
+      "properties": {
+        "DataSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventDataSource"
+            },
+            {
+              "description": " The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, where DevOps Guru analysis found the event. "
+            }
+          ]
+        },
+        "EventClass": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventClass"
+            },
+            {
+              "description": " The class of the event. The class specifies what the event is related to, such as an infrastructure change, a deployment, or a schema change. "
+            }
+          ]
+        },
+        "EventSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventSource"
+            },
+            {
+              "description": " The AWS source that emitted the event. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventId"
+            },
+            {
+              "description": " The ID of the event. "
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventName"
+            },
+            {
+              "description": " The name of the event. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventResources"
+            },
+            {
+              "description": " An <code>EventResource</code> object that contains information about the resource that emitted the event. "
+            }
+          ]
+        },
+        "Time": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " A <code>Timestamp</code> that specifies the time the event occurred. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EventClass": {
+      "enum": [
+        "INFRASTRUCTURE",
+        "DEPLOYMENT",
+        "SECURITY_CHANGE",
+        "CONFIG_CHANGE",
+        "SCHEMA_CHANGE"
+      ],
+      "type": "string"
+    },
+    "EventDataSource": {
+      "enum": [
+        "AWS_CLOUD_TRAIL",
+        "AWS_CODE_DEPLOY"
+      ],
+      "type": "string"
+    },
+    "EventId": {
+      "type": "string"
+    },
+    "EventName": {
+      "maxLength": 50,
+      "minLength": 0,
+      "type": "string"
+    },
+    "EventResource": {
+      "description": " The AWS resource that emitted an event. AWS resource events and metrics are analyzed by DevOps Guru to find anomalous behavior and provide recommendations to improve your operational solutions. ",
+      "properties": {
+        "Arn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventResourceArn"
+            },
+            {
+              "description": " The Amazon Resource Name (ARN) of the resource that emitted an event. "
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventResourceName"
+            },
+            {
+              "description": " The name of the resource that emitted an event. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventResourceType"
+            },
+            {
+              "description": " The type of resource that emitted an event. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EventResourceArn": {
+      "maxLength": 2048,
+      "minLength": 36,
+      "pattern": "^arn:aws[-a-z]*:[a-z0-9-]*:[a-z0-9-]*:\\d{12}:.*$",
+      "type": "string"
+    },
+    "EventResourceName": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "^.*$",
+      "type": "string"
+    },
+    "EventResourceType": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "pattern": "^.*$",
+      "type": "string"
+    },
+    "EventResources": {
+      "items": {
+        "$ref": "#/definitions/EventResource"
+      },
+      "type": "array"
+    },
+    "EventSource": {
+      "maxLength": 50,
+      "minLength": 10,
+      "pattern": "^[a-z]+[a-z0-9]*\\.amazonaws\\.com|aws\\.events$",
+      "type": "string"
+    },
+    "EventTimeRange": {
+      "description": " The time range during which an AWS event occurred. AWS resource events and metrics are analyzed by DevOps Guru to find anomalous behavior and provide recommendations to improve your operational solutions. ",
+      "properties": {
+        "FromTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the event started. "
+            }
+          ]
+        },
+        "ToTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the event ended. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "FromTime",
+        "ToTime"
+      ],
+      "type": "object"
+    },
+    "Events": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array"
+    },
+    "GetResourceCollectionRequest": {
+      "properties": {},
+      "title": "GetResourceCollectionRequest",
+      "type": "object"
+    },
+    "GetResourceCollectionResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceCollectionFilter"
+            },
+            {
+              "description": " The requested list of AWS resource collections. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InsightFeedback": {
+      "description": " Information about insight feedback received from a customer. ",
+      "properties": {
+        "Feedback": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightFeedbackOption"
+            },
+            {
+              "description": " The feedback provided by the customer. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The insight feedback ID. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InsightFeedbackOption": {
+      "enum": [
+        "VALID_COLLECTION",
+        "RECOMMENDATION_USEFUL",
+        "ALERT_TOO_SENSITIVE",
+        "DATA_NOISY_ANOMALY",
+        "DATA_INCORRECT"
+      ],
+      "type": "string"
+    },
+    "InsightHealth": {
+      "description": " Information about the number of open reactive and proactive insights that can be used to gauge the health of your system. ",
+      "properties": {
+        "MeanTimeToRecoverInMilliseconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MeanTimeToRecoverInMilliseconds"
+            },
+            {
+              "description": " The Meant Time to Recover (MTTR) for the insight. "
+            }
+          ]
+        },
+        "OpenProactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumOpenProactiveInsights"
+            },
+            {
+              "description": " The number of open proactive insights. "
+            }
+          ]
+        },
+        "OpenReactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumOpenReactiveInsights"
+            },
+            {
+              "description": " The number of open reactive insights. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InsightId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[\\w-]*$",
+      "type": "string"
+    },
+    "InsightName": {
+      "maxLength": 530,
+      "minLength": 1,
+      "pattern": "^[\\s\\S]*$",
+      "type": "string"
+    },
+    "InsightSeverities": {
+      "items": {
+        "$ref": "#/definitions/InsightSeverity"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array"
+    },
+    "InsightSeverity": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "type": "string"
+    },
+    "InsightStatus": {
+      "enum": [
+        "ONGOING",
+        "CLOSED"
+      ],
+      "type": "string"
+    },
+    "InsightStatuses": {
+      "items": {
+        "$ref": "#/definitions/InsightStatus"
+      },
+      "maxItems": 2,
+      "minItems": 0,
+      "type": "array"
+    },
+    "InsightTimeRange": {
+      "description": " A time ranged that specifies when the observed behavior in an insight started and ended. ",
+      "properties": {
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the behavior described in an insight ended. "
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the behavior described in an insight started. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "StartTime"
+      ],
+      "type": "object"
+    },
+    "InsightType": {
+      "enum": [
+        "REACTIVE",
+        "PROACTIVE"
+      ],
+      "type": "string"
+    },
+    "InternalServerException": {},
+    "ListAnomaliesForInsightMaxResults": {
+      "maximum": 500,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListAnomaliesForInsightRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListAnomaliesForInsightMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        },
+        "StartTimeRange": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTimeRange"
+            },
+            {
+              "description": " A time range used to specify when the requested anomalies started. All returned anomalies started during this time range. "
+            }
+          ]
+        }
+      },
+      "title": "ListAnomaliesForInsightRequest",
+      "type": "object"
+    },
+    "ListAnomaliesForInsightResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        },
+        "ProactiveAnomalies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveAnomalies"
+            },
+            {
+              "description": " An array of <code>ProactiveAnomalySummary</code> objects that represent the requested anomalies "
+            }
+          ]
+        },
+        "ReactiveAnomalies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReactiveAnomalies"
+            },
+            {
+              "description": " An array of <code>ReactiveAnomalySummary</code> objects that represent the requested anomalies "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListEventsFilters": {
+      "description": " Filters you can use to specify which events are returned when <code>ListEvents</code> is called. ",
+      "properties": {
+        "DataSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventDataSource"
+            },
+            {
+              "description": " The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, of the events you want returned. "
+            }
+          ]
+        },
+        "EventClass": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventClass"
+            },
+            {
+              "description": " The class of the events you want to filter for, such as an infrastructure change, a deployment, or a schema change. "
+            }
+          ]
+        },
+        "EventSource": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventSource"
+            },
+            {
+              "description": " The AWS source that emitted the events you want to filter for. "
+            }
+          ]
+        },
+        "EventTimeRange": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EventTimeRange"
+            },
+            {
+              "description": " A time range during which you want the filtered events to have occurred. "
+            }
+          ]
+        },
+        "InsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " An ID of an insight that is related to the events you want to filter for. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        }
+      },
+      "type": "object"
+    },
+    "ListEventsMaxResults": {
+      "maximum": 200,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListEventsRequest": {
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListEventsFilters"
+            },
+            {
+              "description": " A <code>ListEventsFilters</code> object used to specify which events to return. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListEventsMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Filters"
+      ],
+      "title": "ListEventsRequest",
+      "type": "object"
+    },
+    "ListEventsResponse": {
+      "properties": {
+        "Events": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Events"
+            },
+            {
+              "description": " A list of the requested events. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Events"
+      ],
+      "type": "object"
+    },
+    "ListInsightsAnyStatusFilter": {
+      "description": " Used to filter for insights that have any status. ",
+      "properties": {
+        "StartTimeRange": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTimeRange"
+            },
+            {
+              "description": " A time range used to specify when the behavior of the filtered insights started. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightType"
+            },
+            {
+              "description": " Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type",
+        "StartTimeRange"
+      ],
+      "type": "object"
+    },
+    "ListInsightsClosedStatusFilter": {
+      "description": " Used to filter for insights that have the status <code>CLOSED</code>. ",
+      "properties": {
+        "EndTimeRange": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EndTimeRange"
+            },
+            {
+              "description": " A time range used to specify when the behavior of the filtered insights ended. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightType"
+            },
+            {
+              "description": " Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type",
+        "EndTimeRange"
+      ],
+      "type": "object"
+    },
+    "ListInsightsMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListInsightsOngoingStatusFilter": {
+      "description": " Used to filter for insights that have the status <code>ONGOING</code>. ",
+      "properties": {
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightType"
+            },
+            {
+              "description": " Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object"
+    },
+    "ListInsightsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListInsightsMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        },
+        "StatusFilter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListInsightsStatusFilter"
+            },
+            {
+              "description": " A filter used to filter the returned insights by their status. You can specify one status filter. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "StatusFilter"
+      ],
+      "title": "ListInsightsRequest",
+      "type": "object"
+    },
+    "ListInsightsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        },
+        "ProactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveInsights"
+            },
+            {
+              "description": " The returned list of proactive insights. "
+            }
+          ]
+        },
+        "ReactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReactiveInsights"
+            },
+            {
+              "description": " The returned list of reactive insights. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListInsightsStatusFilter": {
+      "description": " A filter used by <code>ListInsights</code> to specify which insights to return. ",
+      "properties": {
+        "Any": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListInsightsAnyStatusFilter"
+            },
+            {
+              "description": " A <code>ListInsightsAnyStatusFilter</code> that specifies insights of any status that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+            }
+          ]
+        },
+        "Closed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListInsightsClosedStatusFilter"
+            },
+            {
+              "description": " A <code>ListInsightsClosedStatusFilter</code> that specifies closed insights that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+            }
+          ]
+        },
+        "Ongoing": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListInsightsOngoingStatusFilter"
+            },
+            {
+              "description": " A <code>ListInsightsAnyStatusFilter</code> that specifies ongoing insights that are either <code>REACTIVE</code> or <code>PROACTIVE</code>. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListNotificationChannelsRequest": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        }
+      },
+      "title": "ListNotificationChannelsRequest",
+      "type": "object"
+    },
+    "ListNotificationChannelsResponse": {
+      "properties": {
+        "Channels": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Channels"
+            },
+            {
+              "description": " An array that contains the requested notification channels. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ListRecommendationsRequest": {
+      "properties": {
+        "InsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of the requested insight. "
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        }
+      },
+      "required": [
+        "InsightId"
+      ],
+      "title": "ListRecommendationsRequest",
+      "type": "object"
+    },
+    "ListRecommendationsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        },
+        "Recommendations": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Recommendations"
+            },
+            {
+              "description": " An array of the requested recommendations. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MeanTimeToRecoverInMilliseconds": {
+      "type": "integer"
+    },
+    "NotificationChannel": {
+      "description": "<p> Information about a notification channel. A notification channel is used to notify you when DevOps Guru creates an insight. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p> <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html\">Permissions for cross account Amazon SNS topics</a>.</p> <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html\">Permissions for AWS KMS–encrypted Amazon SNS topics</a>.</p>",
+      "properties": {
+        "Config": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationChannelConfig"
+            },
+            {
+              "description": " A <code>NotificationChannelConfig</code> object that contains information about configured notification channels. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NotificationChannelId"
+            },
+            {
+              "description": " The ID of a notification channel. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "NotificationChannelConfig": {
+      "description": " Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).",
+      "properties": {
+        "Sns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SnsChannelConfig"
+            },
+            {
+              "description": "<p> Information about a notification channel configured in DevOps Guru to send notifications when insights are created. </p> <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html\">Permissions for cross account Amazon SNS topics</a>.</p> <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html\">Permissions for AWS KMS–encrypted Amazon SNS topics</a>.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Sns"
+      ],
+      "type": "object"
+    },
+    "NotificationChannelId": {
+      "maxLength": 36,
+      "minLength": 36,
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "type": "string"
+    },
+    "NumMetricsAnalyzed": {
+      "type": "integer"
+    },
+    "NumOpenProactiveInsights": {
+      "type": "integer"
+    },
+    "NumOpenReactiveInsights": {
+      "type": "integer"
+    },
+    "NumProactiveInsights": {
+      "type": "integer"
+    },
+    "NumReactiveInsights": {
+      "type": "integer"
+    },
+    "OpsCenterIntegration": {
+      "description": " Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. ",
+      "properties": {
+        "OptInStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptInStatus"
+            },
+            {
+              "description": " Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OpsCenterIntegrationConfig": {
+      "description": " Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. ",
+      "properties": {
+        "OptInStatus": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OptInStatus"
+            },
+            {
+              "description": " Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OptInStatus": {
+      "description": " Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. ",
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
+    "PredictionTimeRange": {
+      "description": " The time range during which anomalous behavior in a proactive anomaly or an insight is expected to occur. ",
+      "properties": {
+        "EndTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time when the behavior in a proactive insight is expected to end. "
+            }
+          ]
+        },
+        "StartTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time range during which a metric limit is expected to be exceeded. This applies to proactive insights only. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "StartTime"
+      ],
+      "type": "object"
+    },
+    "ProactiveAnomalies": {
+      "items": {
+        "$ref": "#/definitions/ProactiveAnomalySummary"
+      },
+      "type": "array"
+    },
+    "ProactiveAnomaly": {
+      "description": "Information about an anomaly. This object is returned by <code>ListAnomalies</code>.",
+      "properties": {
+        "AnomalyTimeRange": {
+          "$ref": "#/definitions/AnomalyTimeRange"
+        },
+        "AssociatedInsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of the insight that contains this anomaly. An insight is composed of related anomalies. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyId"
+            },
+            {
+              "description": " The ID of a proactive anomaly. "
+            }
+          ]
+        },
+        "Limit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyLimit"
+            },
+            {
+              "description": " A threshold that was exceeded by behavior in analyzed resources. Exceeding this threshold is related to the anomalous behavior that generated this anomaly. "
+            }
+          ]
+        },
+        "PredictionTimeRange": {
+          "$ref": "#/definitions/PredictionTimeRange"
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySeverity"
+            },
+            {
+              "description": " The severity of a proactive anomaly. "
+            }
+          ]
+        },
+        "SourceDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySourceDetails"
+            },
+            {
+              "description": " Details about the source of the analyzed operational data that triggered the anomaly. The one supported source is Amazon CloudWatch metrics. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyStatus"
+            },
+            {
+              "description": " The status of a proactive anomaly. "
+            }
+          ]
+        },
+        "UpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time of the anomaly's most recent update. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProactiveAnomalySummary": {
+      "description": "Details about a proactive anomaly. This object is returned by <code>DescribeAnomaly.</code> ",
+      "properties": {
+        "AnomalyTimeRange": {
+          "$ref": "#/definitions/AnomalyTimeRange"
+        },
+        "AssociatedInsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of the insight that contains this anomaly. An insight is composed of related anomalies. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyId"
+            },
+            {
+              "description": "The ID of the anomaly."
+            }
+          ]
+        },
+        "Limit": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyLimit"
+            },
+            {
+              "description": " A threshold that was exceeded by behavior in analyzed resources. Exceeding this threshold is related to the anomalous behavior that generated this anomaly. "
+            }
+          ]
+        },
+        "PredictionTimeRange": {
+          "$ref": "#/definitions/PredictionTimeRange"
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySeverity"
+            },
+            {
+              "description": "The severity of the anomaly."
+            }
+          ]
+        },
+        "SourceDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySourceDetails"
+            },
+            {
+              "description": " Details about the source of the analyzed operational data that triggered the anomaly. The one supported source is Amazon CloudWatch metrics. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyStatus"
+            },
+            {
+              "description": "The status of the anomaly."
+            }
+          ]
+        },
+        "UpdateTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The time of the anomaly's most recent update. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProactiveInsight": {
+      "description": "Details about a proactive insight. This object is returned by <code>ListInsights</code>.",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": "The ID of the proactive insight. "
+            }
+          ]
+        },
+        "InsightTimeRange": {
+          "$ref": "#/definitions/InsightTimeRange"
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightName"
+            },
+            {
+              "description": "The name of the proactive insight. "
+            }
+          ]
+        },
+        "PredictionTimeRange": {
+          "$ref": "#/definitions/PredictionTimeRange"
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightSeverity"
+            },
+            {
+              "description": "The severity of the proactive insight. "
+            }
+          ]
+        },
+        "SsmOpsItemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SsmOpsItemId"
+            },
+            {
+              "description": " The ID of the AWS System Manager OpsItem created for this insight. You must enable the creation of OpstItems insights before they are created for each insight. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightStatus"
+            },
+            {
+              "description": "The status of the proactive insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProactiveInsightSummary": {
+      "description": "Details about a proactive insight. This object is returned by <code>DescribeInsight.</code> ",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": "The ID of the proactive insight. "
+            }
+          ]
+        },
+        "InsightTimeRange": {
+          "$ref": "#/definitions/InsightTimeRange"
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightName"
+            },
+            {
+              "description": "The name of the proactive insight. "
+            }
+          ]
+        },
+        "PredictionTimeRange": {
+          "$ref": "#/definitions/PredictionTimeRange"
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightSeverity"
+            },
+            {
+              "description": "The severity of the proactive insight. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightStatus"
+            },
+            {
+              "description": "The status of the proactive insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ProactiveInsights": {
+      "items": {
+        "$ref": "#/definitions/ProactiveInsightSummary"
+      },
+      "type": "array"
+    },
+    "PutFeedbackRequest": {
+      "properties": {
+        "InsightFeedback": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightFeedback"
+            },
+            {
+              "description": " The feedback from customers is about the recommendations in this insight. "
+            }
+          ]
+        }
+      },
+      "title": "PutFeedbackRequest",
+      "type": "object"
+    },
+    "PutFeedbackResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ReactiveAnomalies": {
+      "items": {
+        "$ref": "#/definitions/ReactiveAnomalySummary"
+      },
+      "type": "array"
+    },
+    "ReactiveAnomaly": {
+      "description": "Details about a reactive anomaly. This object is returned by <code>ListAnomalies</code>.",
+      "properties": {
+        "AnomalyTimeRange": {
+          "$ref": "#/definitions/AnomalyTimeRange"
+        },
+        "AssociatedInsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of the insight that contains this anomaly. An insight is composed of related anomalies. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyId"
+            },
+            {
+              "description": "The ID of the reactive anomaly. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySeverity"
+            },
+            {
+              "description": "The severity of the anomaly. "
+            }
+          ]
+        },
+        "SourceDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySourceDetails"
+            },
+            {
+              "description": " Details about the source of the analyzed operational data that triggered the anomaly. The one supported source is Amazon CloudWatch metrics. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyStatus"
+            },
+            {
+              "description": " The status of the anomaly. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReactiveAnomalySummary": {
+      "description": "Details about a reactive anomaly. This object is returned by <code>DescribeAnomaly.</code> ",
+      "properties": {
+        "AnomalyTimeRange": {
+          "$ref": "#/definitions/AnomalyTimeRange"
+        },
+        "AssociatedInsightId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of the insight that contains this anomaly. An insight is composed of related anomalies. "
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyId"
+            },
+            {
+              "description": " The ID of the reactive anomaly. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySeverity"
+            },
+            {
+              "description": " The severity of the reactive anomaly. "
+            }
+          ]
+        },
+        "SourceDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalySourceDetails"
+            },
+            {
+              "description": " Details about the source of the analyzed operational data that triggered the anomaly. The one supported source is Amazon CloudWatch metrics. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/AnomalyStatus"
+            },
+            {
+              "description": " The status of the reactive anomaly. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReactiveInsight": {
+      "description": " Information about a reactive insight. This object is returned by <code>ListInsights</code>. ",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of a reactive insight. "
+            }
+          ]
+        },
+        "InsightTimeRange": {
+          "$ref": "#/definitions/InsightTimeRange"
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightName"
+            },
+            {
+              "description": " The name of a reactive insight. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightSeverity"
+            },
+            {
+              "description": " The severity of a reactive insight. "
+            }
+          ]
+        },
+        "SsmOpsItemId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SsmOpsItemId"
+            },
+            {
+              "description": " The ID of the AWS System Manager OpsItem created for this insight. You must enable the creation of OpstItems insights before they are created for each insight. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightStatus"
+            },
+            {
+              "description": " The status of a reactive insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReactiveInsightSummary": {
+      "description": " Information about a reactive insight. This object is returned by <code>DescribeInsight.</code> ",
+      "properties": {
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightId"
+            },
+            {
+              "description": " The ID of a reactive summary. "
+            }
+          ]
+        },
+        "InsightTimeRange": {
+          "$ref": "#/definitions/InsightTimeRange"
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightName"
+            },
+            {
+              "description": " The name of a reactive insight. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightSeverity"
+            },
+            {
+              "description": " The severity of a reactive insight. "
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightStatus"
+            },
+            {
+              "description": " The status of a reactive insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ReactiveInsights": {
+      "items": {
+        "$ref": "#/definitions/ReactiveInsightSummary"
+      },
+      "type": "array"
+    },
+    "Recommendation": {
+      "description": " Recommendation information to help you remediate detected anomalous behavior that generated an insight. ",
+      "properties": {
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationDescription"
+            },
+            {
+              "description": " A description of the problem. "
+            }
+          ]
+        },
+        "Link": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationLink"
+            },
+            {
+              "description": " A hyperlink to information to help you address the problem. "
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationName"
+            },
+            {
+              "description": " The name of the recommendation. "
+            }
+          ]
+        },
+        "Reason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationReason"
+            },
+            {
+              "description": " The reason DevOps Guru flagged the anomalous behavior as a problem. "
+            }
+          ]
+        },
+        "RelatedAnomalies": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedAnomalies"
+            },
+            {
+              "description": " Anomalies that are related to the problem. Use these Anomalies to learn more about what's happening and to help address the issue. "
+            }
+          ]
+        },
+        "RelatedEvents": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedEvents"
+            },
+            {
+              "description": " Events that are related to the problem. Use these events to learn more about what's happening and to help address the issue. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationDescription": {
+      "type": "string"
+    },
+    "RecommendationLink": {
+      "type": "string"
+    },
+    "RecommendationName": {
+      "type": "string"
+    },
+    "RecommendationReason": {
+      "type": "string"
+    },
+    "RecommendationRelatedAnomalies": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedAnomaly"
+      },
+      "type": "array"
+    },
+    "RecommendationRelatedAnomaly": {
+      "description": " Information about an anomaly that is related to a recommendation. ",
+      "properties": {
+        "Resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedAnomalyResources"
+            },
+            {
+              "description": " An array of objects that represent resources in which DevOps Guru detected anomalous behavior. Each object contains the name and type of the resource. "
+            }
+          ]
+        },
+        "SourceDetails": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RelatedAnomalySourceDetails"
+            },
+            {
+              "description": " Information about where the anomalous behavior related the recommendation was found. For example, details in Amazon CloudWatch metrics. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedAnomalyResource": {
+      "description": " Information about a resource in which DevOps Guru detected anomalous behavior. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedAnomalyResourceName"
+            },
+            {
+              "description": " The name of the resource. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedAnomalyResourceType"
+            },
+            {
+              "description": " The type of the resource. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedAnomalyResourceName": {
+      "type": "string"
+    },
+    "RecommendationRelatedAnomalyResourceType": {
+      "type": "string"
+    },
+    "RecommendationRelatedAnomalyResources": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedAnomalyResource"
+      },
+      "type": "array"
+    },
+    "RecommendationRelatedAnomalySourceDetail": {
+      "description": " Contains an array of <code>RecommendationRelatedCloudWatchMetricsSourceDetail</code> objects that contain the name and namespace of an Amazon CloudWatch metric. ",
+      "properties": {
+        "CloudWatchMetrics": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedCloudWatchMetricsSourceDetails"
+            },
+            {
+              "description": " An array of <code>CloudWatchMetricsDetail</code> objects that contains information about the analyzed metrics that displayed anomalous behavior. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedCloudWatchMetricsSourceDetail": {
+      "description": " Information about an Amazon CloudWatch metric that is analyzed by DevOps Guru. It is one of many analyzed metrics that are used to generate insights. ",
+      "properties": {
+        "MetricName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedCloudWatchMetricsSourceMetricName"
+            },
+            {
+              "description": "The name of the CloudWatch metric."
+            }
+          ]
+        },
+        "Namespace": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedCloudWatchMetricsSourceNamespace"
+            },
+            {
+              "description": "The namespace of the CloudWatch metric. A namespace is a container for CloudWatch metrics."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedCloudWatchMetricsSourceDetails": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedCloudWatchMetricsSourceDetail"
+      },
+      "type": "array"
+    },
+    "RecommendationRelatedCloudWatchMetricsSourceMetricName": {
+      "type": "string"
+    },
+    "RecommendationRelatedCloudWatchMetricsSourceNamespace": {
+      "type": "string"
+    },
+    "RecommendationRelatedEvent": {
+      "description": " Information about an event that is related to a recommendation. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedEventName"
+            },
+            {
+              "description": " The name of the event. This corresponds to the <code>Name</code> field in an <code>Event</code> object. "
+            }
+          ]
+        },
+        "Resources": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedEventResources"
+            },
+            {
+              "description": " A <code>ResourceCollection</code> object that contains arrays of the names of AWS CloudFormation stacks. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedEventName": {
+      "type": "string"
+    },
+    "RecommendationRelatedEventResource": {
+      "description": " Information about an AWS resource that emitted and event that is related to a recommendation in an insight. ",
+      "properties": {
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedEventResourceName"
+            },
+            {
+              "description": " The name of the resource that emitted the event. This corresponds to the <code>Name</code> field in an <code>EventResource</code> object. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RecommendationRelatedEventResourceType"
+            },
+            {
+              "description": " The type of the resource that emitted the event. This corresponds to the <code>Type</code> field in an <code>EventResource</code> object. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RecommendationRelatedEventResourceName": {
+      "type": "string"
+    },
+    "RecommendationRelatedEventResourceType": {
+      "type": "string"
+    },
+    "RecommendationRelatedEventResources": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedEventResource"
+      },
+      "type": "array"
+    },
+    "RecommendationRelatedEvents": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedEvent"
+      },
+      "type": "array"
+    },
+    "Recommendations": {
+      "items": {
+        "$ref": "#/definitions/Recommendation"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RelatedAnomalySourceDetails": {
+      "items": {
+        "$ref": "#/definitions/RecommendationRelatedAnomalySourceDetail"
+      },
+      "type": "array"
+    },
+    "RemoveNotificationChannelRequest": {
+      "properties": {},
+      "title": "RemoveNotificationChannelRequest",
+      "type": "object"
+    },
+    "RemoveNotificationChannelResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceCollection": {
+      "description": " A collection of AWS resources supported by DevOps Guru. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks. ",
+      "properties": {
+        "CloudFormation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudFormationCollection"
+            },
+            {
+              "description": " An array of the names of AWS CloudFormation stacks. The stacks define AWS resources that DevOps Guru analyzes. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceCollectionFilter": {
+      "description": " Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru. ",
+      "properties": {
+        "CloudFormation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CloudFormationCollectionFilter"
+            },
+            {
+              "description": " Information about AWS CloudFormation stacks. You can use stacks to specify which AWS resources in your account to analyze. For more information, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html\">Stacks</a> in the <i>AWS CloudFormation User Guide</i>. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResourceCollectionType": {
+      "enum": [
+        "AWS_CLOUD_FORMATION"
+      ],
+      "type": "string"
+    },
+    "ResourceNotFoundException": {},
+    "SearchInsightsFilters": {
+      "description": " Specifies one or more severity values and one or more status values that are used to search for insights. ",
+      "properties": {
+        "ResourceCollection": {
+          "$ref": "#/definitions/ResourceCollection"
+        },
+        "Severities": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightSeverities"
+            },
+            {
+              "description": " An array of severity values used to search for insights. "
+            }
+          ]
+        },
+        "Statuses": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightStatuses"
+            },
+            {
+              "description": " An array of status values used to search for insights. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SearchInsightsMaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "SearchInsightsRequest": {
+      "properties": {
+        "Filters": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchInsightsFilters"
+            },
+            {
+              "description": " A <code>SearchInsightsFilters</code> object that is used to set the severity and status filters on your insight search. "
+            }
+          ]
+        },
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchInsightsMaxResults"
+            },
+            {
+              "description": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+            }
+          ]
+        },
+        "StartTimeRange": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/StartTimeRange"
+            },
+            {
+              "description": " The start of the time range passed in. Returned insights occurred after this time. "
+            }
+          ]
+        },
+        "Type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/InsightType"
+            },
+            {
+              "description": " The type of insights you are searching for (<code>REACTIVE</code> or <code>PROACTIVE</code>). "
+            }
+          ]
+        }
+      },
+      "required": [
+        "StartTimeRange",
+        "Type"
+      ],
+      "title": "SearchInsightsRequest",
+      "type": "object"
+    },
+    "SearchInsightsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UuidNextToken"
+            },
+            {
+              "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+            }
+          ]
+        },
+        "ProactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProactiveInsights"
+            },
+            {
+              "description": " The returned proactive insights. "
+            }
+          ]
+        },
+        "ReactiveInsights": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ReactiveInsights"
+            },
+            {
+              "description": " The returned reactive insights. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceIntegrationConfig": {
+      "description": " Information about the integration of DevOps Guru with another AWS service, such as AWS Systems Manager. ",
+      "properties": {
+        "OpsCenter": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/OpsCenterIntegration"
+            },
+            {
+              "description": " Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ServiceQuotaExceededException": {},
+    "SnsChannelConfig": {
+      "description": "<p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p> <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html\">Permissions for cross account Amazon SNS topics</a>.</p> <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see <a href=\"https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html\">Permissions for AWS KMS–encrypted Amazon SNS topics</a>.</p>",
+      "properties": {
+        "TopicArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TopicArn"
+            },
+            {
+              "description": " The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SsmOpsItemId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^.*$",
+      "type": "string"
+    },
+    "StackName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z*]+[a-zA-Z0-9-]*$",
+      "type": "string"
+    },
+    "StackNames": {
+      "items": {
+        "$ref": "#/definitions/StackName"
+      },
+      "type": "array"
+    },
+    "StartTimeRange": {
+      "description": " A time range used to specify when the behavior of an insight or anomaly started. ",
+      "properties": {
+        "FromTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The start time of the time range. "
+            }
+          ]
+        },
+        "ToTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": " The end time of the time range. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {},
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TopicArn": {
+      "maxLength": 1024,
+      "minLength": 36,
+      "pattern": "^arn:aws[a-z0-9-]*:sns:[a-z0-9-]+:\\d{12}:[^:]+$",
+      "type": "string"
+    },
+    "UpdateCloudFormationCollectionFilter": {
+      "description": " Contains the names of AWS CloudFormation stacks used to update a collection of stacks. ",
+      "properties": {
+        "StackNames": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateStackNames"
+            },
+            {
+              "description": " An array of the name of stacks to update. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateResourceCollectionAction": {
+      "enum": [
+        "ADD",
+        "REMOVE"
+      ],
+      "type": "string"
+    },
+    "UpdateResourceCollectionFilter": {
+      "description": " Contains information used to update a collection of AWS resources. ",
+      "properties": {
+        "CloudFormation": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateCloudFormationCollectionFilter"
+            },
+            {
+              "description": " An collection of AWS CloudFormation stacks. "
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdateResourceCollectionRequest": {
+      "properties": {
+        "Action": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateResourceCollectionAction"
+            },
+            {
+              "description": " Specifies if the resource collection in the request is added or deleted to the resource collection. "
+            }
+          ]
+        },
+        "ResourceCollection": {
+          "$ref": "#/definitions/UpdateResourceCollectionFilter"
+        }
+      },
+      "required": [
+        "Action",
+        "ResourceCollection"
+      ],
+      "title": "UpdateResourceCollectionRequest",
+      "type": "object"
+    },
+    "UpdateResourceCollectionResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateServiceIntegrationConfig": {
+      "description": " Information about updating the integration status of an AWS service, such as AWS Systems Manager, with DevOps Guru. ",
+      "properties": {
+        "OpsCenter": {
+          "$ref": "#/definitions/OpsCenterIntegrationConfig"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateServiceIntegrationRequest": {
+      "properties": {
+        "ServiceIntegration": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateServiceIntegrationConfig"
+            },
+            {
+              "description": " An <code>IntegratedServiceConfig</code> object used to specify the integrated service you want to update, and whether you want to update it to enabled or disabled. "
+            }
+          ]
+        }
+      },
+      "required": [
+        "ServiceIntegration"
+      ],
+      "title": "UpdateServiceIntegrationRequest",
+      "type": "object"
+    },
+    "UpdateServiceIntegrationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateStackNames": {
+      "items": {
+        "$ref": "#/definitions/StackName"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "UuidNextToken": {
+      "maxLength": 36,
+      "minLength": 36,
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "type": "string"
+    },
+    "ValidationException": {}
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/devops-guru/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+}

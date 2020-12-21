@@ -1,0 +1,3159 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>Amazon CloudWatch Synthetics</fullname> <p>You can use Amazon CloudWatch Synthetics to continually monitor your services. You can create and manage <i>canaries</i>, which are modular, lightweight scripts that monitor your endpoints and APIs from the outside-in. You can set up your canaries to run 24 hours a day, once per minute. The canaries help you check the availability and latency of your web services and troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and metrics. The canaries seamlessly integrate with CloudWatch ServiceLens to help you trace the causes of impacted nodes in your applications. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ServiceLens.html\">Using ServiceLens to Monitor the Health of Your Applications</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>Before you create and manage canaries, be aware of the security considerations. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html\">Security Considerations for Synthetics Canaries</a>.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Synthetics",
+    "version": "2017-10-11",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/synthetics-2017-10-11.normal.json",
+        "x-apisguru-driver": "external"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "synthetics",
+    "x-datafire": {
+      "name": "amazonaws_synthetics",
+      "type": "openapi"
+    }
+  },
+  "host": "synthetics.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/canaries": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "Specify this parameter to limit how many canaries are returned each time you use the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.",
+                  "maximum": 20,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.",
+                  "maxLength": 252,
+                  "minLength": 4,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeCanariesResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>This operation returns a list of the canaries in your account, along with full details about each canary.</p> <p>This operation does not have resource-level authorization, so if a user is able to use <code>DescribeCanaries</code>, the user can see all of the canaries in the account. A deny policy can only be used to restrict access to all canaries. It cannot be used on specific resources. </p>",
+        "operationId": "DescribeCanaries"
+      }
+    },
+    "/canaries/last-run": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "Specify this parameter to limit how many runs are returned each time you use the <code>DescribeLastRun</code> operation. If you omit this parameter, the default of 100 is used.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next set of results.",
+                  "maxLength": 252,
+                  "minLength": 4,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeCanariesLastRunResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Use this operation to see information from the most recent run of each canary that you have created.",
+        "operationId": "DescribeCanariesLastRun"
+      }
+    },
+    "/canary": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "ArtifactS3Location": {
+                  "description": "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "Code": {
+                  "description": "Use this structure to input your script code for the canary. This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script was passed into the canary directly, the script code is contained in the value of <code>Zipfile</code>. ",
+                  "properties": {
+                    "Handler": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The entry point to use for the source code when running the canary. This value must end with the string <code>.handler</code>."
+                        }
+                      ]
+                    },
+                    "S3Bucket": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "If your canary script is located in S3, specify the full bucket name here. The bucket must already exist. Specify the full bucket name, including <code>s3://</code> as the start of the bucket name."
+                        }
+                      ]
+                    },
+                    "S3Key": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The S3 key of your script. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html\">Working with Amazon S3 Objects</a>."
+                        }
+                      ]
+                    },
+                    "S3Version": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The S3 version ID of your script."
+                        }
+                      ]
+                    },
+                    "ZipFile": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Blob"
+                        },
+                        {
+                          "description": "If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the .zip file that contains the script. It can be up to 5 MB."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "ExecutionRoleArn": {
+                  "description": "<p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> <ul> <li> <p> <code>s3:PutObject</code> </p> </li> <li> <p> <code>s3:GetBucketLocation</code> </p> </li> <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> <li> <p> <code>logs:CreateLogGroup</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> <li> <p> <code>logs:PutLogEvents</code> </p> </li> </ul>",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+                  "type": "string"
+                },
+                "FailureRetentionPeriodInDays": {
+                  "description": "The number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.",
+                  "maximum": 1024,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "Name": {
+                  "description": "<p>The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.</p> <p>Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html\">Security Considerations for Synthetics Canaries</a>.</p>",
+                  "maxLength": 21,
+                  "minLength": 1,
+                  "pattern": "^[0-9a-z_\\-]+$",
+                  "type": "string"
+                },
+                "RunConfig": {
+                  "description": "A structure that contains input information for a canary run.",
+                  "properties": {
+                    "ActiveTracing": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NullableBoolean"
+                        },
+                        {
+                          "description": "<p>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active tracing enables this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does not hit an endpoint that has X-ray tracing enabled. Using X-Ray tracing incurs charges. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html\"> Canaries and X-Ray tracing</a>.</p> <p>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code> or later for their canary runtime.</p>"
+                        }
+                      ]
+                    },
+                    "EnvironmentVariables": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EnvironmentVariablesMap"
+                        },
+                        {
+                          "description": "<p>Specifies the keys and values to use for any environment variables used in the canary script. Use the following format:</p> <p>{ \"key1\" : \"value1\", \"key2\" : \"value2\", ...}</p> <p>Keys must start with a letter and be at least two characters. The total size of your environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment variables as the keys for your environment variables. For more information about reserved keys, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime\"> Runtime environment variables</a>.</p>"
+                        }
+                      ]
+                    },
+                    "MemoryInMB": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxSize3008"
+                        },
+                        {
+                          "description": "The maximum amount of memory available to the canary while it is running, in MB. This value must be a multiple of 64."
+                        }
+                      ]
+                    },
+                    "TimeoutInSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxFifteenMinutesInSeconds"
+                        },
+                        {
+                          "description": "<p>How long the canary is allowed to run before it must stop. You can't set this time to be longer than the frequency of the runs of this canary.</p> <p>If you omit this field, the frequency of the canary is used as this value, up to a maximum of 14 minutes.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "RuntimeVersion": {
+                  "description": "Specifies the runtime version to use for the canary. For a list of valid runtime versions and more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "Schedule": {
+                  "description": "This structure specifies how often a canary is to make runs and the date and time when it should stop making runs.",
+                  "properties": {
+                    "DurationInSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxOneYearInSeconds"
+                        },
+                        {
+                          "description": "How long, in seconds, for the canary to continue making regular runs according to the schedule in the <code>Expression</code> value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used."
+                        }
+                      ]
+                    },
+                    "Expression": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "<p>A rate expression that defines how often the canary is to run. The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i> can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p> <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs it once every hour. You can specify a frequency between <code>rate(1 minute)</code> and <code>rate(1 hour)</code>.</p> <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value that causes the canary to run only once when it is started.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "SuccessRetentionPeriodInDays": {
+                  "description": "The number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.",
+                  "maximum": 1024,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "<p>A list of key-value pairs to associate with the canary. You can associate as many as 50 tags with a canary.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.</p>",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                },
+                "VpcConfig": {
+                  "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnets and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>.",
+                  "properties": {
+                    "SecurityGroupIds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SecurityGroupIds"
+                        },
+                        {
+                          "description": "The IDs of the security groups for this canary."
+                        }
+                      ]
+                    },
+                    "SubnetIds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SubnetIds"
+                        },
+                        {
+                          "description": "The IDs of the subnets where this canary is to run."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Name",
+                "Code",
+                "ArtifactS3Location",
+                "ExecutionRoleArn",
+                "Schedule",
+                "RuntimeVersion"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the outside-in. Canaries help you check the availability and latency of your web services and troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and metrics. You can set up a canary to run continuously or just once. </p> <p>Do not use <code>CreateCanary</code> to modify an existing canary. Use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html\">UpdateCanary</a> instead.</p> <p>To create canaries, you must have the <code>CloudWatchSyntheticsFullAccess</code> policy. If you are creating a new IAM role for the canary, you also need the the <code>iam:CreateRole</code>, <code>iam:CreatePolicy</code> and <code>iam:AttachRolePolicy</code> permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Roles\">Necessary Roles and Permissions</a>.</p> <p>Do not include secrets or proprietary information in your canary names. The canary name makes up part of the Amazon Resource Name (ARN) for the canary, and the ARN is included in outbound calls over the internet. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html\">Security Considerations for Synthetics Canaries</a>.</p>",
+        "operationId": "CreateCanary"
+      }
+    },
+    "/canary/{name}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the canary that you want to delete. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Permanently deletes the specified canary.</p> <p>When you delete a canary, resources used and created by the canary are not automatically deleted. After you delete a canary that you do not intend to use again, you should also delete the following:</p> <ul> <li> <p>The Lambda functions and layers used by this canary. These have the prefix <code>cwsyn-<i>MyCanaryName</i> </code>.</p> </li> <li> <p>The CloudWatch alarms created for this canary. These alarms have a name of <code>Synthetics-SharpDrop-Alarm-<i>MyCanaryName</i> </code>.</p> </li> <li> <p>Amazon S3 objects and buckets, such as the canary's artifact location.</p> </li> <li> <p>IAM roles created for the canary. If they were created in the console, these roles have the name <code> role/service-role/CloudWatchSyntheticsRole-<i>MyCanaryName</i> </code>.</p> </li> <li> <p>CloudWatch Logs log groups created for the canary. These logs groups have the name <code>/aws/lambda/cwsyn-<i>MyCanaryName</i> </code>. </p> </li> </ul> <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display the information about this canary. Make note of the information returned by this operation so that you can delete these resources after you delete the canary.</p>",
+        "operationId": "DeleteCanary"
+      },
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the canary that you want details for.",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Retrieves complete information about one canary. You must specify the name of the canary that you want. To get a list of canaries and their names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.",
+        "operationId": "GetCanary"
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The name of the canary that you want to update. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p> <p>You cannot change the name of a canary that has already been created.</p>",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Code": {
+                  "description": "Use this structure to input your script code for the canary. This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script was passed into the canary directly, the script code is contained in the value of <code>Zipfile</code>. ",
+                  "properties": {
+                    "Handler": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The entry point to use for the source code when running the canary. This value must end with the string <code>.handler</code>."
+                        }
+                      ]
+                    },
+                    "S3Bucket": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "If your canary script is located in S3, specify the full bucket name here. The bucket must already exist. Specify the full bucket name, including <code>s3://</code> as the start of the bucket name."
+                        }
+                      ]
+                    },
+                    "S3Key": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The S3 key of your script. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html\">Working with Amazon S3 Objects</a>."
+                        }
+                      ]
+                    },
+                    "S3Version": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "The S3 version ID of your script."
+                        }
+                      ]
+                    },
+                    "ZipFile": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/Blob"
+                        },
+                        {
+                          "description": "If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the .zip file that contains the script. It can be up to 5 MB."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "ExecutionRoleArn": {
+                  "description": "<p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> <ul> <li> <p> <code>s3:PutObject</code> </p> </li> <li> <p> <code>s3:GetBucketLocation</code> </p> </li> <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> <li> <p> <code>logs:CreateLogGroup</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> </ul>",
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "pattern": "arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+                  "type": "string"
+                },
+                "FailureRetentionPeriodInDays": {
+                  "description": "The number of days to retain data about failed runs of this canary.",
+                  "maximum": 1024,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "RunConfig": {
+                  "description": "A structure that contains input information for a canary run.",
+                  "properties": {
+                    "ActiveTracing": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/NullableBoolean"
+                        },
+                        {
+                          "description": "<p>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active tracing enables this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does not hit an endpoint that has X-ray tracing enabled. Using X-Ray tracing incurs charges. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html\"> Canaries and X-Ray tracing</a>.</p> <p>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code> or later for their canary runtime.</p>"
+                        }
+                      ]
+                    },
+                    "EnvironmentVariables": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/EnvironmentVariablesMap"
+                        },
+                        {
+                          "description": "<p>Specifies the keys and values to use for any environment variables used in the canary script. Use the following format:</p> <p>{ \"key1\" : \"value1\", \"key2\" : \"value2\", ...}</p> <p>Keys must start with a letter and be at least two characters. The total size of your environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment variables as the keys for your environment variables. For more information about reserved keys, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime\"> Runtime environment variables</a>.</p>"
+                        }
+                      ]
+                    },
+                    "MemoryInMB": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxSize3008"
+                        },
+                        {
+                          "description": "The maximum amount of memory available to the canary while it is running, in MB. This value must be a multiple of 64."
+                        }
+                      ]
+                    },
+                    "TimeoutInSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxFifteenMinutesInSeconds"
+                        },
+                        {
+                          "description": "<p>How long the canary is allowed to run before it must stop. You can't set this time to be longer than the frequency of the runs of this canary.</p> <p>If you omit this field, the frequency of the canary is used as this value, up to a maximum of 14 minutes.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "RuntimeVersion": {
+                  "description": "Specifies the runtime version to use for the canary. For a list of valid runtime versions and for more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>.",
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "Schedule": {
+                  "description": "This structure specifies how often a canary is to make runs and the date and time when it should stop making runs.",
+                  "properties": {
+                    "DurationInSeconds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/MaxOneYearInSeconds"
+                        },
+                        {
+                          "description": "How long, in seconds, for the canary to continue making regular runs according to the schedule in the <code>Expression</code> value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used."
+                        }
+                      ]
+                    },
+                    "Expression": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/String"
+                        },
+                        {
+                          "description": "<p>A rate expression that defines how often the canary is to run. The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i> can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p> <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs it once every hour. You can specify a frequency between <code>rate(1 minute)</code> and <code>rate(1 hour)</code>.</p> <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value that causes the canary to run only once when it is started.</p>"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "SuccessRetentionPeriodInDays": {
+                  "description": "The number of days to retain data about successful runs of this canary.",
+                  "maximum": 1024,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "VpcConfig": {
+                  "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnets and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>.",
+                  "properties": {
+                    "SecurityGroupIds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SecurityGroupIds"
+                        },
+                        {
+                          "description": "The IDs of the security groups for this canary."
+                        }
+                      ]
+                    },
+                    "SubnetIds": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/SubnetIds"
+                        },
+                        {
+                          "description": "The IDs of the subnets where this canary is to run."
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Use this operation to change the settings of a canary that has already been created.</p> <p>You can't use this operation to update the tags of an existing canary. To change the tags of an existing canary, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html\">TagResource</a>.</p>",
+        "operationId": "UpdateCanary"
+      }
+    },
+    "/canary/{name}/runs": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the canary that you want to see runs for.",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "Specify this parameter to limit how many runs are returned each time you use the <code>GetCanaryRuns</code> operation. If you omit this parameter, the default of 100 is used.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>GetCanaryRuns</code> operation to retrieve the next set of results.",
+                  "maxLength": 252,
+                  "minLength": 4,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCanaryRunsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        },
+        "description": "Retrieves a list of runs for a specified canary.",
+        "operationId": "GetCanaryRuns"
+      }
+    },
+    "/canary/{name}/start": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the canary that you want to run. To find canary names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "Use this operation to run a canary that has already been created. The frequency of the canary runs is determined by the value of the canary's <code>Schedule</code>. To see a canary's schedule, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html\">GetCanary</a>.",
+        "operationId": "StartCanary"
+      }
+    },
+    "/canary/{name}/stop": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "The name of the canary that you want to stop. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.",
+            "in": "path",
+            "maxLength": 21,
+            "minLength": 1,
+            "name": "name",
+            "pattern": "^[0-9a-z_\\-]+$",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopCanaryResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        },
+        "description": "<p>Stops the canary to prevent all future runs. If the canary is currently running, Synthetics stops waiting for the current run of the specified canary to complete. The run that is in progress completes on its own, publishes metrics, and uploads artifacts, but it is not recorded in Synthetics as a completed run.</p> <p>You can use <code>StartCanary</code> to start it running again with the canary’s current schedule at any point in the future. </p>",
+        "operationId": "StopCanary"
+      }
+    },
+    "/runtime-versions": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "MaxResults": {
+                  "description": "Specify this parameter to limit how many runs are returned each time you use the <code>DescribeRuntimeVersions</code> operation. If you omit this parameter, the default of 100 is used.",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "NextToken": {
+                  "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next set of results.",
+                  "maxLength": 252,
+                  "minLength": 4,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRuntimeVersionsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Returns a list of Synthetics canary runtime versions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>.",
+        "operationId": "DescribeRuntimeVersions"
+      }
+    },
+    "/tags/{resourceArn}": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ARN of the canary that you want to view tags for.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p>",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,21}",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Displays the tags associated with a canary.",
+        "operationId": "ListTagsForResource"
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ARN of the canary that you're adding tags to.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p>",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,21}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "Tags": {
+                  "additionalProperties": {
+                    "$ref": "#/definitions/TagValue"
+                  },
+                  "description": "The list of key-value pairs to associate with the canary.",
+                  "maxProperties": 50,
+                  "minProperties": 1,
+                  "type": "object"
+                }
+              },
+              "required": [
+                "Tags"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "<p>Assigns one or more tags (key-value pairs) to the specified canary. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p> <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.</p> <p>You can use the <code>TagResource</code> action with a canary that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p> <p>You can associate as many as 50 tags with a canary.</p>",
+        "operationId": "TagResource"
+      }
+    },
+    "/tags/{resourceArn}#tagKeys": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "<p>The ARN of the canary that you're removing tags from.</p> <p>The ARN format of a canary is <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i> </code>.</p>",
+            "in": "path",
+            "maxLength": 2048,
+            "minLength": 1,
+            "name": "resourceArn",
+            "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,21}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The list of tag keys to remove from the resource.",
+            "in": "query",
+            "items": {
+              "$ref": "#/definitions/TagKey"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "name": "tagKeys",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        },
+        "description": "Removes one or more tags from the specified canary.",
+        "operationId": "UntagResource"
+      }
+    }
+  },
+  "definitions": {
+    "Blob": {
+      "maxLength": 10000000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Canaries": {
+      "items": {
+        "$ref": "#/definitions/Canary"
+      },
+      "type": "array"
+    },
+    "CanariesLastRun": {
+      "items": {
+        "$ref": "#/definitions/CanaryLastRun"
+      },
+      "type": "array"
+    },
+    "Canary": {
+      "description": "This structure contains all information about one canary in your account.",
+      "properties": {
+        "ArtifactS3Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The location in Amazon S3 where Synthetics stores artifacts from the runs of this canary. Artifacts include the log file, screenshots, and HAR files."
+            }
+          ]
+        },
+        "Code": {
+          "$ref": "#/definitions/CanaryCodeOutput"
+        },
+        "EngineArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/FunctionArn"
+            },
+            {
+              "description": "The ARN of the Lambda function that is used as your canary's engine. For more information about Lambda ARN format, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html\">Resources and Conditions for Lambda Actions</a>."
+            }
+          ]
+        },
+        "ExecutionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "The ARN of the IAM role used to run the canary. This role must include <code>lambda.amazonaws.com</code> as a principal in the trust policy."
+            }
+          ]
+        },
+        "FailureRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about failed runs of this canary."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "The unique ID of this canary."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryName"
+            },
+            {
+              "description": "The name of the canary."
+            }
+          ]
+        },
+        "RunConfig": {
+          "$ref": "#/definitions/CanaryRunConfigOutput"
+        },
+        "RuntimeVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Specifies the runtime version to use for the canary. For more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>."
+            }
+          ]
+        },
+        "Schedule": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryScheduleOutput"
+            },
+            {
+              "description": "A structure that contains information about how often the canary is to run, and when these runs are to stop."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryStatus"
+            },
+            {
+              "description": "A structure that contains information about the canary's status."
+            }
+          ]
+        },
+        "SuccessRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about successful runs of this canary."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The list of key-value pairs that are associated with the canary."
+            }
+          ]
+        },
+        "Timeline": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryTimeline"
+            },
+            {
+              "description": "A structure that contains information about when the canary was created, modified, and most recently run."
+            }
+          ]
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfigOutput"
+        }
+      },
+      "type": "object"
+    },
+    "CanaryArn": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]{1,21}",
+      "type": "string"
+    },
+    "CanaryCodeInput": {
+      "description": "Use this structure to input your script code for the canary. This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script was passed into the canary directly, the script code is contained in the value of <code>Zipfile</code>. ",
+      "properties": {
+        "Handler": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The entry point to use for the source code when running the canary. This value must end with the string <code>.handler</code>."
+            }
+          ]
+        },
+        "S3Bucket": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If your canary script is located in S3, specify the full bucket name here. The bucket must already exist. Specify the full bucket name, including <code>s3://</code> as the start of the bucket name."
+            }
+          ]
+        },
+        "S3Key": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The S3 key of your script. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html\">Working with Amazon S3 Objects</a>."
+            }
+          ]
+        },
+        "S3Version": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The S3 version ID of your script."
+            }
+          ]
+        },
+        "ZipFile": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Blob"
+            },
+            {
+              "description": "If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the .zip file that contains the script. It can be up to 5 MB."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Handler"
+      ],
+      "type": "object"
+    },
+    "CanaryCodeOutput": {
+      "description": "This structure contains information about the canary's Lambda handler and where its code is stored by CloudWatch Synthetics.",
+      "properties": {
+        "Handler": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The entry point to use for the source code when running the canary."
+            }
+          ]
+        },
+        "SourceLocationArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The ARN of the Lambda layer where Synthetics stores the canary script code."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryLastRun": {
+      "description": "This structure contains information about the most recent run of a single canary.",
+      "properties": {
+        "CanaryName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryName"
+            },
+            {
+              "description": "The name of the canary."
+            }
+          ]
+        },
+        "LastRun": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRun"
+            },
+            {
+              "description": "The results from this canary's most recent run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryName": {
+      "maxLength": 21,
+      "minLength": 1,
+      "pattern": "^[0-9a-z_\\-]+$",
+      "type": "string"
+    },
+    "CanaryRun": {
+      "description": "This structure contains the details about one run of one canary.",
+      "properties": {
+        "ArtifactS3Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The location where the canary stored artifacts from the run. Artifacts include the log file, screenshots, and HAR files."
+            }
+          ]
+        },
+        "Id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/UUID"
+            },
+            {
+              "description": "A unique ID that identifies this canary run."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryName"
+            },
+            {
+              "description": "The name of the canary."
+            }
+          ]
+        },
+        "Status": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunStatus"
+            },
+            {
+              "description": "The status of this run."
+            }
+          ]
+        },
+        "Timeline": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunTimeline"
+            },
+            {
+              "description": "A structure that contains the start and end times of this run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryRunConfigInput": {
+      "description": "A structure that contains input information for a canary run.",
+      "properties": {
+        "ActiveTracing": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NullableBoolean"
+            },
+            {
+              "description": "<p>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active tracing enables this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does not hit an endpoint that has X-ray tracing enabled. Using X-Ray tracing incurs charges. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html\"> Canaries and X-Ray tracing</a>.</p> <p>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code> or later for their canary runtime.</p>"
+            }
+          ]
+        },
+        "EnvironmentVariables": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/EnvironmentVariablesMap"
+            },
+            {
+              "description": "<p>Specifies the keys and values to use for any environment variables used in the canary script. Use the following format:</p> <p>{ \"key1\" : \"value1\", \"key2\" : \"value2\", ...}</p> <p>Keys must start with a letter and be at least two characters. The total size of your environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment variables as the keys for your environment variables. For more information about reserved keys, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime\"> Runtime environment variables</a>.</p>"
+            }
+          ]
+        },
+        "MemoryInMB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize3008"
+            },
+            {
+              "description": "The maximum amount of memory available to the canary while it is running, in MB. This value must be a multiple of 64."
+            }
+          ]
+        },
+        "TimeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxFifteenMinutesInSeconds"
+            },
+            {
+              "description": "<p>How long the canary is allowed to run before it must stop. You can't set this time to be longer than the frequency of the runs of this canary.</p> <p>If you omit this field, the frequency of the canary is used as this value, up to a maximum of 14 minutes.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryRunConfigOutput": {
+      "description": "A structure that contains information about a canary run.",
+      "properties": {
+        "ActiveTracing": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NullableBoolean"
+            },
+            {
+              "description": "Displays whether this canary run used active AWS X-Ray tracing. "
+            }
+          ]
+        },
+        "MemoryInMB": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize3008"
+            },
+            {
+              "description": "The maximum amount of memory available to the canary while it is running, in MB. This value must be a multiple of 64."
+            }
+          ]
+        },
+        "TimeoutInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxFifteenMinutesInSeconds"
+            },
+            {
+              "description": "How long the canary is allowed to run before it must stop."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryRunState": {
+      "enum": [
+        "RUNNING",
+        "PASSED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "CanaryRunStateReasonCode": {
+      "enum": [
+        "CANARY_FAILURE",
+        "EXECUTION_FAILURE"
+      ],
+      "type": "string"
+    },
+    "CanaryRunStatus": {
+      "description": "This structure contains the status information about a canary run.",
+      "properties": {
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunState"
+            },
+            {
+              "description": "The current state of the run."
+            }
+          ]
+        },
+        "StateReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If run of the canary failed, this field contains the reason for the error."
+            }
+          ]
+        },
+        "StateReasonCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunStateReasonCode"
+            },
+            {
+              "description": "If this value is <code>CANARY_FAILURE</code>, an exception occurred in the canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in CloudWatch Synthetics."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryRunTimeline": {
+      "description": "This structure contains the start and end times of a single canary run.",
+      "properties": {
+        "Completed": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The end time of the run."
+            }
+          ]
+        },
+        "Started": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The start time of the run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryRuns": {
+      "items": {
+        "$ref": "#/definitions/CanaryRun"
+      },
+      "type": "array"
+    },
+    "CanaryScheduleInput": {
+      "description": "This structure specifies how often a canary is to make runs and the date and time when it should stop making runs.",
+      "properties": {
+        "DurationInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxOneYearInSeconds"
+            },
+            {
+              "description": "How long, in seconds, for the canary to continue making regular runs according to the schedule in the <code>Expression</code> value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used."
+            }
+          ]
+        },
+        "Expression": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A rate expression that defines how often the canary is to run. The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i> can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p> <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs it once every hour. You can specify a frequency between <code>rate(1 minute)</code> and <code>rate(1 hour)</code>.</p> <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value that causes the canary to run only once when it is started.</p>"
+            }
+          ]
+        }
+      },
+      "required": [
+        "Expression"
+      ],
+      "type": "object"
+    },
+    "CanaryScheduleOutput": {
+      "description": "How long, in seconds, for the canary to continue making regular runs according to the schedule in the <code>Expression</code> value.",
+      "properties": {
+        "DurationInSeconds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxOneYearInSeconds"
+            },
+            {
+              "description": "How long, in seconds, for the canary to continue making regular runs after it was created. The runs are performed according to the schedule in the <code>Expression</code> value."
+            }
+          ]
+        },
+        "Expression": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "<p>A rate expression that defines how often the canary is to run. The syntax is <code>rate(<i>number unit</i>)</code>. <i>unit</i> can be <code>minute</code>, <code>minutes</code>, or <code>hour</code>. </p> <p>For example, <code>rate(1 minute)</code> runs the canary once a minute, <code>rate(10 minutes)</code> runs it once every 10 minutes, and <code>rate(1 hour)</code> runs it once every hour.</p> <p>Specifying <code>rate(0 minute)</code> or <code>rate(0 hour)</code> is a special value that causes the canary to run only once when it is started.</p>"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryState": {
+      "enum": [
+        "CREATING",
+        "READY",
+        "STARTING",
+        "RUNNING",
+        "UPDATING",
+        "STOPPING",
+        "STOPPED",
+        "ERROR",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "CanaryStateReasonCode": {
+      "enum": [
+        "INVALID_PERMISSIONS"
+      ],
+      "type": "string"
+    },
+    "CanaryStatus": {
+      "description": "A structure that contains the current state of the canary.",
+      "properties": {
+        "State": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryState"
+            },
+            {
+              "description": "The current state of the canary."
+            }
+          ]
+        },
+        "StateReason": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "If the canary has insufficient permissions to run, this field provides more details."
+            }
+          ]
+        },
+        "StateReasonCode": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryStateReasonCode"
+            },
+            {
+              "description": "If the canary cannot run or has failed, this field displays the reason."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CanaryTimeline": {
+      "description": "This structure contains information about when the canary was created and modified.",
+      "properties": {
+        "Created": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time the canary was created."
+            }
+          ]
+        },
+        "LastModified": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time the canary was most recently modified."
+            }
+          ]
+        },
+        "LastStarted": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the canary's most recent run started."
+            }
+          ]
+        },
+        "LastStopped": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date and time that the canary's most recent run ended."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ConflictException": {},
+    "CreateCanaryRequest": {
+      "properties": {
+        "ArtifactS3Location": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary. Artifacts include the log file, screenshots, and HAR files."
+            }
+          ]
+        },
+        "Code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryCodeInput"
+            },
+            {
+              "description": "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. "
+            }
+          ]
+        },
+        "ExecutionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "<p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> <ul> <li> <p> <code>s3:PutObject</code> </p> </li> <li> <p> <code>s3:GetBucketLocation</code> </p> </li> <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> <li> <p> <code>logs:CreateLogGroup</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> <li> <p> <code>logs:PutLogEvents</code> </p> </li> </ul>"
+            }
+          ]
+        },
+        "FailureRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days."
+            }
+          ]
+        },
+        "Name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryName"
+            },
+            {
+              "description": "<p>The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.</p> <p>Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html\">Security Considerations for Synthetics Canaries</a>.</p>"
+            }
+          ]
+        },
+        "RunConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunConfigInput"
+            },
+            {
+              "description": "A structure that contains the configuration for individual canary runs, such as timeout value."
+            }
+          ]
+        },
+        "RuntimeVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Specifies the runtime version to use for the canary. For a list of valid runtime versions and more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>."
+            }
+          ]
+        },
+        "Schedule": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryScheduleInput"
+            },
+            {
+              "description": "A structure that contains information about how often the canary is to run and when these test runs are to stop."
+            }
+          ]
+        },
+        "SuccessRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days."
+            }
+          ]
+        },
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "<p>A list of key-value pairs to associate with the canary. You can associate as many as 50 tags with a canary.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.</p>"
+            }
+          ]
+        },
+        "VpcConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfigInput"
+            },
+            {
+              "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Name",
+        "Code",
+        "ArtifactS3Location",
+        "ExecutionRoleArn",
+        "Schedule",
+        "RuntimeVersion"
+      ],
+      "title": "CreateCanaryRequest",
+      "type": "object"
+    },
+    "CreateCanaryResponse": {
+      "properties": {
+        "Canary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Canary"
+            },
+            {
+              "description": "The full details about the canary you have created."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DeleteCanaryRequest": {
+      "properties": {},
+      "title": "DeleteCanaryRequest",
+      "type": "object"
+    },
+    "DeleteCanaryResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeCanariesLastRunRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize100"
+            },
+            {
+              "description": "Specify this parameter to limit how many runs are returned each time you use the <code>DescribeLastRun</code> operation. If you omit this parameter, the default of 100 is used."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "title": "DescribeCanariesLastRunRequest",
+      "type": "object"
+    },
+    "DescribeCanariesLastRunResponse": {
+      "properties": {
+        "CanariesLastRun": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanariesLastRun"
+            },
+            {
+              "description": "An array that contains the information from the most recent run of each canary."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeCanariesLastRun</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeCanariesRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxCanaryResults"
+            },
+            {
+              "description": "Specify this parameter to limit how many canaries are returned each time you use the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "title": "DescribeCanariesRequest",
+      "type": "object"
+    },
+    "DescribeCanariesResponse": {
+      "properties": {
+        "Canaries": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Canaries"
+            },
+            {
+              "description": "Returns an array. Each item in the array contains the full information about one canary."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRuntimeVersionsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize100"
+            },
+            {
+              "description": "Specify this parameter to limit how many runs are returned each time you use the <code>DescribeRuntimeVersions</code> operation. If you omit this parameter, the default of 100 is used."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "title": "DescribeRuntimeVersionsRequest",
+      "type": "object"
+    },
+    "DescribeRuntimeVersionsResponse": {
+      "properties": {
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next set of results."
+            }
+          ]
+        },
+        "RuntimeVersions": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RuntimeVersionList"
+            },
+            {
+              "description": "An array of objects that display the details about each Synthetics canary runtime version."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentVariableName": {
+      "pattern": "[a-zA-Z]([a-zA-Z0-9_])+",
+      "type": "string"
+    },
+    "EnvironmentVariableValue": {
+      "type": "string"
+    },
+    "EnvironmentVariablesMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/EnvironmentVariableValue"
+      },
+      "type": "object"
+    },
+    "FunctionArn": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string"
+    },
+    "GetCanaryRequest": {
+      "properties": {},
+      "title": "GetCanaryRequest",
+      "type": "object"
+    },
+    "GetCanaryResponse": {
+      "properties": {
+        "Canary": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Canary"
+            },
+            {
+              "description": "A strucure that contains the full information about the canary."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "GetCanaryRunsRequest": {
+      "properties": {
+        "MaxResults": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize100"
+            },
+            {
+              "description": "Specify this parameter to limit how many runs are returned each time you use the <code>GetCanaryRuns</code> operation. If you omit this parameter, the default of 100 is used."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>GetCanaryRuns</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "title": "GetCanaryRunsRequest",
+      "type": "object"
+    },
+    "GetCanaryRunsResponse": {
+      "properties": {
+        "CanaryRuns": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRuns"
+            },
+            {
+              "description": "An array of structures. Each structure contains the details of one of the retrieved canary runs."
+            }
+          ]
+        },
+        "NextToken": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Token"
+            },
+            {
+              "description": "A token that indicates that there is more data available. You can use this token in a subsequent <code>GetCanaryRuns</code> operation to retrieve the next set of results."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerException": {},
+    "ListTagsForResourceRequest": {
+      "properties": {},
+      "title": "ListTagsForResourceRequest",
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The list of tag keys and values associated with the canary that you specified."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "MaxCanaryResults": {
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaxFifteenMinutesInSeconds": {
+      "maximum": 840,
+      "minimum": 3,
+      "type": "integer"
+    },
+    "MaxOneYearInSeconds": {
+      "maximum": 31622400,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MaxSize100": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaxSize1024": {
+      "maximum": 1024,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "MaxSize3008": {
+      "maximum": 3008,
+      "minimum": 960,
+      "type": "integer"
+    },
+    "NullableBoolean": {
+      "type": "boolean"
+    },
+    "ResourceNotFoundException": {},
+    "RoleArn": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+      "type": "string"
+    },
+    "RuntimeVersion": {
+      "description": "This structure contains information about one canary runtime version. For more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>.",
+      "properties": {
+        "DeprecationDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "If this runtime version is deprecated, this value is the date of deprecation."
+            }
+          ]
+        },
+        "Description": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "A description of the runtime version, created by Amazon."
+            }
+          ]
+        },
+        "ReleaseDate": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Timestamp"
+            },
+            {
+              "description": "The date that the runtime version was released."
+            }
+          ]
+        },
+        "VersionName": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "The name of the runtime version. For a list of valid runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeVersionList": {
+      "items": {
+        "$ref": "#/definitions/RuntimeVersion"
+      },
+      "type": "array"
+    },
+    "SecurityGroupId": {
+      "type": "string"
+    },
+    "SecurityGroupIds": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroupId"
+      },
+      "maxItems": 5,
+      "minItems": 0,
+      "type": "array"
+    },
+    "StartCanaryRequest": {
+      "properties": {},
+      "title": "StartCanaryRequest",
+      "type": "object"
+    },
+    "StartCanaryResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "StopCanaryRequest": {
+      "properties": {},
+      "title": "StopCanaryRequest",
+      "type": "object"
+    },
+    "StopCanaryResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "String": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SubnetId": {
+      "type": "string"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "maxItems": 16,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxProperties": 50,
+      "minProperties": 1,
+      "type": "object"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "Tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/TagMap"
+            },
+            {
+              "description": "The list of key-value pairs to associate with the canary."
+            }
+          ]
+        }
+      },
+      "required": [
+        "Tags"
+      ],
+      "title": "TagResourceRequest",
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Token": {
+      "maxLength": 252,
+      "minLength": 4,
+      "type": "string"
+    },
+    "UUID": {
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {},
+      "title": "UntagResourceRequest",
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateCanaryRequest": {
+      "properties": {
+        "Code": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryCodeInput"
+            },
+            {
+              "description": "A structure that includes the entry point from which the canary should start running your script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. "
+            }
+          ]
+        },
+        "ExecutionRoleArn": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RoleArn"
+            },
+            {
+              "description": "<p>The ARN of the IAM role to be used to run the canary. This role must already exist, and must include <code>lambda.amazonaws.com</code> as a principal in the trust policy. The role must also have the following permissions:</p> <ul> <li> <p> <code>s3:PutObject</code> </p> </li> <li> <p> <code>s3:GetBucketLocation</code> </p> </li> <li> <p> <code>s3:ListAllMyBuckets</code> </p> </li> <li> <p> <code>cloudwatch:PutMetricData</code> </p> </li> <li> <p> <code>logs:CreateLogGroup</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> <li> <p> <code>logs:CreateLogStream</code> </p> </li> </ul>"
+            }
+          ]
+        },
+        "FailureRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about failed runs of this canary."
+            }
+          ]
+        },
+        "RunConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryRunConfigInput"
+            },
+            {
+              "description": "A structure that contains the timeout value that is used for each individual run of the canary."
+            }
+          ]
+        },
+        "RuntimeVersion": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/String"
+            },
+            {
+              "description": "Specifies the runtime version to use for the canary. For a list of valid runtime versions and for more information about runtime versions, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html\"> Canary Runtime Versions</a>."
+            }
+          ]
+        },
+        "Schedule": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/CanaryScheduleInput"
+            },
+            {
+              "description": "A structure that contains information about how often the canary is to run, and when these runs are to stop."
+            }
+          ]
+        },
+        "SuccessRetentionPeriodInDays": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MaxSize1024"
+            },
+            {
+              "description": "The number of days to retain data about successful runs of this canary."
+            }
+          ]
+        },
+        "VpcConfig": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcConfigInput"
+            },
+            {
+              "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>."
+            }
+          ]
+        }
+      },
+      "title": "UpdateCanaryRequest",
+      "type": "object"
+    },
+    "UpdateCanaryResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ValidationException": {},
+    "VpcConfigInput": {
+      "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnets and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>.",
+      "properties": {
+        "SecurityGroupIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIds"
+            },
+            {
+              "description": "The IDs of the security groups for this canary."
+            }
+          ]
+        },
+        "SubnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIds"
+            },
+            {
+              "description": "The IDs of the subnets where this canary is to run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VpcConfigOutput": {
+      "description": "If this canary is to test an endpoint in a VPC, this structure contains information about the subnets and security groups of the VPC endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html\"> Running a Canary in a VPC</a>.",
+      "properties": {
+        "SecurityGroupIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SecurityGroupIds"
+            },
+            {
+              "description": "The IDs of the security groups for this canary."
+            }
+          ]
+        },
+        "SubnetIds": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/SubnetIds"
+            },
+            {
+              "description": "The IDs of the subnets where this canary is to run."
+            }
+          ]
+        },
+        "VpcId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/VpcId"
+            },
+            {
+              "description": "The IDs of the VPC where this canary is to run."
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "VpcId": {
+      "type": "string"
+    }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/synthetics/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
+}

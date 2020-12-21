@@ -6,21 +6,18 @@
   "host": "management.azure.com",
   "info": {
     "description": "The Azure Storage Management API.",
-    "title": "StorageManagement",
-    "version": "2017-10-01",
+    "title": "StorageManagementClient",
+    "version": "2019-04-01",
     "x-apisguru-categories": [
       "cloud"
     ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
-    "x-ms-code-generation-settings": {
-      "name": "StorageManagementClient"
-    },
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/storage/resource-manager/Microsoft.Storage/stable/2017-10-01/storage.json",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/storage/resource-manager/Microsoft.Storage/stable/2019-04-01/storage.json",
         "version": "2.0"
       }
     ],
@@ -40,8 +37,7 @@
     "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
@@ -62,12 +58,20 @@
     }
   ],
   "parameters": {
-    "ApiVersionParameter": {
-      "description": "Client Api Version.",
-      "in": "query",
-      "name": "api-version",
+    "ManagementPolicyName": {
+      "description": "The name of the Storage Account Management Policy. It should always be 'default'",
+      "enum": [
+        "default"
+      ],
+      "in": "path",
+      "name": "managementPolicyName",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ManagementPolicyName"
+      },
+      "x-ms-parameter-location": "method"
     },
     "ResourceGroupName": {
       "description": "The name of the resource group within the user's subscription. The name is case insensitive.",
@@ -80,12 +84,15 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "SubscriptionIdParameter": {
-      "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+    "StorageAccountName": {
+      "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
       "in": "path",
-      "name": "subscriptionId",
+      "maxLength": 24,
+      "minLength": 3,
+      "name": "accountName",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   },
   "paths": {
@@ -95,7 +102,12 @@
         "operationId": "Operations_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -112,7 +124,7 @@
         "x-ms-examples": {
           "OperationsList": {
             "parameters": {
-              "api-version": "2017-10-01"
+              "api-version": "2019-04-01"
             },
             "responses": {
               "200": {
@@ -584,7 +596,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/checkNameAvailability": {
@@ -602,10 +616,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -626,8 +650,8 @@
                 "name": "sto3363",
                 "type": "Microsoft.Storage/storageAccounts"
               },
-              "api-version": "2017-10-01",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "api-version": "2019-04-01",
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -640,16 +664,97 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/locations/{location}/usages": {
+      "get": {
+        "description": "Gets the current usage count and the limit for the resources of the location under the subscription.",
+        "operationId": "Usages_ListByLocation",
+        "parameters": [
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The location of the Azure Storage resource.",
+            "in": "path",
+            "name": "location",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- current usage count and limit retrieved and returned successfully.",
+            "schema": {
+              "$ref": "#/definitions/UsageListResult"
+            }
+          }
+        },
+        "tags": [
+          "LocationUsage"
+        ],
+        "x-ms-examples": {
+          "UsageList": {
+            "parameters": {
+              "api-version": "2019-04-01",
+              "location": "eastus2(stage)",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "currentValue": 55,
+                      "limit": 250,
+                      "name": {
+                        "localizedValue": "Storage Accounts",
+                        "value": "StorageAccounts"
+                      },
+                      "unit": "Count"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/skus": {
       "get": {
         "description": "Lists the available SKUs supported by Microsoft.Storage for given subscription.",
         "operationId": "Skus_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -666,8 +771,8 @@
         "x-ms-examples": {
           "SkuList": {
             "parameters": {
-              "api-version": "2017-10-01",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "api-version": "2019-04-01",
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -7119,7 +7224,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts": {
@@ -7128,10 +7235,20 @@
         "operationId": "StorageAccounts_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7148,26 +7265,30 @@
         "x-ms-examples": {
           "StorageAccountList": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
+                  "nextLink": "https://sto1590endpoint/subscriptions/{subscription-id}/resourceGroups/res9290/providers/Microsoft.Storage/storageAccounts?api-version=2019-04-01&$maxpagesize=2&$skipToken=/sto1590",
                   "value": [
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
                       "kind": "Storage",
                       "location": "eastus2euap",
                       "name": "sto1125",
                       "properties": {
                         "creationTime": "2017-05-24T13:28:53.4540398Z",
+                        "isHnsEnabled": true,
                         "primaryEndpoints": {
                           "blob": "https://sto1125.blob.core.windows.net/",
+                          "dfs": "https://sto1125.dfs.core.windows.net/",
                           "file": "https://sto1125.file.core.windows.net/",
                           "queue": "https://sto1125.queue.core.windows.net/",
-                          "table": "https://sto1125.table.core.windows.net/"
+                          "table": "https://sto1125.table.core.windows.net/",
+                          "web": "https://sto1125.web.core.windows.net/"
                         },
                         "primaryLocation": "eastus2euap",
                         "provisioningState": "Succeeded",
@@ -7187,7 +7308,7 @@
                       "type": "Microsoft.Storage/storageAccounts"
                     },
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
                       "identity": {
                         "principalId": "356d057d-cba5-44dd-8a30-b2e547bc416b",
                         "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
@@ -7222,7 +7343,7 @@
                       "type": "Microsoft.Storage/storageAccounts"
                     },
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
                       "identity": {
                         "principalId": "911871cc-ffd1-4fc4-ac11-7a316433ea66",
                         "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
@@ -7257,7 +7378,7 @@
                       "type": "Microsoft.Storage/storageAccounts"
                     },
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
                       "kind": "Storage",
                       "location": "eastus2euap",
                       "name": "sto834",
@@ -7287,7 +7408,7 @@
                       "type": "Microsoft.Storage/storageAccounts"
                     },
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
                       "identity": {
                         "principalId": "933e3ddf-1802-4a51-9469-18a33b576f88",
                         "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
@@ -7327,58 +7448,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/usages": {
-      "get": {
-        "description": "Gets the current usage count and the limit for the resources under the subscription.",
-        "operationId": "Usage_List",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK -- current usage acount and limit retrieved and returned successfully.",
-            "schema": {
-              "$ref": "#/definitions/UsageListResult"
-            }
-          }
-        },
-        "tags": [
-          "Usage"
-        ],
-        "x-ms-examples": {
-          "UsageList": {
-            "parameters": {
-              "api-version": "2017-10-01",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "currentValue": 51,
-                      "limit": 250,
-                      "name": {
-                        "localizedValue": "Storage Accounts",
-                        "value": "StorageAccounts"
-                      },
-                      "unit": "Count"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts": {
@@ -7390,10 +7462,20 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7410,26 +7492,29 @@
         "x-ms-examples": {
           "StorageAccountListByResourceGroup": {
             "parameters": {
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "resourceGroupName": "res6117",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
                   "value": [
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4036",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4036",
                       "kind": "Storage",
                       "location": "eastus2euap",
                       "name": "sto4036",
                       "properties": {
                         "creationTime": "2017-05-24T13:24:47.818801Z",
+                        "isHnsEnabled": true,
                         "primaryEndpoints": {
                           "blob": "https://sto4036.blob.core.windows.net/",
+                          "dfs": "https://sto4036.dfs.core.windows.net/",
                           "file": "https://sto4036.file.core.windows.net/",
                           "queue": "https://sto4036.queue.core.windows.net/",
-                          "table": "https://sto4036.table.core.windows.net/"
+                          "table": "https://sto4036.table.core.windows.net/",
+                          "web": "https://sto4036.web.core.windows.net/"
                         },
                         "primaryLocation": "eastus2euap",
                         "provisioningState": "Succeeded",
@@ -7449,7 +7534,7 @@
                       "type": "Microsoft.Storage/storageAccounts"
                     },
                     {
-                      "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4452",
+                      "id": "/subscriptions/{subscription-id}/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4452",
                       "kind": "Storage",
                       "location": "eastus2euap",
                       "name": "sto4452",
@@ -7484,7 +7569,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}": {
@@ -7496,19 +7583,23 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
             "required": true,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7526,18 +7617,14 @@
           "StorageAccountDelete": {
             "parameters": {
               "accountName": "sto2434",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "resourceGroupName": "res4228",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
-              "200": {
-                "body": ""
-              },
-              "204": {
-                "body": ""
-              }
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -7550,19 +7637,37 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
             "required": true,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.",
+            "enum": [
+              "geoReplicationStats"
+            ],
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string",
+            "x-ms-enum": {
+              "modelAsString": false,
+              "name": "StorageAccountExpand"
+            }
           }
         ],
         "responses": {
@@ -7580,20 +7685,26 @@
           "StorageAccountGetProperties": {
             "parameters": {
               "accountName": "sto8596",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "resourceGroupName": "res9407",
-              "subscriptionId": "45b60d85-fd72-427a-a708-f994d26e593e"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/45b60d85-fd72-427a-a708-f994d26e593e/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
                   "kind": "Storage",
                   "location": "eastus2(stage)",
                   "name": "sto8596",
                   "properties": {
                     "creationTime": "2017-06-01T02:42:41.7633306Z",
+                    "geoReplicationStats": {
+                      "canFailover": true,
+                      "lastSyncTime": "2018-10-30T00:25:34Z",
+                      "status": "Live"
+                    },
+                    "isHnsEnabled": true,
                     "networkAcls": {
                       "bypass": "AzureServices",
                       "defaultAction": "Allow",
@@ -7602,9 +7713,11 @@
                     },
                     "primaryEndpoints": {
                       "blob": "https://sto8596.blob.core.windows.net/",
+                      "dfs": "https://sto8596.dfs.core.windows.net/",
                       "file": "https://sto8596.file.core.windows.net/",
                       "queue": "https://sto8596.queue.core.windows.net/",
-                      "table": "https://sto8596.table.core.windows.net/"
+                      "table": "https://sto8596.table.core.windows.net/",
+                      "web": "https://sto8596.web.core.windows.net/"
                     },
                     "primaryLocation": "eastus2(stage)",
                     "provisioningState": "Succeeded",
@@ -7636,13 +7749,7 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/StorageAccountName"
           },
           {
             "description": "The parameters to provide for the updated account.",
@@ -7654,10 +7761,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7675,27 +7792,50 @@
           "StorageAccountUpdate": {
             "parameters": {
               "accountName": "sto8596",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "parameters": {
                 "properties": {
+                  "azureFilesIdentityBasedAuthentication": {
+                    "activeDirectoryProperties": {
+                      "azureStorageSid": "S-1-5-21-2400535526-2334094090-2402026252-0012",
+                      "domainGuid": "aebfc118-9fa9-4732-a21f-d98e41a77ae1",
+                      "domainName": "adtest.com",
+                      "domainSid": "S-1-5-21-2400535526-2334094090-2402026252",
+                      "forestName": "adtest.com",
+                      "netBiosDomainName": "adtest.com"
+                    },
+                    "directoryServiceOptions": "AD"
+                  },
                   "networkAcls": {
                     "defaultAction": "Allow"
                   }
                 }
               },
               "resourceGroupName": "res9407",
-              "subscriptionId": "45b60d85-fd72-427a-a708-f994d26e593e"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/45b60d85-fd72-427a-a708-f994d26e593e/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
                   "kind": "Storage",
                   "location": "eastus2(stage)",
                   "name": "sto8596",
                   "properties": {
+                    "azureFilesIdentityBasedAuthentication": {
+                      "activeDirectoryProperties": {
+                        "azureStorageSid": "S-1-5-21-2400535526-2334094090-2402026252-0012",
+                        "domainGuid": "aebfc118-9fa9-4732-a21f-d98e41a77ae1",
+                        "domainName": "adtest.com",
+                        "domainSid": "S-1-5-21-2400535526-2334094090-2402026252",
+                        "forestName": "adtest.com",
+                        "netBiosDomainName": "adtest.com"
+                      },
+                      "directoryServiceOptions": "AD"
+                    },
                     "creationTime": "2017-06-01T02:42:41.7633306Z",
+                    "isHnsEnabled": true,
                     "networkAcls": {
                       "bypass": "AzureServices",
                       "defaultAction": "Allow",
@@ -7704,9 +7844,11 @@
                     },
                     "primaryEndpoints": {
                       "blob": "https://sto8596.blob.core.windows.net/",
+                      "dfs": "https://sto8596.dfs.core.windows.net/",
                       "file": "https://sto8596.file.core.windows.net/",
                       "queue": "https://sto8596.queue.core.windows.net/",
-                      "table": "https://sto8596.table.core.windows.net/"
+                      "table": "https://sto8596.table.core.windows.net/",
+                      "web": "https://sto8596.web.core.windows.net/"
                     },
                     "primaryLocation": "eastus2(stage)",
                     "provisioningState": "Succeeded",
@@ -7738,13 +7880,7 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/StorageAccountName"
           },
           {
             "description": "The parameters to provide for the created account.",
@@ -7756,10 +7892,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7780,10 +7926,13 @@
           "StorageAccountCreate": {
             "parameters": {
               "accountName": "sto4445",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "parameters": {
                 "kind": "Storage",
                 "location": "eastus2euap",
+                "properties": {
+                  "isHnsEnabled": true
+                },
                 "sku": {
                   "name": "Standard_GRS"
                 },
@@ -7793,29 +7942,32 @@
                 }
               },
               "resourceGroupName": "res9101",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
                 "body": {
-                  "id": "/subscriptions/27de630f-e1ee-42de-8849-90def4986454/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445",
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445",
                   "kind": "Storage",
                   "location": "eastus2euap",
                   "name": "sto4445",
                   "properties": {
                     "creationTime": "2017-05-24T13:25:33.4863236Z",
+                    "isHnsEnabled": true,
                     "primaryEndpoints": {
                       "blob": "https://sto4445.blob.core.windows.net/",
+                      "dfs": "https://sto4445.dfs.core.windows.net/",
                       "file": "https://sto4445.file.core.windows.net/",
                       "queue": "https://sto4445.queue.core.windows.net/",
-                      "table": "https://sto4445.table.core.windows.net/"
+                      "table": "https://sto4445.table.core.windows.net/",
+                      "web": "https://sto4445.web.core.windows.net/"
                     },
                     "primaryLocation": "eastus2euap",
                     "provisioningState": "Succeeded",
                     "secondaryLocation": "centraluseuap",
                     "statusOfPrimary": "available",
                     "statusOfSecondary": "available",
-                    "supportsHttpsTrafficOnly": false
+                    "supportsHttpsTrafficOnly": true
                   },
                   "sku": {
                     "name": "Standard_GRS",
@@ -7828,9 +7980,7 @@
                   "type": "Microsoft.Storage/storageAccounts"
                 }
               },
-              "202": {
-                "body": ""
-              }
+              "202": {}
             }
           }
         },
@@ -7846,13 +7996,7 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/StorageAccountName"
           },
           {
             "description": "The parameters to provide to list SAS credentials for the storage account.",
@@ -7864,10 +8008,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7885,7 +8039,7 @@
           "StorageAccountListAccountSAS": {
             "parameters": {
               "accountName": "sto8588",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "parameters": {
                 "keyToSign": "key1",
@@ -7897,7 +8051,7 @@
                 "signedStart": "2017-05-24T10:42:03.1567373Z"
               },
               "resourceGroupName": "res7985",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -7919,13 +8073,7 @@
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/StorageAccountName"
           },
           {
             "description": "The parameters to provide to list service SAS credentials.",
@@ -7937,10 +8085,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -7958,7 +8116,7 @@
           "StorageAccountListServiceSAS": {
             "parameters": {
               "accountName": "sto1299",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "parameters": {
                 "canonicalizedResource": "/blob/sto1299/music",
@@ -7967,7 +8125,7 @@
                 "signedResource": "c"
               },
               "resourceGroupName": "res7439",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -7980,28 +8138,105 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/failover": {
+      "post": {
+        "description": "Failover request can be triggered for a storage account in case of availability issues. The failover occurs from the storage account's primary cluster to secondary cluster for RA-GRS accounts. The secondary cluster will become primary after failover.",
+        "operationId": "StorageAccounts_Failover",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- Returned when the storage account failover is completed, and the secondary cluster has become primary."
+          },
+          "202": {
+            "description": "Accepted -- Failover request accepted; operation will complete asynchronously."
+          }
+        },
+        "tags": [
+          "StorageAccounts"
+        ],
+        "x-ms-examples": {
+          "StorageAccountCreate": {
+            "parameters": {
+              "accountName": "sto2434",
+              "api-version": "2019-04-01",
+              "monitor": "true",
+              "resourceGroupName": "res4228",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {},
+              "202": {}
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys": {
       "post": {
-        "description": "Lists the access keys for the specified storage account.",
+        "description": "Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.",
         "operationId": "StorageAccounts_ListKeys",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
             "required": true,
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "Specifies type of the key to be listed. Possible value is kerb.",
+            "enum": [
+              "kerb"
+            ],
+            "in": "query",
+            "name": "$expand",
+            "required": false,
+            "type": "string",
+            "x-ms-enum": {
+              "name": "ListKeyExpand"
+            }
           }
         ],
         "responses": {
@@ -8019,10 +8254,10 @@
           "StorageAccountListKeys": {
             "parameters": {
               "accountName": "sto2220",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "resourceGroupName": "res418",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -8046,25 +8281,335 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/managementPolicies/{managementPolicyName}": {
+      "delete": {
+        "description": "Deletes the managementpolicy associated with the specified storage account.",
+        "operationId": "ManagementPolicies_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ManagementPolicyName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- Delete the managementpolicy successfully."
+          },
+          "204": {
+            "description": "No Content -- The managementpolicy does not exist."
+          }
+        },
+        "tags": [
+          "ManagementPolicies"
+        ],
+        "x-ms-examples": {
+          "StorageAccountDeleteManagementPolicies": {
+            "parameters": {
+              "accountName": "sto2527",
+              "api-version": "2019-04-01",
+              "managementPolicyName": "default",
+              "monitor": "true",
+              "resourceGroupName": "res6977",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Gets the managementpolicy associated with the specified storage account.",
+        "operationId": "ManagementPolicies_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ManagementPolicyName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- Get the managementpolicy successfully.",
+            "schema": {
+              "$ref": "#/definitions/ManagementPolicy"
+            }
+          }
+        },
+        "tags": [
+          "ManagementPolicies"
+        ],
+        "x-ms-examples": {
+          "StorageAccountGetManagementPolicies": {
+            "parameters": {
+              "accountName": "sto2527",
+              "api-version": "2019-04-01",
+              "managementPolicyName": "default",
+              "monitor": "true",
+              "resourceGroupName": "res6977",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default",
+                  "name": "DefaultManagementPolicy",
+                  "properties": {
+                    "lastModifiedTime": "2018-06-08T03:01:55.7168089Z",
+                    "policy": {
+                      "rules": [
+                        {
+                          "definition": {
+                            "actions": {
+                              "baseBlob": {
+                                "delete": {
+                                  "daysAfterModificationGreaterThan": 1000
+                                },
+                                "tierToArchive": {
+                                  "daysAfterModificationGreaterThan": 90
+                                },
+                                "tierToCool": {
+                                  "daysAfterModificationGreaterThan": 30
+                                }
+                              },
+                              "snapshot": {
+                                "delete": {
+                                  "daysAfterCreationGreaterThan": 30
+                                }
+                              }
+                            },
+                            "filters": {
+                              "blobTypes": [
+                                "blockBlob"
+                              ],
+                              "prefixMatch": [
+                                "olcmtestcontainer"
+                              ]
+                            }
+                          },
+                          "enabled": true,
+                          "name": "olcmtest",
+                          "type": "Lifecycle"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "Microsoft.Storage/storageAccounts/managementPolicies"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Sets the managementpolicy to the specified storage account.",
+        "operationId": "ManagementPolicies_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/StorageAccountName"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ManagementPolicyName"
+          },
+          {
+            "description": "The ManagementPolicy set to a storage account.",
+            "in": "body",
+            "name": "properties",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ManagementPolicy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- Put managementpolicy successfully.",
+            "schema": {
+              "$ref": "#/definitions/ManagementPolicy"
+            }
+          }
+        },
+        "tags": [
+          "ManagementPolicies"
+        ],
+        "x-ms-examples": {
+          "StorageAccountSetManagementPolicies": {
+            "parameters": {
+              "accountName": "sto9699",
+              "api-version": "2019-04-01",
+              "managementPolicyName": "default",
+              "monitor": "true",
+              "properties": {
+                "properties": {
+                  "policy": {
+                    "rules": [
+                      {
+                        "definition": {
+                          "actions": {
+                            "baseBlob": {
+                              "delete": {
+                                "daysAfterModificationGreaterThan": 1000
+                              },
+                              "tierToArchive": {
+                                "daysAfterModificationGreaterThan": 90
+                              },
+                              "tierToCool": {
+                                "daysAfterModificationGreaterThan": 30
+                              }
+                            },
+                            "snapshot": {
+                              "delete": {
+                                "daysAfterCreationGreaterThan": 30
+                              }
+                            }
+                          },
+                          "filters": {
+                            "blobTypes": [
+                              "blockBlob"
+                            ],
+                            "prefixMatch": [
+                              "olcmtestcontainer"
+                            ]
+                          }
+                        },
+                        "enabled": true,
+                        "name": "olcmtest",
+                        "type": "Lifecycle"
+                      }
+                    ]
+                  }
+                }
+              },
+              "resourceGroupName": "res7687",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default",
+                  "name": "DefaultManagementPolicy",
+                  "properties": {
+                    "lastModifiedTime": "2018-06-08T02:53:39.0932539Z",
+                    "policy": {
+                      "rules": [
+                        {
+                          "definition": {
+                            "actions": {
+                              "baseBlob": {
+                                "delete": {
+                                  "daysAfterModificationGreaterThan": 1000
+                                },
+                                "tierToArchive": {
+                                  "daysAfterModificationGreaterThan": 90
+                                },
+                                "tierToCool": {
+                                  "daysAfterModificationGreaterThan": 30
+                                }
+                              },
+                              "snapshot": {
+                                "delete": {
+                                  "daysAfterCreationGreaterThan": 30
+                                }
+                              }
+                            },
+                            "filters": {
+                              "blobTypes": [
+                                "blockBlob"
+                              ],
+                              "prefixMatch": [
+                                "olcmtestcontainer"
+                              ]
+                            }
+                          },
+                          "enabled": true,
+                          "name": "olcmtest",
+                          "type": "Lifecycle"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "Microsoft.Storage/storageAccounts/managementPolicies"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/regenerateKey": {
       "post": {
-        "description": "Regenerates one of the access keys for the specified storage account.",
+        "description": "Regenerates one of the access keys or Kerberos keys for the specified storage account.",
         "operationId": "StorageAccounts_RegenerateKey",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupName"
           },
           {
-            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-            "in": "path",
-            "maxLength": 24,
-            "minLength": 3,
-            "name": "accountName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/StorageAccountName"
           },
           {
-            "description": "Specifies name of the key which should be regenerated -- key1 or key2.",
+            "description": "Specifies name of the key which should be regenerated -- key1, key2, kerb1, kerb2.",
             "in": "body",
             "name": "regenerateKey",
             "required": true,
@@ -8073,10 +8618,20 @@
             }
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -8091,16 +8646,51 @@
           "StorageAccounts"
         ],
         "x-ms-examples": {
+          "StorageAccountRegenerateKerbKey": {
+            "parameters": {
+              "accountName": "sto3539",
+              "api-version": "2019-04-01",
+              "monitor": "true",
+              "regenerateKey": {
+                "keyName": "kerb1"
+              },
+              "resourceGroupName": "res4167",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keys": [
+                    {
+                      "keyName": "key1",
+                      "permissions": "Full",
+                      "value": "7xl+yQ4MrVpZCHspveCfy4f8jgTY1wv42gHO8k4bAX+EPvN4hY5uPau/bpofgeye+K9FtgvjkadkLISPfOxlMw=="
+                    },
+                    {
+                      "keyName": "key2",
+                      "permissions": "Full",
+                      "value": "uC+kyJ9/gT81E/+9I1Go4xtOe8sW5rdIm3n6PNIyQ5kGO5OpFq69aWnrn3jLeFIyItzpln9P392U0353RYKvbg=="
+                    },
+                    {
+                      "keyName": "kerb1",
+                      "permissions": "Full",
+                      "value": "34EzDQuCw1lYBXCGioUybN9dCWSLLzQPdAbYRcLhM957Fy/6IlO/SkaeR9QXKhVgCt8anDq4wYmDcaZ5VXr2Tg=="
+                    }
+                  ]
+                }
+              }
+            }
+          },
           "StorageAccountRegenerateKey": {
             "parameters": {
               "accountName": "sto3539",
-              "api-version": "2017-10-01",
+              "api-version": "2019-04-01",
               "monitor": "true",
               "regenerateKey": {
                 "keyName": "key2"
               },
               "resourceGroupName": "res4167",
-              "subscriptionId": "27de630f-e1ee-42de-8849-90def4986454"
+              "subscriptionId": "{subscription-id}"
             },
             "responses": {
               "200": {
@@ -8119,6 +8709,63 @@
                   ]
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/revokeUserDelegationKeys": {
+      "post": {
+        "description": "Revoke user delegation keys.",
+        "operationId": "StorageAccounts_RevokeUserDelegationKeys",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupName"
+          },
+          {
+            "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+            "in": "path",
+            "maxLength": 24,
+            "minLength": 3,
+            "name": "accountName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The API version to use for this operation.",
+            "in": "query",
+            "minLength": 1,
+            "name": "api-version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the target subscription.",
+            "in": "path",
+            "minLength": 1,
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- revoke user delegation keys succeeded."
+          }
+        },
+        "tags": [
+          "StorageAccounts"
+        ],
+        "x-ms-examples": {
+          "StorageAccountRevokeUserDelegationKeys": {
+            "parameters": {
+              "accountName": "sto3539",
+              "api-version": "2019-04-01",
+              "resourceGroupName": "res4167",
+              "subscriptionId": "{subscription-id}"
+            },
+            "responses": {
+              "200": {}
             }
           }
         }
@@ -8219,6 +8866,68 @@
         "signedExpiry"
       ]
     },
+    "ActiveDirectoryProperties": {
+      "description": "Settings properties for Active Directory (AD).",
+      "properties": {
+        "azureStorageSid": {
+          "description": "Specifies the security identifier (SID) for Azure Storage.",
+          "type": "string"
+        },
+        "domainGuid": {
+          "description": "Specifies the domain GUID.",
+          "type": "string"
+        },
+        "domainName": {
+          "description": "Specifies the primary domain that the AD DNS server is authoritative for.",
+          "type": "string"
+        },
+        "domainSid": {
+          "description": "Specifies the security identifier (SID).",
+          "type": "string"
+        },
+        "forestName": {
+          "description": "Specifies the Active Directory forest to get.",
+          "type": "string"
+        },
+        "netBiosDomainName": {
+          "description": "Specifies the NetBIOS domain name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "domainName",
+        "netBiosDomainName",
+        "forestName",
+        "domainGuid",
+        "domainSid",
+        "azureStorageSid"
+      ]
+    },
+    "AzureFilesIdentityBasedAuthentication": {
+      "description": "Settings for Azure Files identity based authentication.",
+      "properties": {
+        "activeDirectoryProperties": {
+          "$ref": "#/definitions/ActiveDirectoryProperties",
+          "description": "Required if choose AD."
+        },
+        "directoryServiceOptions": {
+          "description": "Indicates the directory service used.",
+          "enum": [
+            "None",
+            "AADDS",
+            "AD"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DirectoryServiceOptions"
+          }
+        }
+      },
+      "required": [
+        "directoryServiceOptions"
+      ]
+    },
     "CheckNameAvailabilityResult": {
       "description": "The CheckNameAvailability operation response.",
       "properties": {
@@ -8254,7 +8963,7 @@
           "description": "Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.",
           "type": "string"
         },
-        "useSubDomain": {
+        "useSubDomainName": {
           "description": "Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.",
           "type": "boolean"
         }
@@ -8263,8 +8972,36 @@
         "name"
       ]
     },
+    "DateAfterCreation": {
+      "description": "Object to define the number of days after creation.",
+      "properties": {
+        "daysAfterCreationGreaterThan": {
+          "description": "Value indicating the age in days after creation",
+          "minimum": 0,
+          "multipleOf": 1,
+          "type": "number"
+        }
+      },
+      "required": [
+        "daysAfterCreationGreaterThan"
+      ]
+    },
+    "DateAfterModification": {
+      "description": "Object to define the number of days after last modification.",
+      "properties": {
+        "daysAfterModificationGreaterThan": {
+          "description": "Value indicating the age in days after last modification",
+          "minimum": 0,
+          "multipleOf": 1,
+          "type": "number"
+        }
+      },
+      "required": [
+        "daysAfterModificationGreaterThan"
+      ]
+    },
     "Dimension": {
-      "description": "Dimension of blobs, possiblly be blob type or access tier.",
+      "description": "Dimension of blobs, possibly be blob type or access tier.",
       "properties": {
         "displayName": {
           "description": "Display name of dimension.",
@@ -8345,10 +9082,15 @@
       }
     },
     "Endpoints": {
-      "description": "The URIs that are used to perform a retrieval of a public blob, queue, or table object.",
+      "description": "The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.",
       "properties": {
         "blob": {
           "description": "Gets the blob endpoint.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "dfs": {
+          "description": "Gets the dfs endpoint.",
           "readOnly": true,
           "type": "string"
         },
@@ -8366,6 +9108,41 @@
           "description": "Gets the table endpoint.",
           "readOnly": true,
           "type": "string"
+        },
+        "web": {
+          "description": "Gets the web endpoint.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "GeoReplicationStats": {
+      "description": "Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.",
+      "properties": {
+        "canFailover": {
+          "description": "A boolean flag which indicates whether or not account failover is supported for the account.",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "lastSyncTime": {
+          "description": "All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.",
+          "enum": [
+            "Live",
+            "Bootstrap",
+            "Unavailable"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "GeoReplicationStatus"
+          }
         }
       }
     },
@@ -8457,9 +9234,184 @@
       "description": "The List service SAS credentials operation response.",
       "properties": {
         "serviceSasToken": {
-          "description": "List service SAS credentials of speicific resource.",
+          "description": "List service SAS credentials of specific resource.",
           "readOnly": true,
           "type": "string"
+        }
+      }
+    },
+    "ManagementPolicy": {
+      "allOf": [
+        {
+          "properties": {
+            "id": {
+              "description": "Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+              "readOnly": true,
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the resource",
+              "readOnly": true,
+              "type": "string"
+            },
+            "type": {
+              "description": "The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.",
+              "readOnly": true,
+              "type": "string"
+            }
+          },
+          "x-ms-azure-resource": true
+        }
+      ],
+      "description": "The Get Storage Account ManagementPolicies operation response.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ManagementPolicyProperties",
+          "description": "Returns the Storage Account Data Policies Rules.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ManagementPolicyAction": {
+      "description": "Actions are applied to the filtered blobs when the execution condition is met.",
+      "properties": {
+        "baseBlob": {
+          "$ref": "#/definitions/ManagementPolicyBaseBlob",
+          "description": "The management policy action for base blob"
+        },
+        "snapshot": {
+          "$ref": "#/definitions/ManagementPolicySnapShot",
+          "description": "The management policy action for snapshot"
+        }
+      }
+    },
+    "ManagementPolicyBaseBlob": {
+      "description": "Management policy action for base blob.",
+      "properties": {
+        "delete": {
+          "$ref": "#/definitions/DateAfterModification",
+          "description": "The function to delete the blob"
+        },
+        "tierToArchive": {
+          "$ref": "#/definitions/DateAfterModification",
+          "description": "The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier"
+        },
+        "tierToCool": {
+          "$ref": "#/definitions/DateAfterModification",
+          "description": "The function to tier blobs to cool storage. Support blobs currently at Hot tier"
+        }
+      }
+    },
+    "ManagementPolicyDefinition": {
+      "description": "An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/ManagementPolicyAction",
+          "description": "An object that defines the action set."
+        },
+        "filters": {
+          "$ref": "#/definitions/ManagementPolicyFilter",
+          "description": "An object that defines the filter set."
+        }
+      },
+      "required": [
+        "actions"
+      ]
+    },
+    "ManagementPolicyFilter": {
+      "description": "Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. ",
+      "properties": {
+        "blobTypes": {
+          "description": "An array of predefined enum values. Only blockBlob is supported.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "prefixMatch": {
+          "description": "An array of strings for prefixes to be match.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "blobTypes"
+      ]
+    },
+    "ManagementPolicyProperties": {
+      "description": "The Storage Account ManagementPolicy properties.",
+      "properties": {
+        "lastModifiedTime": {
+          "description": "Returns the date and time the ManagementPolicies was last modified.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "policy": {
+          "$ref": "#/definitions/ManagementPolicySchema",
+          "description": "The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts."
+        }
+      },
+      "required": [
+        "policy"
+      ]
+    },
+    "ManagementPolicyRule": {
+      "description": "An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.",
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/ManagementPolicyDefinition",
+          "description": "An object that defines the Lifecycle rule."
+        },
+        "enabled": {
+          "description": "Rule is enabled if set to true.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The valid value is Lifecycle",
+          "enum": [
+            "Lifecycle"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "type"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "definition"
+      ]
+    },
+    "ManagementPolicySchema": {
+      "description": "The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+      "properties": {
+        "rules": {
+          "description": "The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+          "items": {
+            "$ref": "#/definitions/ManagementPolicyRule"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "rules"
+      ]
+    },
+    "ManagementPolicySnapShot": {
+      "description": "Management policy action for snapshot.",
+      "properties": {
+        "delete": {
+          "$ref": "#/definitions/DateAfterCreation",
+          "description": "The function to delete the blob snapshot"
         }
       }
     },
@@ -8566,6 +9518,10 @@
         "display": {
           "description": "Display metadata associated with the operation.",
           "properties": {
+            "description": {
+              "description": "Description of the operation.",
+              "type": "string"
+            },
             "operation": {
               "description": "Type of operation: get, read, delete, etc.",
               "type": "string"
@@ -8618,43 +9574,11 @@
         }
       }
     },
-    "Resource": {
-      "description": "Describes a storage resource.",
-      "properties": {
-        "id": {
-          "description": "Resource Id",
-          "readOnly": true,
-          "type": "string"
-        },
-        "location": {
-          "description": "Resource location",
-          "type": "string"
-        },
-        "name": {
-          "description": "Resource name",
-          "readOnly": true,
-          "type": "string"
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).",
-          "type": "object"
-        },
-        "type": {
-          "description": "Resource type",
-          "readOnly": true,
-          "type": "string"
-        }
-      },
-      "x-ms-azure-resource": true
-    },
     "Restriction": {
       "description": "The restriction because of which SKU cannot be used.",
       "properties": {
         "reasonCode": {
-          "description": "The reason for the restriction. As of now this can be “QuotaId” or “NotAvailableForSubscription”. Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The “NotAvailableForSubscription” is related to capacity at DC.",
+          "description": "The reason for the restriction. As of now this can be \"QuotaId\" or \"NotAvailableForSubscription\". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The \"NotAvailableForSubscription\" is related to capacity at DC.",
           "enum": [
             "QuotaId",
             "NotAvailableForSubscription"
@@ -8681,10 +9605,10 @@
       }
     },
     "SKUCapability": {
-      "description": "The capability information in the specified sku, including file encryption, network acls, change notification, etc.",
+      "description": "The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.",
       "properties": {
         "name": {
-          "description": "The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.",
+          "description": "The name of capability, The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.",
           "readOnly": true,
           "type": "string"
         },
@@ -8696,7 +9620,7 @@
       }
     },
     "ServiceSasParameters": {
-      "description": "The parameters to list service SAS credentials of a speicific resource.",
+      "description": "The parameters to list service SAS credentials of a specific resource.",
       "properties": {
         "canonicalizedResource": {
           "description": "The canonical path to the signed resource.",
@@ -8823,8 +9747,7 @@
         }
       },
       "required": [
-        "canonicalizedResource",
-        "signedResource"
+        "canonicalizedResource"
       ]
     },
     "ServiceSpecification": {
@@ -8843,7 +9766,7 @@
       "description": "The SKU of the storage account.",
       "properties": {
         "capabilities": {
-          "description": "The capability information in the specified sku, including file encryption, network acls, change notification, etc.",
+          "description": "The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.",
           "items": {
             "$ref": "#/definitions/SKUCapability"
           },
@@ -8855,12 +9778,14 @@
           "enum": [
             "Storage",
             "StorageV2",
-            "BlobStorage"
+            "BlobStorage",
+            "FileStorage",
+            "BlockBlobStorage"
           ],
           "readOnly": true,
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "Kind"
           }
         },
@@ -8873,17 +9798,20 @@
           "type": "array"
         },
         "name": {
-          "description": "Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.",
+          "description": "Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.",
           "enum": [
             "Standard_LRS",
             "Standard_GRS",
             "Standard_RAGRS",
             "Standard_ZRS",
-            "Premium_LRS"
+            "Premium_LRS",
+            "Premium_ZRS",
+            "Standard_GZRS",
+            "Standard_RAGZRS"
           ],
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "SkuName"
           }
         },
@@ -8900,7 +9828,7 @@
           "type": "array"
         },
         "tier": {
-          "description": "Gets the sku tier. This is based on the SKU name.",
+          "description": "Gets the SKU tier. This is based on the SKU name.",
           "enum": [
             "Standard",
             "Premium"
@@ -8920,7 +9848,54 @@
     "StorageAccount": {
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "allOf": [
+            {
+              "properties": {
+                "id": {
+                  "description": "Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the resource",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "x-ms-azure-resource": true
+            }
+          ],
+          "description": "The resource model definition for a ARM tracked top level resource",
+          "properties": {
+            "location": {
+              "description": "The geo-location where the resource lives",
+              "type": "string",
+              "x-ms-mutability": [
+                "read",
+                "create"
+              ]
+            },
+            "tags": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Resource tags.",
+              "type": "object",
+              "x-ms-mutability": [
+                "read",
+                "create",
+                "update"
+              ]
+            }
+          },
+          "required": [
+            "location"
+          ]
         }
       ],
       "description": "The storage account.",
@@ -8934,12 +9909,14 @@
           "enum": [
             "Storage",
             "StorageV2",
-            "BlobStorage"
+            "BlobStorage",
+            "FileStorage",
+            "BlockBlobStorage"
           ],
           "readOnly": true,
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "Kind"
           }
         },
@@ -8956,7 +9933,7 @@
       }
     },
     "StorageAccountCheckNameAvailabilityParameters": {
-      "description": "The parameters used to check the availabity of the storage account name.",
+      "description": "The parameters used to check the availability of the storage account name.",
       "properties": {
         "name": {
           "description": "The storage account name.",
@@ -8991,11 +9968,13 @@
           "enum": [
             "Storage",
             "StorageV2",
-            "BlobStorage"
+            "BlobStorage",
+            "FileStorage",
+            "BlockBlobStorage"
           ],
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "Kind"
           }
         },
@@ -9010,7 +9989,7 @@
         },
         "sku": {
           "$ref": "#/definitions/Sku",
-          "description": "Required. Gets or sets the sku name."
+          "description": "Required. Gets or sets the SKU name."
         },
         "tags": {
           "additionalProperties": {
@@ -9070,6 +10049,11 @@
     "StorageAccountListResult": {
       "description": "The response from the List Storage Accounts operation.",
       "properties": {
+        "nextLink": {
+          "description": "Request URL that can be used to query next page of storage accounts. Returned when total number of requested storage accounts exceed maximum page size.",
+          "readOnly": true,
+          "type": "string"
+        },
         "value": {
           "description": "Gets the list of storage accounts and their properties.",
           "items": {
@@ -9096,6 +10080,10 @@
             "name": "AccessTier"
           }
         },
+        "azureFilesIdentityBasedAuthentication": {
+          "$ref": "#/definitions/AzureFilesIdentityBasedAuthentication",
+          "description": "Provides the identity based authentication settings for Azure Files."
+        },
         "creationTime": {
           "description": "Gets the creation date and time of the storage account in UTC.",
           "format": "date-time",
@@ -9111,6 +10099,35 @@
           "$ref": "#/definitions/Encryption",
           "description": "Gets the encryption settings on the account. If unspecified, the account is unencrypted.",
           "readOnly": true
+        },
+        "failoverInProgress": {
+          "description": "If the failover is in progress, the value will be true, otherwise, it will be null.",
+          "readOnly": true,
+          "type": "boolean",
+          "x-ms-client-name": "FailoverInProgress"
+        },
+        "geoReplicationStats": {
+          "$ref": "#/definitions/GeoReplicationStats",
+          "description": "Geo Replication Stats",
+          "readOnly": true,
+          "x-ms-client-name": "GeoReplicationStats"
+        },
+        "isHnsEnabled": {
+          "description": "Account HierarchicalNamespace enabled if sets to true.",
+          "type": "boolean",
+          "x-ms-client-name": "IsHnsEnabled"
+        },
+        "largeFileSharesState": {
+          "description": "Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.",
+          "enum": [
+            "Disabled",
+            "Enabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "LargeFileSharesState"
+          }
         },
         "lastGeoFailoverTime": {
           "description": "Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.",
@@ -9185,7 +10202,6 @@
           }
         },
         "supportsHttpsTrafficOnly": {
-          "default": false,
           "description": "Allows https traffic only to storage service if sets to true.",
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
@@ -9207,13 +10223,34 @@
             "name": "AccessTier"
           }
         },
+        "azureFilesIdentityBasedAuthentication": {
+          "$ref": "#/definitions/AzureFilesIdentityBasedAuthentication",
+          "description": "Provides the identity based authentication settings for Azure Files."
+        },
         "customDomain": {
           "$ref": "#/definitions/CustomDomain",
           "description": "User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property."
         },
         "encryption": {
           "$ref": "#/definitions/Encryption",
-          "description": "Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted."
+          "description": "Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled."
+        },
+        "isHnsEnabled": {
+          "description": "Account HierarchicalNamespace enabled if sets to true.",
+          "type": "boolean",
+          "x-ms-client-name": "IsHnsEnabled"
+        },
+        "largeFileSharesState": {
+          "description": "Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.",
+          "enum": [
+            "Disabled",
+            "Enabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "LargeFileSharesState"
+          }
         },
         "networkAcls": {
           "$ref": "#/definitions/NetworkRuleSet",
@@ -9221,8 +10258,7 @@
           "x-ms-client-name": "NetworkRuleSet"
         },
         "supportsHttpsTrafficOnly": {
-          "default": false,
-          "description": "Allows https traffic only to storage service if sets to true.",
+          "description": "Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.",
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
         }
@@ -9243,6 +10279,10 @@
             "name": "AccessTier"
           }
         },
+        "azureFilesIdentityBasedAuthentication": {
+          "$ref": "#/definitions/AzureFilesIdentityBasedAuthentication",
+          "description": "Provides the identity based authentication settings for Azure Files."
+        },
         "customDomain": {
           "$ref": "#/definitions/CustomDomain",
           "description": "Custom domain assigned to the storage account by the user. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property."
@@ -9251,13 +10291,24 @@
           "$ref": "#/definitions/Encryption",
           "description": "Provides the encryption settings on the account. The default setting is unencrypted."
         },
+        "largeFileSharesState": {
+          "description": "Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.",
+          "enum": [
+            "Disabled",
+            "Enabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "LargeFileSharesState"
+          }
+        },
         "networkAcls": {
           "$ref": "#/definitions/NetworkRuleSet",
           "description": "Network rule set",
           "x-ms-client-name": "NetworkRuleSet"
         },
         "supportsHttpsTrafficOnly": {
-          "default": false,
           "description": "Allows https traffic only to storage service if sets to true.",
           "type": "boolean",
           "x-ms-client-name": "EnableHttpsTrafficOnly"
@@ -9268,7 +10319,7 @@
       "description": "The parameters used to regenerate the storage account key.",
       "properties": {
         "keyName": {
-          "description": "The name of storage keys that want to be regenerated, possible vaules are key1, key2.",
+          "description": "The name of storage keys that want to be regenerated, possible values are key1, key2, kerb1, kerb2.",
           "type": "string"
         }
       },
@@ -9288,11 +10339,13 @@
           "enum": [
             "Storage",
             "StorageV2",
-            "BlobStorage"
+            "BlobStorage",
+            "FileStorage",
+            "BlockBlobStorage"
           ],
           "type": "string",
           "x-ms-enum": {
-            "modelAsString": false,
+            "modelAsString": true,
             "name": "Kind"
           }
         },
@@ -9303,7 +10356,7 @@
         },
         "sku": {
           "$ref": "#/definitions/Sku",
-          "description": "Gets or sets the SKU name. Note that the SKU name cannot be updated to Standard_ZRS or Premium_LRS, nor can accounts of those sku names be updated to any other value."
+          "description": "Gets or sets the SKU name. Note that the SKU name cannot be updated to Standard_ZRS, Premium_LRS or Premium_ZRS, nor can accounts of those SKU names be updated to any other value."
         },
         "tags": {
           "additionalProperties": {

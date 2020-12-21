@@ -1,0 +1,588 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "getsupport@patrowl.io",
+      "x-twitter": "patrowl_io"
+    },
+    "description": "This is the API documentation for Patrowl Engines usage.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "title": "Swagger API-REST for Patrowl Engines",
+    "version": "1.0.0",
+    "x-apisguru-categories": [
+      "security"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_patrowl_io_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "converter": {
+          "url": "https://github.com/lucybot/api-spec-converter",
+          "version": "2.7.18"
+        },
+        "format": "openapi",
+        "url": "https://raw.githubusercontent.com/Patrowl/PatrowlDocs/master/api/openapi-patrowl-engines.yaml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "patrowl.local",
+    "x-datafire": {
+      "name": "patrowl_local",
+      "type": "openapi"
+    }
+  },
+  "host": "localhost:5001",
+  "basePath": "/engines/nmap/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Return index page",
+        "operationId": "getDefaultPage",
+        "summary": "Index page"
+      }
+    },
+    "/clean": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Clean all current scans.",
+        "operationId": "CleanScansPage",
+        "summary": "Clean all scans"
+      }
+    },
+    "/clean/{scanId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric ID of the scan to clean",
+            "in": "path",
+            "name": "scanId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Clean scan identified by id.",
+        "operationId": "CleanScanPage",
+        "summary": "Clean scan"
+      }
+    },
+    "/getfindings/{scanId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric ID of the scan to get findings",
+            "in": "path",
+            "name": "scanId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Findings"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Get findings on finished scans.",
+        "operationId": "GetFindingPage",
+        "summary": "Get findings on finished scans"
+      }
+    },
+    "/info": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Return information on engine.",
+        "operationId": "getInfoPage",
+        "summary": "Engine info page"
+      }
+    },
+    "/liveness": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Return liveness page",
+        "operationId": "getLivenessPage",
+        "summary": "Liveness page"
+      }
+    },
+    "/readiness": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Return liveness page",
+        "operationId": "getReadinessPage",
+        "summary": "Readiness page"
+      }
+    },
+    "/reloadconfig": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Reload the configuration file.",
+        "operationId": "reloadConfigurationPage",
+        "summary": "Configuration reloading page"
+      }
+    },
+    "/startscan": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScanDefinition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Start a new scan.",
+        "operationId": "StartScanPage",
+        "summary": "Start a new scan"
+      }
+    },
+    "/status": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Status all current scans.",
+        "operationId": "StatusScansPage",
+        "summary": "Status on all scans"
+      }
+    },
+    "/status/{scanId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric ID of the scan to get status",
+            "in": "path",
+            "name": "scanId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Status of a scan identified by id.",
+        "operationId": "StatusScanPage",
+        "summary": "Status of a scan"
+      }
+    },
+    "/stop/{scanId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Numeric ID of the scan to stop",
+            "in": "path",
+            "name": "scanId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Stop a scan identified by id.",
+        "operationId": "StopScanPage",
+        "summary": "Stop a scan"
+      }
+    },
+    "/stopscans": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Stop all current scans.",
+        "operationId": "StopScansPage",
+        "summary": "Stop all scans"
+      }
+    },
+    "/test": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        },
+        "tags": [
+          "patrowl-engine"
+        ],
+        "description": "Return test page",
+        "operationId": "getTestPage",
+        "summary": "Test page"
+      }
+    }
+  },
+  "definitions": {
+    "ApiResponse": {
+      "properties": {
+        "page": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "Findings": {
+      "items": {
+        "properties": {
+          "confidence": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "issue_id": {
+            "type": "integer"
+          },
+          "meta_links": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "meta_risk": {
+            "properties": {
+              "cvss_base_score": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "cvss_vector": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "exploit_available": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "exploitability_ease": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "patch_publication_date": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "meta_tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "meta_vuln_refs": {
+            "properties": {
+              "bid": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "cpe": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "cve": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "cwe": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "raw": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "low",
+              "medium",
+              "high"
+            ],
+            "type": "string"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "target_addrs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "target_proto": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "timestamp": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ScanDefinition": {
+      "properties": {
+        "assets": {
+          "items": {
+            "properties": {
+              "criticity": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "type": "string"
+              },
+              "datatype": {
+                "enum": [
+                  "ip",
+                  "ip-range",
+                  "ip-subnet",
+                  "fqdn",
+                  "domain",
+                  "url",
+                  "keyword",
+                  "person",
+                  "organisation",
+                  "path",
+                  "application"
+                ],
+                "type": "string"
+              },
+              "id": {
+                "example": "3",
+                "type": "string"
+              },
+              "value": {
+                "example": "8.8.8.8",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "options": {
+          "type": "object"
+        },
+        "scan_id": {
+          "example": 1,
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://github.com/Patrowl/PatrowlDocs"
+      },
+      "description": "SSLScan API documentation",
+      "name": "patrowl-engine"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more about Patrowl",
+    "url": "https://github.com/Patrowl/PatrowlDocs"
+  },
+  "x-components": {}
+}

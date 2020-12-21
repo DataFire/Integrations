@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_applicationinsights_componentproactivedetection_api",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for ApplicationInsightsManagementClient",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/azure.com/applicationinsights-componentProactiveDetection_API/2015-05-01/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/azure.com/applicationinsights-componentProactiveDetection_API/2018-05-01-preview/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

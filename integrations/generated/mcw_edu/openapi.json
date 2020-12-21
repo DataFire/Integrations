@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "http"
-  ],
-  "host": "rest.rgd.mcw.edu",
-  "basePath": "/rgdws",
   "info": {
     "contact": {
       "email": "RGD.Data2@mcw.edu",
@@ -18,7 +13,7 @@
       "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
     },
     "termsOfService": "http://rgd.mcw.edu/wg/citing-rgd",
-    "title": "Rat Genome Database",
+    "title": "Rat Genome Database REST API",
     "version": "1.1",
     "x-apisguru-categories": [
       "open_data"
@@ -31,6 +26,11 @@
         "format": "swagger",
         "url": "http://rest.rgd.mcw.edu/rgdws/v2/api-docs",
         "version": "2.0"
+      },
+      {
+        "format": "openapi",
+        "url": "http://rest.rgd.mcw.edu/rgdws/v2/api-docs",
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -40,79 +40,307 @@
       "type": "openapi"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "*/*"
-  ],
-  "tags": [
-    {
-      "name": "Annotation"
-    },
-    {
-      "description": "Gene Web Service",
-      "name": "gene-web-service"
-    },
-    {
-      "name": "Pathway"
-    },
-    {
-      "description": "Lookup Web Service",
-      "name": "lookup-web-service"
-    },
-    {
-      "description": "Alliance of Genome Resources",
-      "name": "AGR"
-    },
-    {
-      "name": "Phenotype"
-    },
-    {
-      "description": "Stats Web Service",
-      "name": "stats-web-service"
-    },
-    {
-      "description": "NIH Data Commons",
-      "name": "NIHdatacommons"
-    },
-    {
-      "description": "Annotation Web Service",
-      "name": "annotation-web-service"
-    },
-    {
-      "name": "Gene"
-    },
-    {
-      "name": "Lookup"
-    },
-    {
-      "description": "Phenotype Web Service",
-      "name": "phenotype-web-service"
-    },
-    {
-      "name": "Rat Strain"
-    },
-    {
-      "description": "Pathway Web Service",
-      "name": "pathway-web-service"
-    },
-    {
-      "description": "Strain Web Service",
-      "name": "strain-web-service"
-    },
-    {
-      "name": "QTL"
-    },
-    {
-      "description": "QTL Web Service",
-      "name": "qtl-web-service"
-    }
-  ],
+  "basePath": "/rest.rgd.mcw.edu/rgdws",
   "paths": {
+    "/agr/affectedGenomicModels/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getAffectedGenomicModelsUsingGET",
+        "summary": "Get affected genomic models (rat strains with gene alleles) submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/agr/alleles/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getAllelesForTaxonUsingGET",
+        "summary": "Get gene allele records submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/agr/expression/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getExpressionForTaxonUsingGET",
+        "summary": "Get expression annotations submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/agr/phenotypes/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getPhenotypesForTaxonUsingGET",
+        "summary": "Get phenotype annotations submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/agr/variants/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getVariantsForTaxonUsingGET",
+        "summary": "Get basic variant records submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/agr/{taxonId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "The taxon ID for species",
+            "in": "path",
+            "name": "taxonId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "AGR"
+        ],
+        "operationId": "getGenesForLatestAssemblyUsingGET",
+        "summary": "Get gene records submitted by RGD to AGR by taxonId"
+      }
+    },
+    "/annotations/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AnnotationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Annotation"
+              },
+              "type": "array"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Annotation"
+        ],
+        "operationId": "getAnnotationsUsingPOST",
+        "summary": "Return a list of genes annotated to an ontology term"
+      }
+    },
     "/annotations/accId/{rgdId}": {
       "get": {
-        "operationId": "getTermAccIdsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID",
@@ -143,15 +371,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list ontology term accession IDs annotated to an rgd object",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getTermAccIdsUsingGET",
+        "summary": "Returns a list ontology term accession IDs annotated to an rgd object"
       }
     },
     "/annotations/count/{accId}/{includeChildren}": {
       "get": {
-        "operationId": "getAnnotationCountByAccIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology term accession ID",
@@ -186,15 +417,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns annotation count for ontology accession ID",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationCountByAccIdUsingGET",
+        "summary": "Returns annotation count for ontology accession ID"
       }
     },
     "/annotations/count/{accId}/{speciesTypeKey}/{includeChildren}": {
       "get": {
-        "operationId": "getAnnotationCountByAccIdAndSpeciesUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology term accession ID",
@@ -237,15 +471,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns annotation count for ontology accession ID and speicies",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationCountByAccIdAndSpeciesUsingGET",
+        "summary": "Returns annotation count for ontology accession ID and speicies"
       }
     },
     "/annotations/count/{accId}/{speciesTypeKey}/{includeChildren}/{objectType}": {
       "get": {
-        "operationId": "getAnnotationCountByAccIdAndObjectTypeUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology term accession ID",
@@ -296,15 +533,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns annotation count for ontology accession ID and object type",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationCountByAccIdAndObjectTypeUsingGET",
+        "summary": "Returns annotation count for ontology accession ID and object type"
       }
     },
     "/annotations/reference/{refRgdId}": {
       "get": {
-        "operationId": "getAnnotsByRefrerenceUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Reference RGD ID",
@@ -335,15 +575,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list of annotations for a reference",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotsByRefrerenceUsingGET",
+        "summary": "Returns a list of annotations for a reference"
       }
     },
     "/annotations/rgdId/{rgdId}": {
       "get": {
-        "operationId": "getAnnotationsByRgdIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID",
@@ -374,15 +617,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list of annotations by RGD ID",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationsByRgdIdUsingGET",
+        "summary": "Returns a list of annotations by RGD ID"
       }
     },
     "/annotations/rgdId/{rgdId}/{ontologyPrefix}": {
       "get": {
-        "operationId": "getAnnotationsByRgdIdAndOntologyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID",
@@ -420,15 +666,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list of annotations by RGD ID and ontology prefix",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationsByRgdIdAndOntologyUsingGET",
+        "summary": "Returns a list of annotations by RGD ID and ontology prefix"
       }
     },
     "/annotations/{accId}/{rgdId}": {
       "get": {
-        "operationId": "getAnnotationsByAccIdAndRgdIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology Term Accession ID",
@@ -466,15 +715,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list of annotations by RGD ID and ontology term accession ID",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationsByAccIdAndRgdIdUsingGET",
+        "summary": "Returns a list of annotations by RGD ID and ontology term accession ID"
       }
     },
     "/annotations/{accId}/{speciesTypeKey}/{includeChildren}": {
       "get": {
-        "operationId": "getAnnotationsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology term accession ID",
@@ -519,15 +771,110 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list annotations for an ontology term or a term and it's children",
         "tags": [
           "Annotation"
-        ]
+        ],
+        "operationId": "getAnnotationsUsingGET",
+        "summary": "Returns a list annotations for an ontology term or a term and it's children"
+      }
+    },
+    "/enrichment/annotatedGenes": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "geneRequest",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnrichmentGeneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "enrichment-web-service"
+        ],
+        "operationId": "getEnrichmentDataUsingPOST",
+        "summary": "Return a list of genes annotated to the term.Genes are rgdids separated by comma.Species type is an integer value.term is the ontology"
+      }
+    },
+    "/enrichment/data": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "enrichmentRequest",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnrichmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "enrichment-web-service"
+        ],
+        "operationId": "getEnrichmentDataUsingPOST_1",
+        "summary": "Return a chart of ontology terms annotated to the genes.Genes are rgdids separated by comma.Species type is an integer value.Aspect is the Ontology group"
       }
     },
     "/genes/affyId/{affyId}/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGenesByAffyIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Affymetrix ID",
@@ -565,15 +912,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of genes for an affymetrix ID",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesByAffyIdUsingGET",
+        "summary": "Return a list of genes for an affymetrix ID"
       }
     },
     "/genes/alias/{aliasSymbol}/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGenesByAliasSymbolUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Gene alias symbol",
@@ -611,15 +961,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of genes for an alias and species",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesByAliasSymbolUsingGET",
+        "summary": "Return a list of genes for an alias and species"
       }
     },
     "/genes/allele/{rgdId}": {
       "get": {
-        "operationId": "getGeneAllelesUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID of gene",
@@ -650,15 +1003,107 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of gene alleles",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGeneAllelesUsingGET",
+        "summary": "Return a list of gene alleles"
+      }
+    },
+    "/genes/annotation": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AnnotatedGeneRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Gene"
+              },
+              "type": "array"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Gene"
+        ],
+        "operationId": "getAnnotatedGenesUsingPOST",
+        "summary": "Return a list of genes annotated to an ontology term"
+      }
+    },
+    "/genes/annotation/{accId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Accesstion ID",
+            "in": "path",
+            "name": "accId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Gene"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Gene"
+        ],
+        "operationId": "getAllAnnotatedGenesUsingGET",
+        "summary": "Return a list of genes annotated to an ontology term"
       }
     },
     "/genes/annotation/{accId}/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGenesAnnotatedUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Ontology term accession ID",
@@ -696,15 +1141,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of genes annotated to an ontology term",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesAnnotatedUsingGET",
+        "summary": "Return a list of genes annotated to an ontology term"
       }
     },
     "/genes/keyword/{keyword}/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGenesByKeywordUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Search keyword",
@@ -742,15 +1190,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of genes by keyword and species type key",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesByKeywordUsingGET",
+        "summary": "Return a list of genes by keyword and species type key"
       }
     },
     "/genes/map/{mapKey}": {
       "get": {
-        "operationId": "getGeneByMapKeyUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "A list of RGD assembly map keys can be found in the lookup service",
@@ -781,15 +1232,135 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of all genes with position information for an assembly",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGeneByMapKeyUsingGET",
+        "summary": "Return a list of all genes with position information for an assembly"
       }
     },
-    "/genes/ortholog/{rgdId}": {
+    "/genes/mapped/{chr}/{start}/{stop}/{mapKey}": {
       "get": {
-        "operationId": "getGeneOrthologsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Chromosome",
+            "in": "path",
+            "name": "chr",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start Position",
+            "format": "int64",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Stop Position",
+            "format": "int64",
+            "in": "path",
+            "name": "stop",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "A list of RGD assembly map keys can be found in the lookup service",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MappedGene"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Gene"
+        ],
+        "operationId": "getMappedGenesByPositionUsingGET",
+        "summary": "Return a list of genes position and map key"
+      }
+    },
+    "/genes/orthologs": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "orthologRequest",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrthologRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "items": {
+                  "$ref": "#/definitions/Gene"
+                },
+                "type": "array"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Gene"
+        ],
+        "operationId": "getOrthologsByListUsingPOST",
+        "summary": "Return a list of gene orthologs"
+      }
+    },
+    "/genes/orthologs/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID of a gene",
@@ -820,15 +1391,83 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of gene orthologs",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGeneOrthologsUsingGET",
+        "summary": "Return a list of gene orthologs"
+      }
+    },
+    "/genes/region/{chr}/{start}/{stop}/{mapKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Chromosome",
+            "in": "path",
+            "name": "chr",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start Position",
+            "format": "int64",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Stop Position",
+            "format": "int64",
+            "in": "path",
+            "name": "stop",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "A list of RGD assembly map keys can be found in the lookup service",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MappedGenePosition"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Gene"
+        ],
+        "operationId": "getGenesInRegionUsingGET",
+        "summary": "Return a list of genes in region"
       }
     },
     "/genes/species/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGenesBySpeciesUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "A list of RGD species type keys can be found in the lookup service",
@@ -859,15 +1498,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of all genes for a species in RGD",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesBySpeciesUsingGET",
+        "summary": "Return a list of all genes for a species in RGD"
       }
     },
     "/genes/{chr}/{start}/{stop}/{mapKey}": {
       "get": {
-        "operationId": "getGenesByPositionUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Chromosome",
@@ -921,15 +1563,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of genes position and map key",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGenesByPositionUsingGET",
+        "summary": "Return a list of genes position and map key"
       }
     },
     "/genes/{rgdId}": {
       "get": {
-        "operationId": "getGeneByRgdIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "The RGD ID of a Gene in RGD",
@@ -957,15 +1602,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get a gene record by RGD ID",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGeneByRgdIdUsingGET",
+        "summary": "Get a gene record by RGD ID"
       }
     },
     "/genes/{symbol}/{speciesTypeKey}": {
       "get": {
-        "operationId": "getGeneBySymbolUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Gene Symbol",
@@ -1000,15 +1648,19 @@
             "description": "Not Found"
           }
         },
-        "summary": "Get a gene record by symbol and species type key",
         "tags": [
           "Gene"
-        ]
+        ],
+        "operationId": "getGeneBySymbolUsingGET",
+        "summary": "Get a gene record by symbol and species type key"
       }
     },
     "/lookup/geneTypes": {
       "get": {
-        "operationId": "getGeneTypesUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -1029,15 +1681,918 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list of gene types avialable in RGD",
         "tags": [
           "Lookup"
-        ]
+        ],
+        "operationId": "getGeneTypesUsingGET",
+        "summary": "Returns a list of gene types avialable in RGD"
+      }
+    },
+    "/lookup/id/map/EnsemblGene": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblGeneMappingUsingPOST",
+        "summary": "Translate RGD IDs to Ensembl Gene IDs"
+      }
+    },
+    "/lookup/id/map/EnsemblGene/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblGeneMappingUsingGET",
+        "summary": "Translate an RGD ID to an Ensembl Gene  ID"
+      }
+    },
+    "/lookup/id/map/EnsemblProtein": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblProteinMappingUsingPOST",
+        "summary": "Translate RGD IDs to Ensembl Protein IDs"
+      }
+    },
+    "/lookup/id/map/EnsemblProtein/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblProteinMappingUsingGET",
+        "summary": "Translate an RGD ID to an Ensembl Protein ID"
+      }
+    },
+    "/lookup/id/map/EnsemblTranscript": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblTranscriptMappingUsingPOST",
+        "summary": "Translate RGD IDs to Ensembl Transcript IDs"
+      }
+    },
+    "/lookup/id/map/EnsemblTranscript/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getEnsemblTranscriptMappingUsingGET",
+        "summary": "Translate an RGD ID to an Ensembl Transcript ID"
+      }
+    },
+    "/lookup/id/map/GTEx": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGTEXMappingUsingPOST",
+        "summary": "Translate RGD IDs to GTEx IDs"
+      }
+    },
+    "/lookup/id/map/GTEx/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGTEXMappingUsingGET",
+        "summary": "Translate an RGD ID to an GTEx ID"
+      }
+    },
+    "/lookup/id/map/GenBankNucleotide": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGenBankNucleotideMappingUsingPOST",
+        "summary": "Translate RGD IDs to GenBank Nucleotide IDs"
+      }
+    },
+    "/lookup/id/map/GenBankNucleotide/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGenBankNucleotideMappingUsingGET",
+        "summary": "Translate an RGD ID to a GenBank Nucleotide ID"
+      }
+    },
+    "/lookup/id/map/GenBankProtein": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGenBankProteinMappingUsingPOST",
+        "summary": "Translate RGD IDs to GenBank Protein IDs"
+      }
+    },
+    "/lookup/id/map/GenBankProtein/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getGenBankProteinMappingUsingGET",
+        "summary": "Translate an RGD ID to a GenBank Protein ID"
+      }
+    },
+    "/lookup/id/map/HGNC": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getHGNCMappingUsingPOST",
+        "summary": "Translate RGD IDs to HGNC IDs"
+      }
+    },
+    "/lookup/id/map/HGNC/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getHGNCMappingUsingGET",
+        "summary": "Translate an RGD ID to an HGNC ID"
+      }
+    },
+    "/lookup/id/map/MGI": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getMGIMappingUsingPOST",
+        "summary": "Translate RGD IDs to MGI IDs"
+      }
+    },
+    "/lookup/id/map/MGI/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getMGIMappingUsingGET",
+        "summary": "Translate an RGD ID to an MGI ID"
+      }
+    },
+    "/lookup/id/map/NCBIGene": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getNCBIGeneMappingUsingPOST",
+        "summary": "Translate RGD IDs to NCBI Gene IDs"
+      }
+    },
+    "/lookup/id/map/NCBIGene/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getNCBIGeneMappingUsingGET",
+        "summary": "Translate an RGD ID to an NCBI Gene ID"
+      }
+    },
+    "/lookup/id/map/UniProt": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "data",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getUniProtMappingUsingPOST",
+        "summary": "Translate RGD IDs to UniProt IDs"
+      }
+    },
+    "/lookup/id/map/UniProt/{rgdId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD ID",
+            "format": "int32",
+            "in": "path",
+            "name": "rgdId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getUniProtMappingUsingGET",
+        "summary": "Translate an RGD ID to a UniProt ID"
       }
     },
     "/lookup/maps/{speciesTypeKey}": {
       "get": {
-        "operationId": "getMapsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD species type key. A full list of keys is available throught the lookup service.  1=human, 2=mouse, 3=rat,ect",
@@ -1068,15 +2623,19 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list assembly maps for a species",
         "tags": [
           "Lookup"
-        ]
+        ],
+        "operationId": "getMapsUsingGET",
+        "summary": "Return a list assembly maps for a species"
       }
     },
     "/lookup/speciesTypeKeys": {
       "get": {
-        "operationId": "getSpeciesTypesUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -1094,15 +2653,315 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a Map of species type keys available in RGD",
         "tags": [
           "Lookup"
-        ]
+        ],
+        "operationId": "getSpeciesTypesUsingGET",
+        "summary": "Return a Map of species type keys available in RGD"
+      }
+    },
+    "/lookup/standardUnit/{accId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "RGD term acc",
+            "in": "path",
+            "name": "accId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Lookup"
+        ],
+        "operationId": "getMapsUsingGET_1",
+        "summary": "Return a standardUnit for an ontology if it exists"
+      }
+    },
+    "/maps/chr/{chromosome}/{mapKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "chromosome",
+            "in": "path",
+            "name": "chromosome",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "mapKey",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Chromosome"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Chromosome",
+          "Map"
+        ],
+        "operationId": "getChromosomeByAssemblyUsingGET",
+        "summary": "Return a list of chromosomes"
+      }
+    },
+    "/maps/chr/{mapKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "mapKey",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Chromosome",
+          "Map"
+        ],
+        "operationId": "getChromosomesByAssemblyUsingGET",
+        "summary": "Return a list of chromosomes"
+      }
+    },
+    "/maps/{speciesTypeKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "species Key",
+            "format": "int32",
+            "in": "path",
+            "name": "speciesTypeKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Map"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Map"
+        ],
+        "operationId": "getMapsBySpeciesUsingGET",
+        "summary": "Return a list of assemblies"
+      }
+    },
+    "/ontology/ont/{accId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Accession ID",
+            "in": "path",
+            "name": "accId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Ontology"
+        ],
+        "operationId": "getOntDagsUsingGET",
+        "summary": "Returns child and parent terms for Accession ID"
+      }
+    },
+    "/ontology/term/{accId1}/{accId2}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Child Term Accession ID",
+            "in": "path",
+            "name": "accId1",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Parent Term Accession ID",
+            "in": "path",
+            "name": "accId2",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Ontology"
+        ],
+        "operationId": "isDescendantOfUsingGET",
+        "summary": "Returns true or false for terms"
+      }
+    },
+    "/ontology/term/{accId}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Term Accession ID",
+            "in": "path",
+            "name": "accId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Term"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Ontology"
+        ],
+        "operationId": "getTermUsingGET",
+        "summary": "Returns term for Accession ID"
       }
     },
     "/pathways/diagrams/search/{searchString}": {
       "get": {
-        "operationId": "searchPathwaysUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Free text search string",
@@ -1132,15 +2991,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of pathways based on search term",
         "tags": [
           "Pathway"
-        ]
+        ],
+        "operationId": "searchPathwaysUsingGET",
+        "summary": "Return a list of pathways based on search term"
       }
     },
     "/pathways/diagramsForCategory/{category}": {
       "get": {
-        "operationId": "getPathwaysWithDiagramsForCategoryUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Pathway Category",
@@ -1170,15 +3032,75 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of pathways based on category provided",
         "tags": [
           "Pathway"
-        ]
+        ],
+        "operationId": "getPathwaysWithDiagramsForCategoryUsingGET",
+        "summary": "Return a list of pathways based on category provided"
+      }
+    },
+    "/phenotype/phenominer/chart/{speciesTypeKey}/{refRgdId}/{termString}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Species Type Key - 3=rat 4=chinchilla ",
+            "format": "int32",
+            "in": "path",
+            "name": "speciesTypeKey",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Reference RGD ID for a study",
+            "format": "int32",
+            "in": "path",
+            "name": "refRgdId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "List of term accession IDs",
+            "in": "path",
+            "name": "termString",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Quantitative Phenotype"
+        ],
+        "operationId": "getChartInfoUsingGET",
+        "summary": "Return a list of quantitative phenotypes values based on a combination of Clinical Measurement, Experimental Condition, Rat Strain, and/or Measurement Method ontology terms.  Results will be all records that match all terms submitted.  Ontology ids should be submitted as a comma delimited list (ex. RS:0000029,CMO:0000155,CMO:0000139).  Species type is an integer value (3=rat, 4=chinchilla).  Reference RGD ID for a study works like a filter."
       }
     },
     "/phenotype/phenominer/chart/{speciesTypeKey}/{termString}": {
       "get": {
-        "operationId": "getChartInfoUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Species Type Key - 3=rat 4=chinchilla ",
@@ -1216,15 +3138,83 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a list of pathways based on search term and species type.  3=rat 4=chinchilla",
         "tags": [
-          "Phenotype"
-        ]
+          "Quantitative Phenotype"
+        ],
+        "operationId": "getChartInfoUsingGET_1",
+        "summary": "Return a list of quantitative phenotypes values based on a combination of Clinical Measurement, Experimental Condition, Rat Strain, and/or Measurement Method ontology terms.  Results will be all records that match all terms submitted.  Ontology ids should be submitted as a comma delimited list (ex. RS:0000029,CMO:0000155,CMO:0000139).  Species type is an integer value (3=rat, 4=chinchilla)"
+      }
+    },
+    "/qtls/mapped/{chr}/{start}/{stop}/{mapKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Chromosome",
+            "in": "path",
+            "name": "chr",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start Position",
+            "format": "int64",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Stop Position",
+            "format": "int64",
+            "in": "path",
+            "name": "stop",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "A list of assembly map keys can be found using the lookup service",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MappedQTL"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "QTL"
+        ],
+        "operationId": "getMappedQTLByPositionUsingGET",
+        "summary": "Returns a list QTL for given position and assembly map"
       }
     },
     "/qtls/{chr}/{start}/{stop}/{mapKey}": {
       "get": {
-        "operationId": "getQtlListByPositionUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Chromosome",
@@ -1278,15 +3268,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Returns a list QTL for given position and assembly map",
         "tags": [
           "QTL"
-        ]
+        ],
+        "operationId": "getQtlListByPositionUsingGET",
+        "summary": "Returns a list QTL for given position and assembly map"
       }
     },
     "/qtls/{rgdId}": {
       "get": {
-        "operationId": "getQTLByRgdIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID",
@@ -1314,15 +3307,83 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a QTL for provided RGD ID",
         "tags": [
           "QTL"
-        ]
+        ],
+        "operationId": "getQTLByRgdIdUsingGET",
+        "summary": "Return a QTL for provided RGD ID"
+      }
+    },
+    "/sslps/mapped/{chr}/{start}/{stop}/{mapKey}": {
+      "get": {
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "description": "Chromosome",
+            "in": "path",
+            "name": "chr",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Start Position",
+            "format": "int64",
+            "in": "path",
+            "name": "start",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Stop Position",
+            "format": "int64",
+            "in": "path",
+            "name": "stop",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "A list of assembly map keys can be found using the lookup service",
+            "format": "int32",
+            "in": "path",
+            "name": "mapKey",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/MappedSSLP"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "SSLP"
+        ],
+        "operationId": "getMappedSSLPByPositionUsingGET",
+        "summary": "Returns a list SSLP for given position and assembly map"
       }
     },
     "/stats/count/activeObject/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getActiveObjectCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1360,15 +3421,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of active objects by type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getActiveObjectCountUsingGET",
+        "summary": "Count of active objects by type, for specified species and date"
       }
     },
     "/stats/count/geneType/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getGeneTypeCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1406,15 +3470,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of gene types, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getGeneTypeCountUsingGET",
+        "summary": "Count of gene types, for specified species and date"
       }
     },
     "/stats/count/objectStatus/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectStatusCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1452,15 +3519,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of objects with given status, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectStatusCountUsingGET",
+        "summary": "Count of objects with given status, for specified species and date"
       }
     },
     "/stats/count/objectWithRefSeq/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithRefSeqCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1498,15 +3568,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of objects with reference sequence(s), by object type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithRefSeqCountUsingGET",
+        "summary": "Count of objects with reference sequence(s), by object type, for specified species and date"
       }
     },
     "/stats/count/objectWithReference/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithReferenceCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1544,15 +3617,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of objects with reference, by object type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithReferenceCountUsingGET",
+        "summary": "Count of objects with reference, by object type, for specified species and date"
       }
     },
     "/stats/count/objectWithXdb/{speciesTypeKey}/{objectKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithXDBsCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1598,15 +3674,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of objects with external database ids, by database id, for specified species, object type and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithXDBsCountUsingGET",
+        "summary": "Count of objects with external database ids, by database id, for specified species, object type and date"
       }
     },
     "/stats/count/proteinInteraction/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getProteinInteractionCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1644,15 +3723,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of protein interactions, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getProteinInteractionCountUsingGET",
+        "summary": "Count of protein interactions, for specified species and date"
       }
     },
     "/stats/count/qtlInheritanceType/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getQtlInheritanceTypeCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1690,15 +3772,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of strains, by qtl inheritance type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getQtlInheritanceTypeCountUsingGET",
+        "summary": "Count of strains, by qtl inheritance type, for specified species and date"
       }
     },
     "/stats/count/retiredObject/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getRetiredObjectCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1736,15 +3821,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of retired objects by type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getRetiredObjectCountUsingGET",
+        "summary": "Count of retired objects by type, for specified species and date"
       }
     },
     "/stats/count/strainType/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getStrainTypeCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1782,15 +3870,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of strain types, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getStrainTypeCountUsingGET",
+        "summary": "Count of strain types, for specified species and date"
       }
     },
     "/stats/count/withdrawnObject/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getWithdrawnObjectCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1828,15 +3919,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of withdrawn objects by type, for specified species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getWithdrawnObjectCountUsingGET",
+        "summary": "Count of withdrawn objects by type, for specified species and date"
       }
     },
     "/stats/count/xdb/{speciesTypeKey}/{dateYYYYMMDD}": {
       "get": {
-        "operationId": "getXdbsCountUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1874,15 +3968,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count of external database ids, for specied species and date",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getXdbsCountUsingGET",
+        "summary": "Count of external database ids, for specied species and date"
       }
     },
     "/stats/diff/activeObject/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getActiveObjectDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1927,15 +4024,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of active objects, by type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getActiveObjectDiffUsingGET",
+        "summary": "Count difference of active objects, by type, for specified species and date range"
       }
     },
     "/stats/diff/geneType/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getGeneTypeDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -1980,15 +4080,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of gene types, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getGeneTypeDiffUsingGET",
+        "summary": "Count difference of gene types, for specified species and date range"
       }
     },
     "/stats/diff/objectStatus/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectStatusDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2033,15 +4136,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of objects with given status, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectStatusDiffUsingGET",
+        "summary": "Count difference of objects with given status, for specified species and date range"
       }
     },
     "/stats/diff/objectWithRefSeq/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithRefSeqDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2086,15 +4192,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of objects with reference sequence(s), by object type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithRefSeqDiffUsingGET",
+        "summary": "Count difference of objects with reference sequence(s), by object type, for specified species and date range"
       }
     },
     "/stats/diff/objectWithReference/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithReferenceDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2139,15 +4248,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of objects with reference, by object type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithReferenceDiffUsingGET",
+        "summary": "Count difference of objects with reference, by object type, for specified species and date range"
       }
     },
     "/stats/diff/objectWithXdb/{speciesTypeKey}/{objectKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getObjectsWithXDBsDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2200,15 +4312,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of objects with external database ids, by database id, for specified species, object type and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getObjectsWithXDBsDiffUsingGET",
+        "summary": "Count difference of objects with external database ids, by database id, for specified species, object type and date range"
       }
     },
     "/stats/diff/proteinInteraction/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getProteinInteractionDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2253,15 +4368,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of protein interactions, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getProteinInteractionDiffUsingGET",
+        "summary": "Count difference of protein interactions, for specified species and date range"
       }
     },
     "/stats/diff/qtlInheritanceType/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getQtlInheritanceTypeDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2306,15 +4424,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of strains, by qtl inheritance type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getQtlInheritanceTypeDiffUsingGET",
+        "summary": "Count difference of strains, by qtl inheritance type, for specified species and date range"
       }
     },
     "/stats/diff/retiredObject/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getRetiredObjectDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2359,15 +4480,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of retired objects, by type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getRetiredObjectDiffUsingGET",
+        "summary": "Count difference of retired objects, by type, for specified species and date range"
       }
     },
     "/stats/diff/strainType/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getStrainTypeDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2412,15 +4536,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of strain types, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getStrainTypeDiffUsingGET",
+        "summary": "Count difference of strain types, for specified species and date range"
       }
     },
     "/stats/diff/withdrawnObject/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getWithdrawnObjectDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2465,15 +4592,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of withdrawn objects, by type, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getWithdrawnObjectDiffUsingGET",
+        "summary": "Count difference of withdrawn objects, by type, for specified species and date range"
       }
     },
     "/stats/diff/xdb/{speciesTypeKey}/{dateFromYYYYMMDD}/{dateToYYYYMMDD}": {
       "get": {
-        "operationId": "getXdbsDiffUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "speciesTypeKey",
@@ -2518,15 +4648,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Count difference of external database ids, for specified species and date range",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getXdbsDiffUsingGET",
+        "summary": "Count difference of external database ids, for specified species and date range"
       }
     },
     "/stats/term/{accId}/{filterAccId}": {
       "get": {
-        "operationId": "getTermStatsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "accId",
@@ -2564,15 +4697,19 @@
             "description": "Not Found"
           }
         },
-        "summary": "getTermStats",
         "tags": [
           "Statistics"
-        ]
+        ],
+        "operationId": "getTermStatsUsingGET",
+        "summary": "getTermStats"
       }
     },
     "/strains/all": {
       "get": {
-        "operationId": "getAllStrainsUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -2593,15 +4730,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return all active strains in RGD",
         "tags": [
           "Rat Strain"
-        ]
+        ],
+        "operationId": "getAllStrainsUsingGET",
+        "summary": "Return all active strains in RGD"
       }
     },
     "/strains/{chr}/{start}/{stop}/{mapKey}": {
       "get": {
-        "operationId": "getStrainsByPositionUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "Chromosome",
@@ -2655,15 +4795,18 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return all active strains by position",
         "tags": [
           "Rat Strain"
-        ]
+        ],
+        "operationId": "getStrainsByPositionUsingGET",
+        "summary": "Return all active strains by position"
       }
     },
     "/strains/{rgdId}": {
       "get": {
-        "operationId": "getStrainByRgdIdUsingGET",
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [
           {
             "description": "RGD ID of the strain",
@@ -2691,19 +4834,45 @@
             "description": "Not Found"
           }
         },
-        "summary": "Return a strain by RGD ID",
         "tags": [
           "Rat Strain"
-        ]
+        ],
+        "operationId": "getStrainByRgdIdUsingGET",
+        "summary": "Return a strain by RGD ID"
       }
     }
   },
   "definitions": {
+    "AnnotatedGeneRequest": {
+      "properties": {
+        "accId": {
+          "type": "string"
+        },
+        "evidenceCodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "speciesTypeKeys": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "title": "AnnotatedGeneRequest",
+      "type": "object"
+    },
     "Annotation": {
       "properties": {
         "annotatedObjectRgdId": {
           "format": "int32",
           "type": "integer"
+        },
+        "annotationExtension": {
+          "type": "string"
         },
         "aspect": {
           "type": "string"
@@ -2722,9 +4891,8 @@
         "evidence": {
           "type": "string"
         },
-        "expRgdId": {
-          "format": "int32",
-          "type": "integer"
+        "geneProductFormId": {
+          "type": "string"
         },
         "key": {
           "format": "int32",
@@ -2778,19 +4946,138 @@
           "type": "string"
         }
       },
+      "title": "Annotation",
+      "type": "object"
+    },
+    "AnnotationRequest": {
+      "properties": {
+        "evidenceCodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "speciesTypeKeys": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "termAcc": {
+          "type": "string"
+        }
+      },
+      "title": "AnnotationRequest",
+      "type": "object"
+    },
+    "Chromosome": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "contigCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gapCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gapLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "genbankId": {
+          "type": "string"
+        },
+        "mapKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ordinalNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "refseqId": {
+          "type": "string"
+        },
+        "seqLength": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "Chromosome",
+      "type": "object"
+    },
+    "EnrichmentGeneRequest": {
+      "properties": {
+        "accId": {
+          "type": "string"
+        },
+        "geneSymbols": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "species": {
+          "type": "string"
+        }
+      },
+      "title": "EnrichmentGeneRequest",
+      "type": "object"
+    },
+    "EnrichmentRequest": {
+      "properties": {
+        "aspect": {
+          "type": "string"
+        },
+        "genes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "species": {
+          "type": "string"
+        }
+      },
+      "title": "EnrichmentRequest",
       "type": "object"
     },
     "Gene": {
       "properties": {
+        "agrDescription": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
-        "function": {
+        "ensemblFullName": {
+          "type": "string"
+        },
+        "ensemblGeneSymbol": {
+          "type": "string"
+        },
+        "ensemblGeneType": {
+          "type": "string"
+        },
+        "geneSource": {
           "type": "string"
         },
         "key": {
           "format": "int32",
           "type": "integer"
+        },
+        "mergedDescription": {
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -2802,10 +5089,10 @@
           "format": "date-time",
           "type": "string"
         },
-        "notes": {
+        "nomenSource": {
           "type": "string"
         },
-        "product": {
+        "notes": {
           "type": "string"
         },
         "refSeqStatus": {
@@ -2832,6 +5119,7 @@
           "type": "boolean"
         }
       },
+      "title": "Gene",
       "type": "object"
     },
     "Map": {
@@ -2863,9 +5151,18 @@
           "format": "int32",
           "type": "integer"
         },
+        "refSeqAssemblyAcc": {
+          "type": "string"
+        },
+        "refSeqAssemblyName": {
+          "type": "string"
+        },
         "rgdId": {
           "format": "int32",
           "type": "integer"
+        },
+        "source": {
+          "type": "string"
         },
         "speciesTypeKey": {
           "format": "int32",
@@ -2881,6 +5178,7 @@
           "type": "string"
         }
       },
+      "title": "Map",
       "type": "object"
     },
     "MapPair": {
@@ -2892,6 +5190,7 @@
           "type": "string"
         }
       },
+      "title": "MapPair",
       "type": "object"
     },
     "MappedGene": {
@@ -2918,6 +5217,112 @@
           "type": "string"
         }
       },
+      "title": "MappedGene",
+      "type": "object"
+    },
+    "MappedGenePosition": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "mapKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "start": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "stop": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "strand": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "title": "MappedGenePosition",
+      "type": "object"
+    },
+    "MappedQTL": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "mapKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "qtl": {
+          "$ref": "#/definitions/QTL"
+        },
+        "start": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "stop": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "strand": {
+          "type": "string"
+        }
+      },
+      "title": "MappedQTL",
+      "type": "object"
+    },
+    "MappedSSLP": {
+      "properties": {
+        "chromosome": {
+          "type": "string"
+        },
+        "mapKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sslp": {
+          "$ref": "#/definitions/SSLP"
+        },
+        "start": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "stop": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "strand": {
+          "type": "string"
+        }
+      },
+      "title": "MappedSSLP",
+      "type": "object"
+    },
+    "OrthologRequest": {
+      "properties": {
+        "rgdIds": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "speciesTypeKeys": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "title": "OrthologRequest",
       "type": "object"
     },
     "Pathway": {
@@ -2953,6 +5358,7 @@
           "type": "array"
         }
       },
+      "title": "Pathway",
       "type": "object"
     },
     "PathwayObject": {
@@ -2984,6 +5390,7 @@
           "type": "integer"
         }
       },
+      "title": "PathwayObject",
       "type": "object"
     },
     "QTL": {
@@ -3056,6 +5463,20 @@
           "type": "number"
         }
       },
+      "title": "QTL",
+      "type": "object"
+    },
+    "RGDIDListRequest": {
+      "properties": {
+        "rgdIds": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "title": "RGDIDListRequest",
       "type": "object"
     },
     "Reference": {
@@ -3122,6 +5543,47 @@
           "type": "string"
         }
       },
+      "title": "Reference",
+      "type": "object"
+    },
+    "SSLP": {
+      "properties": {
+        "expectedSize": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "forwardSeq": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "reverseSeq": {
+          "type": "string"
+        },
+        "rgdId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "speciesTypeKey": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sslpType": {
+          "type": "string"
+        },
+        "templateSeq": {
+          "type": "string"
+        }
+      },
+      "title": "SSLP",
       "type": "object"
     },
     "Status": {
@@ -3151,6 +5613,7 @@
           "type": "integer"
         }
       },
+      "title": "Status",
       "type": "object"
     },
     "Strain": {
@@ -3232,7 +5695,138 @@
           "type": "string"
         }
       },
+      "title": "Strain",
       "type": "object"
+    },
+    "Term": {
+      "properties": {
+        "accId": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "modificationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "obsolete": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ontologyId": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "xrefs": {
+          "items": {
+            "$ref": "#/definitions/TermXRef"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Term",
+      "type": "object"
+    },
+    "TermXRef": {
+      "properties": {
+        "key": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "termAcc": {
+          "type": "string"
+        },
+        "xrefDescription": {
+          "type": "string"
+        },
+        "xrefValue": {
+          "type": "string"
+        }
+      },
+      "title": "TermXRef",
+      "type": "object"
+    }
+  },
+  "tags": [
+    {
+      "description": "Alliance of Genome Resources",
+      "name": "AGR"
+    },
+    {
+      "name": "Annotation"
+    },
+    {
+      "name": "Gene"
+    },
+    {
+      "name": "Lookup"
+    },
+    {
+      "description": "Map Web Service",
+      "name": "Map"
+    },
+    {
+      "description": "NIH Data Commons",
+      "name": "NIHdatacommons"
+    },
+    {
+      "description": "Ontology Web Service",
+      "name": "Ontology"
+    },
+    {
+      "name": "Pathway"
+    },
+    {
+      "name": "Phenotype"
+    },
+    {
+      "name": "QTL"
+    },
+    {
+      "description": "Phenotype Web Service",
+      "name": "Quantitative Phenotype"
+    },
+    {
+      "name": "Rat Strain"
+    },
+    {
+      "description": "SSLP Web Service",
+      "name": "SSLP"
+    },
+    {
+      "description": "Stats Web Service",
+      "name": "Statistics"
+    },
+    {
+      "description": "Enrichment Web Service",
+      "name": "enrichment-web-service"
+    }
+  ],
+  "x-components": {
+    "requestBodies": {
+      "RGDIDListRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/definitions/RGDIDListRequest"
+            }
+          }
+        },
+        "description": "data"
+      }
     }
   }
 }

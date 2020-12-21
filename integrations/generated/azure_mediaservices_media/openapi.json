@@ -333,7 +333,7 @@
                           }
                         ]
                       },
-                      "tags": [],
+                      "tags": {},
                       "type": "Microsoft.Media/mediaservices"
                     },
                     {
@@ -354,7 +354,7 @@
                           }
                         ]
                       },
-                      "tags": [],
+                      "tags": {},
                       "type": "Microsoft.Media/mediaservices"
                     }
                   ]
@@ -363,7 +363,9 @@
             }
           }
         },
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{mediaServiceName}": {
@@ -410,12 +412,8 @@
               "subscriptionId": "00000000-0000-0000-0000-000000000000"
             },
             "responses": {
-              "200": {
-                "body": ""
-              },
-              "204": {
-                "body": ""
-              }
+              "200": {},
+              "204": {}
             }
           }
         }
@@ -504,7 +502,7 @@
                       }
                     ]
                   },
-                  "tags": [],
+                  "tags": {},
                   "type": "Microsoft.Media/mediaservices"
                 }
               }
@@ -908,9 +906,7 @@
               "subscriptionId": "00000000-0000-0000-0000-000000000000"
             },
             "responses": {
-              "200": {
-                "body": ""
-              }
+              "200": {}
             }
           }
         }

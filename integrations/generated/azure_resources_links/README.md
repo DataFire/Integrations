@@ -15,10 +15,7 @@ let azure_resources_links = require('@datafire/azure_resources_links').create({
   redirect_uri: ""
 });
 
-azure_resources_links.ResourceLinks_ListAtSubscription({
-  "api-version": "",
-  "subscriptionId": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -28,6 +25,23 @@ azure_resources_links.ResourceLinks_ListAtSubscription({
 Azure resources can be linked together to form logical relationships. You can establish links between resources belonging to different resource groups. However, all the linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
 
 ## Actions
+
+### Operations_List
+Lists all of the available Microsoft.Resources REST API operations.
+
+
+```js
+azure_resources_links.Operations_List({
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * api-version **required** `string`: The API version to use for the operation.
+
+#### Output
+* output [OperationListResult](#operationlistresult)
 
 ### ResourceLinks_ListAtSubscription
 Gets all the linked resources for the subscription.
@@ -42,7 +56,7 @@ azure_resources_links.ResourceLinks_ListAtSubscription({
 
 #### Input
 * input `object`
-  * $filter `string`: The filter to apply on the list resource links operation. The supported filter for list resource links is targetid. For example, $filter=targetid eq {value}
+  * $filter `string`: The filter to apply on the list resource links operation. The supported filter for list resource links is targetId. For example, $filter=targetId eq {value}
   * api-version **required** `string`: The API version to use for the operation.
   * subscriptionId **required** `string`: The ID of the target subscription.
 
@@ -132,11 +146,27 @@ azure_resources_links.ResourceLinks_ListAtSourceScope({
 
 ## Definitions
 
+### Operation
+* Operation `object`: Microsoft.Resources operation
+  * display `object`: The object that represents the operation.
+    * description `string`: Description of the operation.
+    * operation `string`: Operation type: Read, write, delete, etc.
+    * provider `string`: Service provider: Microsoft.Resources
+    * resource `string`: Resource on which the operation is performed: Profile, endpoint, etc.
+  * name `string`: Operation name: {provider}/{resource}/{operation}
+
+### OperationListResult
+* OperationListResult `object`: Result of the request to list Microsoft.Resources operations. It contains a list of operations and a URL link to get the next set of results.
+  * nextLink `string`: URL to get the next set of operation list results if there are any.
+  * value `array`: List of Microsoft.Resources operations.
+    * items [Operation](#operation)
+
 ### ResourceLink
 * ResourceLink `object`: The resource link.
   * id `string`: The fully qualified ID of the resource link.
   * name `string`: The name of the resource link.
   * properties [ResourceLinkProperties](#resourcelinkproperties)
+  * type `object`: The resource link object.
 
 ### ResourceLinkFilter
 * ResourceLinkFilter `object`: Resource link filter.

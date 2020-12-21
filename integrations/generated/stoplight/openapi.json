@@ -54,13 +54,21 @@
     "trait:standardErrors:401": {
       "description": "",
       "schema": {
-        "$ref": "#/definitions/standarderror"
+        "type": "object"
       }
     },
     "trait:standardErrors:404": {
       "description": "",
       "schema": {
-        "$ref": "#/definitions/standarderror"
+        "properties": {
+          "bar": {
+            "type": "string"
+          },
+          "foo": {
+            "type": "string"
+          }
+        },
+        "type": "object"
       }
     },
     "trait:standardErrors:500": {

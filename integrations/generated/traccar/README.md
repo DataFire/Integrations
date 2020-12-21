@@ -1,6 +1,6 @@
 # @datafire/traccar
 
-Client library for traccar
+Client library for Traccar
 
 ## Installation and Usage
 ```bash
@@ -13,7 +13,7 @@ let traccar = require('@datafire/traccar').create({
   host: ""
 });
 
-traccar.users.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -50,7 +50,7 @@ Create an Attribute
 
 ```js
 traccar.attributes.computed.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -85,7 +85,7 @@ Update an Attribute
 ```js
 traccar.attributes.computed.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -120,7 +120,7 @@ Create a Calendar
 
 ```js
 traccar.calendars.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -155,7 +155,7 @@ Update a Calendar
 ```js
 traccar.calendars.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -168,7 +168,7 @@ traccar.calendars.id.put({
 * output [Calendar](#calendar)
 
 ### commands.get
-Without params, it returns a list of Drivers the user has access to
+Without params, it returns a list of Saved Commands the user has access to
 
 
 ```js
@@ -193,7 +193,7 @@ Create a Saved Command
 
 ```js
 traccar.commands.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -226,7 +226,7 @@ Dispatch a new command or Saved Command if _body.id_ set
 
 ```js
 traccar.commands.send.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -247,8 +247,9 @@ traccar.commands.types.get({}, context)
 
 #### Input
 * input `object`
-  * deviceId `integer`
-  * textChannel `boolean`
+  * deviceId `integer`: Internal device identifier. Only works if device has already reported some locations
+  * protocol `string`: Protocol name. Can be used instead of device id
+  * textChannel `boolean`: When `true` return SMS commands. If not specified or `false` return data commands
 
 #### Output
 * output `array`
@@ -278,7 +279,7 @@ Update a Saved Command
 ```js
 traccar.commands.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -315,7 +316,7 @@ Create a Device
 
 ```js
 traccar.devices.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -350,7 +351,7 @@ Update a Device
 ```js
 traccar.devices.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -362,21 +363,21 @@ traccar.devices.id.put({
 #### Output
 * output [Device](#device)
 
-### devices.id.distance.put
-Update the distance counter of the Device
+### devices.id.accumulators.put
+Update total distance and hours of the Device
 
 
 ```js
-traccar.devices.id.distance.put({
+traccar.devices.id.accumulators.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * id **required** `integer`
-  * body **required** [DeviceTotalDistance](#devicetotaldistance)
+  * body **required** [DeviceAccumulators](#deviceaccumulators)
 
 #### Output
 *Output schema unknown*
@@ -407,7 +408,7 @@ Create a Driver
 
 ```js
 traccar.drivers.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -442,7 +443,7 @@ Update a Driver
 ```js
 traccar.drivers.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -497,7 +498,7 @@ Create a Geofence
 
 ```js
 traccar.geofences.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -532,7 +533,7 @@ Update a Geofence
 ```js
 traccar.geofences.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -567,7 +568,7 @@ Create a Group
 
 ```js
 traccar.groups.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -602,7 +603,7 @@ Update a Group
 ```js
 traccar.groups.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -614,12 +615,12 @@ traccar.groups.id.put({
 #### Output
 * output [Group](#group)
 
-### maintenances.get
-Without params, it returns a list of Maintenances the user has access to
+### maintenance.get
+Without params, it returns a list of Maintenance the user has access to
 
 
 ```js
-traccar.maintenances.get({}, context)
+traccar.maintenance.get({}, context)
 ```
 
 #### Input
@@ -634,13 +635,13 @@ traccar.maintenances.get({}, context)
 * output `array`
   * items [Maintenance](#maintenance)
 
-### maintenances.post
+### maintenance.post
 Create a Maintenance
 
 
 ```js
-traccar.maintenances.post({
-  "body": null
+traccar.maintenance.post({
+  "body": {}
 }, context)
 ```
 
@@ -651,12 +652,12 @@ traccar.maintenances.post({
 #### Output
 * output [Maintenance](#maintenance)
 
-### maintenances.id.delete
+### maintenance.id.delete
 Delete a Maintenance
 
 
 ```js
-traccar.maintenances.id.delete({
+traccar.maintenance.id.delete({
   "id": 0
 }, context)
 ```
@@ -668,14 +669,14 @@ traccar.maintenances.id.delete({
 #### Output
 *Output schema unknown*
 
-### maintenances.id.put
+### maintenance.id.put
 Update a Maintenance
 
 
 ```js
-traccar.maintenances.id.put({
+traccar.maintenance.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -713,7 +714,7 @@ Create a Notification
 
 ```js
 traccar.notifications.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -777,7 +778,7 @@ Update a Notification
 ```js
 traccar.notifications.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -795,7 +796,7 @@ Unlink an Object from another Object
 
 ```js
 traccar.permissions.delete({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -812,7 +813,7 @@ Link an Object to another Object
 
 ```js
 traccar.permissions.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -824,7 +825,7 @@ traccar.permissions.post({
 * output [Permission](#permission)
 
 ### positions.get
-Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_
+We strongly recommend using [Traccar WebSocket API](https://www.traccar.org/traccar-api/) instead of periodically polling positions endpoint. Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_.
 
 
 ```js
@@ -973,7 +974,7 @@ Update Server information
 
 ```js
 traccar.server.put({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -1019,15 +1020,12 @@ Create a new Session
 
 ```js
 traccar.session.post({
-  "email": "",
-  "password": ""
+  "body": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * email **required** `string`
-  * password **required** `string`
 
 #### Output
 * output [User](#user)
@@ -1074,7 +1072,7 @@ Create a User
 
 ```js
 traccar.users.post({
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -1109,7 +1107,7 @@ Update a User
 ```js
 traccar.users.id.put({
   "id": 0,
-  "body": null
+  "body": {}
 }, context)
 ```
 
@@ -1135,12 +1133,14 @@ traccar.users.id.put({
 
 ### Calendar
 * Calendar `object`
+  * attributes `object`
   * data `string`: base64 encoded in iCalendar format
   * id `integer`
   * name `string`
 
 ### Command
 * Command `object`
+  * attributes `object`
   * description `string`
   * deviceId `integer`
   * id `integer`
@@ -1152,6 +1152,7 @@ traccar.users.id.put({
 
 ### Device
 * Device `object`
+  * attributes `object`
   * category `string`
   * contact `string`
   * disabled `boolean`
@@ -1167,19 +1168,22 @@ traccar.users.id.put({
   * status `string`
   * uniqueId `string`
 
-### DeviceTotalDistance
-* DeviceTotalDistance `object`
+### DeviceAccumulators
+* DeviceAccumulators `object`
   * deviceId `integer`
+  * hours `number`
   * totalDistance `number`: in meters
 
 ### Driver
 * Driver `object`
+  * attributes `object`
   * id `integer`
   * name `string`
   * uniqueId `string`
 
 ### Event
 * Event `object`
+  * attributes `object`
   * deviceId `integer`
   * geofenceId `integer`
   * id `integer`
@@ -1191,6 +1195,7 @@ traccar.users.id.put({
 ### Geofence
 * Geofence `object`
   * area `string`
+  * attributes `object`
   * calendarId `integer`
   * description `string`
   * id `integer`
@@ -1198,12 +1203,14 @@ traccar.users.id.put({
 
 ### Group
 * Group `object`
+  * attributes `object`
   * groupId `integer`
   * id `integer`
   * name `string`
 
 ### Maintenance
 * Maintenance `object`
+  * attributes `object`
   * id `integer`
   * name `string`
   * period `number`
@@ -1213,6 +1220,7 @@ traccar.users.id.put({
 ### Notification
 * Notification `object`
   * always `boolean`
+  * attributes `object`
   * calendarId `integer`
   * id `integer`
   * mail `boolean`
@@ -1227,7 +1235,7 @@ traccar.users.id.put({
 ### Permission
 * Permission `object`: This is a permission map that contain two object indexes. It is used to link/unlink objects. Order is important. Example: { deviceId:8, geofenceId: 16 }
   * attributeId `integer`: Computed Attribute Id, can be second parameter only
-  * calendarId `integer`: Geofence Id, can be second parameter only and only in combination with userId
+  * calendarId `integer`: Calendar Id, can be second parameter only and only in combination with userId
   * deviceId `integer`: Device Id, can be first parameter or second only in combination with userId
   * driverId `integer`: Driver Id, can be second parameter only
   * geofenceId `integer`: Geofence Id, can be second parameter only
@@ -1240,6 +1248,7 @@ traccar.users.id.put({
   * accuracy `number`
   * address `string`
   * altitude `number`
+  * attributes `object`
   * course `number`
   * deviceId `integer`
   * deviceTime `string`: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
@@ -1247,7 +1256,7 @@ traccar.users.id.put({
   * id `integer`
   * latitude `number`
   * longitude `number`
-  * network `string`
+  * network `object`
   * outdated `boolean`
   * protocol `string`
   * serverTime `string`: in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
@@ -1299,6 +1308,7 @@ traccar.users.id.put({
 
 ### Server
 * Server `object`
+  * attributes `object`
   * bingKey `string`
   * coordinateFormat `string`
   * deviceReadonly `boolean`
@@ -1328,6 +1338,7 @@ traccar.users.id.put({
 ### User
 * User `object`
   * administrator `boolean`
+  * attributes `object`
   * coordinateFormat `string`
   * deviceLimit `integer`
   * deviceReadonly `boolean`
@@ -1341,6 +1352,7 @@ traccar.users.id.put({
   * map `string`
   * name `string`
   * password `string`
+  * phone `string`
   * poiLayer `string`
   * readonly `boolean`
   * token `string`

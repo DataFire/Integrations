@@ -13,18 +13,14 @@ let amazonaws_autoscaling_plans = require('@datafire/amazonaws_autoscaling_plans
   region: ""
 });
 
-amazonaws_autoscaling_plans.CreateScalingPlan({
-  "ScalingPlanName": "",
-  "ApplicationSource": {},
-  "ScalingInstructions": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-<fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling for your scalable resources.</p> <p>To get started, create a scaling plan with a set of instructions used to configure dynamic scaling for the scalable resources in your application. AWS Auto Scaling creates target tracking scaling policies for the scalable resources in your scaling plan. Target tracking scaling policies adjust the capacity of your scalable resource as required to maintain resource utilization at the target value that you specified.</p>
+<fullname>AWS Auto Scaling</fullname> <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services. </p> <p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p> <p>For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>.</p>
 
 ## Actions
 
@@ -34,17 +30,21 @@ amazonaws_autoscaling_plans.CreateScalingPlan({
 
 ```js
 amazonaws_autoscaling_plans.CreateScalingPlan({
-  "ScalingPlanName": "",
-  "ApplicationSource": {},
-  "ScalingInstructions": []
+  "ScalingPlanName": null,
+  "ApplicationSource": null,
+  "ScalingInstructions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ApplicationSource **required** [ApplicationSource](#applicationsource)
-  * ScalingInstructions **required** [ScalingInstructions](#scalinginstructions)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
+  * ApplicationSource **required**
+    * CloudFormationStackARN
+    * TagFilters
+      * items [TagFilter](#tagfilter)
+  * ScalingInstructions **required**
+    * items [ScalingInstruction](#scalinginstruction)
+  * ScalingPlanName **required**
 
 #### Output
 * output [CreateScalingPlanResponse](#createscalingplanresponse)
@@ -55,15 +55,15 @@ amazonaws_autoscaling_plans.CreateScalingPlan({
 
 ```js
 amazonaws_autoscaling_plans.DeleteScalingPlan({
-  "ScalingPlanName": "",
-  "ScalingPlanVersion": 0
+  "ScalingPlanName": null,
+  "ScalingPlanVersion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 #### Output
 * output [DeleteScalingPlanResponse](#deletescalingplanresponse)
@@ -74,17 +74,17 @@ amazonaws_autoscaling_plans.DeleteScalingPlan({
 
 ```js
 amazonaws_autoscaling_plans.DescribeScalingPlanResources({
-  "ScalingPlanName": "",
-  "ScalingPlanVersion": 0
+  "ScalingPlanName": null,
+  "ScalingPlanVersion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * MaxResults
+  * NextToken
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 #### Output
 * output [DescribeScalingPlanResourcesResponse](#describescalingplanresourcesresponse)
@@ -99,14 +99,47 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 
 #### Input
 * input `object`
-  * ApplicationSources [ApplicationSources](#applicationsources)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlanNames [ScalingPlanNames](#scalingplannames)
-  * ScalingPlanVersion [ScalingPlanVersion](#scalingplanversion)
+  * ApplicationSources
+    * items [ApplicationSource](#applicationsource)
+  * MaxResults
+  * NextToken
+  * ScalingPlanNames
+    * items [ScalingPlanName](#scalingplanname)
+  * ScalingPlanVersion
 
 #### Output
 * output [DescribeScalingPlansResponse](#describescalingplansresponse)
+
+### GetScalingPlanResourceForecastData
+
+
+
+```js
+amazonaws_autoscaling_plans.GetScalingPlanResourceForecastData({
+  "ScalingPlanName": null,
+  "ScalingPlanVersion": null,
+  "ServiceNamespace": null,
+  "ResourceId": null,
+  "ScalableDimension": null,
+  "ForecastDataType": null,
+  "StartTime": null,
+  "EndTime": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndTime **required**
+  * ForecastDataType **required**
+  * ResourceId **required**
+  * ScalableDimension **required**
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
+  * ServiceNamespace **required**
+  * StartTime **required**
+
+#### Output
+* output [GetScalingPlanResourceForecastDataResponse](#getscalingplanresourceforecastdataresponse)
 
 ### UpdateScalingPlan
 
@@ -114,17 +147,21 @@ amazonaws_autoscaling_plans.DescribeScalingPlans({}, context)
 
 ```js
 amazonaws_autoscaling_plans.UpdateScalingPlan({
-  "ScalingPlanName": "",
-  "ScalingPlanVersion": 0
+  "ScalingPlanName": null,
+  "ScalingPlanVersion": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ApplicationSource [ApplicationSource](#applicationsource)
-  * ScalingInstructions [ScalingInstructions](#scalinginstructions)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * ApplicationSource
+    * CloudFormationStackARN
+    * TagFilters
+      * items [TagFilter](#tagfilter)
+  * ScalingInstructions
+    * items [ScalingInstruction](#scalinginstruction)
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 #### Output
 * output [UpdateScalingPlanResponse](#updatescalingplanresponse)
@@ -135,96 +172,142 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 
 ### ApplicationSource
 * ApplicationSource `object`: Represents an application source.
-  * CloudFormationStackARN [XmlString](#xmlstring)
-  * TagFilters [TagFilters](#tagfilters)
+  * CloudFormationStackARN
+  * TagFilters
+    * items [TagFilter](#tagfilter)
 
 ### ApplicationSources
 * ApplicationSources `array`
   * items [ApplicationSource](#applicationsource)
 
 ### ConcurrentUpdateException
-* ConcurrentUpdateException `object`: Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### Cooldown
 * Cooldown `integer`
 
 ### CreateScalingPlanRequest
 * CreateScalingPlanRequest `object`
-  * ApplicationSource **required** [ApplicationSource](#applicationsource)
-  * ScalingInstructions **required** [ScalingInstructions](#scalinginstructions)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
+  * ApplicationSource **required**
+    * CloudFormationStackARN
+    * TagFilters
+      * items [TagFilter](#tagfilter)
+  * ScalingInstructions **required**
+    * items [ScalingInstruction](#scalinginstruction)
+  * ScalingPlanName **required**
 
 ### CreateScalingPlanResponse
 * CreateScalingPlanResponse `object`
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * ScalingPlanVersion **required**
+
+### CustomizedLoadMetricSpecification
+* CustomizedLoadMetricSpecification `object`: <p>Represents a CloudWatch metric of your choosing that can be used for predictive scaling. </p> <p>For predictive scaling to work with a customized load metric specification, AWS Auto Scaling needs access to the <code>Sum</code> and <code>Average</code> statistics that CloudWatch computes from metric data. Statistics are calculations used to aggregate data over specified time periods.</p> <p>When you choose a load metric, make sure that the required <code>Sum</code> and <code>Average</code> statistics for your metric are available in CloudWatch and that they provide relevant data for predictive scaling. The <code>Sum</code> statistic must represent the total load on the resource, and the <code>Average</code> statistic must represent the average load per capacity unit of the resource. For example, there is a metric that counts the number of requests processed by your Auto Scaling group. If the <code>Sum</code> statistic represents the total request count processed by the group, then the <code>Average</code> statistic for the specified metric must represent the average request count processed by each instance of the group.</p> <p>For information about terminology, available metrics, or how to publish new metrics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch Concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
+  * Dimensions
+    * items [MetricDimension](#metricdimension)
+  * MetricName **required**
+  * Namespace **required**
+  * Statistic **required**
+  * Unit
 
 ### CustomizedScalingMetricSpecification
-* CustomizedScalingMetricSpecification `object`: Represents a customized metric for a target tracking policy.
-  * Dimensions [MetricDimensions](#metricdimensions)
-  * MetricName **required** [MetricName](#metricname)
-  * Namespace **required** [MetricNamespace](#metricnamespace)
-  * Statistic **required** [MetricStatistic](#metricstatistic)
-  * Unit [MetricUnit](#metricunit)
+* CustomizedScalingMetricSpecification `object`: <p>Represents a CloudWatch metric of your choosing that can be used for dynamic scaling as part of a target tracking scaling policy. </p> <p>To create your customized scaling metric specification:</p> <ul> <li> <p>Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish Custom Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p> </li> <li> <p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases. </p> </li> </ul> <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch Concepts</a>. </p>
+  * Dimensions
+    * items [MetricDimension](#metricdimension)
+  * MetricName **required**
+  * Namespace **required**
+  * Statistic **required**
+  * Unit
+
+### Datapoint
+* Datapoint `object`: Represents a single value in the forecast data used for predictive scaling.
+  * Timestamp
+  * Value
+
+### Datapoints
+* Datapoints `array`
+  * items [Datapoint](#datapoint)
 
 ### DeleteScalingPlanRequest
 * DeleteScalingPlanRequest `object`
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 ### DeleteScalingPlanResponse
 * DeleteScalingPlanResponse `object`
 
 ### DescribeScalingPlanResourcesRequest
 * DescribeScalingPlanResourcesRequest `object`
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * MaxResults
+  * NextToken
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 ### DescribeScalingPlanResourcesResponse
 * DescribeScalingPlanResourcesResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlanResources [ScalingPlanResources](#scalingplanresources)
+  * NextToken
+  * ScalingPlanResources
+    * items [ScalingPlanResource](#scalingplanresource)
 
 ### DescribeScalingPlansRequest
 * DescribeScalingPlansRequest `object`
-  * ApplicationSources [ApplicationSources](#applicationsources)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlanNames [ScalingPlanNames](#scalingplannames)
-  * ScalingPlanVersion [ScalingPlanVersion](#scalingplanversion)
+  * ApplicationSources
+    * items [ApplicationSource](#applicationsource)
+  * MaxResults
+  * NextToken
+  * ScalingPlanNames
+    * items [ScalingPlanName](#scalingplanname)
+  * ScalingPlanVersion
 
 ### DescribeScalingPlansResponse
 * DescribeScalingPlansResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * ScalingPlans [ScalingPlans](#scalingplans)
+  * NextToken
+  * ScalingPlans
+    * items [ScalingPlan](#scalingplan)
+
+### DisableDynamicScaling
+* DisableDynamicScaling `boolean`
 
 ### DisableScaleIn
 * DisableScaleIn `boolean`
 
-### ErrorMessage
-* ErrorMessage `string`
+### ForecastDataType
+* ForecastDataType `string` (values: CapacityForecast, LoadForecast, ScheduledActionMinCapacity, ScheduledActionMaxCapacity)
+
+### GetScalingPlanResourceForecastDataRequest
+* GetScalingPlanResourceForecastDataRequest `object`
+  * EndTime **required**
+  * ForecastDataType **required**
+  * ResourceId **required**
+  * ScalableDimension **required**
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
+  * ServiceNamespace **required**
+  * StartTime **required**
+
+### GetScalingPlanResourceForecastDataResponse
+* GetScalingPlanResourceForecastDataResponse `object`
+  * Datapoints **required**
+    * items [Datapoint](#datapoint)
 
 ### InternalServiceException
-* InternalServiceException `object`: The service encountered an internal error.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### InvalidNextTokenException
-* InvalidNextTokenException `object`: The token provided is not valid.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### LimitExceededException
-* LimitExceededException `object`: Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded.
-  * Message [ErrorMessage](#errormessage)
+
+
+### LoadMetricType
+* LoadMetricType `string` (values: ASGTotalCPUUtilization, ASGTotalNetworkIn, ASGTotalNetworkOut, ALBTargetGroupRequestCount)
 
 ### MaxResults
 * MaxResults `integer`
 
 ### MetricDimension
 * MetricDimension `object`: Represents a dimension for a customized metric.
-  * Name **required** [MetricDimensionName](#metricdimensionname)
-  * Value **required** [MetricDimensionValue](#metricdimensionvalue)
+  * Name **required**
+  * Value **required**
 
 ### MetricDimensionName
 * MetricDimensionName `string`
@@ -255,8 +338,7 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 * NextToken `string`
 
 ### ObjectNotFoundException
-* ObjectNotFoundException `object`: The specified object could not be found.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### PolicyName
 * PolicyName `string`
@@ -264,10 +346,21 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 ### PolicyType
 * PolicyType `string` (values: TargetTrackingScaling)
 
+### PredefinedLoadMetricSpecification
+* PredefinedLoadMetricSpecification `object`: Represents a predefined metric that can be used for predictive scaling. 
+  * PredefinedLoadMetricType **required**
+  * ResourceLabel
+
 ### PredefinedScalingMetricSpecification
-* PredefinedScalingMetricSpecification `object`: Represents a predefined metric for a target tracking policy.
-  * PredefinedScalingMetricType **required** [ScalingMetricType](#scalingmetrictype)
-  * ResourceLabel [ResourceLabel](#resourcelabel)
+* PredefinedScalingMetricSpecification `object`: Represents a predefined metric that can be used for dynamic scaling as part of a target tracking scaling policy.
+  * PredefinedScalingMetricType **required**
+  * ResourceLabel
+
+### PredictiveScalingMaxCapacityBehavior
+* PredictiveScalingMaxCapacityBehavior `string` (values: SetForecastCapacityToMaxCapacity, SetMaxCapacityToForecastCapacity, SetMaxCapacityAboveForecastCapacity)
+
+### PredictiveScalingMode
+* PredictiveScalingMode `string` (values: ForecastAndScale, ForecastOnly)
 
 ### ResourceCapacity
 * ResourceCapacity `integer`
@@ -282,13 +375,30 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 * ScalableDimension `string` (values: autoscaling:autoScalingGroup:DesiredCapacity, ecs:service:DesiredCount, ec2:spot-fleet-request:TargetCapacity, rds:cluster:ReadReplicaCount, dynamodb:table:ReadCapacityUnits, dynamodb:table:WriteCapacityUnits, dynamodb:index:ReadCapacityUnits, dynamodb:index:WriteCapacityUnits)
 
 ### ScalingInstruction
-* ScalingInstruction `object`: Specifies the scaling configuration for a scalable resource.
-  * MaxCapacity **required** [ResourceCapacity](#resourcecapacity)
-  * MinCapacity **required** [ResourceCapacity](#resourcecapacity)
-  * ResourceId **required** [ResourceIdMaxLen1600](#resourceidmaxlen1600)
-  * ScalableDimension **required** [ScalableDimension](#scalabledimension)
-  * ServiceNamespace **required** [ServiceNamespace](#servicenamespace)
-  * TargetTrackingConfigurations **required** [TargetTrackingConfigurations](#targettrackingconfigurations)
+* ScalingInstruction `object`: <p>Describes a scaling instruction for a scalable resource.</p> <p>The scaling instruction is used in combination with a scaling plan, which is a set of instructions for configuring dynamic scaling and predictive scaling for the scalable resources in your application. Each scaling instruction applies to one resource.</p> <p>AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions. Target tracking scaling policies adjust the capacity of your scalable resource as required to maintain resource utilization at the target value that you specified. </p> <p>AWS Auto Scaling also configures predictive scaling for your Amazon EC2 Auto Scaling groups using a subset of parameters, including the load metric, the scaling metric, the target value for the scaling metric, the predictive scaling mode (forecast and scale or forecast only), and the desired behavior when the forecast capacity exceeds the maximum capacity of the resource. With predictive scaling, AWS Auto Scaling generates forecasts with traffic predictions for the two days ahead and schedules scaling actions that proactively add and remove resource capacity to match the forecast. </p> <p>We recommend waiting a minimum of 24 hours after creating an Auto Scaling group to configure predictive scaling. At minimum, there must be 24 hours of historical data to generate a forecast.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/auto-scaling-getting-started.html">Getting Started with AWS Auto Scaling</a>.</p>
+  * CustomizedLoadMetricSpecification
+    * Dimensions
+      * items [MetricDimension](#metricdimension)
+    * MetricName **required**
+    * Namespace **required**
+    * Statistic **required**
+    * Unit
+  * DisableDynamicScaling
+  * MaxCapacity **required**
+  * MinCapacity **required**
+  * PredefinedLoadMetricSpecification
+    * PredefinedLoadMetricType **required**
+    * ResourceLabel
+  * PredictiveScalingMaxCapacityBehavior
+  * PredictiveScalingMaxCapacityBuffer
+  * PredictiveScalingMode
+  * ResourceId **required**
+  * ScalableDimension **required**
+  * ScalingPolicyUpdateBehavior
+  * ScheduledActionBufferTime
+  * ServiceNamespace **required**
+  * TargetTrackingConfigurations **required**
+    * items [TargetTrackingConfiguration](#targettrackingconfiguration)
 
 ### ScalingInstructions
 * ScalingInstructions `array`
@@ -299,14 +409,18 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 
 ### ScalingPlan
 * ScalingPlan `object`: Represents a scaling plan.
-  * ApplicationSource **required** [ApplicationSource](#applicationsource)
-  * CreationTime [TimestampType](#timestamptype)
-  * ScalingInstructions **required** [ScalingInstructions](#scalinginstructions)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
-  * StatusCode **required** [ScalingPlanStatusCode](#scalingplanstatuscode)
-  * StatusMessage [XmlString](#xmlstring)
-  * StatusStartTime [TimestampType](#timestamptype)
+  * ApplicationSource **required**
+    * CloudFormationStackARN
+    * TagFilters
+      * items [TagFilter](#tagfilter)
+  * CreationTime
+  * ScalingInstructions **required**
+    * items [ScalingInstruction](#scalinginstruction)
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
+  * StatusCode **required**
+  * StatusMessage
+  * StatusStartTime
 
 ### ScalingPlanName
 * ScalingPlanName `string`
@@ -317,14 +431,15 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 
 ### ScalingPlanResource
 * ScalingPlanResource `object`: Represents a scalable resource.
-  * ResourceId **required** [ResourceIdMaxLen1600](#resourceidmaxlen1600)
-  * ScalableDimension **required** [ScalableDimension](#scalabledimension)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
-  * ScalingPolicies [ScalingPolicies](#scalingpolicies)
-  * ScalingStatusCode **required** [ScalingStatusCode](#scalingstatuscode)
-  * ScalingStatusMessage [XmlString](#xmlstring)
-  * ServiceNamespace **required** [ServiceNamespace](#servicenamespace)
+  * ResourceId **required**
+  * ScalableDimension **required**
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
+  * ScalingPolicies
+    * items [ScalingPolicy](#scalingpolicy)
+  * ScalingStatusCode **required**
+  * ScalingStatusMessage
+  * ServiceNamespace **required**
 
 ### ScalingPlanResources
 * ScalingPlanResources `array`
@@ -346,20 +461,42 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 
 ### ScalingPolicy
 * ScalingPolicy `object`: Represents a scaling policy.
-  * PolicyName **required** [PolicyName](#policyname)
-  * PolicyType **required** [PolicyType](#policytype)
-  * TargetTrackingConfiguration [TargetTrackingConfiguration](#targettrackingconfiguration)
+  * PolicyName **required**
+  * PolicyType **required**
+  * TargetTrackingConfiguration
+    * CustomizedScalingMetricSpecification
+      * Dimensions
+        * items [MetricDimension](#metricdimension)
+      * MetricName **required**
+      * Namespace **required**
+      * Statistic **required**
+      * Unit
+    * DisableScaleIn
+    * EstimatedInstanceWarmup
+    * PredefinedScalingMetricSpecification
+      * PredefinedScalingMetricType **required**
+      * ResourceLabel
+    * ScaleInCooldown
+    * ScaleOutCooldown
+    * TargetValue **required**
+
+### ScalingPolicyUpdateBehavior
+* ScalingPolicyUpdateBehavior `string` (values: KeepExternalPolicies, ReplaceExternalPolicies)
 
 ### ScalingStatusCode
 * ScalingStatusCode `string` (values: Inactive, PartiallyActive, Active)
+
+### ScheduledActionBufferTime
+* ScheduledActionBufferTime `integer`
 
 ### ServiceNamespace
 * ServiceNamespace `string` (values: autoscaling, ecs, ec2, rds, dynamodb)
 
 ### TagFilter
 * TagFilter `object`: Represents a tag.
-  * Key [XmlStringMaxLen128](#xmlstringmaxlen128)
-  * Values [TagValues](#tagvalues)
+  * Key
+  * Values
+    * items [XmlStringMaxLen256](#xmlstringmaxlen256)
 
 ### TagFilters
 * TagFilters `array`
@@ -370,14 +507,22 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
   * items [XmlStringMaxLen256](#xmlstringmaxlen256)
 
 ### TargetTrackingConfiguration
-* TargetTrackingConfiguration `object`: Represents a target tracking scaling policy.
-  * CustomizedScalingMetricSpecification [CustomizedScalingMetricSpecification](#customizedscalingmetricspecification)
-  * DisableScaleIn [DisableScaleIn](#disablescalein)
-  * EstimatedInstanceWarmup [Cooldown](#cooldown)
-  * PredefinedScalingMetricSpecification [PredefinedScalingMetricSpecification](#predefinedscalingmetricspecification)
-  * ScaleInCooldown [Cooldown](#cooldown)
-  * ScaleOutCooldown [Cooldown](#cooldown)
-  * TargetValue **required** [MetricScale](#metricscale)
+* TargetTrackingConfiguration `object`: Describes a target tracking configuration to use with AWS Auto Scaling. Used with <a>ScalingInstruction</a> and <a>ScalingPolicy</a>.
+  * CustomizedScalingMetricSpecification
+    * Dimensions
+      * items [MetricDimension](#metricdimension)
+    * MetricName **required**
+    * Namespace **required**
+    * Statistic **required**
+    * Unit
+  * DisableScaleIn
+  * EstimatedInstanceWarmup
+  * PredefinedScalingMetricSpecification
+    * PredefinedScalingMetricType **required**
+    * ResourceLabel
+  * ScaleInCooldown
+  * ScaleOutCooldown
+  * TargetValue **required**
 
 ### TargetTrackingConfigurations
 * TargetTrackingConfigurations `array`
@@ -388,17 +533,20 @@ amazonaws_autoscaling_plans.UpdateScalingPlan({
 
 ### UpdateScalingPlanRequest
 * UpdateScalingPlanRequest `object`
-  * ApplicationSource [ApplicationSource](#applicationsource)
-  * ScalingInstructions [ScalingInstructions](#scalinginstructions)
-  * ScalingPlanName **required** [ScalingPlanName](#scalingplanname)
-  * ScalingPlanVersion **required** [ScalingPlanVersion](#scalingplanversion)
+  * ApplicationSource
+    * CloudFormationStackARN
+    * TagFilters
+      * items [TagFilter](#tagfilter)
+  * ScalingInstructions
+    * items [ScalingInstruction](#scalinginstruction)
+  * ScalingPlanName **required**
+  * ScalingPlanVersion **required**
 
 ### UpdateScalingPlanResponse
 * UpdateScalingPlanResponse `object`
 
 ### ValidationException
-* ValidationException `object`: An exception was thrown for a validation issue. Review the parameters provided.
-  * Message [ErrorMessage](#errormessage)
+
 
 ### XmlString
 * XmlString `string`

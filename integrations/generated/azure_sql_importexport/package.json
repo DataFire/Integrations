@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure_sql_importexport",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "main": "index.js",
   "description": "DataFire integration for Azure SQL Database Import/Export spec",
   "repository": {

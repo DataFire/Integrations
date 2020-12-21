@@ -141,7 +141,9 @@
         "tags": [
           "Operation"
         ],
-        "x-ms-pageable": {}
+        "x-ms-pageable": {
+          "nextLinkName": null
+        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.MachineLearningExperimentation/accounts": {

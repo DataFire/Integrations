@@ -791,7 +791,7 @@
       "description": "Role Assignments filter",
       "properties": {
         "canDelegate": {
-          "description": "The Delegation flag for the roleassignment",
+          "description": "The Delegation flag for the role assignment",
           "type": "boolean"
         },
         "principalId": {
@@ -820,7 +820,7 @@
       "description": "Role assignment properties.",
       "properties": {
         "canDelegate": {
-          "description": "The delgation flag used for creating a role assignment",
+          "description": "The delegation flag used for creating a role assignment",
           "type": "boolean"
         },
         "principalId": {
@@ -837,7 +837,7 @@
       "description": "Role assignment properties with scope.",
       "properties": {
         "canDelegate": {
-          "description": "The Delegation flag for the roleassignment",
+          "description": "The Delegation flag for the role assignment",
           "type": "boolean"
         },
         "principalId": {

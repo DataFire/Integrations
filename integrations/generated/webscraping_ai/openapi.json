@@ -1,0 +1,1303 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "support@webscraping.ai",
+      "name": "WebScraping.AI Support",
+      "url": "https://webscraping.ai"
+    },
+    "description": "A client for https://webscraping.ai API. It provides a web scaping automation API with Chrome JS rendering, rotating proxies and builtin HTML parsing.",
+    "title": "WebScraping.AI",
+    "version": "2.0.3",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://webscraping.ai/openapi.yml",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "webscraping.ai",
+    "x-datafire": {
+      "name": "webscraping_ai",
+      "type": "openapi"
+    }
+  },
+  "host": "api.webscraping.ai",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/html": {
+      "get": {
+        "produces": [
+          "text/html",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://example.com"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "text/html": "<html><head>\n    <title>Example Domain</title>\n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n</body></html>"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "HTML"
+        ],
+        "description": "Returns just HTML on success, JSON on error",
+        "operationId": "getHTML",
+        "summary": "Page HTML by URL"
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "application/xml",
+          "text/plain"
+        ],
+        "produces": [
+          "text/html",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://httpbin.org/post"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          },
+          {
+            "description": "Request body to pass to the target page",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "text/html": "<html><head>\n    <title>Example Domain</title>\n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n</body></html>"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "HTML"
+        ],
+        "description": "Returns just HTML on success, JSON on error. Request body will be passed to the target page.",
+        "operationId": "postHTML",
+        "summary": "Page HTML by URL with POST request to the target page"
+      }
+    },
+    "/selected": {
+      "get": {
+        "produces": [
+          "text/html",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "CSS selector (null by default, returns whole page HTML)",
+            "in": "query",
+            "name": "selector",
+            "type": "string",
+            "x-example": "h1"
+          },
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://example.com"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "text/html": "<a href=\"https://www.iana.org/domains/example\">More information...</a>"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "Selected HTML"
+        ],
+        "description": "Returns just HTML on success, JSON on error",
+        "operationId": "getSelected",
+        "summary": "HTML of a selected page area by URL and CSS selector"
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "application/xml",
+          "text/plain"
+        ],
+        "produces": [
+          "text/html",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "CSS selector (null by default, returns whole page HTML)",
+            "in": "query",
+            "name": "selector",
+            "type": "string",
+            "x-example": "h1"
+          },
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://httpbin.org/post"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          },
+          {
+            "description": "Request body to pass to the target page",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "text/html": "<a href=\"https://www.iana.org/domains/example\">More information...</a>"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "Selected HTML"
+        ],
+        "description": "Returns just HTML on success, JSON on error. Request body will be passed to the target page.",
+        "operationId": "postSelected",
+        "summary": "HTML of a selected page areas by URL and CSS selector, with POST request to the target page"
+      }
+    },
+    "/selected-multiple": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "Multiple CSS selectors (null by default, returns whole page HTML)",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "selectors",
+            "type": "array",
+            "x-example": [
+              "h1"
+            ]
+          },
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://example.com"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": [
+                "<a href='/test'>some link</a>",
+                "Hello"
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/SelectedAreas"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "Selected HTML"
+        ],
+        "description": "Always returns JSON",
+        "operationId": "getSelectedMultiple",
+        "summary": "HTML of multiple page areas by URL and CSS selectors"
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "application/xml",
+          "text/plain"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "Multiple CSS selectors (null by default, returns whole page HTML)",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "selectors",
+            "type": "array",
+            "x-example": [
+              "h1"
+            ]
+          },
+          {
+            "description": "URL of the target page",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://httpbin.org/post"
+          },
+          {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+            "in": "query",
+            "name": "headers",
+            "type": "object",
+            "x-example": {
+              "Cookie": "session=some_id"
+            }
+          },
+          {
+            "default": 5000,
+            "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+            "in": "query",
+            "maximum": 30000,
+            "minimum": 1,
+            "name": "timeout",
+            "type": "integer",
+            "x-example": 5000
+          },
+          {
+            "default": true,
+            "description": "Execute on-page JavaScript using a headless browser (true by default)",
+            "in": "query",
+            "name": "js",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "default": "datacenter",
+            "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+            "enum": [
+              "datacenter",
+              "residential"
+            ],
+            "in": "query",
+            "name": "proxy",
+            "type": "string",
+            "x-example": "datacenter"
+          },
+          {
+            "description": "Request body to pass to the target page",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "examples": {
+              "application/json": [
+                "<a href='/test'>some link</a>",
+                "Hello"
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/SelectedAreas"
+            }
+          },
+          "400": {
+            "description": "Parameters validation error",
+            "examples": {
+              "application/json": {
+                "message": "Invalid CSS selector"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "402": {
+            "description": "Billing issue, probably you've ran out of credits",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Wrong API key",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "description": "Non-2xx and non-404 HTTP status code on the target page",
+            "examples": {
+              "application/json": {
+                "status_code": 500,
+                "status_message": "Some website error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          },
+          "429": {
+            "description": "Too many concurrent requests",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Unexpected error, try again or contact support@webscraping.ai",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Timeout error, try increasing timeout parameter value",
+            "examples": {
+              "application/json": {
+                "message": "Some error"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "Selected HTML"
+        ],
+        "description": "Always returns JSON. Request body will be passed to the target page.",
+        "operationId": "postSelectedMultiple",
+        "summary": "HTML of multiple page areas by URL and CSS selectors, with POST request to the target page"
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "properties": {
+        "message": {
+          "description": "Error description",
+          "type": "string"
+        }
+      },
+      "title": "Generic error",
+      "type": "object"
+    },
+    "PageError": {
+      "properties": {
+        "status_code": {
+          "description": "Response HTTP status code (403, 500, etc)",
+          "type": "integer"
+        },
+        "status_message": {
+          "description": "Response HTTP status message",
+          "type": "string"
+        }
+      },
+      "title": "Non-2xx and non-404 HTTP status code on the target page",
+      "type": "object"
+    },
+    "SelectedAreas": {
+      "description": "Array of elements matched by selectors",
+      "items": {
+        "type": "string"
+      },
+      "title": "HTML for selected page areas",
+      "type": "array"
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "in": "query",
+      "name": "api_key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "tags": [
+    {
+      "description": "Get full HTML content of pages with proxies and Chrome JS rendering",
+      "name": "HTML"
+    },
+    {
+      "description": "Get HTML content of selected page areas (like price, search results, page title, etc.)",
+      "name": "Selected HTML"
+    }
+  ],
+  "x-components": {
+    "parameters": {
+      "headers": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "HTTP headers to pass to the target page. Can be specified either via a nested query parameter (...&headers[One]=value1&headers=[Another]=value2) or as a JSON encoded object (...&headers={\"One\": \"value1\", \"Another\": \"value2\"})",
+        "in": "query",
+        "name": "headers",
+        "type": "object",
+        "x-example": {
+          "Cookie": "session=some_id"
+        }
+      },
+      "js": {
+        "default": true,
+        "description": "Execute on-page JavaScript using a headless browser (true by default)",
+        "in": "query",
+        "name": "js",
+        "type": "boolean",
+        "x-example": true
+      },
+      "js_timeout": {
+        "description": "Maximum JavaScript rendering time in ms. Increase it in case if you see a loading indicator instead of data on the target page.",
+        "example": 5000,
+        "in": "query",
+        "name": "timeout",
+        "schema": {
+          "default": 2000,
+          "maximum": 20000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "postUrl": {
+        "description": "URL of the target page",
+        "in": "query",
+        "name": "url",
+        "required": true,
+        "type": "string",
+        "x-example": "https://httpbin.org/post"
+      },
+      "proxy": {
+        "default": "datacenter",
+        "description": "Type of proxy, use residential proxies if your site restricts traffic from datacenters (datacenter by default). Note that residential proxy requests are more expensive than datacenter, see the pricing page for details.",
+        "enum": [
+          "datacenter",
+          "residential"
+        ],
+        "in": "query",
+        "name": "proxy",
+        "type": "string",
+        "x-example": "datacenter"
+      },
+      "timeout": {
+        "default": 5000,
+        "description": "Maximum processing time in ms. Increase it in case of timeout errors (5000 by default, maximum is 30000)",
+        "in": "query",
+        "maximum": 30000,
+        "minimum": 1,
+        "name": "timeout",
+        "type": "integer",
+        "x-example": 5000
+      },
+      "url": {
+        "description": "URL of the target page",
+        "in": "query",
+        "name": "url",
+        "required": true,
+        "type": "string",
+        "x-example": "https://example.com"
+      }
+    },
+    "responses": {
+      "400": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Invalid CSS selector"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Parameters validation error"
+      },
+      "402": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Some error"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Billing issue, probably you've ran out of credits"
+      },
+      "403": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Some error"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Wrong API key"
+      },
+      "422": {
+        "content": {
+          "application/json": {
+            "example": {
+              "status_code": 500,
+              "status_message": "Some website error"
+            },
+            "schema": {
+              "$ref": "#/definitions/PageError"
+            }
+          }
+        },
+        "description": "Non-2xx and non-404 HTTP status code on the target page"
+      },
+      "429": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Some error"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Too many concurrent requests"
+      },
+      "500": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Some error"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Unexpected error, try again or contact support@webscraping.ai"
+      },
+      "504": {
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Some error"
+            },
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "description": "Timeout error, try increasing timeout parameter value"
+      }
+    },
+    "requestBodies": {
+      "Body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          },
+          "application/x-www-form-urlencoded": {
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          },
+          "text/plain": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Request body to pass to the target page"
+      }
+    }
+  }
+}

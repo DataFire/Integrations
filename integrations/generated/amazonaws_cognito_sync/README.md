@@ -13,7 +13,7 @@ let amazonaws_cognito_sync = require('@datafire/amazonaws_cognito_sync').create(
   region: ""
 });
 
-amazonaws_cognito_sync.ListIdentityPoolUsage({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,6 +34,8 @@ amazonaws_cognito_sync.ListIdentityPoolUsage({}, context)
 
 #### Input
 * input `object`
+  * nextToken `string`
+  * maxResults `integer`
 
 #### Output
 * output [ListIdentityPoolUsageResponse](#listidentitypoolusageresponse)
@@ -102,8 +104,14 @@ amazonaws_cognito_sync.SetIdentityPoolConfiguration({
 #### Input
 * input `object`
   * IdentityPoolId **required** `string`
-  * CognitoStreams [CognitoStreams](#cognitostreams)
-  * PushSync [PushSync](#pushsync)
+  * CognitoStreams `object`: Configuration options for configure Cognito streams.
+    * RoleArn
+    * StreamName
+    * StreamingStatus
+  * PushSync `object`: Configuration options to be applied to the identity pool.
+    * ApplicationArns
+      * items [ApplicationArn](#applicationarn)
+    * RoleArn
 
 #### Output
 * output [SetIdentityPoolConfigurationResponse](#setidentitypoolconfigurationresponse)
@@ -132,14 +140,14 @@ amazonaws_cognito_sync.GetCognitoEvents({
 ```js
 amazonaws_cognito_sync.SetCognitoEvents({
   "IdentityPoolId": "",
-  "Events": []
+  "Events": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * IdentityPoolId **required** `string`
-  * Events **required** [Events](#events)
+  * Events **required** `object`: The events to configure
 
 #### Output
 *Output schema unknown*
@@ -195,6 +203,8 @@ amazonaws_cognito_sync.ListDatasets({
 * input `object`
   * IdentityPoolId **required** `string`
   * IdentityId **required** `string`
+  * nextToken `string`
+  * maxResults `integer`
 
 #### Output
 * output [ListDatasetsResponse](#listdatasetsresponse)
@@ -259,9 +269,11 @@ amazonaws_cognito_sync.UpdateRecords({
   * IdentityPoolId **required** `string`
   * IdentityId **required** `string`
   * DatasetName **required** `string`
-  * DeviceId [DeviceId](#deviceid)
-  * RecordPatches [RecordPatchList](#recordpatchlist)
-  * SyncSessionToken **required** [SyncSessionToken](#syncsessiontoken)
+  * x-amz-Client-Context `string`
+  * DeviceId `string`: The unique ID generated for this device by Cognito.
+  * RecordPatches `array`: A list of patch operations.
+    * items [RecordPatch](#recordpatch)
+  * SyncSessionToken **required** `string`: The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
 
 #### Output
 * output [UpdateRecordsResponse](#updaterecordsresponse)
@@ -283,6 +295,10 @@ amazonaws_cognito_sync.ListRecords({
   * IdentityPoolId **required** `string`
   * IdentityId **required** `string`
   * DatasetName **required** `string`
+  * lastSyncCount `integer`
+  * nextToken `string`
+  * maxResults `integer`
+  * syncSessionToken `string`
 
 #### Output
 * output [ListRecordsResponse](#listrecordsresponse)
@@ -350,8 +366,8 @@ amazonaws_cognito_sync.RegisterDevice({
 * input `object`
   * IdentityPoolId **required** `string`
   * IdentityId **required** `string`
-  * Platform **required** [Platform](#platform)
-  * Token **required** [PushToken](#pushtoken)
+  * Platform **required** `string` (values: APNS, APNS_SANDBOX, GCM, ADM): The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+  * Token **required** `string`: The push token.
 
 #### Output
 * output [RegisterDeviceResponse](#registerdeviceresponse)
@@ -362,7 +378,7 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### AlreadyStreamedException
 * AlreadyStreamedException `object`: An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### ApplicationArn
 * ApplicationArn `string`
@@ -382,7 +398,7 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### BulkPublishResponse
 * BulkPublishResponse `object`: The output for the BulkPublish operation.
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
+  * IdentityPoolId
 
 ### BulkPublishStatus
 * BulkPublishStatus `string` (values: NOT_STARTED, IN_PROGRESS, FAILED, SUCCEEDED)
@@ -395,23 +411,23 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### CognitoStreams
 * CognitoStreams `object`: Configuration options for configure Cognito streams.
-  * RoleArn [AssumeRoleArn](#assumerolearn)
-  * StreamName [StreamName](#streamname)
-  * StreamingStatus [StreamingStatus](#streamingstatus)
+  * RoleArn
+  * StreamName
+  * StreamingStatus
 
 ### ConcurrentModificationException
 * ConcurrentModificationException `object`: Thrown if there are parallel requests to modify a resource.
-  * message **required** [String](#string)
+  * message **required**
 
 ### Dataset
 * Dataset `object`: A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-  * CreationDate [Date](#date)
-  * DataStorage [Long](#long)
-  * DatasetName [DatasetName](#datasetname)
-  * IdentityId [IdentityId](#identityid)
-  * LastModifiedBy [String](#string)
-  * LastModifiedDate [Date](#date)
-  * NumRecords [Long](#long)
+  * CreationDate
+  * DataStorage
+  * DatasetName
+  * IdentityId
+  * LastModifiedBy
+  * LastModifiedDate
+  * NumRecords
 
 ### DatasetList
 * DatasetList `array`
@@ -428,41 +444,61 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### DeleteDatasetResponse
 * DeleteDatasetResponse `object`: Response to a successful DeleteDataset request.
-  * Dataset [Dataset](#dataset)
+  * Dataset
+    * CreationDate
+    * DataStorage
+    * DatasetName
+    * IdentityId
+    * LastModifiedBy
+    * LastModifiedDate
+    * NumRecords
 
 ### DescribeDatasetRequest
 * DescribeDatasetRequest `object`: A request for meta data about a dataset (creation date, number of records, size) by owner and dataset name.
 
 ### DescribeDatasetResponse
 * DescribeDatasetResponse `object`: Response to a successful DescribeDataset request.
-  * Dataset [Dataset](#dataset)
+  * Dataset
+    * CreationDate
+    * DataStorage
+    * DatasetName
+    * IdentityId
+    * LastModifiedBy
+    * LastModifiedDate
+    * NumRecords
 
 ### DescribeIdentityPoolUsageRequest
 * DescribeIdentityPoolUsageRequest `object`: A request for usage information about the identity pool.
 
 ### DescribeIdentityPoolUsageResponse
 * DescribeIdentityPoolUsageResponse `object`: Response to a successful DescribeIdentityPoolUsage request.
-  * IdentityPoolUsage [IdentityPoolUsage](#identitypoolusage)
+  * IdentityPoolUsage
+    * DataStorage
+    * IdentityPoolId
+    * LastModifiedDate
+    * SyncSessionsCount
 
 ### DescribeIdentityUsageRequest
 * DescribeIdentityUsageRequest `object`: A request for information about the usage of an identity pool.
 
 ### DescribeIdentityUsageResponse
 * DescribeIdentityUsageResponse `object`: The response to a successful DescribeIdentityUsage request.
-  * IdentityUsage [IdentityUsage](#identityusage)
+  * IdentityUsage
+    * DataStorage
+    * DatasetCount
+    * IdentityId
+    * IdentityPoolId
+    * LastModifiedDate
 
 ### DeviceId
 * DeviceId `string`
 
 ### DuplicateRequestException
 * DuplicateRequestException `object`: An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### Events
-* Events `array`
-  * items `object`
-    * key [CognitoEventType](#cognitoeventtype)
-    * value [LambdaFunctionArn](#lambdafunctionarn)
+* Events `object`
 
 ### ExceptionMessage
 * ExceptionMessage `string`
@@ -472,27 +508,33 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### GetBulkPublishDetailsResponse
 * GetBulkPublishDetailsResponse `object`: The output for the GetBulkPublishDetails operation.
-  * BulkPublishCompleteTime [Date](#date)
-  * BulkPublishStartTime [Date](#date)
-  * BulkPublishStatus [BulkPublishStatus](#bulkpublishstatus)
-  * FailureMessage [String](#string)
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
+  * BulkPublishCompleteTime
+  * BulkPublishStartTime
+  * BulkPublishStatus
+  * FailureMessage
+  * IdentityPoolId
 
 ### GetCognitoEventsRequest
 * GetCognitoEventsRequest `object`: A request for a list of the configured Cognito Events
 
 ### GetCognitoEventsResponse
 * GetCognitoEventsResponse `object`: The response from the GetCognitoEvents request
-  * Events [Events](#events)
+  * Events
 
 ### GetIdentityPoolConfigurationRequest
 * GetIdentityPoolConfigurationRequest `object`: The input for the GetIdentityPoolConfiguration operation.
 
 ### GetIdentityPoolConfigurationResponse
 * GetIdentityPoolConfigurationResponse `object`: The output for the GetIdentityPoolConfiguration operation.
-  * CognitoStreams [CognitoStreams](#cognitostreams)
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
-  * PushSync [PushSync](#pushsync)
+  * CognitoStreams
+    * RoleArn
+    * StreamName
+    * StreamingStatus
+  * IdentityPoolId
+  * PushSync
+    * ApplicationArns
+      * items [ApplicationArn](#applicationarn)
+    * RoleArn
 
 ### IdentityId
 * IdentityId `string`
@@ -502,10 +544,10 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### IdentityPoolUsage
 * IdentityPoolUsage `object`: Usage information for the identity pool.
-  * DataStorage [Long](#long)
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
-  * LastModifiedDate [Date](#date)
-  * SyncSessionsCount [Long](#long)
+  * DataStorage
+  * IdentityPoolId
+  * LastModifiedDate
+  * SyncSessionsCount
 
 ### IdentityPoolUsageList
 * IdentityPoolUsageList `array`
@@ -513,11 +555,11 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### IdentityUsage
 * IdentityUsage `object`: Usage information for the identity.
-  * DataStorage [Long](#long)
-  * DatasetCount [Integer](#integer)
-  * IdentityId [IdentityId](#identityid)
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
-  * LastModifiedDate [Date](#date)
+  * DataStorage
+  * DatasetCount
+  * IdentityId
+  * IdentityPoolId
+  * LastModifiedDate
 
 ### Integer
 * Integer `integer`
@@ -527,64 +569,68 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### InternalErrorException
 * InternalErrorException `object`: Indicates an internal service error.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### InvalidConfigurationException
 * InvalidConfigurationException `object`
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### InvalidLambdaFunctionOutputException
 * InvalidLambdaFunctionOutputException `object`: The AWS Lambda function returned invalid output or an exception.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### InvalidParameterException
 * InvalidParameterException `object`: Thrown when a request parameter does not comply with the associated constraints.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### LambdaFunctionArn
 * LambdaFunctionArn `string`
 
 ### LambdaThrottledException
 * LambdaThrottledException `object`: AWS Lambda throttled your account, please contact AWS Support
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### LimitExceededException
 * LimitExceededException `object`: Thrown when the limit on the number of objects or operations has been exceeded.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### ListDatasetsRequest
 * ListDatasetsRequest `object`: Request for a list of datasets for an identity.
 
 ### ListDatasetsResponse
 * ListDatasetsResponse `object`: Returned for a successful ListDatasets request.
-  * Count [Integer](#integer)
-  * Datasets [DatasetList](#datasetlist)
-  * NextToken [String](#string)
+  * Count
+  * Datasets
+    * items [Dataset](#dataset)
+  * NextToken
 
 ### ListIdentityPoolUsageRequest
 * ListIdentityPoolUsageRequest `object`: A request for usage information on an identity pool.
 
 ### ListIdentityPoolUsageResponse
 * ListIdentityPoolUsageResponse `object`: Returned for a successful ListIdentityPoolUsage request.
-  * Count [Integer](#integer)
-  * IdentityPoolUsages [IdentityPoolUsageList](#identitypoolusagelist)
-  * MaxResults [Integer](#integer)
-  * NextToken [String](#string)
+  * Count
+  * IdentityPoolUsages
+    * items [IdentityPoolUsage](#identitypoolusage)
+  * MaxResults
+  * NextToken
 
 ### ListRecordsRequest
 * ListRecordsRequest `object`: A request for a list of records.
 
 ### ListRecordsResponse
 * ListRecordsResponse `object`: Returned for a successful ListRecordsRequest.
-  * Count [Integer](#integer)
-  * DatasetDeletedAfterRequestedSyncCount [Boolean](#boolean)
-  * DatasetExists [Boolean](#boolean)
-  * DatasetSyncCount [Long](#long)
-  * LastModifiedBy [String](#string)
-  * MergedDatasetNames [MergedDatasetNameList](#mergeddatasetnamelist)
-  * NextToken [String](#string)
-  * Records [RecordList](#recordlist)
-  * SyncSessionToken [String](#string)
+  * Count
+  * DatasetDeletedAfterRequestedSyncCount
+  * DatasetExists
+  * DatasetSyncCount
+  * LastModifiedBy
+  * MergedDatasetNames
+    * items [String](#string)
+  * NextToken
+  * Records
+    * items [Record](#record)
+  * SyncSessionToken
 
 ### Long
 * Long `integer`
@@ -595,7 +641,7 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### NotAuthorizedException
 * NotAuthorizedException `object`: Thrown when a user is not authorized to access the requested resource.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### Operation
 * Operation `string` (values: replace, remove)
@@ -605,20 +651,21 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### PushSync
 * PushSync `object`: Configuration options to be applied to the identity pool.
-  * ApplicationArns [ApplicationArnList](#applicationarnlist)
-  * RoleArn [AssumeRoleArn](#assumerolearn)
+  * ApplicationArns
+    * items [ApplicationArn](#applicationarn)
+  * RoleArn
 
 ### PushToken
 * PushToken `string`
 
 ### Record
 * Record `object`: The basic data structure of a dataset.
-  * DeviceLastModifiedDate [Date](#date)
-  * Key [RecordKey](#recordkey)
-  * LastModifiedBy [String](#string)
-  * LastModifiedDate [Date](#date)
-  * SyncCount [Long](#long)
-  * Value [RecordValue](#recordvalue)
+  * DeviceLastModifiedDate
+  * Key
+  * LastModifiedBy
+  * LastModifiedDate
+  * SyncCount
+  * Value
 
 ### RecordKey
 * RecordKey `string`
@@ -629,11 +676,11 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### RecordPatch
 * RecordPatch `object`: An update operation for a record.
-  * DeviceLastModifiedDate [Date](#date)
-  * Key **required** [RecordKey](#recordkey)
-  * Op **required** [Operation](#operation)
-  * SyncCount **required** [Long](#long)
-  * Value [RecordValue](#recordvalue)
+  * DeviceLastModifiedDate
+  * Key **required**
+  * Op **required**
+  * SyncCount **required**
+  * Value
 
 ### RecordPatchList
 * RecordPatchList `array`
@@ -644,35 +691,47 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### RegisterDeviceRequest
 * RegisterDeviceRequest `object`: A request to RegisterDevice.
-  * Platform **required** [Platform](#platform)
-  * Token **required** [PushToken](#pushtoken)
+  * Platform **required**
+  * Token **required**
 
 ### RegisterDeviceResponse
 * RegisterDeviceResponse `object`: Response to a RegisterDevice request.
-  * DeviceId [DeviceId](#deviceid)
+  * DeviceId
 
 ### ResourceConflictException
 * ResourceConflictException `object`: Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### ResourceNotFoundException
 * ResourceNotFoundException `object`: Thrown if the resource doesn't exist.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### SetCognitoEventsRequest
 * SetCognitoEventsRequest `object`: <p>A request to configure Cognito Events"</p>"
-  * Events **required** [Events](#events)
+  * Events **required**
 
 ### SetIdentityPoolConfigurationRequest
 * SetIdentityPoolConfigurationRequest `object`: The input for the SetIdentityPoolConfiguration operation.
-  * CognitoStreams [CognitoStreams](#cognitostreams)
-  * PushSync [PushSync](#pushsync)
+  * CognitoStreams
+    * RoleArn
+    * StreamName
+    * StreamingStatus
+  * PushSync
+    * ApplicationArns
+      * items [ApplicationArn](#applicationarn)
+    * RoleArn
 
 ### SetIdentityPoolConfigurationResponse
 * SetIdentityPoolConfigurationResponse `object`: The output for the SetIdentityPoolConfiguration operation
-  * CognitoStreams [CognitoStreams](#cognitostreams)
-  * IdentityPoolId [IdentityPoolId](#identitypoolid)
-  * PushSync [PushSync](#pushsync)
+  * CognitoStreams
+    * RoleArn
+    * StreamName
+    * StreamingStatus
+  * IdentityPoolId
+  * PushSync
+    * ApplicationArns
+      * items [ApplicationArn](#applicationarn)
+    * RoleArn
 
 ### StreamName
 * StreamName `string`
@@ -694,7 +753,7 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### TooManyRequestsException
 * TooManyRequestsException `object`: Thrown if the request is throttled.
-  * message **required** [ExceptionMessage](#exceptionmessage)
+  * message **required**
 
 ### UnsubscribeFromDatasetRequest
 * UnsubscribeFromDatasetRequest `object`: A request to UnsubscribeFromDataset.
@@ -704,12 +763,14 @@ amazonaws_cognito_sync.RegisterDevice({
 
 ### UpdateRecordsRequest
 * UpdateRecordsRequest `object`: A request to post updates to records or add and delete records for a dataset and user.
-  * DeviceId [DeviceId](#deviceid)
-  * RecordPatches [RecordPatchList](#recordpatchlist)
-  * SyncSessionToken **required** [SyncSessionToken](#syncsessiontoken)
+  * DeviceId
+  * RecordPatches
+    * items [RecordPatch](#recordpatch)
+  * SyncSessionToken **required**
 
 ### UpdateRecordsResponse
 * UpdateRecordsResponse `object`: Returned for a successful UpdateRecordsRequest.
-  * Records [RecordList](#recordlist)
+  * Records
+    * items [Record](#record)
 
 

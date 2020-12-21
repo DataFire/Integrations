@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nrel_transportation_incentives_laws",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "main": "index.js",
   "description": "DataFire integration for Transportation Laws and Incentives",
   "repository": {

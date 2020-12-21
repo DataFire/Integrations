@@ -13,11 +13,7 @@ let amazonaws_glue = require('@datafire/amazonaws_glue').create({
   region: ""
 });
 
-amazonaws_glue.BatchCreatePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionInputList": []
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -34,18 +30,19 @@ amazonaws_glue.BatchCreatePartition({
 
 ```js
 amazonaws_glue.BatchCreatePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionInputList": []
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionInputList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInputList **required** [PartitionInputList](#partitioninputlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInputList **required**
+    * items [PartitionInput](#partitioninput)
+  * TableName **required**
 
 #### Output
 * output [BatchCreatePartitionResponse](#batchcreatepartitionresponse)
@@ -56,14 +53,15 @@ amazonaws_glue.BatchCreatePartition({
 
 ```js
 amazonaws_glue.BatchDeleteConnection({
-  "ConnectionNameList": []
+  "ConnectionNameList": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionNameList **required** [DeleteConnectionNameList](#deleteconnectionnamelist)
+  * CatalogId
+  * ConnectionNameList **required**
+    * items [NameString](#namestring)
 
 #### Output
 * output [BatchDeleteConnectionResponse](#batchdeleteconnectionresponse)
@@ -74,18 +72,19 @@ amazonaws_glue.BatchDeleteConnection({
 
 ```js
 amazonaws_glue.BatchDeletePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionsToDelete": []
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionsToDelete": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionsToDelete **required** [BatchDeletePartitionValueList](#batchdeletepartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionsToDelete **required**
+    * items [PartitionValueList](#partitionvaluelist)
+  * TableName **required**
 
 #### Output
 * output [BatchDeletePartitionResponse](#batchdeletepartitionresponse)
@@ -96,16 +95,17 @@ amazonaws_glue.BatchDeletePartition({
 
 ```js
 amazonaws_glue.BatchDeleteTable({
-  "DatabaseName": "",
-  "TablesToDelete": []
+  "DatabaseName": null,
+  "TablesToDelete": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TablesToDelete **required** [BatchDeleteTableNameList](#batchdeletetablenamelist)
+  * CatalogId
+  * DatabaseName **required**
+  * TablesToDelete **required**
+    * items [NameString](#namestring)
 
 #### Output
 * output [BatchDeleteTableResponse](#batchdeletetableresponse)
@@ -116,21 +116,76 @@ amazonaws_glue.BatchDeleteTable({
 
 ```js
 amazonaws_glue.BatchDeleteTableVersion({
-  "DatabaseName": "",
-  "TableName": "",
-  "VersionIds": []
+  "DatabaseName": null,
+  "TableName": null,
+  "VersionIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionIds **required** [BatchDeleteTableVersionList](#batchdeletetableversionlist)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionIds **required**
+    * items [VersionString](#versionstring)
 
 #### Output
 * output [BatchDeleteTableVersionResponse](#batchdeletetableversionresponse)
+
+### BatchGetCrawlers
+
+
+
+```js
+amazonaws_glue.BatchGetCrawlers({
+  "CrawlerNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CrawlerNames **required**
+    * items [NameString](#namestring)
+
+#### Output
+* output [BatchGetCrawlersResponse](#batchgetcrawlersresponse)
+
+### BatchGetDevEndpoints
+
+
+
+```js
+amazonaws_glue.BatchGetDevEndpoints({
+  "DevEndpointNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DevEndpointNames **required**
+    * items [GenericString](#genericstring)
+
+#### Output
+* output [BatchGetDevEndpointsResponse](#batchgetdevendpointsresponse)
+
+### BatchGetJobs
+
+
+
+```js
+amazonaws_glue.BatchGetJobs({
+  "JobNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobNames **required**
+    * items [NameString](#namestring)
+
+#### Output
+* output [BatchGetJobsResponse](#batchgetjobsresponse)
 
 ### BatchGetPartition
 
@@ -138,21 +193,59 @@ amazonaws_glue.BatchDeleteTableVersion({
 
 ```js
 amazonaws_glue.BatchGetPartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionsToGet": []
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionsToGet": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionsToGet **required** [BatchGetPartitionValueList](#batchgetpartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionsToGet **required**
+    * items [PartitionValueList](#partitionvaluelist)
+  * TableName **required**
 
 #### Output
 * output [BatchGetPartitionResponse](#batchgetpartitionresponse)
+
+### BatchGetTriggers
+
+
+
+```js
+amazonaws_glue.BatchGetTriggers({
+  "TriggerNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TriggerNames **required**
+    * items [NameString](#namestring)
+
+#### Output
+* output [BatchGetTriggersResponse](#batchgettriggersresponse)
+
+### BatchGetWorkflows
+
+
+
+```js
+amazonaws_glue.BatchGetWorkflows({
+  "Names": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * IncludeGraph
+  * Names **required**
+    * items [NameString](#namestring)
+
+#### Output
+* output [BatchGetWorkflowsResponse](#batchgetworkflowsresponse)
 
 ### BatchStopJobRun
 
@@ -160,18 +253,80 @@ amazonaws_glue.BatchGetPartition({
 
 ```js
 amazonaws_glue.BatchStopJobRun({
-  "JobName": "",
-  "JobRunIds": []
+  "JobName": null,
+  "JobRunIds": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [NameString](#namestring)
-  * JobRunIds **required** [BatchStopJobRunJobRunIdList](#batchstopjobrunjobrunidlist)
+  * JobName **required**
+  * JobRunIds **required**
+    * items [IdString](#idstring)
 
 #### Output
 * output [BatchStopJobRunResponse](#batchstopjobrunresponse)
+
+### BatchUpdatePartition
+
+
+
+```js
+amazonaws_glue.BatchUpdatePartition({
+  "DatabaseName": null,
+  "TableName": null,
+  "Entries": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * DatabaseName **required**
+  * Entries **required**
+    * items [BatchUpdatePartitionRequestEntry](#batchupdatepartitionrequestentry)
+  * TableName **required**
+
+#### Output
+* output [BatchUpdatePartitionResponse](#batchupdatepartitionresponse)
+
+### CancelMLTaskRun
+
+
+
+```js
+amazonaws_glue.CancelMLTaskRun({
+  "TransformId": null,
+  "TaskRunId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TaskRunId **required**
+  * TransformId **required**
+
+#### Output
+* output [CancelMLTaskRunResponse](#cancelmltaskrunresponse)
+
+### CheckSchemaVersionValidity
+
+
+
+```js
+amazonaws_glue.CheckSchemaVersionValidity({
+  "DataFormat": null,
+  "SchemaDefinition": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DataFormat **required**
+  * SchemaDefinition **required**
+
+#### Output
+* output [CheckSchemaVersionValidityResponse](#checkschemaversionvalidityresponse)
 
 ### CreateClassifier
 
@@ -183,9 +338,27 @@ amazonaws_glue.CreateClassifier({}, context)
 
 #### Input
 * input `object`
-  * GrokClassifier [CreateGrokClassifierRequest](#creategrokclassifierrequest)
-  * JsonClassifier [CreateJsonClassifierRequest](#createjsonclassifierrequest)
-  * XMLClassifier [CreateXMLClassifierRequest](#createxmlclassifierrequest)
+  * CsvClassifier
+    * AllowSingleColumn
+    * ContainsHeader
+    * Delimiter
+    * DisableValueTrimming
+    * Header
+      * items [NameString](#namestring)
+    * Name **required**
+    * QuoteSymbol
+  * GrokClassifier
+    * Classification **required**
+    * CustomPatterns
+    * GrokPattern **required**
+    * Name **required**
+  * JsonClassifier
+    * JsonPath **required**
+    * Name **required**
+  * XMLClassifier
+    * Classification **required**
+    * Name **required**
+    * RowTag
 
 #### Output
 * output [CreateClassifierResponse](#createclassifierresponse)
@@ -196,18 +369,25 @@ amazonaws_glue.CreateClassifier({}, context)
 
 ```js
 amazonaws_glue.CreateConnection({
-  "ConnectionInput": {
-    "Name": "",
-    "ConnectionType": "",
-    "ConnectionProperties": []
-  }
+  "ConnectionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionInput **required** [ConnectionInput](#connectioninput)
+  * CatalogId
+  * ConnectionInput **required**
+    * ConnectionProperties **required**
+    * ConnectionType **required**
+    * Description
+    * MatchCriteria
+      * items [NameString](#namestring)
+    * Name **required**
+    * PhysicalConnectionRequirements
+      * AvailabilityZone
+      * SecurityGroupIdList
+        * items [NameString](#namestring)
+      * SubnetId
 
 #### Output
 * output [CreateConnectionResponse](#createconnectionresponse)
@@ -218,25 +398,43 @@ amazonaws_glue.CreateConnection({
 
 ```js
 amazonaws_glue.CreateCrawler({
-  "Name": "",
-  "Role": "",
-  "DatabaseName": "",
-  "Targets": {}
+  "Name": null,
+  "Role": null,
+  "Targets": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Classifiers [ClassifierNameList](#classifiernamelist)
-  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
-  * DatabaseName **required** [DatabaseName](#databasename)
-  * Description [DescriptionString](#descriptionstring)
-  * Name **required** [NameString](#namestring)
-  * Role **required** [Role](#role)
-  * Schedule [CronExpression](#cronexpression)
-  * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
-  * TablePrefix [TablePrefix](#tableprefix)
-  * Targets **required** [CrawlerTargets](#crawlertargets)
+  * Classifiers
+    * items [NameString](#namestring)
+  * Configuration
+  * CrawlerSecurityConfiguration
+  * DatabaseName
+  * Description
+  * LineageConfiguration
+    * CrawlerLineageSettings
+  * Name **required**
+  * RecrawlPolicy
+    * RecrawlBehavior
+  * Role **required**
+  * Schedule
+  * SchemaChangePolicy
+    * DeleteBehavior
+    * UpdateBehavior
+  * TablePrefix
+  * Tags
+  * Targets **required**
+    * CatalogTargets
+      * items [CatalogTarget](#catalogtarget)
+    * DynamoDBTargets
+      * items [DynamoDBTarget](#dynamodbtarget)
+    * JdbcTargets
+      * items [JdbcTarget](#jdbctarget)
+    * MongoDBTargets
+      * items [MongoDBTarget](#mongodbtarget)
+    * S3Targets
+      * items [S3Target](#s3target)
 
 #### Output
 * output [CreateCrawlerResponse](#createcrawlerresponse)
@@ -247,16 +445,23 @@ amazonaws_glue.CreateCrawler({
 
 ```js
 amazonaws_glue.CreateDatabase({
-  "DatabaseInput": {
-    "Name": ""
-  }
+  "DatabaseInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseInput **required** [DatabaseInput](#databaseinput)
+  * CatalogId
+  * DatabaseInput **required**
+    * CreateTableDefaultPermissions
+      * items [PrincipalPermissions](#principalpermissions)
+    * Description
+    * LocationUri
+    * Name **required**
+    * Parameters
+    * TargetDatabase
+      * CatalogId
+      * DatabaseName
 
 #### Output
 * output [CreateDatabaseResponse](#createdatabaseresponse)
@@ -267,21 +472,30 @@ amazonaws_glue.CreateDatabase({
 
 ```js
 amazonaws_glue.CreateDevEndpoint({
-  "EndpointName": "",
-  "RoleArn": ""
+  "EndpointName": null,
+  "RoleArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointName **required** [GenericString](#genericstring)
-  * ExtraJarsS3Path [GenericString](#genericstring)
-  * ExtraPythonLibsS3Path [GenericString](#genericstring)
-  * NumberOfNodes [IntegerValue](#integervalue)
-  * PublicKey [GenericString](#genericstring)
-  * RoleArn **required** [RoleArn](#rolearn)
-  * SecurityGroupIds [StringList](#stringlist)
-  * SubnetId [GenericString](#genericstring)
+  * Arguments
+  * EndpointName **required**
+  * ExtraJarsS3Path
+  * ExtraPythonLibsS3Path
+  * GlueVersion
+  * NumberOfNodes
+  * NumberOfWorkers
+  * PublicKey
+  * PublicKeys
+    * items [GenericString](#genericstring)
+  * RoleArn **required**
+  * SecurityConfiguration
+  * SecurityGroupIds
+    * items [GenericString](#genericstring)
+  * SubnetId
+  * Tags
+  * WorkerType
 
 #### Output
 * output [CreateDevEndpointResponse](#createdevendpointresponse)
@@ -292,29 +506,86 @@ amazonaws_glue.CreateDevEndpoint({
 
 ```js
 amazonaws_glue.CreateJob({
-  "Name": "",
-  "Role": "",
-  "Command": {}
+  "Name": null,
+  "Role": null,
+  "Command": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Command **required** [JobCommand](#jobcommand)
-  * Connections [ConnectionsList](#connectionslist)
-  * DefaultArguments [GenericMap](#genericmap)
-  * Description [DescriptionString](#descriptionstring)
-  * ExecutionProperty [ExecutionProperty](#executionproperty)
-  * LogUri [UriString](#uristring)
-  * MaxRetries [MaxRetries](#maxretries)
-  * Name **required** [NameString](#namestring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Role **required** [RoleString](#rolestring)
-  * Timeout [Timeout](#timeout)
+  * AllocatedCapacity
+  * Command **required**
+    * Name
+    * PythonVersion
+    * ScriptLocation
+  * Connections
+    * Connections
+      * items [GenericString](#genericstring)
+  * DefaultArguments
+  * Description
+  * ExecutionProperty
+    * MaxConcurrentRuns
+  * GlueVersion
+  * LogUri
+  * MaxCapacity
+  * MaxRetries
+  * Name **required**
+  * NonOverridableArguments
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * Role **required**
+  * SecurityConfiguration
+  * Tags
+  * Timeout
+  * WorkerType
 
 #### Output
 * output [CreateJobResponse](#createjobresponse)
+
+### CreateMLTransform
+
+
+
+```js
+amazonaws_glue.CreateMLTransform({
+  "Name": null,
+  "InputRecordTables": null,
+  "Parameters": null,
+  "Role": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * GlueVersion
+  * InputRecordTables **required**
+    * items [GlueTable](#gluetable)
+  * MaxCapacity
+  * MaxRetries
+  * Name **required**
+  * NumberOfWorkers
+  * Parameters **required**
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role **required**
+  * Tags
+  * Timeout
+  * TransformEncryption
+    * MlUserDataEncryption
+      * KmsKeyId
+      * MlUserDataEncryptionMode **required**
+    * TaskRunSecurityConfigurationName
+  * WorkerType
+
+#### Output
+* output [CreateMLTransformResponse](#createmltransformresponse)
 
 ### CreatePartition
 
@@ -322,21 +593,127 @@ amazonaws_glue.CreateJob({
 
 ```js
 amazonaws_glue.CreatePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionInput": {}
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInput **required** [PartitionInput](#partitioninput)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInput **required**
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * Values
+      * items [ValueString](#valuestring)
+  * TableName **required**
 
 #### Output
 * output [CreatePartitionResponse](#createpartitionresponse)
+
+### CreatePartitionIndex
+
+
+
+```js
+amazonaws_glue.CreatePartitionIndex({
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionIndex": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionIndex **required**
+    * IndexName **required**
+    * Keys **required**
+      * items [NameString](#namestring)
+  * TableName **required**
+
+#### Output
+* output [CreatePartitionIndexResponse](#createpartitionindexresponse)
+
+### CreateRegistry
+
+
+
+```js
+amazonaws_glue.CreateRegistry({
+  "RegistryName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * RegistryName **required**
+  * Tags
+
+#### Output
+* output [CreateRegistryResponse](#createregistryresponse)
+
+### CreateSchema
+
+
+
+```js
+amazonaws_glue.CreateSchema({
+  "SchemaName": null,
+  "DataFormat": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Compatibility
+  * DataFormat **required**
+  * Description
+  * RegistryId
+    * RegistryArn
+    * RegistryName
+  * SchemaDefinition
+  * SchemaName **required**
+  * Tags
+
+#### Output
+* output [CreateSchemaResponse](#createschemaresponse)
 
 ### CreateScript
 
@@ -348,12 +725,41 @@ amazonaws_glue.CreateScript({}, context)
 
 #### Input
 * input `object`
-  * DagEdges [DagEdges](#dagedges)
-  * DagNodes [DagNodes](#dagnodes)
-  * Language [Language](#language)
+  * DagEdges
+    * items [CodeGenEdge](#codegenedge)
+  * DagNodes
+    * items [CodeGenNode](#codegennode)
+  * Language
 
 #### Output
 * output [CreateScriptResponse](#createscriptresponse)
+
+### CreateSecurityConfiguration
+
+
+
+```js
+amazonaws_glue.CreateSecurityConfiguration({
+  "Name": null,
+  "EncryptionConfiguration": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EncryptionConfiguration **required**
+    * CloudWatchEncryption
+      * CloudWatchEncryptionMode
+      * KmsKeyArn
+    * JobBookmarksEncryption
+      * JobBookmarksEncryptionMode
+      * KmsKeyArn
+    * S3Encryption
+      * items [S3Encryption](#s3encryption)
+  * Name **required**
+
+#### Output
+* output [CreateSecurityConfigurationResponse](#createsecurityconfigurationresponse)
 
 ### CreateTable
 
@@ -361,18 +767,65 @@ amazonaws_glue.CreateScript({}, context)
 
 ```js
 amazonaws_glue.CreateTable({
-  "DatabaseName": "",
-  "TableInput": {
-    "Name": ""
-  }
+  "DatabaseName": null,
+  "TableInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableInput **required** [TableInput](#tableinput)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionIndexes
+    * items [PartitionIndex](#partitionindex)
+  * TableInput **required**
+    * Description
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * ViewExpandedText
+    * ViewOriginalText
 
 #### Output
 * output [CreateTableResponse](#createtableresponse)
@@ -383,21 +836,27 @@ amazonaws_glue.CreateTable({
 
 ```js
 amazonaws_glue.CreateTrigger({
-  "Name": "",
-  "Type": "",
-  "Actions": []
+  "Name": null,
+  "Type": null,
+  "Actions": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Actions **required** [ActionList](#actionlist)
-  * Description [DescriptionString](#descriptionstring)
-  * Name **required** [NameString](#namestring)
-  * Predicate [Predicate](#predicate)
-  * Schedule [GenericString](#genericstring)
-  * StartOnCreation [BooleanValue](#booleanvalue)
-  * Type **required** [TriggerType](#triggertype)
+  * Actions **required**
+    * items [Action](#action)
+  * Description
+  * Name **required**
+  * Predicate
+    * Conditions
+      * items [Condition](#condition)
+    * Logical
+  * Schedule
+  * StartOnCreation
+  * Tags
+  * Type **required**
+  * WorkflowName
 
 #### Output
 * output [CreateTriggerResponse](#createtriggerresponse)
@@ -408,19 +867,46 @@ amazonaws_glue.CreateTrigger({
 
 ```js
 amazonaws_glue.CreateUserDefinedFunction({
-  "DatabaseName": "",
-  "FunctionInput": {}
+  "DatabaseName": null,
+  "FunctionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionInput **required** [UserDefinedFunctionInput](#userdefinedfunctioninput)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionInput **required**
+    * ClassName
+    * FunctionName
+    * OwnerName
+    * OwnerType
+    * ResourceUris
+      * items [ResourceUri](#resourceuri)
 
 #### Output
 * output [CreateUserDefinedFunctionResponse](#createuserdefinedfunctionresponse)
+
+### CreateWorkflow
+
+
+
+```js
+amazonaws_glue.CreateWorkflow({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DefaultRunProperties
+  * Description
+  * MaxConcurrentRuns
+  * Name **required**
+  * Tags
+
+#### Output
+* output [CreateWorkflowResponse](#createworkflowresponse)
 
 ### DeleteClassifier
 
@@ -428,16 +914,63 @@ amazonaws_glue.CreateUserDefinedFunction({
 
 ```js
 amazonaws_glue.DeleteClassifier({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [DeleteClassifierResponse](#deleteclassifierresponse)
+
+### DeleteColumnStatisticsForPartition
+
+
+
+```js
+amazonaws_glue.DeleteColumnStatisticsForPartition({
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValues": null,
+  "ColumnName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnName **required**
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+#### Output
+* output [DeleteColumnStatisticsForPartitionResponse](#deletecolumnstatisticsforpartitionresponse)
+
+### DeleteColumnStatisticsForTable
+
+
+
+```js
+amazonaws_glue.DeleteColumnStatisticsForTable({
+  "DatabaseName": null,
+  "TableName": null,
+  "ColumnName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnName **required**
+  * DatabaseName **required**
+  * TableName **required**
+
+#### Output
+* output [DeleteColumnStatisticsForTableResponse](#deletecolumnstatisticsfortableresponse)
 
 ### DeleteConnection
 
@@ -445,14 +978,14 @@ amazonaws_glue.DeleteClassifier({
 
 ```js
 amazonaws_glue.DeleteConnection({
-  "ConnectionName": ""
+  "ConnectionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionName **required** [NameString](#namestring)
+  * CatalogId
+  * ConnectionName **required**
 
 #### Output
 * output [DeleteConnectionResponse](#deleteconnectionresponse)
@@ -463,13 +996,13 @@ amazonaws_glue.DeleteConnection({
 
 ```js
 amazonaws_glue.DeleteCrawler({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [DeleteCrawlerResponse](#deletecrawlerresponse)
@@ -480,14 +1013,14 @@ amazonaws_glue.DeleteCrawler({
 
 ```js
 amazonaws_glue.DeleteDatabase({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * Name **required**
 
 #### Output
 * output [DeleteDatabaseResponse](#deletedatabaseresponse)
@@ -498,13 +1031,13 @@ amazonaws_glue.DeleteDatabase({
 
 ```js
 amazonaws_glue.DeleteDevEndpoint({
-  "EndpointName": ""
+  "EndpointName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointName **required** [GenericString](#genericstring)
+  * EndpointName **required**
 
 #### Output
 * output [DeleteDevEndpointResponse](#deletedevendpointresponse)
@@ -515,16 +1048,33 @@ amazonaws_glue.DeleteDevEndpoint({
 
 ```js
 amazonaws_glue.DeleteJob({
-  "JobName": ""
+  "JobName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [NameString](#namestring)
+  * JobName **required**
 
 #### Output
 * output [DeleteJobResponse](#deletejobresponse)
+
+### DeleteMLTransform
+
+
+
+```js
+amazonaws_glue.DeleteMLTransform({
+  "TransformId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformId **required**
+
+#### Output
+* output [DeleteMLTransformResponse](#deletemltransformresponse)
 
 ### DeletePartition
 
@@ -532,21 +1082,138 @@ amazonaws_glue.DeleteJob({
 
 ```js
 amazonaws_glue.DeletePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionValues": []
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValues": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionValues **required** [ValueStringList](#valuestringlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 #### Output
 * output [DeletePartitionResponse](#deletepartitionresponse)
+
+### DeletePartitionIndex
+
+
+
+```js
+amazonaws_glue.DeletePartitionIndex({
+  "DatabaseName": null,
+  "TableName": null,
+  "IndexName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * DatabaseName **required**
+  * IndexName **required**
+  * TableName **required**
+
+#### Output
+* output [DeletePartitionIndexResponse](#deletepartitionindexresponse)
+
+### DeleteRegistry
+
+
+
+```js
+amazonaws_glue.DeleteRegistry({
+  "RegistryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+#### Output
+* output [DeleteRegistryResponse](#deleteregistryresponse)
+
+### DeleteResourcePolicy
+
+
+
+```js
+amazonaws_glue.DeleteResourcePolicy({}, context)
+```
+
+#### Input
+* input `object`
+  * PolicyHashCondition
+  * ResourceArn
+
+#### Output
+* output [DeleteResourcePolicyResponse](#deleteresourcepolicyresponse)
+
+### DeleteSchema
+
+
+
+```js
+amazonaws_glue.DeleteSchema({
+  "SchemaId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+#### Output
+* output [DeleteSchemaResponse](#deleteschemaresponse)
+
+### DeleteSchemaVersions
+
+
+
+```js
+amazonaws_glue.DeleteSchemaVersions({
+  "SchemaId": null,
+  "Versions": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * Versions **required**
+
+#### Output
+* output [DeleteSchemaVersionsResponse](#deleteschemaversionsresponse)
+
+### DeleteSecurityConfiguration
+
+
+
+```js
+amazonaws_glue.DeleteSecurityConfiguration({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+
+#### Output
+* output [DeleteSecurityConfigurationResponse](#deletesecurityconfigurationresponse)
 
 ### DeleteTable
 
@@ -554,16 +1221,16 @@ amazonaws_glue.DeletePartition({
 
 ```js
 amazonaws_glue.DeleteTable({
-  "DatabaseName": "",
-  "Name": ""
+  "DatabaseName": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Name **required**
 
 #### Output
 * output [DeleteTableResponse](#deletetableresponse)
@@ -574,18 +1241,18 @@ amazonaws_glue.DeleteTable({
 
 ```js
 amazonaws_glue.DeleteTableVersion({
-  "DatabaseName": "",
-  "TableName": "",
-  "VersionId": ""
+  "DatabaseName": null,
+  "TableName": null,
+  "VersionId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionId **required** [VersionString](#versionstring)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionId **required**
 
 #### Output
 * output [DeleteTableVersionResponse](#deletetableversionresponse)
@@ -596,13 +1263,13 @@ amazonaws_glue.DeleteTableVersion({
 
 ```js
 amazonaws_glue.DeleteTrigger({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [DeleteTriggerResponse](#deletetriggerresponse)
@@ -613,19 +1280,36 @@ amazonaws_glue.DeleteTrigger({
 
 ```js
 amazonaws_glue.DeleteUserDefinedFunction({
-  "DatabaseName": "",
-  "FunctionName": ""
+  "DatabaseName": null,
+  "FunctionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionName **required**
 
 #### Output
 * output [DeleteUserDefinedFunctionResponse](#deleteuserdefinedfunctionresponse)
+
+### DeleteWorkflow
+
+
+
+```js
+amazonaws_glue.DeleteWorkflow({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+
+#### Output
+* output [DeleteWorkflowResponse](#deleteworkflowresponse)
 
 ### GetCatalogImportStatus
 
@@ -637,7 +1321,7 @@ amazonaws_glue.GetCatalogImportStatus({}, context)
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
+  * CatalogId
 
 #### Output
 * output [GetCatalogImportStatusResponse](#getcatalogimportstatusresponse)
@@ -648,13 +1332,13 @@ amazonaws_glue.GetCatalogImportStatus({}, context)
 
 ```js
 amazonaws_glue.GetClassifier({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [GetClassifierResponse](#getclassifierresponse)
@@ -671,11 +1355,60 @@ amazonaws_glue.GetClassifiers({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetClassifiersResponse](#getclassifiersresponse)
+
+### GetColumnStatisticsForPartition
+
+
+
+```js
+amazonaws_glue.GetColumnStatisticsForPartition({
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValues": null,
+  "ColumnNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnNames **required**
+    * items [NameString](#namestring)
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+#### Output
+* output [GetColumnStatisticsForPartitionResponse](#getcolumnstatisticsforpartitionresponse)
+
+### GetColumnStatisticsForTable
+
+
+
+```js
+amazonaws_glue.GetColumnStatisticsForTable({
+  "DatabaseName": null,
+  "TableName": null,
+  "ColumnNames": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnNames **required**
+    * items [NameString](#namestring)
+  * DatabaseName **required**
+  * TableName **required**
+
+#### Output
+* output [GetColumnStatisticsForTableResponse](#getcolumnstatisticsfortableresponse)
 
 ### GetConnection
 
@@ -683,14 +1416,15 @@ amazonaws_glue.GetClassifiers({}, context)
 
 ```js
 amazonaws_glue.GetConnection({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * HidePassword
+  * Name **required**
 
 #### Output
 * output [GetConnectionResponse](#getconnectionresponse)
@@ -707,10 +1441,14 @@ amazonaws_glue.GetConnections({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Filter [GetConnectionsFilter](#getconnectionsfilter)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * Filter
+    * ConnectionType
+    * MatchCriteria
+      * items [NameString](#namestring)
+  * HidePassword
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetConnectionsResponse](#getconnectionsresponse)
@@ -721,13 +1459,13 @@ amazonaws_glue.GetConnections({}, context)
 
 ```js
 amazonaws_glue.GetCrawler({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [GetCrawlerResponse](#getcrawlerresponse)
@@ -744,9 +1482,10 @@ amazonaws_glue.GetCrawlerMetrics({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CrawlerNameList [CrawlerNameList](#crawlernamelist)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CrawlerNameList
+    * items [NameString](#namestring)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetCrawlerMetricsResponse](#getcrawlermetricsresponse)
@@ -763,11 +1502,26 @@ amazonaws_glue.GetCrawlers({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetCrawlersResponse](#getcrawlersresponse)
+
+### GetDataCatalogEncryptionSettings
+
+
+
+```js
+amazonaws_glue.GetDataCatalogEncryptionSettings({}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+
+#### Output
+* output [GetDataCatalogEncryptionSettingsResponse](#getdatacatalogencryptionsettingsresponse)
 
 ### GetDatabase
 
@@ -775,14 +1529,14 @@ amazonaws_glue.GetCrawlers({}, context)
 
 ```js
 amazonaws_glue.GetDatabase({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * Name **required**
 
 #### Output
 * output [GetDatabaseResponse](#getdatabaseresponse)
@@ -799,9 +1553,10 @@ amazonaws_glue.GetDatabases({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * MaxResults
+  * NextToken
+  * ResourceShareType
 
 #### Output
 * output [GetDatabasesResponse](#getdatabasesresponse)
@@ -816,7 +1571,7 @@ amazonaws_glue.GetDataflowGraph({}, context)
 
 #### Input
 * input `object`
-  * PythonScript [PythonScript](#pythonscript)
+  * PythonScript
 
 #### Output
 * output [GetDataflowGraphResponse](#getdataflowgraphresponse)
@@ -827,13 +1582,13 @@ amazonaws_glue.GetDataflowGraph({}, context)
 
 ```js
 amazonaws_glue.GetDevEndpoint({
-  "EndpointName": ""
+  "EndpointName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EndpointName **required** [GenericString](#genericstring)
+  * EndpointName **required**
 
 #### Output
 * output [GetDevEndpointResponse](#getdevendpointresponse)
@@ -850,8 +1605,8 @@ amazonaws_glue.GetDevEndpoints({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetDevEndpointsResponse](#getdevendpointsresponse)
@@ -862,16 +1617,34 @@ amazonaws_glue.GetDevEndpoints({}, context)
 
 ```js
 amazonaws_glue.GetJob({
-  "JobName": ""
+  "JobName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [NameString](#namestring)
+  * JobName **required**
 
 #### Output
 * output [GetJobResponse](#getjobresponse)
+
+### GetJobBookmark
+
+
+
+```js
+amazonaws_glue.GetJobBookmark({
+  "JobName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * JobName **required**
+  * RunId
+
+#### Output
+* output [GetJobBookmarkResponse](#getjobbookmarkresponse)
 
 ### GetJobRun
 
@@ -879,16 +1652,16 @@ amazonaws_glue.GetJob({
 
 ```js
 amazonaws_glue.GetJobRun({
-  "JobName": "",
-  "RunId": ""
+  "JobName": null,
+  "RunId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [NameString](#namestring)
-  * PredecessorsIncluded [BooleanValue](#booleanvalue)
-  * RunId **required** [IdString](#idstring)
+  * JobName **required**
+  * PredecessorsIncluded
+  * RunId **required**
 
 #### Output
 * output [GetJobRunResponse](#getjobrunresponse)
@@ -899,7 +1672,7 @@ amazonaws_glue.GetJobRun({
 
 ```js
 amazonaws_glue.GetJobRuns({
-  "JobName": ""
+  "JobName": null
 }, context)
 ```
 
@@ -907,9 +1680,9 @@ amazonaws_glue.GetJobRuns({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * JobName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * JobName **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetJobRunsResponse](#getjobrunsresponse)
@@ -926,11 +1699,108 @@ amazonaws_glue.GetJobs({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetJobsResponse](#getjobsresponse)
+
+### GetMLTaskRun
+
+
+
+```js
+amazonaws_glue.GetMLTaskRun({
+  "TransformId": null,
+  "TaskRunId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TaskRunId **required**
+  * TransformId **required**
+
+#### Output
+* output [GetMLTaskRunResponse](#getmltaskrunresponse)
+
+### GetMLTaskRuns
+
+
+
+```js
+amazonaws_glue.GetMLTaskRuns({
+  "TransformId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filter
+    * StartedAfter
+    * StartedBefore
+    * Status
+    * TaskRunType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+  * TransformId **required**
+
+#### Output
+* output [GetMLTaskRunsResponse](#getmltaskrunsresponse)
+
+### GetMLTransform
+
+
+
+```js
+amazonaws_glue.GetMLTransform({
+  "TransformId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformId **required**
+
+#### Output
+* output [GetMLTransformResponse](#getmltransformresponse)
+
+### GetMLTransforms
+
+
+
+```js
+amazonaws_glue.GetMLTransforms({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filter
+    * CreatedAfter
+    * CreatedBefore
+    * GlueVersion
+    * LastModifiedAfter
+    * LastModifiedBefore
+    * Name
+    * Schema
+      * items [SchemaColumn](#schemacolumn)
+    * Status
+    * TransformType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+
+#### Output
+* output [GetMLTransformsResponse](#getmltransformsresponse)
 
 ### GetMapping
 
@@ -938,18 +1808,24 @@ amazonaws_glue.GetJobs({}, context)
 
 ```js
 amazonaws_glue.GetMapping({
-  "Source": {
-    "DatabaseName": "",
-    "TableName": ""
-  }
+  "Source": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Location [Location](#location)
-  * Sinks [CatalogEntries](#catalogentries)
-  * Source **required** [CatalogEntry](#catalogentry)
+  * Location
+    * DynamoDB
+      * items [CodeGenNodeArg](#codegennodearg)
+    * Jdbc
+      * items [CodeGenNodeArg](#codegennodearg)
+    * S3
+      * items [CodeGenNodeArg](#codegennodearg)
+  * Sinks
+    * items [CatalogEntry](#catalogentry)
+  * Source **required**
+    * DatabaseName **required**
+    * TableName **required**
 
 #### Output
 * output [GetMappingResponse](#getmappingresponse)
@@ -960,21 +1836,44 @@ amazonaws_glue.GetMapping({
 
 ```js
 amazonaws_glue.GetPartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionValues": []
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValues": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionValues **required** [ValueStringList](#valuestringlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 #### Output
 * output [GetPartitionResponse](#getpartitionresponse)
+
+### GetPartitionIndexes
+
+
+
+```js
+amazonaws_glue.GetPartitionIndexes({
+  "DatabaseName": null,
+  "TableName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NextToken `string`
+  * CatalogId
+  * DatabaseName **required**
+  * NextToken
+  * TableName **required**
+
+#### Output
+* output [GetPartitionIndexesResponse](#getpartitionindexesresponse)
 
 ### GetPartitions
 
@@ -982,8 +1881,8 @@ amazonaws_glue.GetPartition({
 
 ```js
 amazonaws_glue.GetPartitions({
-  "DatabaseName": "",
-  "TableName": ""
+  "DatabaseName": null,
+  "TableName": null
 }, context)
 ```
 
@@ -991,13 +1890,15 @@ amazonaws_glue.GetPartitions({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Expression [PredicateString](#predicatestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * Segment [Segment](#segment)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Expression
+  * MaxResults
+  * NextToken
+  * Segment
+    * SegmentNumber **required**
+    * TotalSegments **required**
+  * TableName **required**
 
 #### Output
 * output [GetPartitionsResponse](#getpartitionsresponse)
@@ -1008,24 +1909,213 @@ amazonaws_glue.GetPartitions({
 
 ```js
 amazonaws_glue.GetPlan({
-  "Mapping": [],
-  "Source": {
-    "DatabaseName": "",
-    "TableName": ""
-  }
+  "Mapping": null,
+  "Source": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Language [Language](#language)
-  * Location [Location](#location)
-  * Mapping **required** [MappingList](#mappinglist)
-  * Sinks [CatalogEntries](#catalogentries)
-  * Source **required** [CatalogEntry](#catalogentry)
+  * AdditionalPlanOptionsMap
+  * Language
+  * Location
+    * DynamoDB
+      * items [CodeGenNodeArg](#codegennodearg)
+    * Jdbc
+      * items [CodeGenNodeArg](#codegennodearg)
+    * S3
+      * items [CodeGenNodeArg](#codegennodearg)
+  * Mapping **required**
+    * items [MappingEntry](#mappingentry)
+  * Sinks
+    * items [CatalogEntry](#catalogentry)
+  * Source **required**
+    * DatabaseName **required**
+    * TableName **required**
 
 #### Output
 * output [GetPlanResponse](#getplanresponse)
+
+### GetRegistry
+
+
+
+```js
+amazonaws_glue.GetRegistry({
+  "RegistryId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+#### Output
+* output [GetRegistryResponse](#getregistryresponse)
+
+### GetResourcePolicies
+
+
+
+```js
+amazonaws_glue.GetResourcePolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [GetResourcePoliciesResponse](#getresourcepoliciesresponse)
+
+### GetResourcePolicy
+
+
+
+```js
+amazonaws_glue.GetResourcePolicy({}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn
+
+#### Output
+* output [GetResourcePolicyResponse](#getresourcepolicyresponse)
+
+### GetSchema
+
+
+
+```js
+amazonaws_glue.GetSchema({
+  "SchemaId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+#### Output
+* output [GetSchemaResponse](#getschemaresponse)
+
+### GetSchemaByDefinition
+
+
+
+```js
+amazonaws_glue.GetSchemaByDefinition({
+  "SchemaId": null,
+  "SchemaDefinition": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaDefinition **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+#### Output
+* output [GetSchemaByDefinitionResponse](#getschemabydefinitionresponse)
+
+### GetSchemaVersion
+
+
+
+```js
+amazonaws_glue.GetSchemaVersion({}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [GetSchemaVersionResponse](#getschemaversionresponse)
+
+### GetSchemaVersionsDiff
+
+
+
+```js
+amazonaws_glue.GetSchemaVersionsDiff({
+  "SchemaId": null,
+  "FirstSchemaVersionNumber": null,
+  "SecondSchemaVersionNumber": null,
+  "SchemaDiffType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * FirstSchemaVersionNumber **required**
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+  * SchemaDiffType **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SecondSchemaVersionNumber **required**
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [GetSchemaVersionsDiffResponse](#getschemaversionsdiffresponse)
+
+### GetSecurityConfiguration
+
+
+
+```js
+amazonaws_glue.GetSecurityConfiguration({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+
+#### Output
+* output [GetSecurityConfigurationResponse](#getsecurityconfigurationresponse)
+
+### GetSecurityConfigurations
+
+
+
+```js
+amazonaws_glue.GetSecurityConfigurations({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [GetSecurityConfigurationsResponse](#getsecurityconfigurationsresponse)
 
 ### GetTable
 
@@ -1033,16 +2123,16 @@ amazonaws_glue.GetPlan({
 
 ```js
 amazonaws_glue.GetTable({
-  "DatabaseName": "",
-  "Name": ""
+  "DatabaseName": null,
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Name **required**
 
 #### Output
 * output [GetTableResponse](#gettableresponse)
@@ -1053,17 +2143,17 @@ amazonaws_glue.GetTable({
 
 ```js
 amazonaws_glue.GetTableVersion({
-  "DatabaseName": "",
-  "TableName": ""
+  "DatabaseName": null,
+  "TableName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionId [VersionString](#versionstring)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionId
 
 #### Output
 * output [GetTableVersionResponse](#gettableversionresponse)
@@ -1074,8 +2164,8 @@ amazonaws_glue.GetTableVersion({
 
 ```js
 amazonaws_glue.GetTableVersions({
-  "DatabaseName": "",
-  "TableName": ""
+  "DatabaseName": null,
+  "TableName": null
 }, context)
 ```
 
@@ -1083,11 +2173,11 @@ amazonaws_glue.GetTableVersions({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * MaxResults
+  * NextToken
+  * TableName **required**
 
 #### Output
 * output [GetTableVersionsResponse](#gettableversionsresponse)
@@ -1098,7 +2188,7 @@ amazonaws_glue.GetTableVersions({
 
 ```js
 amazonaws_glue.GetTables({
-  "DatabaseName": ""
+  "DatabaseName": null
 }, context)
 ```
 
@@ -1106,14 +2196,31 @@ amazonaws_glue.GetTables({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Expression [FilterString](#filterstring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * DatabaseName **required**
+  * Expression
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetTablesResponse](#gettablesresponse)
+
+### GetTags
+
+
+
+```js
+amazonaws_glue.GetTags({
+  "ResourceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+
+#### Output
+* output [GetTagsResponse](#gettagsresponse)
 
 ### GetTrigger
 
@@ -1121,13 +2228,13 @@ amazonaws_glue.GetTables({
 
 ```js
 amazonaws_glue.GetTrigger({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [GetTriggerResponse](#gettriggerresponse)
@@ -1144,9 +2251,9 @@ amazonaws_glue.GetTriggers({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * DependentJobName [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * DependentJobName
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [GetTriggersResponse](#gettriggersresponse)
@@ -1157,16 +2264,16 @@ amazonaws_glue.GetTriggers({}, context)
 
 ```js
 amazonaws_glue.GetUserDefinedFunction({
-  "DatabaseName": "",
-  "FunctionName": ""
+  "DatabaseName": null,
+  "FunctionName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionName **required**
 
 #### Output
 * output [GetUserDefinedFunctionResponse](#getuserdefinedfunctionresponse)
@@ -1177,8 +2284,7 @@ amazonaws_glue.GetUserDefinedFunction({
 
 ```js
 amazonaws_glue.GetUserDefinedFunctions({
-  "DatabaseName": "",
-  "Pattern": ""
+  "Pattern": null
 }, context)
 ```
 
@@ -1186,14 +2292,93 @@ amazonaws_glue.GetUserDefinedFunctions({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * Pattern **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName
+  * MaxResults
+  * NextToken
+  * Pattern **required**
 
 #### Output
 * output [GetUserDefinedFunctionsResponse](#getuserdefinedfunctionsresponse)
+
+### GetWorkflow
+
+
+
+```js
+amazonaws_glue.GetWorkflow({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * IncludeGraph
+  * Name **required**
+
+#### Output
+* output [GetWorkflowResponse](#getworkflowresponse)
+
+### GetWorkflowRun
+
+
+
+```js
+amazonaws_glue.GetWorkflowRun({
+  "Name": null,
+  "RunId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * IncludeGraph
+  * Name **required**
+  * RunId **required**
+
+#### Output
+* output [GetWorkflowRunResponse](#getworkflowrunresponse)
+
+### GetWorkflowRunProperties
+
+
+
+```js
+amazonaws_glue.GetWorkflowRunProperties({
+  "Name": null,
+  "RunId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * RunId **required**
+
+#### Output
+* output [GetWorkflowRunPropertiesResponse](#getworkflowrunpropertiesresponse)
+
+### GetWorkflowRuns
+
+
+
+```js
+amazonaws_glue.GetWorkflowRuns({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * IncludeGraph
+  * MaxResults
+  * Name **required**
+  * NextToken
+
+#### Output
+* output [GetWorkflowRunsResponse](#getworkflowrunsresponse)
 
 ### ImportCatalogToGlue
 
@@ -1205,10 +2390,369 @@ amazonaws_glue.ImportCatalogToGlue({}, context)
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
+  * CatalogId
 
 #### Output
 * output [ImportCatalogToGlueResponse](#importcatalogtoglueresponse)
+
+### ListCrawlers
+
+
+
+```js
+amazonaws_glue.ListCrawlers({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * Tags
+
+#### Output
+* output [ListCrawlersResponse](#listcrawlersresponse)
+
+### ListDevEndpoints
+
+
+
+```js
+amazonaws_glue.ListDevEndpoints({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * Tags
+
+#### Output
+* output [ListDevEndpointsResponse](#listdevendpointsresponse)
+
+### ListJobs
+
+
+
+```js
+amazonaws_glue.ListJobs({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * Tags
+
+#### Output
+* output [ListJobsResponse](#listjobsresponse)
+
+### ListMLTransforms
+
+
+
+```js
+amazonaws_glue.ListMLTransforms({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filter
+    * CreatedAfter
+    * CreatedBefore
+    * GlueVersion
+    * LastModifiedAfter
+    * LastModifiedBefore
+    * Name
+    * Schema
+      * items [SchemaColumn](#schemacolumn)
+    * Status
+    * TransformType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+  * Tags
+
+#### Output
+* output [ListMLTransformsResponse](#listmltransformsresponse)
+
+### ListRegistries
+
+
+
+```js
+amazonaws_glue.ListRegistries({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListRegistriesResponse](#listregistriesresponse)
+
+### ListSchemaVersions
+
+
+
+```js
+amazonaws_glue.ListSchemaVersions({
+  "SchemaId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+#### Output
+* output [ListSchemaVersionsResponse](#listschemaversionsresponse)
+
+### ListSchemas
+
+
+
+```js
+amazonaws_glue.ListSchemas({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * RegistryId
+    * RegistryArn
+    * RegistryName
+
+#### Output
+* output [ListSchemasResponse](#listschemasresponse)
+
+### ListTriggers
+
+
+
+```js
+amazonaws_glue.ListTriggers({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * DependentJobName
+  * MaxResults
+  * NextToken
+  * Tags
+
+#### Output
+* output [ListTriggersResponse](#listtriggersresponse)
+
+### ListWorkflows
+
+
+
+```js
+amazonaws_glue.ListWorkflows({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListWorkflowsResponse](#listworkflowsresponse)
+
+### PutDataCatalogEncryptionSettings
+
+
+
+```js
+amazonaws_glue.PutDataCatalogEncryptionSettings({
+  "DataCatalogEncryptionSettings": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * DataCatalogEncryptionSettings **required**
+    * ConnectionPasswordEncryption
+      * AwsKmsKeyId
+      * ReturnConnectionPasswordEncrypted **required**
+    * EncryptionAtRest
+      * CatalogEncryptionMode **required**
+      * SseAwsKmsKeyId
+
+#### Output
+* output [PutDataCatalogEncryptionSettingsResponse](#putdatacatalogencryptionsettingsresponse)
+
+### PutResourcePolicy
+
+
+
+```js
+amazonaws_glue.PutResourcePolicy({
+  "PolicyInJson": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * EnableHybrid
+  * PolicyExistsCondition
+  * PolicyHashCondition
+  * PolicyInJson **required**
+  * ResourceArn
+
+#### Output
+* output [PutResourcePolicyResponse](#putresourcepolicyresponse)
+
+### PutSchemaVersionMetadata
+
+
+
+```js
+amazonaws_glue.PutSchemaVersionMetadata({
+  "MetadataKeyValue": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MetadataKeyValue **required**
+    * MetadataKey
+    * MetadataValue
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [PutSchemaVersionMetadataResponse](#putschemaversionmetadataresponse)
+
+### PutWorkflowRunProperties
+
+
+
+```js
+amazonaws_glue.PutWorkflowRunProperties({
+  "Name": null,
+  "RunId": null,
+  "RunProperties": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * RunId **required**
+  * RunProperties **required**
+
+#### Output
+* output [PutWorkflowRunPropertiesResponse](#putworkflowrunpropertiesresponse)
+
+### QuerySchemaVersionMetadata
+
+
+
+```js
+amazonaws_glue.QuerySchemaVersionMetadata({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults
+  * MetadataList
+    * items [MetadataKeyValuePair](#metadatakeyvaluepair)
+  * NextToken
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [QuerySchemaVersionMetadataResponse](#queryschemaversionmetadataresponse)
+
+### RegisterSchemaVersion
+
+
+
+```js
+amazonaws_glue.RegisterSchemaVersion({
+  "SchemaId": null,
+  "SchemaDefinition": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SchemaDefinition **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+#### Output
+* output [RegisterSchemaVersionResponse](#registerschemaversionresponse)
+
+### RemoveSchemaVersionMetadata
+
+
+
+```js
+amazonaws_glue.RemoveSchemaVersionMetadata({
+  "MetadataKeyValue": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MetadataKeyValue **required**
+    * MetadataKey
+    * MetadataValue
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [RemoveSchemaVersionMetadataResponse](#removeschemaversionmetadataresponse)
 
 ### ResetJobBookmark
 
@@ -1216,16 +2760,64 @@ amazonaws_glue.ImportCatalogToGlue({}, context)
 
 ```js
 amazonaws_glue.ResetJobBookmark({
-  "JobName": ""
+  "JobName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [JobName](#jobname)
+  * JobName **required**
+  * RunId
 
 #### Output
 * output [ResetJobBookmarkResponse](#resetjobbookmarkresponse)
+
+### ResumeWorkflowRun
+
+
+
+```js
+amazonaws_glue.ResumeWorkflowRun({
+  "Name": null,
+  "RunId": null,
+  "NodeIds": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * NodeIds **required**
+    * items [NameString](#namestring)
+  * RunId **required**
+
+#### Output
+* output [ResumeWorkflowRunResponse](#resumeworkflowrunresponse)
+
+### SearchTables
+
+
+
+```js
+amazonaws_glue.SearchTables({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * CatalogId
+  * Filters
+    * items [PropertyPredicate](#propertypredicate)
+  * MaxResults
+  * NextToken
+  * ResourceShareType
+  * SearchText
+  * SortCriteria
+    * items [SortCriterion](#sortcriterion)
+
+#### Output
+* output [SearchTablesResponse](#searchtablesresponse)
 
 ### StartCrawler
 
@@ -1233,13 +2825,13 @@ amazonaws_glue.ResetJobBookmark({
 
 ```js
 amazonaws_glue.StartCrawler({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [StartCrawlerResponse](#startcrawlerresponse)
@@ -1250,16 +2842,55 @@ amazonaws_glue.StartCrawler({
 
 ```js
 amazonaws_glue.StartCrawlerSchedule({
-  "CrawlerName": ""
+  "CrawlerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CrawlerName **required** [NameString](#namestring)
+  * CrawlerName **required**
 
 #### Output
 * output [StartCrawlerScheduleResponse](#startcrawlerscheduleresponse)
+
+### StartExportLabelsTaskRun
+
+
+
+```js
+amazonaws_glue.StartExportLabelsTaskRun({
+  "TransformId": null,
+  "OutputS3Path": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OutputS3Path **required**
+  * TransformId **required**
+
+#### Output
+* output [StartExportLabelsTaskRunResponse](#startexportlabelstaskrunresponse)
+
+### StartImportLabelsTaskRun
+
+
+
+```js
+amazonaws_glue.StartImportLabelsTaskRun({
+  "TransformId": null,
+  "InputS3Path": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * InputS3Path **required**
+  * ReplaceAllLabels
+  * TransformId **required**
+
+#### Output
+* output [StartImportLabelsTaskRunResponse](#startimportlabelstaskrunresponse)
 
 ### StartJobRun
 
@@ -1267,21 +2898,62 @@ amazonaws_glue.StartCrawlerSchedule({
 
 ```js
 amazonaws_glue.StartJobRun({
-  "JobName": ""
+  "JobName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Arguments [GenericMap](#genericmap)
-  * JobName **required** [NameString](#namestring)
-  * JobRunId [IdString](#idstring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Timeout [Timeout](#timeout)
+  * AllocatedCapacity
+  * Arguments
+  * JobName **required**
+  * JobRunId
+  * MaxCapacity
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * SecurityConfiguration
+  * Timeout
+  * WorkerType
 
 #### Output
 * output [StartJobRunResponse](#startjobrunresponse)
+
+### StartMLEvaluationTaskRun
+
+
+
+```js
+amazonaws_glue.StartMLEvaluationTaskRun({
+  "TransformId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * TransformId **required**
+
+#### Output
+* output [StartMLEvaluationTaskRunResponse](#startmlevaluationtaskrunresponse)
+
+### StartMLLabelingSetGenerationTaskRun
+
+
+
+```js
+amazonaws_glue.StartMLLabelingSetGenerationTaskRun({
+  "TransformId": null,
+  "OutputS3Path": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * OutputS3Path **required**
+  * TransformId **required**
+
+#### Output
+* output [StartMLLabelingSetGenerationTaskRunResponse](#startmllabelingsetgenerationtaskrunresponse)
 
 ### StartTrigger
 
@@ -1289,16 +2961,33 @@ amazonaws_glue.StartJobRun({
 
 ```js
 amazonaws_glue.StartTrigger({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [StartTriggerResponse](#starttriggerresponse)
+
+### StartWorkflowRun
+
+
+
+```js
+amazonaws_glue.StartWorkflowRun({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+
+#### Output
+* output [StartWorkflowRunResponse](#startworkflowrunresponse)
 
 ### StopCrawler
 
@@ -1306,13 +2995,13 @@ amazonaws_glue.StartTrigger({
 
 ```js
 amazonaws_glue.StopCrawler({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [StopCrawlerResponse](#stopcrawlerresponse)
@@ -1323,13 +3012,13 @@ amazonaws_glue.StopCrawler({
 
 ```js
 amazonaws_glue.StopCrawlerSchedule({
-  "CrawlerName": ""
+  "CrawlerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CrawlerName **required** [NameString](#namestring)
+  * CrawlerName **required**
 
 #### Output
 * output [StopCrawlerScheduleResponse](#stopcrawlerscheduleresponse)
@@ -1340,16 +3029,74 @@ amazonaws_glue.StopCrawlerSchedule({
 
 ```js
 amazonaws_glue.StopTrigger({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 #### Output
 * output [StopTriggerResponse](#stoptriggerresponse)
+
+### StopWorkflowRun
+
+
+
+```js
+amazonaws_glue.StopWorkflowRun({
+  "Name": null,
+  "RunId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Name **required**
+  * RunId **required**
+
+#### Output
+* output [StopWorkflowRunResponse](#stopworkflowrunresponse)
+
+### TagResource
+
+
+
+```js
+amazonaws_glue.TagResource({
+  "ResourceArn": null,
+  "TagsToAdd": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * TagsToAdd **required**
+
+#### Output
+* output [TagResourceResponse](#tagresourceresponse)
+
+### UntagResource
+
+
+
+```js
+amazonaws_glue.UntagResource({
+  "ResourceArn": null,
+  "TagsToRemove": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ResourceArn **required**
+  * TagsToRemove **required**
+    * items [TagKey](#tagkey)
+
+#### Output
+* output [UntagResourceResponse](#untagresourceresponse)
 
 ### UpdateClassifier
 
@@ -1361,12 +3108,79 @@ amazonaws_glue.UpdateClassifier({}, context)
 
 #### Input
 * input `object`
-  * GrokClassifier [UpdateGrokClassifierRequest](#updategrokclassifierrequest)
-  * JsonClassifier [UpdateJsonClassifierRequest](#updatejsonclassifierrequest)
-  * XMLClassifier [UpdateXMLClassifierRequest](#updatexmlclassifierrequest)
+  * CsvClassifier
+    * AllowSingleColumn
+    * ContainsHeader
+    * Delimiter
+    * DisableValueTrimming
+    * Header
+      * items [NameString](#namestring)
+    * Name **required**
+    * QuoteSymbol
+  * GrokClassifier
+    * Classification
+    * CustomPatterns
+    * GrokPattern
+    * Name **required**
+  * JsonClassifier
+    * JsonPath
+    * Name **required**
+  * XMLClassifier
+    * Classification
+    * Name **required**
+    * RowTag
 
 #### Output
 * output [UpdateClassifierResponse](#updateclassifierresponse)
+
+### UpdateColumnStatisticsForPartition
+
+
+
+```js
+amazonaws_glue.UpdateColumnStatisticsForPartition({
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValues": null,
+  "ColumnStatisticsList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnStatisticsList **required**
+    * items [ColumnStatistics](#columnstatistics)
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+#### Output
+* output [UpdateColumnStatisticsForPartitionResponse](#updatecolumnstatisticsforpartitionresponse)
+
+### UpdateColumnStatisticsForTable
+
+
+
+```js
+amazonaws_glue.UpdateColumnStatisticsForTable({
+  "DatabaseName": null,
+  "TableName": null,
+  "ColumnStatisticsList": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CatalogId
+  * ColumnStatisticsList **required**
+    * items [ColumnStatistics](#columnstatistics)
+  * DatabaseName **required**
+  * TableName **required**
+
+#### Output
+* output [UpdateColumnStatisticsForTableResponse](#updatecolumnstatisticsfortableresponse)
 
 ### UpdateConnection
 
@@ -1374,20 +3188,27 @@ amazonaws_glue.UpdateClassifier({}, context)
 
 ```js
 amazonaws_glue.UpdateConnection({
-  "Name": "",
-  "ConnectionInput": {
-    "Name": "",
-    "ConnectionType": "",
-    "ConnectionProperties": []
-  }
+  "Name": null,
+  "ConnectionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionInput **required** [ConnectionInput](#connectioninput)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * ConnectionInput **required**
+    * ConnectionProperties **required**
+    * ConnectionType **required**
+    * Description
+    * MatchCriteria
+      * items [NameString](#namestring)
+    * Name **required**
+    * PhysicalConnectionRequirements
+      * AvailabilityZone
+      * SecurityGroupIdList
+        * items [NameString](#namestring)
+      * SubnetId
+  * Name **required**
 
 #### Output
 * output [UpdateConnectionResponse](#updateconnectionresponse)
@@ -1398,22 +3219,40 @@ amazonaws_glue.UpdateConnection({
 
 ```js
 amazonaws_glue.UpdateCrawler({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Classifiers [ClassifierNameList](#classifiernamelist)
-  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
-  * DatabaseName [DatabaseName](#databasename)
-  * Description [DescriptionStringRemovable](#descriptionstringremovable)
-  * Name **required** [NameString](#namestring)
-  * Role [Role](#role)
-  * Schedule [CronExpression](#cronexpression)
-  * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
-  * TablePrefix [TablePrefix](#tableprefix)
-  * Targets [CrawlerTargets](#crawlertargets)
+  * Classifiers
+    * items [NameString](#namestring)
+  * Configuration
+  * CrawlerSecurityConfiguration
+  * DatabaseName
+  * Description
+  * LineageConfiguration
+    * CrawlerLineageSettings
+  * Name **required**
+  * RecrawlPolicy
+    * RecrawlBehavior
+  * Role
+  * Schedule
+  * SchemaChangePolicy
+    * DeleteBehavior
+    * UpdateBehavior
+  * TablePrefix
+  * Targets
+    * CatalogTargets
+      * items [CatalogTarget](#catalogtarget)
+    * DynamoDBTargets
+      * items [DynamoDBTarget](#dynamodbtarget)
+    * JdbcTargets
+      * items [JdbcTarget](#jdbctarget)
+    * MongoDBTargets
+      * items [MongoDBTarget](#mongodbtarget)
+    * S3Targets
+      * items [S3Target](#s3target)
 
 #### Output
 * output [UpdateCrawlerResponse](#updatecrawlerresponse)
@@ -1424,14 +3263,14 @@ amazonaws_glue.UpdateCrawler({
 
 ```js
 amazonaws_glue.UpdateCrawlerSchedule({
-  "CrawlerName": ""
+  "CrawlerName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CrawlerName **required** [NameString](#namestring)
-  * Schedule [CronExpression](#cronexpression)
+  * CrawlerName **required**
+  * Schedule
 
 #### Output
 * output [UpdateCrawlerScheduleResponse](#updatecrawlerscheduleresponse)
@@ -1442,18 +3281,25 @@ amazonaws_glue.UpdateCrawlerSchedule({
 
 ```js
 amazonaws_glue.UpdateDatabase({
-  "Name": "",
-  "DatabaseInput": {
-    "Name": ""
-  }
+  "Name": null,
+  "DatabaseInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseInput **required** [DatabaseInput](#databaseinput)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseInput **required**
+    * CreateTableDefaultPermissions
+      * items [PrincipalPermissions](#principalpermissions)
+    * Description
+    * LocationUri
+    * Name **required**
+    * Parameters
+    * TargetDatabase
+      * CatalogId
+      * DatabaseName
+  * Name **required**
 
 #### Output
 * output [UpdateDatabaseResponse](#updatedatabaseresponse)
@@ -1464,16 +3310,25 @@ amazonaws_glue.UpdateDatabase({
 
 ```js
 amazonaws_glue.UpdateDevEndpoint({
-  "EndpointName": ""
+  "EndpointName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CustomLibraries [DevEndpointCustomLibraries](#devendpointcustomlibraries)
-  * EndpointName **required** [GenericString](#genericstring)
-  * PublicKey [GenericString](#genericstring)
-  * UpdateEtlLibraries [BooleanValue](#booleanvalue)
+  * AddArguments
+  * AddPublicKeys
+    * items [GenericString](#genericstring)
+  * CustomLibraries
+    * ExtraJarsS3Path
+    * ExtraPythonLibsS3Path
+  * DeleteArguments
+    * items [GenericString](#genericstring)
+  * DeletePublicKeys
+    * items [GenericString](#genericstring)
+  * EndpointName **required**
+  * PublicKey
+  * UpdateEtlLibraries
 
 #### Output
 * output [UpdateDevEndpointResponse](#updatedevendpointresponse)
@@ -1484,18 +3339,75 @@ amazonaws_glue.UpdateDevEndpoint({
 
 ```js
 amazonaws_glue.UpdateJob({
-  "JobName": "",
-  "JobUpdate": {}
+  "JobName": null,
+  "JobUpdate": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * JobName **required** [NameString](#namestring)
-  * JobUpdate **required** [JobUpdate](#jobupdate)
+  * JobName **required**
+  * JobUpdate **required**
+    * AllocatedCapacity
+    * Command
+      * Name
+      * PythonVersion
+      * ScriptLocation
+    * Connections
+      * Connections
+        * items [GenericString](#genericstring)
+    * DefaultArguments
+    * Description
+    * ExecutionProperty
+      * MaxConcurrentRuns
+    * GlueVersion
+    * LogUri
+    * MaxCapacity
+    * MaxRetries
+    * NonOverridableArguments
+    * NotificationProperty
+      * NotifyDelayAfter
+    * NumberOfWorkers
+    * Role
+    * SecurityConfiguration
+    * Timeout
+    * WorkerType
 
 #### Output
 * output [UpdateJobResponse](#updatejobresponse)
+
+### UpdateMLTransform
+
+
+
+```js
+amazonaws_glue.UpdateMLTransform({
+  "TransformId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * GlueVersion
+  * MaxCapacity
+  * MaxRetries
+  * Name
+  * NumberOfWorkers
+  * Parameters
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role
+  * Timeout
+  * TransformId **required**
+  * WorkerType
+
+#### Output
+* output [UpdateMLTransformResponse](#updatemltransformresponse)
 
 ### UpdatePartition
 
@@ -1503,23 +3415,106 @@ amazonaws_glue.UpdateJob({
 
 ```js
 amazonaws_glue.UpdatePartition({
-  "DatabaseName": "",
-  "TableName": "",
-  "PartitionValueList": [],
-  "PartitionInput": {}
+  "DatabaseName": null,
+  "TableName": null,
+  "PartitionValueList": null,
+  "PartitionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInput **required** [PartitionInput](#partitioninput)
-  * PartitionValueList **required** [BoundedPartitionValueList](#boundedpartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInput **required**
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * Values
+      * items [ValueString](#valuestring)
+  * PartitionValueList **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 #### Output
 * output [UpdatePartitionResponse](#updatepartitionresponse)
+
+### UpdateRegistry
+
+
+
+```js
+amazonaws_glue.UpdateRegistry({
+  "RegistryId": null,
+  "Description": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description **required**
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+#### Output
+* output [UpdateRegistryResponse](#updateregistryresponse)
+
+### UpdateSchema
+
+
+
+```js
+amazonaws_glue.UpdateSchema({
+  "SchemaId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Compatibility
+  * Description
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+#### Output
+* output [UpdateSchemaResponse](#updateschemaresponse)
 
 ### UpdateTable
 
@@ -1527,19 +3522,64 @@ amazonaws_glue.UpdatePartition({
 
 ```js
 amazonaws_glue.UpdateTable({
-  "DatabaseName": "",
-  "TableInput": {
-    "Name": ""
-  }
+  "DatabaseName": null,
+  "TableInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * SkipArchive [BooleanNullable](#booleannullable)
-  * TableInput **required** [TableInput](#tableinput)
+  * CatalogId
+  * DatabaseName **required**
+  * SkipArchive
+  * TableInput **required**
+    * Description
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * ViewExpandedText
+    * ViewOriginalText
 
 #### Output
 * output [UpdateTableResponse](#updatetableresponse)
@@ -1550,15 +3590,24 @@ amazonaws_glue.UpdateTable({
 
 ```js
 amazonaws_glue.UpdateTrigger({
-  "Name": "",
-  "TriggerUpdate": {}
+  "Name": null,
+  "TriggerUpdate": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Name **required** [NameString](#namestring)
-  * TriggerUpdate **required** [TriggerUpdate](#triggerupdate)
+  * Name **required**
+  * TriggerUpdate **required**
+    * Actions
+      * items [Action](#action)
+    * Description
+    * Name
+    * Predicate
+      * Conditions
+        * items [Condition](#condition)
+      * Logical
+    * Schedule
 
 #### Output
 * output [UpdateTriggerResponse](#updatetriggerresponse)
@@ -1569,79 +3618,132 @@ amazonaws_glue.UpdateTrigger({
 
 ```js
 amazonaws_glue.UpdateUserDefinedFunction({
-  "DatabaseName": "",
-  "FunctionName": "",
-  "FunctionInput": {}
+  "DatabaseName": null,
+  "FunctionName": null,
+  "FunctionInput": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionInput **required** [UserDefinedFunctionInput](#userdefinedfunctioninput)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionInput **required**
+    * ClassName
+    * FunctionName
+    * OwnerName
+    * OwnerType
+    * ResourceUris
+      * items [ResourceUri](#resourceuri)
+  * FunctionName **required**
 
 #### Output
 * output [UpdateUserDefinedFunctionResponse](#updateuserdefinedfunctionresponse)
+
+### UpdateWorkflow
+
+
+
+```js
+amazonaws_glue.UpdateWorkflow({
+  "Name": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DefaultRunProperties
+  * Description
+  * MaxConcurrentRuns
+  * Name **required**
+
+#### Output
+* output [UpdateWorkflowResponse](#updateworkflowresponse)
 
 
 
 ## Definitions
 
 ### AccessDeniedException
-* AccessDeniedException `object`: Access to a resource was denied.
-  * Message [MessageString](#messagestring)
+
 
 ### Action
 * Action `object`: Defines an action to be initiated by a trigger.
-  * Arguments [GenericMap](#genericmap)
-  * JobName [NameString](#namestring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Timeout [Timeout](#timeout)
+  * Arguments
+  * CrawlerName
+  * JobName
+  * NotificationProperty
+    * NotifyDelayAfter
+  * SecurityConfiguration
+  * Timeout
 
 ### ActionList
 * ActionList `array`
   * items [Action](#action)
 
+### AdditionalPlanOptionsMap
+* AdditionalPlanOptionsMap `object`
+
 ### AlreadyExistsException
-* AlreadyExistsException `object`: A resource to be created or added already exists.
-  * Message [MessageString](#messagestring)
+
 
 ### AttemptCount
 * AttemptCount `integer`
 
+### BackfillError
+* BackfillError `object`: <p>A list of errors that can occur when registering partition indexes for an existing table.</p> <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p> <ul> <li> <p>EncryptedPartitionError: The partitions are encrypted.</p> </li> <li> <p>InvalidPartitionTypeDataError: The partition value doesn't match the data type for that partition column.</p> </li> <li> <p>MissingPartitionValueError: The partitions are encrypted.</p> </li> <li> <p>UnsupportedPartitionCharacterError: Characters inside the partition value are not supported. For example: U+0000 , U+0001, U+0002.</p> </li> <li> <p>InternalError: Any error which does not belong to other error codes.</p> </li> </ul>
+  * Code
+  * Partitions
+    * items [PartitionValueList](#partitionvaluelist)
+
+### BackfillErrorCode
+* BackfillErrorCode `string` (values: ENCRYPTED_PARTITION_ERROR, INTERNAL_ERROR, INVALID_PARTITION_TYPE_DATA_ERROR, MISSING_PARTITION_VALUE_ERROR, UNSUPPORTED_PARTITION_CHARACTER_ERROR)
+
+### BackfillErroredPartitionsList
+* BackfillErroredPartitionsList `array`
+  * items [PartitionValueList](#partitionvaluelist)
+
+### BackfillErrors
+* BackfillErrors `array`
+  * items [BackfillError](#backfillerror)
+
 ### BatchCreatePartitionRequest
 * BatchCreatePartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInputList **required** [PartitionInputList](#partitioninputlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInputList **required**
+    * items [PartitionInput](#partitioninput)
+  * TableName **required**
 
 ### BatchCreatePartitionResponse
 * BatchCreatePartitionResponse `object`
-  * Errors [PartitionErrors](#partitionerrors)
+  * Errors
+    * items [PartitionError](#partitionerror)
 
 ### BatchDeleteConnectionRequest
 * BatchDeleteConnectionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionNameList **required** [DeleteConnectionNameList](#deleteconnectionnamelist)
+  * CatalogId
+  * ConnectionNameList **required**
+    * items [NameString](#namestring)
 
 ### BatchDeleteConnectionResponse
 * BatchDeleteConnectionResponse `object`
-  * Errors [ErrorByName](#errorbyname)
-  * Succeeded [NameStringList](#namestringlist)
+  * Errors
+  * Succeeded
+    * items [NameString](#namestring)
 
 ### BatchDeletePartitionRequest
 * BatchDeletePartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionsToDelete **required** [BatchDeletePartitionValueList](#batchdeletepartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionsToDelete **required**
+    * items [PartitionValueList](#partitionvaluelist)
+  * TableName **required**
 
 ### BatchDeletePartitionResponse
 * BatchDeletePartitionResponse `object`
-  * Errors [PartitionErrors](#partitionerrors)
+  * Errors
+    * items [PartitionError](#partitionerror)
 
 ### BatchDeletePartitionValueList
 * BatchDeletePartitionValueList `array`
@@ -1653,13 +3755,15 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### BatchDeleteTableRequest
 * BatchDeleteTableRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TablesToDelete **required** [BatchDeleteTableNameList](#batchdeletetablenamelist)
+  * CatalogId
+  * DatabaseName **required**
+  * TablesToDelete **required**
+    * items [NameString](#namestring)
 
 ### BatchDeleteTableResponse
 * BatchDeleteTableResponse `object`
-  * Errors [TableErrors](#tableerrors)
+  * Errors
+    * items [TableError](#tableerror)
 
 ### BatchDeleteTableVersionList
 * BatchDeleteTableVersionList `array`
@@ -1667,36 +3771,104 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### BatchDeleteTableVersionRequest
 * BatchDeleteTableVersionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionIds **required** [BatchDeleteTableVersionList](#batchdeletetableversionlist)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionIds **required**
+    * items [VersionString](#versionstring)
 
 ### BatchDeleteTableVersionResponse
 * BatchDeleteTableVersionResponse `object`
-  * Errors [TableVersionErrors](#tableversionerrors)
+  * Errors
+    * items [TableVersionError](#tableversionerror)
+
+### BatchGetCrawlersRequest
+* BatchGetCrawlersRequest `object`
+  * CrawlerNames **required**
+    * items [NameString](#namestring)
+
+### BatchGetCrawlersResponse
+* BatchGetCrawlersResponse `object`
+  * Crawlers
+    * items [Crawler](#crawler)
+  * CrawlersNotFound
+    * items [NameString](#namestring)
+
+### BatchGetDevEndpointsRequest
+* BatchGetDevEndpointsRequest `object`
+  * DevEndpointNames **required**
+    * items [GenericString](#genericstring)
+
+### BatchGetDevEndpointsResponse
+* BatchGetDevEndpointsResponse `object`
+  * DevEndpoints
+    * items [DevEndpoint](#devendpoint)
+  * DevEndpointsNotFound
+    * items [GenericString](#genericstring)
+
+### BatchGetJobsRequest
+* BatchGetJobsRequest `object`
+  * JobNames **required**
+    * items [NameString](#namestring)
+
+### BatchGetJobsResponse
+* BatchGetJobsResponse `object`
+  * Jobs
+    * items [Job](#job)
+  * JobsNotFound
+    * items [NameString](#namestring)
 
 ### BatchGetPartitionRequest
 * BatchGetPartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionsToGet **required** [BatchGetPartitionValueList](#batchgetpartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionsToGet **required**
+    * items [PartitionValueList](#partitionvaluelist)
+  * TableName **required**
 
 ### BatchGetPartitionResponse
 * BatchGetPartitionResponse `object`
-  * Partitions [PartitionList](#partitionlist)
-  * UnprocessedKeys [BatchGetPartitionValueList](#batchgetpartitionvaluelist)
+  * Partitions
+    * items [Partition](#partition)
+  * UnprocessedKeys
+    * items [PartitionValueList](#partitionvaluelist)
 
 ### BatchGetPartitionValueList
 * BatchGetPartitionValueList `array`
   * items [PartitionValueList](#partitionvaluelist)
 
+### BatchGetTriggersRequest
+* BatchGetTriggersRequest `object`
+  * TriggerNames **required**
+    * items [NameString](#namestring)
+
+### BatchGetTriggersResponse
+* BatchGetTriggersResponse `object`
+  * Triggers
+    * items [Trigger](#trigger)
+  * TriggersNotFound
+    * items [NameString](#namestring)
+
+### BatchGetWorkflowsRequest
+* BatchGetWorkflowsRequest `object`
+  * IncludeGraph
+  * Names **required**
+    * items [NameString](#namestring)
+
+### BatchGetWorkflowsResponse
+* BatchGetWorkflowsResponse `object`
+  * MissingWorkflows
+    * items [NameString](#namestring)
+  * Workflows
+    * items [Workflow](#workflow)
+
 ### BatchStopJobRunError
 * BatchStopJobRunError `object`: Records an error that occurred when attempting to stop a specified job run.
-  * ErrorDetail [ErrorDetail](#errordetail)
-  * JobName [NameString](#namestring)
-  * JobRunId [IdString](#idstring)
+  * ErrorDetail
+    * ErrorCode
+    * ErrorMessage
+  * JobName
+  * JobRunId
 
 ### BatchStopJobRunErrorList
 * BatchStopJobRunErrorList `array`
@@ -1708,25 +3880,114 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### BatchStopJobRunRequest
 * BatchStopJobRunRequest `object`
-  * JobName **required** [NameString](#namestring)
-  * JobRunIds **required** [BatchStopJobRunJobRunIdList](#batchstopjobrunjobrunidlist)
+  * JobName **required**
+  * JobRunIds **required**
+    * items [IdString](#idstring)
 
 ### BatchStopJobRunResponse
 * BatchStopJobRunResponse `object`
-  * Errors [BatchStopJobRunErrorList](#batchstopjobrunerrorlist)
-  * SuccessfulSubmissions [BatchStopJobRunSuccessfulSubmissionList](#batchstopjobrunsuccessfulsubmissionlist)
+  * Errors
+    * items [BatchStopJobRunError](#batchstopjobrunerror)
+  * SuccessfulSubmissions
+    * items [BatchStopJobRunSuccessfulSubmission](#batchstopjobrunsuccessfulsubmission)
 
 ### BatchStopJobRunSuccessfulSubmission
-* BatchStopJobRunSuccessfulSubmission `object`: Records a successful request to stop a specified JobRun.
-  * JobName [NameString](#namestring)
-  * JobRunId [IdString](#idstring)
+* BatchStopJobRunSuccessfulSubmission `object`: Records a successful request to stop a specified <code>JobRun</code>.
+  * JobName
+  * JobRunId
 
 ### BatchStopJobRunSuccessfulSubmissionList
 * BatchStopJobRunSuccessfulSubmissionList `array`
   * items [BatchStopJobRunSuccessfulSubmission](#batchstopjobrunsuccessfulsubmission)
 
+### BatchUpdatePartitionFailureEntry
+* BatchUpdatePartitionFailureEntry `object`: Contains information about a batch update partition error.
+  * ErrorDetail
+    * ErrorCode
+    * ErrorMessage
+  * PartitionValueList
+    * items [ValueString](#valuestring)
+
+### BatchUpdatePartitionFailureList
+* BatchUpdatePartitionFailureList `array`
+  * items [BatchUpdatePartitionFailureEntry](#batchupdatepartitionfailureentry)
+
+### BatchUpdatePartitionRequest
+* BatchUpdatePartitionRequest `object`
+  * CatalogId
+  * DatabaseName **required**
+  * Entries **required**
+    * items [BatchUpdatePartitionRequestEntry](#batchupdatepartitionrequestentry)
+  * TableName **required**
+
+### BatchUpdatePartitionRequestEntry
+* BatchUpdatePartitionRequestEntry `object`: A structure that contains the values and structure used to update a partition.
+  * PartitionInput **required**
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * Values
+      * items [ValueString](#valuestring)
+  * PartitionValueList **required**
+    * items [ValueString](#valuestring)
+
+### BatchUpdatePartitionRequestEntryList
+* BatchUpdatePartitionRequestEntryList `array`
+  * items [BatchUpdatePartitionRequestEntry](#batchupdatepartitionrequestentry)
+
+### BatchUpdatePartitionResponse
+* BatchUpdatePartitionResponse `object`
+  * Errors
+    * items [BatchUpdatePartitionFailureEntry](#batchupdatepartitionfailureentry)
+
+### BinaryColumnStatisticsData
+* BinaryColumnStatisticsData `object`: Defines column statistics supported for bit sequence data values.
+  * AverageLength **required**
+  * MaximumLength **required**
+  * NumberOfNulls **required**
+
+### Blob
+* Blob `string`
+
 ### Boolean
 * Boolean `boolean`
+
+### BooleanColumnStatisticsData
+* BooleanColumnStatisticsData `object`: Defines column statistics supported for Boolean data columns.
+  * NumberOfFalses **required**
+  * NumberOfNulls **required**
+  * NumberOfTrues **required**
 
 ### BooleanNullable
 * BooleanNullable `boolean`
@@ -1738,32 +3999,100 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * BoundedPartitionValueList `array`
   * items [ValueString](#valuestring)
 
+### CancelMLTaskRunRequest
+* CancelMLTaskRunRequest `object`
+  * TaskRunId **required**
+  * TransformId **required**
+
+### CancelMLTaskRunResponse
+* CancelMLTaskRunResponse `object`
+  * Status
+  * TaskRunId
+  * TransformId
+
+### CatalogEncryptionMode
+* CatalogEncryptionMode `string` (values: DISABLED, SSE-KMS)
+
 ### CatalogEntries
 * CatalogEntries `array`
   * items [CatalogEntry](#catalogentry)
 
 ### CatalogEntry
-* CatalogEntry `object`: Specifies a table definition in the Data Catalog.
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
+* CatalogEntry `object`: Specifies a table definition in the AWS Glue Data Catalog.
+  * DatabaseName **required**
+  * TableName **required**
 
 ### CatalogIdString
 * CatalogIdString `string`
 
 ### CatalogImportStatus
 * CatalogImportStatus `object`: A structure containing migration status information.
-  * ImportCompleted [Boolean](#boolean)
-  * ImportTime [Timestamp](#timestamp)
-  * ImportedBy [NameString](#namestring)
+  * ImportCompleted
+  * ImportTime
+  * ImportedBy
+
+### CatalogTablesList
+* CatalogTablesList `array`
+  * items [NameString](#namestring)
+
+### CatalogTarget
+* CatalogTarget `object`: Specifies an AWS Glue Data Catalog target.
+  * DatabaseName **required**
+  * Tables **required**
+    * items [NameString](#namestring)
+
+### CatalogTargetList
+* CatalogTargetList `array`
+  * items [CatalogTarget](#catalogtarget)
+
+### CheckSchemaVersionValidityInput
+* CheckSchemaVersionValidityInput `object`
+  * DataFormat **required**
+  * SchemaDefinition **required**
+
+### CheckSchemaVersionValidityResponse
+* CheckSchemaVersionValidityResponse `object`
+  * Error
+  * Valid
 
 ### Classification
 * Classification `string`
 
 ### Classifier
-* Classifier `object`: <p>Classifiers are written in Python and triggered during a crawl task. You can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier checks whether a given file is in a format it can handle, and if it is, the classifier creates a schema in the form of a <code>StructType</code> object that matches that data format.</p> <p>A classifier can be a <code>grok</code> classifier, an XML classifier, or a JSON classifier, asspecified in one of the fields in the <code>Classifier</code> object.</p>
-  * GrokClassifier [GrokClassifier](#grokclassifier)
-  * JsonClassifier [JsonClassifier](#jsonclassifier)
-  * XMLClassifier [XMLClassifier](#xmlclassifier)
+* Classifier `object`: <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle. If it is, the classifier creates a schema in the form of a <code>StructType</code> object that matches that data format.</p> <p>You can use the standard classifiers that AWS Glue provides, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier, a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one of the fields in the <code>Classifier</code> object.</p>
+  * CsvClassifier
+    * AllowSingleColumn
+    * ContainsHeader
+    * CreationTime
+    * Delimiter
+    * DisableValueTrimming
+    * Header
+      * items [NameString](#namestring)
+    * LastUpdated
+    * Name **required**
+    * QuoteSymbol
+    * Version
+  * GrokClassifier
+    * Classification **required**
+    * CreationTime
+    * CustomPatterns
+    * GrokPattern **required**
+    * LastUpdated
+    * Name **required**
+    * Version
+  * JsonClassifier
+    * CreationTime
+    * JsonPath **required**
+    * LastUpdated
+    * Name **required**
+    * Version
+  * XMLClassifier
+    * Classification **required**
+    * CreationTime
+    * LastUpdated
+    * Name **required**
+    * RowTag
+    * Version
 
 ### ClassifierList
 * ClassifierList `array`
@@ -1773,6 +4102,14 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * ClassifierNameList `array`
   * items [NameString](#namestring)
 
+### CloudWatchEncryption
+* CloudWatchEncryption `object`: Specifies how Amazon CloudWatch data should be encrypted.
+  * CloudWatchEncryptionMode
+  * KmsKeyArn
+
+### CloudWatchEncryptionMode
+* CloudWatchEncryptionMode `string` (values: DISABLED, SSE-KMS)
+
 ### CodeGenArgName
 * CodeGenArgName `string`
 
@@ -1781,25 +4118,26 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### CodeGenEdge
 * CodeGenEdge `object`: Represents a directional edge in a directed acyclic graph (DAG).
-  * Source **required** [CodeGenIdentifier](#codegenidentifier)
-  * Target **required** [CodeGenIdentifier](#codegenidentifier)
-  * TargetParameter [CodeGenArgName](#codegenargname)
+  * Source **required**
+  * Target **required**
+  * TargetParameter
 
 ### CodeGenIdentifier
 * CodeGenIdentifier `string`
 
 ### CodeGenNode
 * CodeGenNode `object`: Represents a node in a directed acyclic graph (DAG)
-  * Args **required** [CodeGenNodeArgs](#codegennodeargs)
-  * Id **required** [CodeGenIdentifier](#codegenidentifier)
-  * LineNumber [Integer](#integer)
-  * NodeType **required** [CodeGenNodeType](#codegennodetype)
+  * Args **required**
+    * items [CodeGenNodeArg](#codegennodearg)
+  * Id **required**
+  * LineNumber
+  * NodeType **required**
 
 ### CodeGenNodeArg
 * CodeGenNodeArg `object`: An argument or property of a node.
-  * Name **required** [CodeGenArgName](#codegenargname)
-  * Param [Boolean](#boolean)
-  * Value **required** [CodeGenArgValue](#codegenargvalue)
+  * Name **required**
+  * Param
+  * Value **required**
 
 ### CodeGenNodeArgs
 * CodeGenNodeArgs `array`
@@ -1810,13 +4148,174 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Column
 * Column `object`: A column in a <code>Table</code>.
-  * Comment [CommentString](#commentstring)
-  * Name **required** [NameString](#namestring)
-  * Type [ColumnTypeString](#columntypestring)
+  * Comment
+  * Name **required**
+  * Parameters
+  * Type
+
+### ColumnError
+* ColumnError `object`: Encapsulates a column name that failed and the reason for failure.
+  * ColumnName
+  * Error
+    * ErrorCode
+    * ErrorMessage
+
+### ColumnErrors
+* ColumnErrors `array`
+  * items [ColumnError](#columnerror)
 
 ### ColumnList
 * ColumnList `array`
   * items [Column](#column)
+
+### ColumnNameString
+* ColumnNameString `string`
+
+### ColumnStatistics
+* ColumnStatistics `object`: Represents the generated column-level statistics for a table or partition.
+  * AnalyzedTime **required**
+  * ColumnName **required**
+  * ColumnType **required**
+  * StatisticsData **required**
+    * BinaryColumnStatisticsData
+      * AverageLength **required**
+      * MaximumLength **required**
+      * NumberOfNulls **required**
+    * BooleanColumnStatisticsData
+      * NumberOfFalses **required**
+      * NumberOfNulls **required**
+      * NumberOfTrues **required**
+    * DateColumnStatisticsData
+      * MaximumValue
+      * MinimumValue
+      * NumberOfDistinctValues **required**
+      * NumberOfNulls **required**
+    * DecimalColumnStatisticsData
+      * MaximumValue
+        * Scale **required**
+        * UnscaledValue **required**
+      * MinimumValue
+        * Scale **required**
+        * UnscaledValue **required**
+      * NumberOfDistinctValues **required**
+      * NumberOfNulls **required**
+    * DoubleColumnStatisticsData
+      * MaximumValue
+      * MinimumValue
+      * NumberOfDistinctValues **required**
+      * NumberOfNulls **required**
+    * LongColumnStatisticsData
+      * MaximumValue
+      * MinimumValue
+      * NumberOfDistinctValues **required**
+      * NumberOfNulls **required**
+    * StringColumnStatisticsData
+      * AverageLength **required**
+      * MaximumLength **required**
+      * NumberOfDistinctValues **required**
+      * NumberOfNulls **required**
+    * Type **required**
+
+### ColumnStatisticsData
+* ColumnStatisticsData `object`: Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.
+  * BinaryColumnStatisticsData
+    * AverageLength **required**
+    * MaximumLength **required**
+    * NumberOfNulls **required**
+  * BooleanColumnStatisticsData
+    * NumberOfFalses **required**
+    * NumberOfNulls **required**
+    * NumberOfTrues **required**
+  * DateColumnStatisticsData
+    * MaximumValue
+    * MinimumValue
+    * NumberOfDistinctValues **required**
+    * NumberOfNulls **required**
+  * DecimalColumnStatisticsData
+    * MaximumValue
+      * Scale **required**
+      * UnscaledValue **required**
+    * MinimumValue
+      * Scale **required**
+      * UnscaledValue **required**
+    * NumberOfDistinctValues **required**
+    * NumberOfNulls **required**
+  * DoubleColumnStatisticsData
+    * MaximumValue
+    * MinimumValue
+    * NumberOfDistinctValues **required**
+    * NumberOfNulls **required**
+  * LongColumnStatisticsData
+    * MaximumValue
+    * MinimumValue
+    * NumberOfDistinctValues **required**
+    * NumberOfNulls **required**
+  * StringColumnStatisticsData
+    * AverageLength **required**
+    * MaximumLength **required**
+    * NumberOfDistinctValues **required**
+    * NumberOfNulls **required**
+  * Type **required**
+
+### ColumnStatisticsError
+* ColumnStatisticsError `object`: Encapsulates a <code>ColumnStatistics</code> object that failed and the reason for failure.
+  * ColumnStatistics
+    * AnalyzedTime **required**
+    * ColumnName **required**
+    * ColumnType **required**
+    * StatisticsData **required**
+      * BinaryColumnStatisticsData
+        * AverageLength **required**
+        * MaximumLength **required**
+        * NumberOfNulls **required**
+      * BooleanColumnStatisticsData
+        * NumberOfFalses **required**
+        * NumberOfNulls **required**
+        * NumberOfTrues **required**
+      * DateColumnStatisticsData
+        * MaximumValue
+        * MinimumValue
+        * NumberOfDistinctValues **required**
+        * NumberOfNulls **required**
+      * DecimalColumnStatisticsData
+        * MaximumValue
+          * Scale **required**
+          * UnscaledValue **required**
+        * MinimumValue
+          * Scale **required**
+          * UnscaledValue **required**
+        * NumberOfDistinctValues **required**
+        * NumberOfNulls **required**
+      * DoubleColumnStatisticsData
+        * MaximumValue
+        * MinimumValue
+        * NumberOfDistinctValues **required**
+        * NumberOfNulls **required**
+      * LongColumnStatisticsData
+        * MaximumValue
+        * MinimumValue
+        * NumberOfDistinctValues **required**
+        * NumberOfNulls **required**
+      * StringColumnStatisticsData
+        * AverageLength **required**
+        * MaximumLength **required**
+        * NumberOfDistinctValues **required**
+        * NumberOfNulls **required**
+      * Type **required**
+  * Error
+    * ErrorCode
+    * ErrorMessage
+
+### ColumnStatisticsErrors
+* ColumnStatisticsErrors `array`
+  * items [ColumnStatisticsError](#columnstatisticserror)
+
+### ColumnStatisticsList
+* ColumnStatisticsList `array`
+  * items [ColumnStatistics](#columnstatistics)
+
+### ColumnStatisticsType
+* ColumnStatisticsType `string` (values: BOOLEAN, DATE, DECIMAL, DOUBLE, LONG, STRING, BINARY)
 
 ### ColumnTypeString
 * ColumnTypeString `string`
@@ -1831,44 +4330,73 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### CommentString
 * CommentString `string`
 
+### Comparator
+* Comparator `string` (values: EQUALS, GREATER_THAN, LESS_THAN, GREATER_THAN_EQUALS, LESS_THAN_EQUALS)
+
+### Compatibility
+* Compatibility `string` (values: NONE, DISABLED, BACKWARD, BACKWARD_ALL, FORWARD, FORWARD_ALL, FULL, FULL_ALL)
+
 ### ConcurrentModificationException
-* ConcurrentModificationException `object`: Two processes are trying to modify a resource simultaneously.
-  * Message [MessageString](#messagestring)
+
 
 ### ConcurrentRunsExceededException
-* ConcurrentRunsExceededException `object`: Too many jobs are being run concurrently.
-  * Message [MessageString](#messagestring)
+
 
 ### Condition
 * Condition `object`: Defines a condition under which a trigger fires.
-  * JobName [NameString](#namestring)
-  * LogicalOperator [LogicalOperator](#logicaloperator)
-  * State [JobRunState](#jobrunstate)
+  * CrawlState
+  * CrawlerName
+  * JobName
+  * LogicalOperator
+  * State
+
+### ConditionCheckFailureException
+
 
 ### ConditionList
 * ConditionList `array`
   * items [Condition](#condition)
 
+### ConflictException
+
+
+### ConfusionMatrix
+* ConfusionMatrix `object`: <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p> <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+  * NumFalseNegatives
+  * NumFalsePositives
+  * NumTrueNegatives
+  * NumTruePositives
+
 ### Connection
 * Connection `object`: Defines a connection to a data source.
-  * ConnectionProperties [ConnectionProperties](#connectionproperties)
-  * ConnectionType [ConnectionType](#connectiontype)
-  * CreationTime [Timestamp](#timestamp)
-  * Description [DescriptionString](#descriptionstring)
-  * LastUpdatedBy [NameString](#namestring)
-  * LastUpdatedTime [Timestamp](#timestamp)
-  * MatchCriteria [MatchCriteria](#matchcriteria)
-  * Name [NameString](#namestring)
-  * PhysicalConnectionRequirements [PhysicalConnectionRequirements](#physicalconnectionrequirements)
+  * ConnectionProperties
+  * ConnectionType
+  * CreationTime
+  * Description
+  * LastUpdatedBy
+  * LastUpdatedTime
+  * MatchCriteria
+    * items [NameString](#namestring)
+  * Name
+  * PhysicalConnectionRequirements
+    * AvailabilityZone
+    * SecurityGroupIdList
+      * items [NameString](#namestring)
+    * SubnetId
 
 ### ConnectionInput
-* ConnectionInput `object`: A structure used to specify a connection to create or update.
-  * ConnectionProperties **required** [ConnectionProperties](#connectionproperties)
-  * ConnectionType **required** [ConnectionType](#connectiontype)
-  * Description [DescriptionString](#descriptionstring)
-  * MatchCriteria [MatchCriteria](#matchcriteria)
-  * Name **required** [NameString](#namestring)
-  * PhysicalConnectionRequirements [PhysicalConnectionRequirements](#physicalconnectionrequirements)
+* ConnectionInput `object`: A structure that is used to specify a connection to create or update.
+  * ConnectionProperties **required**
+  * ConnectionType **required**
+  * Description
+  * MatchCriteria
+    * items [NameString](#namestring)
+  * Name **required**
+  * PhysicalConnectionRequirements
+    * AvailabilityZone
+    * SecurityGroupIdList
+      * items [NameString](#namestring)
+    * SubnetId
 
 ### ConnectionList
 * ConnectionList `array`
@@ -1877,43 +4405,91 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### ConnectionName
 * ConnectionName `string`
 
+### ConnectionPasswordEncryption
+* ConnectionPasswordEncryption `object`: <p>The data structure used by the Data Catalog to encrypt the password as part of <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog encryption or only password encryption.</p> <p>When a <code>CreationConnection</code> request arrives containing a password, the Data Catalog first encrypts the password using your AWS KMS key. It then encrypts the whole connection object again if catalog encryption is also enabled.</p> <p>This encryption requires that you set AWS KMS key permissions to enable or restrict access on the password key according to your security requirements. For example, you might want only administrators to have decrypt permission on the password key.</p>
+  * AwsKmsKeyId
+  * ReturnConnectionPasswordEncrypted **required**
+
 ### ConnectionProperties
-* ConnectionProperties `array`
-  * items `object`
-    * key [ConnectionPropertyKey](#connectionpropertykey)
-    * value [ValueString](#valuestring)
+* ConnectionProperties `object`
 
 ### ConnectionPropertyKey
-* ConnectionPropertyKey `string` (values: HOST, PORT, USERNAME, PASSWORD, JDBC_DRIVER_JAR_URI, JDBC_DRIVER_CLASS_NAME, JDBC_ENGINE, JDBC_ENGINE_VERSION, CONFIG_FILES, INSTANCE_ID, JDBC_CONNECTION_URL)
+* ConnectionPropertyKey `string` (values: HOST, PORT, USERNAME, PASSWORD, ENCRYPTED_PASSWORD, JDBC_DRIVER_JAR_URI, JDBC_DRIVER_CLASS_NAME, JDBC_ENGINE, JDBC_ENGINE_VERSION, CONFIG_FILES, INSTANCE_ID, JDBC_CONNECTION_URL, JDBC_ENFORCE_SSL, CUSTOM_JDBC_CERT, SKIP_CUSTOM_JDBC_CERT_VALIDATION, CUSTOM_JDBC_CERT_STRING, CONNECTION_URL, KAFKA_BOOTSTRAP_SERVERS, KAFKA_SSL_ENABLED, KAFKA_CUSTOM_CERT, KAFKA_SKIP_CUSTOM_CERT_VALIDATION)
 
 ### ConnectionType
-* ConnectionType `string` (values: JDBC, SFTP)
+* ConnectionType `string` (values: JDBC, SFTP, MONGODB, KAFKA, NETWORK)
 
 ### ConnectionsList
 * ConnectionsList `object`: Specifies the connections used by a job.
-  * Connections [StringList](#stringlist)
+  * Connections
+    * items [GenericString](#genericstring)
+
+### Crawl
+* Crawl `object`: The details of a crawl in the workflow.
+  * CompletedOn
+  * ErrorMessage
+  * LogGroup
+  * LogStream
+  * StartedOn
+  * State
+
+### CrawlList
+* CrawlList `array`
+  * items [Crawl](#crawl)
+
+### CrawlState
+* CrawlState `string` (values: RUNNING, CANCELLING, CANCELLED, SUCCEEDED, FAILED)
 
 ### Crawler
 * Crawler `object`: Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metadata concerning the data source in the AWS Glue Data Catalog.
-  * Classifiers [ClassifierNameList](#classifiernamelist)
-  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
-  * CrawlElapsedTime [MillisecondsCount](#millisecondscount)
-  * CreationTime [Timestamp](#timestamp)
-  * DatabaseName [DatabaseName](#databasename)
-  * Description [DescriptionString](#descriptionstring)
-  * LastCrawl [LastCrawlInfo](#lastcrawlinfo)
-  * LastUpdated [Timestamp](#timestamp)
-  * Name [NameString](#namestring)
-  * Role [Role](#role)
-  * Schedule [Schedule](#schedule)
-  * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
-  * State [CrawlerState](#crawlerstate)
-  * TablePrefix [TablePrefix](#tableprefix)
-  * Targets [CrawlerTargets](#crawlertargets)
-  * Version [VersionId](#versionid)
+  * Classifiers
+    * items [NameString](#namestring)
+  * Configuration
+  * CrawlElapsedTime
+  * CrawlerSecurityConfiguration
+  * CreationTime
+  * DatabaseName
+  * Description
+  * LastCrawl
+    * ErrorMessage
+    * LogGroup
+    * LogStream
+    * MessagePrefix
+    * StartTime
+    * Status
+  * LastUpdated
+  * LineageConfiguration
+    * CrawlerLineageSettings
+  * Name
+  * RecrawlPolicy
+    * RecrawlBehavior
+  * Role
+  * Schedule
+    * ScheduleExpression
+    * State
+  * SchemaChangePolicy
+    * DeleteBehavior
+    * UpdateBehavior
+  * State
+  * TablePrefix
+  * Targets
+    * CatalogTargets
+      * items [CatalogTarget](#catalogtarget)
+    * DynamoDBTargets
+      * items [DynamoDBTarget](#dynamodbtarget)
+    * JdbcTargets
+      * items [JdbcTarget](#jdbctarget)
+    * MongoDBTargets
+      * items [MongoDBTarget](#mongodbtarget)
+    * S3Targets
+      * items [S3Target](#s3target)
+  * Version
 
 ### CrawlerConfiguration
 * CrawlerConfiguration `string`
+
+### CrawlerLineageSettings
+* CrawlerLineageSettings `string` (values: ENABLE, DISABLE)
 
 ### CrawlerList
 * CrawlerList `array`
@@ -1921,14 +4497,14 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### CrawlerMetrics
 * CrawlerMetrics `object`: Metrics for a specified crawler.
-  * CrawlerName [NameString](#namestring)
-  * LastRuntimeSeconds [NonNegativeDouble](#nonnegativedouble)
-  * MedianRuntimeSeconds [NonNegativeDouble](#nonnegativedouble)
-  * StillEstimating [Boolean](#boolean)
-  * TablesCreated [NonNegativeInteger](#nonnegativeinteger)
-  * TablesDeleted [NonNegativeInteger](#nonnegativeinteger)
-  * TablesUpdated [NonNegativeInteger](#nonnegativeinteger)
-  * TimeLeftSeconds [NonNegativeDouble](#nonnegativedouble)
+  * CrawlerName
+  * LastRuntimeSeconds
+  * MedianRuntimeSeconds
+  * StillEstimating
+  * TablesCreated
+  * TablesDeleted
+  * TablesUpdated
+  * TimeLeftSeconds
 
 ### CrawlerMetricsList
 * CrawlerMetricsList `array`
@@ -1938,187 +4514,542 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * CrawlerNameList `array`
   * items [NameString](#namestring)
 
+### CrawlerNodeDetails
+* CrawlerNodeDetails `object`: The details of a Crawler node present in the workflow.
+  * Crawls
+    * items [Crawl](#crawl)
+
 ### CrawlerNotRunningException
-* CrawlerNotRunningException `object`: The specified crawler is not running.
-  * Message [MessageString](#messagestring)
+
 
 ### CrawlerRunningException
-* CrawlerRunningException `object`: The operation cannot be performed because the crawler is already running.
-  * Message [MessageString](#messagestring)
+
+
+### CrawlerSecurityConfiguration
+* CrawlerSecurityConfiguration `string`
 
 ### CrawlerState
 * CrawlerState `string` (values: READY, RUNNING, STOPPING)
 
 ### CrawlerStoppingException
-* CrawlerStoppingException `object`: The specified crawler is stopping.
-  * Message [MessageString](#messagestring)
+
 
 ### CrawlerTargets
 * CrawlerTargets `object`: Specifies data stores to crawl.
-  * JdbcTargets [JdbcTargetList](#jdbctargetlist)
-  * S3Targets [S3TargetList](#s3targetlist)
+  * CatalogTargets
+    * items [CatalogTarget](#catalogtarget)
+  * DynamoDBTargets
+    * items [DynamoDBTarget](#dynamodbtarget)
+  * JdbcTargets
+    * items [JdbcTarget](#jdbctarget)
+  * MongoDBTargets
+    * items [MongoDBTarget](#mongodbtarget)
+  * S3Targets
+    * items [S3Target](#s3target)
 
 ### CreateClassifierRequest
 * CreateClassifierRequest `object`
-  * GrokClassifier [CreateGrokClassifierRequest](#creategrokclassifierrequest)
-  * JsonClassifier [CreateJsonClassifierRequest](#createjsonclassifierrequest)
-  * XMLClassifier [CreateXMLClassifierRequest](#createxmlclassifierrequest)
+  * CsvClassifier
+    * AllowSingleColumn
+    * ContainsHeader
+    * Delimiter
+    * DisableValueTrimming
+    * Header
+      * items [NameString](#namestring)
+    * Name **required**
+    * QuoteSymbol
+  * GrokClassifier
+    * Classification **required**
+    * CustomPatterns
+    * GrokPattern **required**
+    * Name **required**
+  * JsonClassifier
+    * JsonPath **required**
+    * Name **required**
+  * XMLClassifier
+    * Classification **required**
+    * Name **required**
+    * RowTag
 
 ### CreateClassifierResponse
 * CreateClassifierResponse `object`
 
 ### CreateConnectionRequest
 * CreateConnectionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionInput **required** [ConnectionInput](#connectioninput)
+  * CatalogId
+  * ConnectionInput **required**
+    * ConnectionProperties **required**
+    * ConnectionType **required**
+    * Description
+    * MatchCriteria
+      * items [NameString](#namestring)
+    * Name **required**
+    * PhysicalConnectionRequirements
+      * AvailabilityZone
+      * SecurityGroupIdList
+        * items [NameString](#namestring)
+      * SubnetId
 
 ### CreateConnectionResponse
 * CreateConnectionResponse `object`
 
 ### CreateCrawlerRequest
 * CreateCrawlerRequest `object`
-  * Classifiers [ClassifierNameList](#classifiernamelist)
-  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
-  * DatabaseName **required** [DatabaseName](#databasename)
-  * Description [DescriptionString](#descriptionstring)
-  * Name **required** [NameString](#namestring)
-  * Role **required** [Role](#role)
-  * Schedule [CronExpression](#cronexpression)
-  * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
-  * TablePrefix [TablePrefix](#tableprefix)
-  * Targets **required** [CrawlerTargets](#crawlertargets)
+  * Classifiers
+    * items [NameString](#namestring)
+  * Configuration
+  * CrawlerSecurityConfiguration
+  * DatabaseName
+  * Description
+  * LineageConfiguration
+    * CrawlerLineageSettings
+  * Name **required**
+  * RecrawlPolicy
+    * RecrawlBehavior
+  * Role **required**
+  * Schedule
+  * SchemaChangePolicy
+    * DeleteBehavior
+    * UpdateBehavior
+  * TablePrefix
+  * Tags
+  * Targets **required**
+    * CatalogTargets
+      * items [CatalogTarget](#catalogtarget)
+    * DynamoDBTargets
+      * items [DynamoDBTarget](#dynamodbtarget)
+    * JdbcTargets
+      * items [JdbcTarget](#jdbctarget)
+    * MongoDBTargets
+      * items [MongoDBTarget](#mongodbtarget)
+    * S3Targets
+      * items [S3Target](#s3target)
 
 ### CreateCrawlerResponse
 * CreateCrawlerResponse `object`
 
+### CreateCsvClassifierRequest
+* CreateCsvClassifierRequest `object`: Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.
+  * AllowSingleColumn
+  * ContainsHeader
+  * Delimiter
+  * DisableValueTrimming
+  * Header
+    * items [NameString](#namestring)
+  * Name **required**
+  * QuoteSymbol
+
 ### CreateDatabaseRequest
 * CreateDatabaseRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseInput **required** [DatabaseInput](#databaseinput)
+  * CatalogId
+  * DatabaseInput **required**
+    * CreateTableDefaultPermissions
+      * items [PrincipalPermissions](#principalpermissions)
+    * Description
+    * LocationUri
+    * Name **required**
+    * Parameters
+    * TargetDatabase
+      * CatalogId
+      * DatabaseName
 
 ### CreateDatabaseResponse
 * CreateDatabaseResponse `object`
 
 ### CreateDevEndpointRequest
 * CreateDevEndpointRequest `object`
-  * EndpointName **required** [GenericString](#genericstring)
-  * ExtraJarsS3Path [GenericString](#genericstring)
-  * ExtraPythonLibsS3Path [GenericString](#genericstring)
-  * NumberOfNodes [IntegerValue](#integervalue)
-  * PublicKey [GenericString](#genericstring)
-  * RoleArn **required** [RoleArn](#rolearn)
-  * SecurityGroupIds [StringList](#stringlist)
-  * SubnetId [GenericString](#genericstring)
+  * Arguments
+  * EndpointName **required**
+  * ExtraJarsS3Path
+  * ExtraPythonLibsS3Path
+  * GlueVersion
+  * NumberOfNodes
+  * NumberOfWorkers
+  * PublicKey
+  * PublicKeys
+    * items [GenericString](#genericstring)
+  * RoleArn **required**
+  * SecurityConfiguration
+  * SecurityGroupIds
+    * items [GenericString](#genericstring)
+  * SubnetId
+  * Tags
+  * WorkerType
 
 ### CreateDevEndpointResponse
 * CreateDevEndpointResponse `object`
-  * AvailabilityZone [GenericString](#genericstring)
-  * CreatedTimestamp [TimestampValue](#timestampvalue)
-  * EndpointName [GenericString](#genericstring)
-  * ExtraJarsS3Path [GenericString](#genericstring)
-  * ExtraPythonLibsS3Path [GenericString](#genericstring)
-  * FailureReason [GenericString](#genericstring)
-  * NumberOfNodes [IntegerValue](#integervalue)
-  * RoleArn [RoleArn](#rolearn)
-  * SecurityGroupIds [StringList](#stringlist)
-  * Status [GenericString](#genericstring)
-  * SubnetId [GenericString](#genericstring)
-  * VpcId [GenericString](#genericstring)
-  * YarnEndpointAddress [GenericString](#genericstring)
-  * ZeppelinRemoteSparkInterpreterPort [IntegerValue](#integervalue)
+  * Arguments
+  * AvailabilityZone
+  * CreatedTimestamp
+  * EndpointName
+  * ExtraJarsS3Path
+  * ExtraPythonLibsS3Path
+  * FailureReason
+  * GlueVersion
+  * NumberOfNodes
+  * NumberOfWorkers
+  * RoleArn
+  * SecurityConfiguration
+  * SecurityGroupIds
+    * items [GenericString](#genericstring)
+  * Status
+  * SubnetId
+  * VpcId
+  * WorkerType
+  * YarnEndpointAddress
+  * ZeppelinRemoteSparkInterpreterPort
 
 ### CreateGrokClassifierRequest
 * CreateGrokClassifierRequest `object`: Specifies a <code>grok</code> classifier for <code>CreateClassifier</code> to create.
-  * Classification **required** [Classification](#classification)
-  * CustomPatterns [CustomPatterns](#custompatterns)
-  * GrokPattern **required** [GrokPattern](#grokpattern)
-  * Name **required** [NameString](#namestring)
+  * Classification **required**
+  * CustomPatterns
+  * GrokPattern **required**
+  * Name **required**
 
 ### CreateJobRequest
 * CreateJobRequest `object`
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Command **required** [JobCommand](#jobcommand)
-  * Connections [ConnectionsList](#connectionslist)
-  * DefaultArguments [GenericMap](#genericmap)
-  * Description [DescriptionString](#descriptionstring)
-  * ExecutionProperty [ExecutionProperty](#executionproperty)
-  * LogUri [UriString](#uristring)
-  * MaxRetries [MaxRetries](#maxretries)
-  * Name **required** [NameString](#namestring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Role **required** [RoleString](#rolestring)
-  * Timeout [Timeout](#timeout)
+  * AllocatedCapacity
+  * Command **required**
+    * Name
+    * PythonVersion
+    * ScriptLocation
+  * Connections
+    * Connections
+      * items [GenericString](#genericstring)
+  * DefaultArguments
+  * Description
+  * ExecutionProperty
+    * MaxConcurrentRuns
+  * GlueVersion
+  * LogUri
+  * MaxCapacity
+  * MaxRetries
+  * Name **required**
+  * NonOverridableArguments
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * Role **required**
+  * SecurityConfiguration
+  * Tags
+  * Timeout
+  * WorkerType
 
 ### CreateJobResponse
 * CreateJobResponse `object`
-  * Name [NameString](#namestring)
+  * Name
 
 ### CreateJsonClassifierRequest
 * CreateJsonClassifierRequest `object`: Specifies a JSON classifier for <code>CreateClassifier</code> to create.
-  * JsonPath **required** [JsonPath](#jsonpath)
-  * Name **required** [NameString](#namestring)
+  * JsonPath **required**
+  * Name **required**
+
+### CreateMLTransformRequest
+* CreateMLTransformRequest `object`
+  * Description
+  * GlueVersion
+  * InputRecordTables **required**
+    * items [GlueTable](#gluetable)
+  * MaxCapacity
+  * MaxRetries
+  * Name **required**
+  * NumberOfWorkers
+  * Parameters **required**
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role **required**
+  * Tags
+  * Timeout
+  * TransformEncryption
+    * MlUserDataEncryption
+      * KmsKeyId
+      * MlUserDataEncryptionMode **required**
+    * TaskRunSecurityConfigurationName
+  * WorkerType
+
+### CreateMLTransformResponse
+* CreateMLTransformResponse `object`
+  * TransformId
+
+### CreatePartitionIndexRequest
+* CreatePartitionIndexRequest `object`
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionIndex **required**
+    * IndexName **required**
+    * Keys **required**
+      * items [NameString](#namestring)
+  * TableName **required**
+
+### CreatePartitionIndexResponse
+* CreatePartitionIndexResponse `object`
 
 ### CreatePartitionRequest
 * CreatePartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInput **required** [PartitionInput](#partitioninput)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInput **required**
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * Values
+      * items [ValueString](#valuestring)
+  * TableName **required**
 
 ### CreatePartitionResponse
 * CreatePartitionResponse `object`
 
+### CreateRegistryInput
+* CreateRegistryInput `object`
+  * Description
+  * RegistryName **required**
+  * Tags
+
+### CreateRegistryResponse
+* CreateRegistryResponse `object`
+  * Description
+  * RegistryArn
+  * RegistryName
+  * Tags
+
+### CreateSchemaInput
+* CreateSchemaInput `object`
+  * Compatibility
+  * DataFormat **required**
+  * Description
+  * RegistryId
+    * RegistryArn
+    * RegistryName
+  * SchemaDefinition
+  * SchemaName **required**
+  * Tags
+
+### CreateSchemaResponse
+* CreateSchemaResponse `object`
+  * Compatibility
+  * DataFormat
+  * Description
+  * LatestSchemaVersion
+  * NextSchemaVersion
+  * RegistryArn
+  * RegistryName
+  * SchemaArn
+  * SchemaCheckpoint
+  * SchemaName
+  * SchemaStatus
+  * SchemaVersionId
+  * SchemaVersionStatus
+  * Tags
+
 ### CreateScriptRequest
 * CreateScriptRequest `object`
-  * DagEdges [DagEdges](#dagedges)
-  * DagNodes [DagNodes](#dagnodes)
-  * Language [Language](#language)
+  * DagEdges
+    * items [CodeGenEdge](#codegenedge)
+  * DagNodes
+    * items [CodeGenNode](#codegennode)
+  * Language
 
 ### CreateScriptResponse
 * CreateScriptResponse `object`
-  * PythonScript [PythonScript](#pythonscript)
-  * ScalaCode [ScalaCode](#scalacode)
+  * PythonScript
+  * ScalaCode
+
+### CreateSecurityConfigurationRequest
+* CreateSecurityConfigurationRequest `object`
+  * EncryptionConfiguration **required**
+    * CloudWatchEncryption
+      * CloudWatchEncryptionMode
+      * KmsKeyArn
+    * JobBookmarksEncryption
+      * JobBookmarksEncryptionMode
+      * KmsKeyArn
+    * S3Encryption
+      * items [S3Encryption](#s3encryption)
+  * Name **required**
+
+### CreateSecurityConfigurationResponse
+* CreateSecurityConfigurationResponse `object`
+  * CreatedTimestamp
+  * Name
 
 ### CreateTableRequest
 * CreateTableRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableInput **required** [TableInput](#tableinput)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionIndexes
+    * items [PartitionIndex](#partitionindex)
+  * TableInput **required**
+    * Description
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * ViewExpandedText
+    * ViewOriginalText
 
 ### CreateTableResponse
 * CreateTableResponse `object`
 
 ### CreateTriggerRequest
 * CreateTriggerRequest `object`
-  * Actions **required** [ActionList](#actionlist)
-  * Description [DescriptionString](#descriptionstring)
-  * Name **required** [NameString](#namestring)
-  * Predicate [Predicate](#predicate)
-  * Schedule [GenericString](#genericstring)
-  * StartOnCreation [BooleanValue](#booleanvalue)
-  * Type **required** [TriggerType](#triggertype)
+  * Actions **required**
+    * items [Action](#action)
+  * Description
+  * Name **required**
+  * Predicate
+    * Conditions
+      * items [Condition](#condition)
+    * Logical
+  * Schedule
+  * StartOnCreation
+  * Tags
+  * Type **required**
+  * WorkflowName
 
 ### CreateTriggerResponse
 * CreateTriggerResponse `object`
-  * Name [NameString](#namestring)
+  * Name
 
 ### CreateUserDefinedFunctionRequest
 * CreateUserDefinedFunctionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionInput **required** [UserDefinedFunctionInput](#userdefinedfunctioninput)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionInput **required**
+    * ClassName
+    * FunctionName
+    * OwnerName
+    * OwnerType
+    * ResourceUris
+      * items [ResourceUri](#resourceuri)
 
 ### CreateUserDefinedFunctionResponse
 * CreateUserDefinedFunctionResponse `object`
 
+### CreateWorkflowRequest
+* CreateWorkflowRequest `object`
+  * DefaultRunProperties
+  * Description
+  * MaxConcurrentRuns
+  * Name **required**
+  * Tags
+
+### CreateWorkflowResponse
+* CreateWorkflowResponse `object`
+  * Name
+
 ### CreateXMLClassifierRequest
 * CreateXMLClassifierRequest `object`: Specifies an XML classifier for <code>CreateClassifier</code> to create.
-  * Classification **required** [Classification](#classification)
-  * Name **required** [NameString](#namestring)
-  * RowTag [RowTag](#rowtag)
+  * Classification **required**
+  * Name **required**
+  * RowTag
+
+### CreatedTimestamp
+* CreatedTimestamp `string`
 
 ### CronExpression
 * CronExpression `string`
+
+### CsvClassifier
+* CsvClassifier `object`: A classifier for custom <code>CSV</code> content.
+  * AllowSingleColumn
+  * ContainsHeader
+  * CreationTime
+  * Delimiter
+  * DisableValueTrimming
+  * Header
+    * items [NameString](#namestring)
+  * LastUpdated
+  * Name **required**
+  * QuoteSymbol
+  * Version
+
+### CsvColumnDelimiter
+* CsvColumnDelimiter `string`
+
+### CsvHeader
+* CsvHeader `array`
+  * items [NameString](#namestring)
+
+### CsvHeaderOption
+* CsvHeaderOption `string` (values: UNKNOWN, PRESENT, ABSENT)
+
+### CsvQuoteSymbol
+* CsvQuoteSymbol `string`
 
 ### CustomPatterns
 * CustomPatterns `string`
@@ -2131,20 +5062,55 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * DagNodes `array`
   * items [CodeGenNode](#codegennode)
 
+### DataCatalogEncryptionSettings
+* DataCatalogEncryptionSettings `object`: Contains configuration information for maintaining Data Catalog security.
+  * ConnectionPasswordEncryption
+    * AwsKmsKeyId
+    * ReturnConnectionPasswordEncrypted **required**
+  * EncryptionAtRest
+    * CatalogEncryptionMode **required**
+    * SseAwsKmsKeyId
+
+### DataFormat
+* DataFormat `string` (values: AVRO)
+
+### DataLakePrincipal
+* DataLakePrincipal `object`: The AWS Lake Formation principal.
+  * DataLakePrincipalIdentifier
+
+### DataLakePrincipalString
+* DataLakePrincipalString `string`
+
 ### Database
-* Database `object`: The <code>Database</code> object represents a logical grouping of tables that may reside in a Hive metastore or an RDBMS.
-  * CreateTime [Timestamp](#timestamp)
-  * Description [DescriptionString](#descriptionstring)
-  * LocationUri [URI](#uri)
-  * Name **required** [NameString](#namestring)
-  * Parameters [ParametersMap](#parametersmap)
+* Database `object`: The <code>Database</code> object represents a logical grouping of tables that might reside in a Hive metastore or an RDBMS.
+  * CatalogId
+  * CreateTableDefaultPermissions
+    * items [PrincipalPermissions](#principalpermissions)
+  * CreateTime
+  * Description
+  * LocationUri
+  * Name **required**
+  * Parameters
+  * TargetDatabase
+    * CatalogId
+    * DatabaseName
+
+### DatabaseIdentifier
+* DatabaseIdentifier `object`: A structure that describes a target database for resource linking.
+  * CatalogId
+  * DatabaseName
 
 ### DatabaseInput
 * DatabaseInput `object`: The structure used to create or update a database.
-  * Description [DescriptionString](#descriptionstring)
-  * LocationUri [URI](#uri)
-  * Name **required** [NameString](#namestring)
-  * Parameters [ParametersMap](#parametersmap)
+  * CreateTableDefaultPermissions
+    * items [PrincipalPermissions](#principalpermissions)
+  * Description
+  * LocationUri
+  * Name **required**
+  * Parameters
+  * TargetDatabase
+    * CatalogId
+    * DatabaseName
 
 ### DatabaseList
 * DatabaseList `array`
@@ -2153,15 +5119,60 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### DatabaseName
 * DatabaseName `string`
 
+### DateColumnStatisticsData
+* DateColumnStatisticsData `object`: Defines column statistics supported for timestamp data columns.
+  * MaximumValue
+  * MinimumValue
+  * NumberOfDistinctValues **required**
+  * NumberOfNulls **required**
+
+### DecimalColumnStatisticsData
+* DecimalColumnStatisticsData `object`: Defines column statistics supported for fixed-point number data columns.
+  * MaximumValue
+    * Scale **required**
+    * UnscaledValue **required**
+  * MinimumValue
+    * Scale **required**
+    * UnscaledValue **required**
+  * NumberOfDistinctValues **required**
+  * NumberOfNulls **required**
+
+### DecimalNumber
+* DecimalNumber `object`: Contains a numeric value in decimal format.
+  * Scale **required**
+  * UnscaledValue **required**
+
 ### DeleteBehavior
 * DeleteBehavior `string` (values: LOG, DELETE_FROM_DATABASE, DEPRECATE_IN_DATABASE)
 
 ### DeleteClassifierRequest
 * DeleteClassifierRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### DeleteClassifierResponse
 * DeleteClassifierResponse `object`
+
+### DeleteColumnStatisticsForPartitionRequest
+* DeleteColumnStatisticsForPartitionRequest `object`
+  * CatalogId
+  * ColumnName **required**
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+### DeleteColumnStatisticsForPartitionResponse
+* DeleteColumnStatisticsForPartitionResponse `object`
+
+### DeleteColumnStatisticsForTableRequest
+* DeleteColumnStatisticsForTableRequest `object`
+  * CatalogId
+  * ColumnName **required**
+  * DatabaseName **required**
+  * TableName **required**
+
+### DeleteColumnStatisticsForTableResponse
+* DeleteColumnStatisticsForTableResponse `object`
 
 ### DeleteConnectionNameList
 * DeleteConnectionNameList `array`
@@ -2169,87 +5180,167 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### DeleteConnectionRequest
 * DeleteConnectionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionName **required** [NameString](#namestring)
+  * CatalogId
+  * ConnectionName **required**
 
 ### DeleteConnectionResponse
 * DeleteConnectionResponse `object`
 
 ### DeleteCrawlerRequest
 * DeleteCrawlerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### DeleteCrawlerResponse
 * DeleteCrawlerResponse `object`
 
 ### DeleteDatabaseRequest
 * DeleteDatabaseRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * Name **required**
 
 ### DeleteDatabaseResponse
 * DeleteDatabaseResponse `object`
 
 ### DeleteDevEndpointRequest
 * DeleteDevEndpointRequest `object`
-  * EndpointName **required** [GenericString](#genericstring)
+  * EndpointName **required**
 
 ### DeleteDevEndpointResponse
 * DeleteDevEndpointResponse `object`
 
 ### DeleteJobRequest
 * DeleteJobRequest `object`
-  * JobName **required** [NameString](#namestring)
+  * JobName **required**
 
 ### DeleteJobResponse
 * DeleteJobResponse `object`
-  * JobName [NameString](#namestring)
+  * JobName
+
+### DeleteMLTransformRequest
+* DeleteMLTransformRequest `object`
+  * TransformId **required**
+
+### DeleteMLTransformResponse
+* DeleteMLTransformResponse `object`
+  * TransformId
+
+### DeletePartitionIndexRequest
+* DeletePartitionIndexRequest `object`
+  * CatalogId
+  * DatabaseName **required**
+  * IndexName **required**
+  * TableName **required**
+
+### DeletePartitionIndexResponse
+* DeletePartitionIndexResponse `object`
 
 ### DeletePartitionRequest
 * DeletePartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionValues **required** [ValueStringList](#valuestringlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 ### DeletePartitionResponse
 * DeletePartitionResponse `object`
 
+### DeleteRegistryInput
+* DeleteRegistryInput `object`
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+### DeleteRegistryResponse
+* DeleteRegistryResponse `object`
+  * RegistryArn
+  * RegistryName
+  * Status
+
+### DeleteResourcePolicyRequest
+* DeleteResourcePolicyRequest `object`
+  * PolicyHashCondition
+  * ResourceArn
+
+### DeleteResourcePolicyResponse
+* DeleteResourcePolicyResponse `object`
+
+### DeleteSchemaInput
+* DeleteSchemaInput `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### DeleteSchemaResponse
+* DeleteSchemaResponse `object`
+  * SchemaArn
+  * SchemaName
+  * Status
+
+### DeleteSchemaVersionsInput
+* DeleteSchemaVersionsInput `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * Versions **required**
+
+### DeleteSchemaVersionsResponse
+* DeleteSchemaVersionsResponse `object`
+  * SchemaVersionErrors
+    * items [SchemaVersionErrorItem](#schemaversionerroritem)
+
+### DeleteSecurityConfigurationRequest
+* DeleteSecurityConfigurationRequest `object`
+  * Name **required**
+
+### DeleteSecurityConfigurationResponse
+* DeleteSecurityConfigurationResponse `object`
+
 ### DeleteTableRequest
 * DeleteTableRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Name **required**
 
 ### DeleteTableResponse
 * DeleteTableResponse `object`
 
 ### DeleteTableVersionRequest
 * DeleteTableVersionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionId **required** [VersionString](#versionstring)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionId **required**
 
 ### DeleteTableVersionResponse
 * DeleteTableVersionResponse `object`
 
 ### DeleteTriggerRequest
 * DeleteTriggerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### DeleteTriggerResponse
 * DeleteTriggerResponse `object`
-  * Name [NameString](#namestring)
+  * Name
 
 ### DeleteUserDefinedFunctionRequest
 * DeleteUserDefinedFunctionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionName **required**
 
 ### DeleteUserDefinedFunctionResponse
 * DeleteUserDefinedFunctionResponse `object`
+
+### DeleteWorkflowRequest
+* DeleteWorkflowRequest `object`
+  * Name **required**
+
+### DeleteWorkflowResponse
+* DeleteWorkflowResponse `object`
+  * Name
 
 ### DescriptionString
 * DescriptionString `string`
@@ -2258,60 +5349,152 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * DescriptionStringRemovable `string`
 
 ### DevEndpoint
-* DevEndpoint `object`: A development endpoint where a developer can remotely debug ETL scripts.
-  * AvailabilityZone [GenericString](#genericstring)
-  * CreatedTimestamp [TimestampValue](#timestampvalue)
-  * EndpointName [GenericString](#genericstring)
-  * ExtraJarsS3Path [GenericString](#genericstring)
-  * ExtraPythonLibsS3Path [GenericString](#genericstring)
-  * FailureReason [GenericString](#genericstring)
-  * LastModifiedTimestamp [TimestampValue](#timestampvalue)
-  * LastUpdateStatus [GenericString](#genericstring)
-  * NumberOfNodes [IntegerValue](#integervalue)
-  * PrivateAddress [GenericString](#genericstring)
-  * PublicAddress [GenericString](#genericstring)
-  * PublicKey [GenericString](#genericstring)
-  * RoleArn [RoleArn](#rolearn)
-  * SecurityGroupIds [StringList](#stringlist)
-  * Status [GenericString](#genericstring)
-  * SubnetId [GenericString](#genericstring)
-  * VpcId [GenericString](#genericstring)
-  * YarnEndpointAddress [GenericString](#genericstring)
-  * ZeppelinRemoteSparkInterpreterPort [IntegerValue](#integervalue)
+* DevEndpoint `object`: A development endpoint where a developer can remotely debug extract, transform, and load (ETL) scripts.
+  * Arguments
+  * AvailabilityZone
+  * CreatedTimestamp
+  * EndpointName
+  * ExtraJarsS3Path
+  * ExtraPythonLibsS3Path
+  * FailureReason
+  * GlueVersion
+  * LastModifiedTimestamp
+  * LastUpdateStatus
+  * NumberOfNodes
+  * NumberOfWorkers
+  * PrivateAddress
+  * PublicAddress
+  * PublicKey
+  * PublicKeys
+    * items [GenericString](#genericstring)
+  * RoleArn
+  * SecurityConfiguration
+  * SecurityGroupIds
+    * items [GenericString](#genericstring)
+  * Status
+  * SubnetId
+  * VpcId
+  * WorkerType
+  * YarnEndpointAddress
+  * ZeppelinRemoteSparkInterpreterPort
 
 ### DevEndpointCustomLibraries
-* DevEndpointCustomLibraries `object`: Custom libraries to be loaded into a DevEndpoint.
-  * ExtraJarsS3Path [GenericString](#genericstring)
-  * ExtraPythonLibsS3Path [GenericString](#genericstring)
+* DevEndpointCustomLibraries `object`: Custom libraries to be loaded into a development endpoint.
+  * ExtraJarsS3Path
+  * ExtraPythonLibsS3Path
 
 ### DevEndpointList
 * DevEndpointList `array`
   * items [DevEndpoint](#devendpoint)
 
+### DevEndpointNameList
+* DevEndpointNameList `array`
+  * items [NameString](#namestring)
+
+### DevEndpointNames
+* DevEndpointNames `array`
+  * items [GenericString](#genericstring)
+
+### Double
+* Double `number`
+
+### DoubleColumnStatisticsData
+* DoubleColumnStatisticsData `object`: Defines column statistics supported for floating-point number data columns.
+  * MaximumValue
+  * MinimumValue
+  * NumberOfDistinctValues **required**
+  * NumberOfNulls **required**
+
+### DynamoDBTarget
+* DynamoDBTarget `object`: Specifies an Amazon DynamoDB table to crawl.
+  * Path
+  * scanAll
+  * scanRate
+
+### DynamoDBTargetList
+* DynamoDBTargetList `array`
+  * items [DynamoDBTarget](#dynamodbtarget)
+
+### Edge
+* Edge `object`: An edge represents a directed connection between two AWS Glue components that are part of the workflow the edge belongs to.
+  * DestinationId
+  * SourceId
+
+### EdgeList
+* EdgeList `array`
+  * items [Edge](#edge)
+
+### EnableHybridValues
+* EnableHybridValues `string` (values: TRUE, FALSE)
+
+### EncryptionAtRest
+* EncryptionAtRest `object`: Specifies the encryption-at-rest configuration for the Data Catalog.
+  * CatalogEncryptionMode **required**
+  * SseAwsKmsKeyId
+
+### EncryptionConfiguration
+* EncryptionConfiguration `object`: Specifies an encryption configuration.
+  * CloudWatchEncryption
+    * CloudWatchEncryptionMode
+    * KmsKeyArn
+  * JobBookmarksEncryption
+    * JobBookmarksEncryptionMode
+    * KmsKeyArn
+  * S3Encryption
+    * items [S3Encryption](#s3encryption)
+
 ### EntityNotFoundException
-* EntityNotFoundException `object`: A specified entity does not exist
-  * Message [MessageString](#messagestring)
+
 
 ### ErrorByName
-* ErrorByName `array`
-  * items `object`
-    * key [NameString](#namestring)
-    * value [ErrorDetail](#errordetail)
+* ErrorByName `object`
+
+### ErrorCodeString
+* ErrorCodeString `string`
 
 ### ErrorDetail
 * ErrorDetail `object`: Contains details about an error.
-  * ErrorCode [NameString](#namestring)
-  * ErrorMessage [DescriptionString](#descriptionstring)
+  * ErrorCode
+  * ErrorMessage
+
+### ErrorDetails
+* ErrorDetails `object`: An object containing error details.
+  * ErrorCode
+  * ErrorMessage
+
+### ErrorMessageString
+* ErrorMessageString `string`
 
 ### ErrorString
 * ErrorString `string`
 
+### EvaluationMetrics
+* EvaluationMetrics `object`: Evaluation metrics provide an estimate of the quality of your machine learning transform.
+  * FindMatchesMetrics
+    * AreaUnderPRCurve
+    * ConfusionMatrix
+      * NumFalseNegatives
+      * NumFalsePositives
+      * NumTrueNegatives
+      * NumTruePositives
+    * F1
+    * Precision
+    * Recall
+  * TransformType **required**
+
 ### ExecutionProperty
 * ExecutionProperty `object`: An execution property of a job.
-  * MaxConcurrentRuns [MaxConcurrentRuns](#maxconcurrentruns)
+  * MaxConcurrentRuns
 
 ### ExecutionTime
 * ExecutionTime `integer`
+
+### ExistCondition
+* ExistCondition `string` (values: MUST_EXIST, NOT_EXIST, NONE)
+
+### ExportLabelsTaskRunProperties
+* ExportLabelsTaskRunProperties `object`: Specifies configuration properties for an exporting labels task run.
+  * OutputS3Path
 
 ### FieldType
 * FieldType `string`
@@ -2319,254 +5502,998 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### FilterString
 * FilterString `string`
 
+### FindMatchesMetrics
+* FindMatchesMetrics `object`: The evaluation metrics for the find matches algorithm. The quality of your machine learning transform is measured by getting your transform to predict some matches and comparing the results to known matches from the same dataset. The quality metrics are based on a subset of your data, so they are not precise.
+  * AreaUnderPRCurve
+  * ConfusionMatrix
+    * NumFalseNegatives
+    * NumFalsePositives
+    * NumTrueNegatives
+    * NumTruePositives
+  * F1
+  * Precision
+  * Recall
+
+### FindMatchesParameters
+* FindMatchesParameters `object`: The parameters to configure the find matches transform.
+  * AccuracyCostTradeoff
+  * EnforceProvidedLabels
+  * PrecisionRecallTradeoff
+  * PrimaryKeyColumnName
+
+### FindMatchesTaskRunProperties
+* FindMatchesTaskRunProperties `object`: Specifies configuration properties for a Find Matches task run.
+  * JobId
+  * JobName
+  * JobRunId
+
 ### FormatString
 * FormatString `string`
 
+### GenericBoundedDouble
+* GenericBoundedDouble `number`
+
 ### GenericMap
-* GenericMap `array`
-  * items `object`
-    * key [GenericString](#genericstring)
-    * value [GenericString](#genericstring)
+* GenericMap `object`
 
 ### GenericString
 * GenericString `string`
 
 ### GetCatalogImportStatusRequest
 * GetCatalogImportStatusRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
+  * CatalogId
 
 ### GetCatalogImportStatusResponse
 * GetCatalogImportStatusResponse `object`
-  * ImportStatus [CatalogImportStatus](#catalogimportstatus)
+  * ImportStatus
+    * ImportCompleted
+    * ImportTime
+    * ImportedBy
 
 ### GetClassifierRequest
 * GetClassifierRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### GetClassifierResponse
 * GetClassifierResponse `object`
-  * Classifier [Classifier](#classifier)
+  * Classifier
+    * CsvClassifier
+      * AllowSingleColumn
+      * ContainsHeader
+      * CreationTime
+      * Delimiter
+      * DisableValueTrimming
+      * Header
+        * items [NameString](#namestring)
+      * LastUpdated
+      * Name **required**
+      * QuoteSymbol
+      * Version
+    * GrokClassifier
+      * Classification **required**
+      * CreationTime
+      * CustomPatterns
+      * GrokPattern **required**
+      * LastUpdated
+      * Name **required**
+      * Version
+    * JsonClassifier
+      * CreationTime
+      * JsonPath **required**
+      * LastUpdated
+      * Name **required**
+      * Version
+    * XMLClassifier
+      * Classification **required**
+      * CreationTime
+      * LastUpdated
+      * Name **required**
+      * RowTag
+      * Version
 
 ### GetClassifiersRequest
 * GetClassifiersRequest `object`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * MaxResults
+  * NextToken
 
 ### GetClassifiersResponse
 * GetClassifiersResponse `object`
-  * Classifiers [ClassifierList](#classifierlist)
-  * NextToken [Token](#token)
+  * Classifiers
+    * items [Classifier](#classifier)
+  * NextToken
+
+### GetColumnNamesList
+* GetColumnNamesList `array`
+  * items [NameString](#namestring)
+
+### GetColumnStatisticsForPartitionRequest
+* GetColumnStatisticsForPartitionRequest `object`
+  * CatalogId
+  * ColumnNames **required**
+    * items [NameString](#namestring)
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+### GetColumnStatisticsForPartitionResponse
+* GetColumnStatisticsForPartitionResponse `object`
+  * ColumnStatisticsList
+    * items [ColumnStatistics](#columnstatistics)
+  * Errors
+    * items [ColumnError](#columnerror)
+
+### GetColumnStatisticsForTableRequest
+* GetColumnStatisticsForTableRequest `object`
+  * CatalogId
+  * ColumnNames **required**
+    * items [NameString](#namestring)
+  * DatabaseName **required**
+  * TableName **required**
+
+### GetColumnStatisticsForTableResponse
+* GetColumnStatisticsForTableResponse `object`
+  * ColumnStatisticsList
+    * items [ColumnStatistics](#columnstatistics)
+  * Errors
+    * items [ColumnError](#columnerror)
 
 ### GetConnectionRequest
 * GetConnectionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * HidePassword
+  * Name **required**
 
 ### GetConnectionResponse
 * GetConnectionResponse `object`
-  * Connection [Connection](#connection)
+  * Connection
+    * ConnectionProperties
+    * ConnectionType
+    * CreationTime
+    * Description
+    * LastUpdatedBy
+    * LastUpdatedTime
+    * MatchCriteria
+      * items [NameString](#namestring)
+    * Name
+    * PhysicalConnectionRequirements
+      * AvailabilityZone
+      * SecurityGroupIdList
+        * items [NameString](#namestring)
+      * SubnetId
 
 ### GetConnectionsFilter
-* GetConnectionsFilter `object`: Filters the connection definitions returned by the <code>GetConnections</code> API.
-  * ConnectionType [ConnectionType](#connectiontype)
-  * MatchCriteria [MatchCriteria](#matchcriteria)
+* GetConnectionsFilter `object`: Filters the connection definitions that are returned by the <code>GetConnections</code> API operation.
+  * ConnectionType
+  * MatchCriteria
+    * items [NameString](#namestring)
 
 ### GetConnectionsRequest
 * GetConnectionsRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Filter [GetConnectionsFilter](#getconnectionsfilter)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * Filter
+    * ConnectionType
+    * MatchCriteria
+      * items [NameString](#namestring)
+  * HidePassword
+  * MaxResults
+  * NextToken
 
 ### GetConnectionsResponse
 * GetConnectionsResponse `object`
-  * ConnectionList [ConnectionList](#connectionlist)
-  * NextToken [Token](#token)
+  * ConnectionList
+    * items [Connection](#connection)
+  * NextToken
 
 ### GetCrawlerMetricsRequest
 * GetCrawlerMetricsRequest `object`
-  * CrawlerNameList [CrawlerNameList](#crawlernamelist)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CrawlerNameList
+    * items [NameString](#namestring)
+  * MaxResults
+  * NextToken
 
 ### GetCrawlerMetricsResponse
 * GetCrawlerMetricsResponse `object`
-  * CrawlerMetricsList [CrawlerMetricsList](#crawlermetricslist)
-  * NextToken [Token](#token)
+  * CrawlerMetricsList
+    * items [CrawlerMetrics](#crawlermetrics)
+  * NextToken
 
 ### GetCrawlerRequest
 * GetCrawlerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### GetCrawlerResponse
 * GetCrawlerResponse `object`
-  * Crawler [Crawler](#crawler)
+  * Crawler
+    * Classifiers
+      * items [NameString](#namestring)
+    * Configuration
+    * CrawlElapsedTime
+    * CrawlerSecurityConfiguration
+    * CreationTime
+    * DatabaseName
+    * Description
+    * LastCrawl
+      * ErrorMessage
+      * LogGroup
+      * LogStream
+      * MessagePrefix
+      * StartTime
+      * Status
+    * LastUpdated
+    * LineageConfiguration
+      * CrawlerLineageSettings
+    * Name
+    * RecrawlPolicy
+      * RecrawlBehavior
+    * Role
+    * Schedule
+      * ScheduleExpression
+      * State
+    * SchemaChangePolicy
+      * DeleteBehavior
+      * UpdateBehavior
+    * State
+    * TablePrefix
+    * Targets
+      * CatalogTargets
+        * items [CatalogTarget](#catalogtarget)
+      * DynamoDBTargets
+        * items [DynamoDBTarget](#dynamodbtarget)
+      * JdbcTargets
+        * items [JdbcTarget](#jdbctarget)
+      * MongoDBTargets
+        * items [MongoDBTarget](#mongodbtarget)
+      * S3Targets
+        * items [S3Target](#s3target)
+    * Version
 
 ### GetCrawlersRequest
 * GetCrawlersRequest `object`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * MaxResults
+  * NextToken
 
 ### GetCrawlersResponse
 * GetCrawlersResponse `object`
-  * Crawlers [CrawlerList](#crawlerlist)
-  * NextToken [Token](#token)
+  * Crawlers
+    * items [Crawler](#crawler)
+  * NextToken
+
+### GetDataCatalogEncryptionSettingsRequest
+* GetDataCatalogEncryptionSettingsRequest `object`
+  * CatalogId
+
+### GetDataCatalogEncryptionSettingsResponse
+* GetDataCatalogEncryptionSettingsResponse `object`
+  * DataCatalogEncryptionSettings
+    * ConnectionPasswordEncryption
+      * AwsKmsKeyId
+      * ReturnConnectionPasswordEncrypted **required**
+    * EncryptionAtRest
+      * CatalogEncryptionMode **required**
+      * SseAwsKmsKeyId
 
 ### GetDatabaseRequest
 * GetDatabaseRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * Name **required**
 
 ### GetDatabaseResponse
 * GetDatabaseResponse `object`
-  * Database [Database](#database)
+  * Database
+    * CatalogId
+    * CreateTableDefaultPermissions
+      * items [PrincipalPermissions](#principalpermissions)
+    * CreateTime
+    * Description
+    * LocationUri
+    * Name **required**
+    * Parameters
+    * TargetDatabase
+      * CatalogId
+      * DatabaseName
 
 ### GetDatabasesRequest
 * GetDatabasesRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * MaxResults
+  * NextToken
+  * ResourceShareType
 
 ### GetDatabasesResponse
 * GetDatabasesResponse `object`
-  * DatabaseList **required** [DatabaseList](#databaselist)
-  * NextToken [Token](#token)
+  * DatabaseList **required**
+    * items [Database](#database)
+  * NextToken
 
 ### GetDataflowGraphRequest
 * GetDataflowGraphRequest `object`
-  * PythonScript [PythonScript](#pythonscript)
+  * PythonScript
 
 ### GetDataflowGraphResponse
 * GetDataflowGraphResponse `object`
-  * DagEdges [DagEdges](#dagedges)
-  * DagNodes [DagNodes](#dagnodes)
+  * DagEdges
+    * items [CodeGenEdge](#codegenedge)
+  * DagNodes
+    * items [CodeGenNode](#codegennode)
 
 ### GetDevEndpointRequest
 * GetDevEndpointRequest `object`
-  * EndpointName **required** [GenericString](#genericstring)
+  * EndpointName **required**
 
 ### GetDevEndpointResponse
 * GetDevEndpointResponse `object`
-  * DevEndpoint [DevEndpoint](#devendpoint)
+  * DevEndpoint
+    * Arguments
+    * AvailabilityZone
+    * CreatedTimestamp
+    * EndpointName
+    * ExtraJarsS3Path
+    * ExtraPythonLibsS3Path
+    * FailureReason
+    * GlueVersion
+    * LastModifiedTimestamp
+    * LastUpdateStatus
+    * NumberOfNodes
+    * NumberOfWorkers
+    * PrivateAddress
+    * PublicAddress
+    * PublicKey
+    * PublicKeys
+      * items [GenericString](#genericstring)
+    * RoleArn
+    * SecurityConfiguration
+    * SecurityGroupIds
+      * items [GenericString](#genericstring)
+    * Status
+    * SubnetId
+    * VpcId
+    * WorkerType
+    * YarnEndpointAddress
+    * ZeppelinRemoteSparkInterpreterPort
 
 ### GetDevEndpointsRequest
 * GetDevEndpointsRequest `object`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * MaxResults
+  * NextToken
 
 ### GetDevEndpointsResponse
 * GetDevEndpointsResponse `object`
-  * DevEndpoints [DevEndpointList](#devendpointlist)
-  * NextToken [GenericString](#genericstring)
+  * DevEndpoints
+    * items [DevEndpoint](#devendpoint)
+  * NextToken
+
+### GetJobBookmarkRequest
+* GetJobBookmarkRequest `object`
+  * JobName **required**
+  * RunId
+
+### GetJobBookmarkResponse
+* GetJobBookmarkResponse `object`
+  * JobBookmarkEntry
+    * Attempt
+    * JobBookmark
+    * JobName
+    * PreviousRunId
+    * Run
+    * RunId
+    * Version
 
 ### GetJobRequest
 * GetJobRequest `object`
-  * JobName **required** [NameString](#namestring)
+  * JobName **required**
 
 ### GetJobResponse
 * GetJobResponse `object`
-  * Job [Job](#job)
+  * Job
+    * AllocatedCapacity
+    * Command
+      * Name
+      * PythonVersion
+      * ScriptLocation
+    * Connections
+      * Connections
+        * items [GenericString](#genericstring)
+    * CreatedOn
+    * DefaultArguments
+    * Description
+    * ExecutionProperty
+      * MaxConcurrentRuns
+    * GlueVersion
+    * LastModifiedOn
+    * LogUri
+    * MaxCapacity
+    * MaxRetries
+    * Name
+    * NonOverridableArguments
+    * NotificationProperty
+      * NotifyDelayAfter
+    * NumberOfWorkers
+    * Role
+    * SecurityConfiguration
+    * Timeout
+    * WorkerType
 
 ### GetJobRunRequest
 * GetJobRunRequest `object`
-  * JobName **required** [NameString](#namestring)
-  * PredecessorsIncluded [BooleanValue](#booleanvalue)
-  * RunId **required** [IdString](#idstring)
+  * JobName **required**
+  * PredecessorsIncluded
+  * RunId **required**
 
 ### GetJobRunResponse
 * GetJobRunResponse `object`
-  * JobRun [JobRun](#jobrun)
+  * JobRun
+    * AllocatedCapacity
+    * Arguments
+    * Attempt
+    * CompletedOn
+    * ErrorMessage
+    * ExecutionTime
+    * GlueVersion
+    * Id
+    * JobName
+    * JobRunState
+    * LastModifiedOn
+    * LogGroupName
+    * MaxCapacity
+    * NotificationProperty
+      * NotifyDelayAfter
+    * NumberOfWorkers
+    * PredecessorRuns
+      * items [Predecessor](#predecessor)
+    * PreviousRunId
+    * SecurityConfiguration
+    * StartedOn
+    * Timeout
+    * TriggerName
+    * WorkerType
 
 ### GetJobRunsRequest
 * GetJobRunsRequest `object`
-  * JobName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * JobName **required**
+  * MaxResults
+  * NextToken
 
 ### GetJobRunsResponse
 * GetJobRunsResponse `object`
-  * JobRuns [JobRunList](#jobrunlist)
-  * NextToken [GenericString](#genericstring)
+  * JobRuns
+    * items [JobRun](#jobrun)
+  * NextToken
 
 ### GetJobsRequest
 * GetJobsRequest `object`
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * MaxResults
+  * NextToken
 
 ### GetJobsResponse
 * GetJobsResponse `object`
-  * Jobs [JobList](#joblist)
-  * NextToken [GenericString](#genericstring)
+  * Jobs
+    * items [Job](#job)
+  * NextToken
+
+### GetMLTaskRunRequest
+* GetMLTaskRunRequest `object`
+  * TaskRunId **required**
+  * TransformId **required**
+
+### GetMLTaskRunResponse
+* GetMLTaskRunResponse `object`
+  * CompletedOn
+  * ErrorString
+  * ExecutionTime
+  * LastModifiedOn
+  * LogGroupName
+  * Properties
+    * ExportLabelsTaskRunProperties
+      * OutputS3Path
+    * FindMatchesTaskRunProperties
+      * JobId
+      * JobName
+      * JobRunId
+    * ImportLabelsTaskRunProperties
+      * InputS3Path
+      * Replace
+    * LabelingSetGenerationTaskRunProperties
+      * OutputS3Path
+    * TaskType
+  * StartedOn
+  * Status
+  * TaskRunId
+  * TransformId
+
+### GetMLTaskRunsRequest
+* GetMLTaskRunsRequest `object`
+  * Filter
+    * StartedAfter
+    * StartedBefore
+    * Status
+    * TaskRunType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+  * TransformId **required**
+
+### GetMLTaskRunsResponse
+* GetMLTaskRunsResponse `object`
+  * NextToken
+  * TaskRuns
+    * items [TaskRun](#taskrun)
+
+### GetMLTransformRequest
+* GetMLTransformRequest `object`
+  * TransformId **required**
+
+### GetMLTransformResponse
+* GetMLTransformResponse `object`
+  * CreatedOn
+  * Description
+  * EvaluationMetrics
+    * FindMatchesMetrics
+      * AreaUnderPRCurve
+      * ConfusionMatrix
+        * NumFalseNegatives
+        * NumFalsePositives
+        * NumTrueNegatives
+        * NumTruePositives
+      * F1
+      * Precision
+      * Recall
+    * TransformType **required**
+  * GlueVersion
+  * InputRecordTables
+    * items [GlueTable](#gluetable)
+  * LabelCount
+  * LastModifiedOn
+  * MaxCapacity
+  * MaxRetries
+  * Name
+  * NumberOfWorkers
+  * Parameters
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role
+  * Schema
+    * items [SchemaColumn](#schemacolumn)
+  * Status
+  * Timeout
+  * TransformEncryption
+    * MlUserDataEncryption
+      * KmsKeyId
+      * MlUserDataEncryptionMode **required**
+    * TaskRunSecurityConfigurationName
+  * TransformId
+  * WorkerType
+
+### GetMLTransformsRequest
+* GetMLTransformsRequest `object`
+  * Filter
+    * CreatedAfter
+    * CreatedBefore
+    * GlueVersion
+    * LastModifiedAfter
+    * LastModifiedBefore
+    * Name
+    * Schema
+      * items [SchemaColumn](#schemacolumn)
+    * Status
+    * TransformType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+
+### GetMLTransformsResponse
+* GetMLTransformsResponse `object`
+  * NextToken
+  * Transforms **required**
+    * items [MLTransform](#mltransform)
 
 ### GetMappingRequest
 * GetMappingRequest `object`
-  * Location [Location](#location)
-  * Sinks [CatalogEntries](#catalogentries)
-  * Source **required** [CatalogEntry](#catalogentry)
+  * Location
+    * DynamoDB
+      * items [CodeGenNodeArg](#codegennodearg)
+    * Jdbc
+      * items [CodeGenNodeArg](#codegennodearg)
+    * S3
+      * items [CodeGenNodeArg](#codegennodearg)
+  * Sinks
+    * items [CatalogEntry](#catalogentry)
+  * Source **required**
+    * DatabaseName **required**
+    * TableName **required**
 
 ### GetMappingResponse
 * GetMappingResponse `object`
-  * Mapping **required** [MappingList](#mappinglist)
+  * Mapping **required**
+    * items [MappingEntry](#mappingentry)
+
+### GetPartitionIndexesRequest
+* GetPartitionIndexesRequest `object`
+  * CatalogId
+  * DatabaseName **required**
+  * NextToken
+  * TableName **required**
+
+### GetPartitionIndexesResponse
+* GetPartitionIndexesResponse `object`
+  * NextToken
+  * PartitionIndexDescriptorList
+    * items [PartitionIndexDescriptor](#partitionindexdescriptor)
 
 ### GetPartitionRequest
 * GetPartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionValues **required** [ValueStringList](#valuestringlist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 ### GetPartitionResponse
 * GetPartitionResponse `object`
-  * Partition [Partition](#partition)
+  * Partition
+    * CatalogId
+    * CreationTime
+    * DatabaseName
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableName
+    * Values
+      * items [ValueString](#valuestring)
 
 ### GetPartitionsRequest
 * GetPartitionsRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Expression [PredicateString](#predicatestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * Segment [Segment](#segment)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Expression
+  * MaxResults
+  * NextToken
+  * Segment
+    * SegmentNumber **required**
+    * TotalSegments **required**
+  * TableName **required**
 
 ### GetPartitionsResponse
 * GetPartitionsResponse `object`
-  * NextToken [Token](#token)
-  * Partitions [PartitionList](#partitionlist)
+  * NextToken
+  * Partitions
+    * items [Partition](#partition)
 
 ### GetPlanRequest
 * GetPlanRequest `object`
-  * Language [Language](#language)
-  * Location [Location](#location)
-  * Mapping **required** [MappingList](#mappinglist)
-  * Sinks [CatalogEntries](#catalogentries)
-  * Source **required** [CatalogEntry](#catalogentry)
+  * AdditionalPlanOptionsMap
+  * Language
+  * Location
+    * DynamoDB
+      * items [CodeGenNodeArg](#codegennodearg)
+    * Jdbc
+      * items [CodeGenNodeArg](#codegennodearg)
+    * S3
+      * items [CodeGenNodeArg](#codegennodearg)
+  * Mapping **required**
+    * items [MappingEntry](#mappingentry)
+  * Sinks
+    * items [CatalogEntry](#catalogentry)
+  * Source **required**
+    * DatabaseName **required**
+    * TableName **required**
 
 ### GetPlanResponse
 * GetPlanResponse `object`
-  * PythonScript [PythonScript](#pythonscript)
-  * ScalaCode [ScalaCode](#scalacode)
+  * PythonScript
+  * ScalaCode
+
+### GetRegistryInput
+* GetRegistryInput `object`
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+### GetRegistryResponse
+* GetRegistryResponse `object`
+  * CreatedTime
+  * Description
+  * RegistryArn
+  * RegistryName
+  * Status
+  * UpdatedTime
+
+### GetResourcePoliciesRequest
+* GetResourcePoliciesRequest `object`
+  * MaxResults
+  * NextToken
+
+### GetResourcePoliciesResponse
+* GetResourcePoliciesResponse `object`
+  * GetResourcePoliciesResponseList
+    * items [GluePolicy](#gluepolicy)
+  * NextToken
+
+### GetResourcePoliciesResponseList
+* GetResourcePoliciesResponseList `array`
+  * items [GluePolicy](#gluepolicy)
+
+### GetResourcePolicyRequest
+* GetResourcePolicyRequest `object`
+  * ResourceArn
+
+### GetResourcePolicyResponse
+* GetResourcePolicyResponse `object`
+  * CreateTime
+  * PolicyHash
+  * PolicyInJson
+  * UpdateTime
+
+### GetSchemaByDefinitionInput
+* GetSchemaByDefinitionInput `object`
+  * SchemaDefinition **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### GetSchemaByDefinitionResponse
+* GetSchemaByDefinitionResponse `object`
+  * CreatedTime
+  * DataFormat
+  * SchemaArn
+  * SchemaVersionId
+  * Status
+
+### GetSchemaInput
+* GetSchemaInput `object`
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### GetSchemaResponse
+* GetSchemaResponse `object`
+  * Compatibility
+  * CreatedTime
+  * DataFormat
+  * Description
+  * LatestSchemaVersion
+  * NextSchemaVersion
+  * RegistryArn
+  * RegistryName
+  * SchemaArn
+  * SchemaCheckpoint
+  * SchemaName
+  * SchemaStatus
+  * UpdatedTime
+
+### GetSchemaVersionInput
+* GetSchemaVersionInput `object`
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### GetSchemaVersionResponse
+* GetSchemaVersionResponse `object`
+  * CreatedTime
+  * DataFormat
+  * SchemaArn
+  * SchemaDefinition
+  * SchemaVersionId
+  * Status
+  * VersionNumber
+
+### GetSchemaVersionsDiffInput
+* GetSchemaVersionsDiffInput `object`
+  * FirstSchemaVersionNumber **required**
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+  * SchemaDiffType **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SecondSchemaVersionNumber **required**
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### GetSchemaVersionsDiffResponse
+* GetSchemaVersionsDiffResponse `object`
+  * Diff
+
+### GetSecurityConfigurationRequest
+* GetSecurityConfigurationRequest `object`
+  * Name **required**
+
+### GetSecurityConfigurationResponse
+* GetSecurityConfigurationResponse `object`
+  * SecurityConfiguration
+    * CreatedTimeStamp
+    * EncryptionConfiguration
+      * CloudWatchEncryption
+        * CloudWatchEncryptionMode
+        * KmsKeyArn
+      * JobBookmarksEncryption
+        * JobBookmarksEncryptionMode
+        * KmsKeyArn
+      * S3Encryption
+        * items [S3Encryption](#s3encryption)
+    * Name
+
+### GetSecurityConfigurationsRequest
+* GetSecurityConfigurationsRequest `object`
+  * MaxResults
+  * NextToken
+
+### GetSecurityConfigurationsResponse
+* GetSecurityConfigurationsResponse `object`
+  * NextToken
+  * SecurityConfigurations
+    * items [SecurityConfiguration](#securityconfiguration)
 
 ### GetTableRequest
 * GetTableRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * Name **required**
 
 ### GetTableResponse
 * GetTableResponse `object`
-  * Table [Table](#table)
+  * Table
+    * CatalogId
+    * CreateTime
+    * CreatedBy
+    * DatabaseName
+    * Description
+    * IsRegisteredWithLakeFormation
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * UpdateTime
+    * ViewExpandedText
+    * ViewOriginalText
 
 ### GetTableVersionRequest
 * GetTableVersionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * TableName **required** [NameString](#namestring)
-  * VersionId [VersionString](#versionstring)
+  * CatalogId
+  * DatabaseName **required**
+  * TableName **required**
+  * VersionId
 
 ### GetTableVersionResponse
 * GetTableVersionResponse `object`
-  * TableVersion [TableVersion](#tableversion)
+  * TableVersion
+    * Table
+      * CatalogId
+      * CreateTime
+      * CreatedBy
+      * DatabaseName
+      * Description
+      * IsRegisteredWithLakeFormation
+      * LastAccessTime
+      * LastAnalyzedTime
+      * Name **required**
+      * Owner
+      * Parameters
+      * PartitionKeys
+        * items [Column](#column)
+      * Retention
+      * StorageDescriptor
+        * BucketColumns
+          * items [NameString](#namestring)
+        * Columns
+          * items [Column](#column)
+        * Compressed
+        * InputFormat
+        * Location
+        * NumberOfBuckets
+        * OutputFormat
+        * Parameters
+        * SchemaReference
+          * SchemaId
+          * SchemaVersionId
+          * SchemaVersionNumber
+        * SerdeInfo
+          * Name
+          * Parameters
+          * SerializationLibrary
+        * SkewedInfo
+          * SkewedColumnNames
+          * SkewedColumnValueLocationMaps
+          * SkewedColumnValues
+        * SortColumns
+          * items [Order](#order)
+        * StoredAsSubDirectories
+      * TableType
+      * TargetTable
+        * CatalogId
+        * DatabaseName
+        * Name
+      * UpdateTime
+      * ViewExpandedText
+      * ViewOriginalText
+    * VersionId
 
 ### GetTableVersionsList
 * GetTableVersionsList `array`
@@ -2574,98 +6501,262 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### GetTableVersionsRequest
 * GetTableVersionsRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * MaxResults
+  * NextToken
+  * TableName **required**
 
 ### GetTableVersionsResponse
 * GetTableVersionsResponse `object`
-  * NextToken [Token](#token)
-  * TableVersions [GetTableVersionsList](#gettableversionslist)
+  * NextToken
+  * TableVersions
+    * items [TableVersion](#tableversion)
 
 ### GetTablesRequest
 * GetTablesRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * Expression [FilterString](#filterstring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
+  * CatalogId
+  * DatabaseName **required**
+  * Expression
+  * MaxResults
+  * NextToken
 
 ### GetTablesResponse
 * GetTablesResponse `object`
-  * NextToken [Token](#token)
-  * TableList [TableList](#tablelist)
+  * NextToken
+  * TableList
+    * items [Table](#table)
+
+### GetTagsRequest
+* GetTagsRequest `object`
+  * ResourceArn **required**
+
+### GetTagsResponse
+* GetTagsResponse `object`
+  * Tags
 
 ### GetTriggerRequest
 * GetTriggerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### GetTriggerResponse
 * GetTriggerResponse `object`
-  * Trigger [Trigger](#trigger)
+  * Trigger
+    * Actions
+      * items [Action](#action)
+    * Description
+    * Id
+    * Name
+    * Predicate
+      * Conditions
+        * items [Condition](#condition)
+      * Logical
+    * Schedule
+    * State
+    * Type
+    * WorkflowName
 
 ### GetTriggersRequest
 * GetTriggersRequest `object`
-  * DependentJobName [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [GenericString](#genericstring)
+  * DependentJobName
+  * MaxResults
+  * NextToken
 
 ### GetTriggersResponse
 * GetTriggersResponse `object`
-  * NextToken [GenericString](#genericstring)
-  * Triggers [TriggerList](#triggerlist)
+  * NextToken
+  * Triggers
+    * items [Trigger](#trigger)
 
 ### GetUserDefinedFunctionRequest
 * GetUserDefinedFunctionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionName **required**
 
 ### GetUserDefinedFunctionResponse
 * GetUserDefinedFunctionResponse `object`
-  * UserDefinedFunction [UserDefinedFunction](#userdefinedfunction)
+  * UserDefinedFunction
+    * CatalogId
+    * ClassName
+    * CreateTime
+    * DatabaseName
+    * FunctionName
+    * OwnerName
+    * OwnerType
+    * ResourceUris
+      * items [ResourceUri](#resourceuri)
 
 ### GetUserDefinedFunctionsRequest
 * GetUserDefinedFunctionsRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * MaxResults [PageSize](#pagesize)
-  * NextToken [Token](#token)
-  * Pattern **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName
+  * MaxResults
+  * NextToken
+  * Pattern **required**
 
 ### GetUserDefinedFunctionsResponse
 * GetUserDefinedFunctionsResponse `object`
-  * NextToken [Token](#token)
-  * UserDefinedFunctions [UserDefinedFunctionList](#userdefinedfunctionlist)
+  * NextToken
+  * UserDefinedFunctions
+    * items [UserDefinedFunction](#userdefinedfunction)
+
+### GetWorkflowRequest
+* GetWorkflowRequest `object`
+  * IncludeGraph
+  * Name **required**
+
+### GetWorkflowResponse
+* GetWorkflowResponse `object`
+  * Workflow
+    * CreatedOn
+    * DefaultRunProperties
+    * Description
+    * Graph
+      * Edges
+        * items [Edge](#edge)
+      * Nodes
+        * items [Node](#node)
+    * LastModifiedOn
+    * LastRun
+      * CompletedOn
+      * ErrorMessage
+      * Graph
+        * Edges
+          * items [Edge](#edge)
+        * Nodes
+          * items [Node](#node)
+      * Name
+      * PreviousRunId
+      * StartedOn
+      * Statistics
+        * FailedActions
+        * RunningActions
+        * StoppedActions
+        * SucceededActions
+        * TimeoutActions
+        * TotalActions
+      * Status
+      * WorkflowRunId
+      * WorkflowRunProperties
+    * MaxConcurrentRuns
+    * Name
+
+### GetWorkflowRunPropertiesRequest
+* GetWorkflowRunPropertiesRequest `object`
+  * Name **required**
+  * RunId **required**
+
+### GetWorkflowRunPropertiesResponse
+* GetWorkflowRunPropertiesResponse `object`
+  * RunProperties
+
+### GetWorkflowRunRequest
+* GetWorkflowRunRequest `object`
+  * IncludeGraph
+  * Name **required**
+  * RunId **required**
+
+### GetWorkflowRunResponse
+* GetWorkflowRunResponse `object`
+  * Run
+    * CompletedOn
+    * ErrorMessage
+    * Graph
+      * Edges
+        * items [Edge](#edge)
+      * Nodes
+        * items [Node](#node)
+    * Name
+    * PreviousRunId
+    * StartedOn
+    * Statistics
+      * FailedActions
+      * RunningActions
+      * StoppedActions
+      * SucceededActions
+      * TimeoutActions
+      * TotalActions
+    * Status
+    * WorkflowRunId
+    * WorkflowRunProperties
+
+### GetWorkflowRunsRequest
+* GetWorkflowRunsRequest `object`
+  * IncludeGraph
+  * MaxResults
+  * Name **required**
+  * NextToken
+
+### GetWorkflowRunsResponse
+* GetWorkflowRunsResponse `object`
+  * NextToken
+  * Runs
+    * items [WorkflowRun](#workflowrun)
+
+### GlueEncryptionException
+
+
+### GluePolicy
+* GluePolicy `object`: A structure for returning a resource policy.
+  * CreateTime
+  * PolicyHash
+  * PolicyInJson
+  * UpdateTime
+
+### GlueResourceArn
+* GlueResourceArn `string`
+
+### GlueTable
+* GlueTable `object`: The database and table in the AWS Glue Data Catalog that is used for input or output data.
+  * CatalogId
+  * ConnectionName
+  * DatabaseName **required**
+  * TableName **required**
+
+### GlueTables
+* GlueTables `array`
+  * items [GlueTable](#gluetable)
+
+### GlueVersionString
+* GlueVersionString `string`
 
 ### GrokClassifier
 * GrokClassifier `object`: A classifier that uses <code>grok</code> patterns.
-  * Classification **required** [Classification](#classification)
-  * CreationTime [Timestamp](#timestamp)
-  * CustomPatterns [CustomPatterns](#custompatterns)
-  * GrokPattern **required** [GrokPattern](#grokpattern)
-  * LastUpdated [Timestamp](#timestamp)
-  * Name **required** [NameString](#namestring)
-  * Version [VersionId](#versionid)
+  * Classification **required**
+  * CreationTime
+  * CustomPatterns
+  * GrokPattern **required**
+  * LastUpdated
+  * Name **required**
+  * Version
 
 ### GrokPattern
 * GrokPattern `string`
+
+### HashString
+* HashString `string`
 
 ### IdString
 * IdString `string`
 
 ### IdempotentParameterMismatchException
-* IdempotentParameterMismatchException `object`: The same unique identifier was associated with two different records.
-  * Message [MessageString](#messagestring)
+
+
+### IllegalWorkflowStateException
+
 
 ### ImportCatalogToGlueRequest
 * ImportCatalogToGlueRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
+  * CatalogId
 
 ### ImportCatalogToGlueResponse
 * ImportCatalogToGlueResponse `object`
+
+### ImportLabelsTaskRunProperties
+* ImportLabelsTaskRunProperties `object`: Specifies configuration properties for an importing labels task run.
+  * InputS3Path
+  * Replace
 
 ### Integer
 * Integer `integer`
@@ -2677,18 +6768,20 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * IntegerValue `integer`
 
 ### InternalServiceException
-* InternalServiceException `object`: An internal service error occurred.
-  * Message [MessageString](#messagestring)
+
 
 ### InvalidInputException
-* InvalidInputException `object`: The input provided was not valid.
-  * Message [MessageString](#messagestring)
+
+
+### IsVersionValid
+* IsVersionValid `boolean`
 
 ### JdbcTarget
 * JdbcTarget `object`: Specifies a JDBC data store to crawl.
-  * ConnectionName [ConnectionName](#connectionname)
-  * Exclusions [PathList](#pathlist)
-  * Path [Path](#path)
+  * ConnectionName
+  * Exclusions
+    * items [Path](#path)
+  * Path
 
 ### JdbcTargetList
 * JdbcTargetList `array`
@@ -2696,33 +6789,57 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Job
 * Job `object`: Specifies a job definition.
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Command [JobCommand](#jobcommand)
-  * Connections [ConnectionsList](#connectionslist)
-  * CreatedOn [TimestampValue](#timestampvalue)
-  * DefaultArguments [GenericMap](#genericmap)
-  * Description [DescriptionString](#descriptionstring)
-  * ExecutionProperty [ExecutionProperty](#executionproperty)
-  * LastModifiedOn [TimestampValue](#timestampvalue)
-  * LogUri [UriString](#uristring)
-  * MaxRetries [MaxRetries](#maxretries)
-  * Name [NameString](#namestring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Role [RoleString](#rolestring)
-  * Timeout [Timeout](#timeout)
+  * AllocatedCapacity
+  * Command
+    * Name
+    * PythonVersion
+    * ScriptLocation
+  * Connections
+    * Connections
+      * items [GenericString](#genericstring)
+  * CreatedOn
+  * DefaultArguments
+  * Description
+  * ExecutionProperty
+    * MaxConcurrentRuns
+  * GlueVersion
+  * LastModifiedOn
+  * LogUri
+  * MaxCapacity
+  * MaxRetries
+  * Name
+  * NonOverridableArguments
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * Role
+  * SecurityConfiguration
+  * Timeout
+  * WorkerType
 
 ### JobBookmarkEntry
-* JobBookmarkEntry `object`: Defines a point which a job can resume processing.
-  * Attempt [IntegerValue](#integervalue)
-  * JobBookmark [JsonValue](#jsonvalue)
-  * JobName [JobName](#jobname)
-  * Run [IntegerValue](#integervalue)
-  * Version [IntegerValue](#integervalue)
+* JobBookmarkEntry `object`: Defines a point that a job can resume processing.
+  * Attempt
+  * JobBookmark
+  * JobName
+  * PreviousRunId
+  * Run
+  * RunId
+  * Version
+
+### JobBookmarksEncryption
+* JobBookmarksEncryption `object`: Specifies how job bookmark data should be encrypted.
+  * JobBookmarksEncryptionMode
+  * KmsKeyArn
+
+### JobBookmarksEncryptionMode
+* JobBookmarksEncryptionMode `string` (values: DISABLED, CSE-KMS)
 
 ### JobCommand
 * JobCommand `object`: Specifies code executed when a job is run.
-  * Name [GenericString](#genericstring)
-  * ScriptLocation [ScriptLocationString](#scriptlocationstring)
+  * Name
+  * PythonVersion
+  * ScriptLocation
 
 ### JobList
 * JobList `array`
@@ -2731,24 +6848,41 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### JobName
 * JobName `string`
 
+### JobNameList
+* JobNameList `array`
+  * items [NameString](#namestring)
+
+### JobNodeDetails
+* JobNodeDetails `object`: The details of a Job node present in the workflow.
+  * JobRuns
+    * items [JobRun](#jobrun)
+
 ### JobRun
 * JobRun `object`: Contains information about a job run.
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Arguments [GenericMap](#genericmap)
-  * Attempt [AttemptCount](#attemptcount)
-  * CompletedOn [TimestampValue](#timestampvalue)
-  * ErrorMessage [ErrorString](#errorstring)
-  * ExecutionTime [ExecutionTime](#executiontime)
-  * Id [IdString](#idstring)
-  * JobName [NameString](#namestring)
-  * JobRunState [JobRunState](#jobrunstate)
-  * LastModifiedOn [TimestampValue](#timestampvalue)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * PredecessorRuns [PredecessorList](#predecessorlist)
-  * PreviousRunId [IdString](#idstring)
-  * StartedOn [TimestampValue](#timestampvalue)
-  * Timeout [Timeout](#timeout)
-  * TriggerName [NameString](#namestring)
+  * AllocatedCapacity
+  * Arguments
+  * Attempt
+  * CompletedOn
+  * ErrorMessage
+  * ExecutionTime
+  * GlueVersion
+  * Id
+  * JobName
+  * JobRunState
+  * LastModifiedOn
+  * LogGroupName
+  * MaxCapacity
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * PredecessorRuns
+    * items [Predecessor](#predecessor)
+  * PreviousRunId
+  * SecurityConfiguration
+  * StartedOn
+  * Timeout
+  * TriggerName
+  * WorkerType
 
 ### JobRunList
 * JobRunList `array`
@@ -2758,26 +6892,39 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * JobRunState `string` (values: STARTING, RUNNING, STOPPING, STOPPED, SUCCEEDED, FAILED, TIMEOUT)
 
 ### JobUpdate
-* JobUpdate `object`: Specifies information used to update an existing job definition. Note that the previous job definition will be completely overwritten by this information.
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Command [JobCommand](#jobcommand)
-  * Connections [ConnectionsList](#connectionslist)
-  * DefaultArguments [GenericMap](#genericmap)
-  * Description [DescriptionString](#descriptionstring)
-  * ExecutionProperty [ExecutionProperty](#executionproperty)
-  * LogUri [UriString](#uristring)
-  * MaxRetries [MaxRetries](#maxretries)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Role [RoleString](#rolestring)
-  * Timeout [Timeout](#timeout)
+* JobUpdate `object`: Specifies information used to update an existing job definition. The previous job definition is completely overwritten by this information.
+  * AllocatedCapacity
+  * Command
+    * Name
+    * PythonVersion
+    * ScriptLocation
+  * Connections
+    * Connections
+      * items [GenericString](#genericstring)
+  * DefaultArguments
+  * Description
+  * ExecutionProperty
+    * MaxConcurrentRuns
+  * GlueVersion
+  * LogUri
+  * MaxCapacity
+  * MaxRetries
+  * NonOverridableArguments
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * Role
+  * SecurityConfiguration
+  * Timeout
+  * WorkerType
 
 ### JsonClassifier
 * JsonClassifier `object`: A classifier for <code>JSON</code> content.
-  * CreationTime [Timestamp](#timestamp)
-  * JsonPath **required** [JsonPath](#jsonpath)
-  * LastUpdated [Timestamp](#timestamp)
-  * Name **required** [NameString](#namestring)
-  * Version [VersionId](#versionid)
+  * CreationTime
+  * JsonPath **required**
+  * LastUpdated
+  * Name **required**
+  * Version
 
 ### JsonPath
 * JsonPath `string`
@@ -2785,34 +6932,191 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### JsonValue
 * JsonValue `string`
 
+### KeyList
+* KeyList `array`
+  * items [NameString](#namestring)
+
+### KeySchemaElement
+* KeySchemaElement `object`: A partition key pair consisting of a name and a type.
+  * Name **required**
+  * Type **required**
+
+### KeySchemaElementList
+* KeySchemaElementList `array`
+  * items [KeySchemaElement](#keyschemaelement)
+
 ### KeyString
 * KeyString `string`
+
+### KmsKeyArn
+* KmsKeyArn `string`
+
+### LabelCount
+* LabelCount `integer`
+
+### LabelingSetGenerationTaskRunProperties
+* LabelingSetGenerationTaskRunProperties `object`: Specifies configuration properties for a labeling set generation task run.
+  * OutputS3Path
 
 ### Language
 * Language `string` (values: PYTHON, SCALA)
 
 ### LastCrawlInfo
 * LastCrawlInfo `object`: Status and error information about the most recent crawl.
-  * ErrorMessage [DescriptionString](#descriptionstring)
-  * LogGroup [LogGroup](#loggroup)
-  * LogStream [LogStream](#logstream)
-  * MessagePrefix [MessagePrefix](#messageprefix)
-  * StartTime [Timestamp](#timestamp)
-  * Status [LastCrawlStatus](#lastcrawlstatus)
+  * ErrorMessage
+  * LogGroup
+  * LogStream
+  * MessagePrefix
+  * StartTime
+  * Status
 
 ### LastCrawlStatus
 * LastCrawlStatus `string` (values: SUCCEEDED, CANCELLED, FAILED)
 
+### LatestSchemaVersionBoolean
+* LatestSchemaVersionBoolean `boolean`
+
+### LineageConfiguration
+* LineageConfiguration `object`: Specifies data lineage configuration settings for the crawler.
+  * CrawlerLineageSettings
+
+### ListCrawlersRequest
+* ListCrawlersRequest `object`
+  * MaxResults
+  * NextToken
+  * Tags
+
+### ListCrawlersResponse
+* ListCrawlersResponse `object`
+  * CrawlerNames
+    * items [NameString](#namestring)
+  * NextToken
+
+### ListDevEndpointsRequest
+* ListDevEndpointsRequest `object`
+  * MaxResults
+  * NextToken
+  * Tags
+
+### ListDevEndpointsResponse
+* ListDevEndpointsResponse `object`
+  * DevEndpointNames
+    * items [NameString](#namestring)
+  * NextToken
+
+### ListJobsRequest
+* ListJobsRequest `object`
+  * MaxResults
+  * NextToken
+  * Tags
+
+### ListJobsResponse
+* ListJobsResponse `object`
+  * JobNames
+    * items [NameString](#namestring)
+  * NextToken
+
+### ListMLTransformsRequest
+* ListMLTransformsRequest `object`
+  * Filter
+    * CreatedAfter
+    * CreatedBefore
+    * GlueVersion
+    * LastModifiedAfter
+    * LastModifiedBefore
+    * Name
+    * Schema
+      * items [SchemaColumn](#schemacolumn)
+    * Status
+    * TransformType
+  * MaxResults
+  * NextToken
+  * Sort
+    * Column **required**
+    * SortDirection **required**
+  * Tags
+
+### ListMLTransformsResponse
+* ListMLTransformsResponse `object`
+  * NextToken
+  * TransformIds **required**
+    * items [HashString](#hashstring)
+
+### ListRegistriesInput
+* ListRegistriesInput `object`
+  * MaxResults
+  * NextToken
+
+### ListRegistriesResponse
+* ListRegistriesResponse `object`
+  * NextToken
+  * Registries
+    * items [RegistryListItem](#registrylistitem)
+
+### ListSchemaVersionsInput
+* ListSchemaVersionsInput `object`
+  * MaxResults
+  * NextToken
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### ListSchemaVersionsResponse
+* ListSchemaVersionsResponse `object`
+  * NextToken
+  * Schemas
+    * items [SchemaVersionListItem](#schemaversionlistitem)
+
+### ListSchemasInput
+* ListSchemasInput `object`
+  * MaxResults
+  * NextToken
+  * RegistryId
+    * RegistryArn
+    * RegistryName
+
+### ListSchemasResponse
+* ListSchemasResponse `object`
+  * NextToken
+  * Schemas
+    * items [SchemaListItem](#schemalistitem)
+
+### ListTriggersRequest
+* ListTriggersRequest `object`
+  * DependentJobName
+  * MaxResults
+  * NextToken
+  * Tags
+
+### ListTriggersResponse
+* ListTriggersResponse `object`
+  * NextToken
+  * TriggerNames
+    * items [NameString](#namestring)
+
+### ListWorkflowsRequest
+* ListWorkflowsRequest `object`
+  * MaxResults
+  * NextToken
+
+### ListWorkflowsResponse
+* ListWorkflowsResponse `object`
+  * NextToken
+  * Workflows
+    * items [NameString](#namestring)
+
 ### Location
 * Location `object`: The location of resources.
-  * Jdbc [CodeGenNodeArgs](#codegennodeargs)
-  * S3 [CodeGenNodeArgs](#codegennodeargs)
+  * DynamoDB
+    * items [CodeGenNodeArg](#codegennodearg)
+  * Jdbc
+    * items [CodeGenNodeArg](#codegennodearg)
+  * S3
+    * items [CodeGenNodeArg](#codegennodearg)
 
 ### LocationMap
-* LocationMap `array`
-  * items `object`
-    * key [ColumnValuesString](#columnvaluesstring)
-    * value [ColumnValuesString](#columnvaluesstring)
+* LocationMap `object`
 
 ### LocationString
 * LocationString `string`
@@ -2829,14 +7133,83 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### LogicalOperator
 * LogicalOperator `string` (values: EQUALS)
 
+### Long
+* Long `integer`
+
+### LongColumnStatisticsData
+* LongColumnStatisticsData `object`: Defines column statistics supported for integer data columns.
+  * MaximumValue
+  * MinimumValue
+  * NumberOfDistinctValues **required**
+  * NumberOfNulls **required**
+
+### MLTransform
+* MLTransform `object`: A structure for a machine learning transform.
+  * CreatedOn
+  * Description
+  * EvaluationMetrics
+    * FindMatchesMetrics
+      * AreaUnderPRCurve
+      * ConfusionMatrix
+        * NumFalseNegatives
+        * NumFalsePositives
+        * NumTrueNegatives
+        * NumTruePositives
+      * F1
+      * Precision
+      * Recall
+    * TransformType **required**
+  * GlueVersion
+  * InputRecordTables
+    * items [GlueTable](#gluetable)
+  * LabelCount
+  * LastModifiedOn
+  * MaxCapacity
+  * MaxRetries
+  * Name
+  * NumberOfWorkers
+  * Parameters
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role
+  * Schema
+    * items [SchemaColumn](#schemacolumn)
+  * Status
+  * Timeout
+  * TransformEncryption
+    * MlUserDataEncryption
+      * KmsKeyId
+      * MlUserDataEncryptionMode **required**
+    * TaskRunSecurityConfigurationName
+  * TransformId
+  * WorkerType
+
+### MLTransformNotReadyException
+
+
+### MLUserDataEncryption
+* MLUserDataEncryption `object`: The encryption-at-rest settings of the transform that apply to accessing user data.
+  * KmsKeyId
+  * MlUserDataEncryptionMode **required**
+
+### MLUserDataEncryptionModeString
+* MLUserDataEncryptionModeString `string` (values: DISABLED, SSE-KMS)
+
+### MapValue
+* MapValue `object`
+
 ### MappingEntry
 * MappingEntry `object`: Defines a mapping.
-  * SourcePath [SchemaPathString](#schemapathstring)
-  * SourceTable [TableName](#tablename)
-  * SourceType [FieldType](#fieldtype)
-  * TargetPath [SchemaPathString](#schemapathstring)
-  * TargetTable [TableName](#tablename)
-  * TargetType [FieldType](#fieldtype)
+  * SourcePath
+  * SourceTable
+  * SourceType
+  * TargetPath
+  * TargetTable
+  * TargetType
 
 ### MappingList
 * MappingList `array`
@@ -2849,17 +7222,50 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### MaxConcurrentRuns
 * MaxConcurrentRuns `integer`
 
+### MaxResultsNumber
+* MaxResultsNumber `integer`
+
 ### MaxRetries
 * MaxRetries `integer`
 
 ### MessagePrefix
 * MessagePrefix `string`
 
-### MessageString
-* MessageString `string`
+### MetadataInfo
+* MetadataInfo `object`: A structure containing metadata information for a schema version.
+  * CreatedTime
+  * MetadataValue
+
+### MetadataInfoMap
+* MetadataInfoMap `object`
+
+### MetadataKeyString
+* MetadataKeyString `string`
+
+### MetadataKeyValuePair
+* MetadataKeyValuePair `object`: A structure containing a key value pair for metadata.
+  * MetadataKey
+  * MetadataValue
+
+### MetadataList
+* MetadataList `array`
+  * items [MetadataKeyValuePair](#metadatakeyvaluepair)
+
+### MetadataValueString
+* MetadataValueString `string`
 
 ### MillisecondsCount
 * MillisecondsCount `integer`
+
+### MongoDBTarget
+* MongoDBTarget `object`: Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+  * ConnectionName
+  * Path
+  * ScanAll
+
+### MongoDBTargetList
+* MongoDBTargetList `array`
+  * items [MongoDBTarget](#mongodbtarget)
 
 ### NameString
 * NameString `string`
@@ -2869,8 +7275,45 @@ amazonaws_glue.UpdateUserDefinedFunction({
   * items [NameString](#namestring)
 
 ### NoScheduleException
-* NoScheduleException `object`: There is no applicable schedule.
-  * Message [MessageString](#messagestring)
+
+
+### Node
+* Node `object`: A node represents an AWS Glue component such as a trigger, or job, etc., that is part of a workflow.
+  * CrawlerDetails
+    * Crawls
+      * items [Crawl](#crawl)
+  * JobDetails
+    * JobRuns
+      * items [JobRun](#jobrun)
+  * Name
+  * TriggerDetails
+    * Trigger
+      * Actions
+        * items [Action](#action)
+      * Description
+      * Id
+      * Name
+      * Predicate
+        * Conditions
+          * items [Condition](#condition)
+        * Logical
+      * Schedule
+      * State
+      * Type
+      * WorkflowName
+  * Type
+  * UniqueId
+
+### NodeIdList
+* NodeIdList `array`
+  * items [NameString](#namestring)
+
+### NodeList
+* NodeList `array`
+  * items [Node](#node)
+
+### NodeType
+* NodeType `string` (values: CRAWLER, JOB, TRIGGER)
 
 ### NonNegativeDouble
 * NonNegativeDouble `number`
@@ -2878,21 +7321,36 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### NonNegativeInteger
 * NonNegativeInteger `integer`
 
+### NonNegativeLong
+* NonNegativeLong `integer`
+
 ### NotificationProperty
 * NotificationProperty `object`: Specifies configuration properties of a notification.
-  * NotifyDelayAfter [NotifyDelayAfter](#notifydelayafter)
+  * NotifyDelayAfter
 
 ### NotifyDelayAfter
 * NotifyDelayAfter `integer`
 
+### NullableBoolean
+* NullableBoolean `boolean`
+
+### NullableDouble
+* NullableDouble `number`
+
+### NullableInteger
+* NullableInteger `integer`
+
 ### OperationTimeoutException
-* OperationTimeoutException `object`: The operation timed out.
-  * Message [MessageString](#messagestring)
+
+
+### OrchestrationStringList
+* OrchestrationStringList `array`
+  * items [GenericString](#genericstring)
 
 ### Order
 * Order `object`: Specifies the sort order of a sorted column.
-  * Column **required** [NameString](#namestring)
-  * SortOrder **required** [IntegerFlag](#integerflag)
+  * Column **required**
+  * SortOrder **required**
 
 ### OrderList
 * OrderList `array`
@@ -2901,42 +7359,134 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### PageSize
 * PageSize `integer`
 
+### PaginationToken
+* PaginationToken `string`
+
 ### ParametersMap
-* ParametersMap `array`
-  * items `object`
-    * key [KeyString](#keystring)
-    * value [ParametersMapValue](#parametersmapvalue)
+* ParametersMap `object`
 
 ### ParametersMapValue
 * ParametersMapValue `string`
 
 ### Partition
 * Partition `object`: Represents a slice of table data.
-  * CreationTime [Timestamp](#timestamp)
-  * DatabaseName [NameString](#namestring)
-  * LastAccessTime [Timestamp](#timestamp)
-  * LastAnalyzedTime [Timestamp](#timestamp)
-  * Parameters [ParametersMap](#parametersmap)
-  * StorageDescriptor [StorageDescriptor](#storagedescriptor)
-  * TableName [NameString](#namestring)
-  * Values [ValueStringList](#valuestringlist)
+  * CatalogId
+  * CreationTime
+  * DatabaseName
+  * LastAccessTime
+  * LastAnalyzedTime
+  * Parameters
+  * StorageDescriptor
+    * BucketColumns
+      * items [NameString](#namestring)
+    * Columns
+      * items [Column](#column)
+    * Compressed
+    * InputFormat
+    * Location
+    * NumberOfBuckets
+    * OutputFormat
+    * Parameters
+    * SchemaReference
+      * SchemaId
+        * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaArn [GlueResourceArn](#glueresourcearn)
+        * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+      * SchemaVersionId
+      * SchemaVersionNumber
+    * SerdeInfo
+      * Name
+      * Parameters
+      * SerializationLibrary
+    * SkewedInfo
+      * SkewedColumnNames
+        * items [NameString](#namestring)
+      * SkewedColumnValueLocationMaps
+      * SkewedColumnValues
+        * items [ColumnValuesString](#columnvaluesstring)
+    * SortColumns
+      * items [Order](#order)
+    * StoredAsSubDirectories
+  * TableName
+  * Values
+    * items [ValueString](#valuestring)
 
 ### PartitionError
 * PartitionError `object`: Contains information about a partition error.
-  * ErrorDetail [ErrorDetail](#errordetail)
-  * PartitionValues [ValueStringList](#valuestringlist)
+  * ErrorDetail
+    * ErrorCode
+    * ErrorMessage
+  * PartitionValues
+    * items [ValueString](#valuestring)
 
 ### PartitionErrors
 * PartitionErrors `array`
   * items [PartitionError](#partitionerror)
 
+### PartitionIndex
+* PartitionIndex `object`: A structure for a partition index.
+  * IndexName **required**
+  * Keys **required**
+    * items [NameString](#namestring)
+
+### PartitionIndexDescriptor
+* PartitionIndexDescriptor `object`: A descriptor for a partition index in a table.
+  * BackfillErrors
+    * items [BackfillError](#backfillerror)
+  * IndexName **required**
+  * IndexStatus **required**
+  * Keys **required**
+    * items [KeySchemaElement](#keyschemaelement)
+
+### PartitionIndexDescriptorList
+* PartitionIndexDescriptorList `array`
+  * items [PartitionIndexDescriptor](#partitionindexdescriptor)
+
+### PartitionIndexList
+* PartitionIndexList `array`
+  * items [PartitionIndex](#partitionindex)
+
+### PartitionIndexStatus
+* PartitionIndexStatus `string` (values: CREATING, ACTIVE, DELETING, FAILED)
+
 ### PartitionInput
-* PartitionInput `object`: The structure used to create and update a partion.
-  * LastAccessTime [Timestamp](#timestamp)
-  * LastAnalyzedTime [Timestamp](#timestamp)
-  * Parameters [ParametersMap](#parametersmap)
-  * StorageDescriptor [StorageDescriptor](#storagedescriptor)
-  * Values [ValueStringList](#valuestringlist)
+* PartitionInput `object`: The structure used to create and update a partition.
+  * LastAccessTime
+  * LastAnalyzedTime
+  * Parameters
+  * StorageDescriptor
+    * BucketColumns
+      * items [NameString](#namestring)
+    * Columns
+      * items [Column](#column)
+    * Compressed
+    * InputFormat
+    * Location
+    * NumberOfBuckets
+    * OutputFormat
+    * Parameters
+    * SchemaReference
+      * SchemaId
+        * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaArn [GlueResourceArn](#glueresourcearn)
+        * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+      * SchemaVersionId
+      * SchemaVersionNumber
+    * SerdeInfo
+      * Name
+      * Parameters
+      * SerializationLibrary
+    * SkewedInfo
+      * SkewedColumnNames
+        * items [NameString](#namestring)
+      * SkewedColumnValueLocationMaps
+      * SkewedColumnValues
+        * items [ColumnValuesString](#columnvaluesstring)
+    * SortColumns
+      * items [Order](#order)
+    * StoredAsSubDirectories
+  * Values
+    * items [ValueString](#valuestring)
 
 ### PartitionInputList
 * PartitionInputList `array`
@@ -2948,7 +7498,8 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### PartitionValueList
 * PartitionValueList `object`: Contains a list of values defining partitions.
-  * Values **required** [ValueStringList](#valuestringlist)
+  * Values **required**
+    * items [ValueString](#valuestring)
 
 ### Path
 * Path `string`
@@ -2957,16 +7508,27 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * PathList `array`
   * items [Path](#path)
 
+### Permission
+* Permission `string` (values: ALL, SELECT, ALTER, DROP, DELETE, INSERT, CREATE_DATABASE, CREATE_TABLE, DATA_LOCATION_ACCESS)
+
+### PermissionList
+* PermissionList `array`
+  * items [Permission](#permission)
+
 ### PhysicalConnectionRequirements
 * PhysicalConnectionRequirements `object`: Specifies the physical requirements for a connection.
-  * AvailabilityZone [NameString](#namestring)
-  * SecurityGroupIdList [SecurityGroupIdList](#securitygroupidlist)
-  * SubnetId [NameString](#namestring)
+  * AvailabilityZone
+  * SecurityGroupIdList
+    * items [NameString](#namestring)
+  * SubnetId
+
+### PolicyJsonString
+* PolicyJsonString `string`
 
 ### Predecessor
 * Predecessor `object`: A job run that was used in the predicate of a conditional trigger that triggered this job run.
-  * JobName [NameString](#namestring)
-  * RunId [IdString](#idstring)
+  * JobName
+  * RunId
 
 ### PredecessorList
 * PredecessorList `array`
@@ -2974,41 +7536,246 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Predicate
 * Predicate `object`: Defines the predicate of the trigger, which determines when it fires.
-  * Conditions [ConditionList](#conditionlist)
-  * Logical [Logical](#logical)
+  * Conditions
+    * items [Condition](#condition)
+  * Logical
 
 ### PredicateString
 * PredicateString `string`
 
+### PrincipalPermissions
+* PrincipalPermissions `object`: Permissions granted to a principal.
+  * Permissions
+    * items [Permission](#permission)
+  * Principal
+    * DataLakePrincipalIdentifier
+
+### PrincipalPermissionsList
+* PrincipalPermissionsList `array`
+  * items [PrincipalPermissions](#principalpermissions)
+
 ### PrincipalType
 * PrincipalType `string` (values: USER, ROLE, GROUP)
+
+### PropertyPredicate
+* PropertyPredicate `object`: Defines a property predicate.
+  * Comparator
+  * Key
+  * Value
+
+### PublicKeysList
+* PublicKeysList `array`
+  * items [GenericString](#genericstring)
+
+### PutDataCatalogEncryptionSettingsRequest
+* PutDataCatalogEncryptionSettingsRequest `object`
+  * CatalogId
+  * DataCatalogEncryptionSettings **required**
+    * ConnectionPasswordEncryption
+      * AwsKmsKeyId
+      * ReturnConnectionPasswordEncrypted **required**
+    * EncryptionAtRest
+      * CatalogEncryptionMode **required**
+      * SseAwsKmsKeyId
+
+### PutDataCatalogEncryptionSettingsResponse
+* PutDataCatalogEncryptionSettingsResponse `object`
+
+### PutResourcePolicyRequest
+* PutResourcePolicyRequest `object`
+  * EnableHybrid
+  * PolicyExistsCondition
+  * PolicyHashCondition
+  * PolicyInJson **required**
+  * ResourceArn
+
+### PutResourcePolicyResponse
+* PutResourcePolicyResponse `object`
+  * PolicyHash
+
+### PutSchemaVersionMetadataInput
+* PutSchemaVersionMetadataInput `object`
+  * MetadataKeyValue **required**
+    * MetadataKey
+    * MetadataValue
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### PutSchemaVersionMetadataResponse
+* PutSchemaVersionMetadataResponse `object`
+  * LatestVersion
+  * MetadataKey
+  * MetadataValue
+  * RegistryName
+  * SchemaArn
+  * SchemaName
+  * SchemaVersionId
+  * VersionNumber
+
+### PutWorkflowRunPropertiesRequest
+* PutWorkflowRunPropertiesRequest `object`
+  * Name **required**
+  * RunId **required**
+  * RunProperties **required**
+
+### PutWorkflowRunPropertiesResponse
+* PutWorkflowRunPropertiesResponse `object`
 
 ### PythonScript
 * PythonScript `string`
 
+### PythonVersionString
+* PythonVersionString `string`
+
+### QuerySchemaVersionMetadataInput
+* QuerySchemaVersionMetadataInput `object`
+  * MaxResults
+  * MetadataList
+    * items [MetadataKeyValuePair](#metadatakeyvaluepair)
+  * NextToken
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### QuerySchemaVersionMetadataMaxResults
+* QuerySchemaVersionMetadataMaxResults `integer`
+
+### QuerySchemaVersionMetadataResponse
+* QuerySchemaVersionMetadataResponse `object`
+  * MetadataInfoMap
+  * NextToken
+  * SchemaVersionId
+
+### RecordsCount
+* RecordsCount `integer`
+
+### RecrawlBehavior
+* RecrawlBehavior `string` (values: CRAWL_EVERYTHING, CRAWL_NEW_FOLDERS_ONLY)
+
+### RecrawlPolicy
+* RecrawlPolicy `object`: When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html">Incremental Crawls in AWS Glue</a> in the developer guide.
+  * RecrawlBehavior
+
+### RegisterSchemaVersionInput
+* RegisterSchemaVersionInput `object`
+  * SchemaDefinition **required**
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### RegisterSchemaVersionResponse
+* RegisterSchemaVersionResponse `object`
+  * SchemaVersionId
+  * Status
+  * VersionNumber
+
+### RegistryId
+* RegistryId `object`: A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
+  * RegistryArn
+  * RegistryName
+
+### RegistryListDefinition
+* RegistryListDefinition `array`
+  * items [RegistryListItem](#registrylistitem)
+
+### RegistryListItem
+* RegistryListItem `object`: A structure containing the details for a registry.
+  * CreatedTime
+  * Description
+  * RegistryArn
+  * RegistryName
+  * Status
+  * UpdatedTime
+
+### RegistryStatus
+* RegistryStatus `string` (values: AVAILABLE, DELETING)
+
+### RemoveSchemaVersionMetadataInput
+* RemoveSchemaVersionMetadataInput `object`
+  * MetadataKeyValue **required**
+    * MetadataKey
+    * MetadataValue
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### RemoveSchemaVersionMetadataResponse
+* RemoveSchemaVersionMetadataResponse `object`
+  * LatestVersion
+  * MetadataKey
+  * MetadataValue
+  * RegistryName
+  * SchemaArn
+  * SchemaName
+  * SchemaVersionId
+  * VersionNumber
+
+### ReplaceBoolean
+* ReplaceBoolean `boolean`
+
 ### ResetJobBookmarkRequest
 * ResetJobBookmarkRequest `object`
-  * JobName **required** [JobName](#jobname)
+  * JobName **required**
+  * RunId
 
 ### ResetJobBookmarkResponse
 * ResetJobBookmarkResponse `object`
-  * JobBookmarkEntry [JobBookmarkEntry](#jobbookmarkentry)
+  * JobBookmarkEntry
+    * Attempt
+    * JobBookmark
+    * JobName
+    * PreviousRunId
+    * Run
+    * RunId
+    * Version
 
 ### ResourceNumberLimitExceededException
-* ResourceNumberLimitExceededException `object`: A resource numerical limit was exceeded.
-  * Message [MessageString](#messagestring)
+
+
+### ResourceShareType
+* ResourceShareType `string` (values: FOREIGN, ALL)
 
 ### ResourceType
 * ResourceType `string` (values: JAR, FILE, ARCHIVE)
 
 ### ResourceUri
-* ResourceUri `object`: URIs for function resources.
-  * ResourceType [ResourceType](#resourcetype)
-  * Uri [URI](#uri)
+* ResourceUri `object`: The URIs for function resources.
+  * ResourceType
+  * Uri
 
 ### ResourceUriList
 * ResourceUriList `array`
   * items [ResourceUri](#resourceuri)
+
+### ResumeWorkflowRunRequest
+* ResumeWorkflowRunRequest `object`
+  * Name **required**
+  * NodeIds **required**
+    * items [NameString](#namestring)
+  * RunId **required**
+
+### ResumeWorkflowRunResponse
+* ResumeWorkflowRunResponse `object`
+  * NodeIds
+    * items [NameString](#namestring)
+  * RunId
 
 ### Role
 * Role `string`
@@ -3022,10 +7789,27 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### RowTag
 * RowTag `string`
 
+### RunId
+* RunId `string`
+
+### S3Encryption
+* S3Encryption `object`: Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+  * KmsKeyArn
+  * S3EncryptionMode
+
+### S3EncryptionList
+* S3EncryptionList `array`
+  * items [S3Encryption](#s3encryption)
+
+### S3EncryptionMode
+* S3EncryptionMode `string` (values: DISABLED, SSE-KMS, SSE-S3)
+
 ### S3Target
-* S3Target `object`: Specifies a data store in Amazon S3.
-  * Exclusions [PathList](#pathlist)
-  * Path [Path](#path)
+* S3Target `object`: Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+  * ConnectionName
+  * Exclusions
+    * items [Path](#path)
+  * Path
 
 ### S3TargetList
 * S3TargetList `array`
@@ -3036,34 +7820,163 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Schedule
 * Schedule `object`: A scheduling object using a <code>cron</code> statement to schedule an event.
-  * ScheduleExpression [CronExpression](#cronexpression)
-  * State [ScheduleState](#schedulestate)
+  * ScheduleExpression
+  * State
 
 ### ScheduleState
 * ScheduleState `string` (values: SCHEDULED, NOT_SCHEDULED, TRANSITIONING)
 
 ### SchedulerNotRunningException
-* SchedulerNotRunningException `object`: The specified scheduler is not running.
-  * Message [MessageString](#messagestring)
+
 
 ### SchedulerRunningException
-* SchedulerRunningException `object`: The specified scheduler is already running.
-  * Message [MessageString](#messagestring)
+
 
 ### SchedulerTransitioningException
-* SchedulerTransitioningException `object`: The specified scheduler is transitioning.
-  * Message [MessageString](#messagestring)
+
 
 ### SchemaChangePolicy
-* SchemaChangePolicy `object`: Crawler policy for update and deletion behavior.
-  * DeleteBehavior [DeleteBehavior](#deletebehavior)
-  * UpdateBehavior [UpdateBehavior](#updatebehavior)
+* SchemaChangePolicy `object`: A policy that specifies update and deletion behaviors for the crawler.
+  * DeleteBehavior
+  * UpdateBehavior
+
+### SchemaCheckpointNumber
+* SchemaCheckpointNumber `integer`
+
+### SchemaColumn
+* SchemaColumn `object`: A key-value pair representing a column and data type that this transform can run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.
+  * DataType
+  * Name
+
+### SchemaDefinitionDiff
+* SchemaDefinitionDiff `string`
+
+### SchemaDefinitionString
+* SchemaDefinitionString `string`
+
+### SchemaDiffType
+* SchemaDiffType `string` (values: SYNTAX_DIFF)
+
+### SchemaId
+* SchemaId `object`
+  * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaArn [GlueResourceArn](#glueresourcearn)
+  * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+
+### SchemaListDefinition
+* SchemaListDefinition `array`
+  * items [SchemaListItem](#schemalistitem)
+
+### SchemaListItem
+* SchemaListItem `object`: An object that contains minimal details for a schema.
+  * CreatedTime
+  * Description
+  * RegistryName
+  * SchemaArn
+  * SchemaName
+  * SchemaStatus
+  * UpdatedTime
 
 ### SchemaPathString
 * SchemaPathString `string`
 
+### SchemaReference
+* SchemaReference `object`: An object that references a schema stored in the AWS Glue Schema Registry.
+  * SchemaId
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionId
+  * SchemaVersionNumber
+
+### SchemaRegistryNameString
+* SchemaRegistryNameString `string`
+
+### SchemaRegistryTokenString
+* SchemaRegistryTokenString `string`
+
+### SchemaStatus
+* SchemaStatus `string` (values: AVAILABLE, PENDING, DELETING)
+
+### SchemaValidationError
+* SchemaValidationError `string`
+
+### SchemaVersionErrorItem
+* SchemaVersionErrorItem `object`: An object that contains the error details for an operation on a schema version.
+  * ErrorDetails
+    * ErrorCode
+    * ErrorMessage
+  * VersionNumber
+
+### SchemaVersionErrorList
+* SchemaVersionErrorList `array`
+  * items [SchemaVersionErrorItem](#schemaversionerroritem)
+
+### SchemaVersionIdString
+* SchemaVersionIdString `string`
+
+### SchemaVersionList
+* SchemaVersionList `array`
+  * items [SchemaVersionListItem](#schemaversionlistitem)
+
+### SchemaVersionListItem
+* SchemaVersionListItem `object`: An object containing the details about a schema version.
+  * CreatedTime
+  * SchemaArn
+  * SchemaVersionId
+  * Status
+  * VersionNumber
+
+### SchemaVersionNumber
+* SchemaVersionNumber `object`
+  * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+  * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### SchemaVersionStatus
+* SchemaVersionStatus `string` (values: AVAILABLE, PENDING, FAILURE, DELETING)
+
 ### ScriptLocationString
 * ScriptLocationString `string`
+
+### SearchPropertyPredicates
+* SearchPropertyPredicates `array`
+  * items [PropertyPredicate](#propertypredicate)
+
+### SearchTablesRequest
+* SearchTablesRequest `object`
+  * CatalogId
+  * Filters
+    * items [PropertyPredicate](#propertypredicate)
+  * MaxResults
+  * NextToken
+  * ResourceShareType
+  * SearchText
+  * SortCriteria
+    * items [SortCriterion](#sortcriterion)
+
+### SearchTablesResponse
+* SearchTablesResponse `object`
+  * NextToken
+  * TableList
+    * items [Table](#table)
+
+### SecurityConfiguration
+* SecurityConfiguration `object`: Specifies a security configuration.
+  * CreatedTimeStamp
+  * EncryptionConfiguration
+    * CloudWatchEncryption
+      * CloudWatchEncryptionMode
+      * KmsKeyArn
+    * JobBookmarksEncryption
+      * JobBookmarksEncryptionMode
+      * KmsKeyArn
+    * S3Encryption
+      * items [S3Encryption](#s3encryption)
+  * Name
+
+### SecurityConfigurationList
+* SecurityConfigurationList `array`
+  * items [SecurityConfiguration](#securityconfiguration)
 
 ### SecurityGroupIdList
 * SecurityGroupIdList `array`
@@ -3071,92 +7984,191 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Segment
 * Segment `object`: Defines a non-overlapping region of a table's partitions, allowing multiple requests to be executed in parallel.
-  * SegmentNumber **required** [NonNegativeInteger](#nonnegativeinteger)
-  * TotalSegments **required** [TotalSegmentsInteger](#totalsegmentsinteger)
+  * SegmentNumber **required**
+  * TotalSegments **required**
 
 ### SerDeInfo
-* SerDeInfo `object`: Information about a serialization/deserialization program (SerDe) which serves as an extractor and loader.
-  * Name [NameString](#namestring)
-  * Parameters [ParametersMap](#parametersmap)
-  * SerializationLibrary [NameString](#namestring)
+* SerDeInfo `object`: Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
+  * Name
+  * Parameters
+  * SerializationLibrary
 
 ### SkewedInfo
-* SkewedInfo `object`: Specifies skewed values in a table. Skewed are ones that occur with very high frequency.
-  * SkewedColumnNames [NameStringList](#namestringlist)
-  * SkewedColumnValueLocationMaps [LocationMap](#locationmap)
-  * SkewedColumnValues [ColumnValueStringList](#columnvaluestringlist)
+* SkewedInfo `object`: Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+  * SkewedColumnNames
+    * items [NameString](#namestring)
+  * SkewedColumnValueLocationMaps
+  * SkewedColumnValues
+    * items [ColumnValuesString](#columnvaluesstring)
+
+### Sort
+* Sort `string` (values: ASC, DESC)
+
+### SortCriteria
+* SortCriteria `array`
+  * items [SortCriterion](#sortcriterion)
+
+### SortCriterion
+* SortCriterion `object`: Specifies a field to sort by and a sort order.
+  * FieldName
+  * Sort
+
+### SortDirectionType
+* SortDirectionType `string` (values: DESCENDING, ASCENDING)
 
 ### StartCrawlerRequest
 * StartCrawlerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### StartCrawlerResponse
 * StartCrawlerResponse `object`
 
 ### StartCrawlerScheduleRequest
 * StartCrawlerScheduleRequest `object`
-  * CrawlerName **required** [NameString](#namestring)
+  * CrawlerName **required**
 
 ### StartCrawlerScheduleResponse
 * StartCrawlerScheduleResponse `object`
 
+### StartExportLabelsTaskRunRequest
+* StartExportLabelsTaskRunRequest `object`
+  * OutputS3Path **required**
+  * TransformId **required**
+
+### StartExportLabelsTaskRunResponse
+* StartExportLabelsTaskRunResponse `object`
+  * TaskRunId
+
+### StartImportLabelsTaskRunRequest
+* StartImportLabelsTaskRunRequest `object`
+  * InputS3Path **required**
+  * ReplaceAllLabels
+  * TransformId **required**
+
+### StartImportLabelsTaskRunResponse
+* StartImportLabelsTaskRunResponse `object`
+  * TaskRunId
+
 ### StartJobRunRequest
 * StartJobRunRequest `object`
-  * AllocatedCapacity [IntegerValue](#integervalue)
-  * Arguments [GenericMap](#genericmap)
-  * JobName **required** [NameString](#namestring)
-  * JobRunId [IdString](#idstring)
-  * NotificationProperty [NotificationProperty](#notificationproperty)
-  * Timeout [Timeout](#timeout)
+  * AllocatedCapacity
+  * Arguments
+  * JobName **required**
+  * JobRunId
+  * MaxCapacity
+  * NotificationProperty
+    * NotifyDelayAfter
+  * NumberOfWorkers
+  * SecurityConfiguration
+  * Timeout
+  * WorkerType
 
 ### StartJobRunResponse
 * StartJobRunResponse `object`
-  * JobRunId [IdString](#idstring)
+  * JobRunId
+
+### StartMLEvaluationTaskRunRequest
+* StartMLEvaluationTaskRunRequest `object`
+  * TransformId **required**
+
+### StartMLEvaluationTaskRunResponse
+* StartMLEvaluationTaskRunResponse `object`
+  * TaskRunId
+
+### StartMLLabelingSetGenerationTaskRunRequest
+* StartMLLabelingSetGenerationTaskRunRequest `object`
+  * OutputS3Path **required**
+  * TransformId **required**
+
+### StartMLLabelingSetGenerationTaskRunResponse
+* StartMLLabelingSetGenerationTaskRunResponse `object`
+  * TaskRunId
 
 ### StartTriggerRequest
 * StartTriggerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### StartTriggerResponse
 * StartTriggerResponse `object`
-  * Name [NameString](#namestring)
+  * Name
+
+### StartWorkflowRunRequest
+* StartWorkflowRunRequest `object`
+  * Name **required**
+
+### StartWorkflowRunResponse
+* StartWorkflowRunResponse `object`
+  * RunId
 
 ### StopCrawlerRequest
 * StopCrawlerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### StopCrawlerResponse
 * StopCrawlerResponse `object`
 
 ### StopCrawlerScheduleRequest
 * StopCrawlerScheduleRequest `object`
-  * CrawlerName **required** [NameString](#namestring)
+  * CrawlerName **required**
 
 ### StopCrawlerScheduleResponse
 * StopCrawlerScheduleResponse `object`
 
 ### StopTriggerRequest
 * StopTriggerRequest `object`
-  * Name **required** [NameString](#namestring)
+  * Name **required**
 
 ### StopTriggerResponse
 * StopTriggerResponse `object`
-  * Name [NameString](#namestring)
+  * Name
+
+### StopWorkflowRunRequest
+* StopWorkflowRunRequest `object`
+  * Name **required**
+  * RunId **required**
+
+### StopWorkflowRunResponse
+* StopWorkflowRunResponse `object`
 
 ### StorageDescriptor
 * StorageDescriptor `object`: Describes the physical storage of table data.
-  * BucketColumns [NameStringList](#namestringlist)
-  * Columns [ColumnList](#columnlist)
-  * Compressed [Boolean](#boolean)
-  * InputFormat [FormatString](#formatstring)
-  * Location [LocationString](#locationstring)
-  * NumberOfBuckets [Integer](#integer)
-  * OutputFormat [FormatString](#formatstring)
-  * Parameters [ParametersMap](#parametersmap)
-  * SerdeInfo [SerDeInfo](#serdeinfo)
-  * SkewedInfo [SkewedInfo](#skewedinfo)
-  * SortColumns [OrderList](#orderlist)
-  * StoredAsSubDirectories [Boolean](#boolean)
+  * BucketColumns
+    * items [NameString](#namestring)
+  * Columns
+    * items [Column](#column)
+  * Compressed
+  * InputFormat
+  * Location
+  * NumberOfBuckets
+  * OutputFormat
+  * Parameters
+  * SchemaReference
+    * SchemaId
+      * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+      * SchemaArn [GlueResourceArn](#glueresourcearn)
+      * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaVersionId
+    * SchemaVersionNumber
+  * SerdeInfo
+    * Name
+    * Parameters
+    * SerializationLibrary
+  * SkewedInfo
+    * SkewedColumnNames
+      * items [NameString](#namestring)
+    * SkewedColumnValueLocationMaps
+    * SkewedColumnValues
+      * items [ColumnValuesString](#columnvaluesstring)
+  * SortColumns
+    * items [Order](#order)
+  * StoredAsSubDirectories
+
+### StringColumnStatisticsData
+* StringColumnStatisticsData `object`: Defines column statistics supported for character sequence data values.
+  * AverageLength **required**
+  * MaximumLength **required**
+  * NumberOfDistinctValues **required**
+  * NumberOfNulls **required**
 
 ### StringList
 * StringList `array`
@@ -3164,46 +8176,126 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### Table
 * Table `object`: Represents a collection of related data organized in columns and rows.
-  * CreateTime [Timestamp](#timestamp)
-  * CreatedBy [NameString](#namestring)
-  * DatabaseName [NameString](#namestring)
-  * Description [DescriptionString](#descriptionstring)
-  * LastAccessTime [Timestamp](#timestamp)
-  * LastAnalyzedTime [Timestamp](#timestamp)
-  * Name **required** [NameString](#namestring)
-  * Owner [NameString](#namestring)
-  * Parameters [ParametersMap](#parametersmap)
-  * PartitionKeys [ColumnList](#columnlist)
-  * Retention [NonNegativeInteger](#nonnegativeinteger)
-  * StorageDescriptor [StorageDescriptor](#storagedescriptor)
-  * TableType [TableTypeString](#tabletypestring)
-  * UpdateTime [Timestamp](#timestamp)
-  * ViewExpandedText [ViewTextString](#viewtextstring)
-  * ViewOriginalText [ViewTextString](#viewtextstring)
+  * CatalogId
+  * CreateTime
+  * CreatedBy
+  * DatabaseName
+  * Description
+  * IsRegisteredWithLakeFormation
+  * LastAccessTime
+  * LastAnalyzedTime
+  * Name **required**
+  * Owner
+  * Parameters
+  * PartitionKeys
+    * items [Column](#column)
+  * Retention
+  * StorageDescriptor
+    * BucketColumns
+      * items [NameString](#namestring)
+    * Columns
+      * items [Column](#column)
+    * Compressed
+    * InputFormat
+    * Location
+    * NumberOfBuckets
+    * OutputFormat
+    * Parameters
+    * SchemaReference
+      * SchemaId
+        * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaArn [GlueResourceArn](#glueresourcearn)
+        * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+      * SchemaVersionId
+      * SchemaVersionNumber
+    * SerdeInfo
+      * Name
+      * Parameters
+      * SerializationLibrary
+    * SkewedInfo
+      * SkewedColumnNames
+        * items [NameString](#namestring)
+      * SkewedColumnValueLocationMaps
+      * SkewedColumnValues
+        * items [ColumnValuesString](#columnvaluesstring)
+    * SortColumns
+      * items [Order](#order)
+    * StoredAsSubDirectories
+  * TableType
+  * TargetTable
+    * CatalogId
+    * DatabaseName
+    * Name
+  * UpdateTime
+  * ViewExpandedText
+  * ViewOriginalText
 
 ### TableError
 * TableError `object`: An error record for table operations.
-  * ErrorDetail [ErrorDetail](#errordetail)
-  * TableName [NameString](#namestring)
+  * ErrorDetail
+    * ErrorCode
+    * ErrorMessage
+  * TableName
 
 ### TableErrors
 * TableErrors `array`
   * items [TableError](#tableerror)
 
+### TableIdentifier
+* TableIdentifier `object`: A structure that describes a target table for resource linking.
+  * CatalogId
+  * DatabaseName
+  * Name
+
 ### TableInput
-* TableInput `object`: Structure used to create or update the table.
-  * Description [DescriptionString](#descriptionstring)
-  * LastAccessTime [Timestamp](#timestamp)
-  * LastAnalyzedTime [Timestamp](#timestamp)
-  * Name **required** [NameString](#namestring)
-  * Owner [NameString](#namestring)
-  * Parameters [ParametersMap](#parametersmap)
-  * PartitionKeys [ColumnList](#columnlist)
-  * Retention [NonNegativeInteger](#nonnegativeinteger)
-  * StorageDescriptor [StorageDescriptor](#storagedescriptor)
-  * TableType [TableTypeString](#tabletypestring)
-  * ViewExpandedText [ViewTextString](#viewtextstring)
-  * ViewOriginalText [ViewTextString](#viewtextstring)
+* TableInput `object`: A structure used to define a table.
+  * Description
+  * LastAccessTime
+  * LastAnalyzedTime
+  * Name **required**
+  * Owner
+  * Parameters
+  * PartitionKeys
+    * items [Column](#column)
+  * Retention
+  * StorageDescriptor
+    * BucketColumns
+      * items [NameString](#namestring)
+    * Columns
+      * items [Column](#column)
+    * Compressed
+    * InputFormat
+    * Location
+    * NumberOfBuckets
+    * OutputFormat
+    * Parameters
+    * SchemaReference
+      * SchemaId
+        * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaArn [GlueResourceArn](#glueresourcearn)
+        * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+      * SchemaVersionId
+      * SchemaVersionNumber
+    * SerdeInfo
+      * Name
+      * Parameters
+      * SerializationLibrary
+    * SkewedInfo
+      * SkewedColumnNames
+        * items [NameString](#namestring)
+      * SkewedColumnValueLocationMaps
+      * SkewedColumnValues
+        * items [ColumnValuesString](#columnvaluesstring)
+    * SortColumns
+      * items [Order](#order)
+    * StoredAsSubDirectories
+  * TableType
+  * TargetTable
+    * CatalogId
+    * DatabaseName
+    * Name
+  * ViewExpandedText
+  * ViewOriginalText
 
 ### TableList
 * TableList `array`
@@ -3220,18 +8312,159 @@ amazonaws_glue.UpdateUserDefinedFunction({
 
 ### TableVersion
 * TableVersion `object`: Specifies a version of a table.
-  * Table [Table](#table)
-  * VersionId [VersionString](#versionstring)
+  * Table
+    * CatalogId
+    * CreateTime
+    * CreatedBy
+    * DatabaseName
+    * Description
+    * IsRegisteredWithLakeFormation
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * UpdateTime
+    * ViewExpandedText
+    * ViewOriginalText
+  * VersionId
 
 ### TableVersionError
 * TableVersionError `object`: An error record for table-version operations.
-  * ErrorDetail [ErrorDetail](#errordetail)
-  * TableName [NameString](#namestring)
-  * VersionId [VersionString](#versionstring)
+  * ErrorDetail
+    * ErrorCode
+    * ErrorMessage
+  * TableName
+  * VersionId
 
 ### TableVersionErrors
 * TableVersionErrors `array`
   * items [TableVersionError](#tableversionerror)
+
+### TagKey
+* TagKey `string`
+
+### TagKeysList
+* TagKeysList `array`
+  * items [TagKey](#tagkey)
+
+### TagResourceRequest
+* TagResourceRequest `object`
+  * ResourceArn **required**
+  * TagsToAdd **required**
+
+### TagResourceResponse
+* TagResourceResponse `object`
+
+### TagValue
+* TagValue `string`
+
+### TagsMap
+* TagsMap `object`
+
+### TaskRun
+* TaskRun `object`: The sampling parameters that are associated with the machine learning transform.
+  * CompletedOn
+  * ErrorString
+  * ExecutionTime
+  * LastModifiedOn
+  * LogGroupName
+  * Properties
+    * ExportLabelsTaskRunProperties
+      * OutputS3Path
+    * FindMatchesTaskRunProperties
+      * JobId
+      * JobName
+      * JobRunId
+    * ImportLabelsTaskRunProperties
+      * InputS3Path
+      * Replace
+    * LabelingSetGenerationTaskRunProperties
+      * OutputS3Path
+    * TaskType
+  * StartedOn
+  * Status
+  * TaskRunId
+  * TransformId
+
+### TaskRunFilterCriteria
+* TaskRunFilterCriteria `object`: The criteria that are used to filter the task runs for the machine learning transform.
+  * StartedAfter
+  * StartedBefore
+  * Status
+  * TaskRunType
+
+### TaskRunList
+* TaskRunList `array`
+  * items [TaskRun](#taskrun)
+
+### TaskRunProperties
+* TaskRunProperties `object`: The configuration properties for the task run.
+  * ExportLabelsTaskRunProperties
+    * OutputS3Path
+  * FindMatchesTaskRunProperties
+    * JobId
+    * JobName
+    * JobRunId
+  * ImportLabelsTaskRunProperties
+    * InputS3Path
+    * Replace
+  * LabelingSetGenerationTaskRunProperties
+    * OutputS3Path
+  * TaskType
+
+### TaskRunSortColumnType
+* TaskRunSortColumnType `string` (values: TASK_RUN_TYPE, STATUS, STARTED)
+
+### TaskRunSortCriteria
+* TaskRunSortCriteria `object`: The sorting criteria that are used to sort the list of task runs for the machine learning transform.
+  * Column **required**
+  * SortDirection **required**
+
+### TaskStatusType
+* TaskStatusType `string` (values: STARTING, RUNNING, STOPPING, STOPPED, SUCCEEDED, FAILED, TIMEOUT)
+
+### TaskType
+* TaskType `string` (values: EVALUATION, LABELING_SET_GENERATION, IMPORT_LABELS, EXPORT_LABELS, FIND_MATCHES)
 
 ### Timeout
 * Timeout `integer`
@@ -3248,20 +8481,101 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### TotalSegmentsInteger
 * TotalSegmentsInteger `integer`
 
+### TransformEncryption
+* TransformEncryption `object`: <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p> <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
+  * MlUserDataEncryption
+    * KmsKeyId
+    * MlUserDataEncryptionMode **required**
+  * TaskRunSecurityConfigurationName
+
+### TransformFilterCriteria
+* TransformFilterCriteria `object`: The criteria used to filter the machine learning transforms.
+  * CreatedAfter
+  * CreatedBefore
+  * GlueVersion
+  * LastModifiedAfter
+  * LastModifiedBefore
+  * Name
+  * Schema
+    * items [SchemaColumn](#schemacolumn)
+  * Status
+  * TransformType
+
+### TransformIdList
+* TransformIdList `array`
+  * items [HashString](#hashstring)
+
+### TransformList
+* TransformList `array`
+  * items [MLTransform](#mltransform)
+
+### TransformParameters
+* TransformParameters `object`: The algorithm-specific parameters that are associated with the machine learning transform.
+  * FindMatchesParameters
+    * AccuracyCostTradeoff
+    * EnforceProvidedLabels
+    * PrecisionRecallTradeoff
+    * PrimaryKeyColumnName
+  * TransformType **required**
+
+### TransformSchema
+* TransformSchema `array`
+  * items [SchemaColumn](#schemacolumn)
+
+### TransformSortColumnType
+* TransformSortColumnType `string` (values: NAME, TRANSFORM_TYPE, STATUS, CREATED, LAST_MODIFIED)
+
+### TransformSortCriteria
+* TransformSortCriteria `object`: The sorting criteria that are associated with the machine learning transform.
+  * Column **required**
+  * SortDirection **required**
+
+### TransformStatusType
+* TransformStatusType `string` (values: NOT_READY, READY, DELETING)
+
+### TransformType
+* TransformType `string` (values: FIND_MATCHES)
+
 ### Trigger
 * Trigger `object`: Information about a specific trigger.
-  * Actions [ActionList](#actionlist)
-  * Description [DescriptionString](#descriptionstring)
-  * Id [IdString](#idstring)
-  * Name [NameString](#namestring)
-  * Predicate [Predicate](#predicate)
-  * Schedule [GenericString](#genericstring)
-  * State [TriggerState](#triggerstate)
-  * Type [TriggerType](#triggertype)
+  * Actions
+    * items [Action](#action)
+  * Description
+  * Id
+  * Name
+  * Predicate
+    * Conditions
+      * items [Condition](#condition)
+    * Logical
+  * Schedule
+  * State
+  * Type
+  * WorkflowName
 
 ### TriggerList
 * TriggerList `array`
   * items [Trigger](#trigger)
+
+### TriggerNameList
+* TriggerNameList `array`
+  * items [NameString](#namestring)
+
+### TriggerNodeDetails
+* TriggerNodeDetails `object`: The details of a Trigger node present in the workflow.
+  * Trigger
+    * Actions
+      * items [Action](#action)
+    * Description
+    * Id
+    * Name
+    * Predicate
+      * Conditions
+        * items [Condition](#condition)
+      * Logical
+    * Schedule
+    * State
+    * Type
+    * WorkflowName
 
 ### TriggerState
 * TriggerState `string` (values: CREATING, CREATED, ACTIVATING, ACTIVATED, DEACTIVATING, DEACTIVATED, DELETING, UPDATING)
@@ -3270,174 +8584,505 @@ amazonaws_glue.UpdateUserDefinedFunction({
 * TriggerType `string` (values: SCHEDULED, CONDITIONAL, ON_DEMAND)
 
 ### TriggerUpdate
-* TriggerUpdate `object`: A structure used to provide information used to update a trigger. This object will update the the previous trigger definition by overwriting it completely.
-  * Actions [ActionList](#actionlist)
-  * Description [DescriptionString](#descriptionstring)
-  * Name [NameString](#namestring)
-  * Predicate [Predicate](#predicate)
-  * Schedule [GenericString](#genericstring)
+* TriggerUpdate `object`: A structure used to provide information used to update a trigger. This object updates the previous trigger definition by overwriting it completely.
+  * Actions
+    * items [Action](#action)
+  * Description
+  * Name
+  * Predicate
+    * Conditions
+      * items [Condition](#condition)
+    * Logical
+  * Schedule
+
+### TypeString
+* TypeString `string`
 
 ### URI
 * URI `string`
+
+### UntagResourceRequest
+* UntagResourceRequest `object`
+  * ResourceArn **required**
+  * TagsToRemove **required**
+    * items [TagKey](#tagkey)
+
+### UntagResourceResponse
+* UntagResourceResponse `object`
 
 ### UpdateBehavior
 * UpdateBehavior `string` (values: LOG, UPDATE_IN_DATABASE)
 
 ### UpdateClassifierRequest
 * UpdateClassifierRequest `object`
-  * GrokClassifier [UpdateGrokClassifierRequest](#updategrokclassifierrequest)
-  * JsonClassifier [UpdateJsonClassifierRequest](#updatejsonclassifierrequest)
-  * XMLClassifier [UpdateXMLClassifierRequest](#updatexmlclassifierrequest)
+  * CsvClassifier
+    * AllowSingleColumn
+    * ContainsHeader
+    * Delimiter
+    * DisableValueTrimming
+    * Header
+      * items [NameString](#namestring)
+    * Name **required**
+    * QuoteSymbol
+  * GrokClassifier
+    * Classification
+    * CustomPatterns
+    * GrokPattern
+    * Name **required**
+  * JsonClassifier
+    * JsonPath
+    * Name **required**
+  * XMLClassifier
+    * Classification
+    * Name **required**
+    * RowTag
 
 ### UpdateClassifierResponse
 * UpdateClassifierResponse `object`
 
+### UpdateColumnStatisticsForPartitionRequest
+* UpdateColumnStatisticsForPartitionRequest `object`
+  * CatalogId
+  * ColumnStatisticsList **required**
+    * items [ColumnStatistics](#columnstatistics)
+  * DatabaseName **required**
+  * PartitionValues **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
+
+### UpdateColumnStatisticsForPartitionResponse
+* UpdateColumnStatisticsForPartitionResponse `object`
+  * Errors
+    * items [ColumnStatisticsError](#columnstatisticserror)
+
+### UpdateColumnStatisticsForTableRequest
+* UpdateColumnStatisticsForTableRequest `object`
+  * CatalogId
+  * ColumnStatisticsList **required**
+    * items [ColumnStatistics](#columnstatistics)
+  * DatabaseName **required**
+  * TableName **required**
+
+### UpdateColumnStatisticsForTableResponse
+* UpdateColumnStatisticsForTableResponse `object`
+  * Errors
+    * items [ColumnStatisticsError](#columnstatisticserror)
+
+### UpdateColumnStatisticsList
+* UpdateColumnStatisticsList `array`
+  * items [ColumnStatistics](#columnstatistics)
+
 ### UpdateConnectionRequest
 * UpdateConnectionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * ConnectionInput **required** [ConnectionInput](#connectioninput)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * ConnectionInput **required**
+    * ConnectionProperties **required**
+    * ConnectionType **required**
+    * Description
+    * MatchCriteria
+      * items [NameString](#namestring)
+    * Name **required**
+    * PhysicalConnectionRequirements
+      * AvailabilityZone
+      * SecurityGroupIdList
+        * items [NameString](#namestring)
+      * SubnetId
+  * Name **required**
 
 ### UpdateConnectionResponse
 * UpdateConnectionResponse `object`
 
 ### UpdateCrawlerRequest
 * UpdateCrawlerRequest `object`
-  * Classifiers [ClassifierNameList](#classifiernamelist)
-  * Configuration [CrawlerConfiguration](#crawlerconfiguration)
-  * DatabaseName [DatabaseName](#databasename)
-  * Description [DescriptionStringRemovable](#descriptionstringremovable)
-  * Name **required** [NameString](#namestring)
-  * Role [Role](#role)
-  * Schedule [CronExpression](#cronexpression)
-  * SchemaChangePolicy [SchemaChangePolicy](#schemachangepolicy)
-  * TablePrefix [TablePrefix](#tableprefix)
-  * Targets [CrawlerTargets](#crawlertargets)
+  * Classifiers
+    * items [NameString](#namestring)
+  * Configuration
+  * CrawlerSecurityConfiguration
+  * DatabaseName
+  * Description
+  * LineageConfiguration
+    * CrawlerLineageSettings
+  * Name **required**
+  * RecrawlPolicy
+    * RecrawlBehavior
+  * Role
+  * Schedule
+  * SchemaChangePolicy
+    * DeleteBehavior
+    * UpdateBehavior
+  * TablePrefix
+  * Targets
+    * CatalogTargets
+      * items [CatalogTarget](#catalogtarget)
+    * DynamoDBTargets
+      * items [DynamoDBTarget](#dynamodbtarget)
+    * JdbcTargets
+      * items [JdbcTarget](#jdbctarget)
+    * MongoDBTargets
+      * items [MongoDBTarget](#mongodbtarget)
+    * S3Targets
+      * items [S3Target](#s3target)
 
 ### UpdateCrawlerResponse
 * UpdateCrawlerResponse `object`
 
 ### UpdateCrawlerScheduleRequest
 * UpdateCrawlerScheduleRequest `object`
-  * CrawlerName **required** [NameString](#namestring)
-  * Schedule [CronExpression](#cronexpression)
+  * CrawlerName **required**
+  * Schedule
 
 ### UpdateCrawlerScheduleResponse
 * UpdateCrawlerScheduleResponse `object`
 
+### UpdateCsvClassifierRequest
+* UpdateCsvClassifierRequest `object`: Specifies a custom CSV classifier to be updated.
+  * AllowSingleColumn
+  * ContainsHeader
+  * Delimiter
+  * DisableValueTrimming
+  * Header
+    * items [NameString](#namestring)
+  * Name **required**
+  * QuoteSymbol
+
 ### UpdateDatabaseRequest
 * UpdateDatabaseRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseInput **required** [DatabaseInput](#databaseinput)
-  * Name **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseInput **required**
+    * CreateTableDefaultPermissions
+      * items [PrincipalPermissions](#principalpermissions)
+    * Description
+    * LocationUri
+    * Name **required**
+    * Parameters
+    * TargetDatabase
+      * CatalogId
+      * DatabaseName
+  * Name **required**
 
 ### UpdateDatabaseResponse
 * UpdateDatabaseResponse `object`
 
 ### UpdateDevEndpointRequest
 * UpdateDevEndpointRequest `object`
-  * CustomLibraries [DevEndpointCustomLibraries](#devendpointcustomlibraries)
-  * EndpointName **required** [GenericString](#genericstring)
-  * PublicKey [GenericString](#genericstring)
-  * UpdateEtlLibraries [BooleanValue](#booleanvalue)
+  * AddArguments
+  * AddPublicKeys
+    * items [GenericString](#genericstring)
+  * CustomLibraries
+    * ExtraJarsS3Path
+    * ExtraPythonLibsS3Path
+  * DeleteArguments
+    * items [GenericString](#genericstring)
+  * DeletePublicKeys
+    * items [GenericString](#genericstring)
+  * EndpointName **required**
+  * PublicKey
+  * UpdateEtlLibraries
 
 ### UpdateDevEndpointResponse
 * UpdateDevEndpointResponse `object`
 
 ### UpdateGrokClassifierRequest
 * UpdateGrokClassifierRequest `object`: Specifies a grok classifier to update when passed to <code>UpdateClassifier</code>.
-  * Classification [Classification](#classification)
-  * CustomPatterns [CustomPatterns](#custompatterns)
-  * GrokPattern [GrokPattern](#grokpattern)
-  * Name **required** [NameString](#namestring)
+  * Classification
+  * CustomPatterns
+  * GrokPattern
+  * Name **required**
 
 ### UpdateJobRequest
 * UpdateJobRequest `object`
-  * JobName **required** [NameString](#namestring)
-  * JobUpdate **required** [JobUpdate](#jobupdate)
+  * JobName **required**
+  * JobUpdate **required**
+    * AllocatedCapacity
+    * Command
+      * Name
+      * PythonVersion
+      * ScriptLocation
+    * Connections
+      * Connections
+        * items [GenericString](#genericstring)
+    * DefaultArguments
+    * Description
+    * ExecutionProperty
+      * MaxConcurrentRuns
+    * GlueVersion
+    * LogUri
+    * MaxCapacity
+    * MaxRetries
+    * NonOverridableArguments
+    * NotificationProperty
+      * NotifyDelayAfter
+    * NumberOfWorkers
+    * Role
+    * SecurityConfiguration
+    * Timeout
+    * WorkerType
 
 ### UpdateJobResponse
 * UpdateJobResponse `object`
-  * JobName [NameString](#namestring)
+  * JobName
 
 ### UpdateJsonClassifierRequest
 * UpdateJsonClassifierRequest `object`: Specifies a JSON classifier to be updated.
-  * JsonPath [JsonPath](#jsonpath)
-  * Name **required** [NameString](#namestring)
+  * JsonPath
+  * Name **required**
+
+### UpdateMLTransformRequest
+* UpdateMLTransformRequest `object`
+  * Description
+  * GlueVersion
+  * MaxCapacity
+  * MaxRetries
+  * Name
+  * NumberOfWorkers
+  * Parameters
+    * FindMatchesParameters
+      * AccuracyCostTradeoff
+      * EnforceProvidedLabels
+      * PrecisionRecallTradeoff
+      * PrimaryKeyColumnName
+    * TransformType **required**
+  * Role
+  * Timeout
+  * TransformId **required**
+  * WorkerType
+
+### UpdateMLTransformResponse
+* UpdateMLTransformResponse `object`
+  * TransformId
 
 ### UpdatePartitionRequest
 * UpdatePartitionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * PartitionInput **required** [PartitionInput](#partitioninput)
-  * PartitionValueList **required** [BoundedPartitionValueList](#boundedpartitionvaluelist)
-  * TableName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * PartitionInput **required**
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Parameters
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * Values
+      * items [ValueString](#valuestring)
+  * PartitionValueList **required**
+    * items [ValueString](#valuestring)
+  * TableName **required**
 
 ### UpdatePartitionResponse
 * UpdatePartitionResponse `object`
 
+### UpdateRegistryInput
+* UpdateRegistryInput `object`
+  * Description **required**
+  * RegistryId **required**
+    * RegistryArn
+    * RegistryName
+
+### UpdateRegistryResponse
+* UpdateRegistryResponse `object`
+  * RegistryArn
+  * RegistryName
+
+### UpdateSchemaInput
+* UpdateSchemaInput `object`
+  * Compatibility
+  * Description
+  * SchemaId **required**
+    * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+    * SchemaArn [GlueResourceArn](#glueresourcearn)
+    * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+  * SchemaVersionNumber
+    * LatestVersion [LatestSchemaVersionBoolean](#latestschemaversionboolean)
+    * VersionNumber [VersionLongNumber](#versionlongnumber)
+
+### UpdateSchemaResponse
+* UpdateSchemaResponse `object`
+  * RegistryName
+  * SchemaArn
+  * SchemaName
+
 ### UpdateTableRequest
 * UpdateTableRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * SkipArchive [BooleanNullable](#booleannullable)
-  * TableInput **required** [TableInput](#tableinput)
+  * CatalogId
+  * DatabaseName **required**
+  * SkipArchive
+  * TableInput **required**
+    * Description
+    * LastAccessTime
+    * LastAnalyzedTime
+    * Name **required**
+    * Owner
+    * Parameters
+    * PartitionKeys
+      * items [Column](#column)
+    * Retention
+    * StorageDescriptor
+      * BucketColumns
+        * items [NameString](#namestring)
+      * Columns
+        * items [Column](#column)
+      * Compressed
+      * InputFormat
+      * Location
+      * NumberOfBuckets
+      * OutputFormat
+      * Parameters
+      * SchemaReference
+        * SchemaId
+          * RegistryName [SchemaRegistryNameString](#schemaregistrynamestring)
+          * SchemaArn [GlueResourceArn](#glueresourcearn)
+          * SchemaName [SchemaRegistryNameString](#schemaregistrynamestring)
+        * SchemaVersionId
+        * SchemaVersionNumber
+      * SerdeInfo
+        * Name
+        * Parameters
+        * SerializationLibrary
+      * SkewedInfo
+        * SkewedColumnNames
+          * items [NameString](#namestring)
+        * SkewedColumnValueLocationMaps
+        * SkewedColumnValues
+          * items [ColumnValuesString](#columnvaluesstring)
+      * SortColumns
+        * items [Order](#order)
+      * StoredAsSubDirectories
+    * TableType
+    * TargetTable
+      * CatalogId
+      * DatabaseName
+      * Name
+    * ViewExpandedText
+    * ViewOriginalText
 
 ### UpdateTableResponse
 * UpdateTableResponse `object`
 
 ### UpdateTriggerRequest
 * UpdateTriggerRequest `object`
-  * Name **required** [NameString](#namestring)
-  * TriggerUpdate **required** [TriggerUpdate](#triggerupdate)
+  * Name **required**
+  * TriggerUpdate **required**
+    * Actions
+      * items [Action](#action)
+    * Description
+    * Name
+    * Predicate
+      * Conditions
+        * items [Condition](#condition)
+      * Logical
+    * Schedule
 
 ### UpdateTriggerResponse
 * UpdateTriggerResponse `object`
-  * Trigger [Trigger](#trigger)
+  * Trigger
+    * Actions
+      * items [Action](#action)
+    * Description
+    * Id
+    * Name
+    * Predicate
+      * Conditions
+        * items [Condition](#condition)
+      * Logical
+    * Schedule
+    * State
+    * Type
+    * WorkflowName
 
 ### UpdateUserDefinedFunctionRequest
 * UpdateUserDefinedFunctionRequest `object`
-  * CatalogId [CatalogIdString](#catalogidstring)
-  * DatabaseName **required** [NameString](#namestring)
-  * FunctionInput **required** [UserDefinedFunctionInput](#userdefinedfunctioninput)
-  * FunctionName **required** [NameString](#namestring)
+  * CatalogId
+  * DatabaseName **required**
+  * FunctionInput **required**
+    * ClassName
+    * FunctionName
+    * OwnerName
+    * OwnerType
+    * ResourceUris
+      * items [ResourceUri](#resourceuri)
+  * FunctionName **required**
 
 ### UpdateUserDefinedFunctionResponse
 * UpdateUserDefinedFunctionResponse `object`
 
+### UpdateWorkflowRequest
+* UpdateWorkflowRequest `object`
+  * DefaultRunProperties
+  * Description
+  * MaxConcurrentRuns
+  * Name **required**
+
+### UpdateWorkflowResponse
+* UpdateWorkflowResponse `object`
+  * Name
+
 ### UpdateXMLClassifierRequest
 * UpdateXMLClassifierRequest `object`: Specifies an XML classifier to be updated.
-  * Classification [Classification](#classification)
-  * Name **required** [NameString](#namestring)
-  * RowTag [RowTag](#rowtag)
+  * Classification
+  * Name **required**
+  * RowTag
+
+### UpdatedTimestamp
+* UpdatedTimestamp `string`
 
 ### UriString
 * UriString `string`
 
 ### UserDefinedFunction
 * UserDefinedFunction `object`: Represents the equivalent of a Hive user-defined function (<code>UDF</code>) definition.
-  * ClassName [NameString](#namestring)
-  * CreateTime [Timestamp](#timestamp)
-  * FunctionName [NameString](#namestring)
-  * OwnerName [NameString](#namestring)
-  * OwnerType [PrincipalType](#principaltype)
-  * ResourceUris [ResourceUriList](#resourceurilist)
+  * CatalogId
+  * ClassName
+  * CreateTime
+  * DatabaseName
+  * FunctionName
+  * OwnerName
+  * OwnerType
+  * ResourceUris
+    * items [ResourceUri](#resourceuri)
 
 ### UserDefinedFunctionInput
-* UserDefinedFunctionInput `object`: A structure used to create or updata a user-defined function.
-  * ClassName [NameString](#namestring)
-  * FunctionName [NameString](#namestring)
-  * OwnerName [NameString](#namestring)
-  * OwnerType [PrincipalType](#principaltype)
-  * ResourceUris [ResourceUriList](#resourceurilist)
+* UserDefinedFunctionInput `object`: A structure used to create or update a user-defined function.
+  * ClassName
+  * FunctionName
+  * OwnerName
+  * OwnerType
+  * ResourceUris
+    * items [ResourceUri](#resourceuri)
 
 ### UserDefinedFunctionList
 * UserDefinedFunctionList `array`
   * items [UserDefinedFunction](#userdefinedfunction)
 
 ### ValidationException
-* ValidationException `object`: A value could not be validated.
-  * Message [MessageString](#messagestring)
+
 
 ### ValueString
 * ValueString `string`
@@ -3449,23 +9094,123 @@ amazonaws_glue.UpdateUserDefinedFunction({
 ### VersionId
 * VersionId `integer`
 
+### VersionLongNumber
+* VersionLongNumber `integer`
+
 ### VersionMismatchException
-* VersionMismatchException `object`: There was a version conflict.
-  * Message [MessageString](#messagestring)
+
 
 ### VersionString
 * VersionString `string`
 
+### VersionsString
+* VersionsString `string`
+
 ### ViewTextString
 * ViewTextString `string`
 
+### WorkerType
+* WorkerType `string` (values: Standard, G.1X, G.2X)
+
+### Workflow
+* Workflow `object`: A workflow represents a flow in which AWS Glue components should be executed to complete a logical task.
+  * CreatedOn
+  * DefaultRunProperties
+  * Description
+  * Graph
+    * Edges
+      * items [Edge](#edge)
+    * Nodes
+      * items [Node](#node)
+  * LastModifiedOn
+  * LastRun
+    * CompletedOn
+    * ErrorMessage
+    * Graph
+      * Edges
+        * items [Edge](#edge)
+      * Nodes
+        * items [Node](#node)
+    * Name
+    * PreviousRunId
+    * StartedOn
+    * Statistics
+      * FailedActions
+      * RunningActions
+      * StoppedActions
+      * SucceededActions
+      * TimeoutActions
+      * TotalActions
+    * Status
+    * WorkflowRunId
+    * WorkflowRunProperties
+  * MaxConcurrentRuns
+  * Name
+
+### WorkflowGraph
+* WorkflowGraph `object`: A workflow graph represents the complete workflow containing all the AWS Glue components present in the workflow and all the directed connections between them.
+  * Edges
+    * items [Edge](#edge)
+  * Nodes
+    * items [Node](#node)
+
+### WorkflowNames
+* WorkflowNames `array`
+  * items [NameString](#namestring)
+
+### WorkflowRun
+* WorkflowRun `object`: A workflow run is an execution of a workflow providing all the runtime information.
+  * CompletedOn
+  * ErrorMessage
+  * Graph
+    * Edges
+      * items [Edge](#edge)
+    * Nodes
+      * items [Node](#node)
+  * Name
+  * PreviousRunId
+  * StartedOn
+  * Statistics
+    * FailedActions
+    * RunningActions
+    * StoppedActions
+    * SucceededActions
+    * TimeoutActions
+    * TotalActions
+  * Status
+  * WorkflowRunId
+  * WorkflowRunProperties
+
+### WorkflowRunProperties
+* WorkflowRunProperties `object`
+
+### WorkflowRunStatistics
+* WorkflowRunStatistics `object`: Workflow run statistics provides statistics about the workflow run.
+  * FailedActions
+  * RunningActions
+  * StoppedActions
+  * SucceededActions
+  * TimeoutActions
+  * TotalActions
+
+### WorkflowRunStatus
+* WorkflowRunStatus `string` (values: RUNNING, COMPLETED, STOPPING, STOPPED, ERROR)
+
+### WorkflowRuns
+* WorkflowRuns `array`
+  * items [WorkflowRun](#workflowrun)
+
+### Workflows
+* Workflows `array`
+  * items [Workflow](#workflow)
+
 ### XMLClassifier
 * XMLClassifier `object`: A classifier for <code>XML</code> content.
-  * Classification **required** [Classification](#classification)
-  * CreationTime [Timestamp](#timestamp)
-  * LastUpdated [Timestamp](#timestamp)
-  * Name **required** [NameString](#namestring)
-  * RowTag [RowTag](#rowtag)
-  * Version [VersionId](#versionid)
+  * Classification **required**
+  * CreationTime
+  * LastUpdated
+  * Name **required**
+  * RowTag
+  * Version
 
 

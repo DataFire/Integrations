@@ -13,7 +13,7 @@ let amazonaws_cloudfront = require('@datafire/amazonaws_cloudfront').create({
   region: ""
 });
 
-amazonaws_cloudfront.ListDistributions({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -23,6 +23,166 @@ amazonaws_cloudfront.ListDistributions({}).then(data => {
 <fullname>Amazon CloudFront</fullname> <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
 
 ## Actions
+
+### ListCachePolicies
+
+
+
+```js
+amazonaws_cloudfront.ListCachePolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * Type `string`
+  * Marker `string`
+  * MaxItems `string`
+
+#### Output
+* output [ListCachePoliciesResult](#listcachepoliciesresult)
+
+### CreateCachePolicy
+
+
+
+```js
+amazonaws_cloudfront.CreateCachePolicy({
+  "CachePolicyConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * CachePolicyConfig **required** `object`: <p>A cache policy configuration.</p> <p>This configuration determines the following:</p> <ul> <li> <p>The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> </li> <li> <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.</p> </li> </ul> <p>The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find a valid object in its cache that matches the request’s cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p>
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL
+    * Name
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteCachePolicy
+
+
+
+```js
+amazonaws_cloudfront.DeleteCachePolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+
+#### Output
+*Output schema unknown*
+
+### GetCachePolicy
+
+
+
+```js
+amazonaws_cloudfront.GetCachePolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetCachePolicyResult](#getcachepolicyresult)
+
+### UpdateCachePolicy
+
+
+
+```js
+amazonaws_cloudfront.UpdateCachePolicy({
+  "Id": "",
+  "CachePolicyConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+  * CachePolicyConfig **required** `object`: <p>A cache policy configuration.</p> <p>This configuration determines the following:</p> <ul> <li> <p>The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> </li> <li> <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.</p> </li> </ul> <p>The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find a valid object in its cache that matches the request’s cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p>
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL
+    * Name
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+
+#### Output
+* output [UpdateCachePolicyResult](#updatecachepolicyresult)
+
+### GetCachePolicyConfig
+
+
+
+```js
+amazonaws_cloudfront.GetCachePolicyConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetCachePolicyConfigResult](#getcachepolicyconfigresult)
+
+### DeleteRealtimeLogConfig
+
+
+
+```js
+amazonaws_cloudfront.DeleteRealtimeLogConfig({}, context)
+```
+
+#### Input
+* input `object`
+  * ARN `string`: The Amazon Resource Name (ARN) of the real-time log configuration to delete.
+  * Name `string`: The name of the real-time log configuration to delete.
+
+#### Output
+*Output schema unknown*
 
 ### ListDistributions
 
@@ -34,8 +194,8 @@ amazonaws_cloudfront.ListDistributions({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
   * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListDistributionsResult](#listdistributionsresult)
@@ -46,35 +206,231 @@ amazonaws_cloudfront.ListDistributions({}, context)
 
 ```js
 amazonaws_cloudfront.CreateDistribution({
-  "DistributionConfig": {
-    "CallerReference": "",
-    "Origins": {
-      "Quantity": 0
-    },
-    "DefaultCacheBehavior": {
-      "TargetOriginId": "",
-      "ForwardedValues": {
-        "QueryString": true,
-        "Cookies": {
-          "Forward": ""
-        }
-      },
-      "TrustedSigners": {
-        "Enabled": true,
-        "Quantity": 0
-      },
-      "ViewerProtocolPolicy": "",
-      "MinTTL": 0
-    },
-    "Comment": "",
-    "Enabled": true
-  }
+  "DistributionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
+  * DistributionConfig **required** `object`: A distribution configuration.
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference
+    * Comment
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
+
+#### Output
+*Output schema unknown*
+
+### CreateDistributionWithTags
+
+
+
+```js
+amazonaws_cloudfront.CreateDistributionWithTags({
+  "WithTags": true,
+  "DistributionConfigWithTags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * WithTags **required** `boolean`
+  * DistributionConfigWithTags **required** `object`: A distribution Configuration and a list of tags to be associated with the distribution.
+    * DistributionConfig
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * Tags
+      * Items
+        * items
+          * Key **required**
+          * Value
 
 #### Output
 *Output schema unknown*
@@ -91,9 +447,9 @@ amazonaws_cloudfront.ListInvalidations({
 
 #### Input
 * input `object`
-  * MaxItems `string`
-  * Marker `string`
   * DistributionId **required** `string`
+  * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListInvalidationsResult](#listinvalidationsresult)
@@ -105,19 +461,19 @@ amazonaws_cloudfront.ListInvalidations({
 ```js
 amazonaws_cloudfront.CreateInvalidation({
   "DistributionId": "",
-  "InvalidationBatch": {
-    "Paths": {
-      "Quantity": 0
-    },
-    "CallerReference": ""
-  }
+  "InvalidationBatch": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * DistributionId **required** `string`
-  * InvalidationBatch **required** [InvalidationBatch](#invalidationbatch)
+  * InvalidationBatch **required** `object`: An invalidation batch.
+    * CallerReference
+    * Paths
+      * Items
+        * items
+      * Quantity **required**
 
 #### Output
 *Output schema unknown*
@@ -154,6 +510,7 @@ amazonaws_cloudfront.DeleteDistribution({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -199,81 +556,266 @@ amazonaws_cloudfront.GetDistributionConfig({
 ```js
 amazonaws_cloudfront.UpdateDistribution({
   "Id": "",
-  "DistributionConfig": {
-    "CallerReference": "",
-    "Origins": {
-      "Quantity": 0
-    },
-    "DefaultCacheBehavior": {
-      "TargetOriginId": "",
-      "ForwardedValues": {
-        "QueryString": true,
-        "Cookies": {
-          "Forward": ""
-        }
-      },
-      "TrustedSigners": {
-        "Enabled": true,
-        "Quantity": 0
-      },
-      "ViewerProtocolPolicy": "",
-      "MinTTL": 0
-    },
-    "Comment": "",
-    "Enabled": true
-  }
+  "DistributionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
+  * If-Match `string`
+  * DistributionConfig **required** `object`: A distribution configuration.
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference
+    * Comment
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
 
 #### Output
 * output [UpdateDistributionResult](#updatedistributionresult)
 
-### CreateDistributionWithTags
+### DeleteMonitoringSubscription
 
 
 
 ```js
-amazonaws_cloudfront.CreateDistributionWithTags({
-  "DistributionConfigWithTags": {
-    "DistributionConfig": {
-      "CallerReference": "",
-      "Origins": {
-        "Quantity": 0
-      },
-      "DefaultCacheBehavior": {
-        "TargetOriginId": "",
-        "ForwardedValues": {
-          "QueryString": true,
-          "Cookies": {
-            "Forward": ""
-          }
-        },
-        "TrustedSigners": {
-          "Enabled": true,
-          "Quantity": 0
-        },
-        "ViewerProtocolPolicy": "",
-        "MinTTL": 0
-      },
-      "Comment": "",
-      "Enabled": true
-    },
-    "Tags": {}
-  }
+amazonaws_cloudfront.DeleteMonitoringSubscription({
+  "DistributionId": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DistributionConfigWithTags **required** [DistributionConfigWithTags](#distributionconfigwithtags)
+  * DistributionId **required** `string`
 
 #### Output
-*Output schema unknown*
+* output [DeleteMonitoringSubscriptionResult](#deletemonitoringsubscriptionresult)
+
+### GetMonitoringSubscription
+
+
+
+```js
+amazonaws_cloudfront.GetMonitoringSubscription({
+  "DistributionId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * DistributionId **required** `string`
+
+#### Output
+* output [GetMonitoringSubscriptionResult](#getmonitoringsubscriptionresult)
+
+### CreateMonitoringSubscription
+
+
+
+```js
+amazonaws_cloudfront.CreateMonitoringSubscription({
+  "DistributionId": "",
+  "MonitoringSubscription": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * DistributionId **required** `string`
+  * MonitoringSubscription **required** `object`: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+    * RealtimeMetricsSubscriptionConfig
+      * RealtimeMetricsSubscriptionStatus **required**
+
+#### Output
+* output [CreateMonitoringSubscriptionResult](#createmonitoringsubscriptionresult)
+
+### ListDistributionsByCachePolicyId
+
+
+
+```js
+amazonaws_cloudfront.ListDistributionsByCachePolicyId({
+  "CachePolicyId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * MaxItems `string`
+  * CachePolicyId **required** `string`
+
+#### Output
+* output [ListDistributionsByCachePolicyIdResult](#listdistributionsbycachepolicyidresult)
+
+### ListDistributionsByKeyGroup
+
+
+
+```js
+amazonaws_cloudfront.ListDistributionsByKeyGroup({
+  "KeyGroupId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * MaxItems `string`
+  * KeyGroupId **required** `string`
+
+#### Output
+* output [ListDistributionsByKeyGroupResult](#listdistributionsbykeygroupresult)
+
+### ListDistributionsByOriginRequestPolicyId
+
+
+
+```js
+amazonaws_cloudfront.ListDistributionsByOriginRequestPolicyId({
+  "OriginRequestPolicyId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * MaxItems `string`
+  * OriginRequestPolicyId **required** `string`
+
+#### Output
+* output [ListDistributionsByOriginRequestPolicyIdResult](#listdistributionsbyoriginrequestpolicyidresult)
+
+### ListDistributionsByRealtimeLogConfig
+
+
+
+```js
+amazonaws_cloudfront.ListDistributionsByRealtimeLogConfig({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`: Use this field when paginating results to indicate where to begin in your list of distributions. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of <code>NextMarker</code> from the current page’s response.
+  * MaxItems `string`: The maximum number of distributions that you want in the response.
+  * RealtimeLogConfigArn `string`: The Amazon Resource Name (ARN) of the real-time log configuration whose associated distributions you want to list.
+  * RealtimeLogConfigName `string`: The name of the real-time log configuration whose associated distributions you want to list.
+
+#### Output
+* output [ListDistributionsByRealtimeLogConfigResult](#listdistributionsbyrealtimelogconfigresult)
 
 ### ListDistributionsByWebACLId
 
@@ -287,6 +829,8 @@ amazonaws_cloudfront.ListDistributionsByWebACLId({
 
 #### Input
 * input `object`
+  * Marker `string`
+  * MaxItems `string`
   * WebACLId **required** `string`
 
 #### Output
@@ -302,6 +846,8 @@ amazonaws_cloudfront.ListFieldLevelEncryptionConfigs({}, context)
 
 #### Input
 * input `object`
+  * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListFieldLevelEncryptionConfigsResult](#listfieldlevelencryptionconfigsresult)
@@ -312,15 +858,27 @@ amazonaws_cloudfront.ListFieldLevelEncryptionConfigs({}, context)
 
 ```js
 amazonaws_cloudfront.CreateFieldLevelEncryptionConfig({
-  "FieldLevelEncryptionConfig": {
-    "CallerReference": ""
-  }
+  "FieldLevelEncryptionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * FieldLevelEncryptionConfig **required** `object`: A complex data type that includes the profile configurations specified for field-level encryption. 
+    * CallerReference
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
 
 #### Output
 *Output schema unknown*
@@ -335,6 +893,8 @@ amazonaws_cloudfront.ListFieldLevelEncryptionProfiles({}, context)
 
 #### Input
 * input `object`
+  * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListFieldLevelEncryptionProfilesResult](#listfieldlevelencryptionprofilesresult)
@@ -345,19 +905,23 @@ amazonaws_cloudfront.ListFieldLevelEncryptionProfiles({}, context)
 
 ```js
 amazonaws_cloudfront.CreateFieldLevelEncryptionProfile({
-  "FieldLevelEncryptionProfileConfig": {
-    "Name": "",
-    "CallerReference": "",
-    "EncryptionEntities": {
-      "Quantity": 0
-    }
-  }
+  "FieldLevelEncryptionProfileConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * FieldLevelEncryptionProfileConfig **required** `object`: A complex data type of profiles for the field-level encryption.
+    * CallerReference
+    * Comment
+    * EncryptionEntities
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name
 
 #### Output
 *Output schema unknown*
@@ -375,6 +939,7 @@ amazonaws_cloudfront.DeleteFieldLevelEncryptionProfile({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -420,20 +985,25 @@ amazonaws_cloudfront.GetFieldLevelEncryptionProfileConfig({
 ```js
 amazonaws_cloudfront.UpdateFieldLevelEncryptionProfile({
   "Id": "",
-  "FieldLevelEncryptionProfileConfig": {
-    "Name": "",
-    "CallerReference": "",
-    "EncryptionEntities": {
-      "Quantity": 0
-    }
-  }
+  "FieldLevelEncryptionProfileConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * If-Match `string`
+  * FieldLevelEncryptionProfileConfig **required** `object`: A complex data type of profiles for the field-level encryption.
+    * CallerReference
+    * Comment
+    * EncryptionEntities
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name
 
 #### Output
 * output [UpdateFieldLevelEncryptionProfileResult](#updatefieldlevelencryptionprofileresult)
@@ -451,6 +1021,7 @@ amazonaws_cloudfront.DeleteFieldLevelEncryptionConfig({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -496,19 +1067,161 @@ amazonaws_cloudfront.GetFieldLevelEncryptionConfig({
 ```js
 amazonaws_cloudfront.UpdateFieldLevelEncryptionConfig({
   "Id": "",
-  "FieldLevelEncryptionConfig": {
-    "CallerReference": ""
-  }
+  "FieldLevelEncryptionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * If-Match `string`
+  * FieldLevelEncryptionConfig **required** `object`: A complex data type that includes the profile configurations specified for field-level encryption. 
+    * CallerReference
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
 
 #### Output
 * output [UpdateFieldLevelEncryptionConfigResult](#updatefieldlevelencryptionconfigresult)
+
+### GetRealtimeLogConfig
+
+
+
+```js
+amazonaws_cloudfront.GetRealtimeLogConfig({}, context)
+```
+
+#### Input
+* input `object`
+  * ARN `string`: The Amazon Resource Name (ARN) of the real-time log configuration to get.
+  * Name `string`: The name of the real-time log configuration to get.
+
+#### Output
+* output [GetRealtimeLogConfigResult](#getrealtimelogconfigresult)
+
+### ListKeyGroups
+
+
+
+```js
+amazonaws_cloudfront.ListKeyGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * Marker `string`
+  * MaxItems `string`
+
+#### Output
+* output [ListKeyGroupsResult](#listkeygroupsresult)
+
+### CreateKeyGroup
+
+
+
+```js
+amazonaws_cloudfront.CreateKeyGroup({
+  "KeyGroupConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * KeyGroupConfig **required** `object`: <p>A key group configuration.</p> <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+    * Comment
+    * Items
+      * items
+    * Name
+
+#### Output
+*Output schema unknown*
+
+### DeleteKeyGroup
+
+
+
+```js
+amazonaws_cloudfront.DeleteKeyGroup({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+
+#### Output
+*Output schema unknown*
+
+### GetKeyGroup
+
+
+
+```js
+amazonaws_cloudfront.GetKeyGroup({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetKeyGroupResult](#getkeygroupresult)
+
+### UpdateKeyGroup
+
+
+
+```js
+amazonaws_cloudfront.UpdateKeyGroup({
+  "Id": "",
+  "KeyGroupConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+  * KeyGroupConfig **required** `object`: <p>A key group configuration.</p> <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+    * Comment
+    * Items
+      * items
+    * Name
+
+#### Output
+* output [UpdateKeyGroupResult](#updatekeygroupresult)
+
+### GetKeyGroupConfig
+
+
+
+```js
+amazonaws_cloudfront.GetKeyGroupConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetKeyGroupConfigResult](#getkeygroupconfigresult)
 
 ### ListCloudFrontOriginAccessIdentities
 
@@ -520,8 +1233,8 @@ amazonaws_cloudfront.ListCloudFrontOriginAccessIdentities({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
   * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListCloudFrontOriginAccessIdentitiesResult](#listcloudfrontoriginaccessidentitiesresult)
@@ -532,16 +1245,15 @@ amazonaws_cloudfront.ListCloudFrontOriginAccessIdentities({}, context)
 
 ```js
 amazonaws_cloudfront.CreateCloudFrontOriginAccessIdentity({
-  "CloudFrontOriginAccessIdentityConfig": {
-    "CallerReference": "",
-    "Comment": ""
-  }
+  "CloudFrontOriginAccessIdentityConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * CloudFrontOriginAccessIdentityConfig **required** [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+  * CloudFrontOriginAccessIdentityConfig **required** `object`: Origin access identity configuration. Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource. 
+    * CallerReference
+    * Comment
 
 #### Output
 *Output schema unknown*
@@ -559,6 +1271,7 @@ amazonaws_cloudfront.DeleteCloudFrontOriginAccessIdentity({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -604,20 +1317,154 @@ amazonaws_cloudfront.GetCloudFrontOriginAccessIdentityConfig({
 ```js
 amazonaws_cloudfront.UpdateCloudFrontOriginAccessIdentity({
   "Id": "",
-  "CloudFrontOriginAccessIdentityConfig": {
-    "CallerReference": "",
-    "Comment": ""
-  }
+  "CloudFrontOriginAccessIdentityConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * CloudFrontOriginAccessIdentityConfig **required** [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+  * If-Match `string`
+  * CloudFrontOriginAccessIdentityConfig **required** `object`: Origin access identity configuration. Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource. 
+    * CallerReference
+    * Comment
 
 #### Output
 * output [UpdateCloudFrontOriginAccessIdentityResult](#updatecloudfrontoriginaccessidentityresult)
+
+### ListOriginRequestPolicies
+
+
+
+```js
+amazonaws_cloudfront.ListOriginRequestPolicies({}, context)
+```
+
+#### Input
+* input `object`
+  * Type `string`
+  * Marker `string`
+  * MaxItems `string`
+
+#### Output
+* output [ListOriginRequestPoliciesResult](#listoriginrequestpoliciesresult)
+
+### CreateOriginRequestPolicy
+
+
+
+```js
+amazonaws_cloudfront.CreateOriginRequestPolicy({
+  "OriginRequestPolicyConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * OriginRequestPolicyConfig **required** `object`: <p>An origin request policy configuration.</p> <p>This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:</p> <ul> <li> <p>The request body and the URL path (without the domain name) from the viewer request.</p> </li> <li> <p>The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p> </li> <li> <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.</p> </li> </ul> <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</p>
+    * Comment
+    * CookiesConfig
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name
+    * QueryStringsConfig
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+#### Output
+*Output schema unknown*
+
+### DeleteOriginRequestPolicy
+
+
+
+```js
+amazonaws_cloudfront.DeleteOriginRequestPolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+
+#### Output
+*Output schema unknown*
+
+### GetOriginRequestPolicy
+
+
+
+```js
+amazonaws_cloudfront.GetOriginRequestPolicy({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetOriginRequestPolicyResult](#getoriginrequestpolicyresult)
+
+### UpdateOriginRequestPolicy
+
+
+
+```js
+amazonaws_cloudfront.UpdateOriginRequestPolicy({
+  "Id": "",
+  "OriginRequestPolicyConfig": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+  * If-Match `string`
+  * OriginRequestPolicyConfig **required** `object`: <p>An origin request policy configuration.</p> <p>This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:</p> <ul> <li> <p>The request body and the URL path (without the domain name) from the viewer request.</p> </li> <li> <p>The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p> </li> <li> <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.</p> </li> </ul> <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</p>
+    * Comment
+    * CookiesConfig
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name
+    * QueryStringsConfig
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+#### Output
+* output [UpdateOriginRequestPolicyResult](#updateoriginrequestpolicyresult)
+
+### GetOriginRequestPolicyConfig
+
+
+
+```js
+amazonaws_cloudfront.GetOriginRequestPolicyConfig({
+  "Id": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Id **required** `string`
+
+#### Output
+* output [GetOriginRequestPolicyConfigResult](#getoriginrequestpolicyconfigresult)
 
 ### ListPublicKeys
 
@@ -629,6 +1476,8 @@ amazonaws_cloudfront.ListPublicKeys({}, context)
 
 #### Input
 * input `object`
+  * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListPublicKeysResult](#listpublickeysresult)
@@ -639,17 +1488,17 @@ amazonaws_cloudfront.ListPublicKeys({}, context)
 
 ```js
 amazonaws_cloudfront.CreatePublicKey({
-  "PublicKeyConfig": {
-    "CallerReference": "",
-    "Name": "",
-    "EncodedKey": ""
-  }
+  "PublicKeyConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+  * PublicKeyConfig **required** `object`: Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.
+    * CallerReference
+    * Comment
+    * EncodedKey
+    * Name
 
 #### Output
 *Output schema unknown*
@@ -667,6 +1516,7 @@ amazonaws_cloudfront.DeletePublicKey({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -712,21 +1562,84 @@ amazonaws_cloudfront.GetPublicKeyConfig({
 ```js
 amazonaws_cloudfront.UpdatePublicKey({
   "Id": "",
-  "PublicKeyConfig": {
-    "CallerReference": "",
-    "Name": "",
-    "EncodedKey": ""
-  }
+  "PublicKeyConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+  * If-Match `string`
+  * PublicKeyConfig **required** `object`: Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.
+    * CallerReference
+    * Comment
+    * EncodedKey
+    * Name
 
 #### Output
 * output [UpdatePublicKeyResult](#updatepublickeyresult)
+
+### ListRealtimeLogConfigs
+
+
+
+```js
+amazonaws_cloudfront.ListRealtimeLogConfigs({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxItems `string`
+  * Marker `string`
+
+#### Output
+* output [ListRealtimeLogConfigsResult](#listrealtimelogconfigsresult)
+
+### CreateRealtimeLogConfig
+
+
+
+```js
+amazonaws_cloudfront.CreateRealtimeLogConfig({
+  "EndPoints": [],
+  "Fields": [],
+  "Name": "",
+  "SamplingRate": 0
+}, context)
+```
+
+#### Input
+* input `object`
+  * EndPoints **required** `array`: Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    * items [EndPoint](#endpoint)
+  * Fields **required** `array`: <p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+    * items
+  * Name **required** `string`: A unique name to identify this real-time log configuration.
+  * SamplingRate **required** `integer`: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+
+#### Output
+*Output schema unknown*
+
+### UpdateRealtimeLogConfig
+
+
+
+```js
+amazonaws_cloudfront.UpdateRealtimeLogConfig({}, context)
+```
+
+#### Input
+* input `object`
+  * ARN `string`: The Amazon Resource Name (ARN) for this real-time log configuration.
+  * EndPoints `array`: Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    * items [EndPoint](#endpoint)
+  * Fields `array`: <p>A list of fields to include in each real-time log record.</p> <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+    * items
+  * Name `string`: The name for this real-time log configuration.
+  * SamplingRate `integer`: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+
+#### Output
+* output [UpdateRealtimeLogConfigResult](#updaterealtimelogconfigresult)
 
 ### ListStreamingDistributions
 
@@ -738,8 +1651,8 @@ amazonaws_cloudfront.ListStreamingDistributions({}, context)
 
 #### Input
 * input `object`
-  * MaxItems `string`
   * Marker `string`
+  * MaxItems `string`
 
 #### Output
 * output [ListStreamingDistributionsResult](#liststreamingdistributionsresult)
@@ -750,25 +1663,78 @@ amazonaws_cloudfront.ListStreamingDistributions({}, context)
 
 ```js
 amazonaws_cloudfront.CreateStreamingDistribution({
-  "StreamingDistributionConfig": {
-    "CallerReference": "",
-    "S3Origin": {
-      "DomainName": "",
-      "OriginAccessIdentity": ""
-    },
-    "Comment": "",
-    "TrustedSigners": {
-      "Enabled": true,
-      "Quantity": 0
-    },
-    "Enabled": true
-  }
+  "StreamingDistributionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+  * StreamingDistributionConfig **required** `object`: The RTMP distribution's configuration information.
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference
+    * Comment
+    * Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+
+#### Output
+*Output schema unknown*
+
+### CreateStreamingDistributionWithTags
+
+
+
+```js
+amazonaws_cloudfront.CreateStreamingDistributionWithTags({
+  "WithTags": true,
+  "StreamingDistributionConfigWithTags": {}
+}, context)
+```
+
+#### Input
+* input `object`
+  * WithTags **required** `boolean`
+  * StreamingDistributionConfigWithTags **required** `object`: A streaming distribution Configuration and a list of tags to be associated with the streaming distribution.
+    * StreamingDistributionConfig
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+    * Tags
+      * Items
+        * items
+          * Key **required**
+          * Value
 
 #### Output
 *Output schema unknown*
@@ -786,6 +1752,7 @@ amazonaws_cloudfront.DeleteStreamingDistribution({
 #### Input
 * input `object`
   * Id **required** `string`
+  * If-Match `string`
 
 #### Output
 *Output schema unknown*
@@ -831,75 +1798,38 @@ amazonaws_cloudfront.GetStreamingDistributionConfig({
 ```js
 amazonaws_cloudfront.UpdateStreamingDistribution({
   "Id": "",
-  "StreamingDistributionConfig": {
-    "CallerReference": "",
-    "S3Origin": {
-      "DomainName": "",
-      "OriginAccessIdentity": ""
-    },
-    "Comment": "",
-    "TrustedSigners": {
-      "Enabled": true,
-      "Quantity": 0
-    },
-    "Enabled": true
-  }
+  "StreamingDistributionConfig": {}
 }, context)
 ```
 
 #### Input
 * input `object`
   * Id **required** `string`
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+  * If-Match `string`
+  * StreamingDistributionConfig **required** `object`: The RTMP distribution's configuration information.
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference
+    * Comment
+    * Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 #### Output
 * output [UpdateStreamingDistributionResult](#updatestreamingdistributionresult)
-
-### CreateStreamingDistributionWithTags
-
-
-
-```js
-amazonaws_cloudfront.CreateStreamingDistributionWithTags({
-  "StreamingDistributionConfigWithTags": {
-    "StreamingDistributionConfig": {
-      "CallerReference": "",
-      "S3Origin": {
-        "DomainName": "",
-        "OriginAccessIdentity": ""
-      },
-      "Comment": "",
-      "TrustedSigners": {
-        "Enabled": true,
-        "Quantity": 0
-      },
-      "Enabled": true
-    },
-    "Tags": {}
-  }
-}, context)
-```
-
-#### Input
-* input `object`
-  * StreamingDistributionConfigWithTags **required** [StreamingDistributionConfigWithTags](#streamingdistributionconfigwithtags)
-
-#### Output
-*Output schema unknown*
-
-### ListTagsForResource
-
-
-
-```js
-amazonaws_cloudfront.ListTagsForResource({}, context)
-```
-
-#### Input
-* input `object`
-
-#### Output
-* output [ListTagsForResourceResult](#listtagsforresourceresult)
 
 ### TagResource
 
@@ -907,13 +1837,21 @@ amazonaws_cloudfront.ListTagsForResource({}, context)
 
 ```js
 amazonaws_cloudfront.TagResource({
+  "Resource": "",
+  "Operation": "",
   "Tags": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Tags **required** [Tags](#tags)
+  * Resource **required** `string`
+  * Operation **required** `string`
+  * Tags **required** `object`:  A complex type that contains zero or more <code>Tag</code> elements.
+    * Items
+      * items
+        * Key **required**
+        * Value
 
 #### Output
 *Output schema unknown*
@@ -924,289 +1862,1408 @@ amazonaws_cloudfront.TagResource({
 
 ```js
 amazonaws_cloudfront.UntagResource({
+  "Resource": "",
+  "Operation": "",
   "TagKeys": {}
 }, context)
 ```
 
 #### Input
 * input `object`
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * Resource **required** `string`
+  * Operation **required** `string`
+  * TagKeys **required** `object`:  A complex type that contains zero or more <code>Tag</code> elements.
+    * Items
+      * items
 
 #### Output
 *Output schema unknown*
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_cloudfront.ListTagsForResource({
+  "Resource": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * Resource **required** `string`
+
+#### Output
+* output [ListTagsForResourceResult](#listtagsforresourceresult)
 
 
 
 ## Definitions
 
 ### AccessDenied
-* AccessDenied `object`: Access denied.
-  * Message [string](#string)
+
+
+### ActiveTrustedKeyGroups
+* ActiveTrustedKeyGroups `object`: A list of key groups, and the public keys in each key group, that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * Enabled **required**
+  * Items
+    * items
+      * KeyGroupId
+      * KeyPairIds [KeyPairIds](#keypairids)
+  * Quantity **required**
 
 ### ActiveTrustedSigners
-* ActiveTrustedSigners `object`: <p>A complex type that lists the AWS accounts, if any, that you included in the <code>TrustedSigners</code> complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.</p> <p>The <code>Signer</code> complex type lists the AWS account number of the trusted signer or <code>self</code> if the signer is the AWS account that created the distribution. The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are associated with the trusted signer's AWS account. If no <code>KeyPairId</code> element appears for a <code>Signer</code>, that signer can't create signed URLs. </p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-  * Enabled **required** [boolean](#boolean)
-  * Items [SignerList](#signerlist)
-  * Quantity **required** [integer](#integer)
+* ActiveTrustedSigners `object`: A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * Enabled **required**
+  * Items
+    * items
+      * AwsAccountNumber
+      * KeyPairIds
+        * Items
+          * items
+        * Quantity **required**
+  * Quantity **required**
+
+### AliasICPRecordal
+* AliasICPRecordal `object`: <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content publicly on an alternate domain name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs associated with distributions. The status is returned in the CloudFront response; you can't configure it yourself.</p> <p>For more information about ICP recordals, see <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html"> Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
+  * CNAME
+  * ICPRecordalStatus
+
+### AliasICPRecordals
+* AliasICPRecordals `array`
+  * items
+    * CNAME
+    * ICPRecordalStatus
 
 ### AliasList
 * AliasList `array`
-  * items [string](#string)
+  * items
 
 ### Aliases
 * Aliases `object`: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution. 
-  * Items [AliasList](#aliaslist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+  * Quantity **required**
 
 ### AllowedMethods
 * AllowedMethods `object`: <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:</p> <ul> <li> <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p> </li> <li> <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code> requests.</p> </li> <li> <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and <code>DELETE</code> requests.</p> </li> </ul> <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.</p>
   * CachedMethods [CachedMethods](#cachedmethods)
-  * Items **required** [MethodsList](#methodslist)
-  * Quantity **required** [integer](#integer)
+  * Items **required**
+    * items
+  * Quantity **required**
 
 ### AwsAccountNumberList
 * AwsAccountNumberList `array`
-  * items [string](#string)
+  * items
 
 ### BatchTooLarge
-* BatchTooLarge `object`
-  * Message [string](#string)
+
 
 ### CNAMEAlreadyExists
-* CNAMEAlreadyExists `object`
-  * Message [string](#string)
+
 
 ### CacheBehavior
-* CacheBehavior `object`: <p>A complex type that describes how CloudFront processes requests.</p> <p>You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to distribute objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.</p> <p>For the current limit on the number of cache behaviors that you can add to a distribution, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront Limits</a> in the <i>AWS General Reference</i>.</p> <p>If you don't want to specify any cache behaviors, include only an empty <code>CacheBehaviors</code> element. Don't include an empty <code>CacheBehavior</code> element, or CloudFront returns a <code>MalformedXML</code> error.</p> <p>To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty <code>CacheBehaviors</code> element.</p> <p>To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.</p> <p>For more information about cache behaviors, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache Behaviors</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+* CacheBehavior `object`: <p>A complex type that describes how CloudFront processes requests.</p> <p>You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.</p> <p>For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <p>If you don’t want to specify any cache behaviors, include only an empty <code>CacheBehaviors</code> element. Don’t include an empty <code>CacheBehavior</code> element because this is invalid.</p> <p>To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty <code>CacheBehaviors</code> element.</p> <p>To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.</p> <p>For more information about cache behaviors, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache Behavior Settings</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
   * AllowedMethods [AllowedMethods](#allowedmethods)
-  * Compress [boolean](#boolean)
-  * DefaultTTL [long](#long)
-  * FieldLevelEncryptionId [string](#string)
-  * ForwardedValues **required** [ForwardedValues](#forwardedvalues)
-  * LambdaFunctionAssociations [LambdaFunctionAssociations](#lambdafunctionassociations)
-  * MaxTTL [long](#long)
-  * MinTTL **required** [long](#long)
-  * PathPattern **required** [string](#string)
-  * SmoothStreaming [boolean](#boolean)
-  * TargetOriginId **required** [string](#string)
-  * TrustedSigners **required** [TrustedSigners](#trustedsigners)
-  * ViewerProtocolPolicy **required** [ViewerProtocolPolicy](#viewerprotocolpolicy)
+  * CachePolicyId
+  * Compress
+  * DefaultTTL
+  * FieldLevelEncryptionId
+  * ForwardedValues
+    * Cookies **required**
+      * Forward **required**
+      * WhitelistedNames
+        * Items
+          * items
+        * Quantity **required**
+    * Headers
+      * Items
+        * items
+      * Quantity **required**
+    * QueryString **required**
+    * QueryStringCacheKeys
+      * Items
+        * items
+      * Quantity **required**
+  * LambdaFunctionAssociations
+    * Items
+      * items
+        * EventType **required**
+        * IncludeBody
+        * LambdaFunctionARN **required**
+    * Quantity **required**
+  * MaxTTL
+  * MinTTL
+  * OriginRequestPolicyId
+  * PathPattern **required**
+  * RealtimeLogConfigArn
+  * SmoothStreaming
+  * TargetOriginId **required**
+  * TrustedKeyGroups
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
+  * TrustedSigners
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
+  * ViewerProtocolPolicy **required**
 
 ### CacheBehaviorList
 * CacheBehaviorList `array`
-  * items [CacheBehavior](#cachebehavior)
+  * items
+    * AllowedMethods [AllowedMethods](#allowedmethods)
+    * CachePolicyId
+    * Compress
+    * DefaultTTL
+    * FieldLevelEncryptionId
+    * ForwardedValues
+      * Cookies **required**
+        * Forward **required**
+        * WhitelistedNames
+          * Items
+          * Quantity **required**
+      * Headers
+        * Items
+          * items
+        * Quantity **required**
+      * QueryString **required**
+      * QueryStringCacheKeys
+        * Items
+          * items
+        * Quantity **required**
+    * LambdaFunctionAssociations
+      * Items
+        * items
+          * EventType **required**
+          * IncludeBody
+          * LambdaFunctionARN **required**
+      * Quantity **required**
+    * MaxTTL
+    * MinTTL
+    * OriginRequestPolicyId
+    * PathPattern **required**
+    * RealtimeLogConfigArn
+    * SmoothStreaming
+    * TargetOriginId **required**
+    * TrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * TrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * ViewerProtocolPolicy **required**
 
 ### CacheBehaviors
 * CacheBehaviors `object`: A complex type that contains zero or more <code>CacheBehavior</code> elements. 
-  * Items [CacheBehaviorList](#cachebehaviorlist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * PathPattern **required**
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+  * Quantity **required**
+
+### CachePolicy
+* CachePolicy `object`: <p>A cache policy.</p> <p>When it’s attached to a cache behavior, the cache policy determines the following:</p> <ul> <li> <p>The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> </li> <li> <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.</p> </li> </ul> <p>The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find a valid object in its cache that matches the request’s cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p>
+  * CachePolicyConfig **required**
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL **required**
+    * Name **required**
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+  * Id **required**
+  * LastModifiedTime **required**
+
+### CachePolicyAlreadyExists
+
+
+### CachePolicyConfig
+* CachePolicyConfig `object`: <p>A cache policy configuration.</p> <p>This configuration determines the following:</p> <ul> <li> <p>The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> </li> <li> <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.</p> </li> </ul> <p>The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find a valid object in its cache that matches the request’s cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p>
+  * Comment
+  * DefaultTTL
+  * MaxTTL
+  * MinTTL **required**
+  * Name **required**
+  * ParametersInCacheKeyAndForwardedToOrigin
+    * CookiesConfig **required**
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * EnableAcceptEncodingBrotli
+    * EnableAcceptEncodingGzip **required**
+    * HeadersConfig **required**
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * QueryStringsConfig **required**
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+### CachePolicyCookieBehavior
+* CachePolicyCookieBehavior `string` (values: none, whitelist, allExcept, all)
+
+### CachePolicyCookiesConfig
+* CachePolicyCookiesConfig `object`: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+  * CookieBehavior **required**
+  * Cookies [CookieNames](#cookienames)
+
+### CachePolicyHeaderBehavior
+* CachePolicyHeaderBehavior `string` (values: none, whitelist)
+
+### CachePolicyHeadersConfig
+* CachePolicyHeadersConfig `object`: An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+  * HeaderBehavior **required**
+  * Headers [Headers](#headers)
+
+### CachePolicyInUse
+
+
+### CachePolicyList
+* CachePolicyList `object`: A list of cache policies.
+  * Items
+    * items
+      * CachePolicy **required**
+        * CachePolicyConfig **required**
+          * Comment
+          * DefaultTTL
+          * MaxTTL
+          * MinTTL **required**
+          * Name **required**
+          * ParametersInCacheKeyAndForwardedToOrigin
+        * Id **required**
+        * LastModifiedTime **required**
+      * Type **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
+
+### CachePolicyQueryStringBehavior
+* CachePolicyQueryStringBehavior `string` (values: none, whitelist, allExcept, all)
+
+### CachePolicyQueryStringsConfig
+* CachePolicyQueryStringsConfig `object`: An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+  * QueryStringBehavior **required**
+  * QueryStrings
+    * Items
+      * items
+    * Quantity **required**
+
+### CachePolicySummary
+* CachePolicySummary `object`: Contains a cache policy.
+  * CachePolicy **required**
+    * CachePolicyConfig **required**
+      * Comment
+      * DefaultTTL
+      * MaxTTL
+      * MinTTL **required**
+      * Name **required**
+      * ParametersInCacheKeyAndForwardedToOrigin
+        * CookiesConfig **required**
+          * CookieBehavior **required**
+          * Cookies [CookieNames](#cookienames)
+        * EnableAcceptEncodingBrotli
+        * EnableAcceptEncodingGzip **required**
+        * HeadersConfig **required**
+          * HeaderBehavior **required**
+          * Headers [Headers](#headers)
+        * QueryStringsConfig **required**
+          * QueryStringBehavior **required**
+          * QueryStrings
+    * Id **required**
+    * LastModifiedTime **required**
+  * Type **required**
+
+### CachePolicySummaryList
+* CachePolicySummaryList `array`
+  * items
+    * CachePolicy **required**
+      * CachePolicyConfig **required**
+        * Comment
+        * DefaultTTL
+        * MaxTTL
+        * MinTTL **required**
+        * Name **required**
+        * ParametersInCacheKeyAndForwardedToOrigin
+          * CookiesConfig **required**
+          * EnableAcceptEncodingBrotli
+          * EnableAcceptEncodingGzip **required**
+          * HeadersConfig **required**
+          * QueryStringsConfig **required**
+      * Id **required**
+      * LastModifiedTime **required**
+    * Type **required**
+
+### CachePolicyType
+* CachePolicyType `string` (values: managed, custom)
 
 ### CachedMethods
 * CachedMethods `object`: <p>A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:</p> <ul> <li> <p>CloudFront caches responses to <code>GET</code> and <code>HEAD</code> requests.</p> </li> <li> <p>CloudFront caches responses to <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code> requests.</p> </li> </ul> <p>If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly. </p>
-  * Items **required** [MethodsList](#methodslist)
-  * Quantity **required** [integer](#integer)
+  * Items **required**
+    * items
+  * Quantity **required**
 
 ### CannotChangeImmutablePublicKeyFields
-* CannotChangeImmutablePublicKeyFields `object`: You can't change the value of a public key.
-  * Message [string](#string)
+
 
 ### CertificateSource
 * CertificateSource `string` (values: cloudfront, iam, acm)
 
 ### CloudFrontOriginAccessIdentity
 * CloudFrontOriginAccessIdentity `object`: CloudFront origin access identity.
-  * CloudFrontOriginAccessIdentityConfig [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
-  * Id **required** [string](#string)
-  * S3CanonicalUserId **required** [string](#string)
+  * CloudFrontOriginAccessIdentityConfig
+    * CallerReference **required**
+    * Comment **required**
+  * Id **required**
+  * S3CanonicalUserId **required**
 
 ### CloudFrontOriginAccessIdentityAlreadyExists
-* CloudFrontOriginAccessIdentityAlreadyExists `object`: If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. 
-  * Message [string](#string)
+
 
 ### CloudFrontOriginAccessIdentityConfig
 * CloudFrontOriginAccessIdentityConfig `object`: Origin access identity configuration. Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource. 
-  * CallerReference **required** [string](#string)
-  * Comment **required** [string](#string)
+  * CallerReference **required**
+  * Comment **required**
 
 ### CloudFrontOriginAccessIdentityInUse
-* CloudFrontOriginAccessIdentityInUse `object`
-  * Message [string](#string)
+
 
 ### CloudFrontOriginAccessIdentityList
 * CloudFrontOriginAccessIdentityList `object`: Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/origin-access-identity/cloudfront</code> resource. The response includes a <code>CloudFrontOriginAccessIdentityList</code> element with zero or more <code>CloudFrontOriginAccessIdentitySummary</code> child elements. By default, your entire list of origin access identities is returned in one single page. If the list is long, you can paginate it using the <code>MaxItems</code> and <code>Marker</code> parameters.
-  * IsTruncated **required** [boolean](#boolean)
-  * Items [CloudFrontOriginAccessIdentitySummaryList](#cloudfrontoriginaccessidentitysummarylist)
-  * Marker **required** [string](#string)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+  * IsTruncated **required**
+  * Items
+    * items
+      * Comment **required**
+      * Id **required**
+      * S3CanonicalUserId **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### CloudFrontOriginAccessIdentitySummary
 * CloudFrontOriginAccessIdentitySummary `object`: Summary of the information about a CloudFront origin access identity.
-  * Comment **required** [string](#string)
-  * Id **required** [string](#string)
-  * S3CanonicalUserId **required** [string](#string)
+  * Comment **required**
+  * Id **required**
+  * S3CanonicalUserId **required**
 
 ### CloudFrontOriginAccessIdentitySummaryList
 * CloudFrontOriginAccessIdentitySummaryList `array`
-  * items [CloudFrontOriginAccessIdentitySummary](#cloudfrontoriginaccessidentitysummary)
+  * items
+    * Comment **required**
+    * Id **required**
+    * S3CanonicalUserId **required**
+
+### CommentType
+* CommentType `string`
 
 ### ContentTypeProfile
 * ContentTypeProfile `object`: A field-level encryption content type profile. 
-  * ContentType **required** [string](#string)
-  * Format **required** [Format](#format)
-  * ProfileId [string](#string)
+  * ContentType **required**
+  * Format **required**
+  * ProfileId
 
 ### ContentTypeProfileConfig
 * ContentTypeProfileConfig `object`: The configuration for a field-level encryption content type-profile mapping. 
-  * ContentTypeProfiles [ContentTypeProfiles](#contenttypeprofiles)
-  * ForwardWhenContentTypeIsUnknown **required** [boolean](#boolean)
+  * ContentTypeProfiles
+    * Items
+      * items
+        * ContentType **required**
+        * Format **required**
+        * ProfileId
+    * Quantity **required**
+  * ForwardWhenContentTypeIsUnknown **required**
 
 ### ContentTypeProfileList
 * ContentTypeProfileList `array`
-  * items [ContentTypeProfile](#contenttypeprofile)
+  * items
+    * ContentType **required**
+    * Format **required**
+    * ProfileId
 
 ### ContentTypeProfiles
 * ContentTypeProfiles `object`: Field-level encryption content type-profile. 
-  * Items [ContentTypeProfileList](#contenttypeprofilelist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * ContentType **required**
+      * Format **required**
+      * ProfileId
+  * Quantity **required**
 
 ### CookieNameList
 * CookieNameList `array`
-  * items [string](#string)
+  * items
 
 ### CookieNames
-* CookieNames `object`: A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.
-  * Items [CookieNameList](#cookienamelist)
-  * Quantity **required** [integer](#integer)
+* CookieNames `object`: Contains a list of cookie names.
+  * Items
+    * items
+  * Quantity **required**
 
 ### CookiePreference
-* CookiePreference `object`: A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.
-  * Forward **required** [ItemSelection](#itemselection)
-  * WhitelistedNames [CookieNames](#cookienames)
+* CookiePreference `object`: <p>This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.</p> <p>If you want to include cookies in the cache key, use <code>CookiesConfig</code> in a cache policy. See <code>CachePolicy</code>.</p> <p>If you want to send cookies to the origin but not include them in the cache key, use <code>CookiesConfig</code> in an origin request policy. See <code>OriginRequestPolicy</code>.</p> <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">Caching Content Based on Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+  * Forward **required**
+  * WhitelistedNames
+    * Items
+      * items
+    * Quantity **required**
+
+### CreateCachePolicyRequest
+* CreateCachePolicyRequest `object`
+  * CachePolicyConfig **required**
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL **required**
+    * Name **required**
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+
+### CreateCachePolicyResult
+* CreateCachePolicyResult `object`
+  * CachePolicy
+    * CachePolicyConfig **required**
+      * Comment
+      * DefaultTTL
+      * MaxTTL
+      * MinTTL **required**
+      * Name **required**
+      * ParametersInCacheKeyAndForwardedToOrigin
+        * CookiesConfig **required**
+          * CookieBehavior **required**
+          * Cookies [CookieNames](#cookienames)
+        * EnableAcceptEncodingBrotli
+        * EnableAcceptEncodingGzip **required**
+        * HeadersConfig **required**
+          * HeaderBehavior **required**
+          * Headers [Headers](#headers)
+        * QueryStringsConfig **required**
+          * QueryStringBehavior **required**
+          * QueryStrings
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### CreateCloudFrontOriginAccessIdentityRequest
-* CreateCloudFrontOriginAccessIdentityRequest `object`: The request to create a new origin access identity.
-  * CloudFrontOriginAccessIdentityConfig **required** [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+* CreateCloudFrontOriginAccessIdentityRequest `object`: The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html"> Restricting Access to Amazon S3 Content by Using an Origin Access Identity</a> in the <i>Amazon CloudFront Developer Guide</i>. 
+  * CloudFrontOriginAccessIdentityConfig **required**
+    * CallerReference **required**
+    * Comment **required**
 
 ### CreateCloudFrontOriginAccessIdentityResult
 * CreateCloudFrontOriginAccessIdentityResult `object`: The returned result of the corresponding request.
-  * CloudFrontOriginAccessIdentity [CloudFrontOriginAccessIdentity](#cloudfrontoriginaccessidentity)
+  * CloudFrontOriginAccessIdentity
+    * CloudFrontOriginAccessIdentityConfig
+      * CallerReference **required**
+      * Comment **required**
+    * Id **required**
+    * S3CanonicalUserId **required**
 
 ### CreateDistributionRequest
 * CreateDistributionRequest `object`: The request to create a new distribution.
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
+  * DistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled **required**
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
 
 ### CreateDistributionResult
 * CreateDistributionResult `object`: The returned result of the corresponding request.
-  * Distribution [Distribution](#distribution)
+  * Distribution
+    * ARN **required**
+    * ActiveTrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+          * KeyGroupId
+          * KeyPairIds [KeyPairIds](#keypairids)
+      * Quantity **required**
+    * ActiveTrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * AliasICPRecordals
+      * items
+        * CNAME
+        * ICPRecordalStatus
+    * DistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * DomainName **required**
+    * Id **required**
+    * InProgressInvalidationBatches **required**
+    * LastModifiedTime **required**
+    * Status **required**
 
 ### CreateDistributionWithTagsRequest
 * CreateDistributionWithTagsRequest `object`: The request to create a new distribution with tags. 
-  * DistributionConfigWithTags **required** [DistributionConfigWithTags](#distributionconfigwithtags)
+  * DistributionConfigWithTags **required**
+    * DistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * Tags **required**
+      * Items
+        * items
+          * Key **required**
+          * Value
 
 ### CreateDistributionWithTagsResult
 * CreateDistributionWithTagsResult `object`: The returned result of the corresponding request. 
-  * Distribution [Distribution](#distribution)
+  * Distribution
+    * ARN **required**
+    * ActiveTrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+          * KeyGroupId
+          * KeyPairIds [KeyPairIds](#keypairids)
+      * Quantity **required**
+    * ActiveTrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * AliasICPRecordals
+      * items
+        * CNAME
+        * ICPRecordalStatus
+    * DistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * DomainName **required**
+    * Id **required**
+    * InProgressInvalidationBatches **required**
+    * LastModifiedTime **required**
+    * Status **required**
 
 ### CreateFieldLevelEncryptionConfigRequest
 * CreateFieldLevelEncryptionConfigRequest `object`
-  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * FieldLevelEncryptionConfig **required**
+    * CallerReference **required**
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
 
 ### CreateFieldLevelEncryptionConfigResult
 * CreateFieldLevelEncryptionConfigResult `object`
-  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+  * FieldLevelEncryption
+    * FieldLevelEncryptionConfig **required**
+      * CallerReference **required**
+      * Comment
+      * ContentTypeProfileConfig
+        * ContentTypeProfiles
+          * Items
+          * Quantity **required**
+        * ForwardWhenContentTypeIsUnknown **required**
+      * QueryArgProfileConfig
+        * ForwardWhenQueryArgProfileIsUnknown **required**
+        * QueryArgProfiles
+          * Items
+          * Quantity **required**
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### CreateFieldLevelEncryptionProfileRequest
 * CreateFieldLevelEncryptionProfileRequest `object`
-  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * FieldLevelEncryptionProfileConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncryptionEntities **required**
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name **required**
 
 ### CreateFieldLevelEncryptionProfileResult
 * CreateFieldLevelEncryptionProfileResult `object`
-  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+  * FieldLevelEncryptionProfile
+    * FieldLevelEncryptionProfileConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncryptionEntities **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Name **required**
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### CreateInvalidationRequest
 * CreateInvalidationRequest `object`: The request to create an invalidation.
-  * InvalidationBatch **required** [InvalidationBatch](#invalidationbatch)
+  * InvalidationBatch **required**
+    * CallerReference **required**
+    * Paths **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### CreateInvalidationResult
 * CreateInvalidationResult `object`: The returned result of the corresponding request.
-  * Invalidation [Invalidation](#invalidation)
+  * Invalidation
+    * CreateTime **required**
+    * Id **required**
+    * InvalidationBatch **required**
+      * CallerReference **required**
+      * Paths **required**
+        * Items
+          * items
+        * Quantity **required**
+    * Status **required**
+
+### CreateKeyGroupRequest
+* CreateKeyGroupRequest `object`
+  * KeyGroupConfig **required**
+    * Comment
+    * Items **required**
+      * items
+    * Name **required**
+
+### CreateKeyGroupResult
+* CreateKeyGroupResult `object`
+  * KeyGroup
+    * Id **required**
+    * KeyGroupConfig **required**
+      * Comment
+      * Items **required**
+        * items
+      * Name **required**
+    * LastModifiedTime **required**
+
+### CreateMonitoringSubscriptionRequest
+* CreateMonitoringSubscriptionRequest `object`
+  * MonitoringSubscription **required**
+    * RealtimeMetricsSubscriptionConfig
+      * RealtimeMetricsSubscriptionStatus **required**
+
+### CreateMonitoringSubscriptionResult
+* CreateMonitoringSubscriptionResult `object`
+  * MonitoringSubscription
+    * RealtimeMetricsSubscriptionConfig
+      * RealtimeMetricsSubscriptionStatus **required**
+
+### CreateOriginRequestPolicyRequest
+* CreateOriginRequestPolicyRequest `object`
+  * OriginRequestPolicyConfig **required**
+    * Comment
+    * CookiesConfig **required**
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig **required**
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name **required**
+    * QueryStringsConfig **required**
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+### CreateOriginRequestPolicyResult
+* CreateOriginRequestPolicyResult `object`
+  * OriginRequestPolicy
+    * Id **required**
+    * LastModifiedTime **required**
+    * OriginRequestPolicyConfig **required**
+      * Comment
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * Name **required**
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
 
 ### CreatePublicKeyRequest
 * CreatePublicKeyRequest `object`
-  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+  * PublicKeyConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncodedKey **required**
+    * Name **required**
 
 ### CreatePublicKeyResult
 * CreatePublicKeyResult `object`
-  * PublicKey [PublicKey](#publickey)
+  * PublicKey
+    * CreatedTime **required**
+    * Id **required**
+    * PublicKeyConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncodedKey **required**
+      * Name **required**
+
+### CreateRealtimeLogConfigRequest
+* CreateRealtimeLogConfigRequest `object`
+  * EndPoints **required**
+    * items [EndPoint](#endpoint)
+  * Fields **required**
+    * items
+  * Name **required**
+  * SamplingRate **required**
+
+### CreateRealtimeLogConfigResult
+* CreateRealtimeLogConfigResult `object`
+  * RealtimeLogConfig
+    * ARN **required**
+    * EndPoints **required**
+      * items [EndPoint](#endpoint)
+    * Fields **required**
+      * items
+    * Name **required**
+    * SamplingRate **required**
 
 ### CreateStreamingDistributionRequest
 * CreateStreamingDistributionRequest `object`: The request to create a new streaming distribution.
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+  * StreamingDistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * Enabled **required**
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### CreateStreamingDistributionResult
 * CreateStreamingDistributionResult `object`: The returned result of the corresponding request.
-  * StreamingDistribution [StreamingDistribution](#streamingdistribution)
+  * StreamingDistribution
+    * ARN **required**
+    * ActiveTrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * DomainName **required**
+    * Id **required**
+    * LastModifiedTime
+    * Status **required**
+    * StreamingDistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
 
 ### CreateStreamingDistributionWithTagsRequest
 * CreateStreamingDistributionWithTagsRequest `object`: The request to create a new streaming distribution with tags.
-  * StreamingDistributionConfigWithTags **required** [StreamingDistributionConfigWithTags](#streamingdistributionconfigwithtags)
+  * StreamingDistributionConfigWithTags **required**
+    * StreamingDistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+    * Tags **required**
+      * Items
+        * items
+          * Key **required**
+          * Value
 
 ### CreateStreamingDistributionWithTagsResult
 * CreateStreamingDistributionWithTagsResult `object`: The returned result of the corresponding request. 
-  * StreamingDistribution [StreamingDistribution](#streamingdistribution)
+  * StreamingDistribution
+    * ARN **required**
+    * ActiveTrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * DomainName **required**
+    * Id **required**
+    * LastModifiedTime
+    * Status **required**
+    * StreamingDistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
 
 ### CustomErrorResponse
-* CustomErrorResponse `object`: <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer. </p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-  * ErrorCachingMinTTL [long](#long)
-  * ErrorCode **required** [integer](#integer)
-  * ResponseCode [string](#string)
-  * ResponsePagePath [string](#string)
+* CustomErrorResponse `object`: <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer. </p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+  * ErrorCachingMinTTL
+  * ErrorCode **required**
+  * ResponseCode
+  * ResponsePagePath
 
 ### CustomErrorResponseList
 * CustomErrorResponseList `array`
-  * items [CustomErrorResponse](#customerrorresponse)
+  * items
+    * ErrorCachingMinTTL
+    * ErrorCode **required**
+    * ResponseCode
+    * ResponsePagePath
 
 ### CustomErrorResponses
-* CustomErrorResponses `object`: <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.</p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-  * Items [CustomErrorResponseList](#customerrorresponselist)
-  * Quantity **required** [integer](#integer)
+* CustomErrorResponses `object`: <p>A complex type that controls:</p> <ul> <li> <p>Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.</p> </li> <li> <p>How long CloudFront caches HTTP status codes in the 4xx and 5xx range.</p> </li> </ul> <p>For more information about custom error pages, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+  * Items
+    * items
+      * ErrorCachingMinTTL
+      * ErrorCode **required**
+      * ResponseCode
+      * ResponsePagePath
+  * Quantity **required**
 
 ### CustomHeaders
 * CustomHeaders `object`: A complex type that contains the list of Custom Headers for each origin. 
-  * Items [OriginCustomHeadersList](#origincustomheaderslist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * HeaderName **required**
+      * HeaderValue **required**
+  * Quantity **required**
 
 ### CustomOriginConfig
-* CustomOriginConfig `object`: A customer origin.
-  * HTTPPort **required** [integer](#integer)
-  * HTTPSPort **required** [integer](#integer)
-  * OriginKeepaliveTimeout [integer](#integer)
-  * OriginProtocolPolicy **required** [OriginProtocolPolicy](#originprotocolpolicy)
-  * OriginReadTimeout [integer](#integer)
-  * OriginSslProtocols [OriginSslProtocols](#originsslprotocols)
+* CustomOriginConfig `object`: A custom origin. A custom origin is any origin that is <i>not</i> an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">configured with static website hosting</a> <i>is</i> a custom origin.
+  * HTTPPort **required**
+  * HTTPSPort **required**
+  * OriginKeepaliveTimeout
+  * OriginProtocolPolicy **required**
+  * OriginReadTimeout
+  * OriginSslProtocols
+    * Items **required**
+      * items
+    * Quantity **required**
 
 ### DefaultCacheBehavior
-* DefaultCacheBehavior `object`: A complex type that describes the default cache behavior if you don't specify a <code>CacheBehavior</code> element or if files don't match any of the values of <code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one default cache behavior.
+* DefaultCacheBehavior `object`: A complex type that describes the default cache behavior if you don’t specify a <code>CacheBehavior</code> element or if request URLs don’t match any of the values of <code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one default cache behavior.
   * AllowedMethods [AllowedMethods](#allowedmethods)
-  * Compress [boolean](#boolean)
-  * DefaultTTL [long](#long)
-  * FieldLevelEncryptionId [string](#string)
-  * ForwardedValues **required** [ForwardedValues](#forwardedvalues)
-  * LambdaFunctionAssociations [LambdaFunctionAssociations](#lambdafunctionassociations)
-  * MaxTTL [long](#long)
-  * MinTTL **required** [long](#long)
-  * SmoothStreaming [boolean](#boolean)
-  * TargetOriginId **required** [string](#string)
-  * TrustedSigners **required** [TrustedSigners](#trustedsigners)
-  * ViewerProtocolPolicy **required** [ViewerProtocolPolicy](#viewerprotocolpolicy)
+  * CachePolicyId
+  * Compress
+  * DefaultTTL
+  * FieldLevelEncryptionId
+  * ForwardedValues
+    * Cookies **required**
+      * Forward **required**
+      * WhitelistedNames
+        * Items
+          * items
+        * Quantity **required**
+    * Headers
+      * Items
+        * items
+      * Quantity **required**
+    * QueryString **required**
+    * QueryStringCacheKeys
+      * Items
+        * items
+      * Quantity **required**
+  * LambdaFunctionAssociations
+    * Items
+      * items
+        * EventType **required**
+        * IncludeBody
+        * LambdaFunctionARN **required**
+    * Quantity **required**
+  * MaxTTL
+  * MinTTL
+  * OriginRequestPolicyId
+  * RealtimeLogConfigArn
+  * SmoothStreaming
+  * TargetOriginId **required**
+  * TrustedKeyGroups
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
+  * TrustedSigners
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
+  * ViewerProtocolPolicy **required**
+
+### DeleteCachePolicyRequest
+* DeleteCachePolicyRequest `object`
 
 ### DeleteCloudFrontOriginAccessIdentityRequest
 * DeleteCloudFrontOriginAccessIdentityRequest `object`: Deletes a origin access identity.
 
 ### DeleteDistributionRequest
-* DeleteDistributionRequest `object`: <p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+* DeleteDistributionRequest `object`: <p>This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.</p> <p> <b>To delete a web distribution using the CloudFront API:</b> </p> <ol> <li> <p>Disable the web distribution </p> </li> <li> <p>Submit a <code>GET Distribution Config</code> request to get the current configuration and the <code>Etag</code> header for the distribution.</p> </li> <li> <p>Update the XML document that was returned in the response to your <code>GET Distribution Config</code> request to change the value of <code>Enabled</code> to <code>false</code>.</p> </li> <li> <p>Submit a <code>PUT Distribution Config</code> request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 2.</p> </li> <li> <p>Review the response to the <code>PUT Distribution Config</code> request to confirm that the distribution was successfully disabled.</p> </li> <li> <p>Submit a <code>GET Distribution</code> request to confirm that your changes have propagated. When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p> </li> <li> <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET Distribution Config</code> request in Step 6.</p> </li> <li> <p>Review the response to your <code>DELETE Distribution</code> request to confirm that the distribution was successfully deleted.</p> </li> </ol> <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
 
 ### DeleteFieldLevelEncryptionConfigRequest
 * DeleteFieldLevelEncryptionConfigRequest `object`
@@ -1214,1040 +3271,3865 @@ amazonaws_cloudfront.UntagResource({
 ### DeleteFieldLevelEncryptionProfileRequest
 * DeleteFieldLevelEncryptionProfileRequest `object`
 
+### DeleteKeyGroupRequest
+* DeleteKeyGroupRequest `object`
+
+### DeleteMonitoringSubscriptionRequest
+* DeleteMonitoringSubscriptionRequest `object`
+
+### DeleteMonitoringSubscriptionResult
+* DeleteMonitoringSubscriptionResult `object`
+
+### DeleteOriginRequestPolicyRequest
+* DeleteOriginRequestPolicyRequest `object`
+
 ### DeletePublicKeyRequest
 * DeletePublicKeyRequest `object`
 
-### DeleteServiceLinkedRoleRequest
-* DeleteServiceLinkedRoleRequest `object`
+### DeleteRealtimeLogConfigRequest
+* DeleteRealtimeLogConfigRequest `object`
+  * ARN
+  * Name
 
 ### DeleteStreamingDistributionRequest
 * DeleteStreamingDistributionRequest `object`: The request to delete a streaming distribution.
 
 ### Distribution
-* Distribution `object`: The distribution's information.
-  * ARN **required** [string](#string)
-  * ActiveTrustedSigners **required** [ActiveTrustedSigners](#activetrustedsigners)
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
-  * DomainName **required** [string](#string)
-  * Id **required** [string](#string)
-  * InProgressInvalidationBatches **required** [integer](#integer)
-  * LastModifiedTime **required** [timestamp](#timestamp)
-  * Status **required** [string](#string)
+* Distribution `object`: A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+  * ARN **required**
+  * ActiveTrustedKeyGroups
+    * Enabled **required**
+    * Items
+      * items
+        * KeyGroupId
+        * KeyPairIds [KeyPairIds](#keypairids)
+    * Quantity **required**
+  * ActiveTrustedSigners
+    * Enabled **required**
+    * Items
+      * items
+        * AwsAccountNumber
+        * KeyPairIds
+          * Items
+          * Quantity **required**
+    * Quantity **required**
+  * AliasICPRecordals
+    * items
+      * CNAME
+      * ICPRecordalStatus
+  * DistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled **required**
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
+  * DomainName **required**
+  * Id **required**
+  * InProgressInvalidationBatches **required**
+  * LastModifiedTime **required**
+  * Status **required**
 
 ### DistributionAlreadyExists
-* DistributionAlreadyExists `object`: The caller reference you attempted to create the distribution with is associated with another distribution.
-  * Message [string](#string)
+
 
 ### DistributionConfig
 * DistributionConfig `object`: A distribution configuration.
-  * Aliases [Aliases](#aliases)
-  * CacheBehaviors [CacheBehaviors](#cachebehaviors)
-  * CallerReference **required** [string](#string)
-  * Comment **required** [string](#string)
-  * CustomErrorResponses [CustomErrorResponses](#customerrorresponses)
-  * DefaultCacheBehavior **required** [DefaultCacheBehavior](#defaultcachebehavior)
-  * DefaultRootObject [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * HttpVersion [HttpVersion](#httpversion)
-  * IsIPV6Enabled [boolean](#boolean)
-  * Logging [LoggingConfig](#loggingconfig)
-  * Origins **required** [Origins](#origins)
-  * PriceClass [PriceClass](#priceclass)
-  * Restrictions [Restrictions](#restrictions)
-  * ViewerCertificate [ViewerCertificate](#viewercertificate)
-  * WebACLId [string](#string)
+  * Aliases
+    * Items
+      * items
+    * Quantity **required**
+  * CacheBehaviors
+    * Items
+      * items
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * PathPattern **required**
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+    * Quantity **required**
+  * CallerReference **required**
+  * Comment **required**
+  * CustomErrorResponses
+    * Items
+      * items
+        * ErrorCachingMinTTL
+        * ErrorCode **required**
+        * ResponseCode
+        * ResponsePagePath
+    * Quantity **required**
+  * DefaultCacheBehavior **required**
+    * AllowedMethods [AllowedMethods](#allowedmethods)
+    * CachePolicyId
+    * Compress
+    * DefaultTTL
+    * FieldLevelEncryptionId
+    * ForwardedValues
+      * Cookies **required**
+        * Forward **required**
+        * WhitelistedNames
+          * Items
+          * Quantity **required**
+      * Headers
+        * Items
+          * items
+        * Quantity **required**
+      * QueryString **required**
+      * QueryStringCacheKeys
+        * Items
+          * items
+        * Quantity **required**
+    * LambdaFunctionAssociations
+      * Items
+        * items
+          * EventType **required**
+          * IncludeBody
+          * LambdaFunctionARN **required**
+      * Quantity **required**
+    * MaxTTL
+    * MinTTL
+    * OriginRequestPolicyId
+    * RealtimeLogConfigArn
+    * SmoothStreaming
+    * TargetOriginId **required**
+    * TrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * TrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * ViewerProtocolPolicy **required**
+  * DefaultRootObject
+  * Enabled **required**
+  * HttpVersion
+  * IsIPV6Enabled
+  * Logging
+    * Bucket **required**
+    * Enabled **required**
+    * IncludeCookies **required**
+    * Prefix **required**
+  * OriginGroups
+    * Items
+      * items
+        * FailoverCriteria **required**
+          * StatusCodes **required**
+        * Id **required**
+        * Members **required**
+          * Items **required**
+          * Quantity **required**
+    * Quantity **required**
+  * Origins **required**
+    * Items **required**
+      * items
+        * ConnectionAttempts
+        * ConnectionTimeout
+        * CustomHeaders
+          * Items
+          * Quantity **required**
+        * CustomOriginConfig
+          * HTTPPort **required**
+          * HTTPSPort **required**
+          * OriginKeepaliveTimeout
+          * OriginProtocolPolicy **required**
+          * OriginReadTimeout
+          * OriginSslProtocols
+        * DomainName **required**
+        * Id **required**
+        * OriginPath
+        * OriginShield
+          * Enabled **required**
+          * OriginShieldRegion
+        * S3OriginConfig
+          * OriginAccessIdentity **required**
+    * Quantity **required**
+  * PriceClass
+  * Restrictions
+    * GeoRestriction **required**
+      * Items
+        * items
+      * Quantity **required**
+      * RestrictionType **required**
+  * ViewerCertificate
+    * ACMCertificateArn
+    * Certificate
+    * CertificateSource
+    * CloudFrontDefaultCertificate
+    * IAMCertificateId
+    * MinimumProtocolVersion
+    * SSLSupportMethod
+  * WebACLId
 
 ### DistributionConfigWithTags
 * DistributionConfigWithTags `object`: A distribution Configuration and a list of tags to be associated with the distribution.
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
-  * Tags **required** [Tags](#tags)
+  * DistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled **required**
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
+  * Tags **required**
+    * Items
+      * items
+        * Key **required**
+        * Value
+
+### DistributionIdList
+* DistributionIdList `object`: A list of distribution IDs.
+  * IsTruncated **required**
+  * Items
+    * items
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
+
+### DistributionIdListSummary
+* DistributionIdListSummary `array`
+  * items
 
 ### DistributionList
 * DistributionList `object`: A distribution list.
-  * IsTruncated **required** [boolean](#boolean)
-  * Items [DistributionSummaryList](#distributionsummarylist)
-  * Marker **required** [string](#string)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+  * IsTruncated **required**
+  * Items
+    * items
+      * ARN **required**
+      * AliasICPRecordals
+        * items
+          * CNAME
+          * ICPRecordalStatus
+      * Aliases **required**
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Comment **required**
+      * CustomErrorResponses **required**
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DomainName **required**
+      * Enabled **required**
+      * HttpVersion **required**
+      * Id **required**
+      * IsIPV6Enabled **required**
+      * LastModifiedTime **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass **required**
+      * Restrictions **required**
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * Status **required**
+      * ViewerCertificate **required**
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### DistributionNotDisabled
-* DistributionNotDisabled `object`
-  * Message [string](#string)
+
 
 ### DistributionSummary
 * DistributionSummary `object`: A summary of the information about a CloudFront distribution.
-  * ARN **required** [string](#string)
-  * Aliases **required** [Aliases](#aliases)
-  * CacheBehaviors **required** [CacheBehaviors](#cachebehaviors)
-  * Comment **required** [string](#string)
-  * CustomErrorResponses **required** [CustomErrorResponses](#customerrorresponses)
-  * DefaultCacheBehavior **required** [DefaultCacheBehavior](#defaultcachebehavior)
-  * DomainName **required** [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * HttpVersion **required** [HttpVersion](#httpversion)
-  * Id **required** [string](#string)
-  * IsIPV6Enabled **required** [boolean](#boolean)
-  * LastModifiedTime **required** [timestamp](#timestamp)
-  * Origins **required** [Origins](#origins)
-  * PriceClass **required** [PriceClass](#priceclass)
-  * Restrictions **required** [Restrictions](#restrictions)
-  * Status **required** [string](#string)
-  * ViewerCertificate **required** [ViewerCertificate](#viewercertificate)
-  * WebACLId **required** [string](#string)
+  * ARN **required**
+  * AliasICPRecordals
+    * items
+      * CNAME
+      * ICPRecordalStatus
+  * Aliases **required**
+    * Items
+      * items
+    * Quantity **required**
+  * CacheBehaviors **required**
+    * Items
+      * items
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * PathPattern **required**
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+    * Quantity **required**
+  * Comment **required**
+  * CustomErrorResponses **required**
+    * Items
+      * items
+        * ErrorCachingMinTTL
+        * ErrorCode **required**
+        * ResponseCode
+        * ResponsePagePath
+    * Quantity **required**
+  * DefaultCacheBehavior **required**
+    * AllowedMethods [AllowedMethods](#allowedmethods)
+    * CachePolicyId
+    * Compress
+    * DefaultTTL
+    * FieldLevelEncryptionId
+    * ForwardedValues
+      * Cookies **required**
+        * Forward **required**
+        * WhitelistedNames
+          * Items
+          * Quantity **required**
+      * Headers
+        * Items
+          * items
+        * Quantity **required**
+      * QueryString **required**
+      * QueryStringCacheKeys
+        * Items
+          * items
+        * Quantity **required**
+    * LambdaFunctionAssociations
+      * Items
+        * items
+          * EventType **required**
+          * IncludeBody
+          * LambdaFunctionARN **required**
+      * Quantity **required**
+    * MaxTTL
+    * MinTTL
+    * OriginRequestPolicyId
+    * RealtimeLogConfigArn
+    * SmoothStreaming
+    * TargetOriginId **required**
+    * TrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * TrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+    * ViewerProtocolPolicy **required**
+  * DomainName **required**
+  * Enabled **required**
+  * HttpVersion **required**
+  * Id **required**
+  * IsIPV6Enabled **required**
+  * LastModifiedTime **required**
+  * OriginGroups
+    * Items
+      * items
+        * FailoverCriteria **required**
+          * StatusCodes **required**
+        * Id **required**
+        * Members **required**
+          * Items **required**
+          * Quantity **required**
+    * Quantity **required**
+  * Origins **required**
+    * Items **required**
+      * items
+        * ConnectionAttempts
+        * ConnectionTimeout
+        * CustomHeaders
+          * Items
+          * Quantity **required**
+        * CustomOriginConfig
+          * HTTPPort **required**
+          * HTTPSPort **required**
+          * OriginKeepaliveTimeout
+          * OriginProtocolPolicy **required**
+          * OriginReadTimeout
+          * OriginSslProtocols
+        * DomainName **required**
+        * Id **required**
+        * OriginPath
+        * OriginShield
+          * Enabled **required**
+          * OriginShieldRegion
+        * S3OriginConfig
+          * OriginAccessIdentity **required**
+    * Quantity **required**
+  * PriceClass **required**
+  * Restrictions **required**
+    * GeoRestriction **required**
+      * Items
+        * items
+      * Quantity **required**
+      * RestrictionType **required**
+  * Status **required**
+  * ViewerCertificate **required**
+    * ACMCertificateArn
+    * Certificate
+    * CertificateSource
+    * CloudFrontDefaultCertificate
+    * IAMCertificateId
+    * MinimumProtocolVersion
+    * SSLSupportMethod
+  * WebACLId **required**
 
 ### DistributionSummaryList
 * DistributionSummaryList `array`
-  * items [DistributionSummary](#distributionsummary)
+  * items
+    * ARN **required**
+    * AliasICPRecordals
+      * items
+        * CNAME
+        * ICPRecordalStatus
+    * Aliases **required**
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors **required**
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * Comment **required**
+    * CustomErrorResponses **required**
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DomainName **required**
+    * Enabled **required**
+    * HttpVersion **required**
+    * Id **required**
+    * IsIPV6Enabled **required**
+    * LastModifiedTime **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass **required**
+    * Restrictions **required**
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * Status **required**
+    * ViewerCertificate **required**
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId **required**
 
 ### EncryptionEntities
 * EncryptionEntities `object`: Complex data type for field-level encryption profiles that includes all of the encryption entities. 
-  * Items [EncryptionEntityList](#encryptionentitylist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * FieldPatterns **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ProviderId **required**
+      * PublicKeyId **required**
+  * Quantity **required**
 
 ### EncryptionEntity
 * EncryptionEntity `object`: Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. 
-  * FieldPatterns **required** [FieldPatterns](#fieldpatterns)
-  * ProviderId **required** [string](#string)
-  * PublicKeyId **required** [string](#string)
+  * FieldPatterns **required**
+    * Items
+      * items
+    * Quantity **required**
+  * ProviderId **required**
+  * PublicKeyId **required**
 
 ### EncryptionEntityList
 * EncryptionEntityList `array`
-  * items [EncryptionEntity](#encryptionentity)
+  * items
+    * FieldPatterns **required**
+      * Items
+        * items
+      * Quantity **required**
+    * ProviderId **required**
+    * PublicKeyId **required**
+
+### EndPoint
+* EndPoint `object`: Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+  * KinesisStreamConfig
+    * RoleARN **required**
+    * StreamARN **required**
+  * StreamType **required**
+
+### EndPointList
+* EndPointList `array`
+  * items [EndPoint](#endpoint)
 
 ### EventType
 * EventType `string` (values: viewer-request, viewer-response, origin-request, origin-response)
 
 ### FieldLevelEncryption
 * FieldLevelEncryption `object`: A complex data type that includes the profile configurations and other options specified for field-level encryption. 
-  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
-  * Id **required** [string](#string)
-  * LastModifiedTime **required** [timestamp](#timestamp)
+  * FieldLevelEncryptionConfig **required**
+    * CallerReference **required**
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
+  * Id **required**
+  * LastModifiedTime **required**
 
 ### FieldLevelEncryptionConfig
 * FieldLevelEncryptionConfig `object`: A complex data type that includes the profile configurations specified for field-level encryption. 
-  * CallerReference **required** [string](#string)
-  * Comment [string](#string)
-  * ContentTypeProfileConfig [ContentTypeProfileConfig](#contenttypeprofileconfig)
-  * QueryArgProfileConfig [QueryArgProfileConfig](#queryargprofileconfig)
+  * CallerReference **required**
+  * Comment
+  * ContentTypeProfileConfig
+    * ContentTypeProfiles
+      * Items
+        * items
+          * ContentType **required**
+          * Format **required**
+          * ProfileId
+      * Quantity **required**
+    * ForwardWhenContentTypeIsUnknown **required**
+  * QueryArgProfileConfig
+    * ForwardWhenQueryArgProfileIsUnknown **required**
+    * QueryArgProfiles
+      * Items
+        * items
+          * ProfileId **required**
+          * QueryArg **required**
+      * Quantity **required**
 
 ### FieldLevelEncryptionConfigAlreadyExists
-* FieldLevelEncryptionConfigAlreadyExists `object`: The specified configuration for field-level encryption already exists.
-  * Message [string](#string)
+
 
 ### FieldLevelEncryptionConfigInUse
-* FieldLevelEncryptionConfigInUse `object`: The specified configuration for field-level encryption is in use.
-  * Message [string](#string)
+
 
 ### FieldLevelEncryptionList
 * FieldLevelEncryptionList `object`: List of field-level encrpytion configurations.
-  * Items [FieldLevelEncryptionSummaryList](#fieldlevelencryptionsummarylist)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * Comment
+      * ContentTypeProfileConfig
+        * ContentTypeProfiles
+          * Items
+          * Quantity **required**
+        * ForwardWhenContentTypeIsUnknown **required**
+      * Id **required**
+      * LastModifiedTime **required**
+      * QueryArgProfileConfig
+        * ForwardWhenQueryArgProfileIsUnknown **required**
+        * QueryArgProfiles
+          * Items
+          * Quantity **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### FieldLevelEncryptionProfile
 * FieldLevelEncryptionProfile `object`: A complex data type for field-level encryption profiles.
-  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
-  * Id **required** [string](#string)
-  * LastModifiedTime **required** [timestamp](#timestamp)
+  * FieldLevelEncryptionProfileConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncryptionEntities **required**
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name **required**
+  * Id **required**
+  * LastModifiedTime **required**
 
 ### FieldLevelEncryptionProfileAlreadyExists
-* FieldLevelEncryptionProfileAlreadyExists `object`: The specified profile for field-level encryption already exists.
-  * Message [string](#string)
+
 
 ### FieldLevelEncryptionProfileConfig
 * FieldLevelEncryptionProfileConfig `object`: A complex data type of profiles for the field-level encryption.
-  * CallerReference **required** [string](#string)
-  * Comment [string](#string)
-  * EncryptionEntities **required** [EncryptionEntities](#encryptionentities)
-  * Name **required** [string](#string)
+  * CallerReference **required**
+  * Comment
+  * EncryptionEntities **required**
+    * Items
+      * items
+        * FieldPatterns **required**
+          * Items
+          * Quantity **required**
+        * ProviderId **required**
+        * PublicKeyId **required**
+    * Quantity **required**
+  * Name **required**
 
 ### FieldLevelEncryptionProfileInUse
-* FieldLevelEncryptionProfileInUse `object`: The specified profile for field-level encryption is in use.
-  * Message [string](#string)
+
 
 ### FieldLevelEncryptionProfileList
 * FieldLevelEncryptionProfileList `object`: List of field-level encryption profiles.
-  * Items [FieldLevelEncryptionProfileSummaryList](#fieldlevelencryptionprofilesummarylist)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * Comment
+      * EncryptionEntities **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Id **required**
+      * LastModifiedTime **required**
+      * Name **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### FieldLevelEncryptionProfileSizeExceeded
-* FieldLevelEncryptionProfileSizeExceeded `object`: The maximum size of a profile for field-level encryption was exceeded.
-  * Message [string](#string)
+
 
 ### FieldLevelEncryptionProfileSummary
 * FieldLevelEncryptionProfileSummary `object`: The field-level encryption profile summary.
-  * Comment [string](#string)
-  * EncryptionEntities **required** [EncryptionEntities](#encryptionentities)
-  * Id **required** [string](#string)
-  * LastModifiedTime **required** [timestamp](#timestamp)
-  * Name **required** [string](#string)
+  * Comment
+  * EncryptionEntities **required**
+    * Items
+      * items
+        * FieldPatterns **required**
+          * Items
+          * Quantity **required**
+        * ProviderId **required**
+        * PublicKeyId **required**
+    * Quantity **required**
+  * Id **required**
+  * LastModifiedTime **required**
+  * Name **required**
 
 ### FieldLevelEncryptionProfileSummaryList
 * FieldLevelEncryptionProfileSummaryList `array`
-  * items [FieldLevelEncryptionProfileSummary](#fieldlevelencryptionprofilesummary)
+  * items
+    * Comment
+    * EncryptionEntities **required**
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Id **required**
+    * LastModifiedTime **required**
+    * Name **required**
 
 ### FieldLevelEncryptionSummary
 * FieldLevelEncryptionSummary `object`: A summary of a field-level encryption item.
-  * Comment [string](#string)
-  * ContentTypeProfileConfig [ContentTypeProfileConfig](#contenttypeprofileconfig)
-  * Id **required** [string](#string)
-  * LastModifiedTime **required** [timestamp](#timestamp)
-  * QueryArgProfileConfig [QueryArgProfileConfig](#queryargprofileconfig)
+  * Comment
+  * ContentTypeProfileConfig
+    * ContentTypeProfiles
+      * Items
+        * items
+          * ContentType **required**
+          * Format **required**
+          * ProfileId
+      * Quantity **required**
+    * ForwardWhenContentTypeIsUnknown **required**
+  * Id **required**
+  * LastModifiedTime **required**
+  * QueryArgProfileConfig
+    * ForwardWhenQueryArgProfileIsUnknown **required**
+    * QueryArgProfiles
+      * Items
+        * items
+          * ProfileId **required**
+          * QueryArg **required**
+      * Quantity **required**
 
 ### FieldLevelEncryptionSummaryList
 * FieldLevelEncryptionSummaryList `array`
-  * items [FieldLevelEncryptionSummary](#fieldlevelencryptionsummary)
+  * items
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * Id **required**
+    * LastModifiedTime **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
+
+### FieldList
+* FieldList `array`
+  * items
 
 ### FieldPatternList
 * FieldPatternList `array`
-  * items [string](#string)
+  * items
 
 ### FieldPatterns
 * FieldPatterns `object`: A complex data type that includes the field patterns to match for field-level encryption.
-  * Items [FieldPatternList](#fieldpatternlist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+  * Quantity **required**
 
 ### Format
 * Format `string` (values: URLEncoded)
 
 ### ForwardedValues
-* ForwardedValues `object`: A complex type that specifies how CloudFront handles query strings and cookies.
-  * Cookies **required** [CookiePreference](#cookiepreference)
-  * Headers [Headers](#headers)
-  * QueryString **required** [boolean](#boolean)
-  * QueryStringCacheKeys [QueryStringCacheKeys](#querystringcachekeys)
+* ForwardedValues `object`: <p>This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.</p> <p>If you want to include values in the cache key, use a cache policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <p>If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
+  * Cookies **required**
+    * Forward **required**
+    * WhitelistedNames
+      * Items
+        * items
+      * Quantity **required**
+  * Headers
+    * Items
+      * items
+    * Quantity **required**
+  * QueryString **required**
+  * QueryStringCacheKeys
+    * Items
+      * items
+    * Quantity **required**
 
 ### GeoRestriction
 * GeoRestriction `object`: A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using <code>MaxMind</code> GeoIP databases. 
-  * Items [LocationList](#locationlist)
-  * Quantity **required** [integer](#integer)
-  * RestrictionType **required** [GeoRestrictionType](#georestrictiontype)
+  * Items
+    * items
+  * Quantity **required**
+  * RestrictionType **required**
 
 ### GeoRestrictionType
 * GeoRestrictionType `string` (values: blacklist, whitelist, none)
 
+### GetCachePolicyConfigRequest
+* GetCachePolicyConfigRequest `object`
+
+### GetCachePolicyConfigResult
+* GetCachePolicyConfigResult `object`
+  * CachePolicyConfig
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL **required**
+    * Name **required**
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+
+### GetCachePolicyRequest
+* GetCachePolicyRequest `object`
+
+### GetCachePolicyResult
+* GetCachePolicyResult `object`
+  * CachePolicy
+    * CachePolicyConfig **required**
+      * Comment
+      * DefaultTTL
+      * MaxTTL
+      * MinTTL **required**
+      * Name **required**
+      * ParametersInCacheKeyAndForwardedToOrigin
+        * CookiesConfig **required**
+          * CookieBehavior **required**
+          * Cookies [CookieNames](#cookienames)
+        * EnableAcceptEncodingBrotli
+        * EnableAcceptEncodingGzip **required**
+        * HeadersConfig **required**
+          * HeaderBehavior **required**
+          * Headers [Headers](#headers)
+        * QueryStringsConfig **required**
+          * QueryStringBehavior **required**
+          * QueryStrings
+    * Id **required**
+    * LastModifiedTime **required**
+
 ### GetCloudFrontOriginAccessIdentityConfigRequest
-* GetCloudFrontOriginAccessIdentityConfigRequest `object`: The origin access identity's configuration information. For more information, see <a>CloudFrontOriginAccessIdentityConfigComplexType</a>.
+* GetCloudFrontOriginAccessIdentityConfigRequest `object`: The origin access identity's configuration information. For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CloudFrontOriginAccessIdentityConfig.html">CloudFrontOriginAccessIdentityConfig</a>.
 
 ### GetCloudFrontOriginAccessIdentityConfigResult
 * GetCloudFrontOriginAccessIdentityConfigResult `object`: The returned result of the corresponding request.
-  * CloudFrontOriginAccessIdentityConfig [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+  * CloudFrontOriginAccessIdentityConfig
+    * CallerReference **required**
+    * Comment **required**
 
 ### GetCloudFrontOriginAccessIdentityRequest
 * GetCloudFrontOriginAccessIdentityRequest `object`: The request to get an origin access identity's information.
 
 ### GetCloudFrontOriginAccessIdentityResult
 * GetCloudFrontOriginAccessIdentityResult `object`: The returned result of the corresponding request.
-  * CloudFrontOriginAccessIdentity [CloudFrontOriginAccessIdentity](#cloudfrontoriginaccessidentity)
+  * CloudFrontOriginAccessIdentity
+    * CloudFrontOriginAccessIdentityConfig
+      * CallerReference **required**
+      * Comment **required**
+    * Id **required**
+    * S3CanonicalUserId **required**
 
 ### GetDistributionConfigRequest
 * GetDistributionConfigRequest `object`: The request to get a distribution configuration.
 
 ### GetDistributionConfigResult
 * GetDistributionConfigResult `object`: The returned result of the corresponding request.
-  * DistributionConfig [DistributionConfig](#distributionconfig)
+  * DistributionConfig
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled **required**
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
 
 ### GetDistributionRequest
 * GetDistributionRequest `object`: The request to get a distribution's information.
 
 ### GetDistributionResult
 * GetDistributionResult `object`: The returned result of the corresponding request.
-  * Distribution [Distribution](#distribution)
+  * Distribution
+    * ARN **required**
+    * ActiveTrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+          * KeyGroupId
+          * KeyPairIds [KeyPairIds](#keypairids)
+      * Quantity **required**
+    * ActiveTrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * AliasICPRecordals
+      * items
+        * CNAME
+        * ICPRecordalStatus
+    * DistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * DomainName **required**
+    * Id **required**
+    * InProgressInvalidationBatches **required**
+    * LastModifiedTime **required**
+    * Status **required**
 
 ### GetFieldLevelEncryptionConfigRequest
 * GetFieldLevelEncryptionConfigRequest `object`
 
 ### GetFieldLevelEncryptionConfigResult
 * GetFieldLevelEncryptionConfigResult `object`
-  * FieldLevelEncryptionConfig [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * FieldLevelEncryptionConfig
+    * CallerReference **required**
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
 
 ### GetFieldLevelEncryptionProfileConfigRequest
 * GetFieldLevelEncryptionProfileConfigRequest `object`
 
 ### GetFieldLevelEncryptionProfileConfigResult
 * GetFieldLevelEncryptionProfileConfigResult `object`
-  * FieldLevelEncryptionProfileConfig [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * FieldLevelEncryptionProfileConfig
+    * CallerReference **required**
+    * Comment
+    * EncryptionEntities **required**
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name **required**
 
 ### GetFieldLevelEncryptionProfileRequest
 * GetFieldLevelEncryptionProfileRequest `object`
 
 ### GetFieldLevelEncryptionProfileResult
 * GetFieldLevelEncryptionProfileResult `object`
-  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+  * FieldLevelEncryptionProfile
+    * FieldLevelEncryptionProfileConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncryptionEntities **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Name **required**
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### GetFieldLevelEncryptionRequest
 * GetFieldLevelEncryptionRequest `object`
 
 ### GetFieldLevelEncryptionResult
 * GetFieldLevelEncryptionResult `object`
-  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+  * FieldLevelEncryption
+    * FieldLevelEncryptionConfig **required**
+      * CallerReference **required**
+      * Comment
+      * ContentTypeProfileConfig
+        * ContentTypeProfiles
+          * Items
+          * Quantity **required**
+        * ForwardWhenContentTypeIsUnknown **required**
+      * QueryArgProfileConfig
+        * ForwardWhenQueryArgProfileIsUnknown **required**
+        * QueryArgProfiles
+          * Items
+          * Quantity **required**
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### GetInvalidationRequest
 * GetInvalidationRequest `object`: The request to get an invalidation's information. 
 
 ### GetInvalidationResult
 * GetInvalidationResult `object`: The returned result of the corresponding request.
-  * Invalidation [Invalidation](#invalidation)
+  * Invalidation
+    * CreateTime **required**
+    * Id **required**
+    * InvalidationBatch **required**
+      * CallerReference **required**
+      * Paths **required**
+        * Items
+          * items
+        * Quantity **required**
+    * Status **required**
+
+### GetKeyGroupConfigRequest
+* GetKeyGroupConfigRequest `object`
+
+### GetKeyGroupConfigResult
+* GetKeyGroupConfigResult `object`
+  * KeyGroupConfig
+    * Comment
+    * Items **required**
+      * items
+    * Name **required**
+
+### GetKeyGroupRequest
+* GetKeyGroupRequest `object`
+
+### GetKeyGroupResult
+* GetKeyGroupResult `object`
+  * KeyGroup
+    * Id **required**
+    * KeyGroupConfig **required**
+      * Comment
+      * Items **required**
+        * items
+      * Name **required**
+    * LastModifiedTime **required**
+
+### GetMonitoringSubscriptionRequest
+* GetMonitoringSubscriptionRequest `object`
+
+### GetMonitoringSubscriptionResult
+* GetMonitoringSubscriptionResult `object`
+  * MonitoringSubscription
+    * RealtimeMetricsSubscriptionConfig
+      * RealtimeMetricsSubscriptionStatus **required**
+
+### GetOriginRequestPolicyConfigRequest
+* GetOriginRequestPolicyConfigRequest `object`
+
+### GetOriginRequestPolicyConfigResult
+* GetOriginRequestPolicyConfigResult `object`
+  * OriginRequestPolicyConfig
+    * Comment
+    * CookiesConfig **required**
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig **required**
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name **required**
+    * QueryStringsConfig **required**
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+### GetOriginRequestPolicyRequest
+* GetOriginRequestPolicyRequest `object`
+
+### GetOriginRequestPolicyResult
+* GetOriginRequestPolicyResult `object`
+  * OriginRequestPolicy
+    * Id **required**
+    * LastModifiedTime **required**
+    * OriginRequestPolicyConfig **required**
+      * Comment
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * Name **required**
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
 
 ### GetPublicKeyConfigRequest
 * GetPublicKeyConfigRequest `object`
 
 ### GetPublicKeyConfigResult
 * GetPublicKeyConfigResult `object`
-  * PublicKeyConfig [PublicKeyConfig](#publickeyconfig)
+  * PublicKeyConfig
+    * CallerReference **required**
+    * Comment
+    * EncodedKey **required**
+    * Name **required**
 
 ### GetPublicKeyRequest
 * GetPublicKeyRequest `object`
 
 ### GetPublicKeyResult
 * GetPublicKeyResult `object`
-  * PublicKey [PublicKey](#publickey)
+  * PublicKey
+    * CreatedTime **required**
+    * Id **required**
+    * PublicKeyConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncodedKey **required**
+      * Name **required**
+
+### GetRealtimeLogConfigRequest
+* GetRealtimeLogConfigRequest `object`
+  * ARN
+  * Name
+
+### GetRealtimeLogConfigResult
+* GetRealtimeLogConfigResult `object`
+  * RealtimeLogConfig
+    * ARN **required**
+    * EndPoints **required**
+      * items [EndPoint](#endpoint)
+    * Fields **required**
+      * items
+    * Name **required**
+    * SamplingRate **required**
 
 ### GetStreamingDistributionConfigRequest
 * GetStreamingDistributionConfigRequest `object`: To request to get a streaming distribution configuration.
 
 ### GetStreamingDistributionConfigResult
 * GetStreamingDistributionConfigResult `object`: The returned result of the corresponding request.
-  * StreamingDistributionConfig [StreamingDistributionConfig](#streamingdistributionconfig)
+  * StreamingDistributionConfig
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * Enabled **required**
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### GetStreamingDistributionRequest
 * GetStreamingDistributionRequest `object`: The request to get a streaming distribution's information.
 
 ### GetStreamingDistributionResult
 * GetStreamingDistributionResult `object`: The returned result of the corresponding request.
-  * StreamingDistribution [StreamingDistribution](#streamingdistribution)
+  * StreamingDistribution
+    * ARN **required**
+    * ActiveTrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * DomainName **required**
+    * Id **required**
+    * LastModifiedTime
+    * Status **required**
+    * StreamingDistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
 
 ### HeaderList
 * HeaderList `array`
-  * items [string](#string)
+  * items
 
 ### Headers
-* Headers `object`: <p>A complex type that specifies the request headers, if any, that you want CloudFront to base caching on for this cache behavior. </p> <p>For the headers that you specify, CloudFront caches separate versions of a specified object based on the header values in viewer requests. For example, suppose viewer requests for <code>logo.jpg</code> contain a custom <code>product</code> header that has a value of either <code>acme</code> or <code>apex</code>, and you configure CloudFront to cache your content based on values in the <code>product</code> header. CloudFront forwards the <code>product</code> header to the origin and caches the response from the origin once for each header value. For more information about caching based on header values, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html">How CloudFront Forwards and Caches Headers</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-  * Items [HeaderList](#headerlist)
-  * Quantity **required** [integer](#integer)
+* Headers `object`: Contains a list of HTTP header names.
+  * Items
+    * items
+  * Quantity **required**
 
 ### HttpVersion
 * HttpVersion `string` (values: http1.1, http2)
 
+### ICPRecordalStatus
+* ICPRecordalStatus `string` (values: APPROVED, SUSPENDED, PENDING)
+
+### IllegalDelete
+
+
 ### IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-* IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior `object`: The specified configuration for field-level encryption can't be associated with the specified cache behavior.
-  * Message [string](#string)
+
 
 ### IllegalUpdate
-* IllegalUpdate `object`: Origin and <code>CallerReference</code> cannot be updated. 
-  * Message [string](#string)
+
 
 ### InconsistentQuantities
-* InconsistentQuantities `object`: The value of <code>Quantity</code> and the size of <code>Items</code> don't match.
-  * Message [string](#string)
+
 
 ### InvalidArgument
-* InvalidArgument `object`: The argument is invalid.
-  * Message [string](#string)
+
 
 ### InvalidDefaultRootObject
-* InvalidDefaultRootObject `object`: The default root object file name is too big or contains an invalid character.
-  * Message [string](#string)
+
 
 ### InvalidErrorCode
-* InvalidErrorCode `object`
-  * Message [string](#string)
+
 
 ### InvalidForwardCookies
-* InvalidForwardCookies `object`: Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
-  * Message [string](#string)
+
 
 ### InvalidGeoRestrictionParameter
-* InvalidGeoRestrictionParameter `object`
-  * Message [string](#string)
+
 
 ### InvalidHeadersForS3Origin
-* InvalidHeadersForS3Origin `object`
-  * Message [string](#string)
+
 
 ### InvalidIfMatchVersion
-* InvalidIfMatchVersion `object`: The <code>If-Match</code> version is missing or not valid for the distribution.
-  * Message [string](#string)
+
 
 ### InvalidLambdaFunctionAssociation
-* InvalidLambdaFunctionAssociation `object`: The specified Lambda function association is invalid.
-  * Message [string](#string)
+
 
 ### InvalidLocationCode
-* InvalidLocationCode `object`
-  * Message [string](#string)
+
 
 ### InvalidMinimumProtocolVersion
-* InvalidMinimumProtocolVersion `object`
-  * Message [string](#string)
+
 
 ### InvalidOrigin
-* InvalidOrigin `object`: The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
-  * Message [string](#string)
+
 
 ### InvalidOriginAccessIdentity
-* InvalidOriginAccessIdentity `object`: The origin access identity is not valid or doesn't exist.
-  * Message [string](#string)
+
 
 ### InvalidOriginKeepaliveTimeout
-* InvalidOriginKeepaliveTimeout `object`
-  * Message [string](#string)
+
 
 ### InvalidOriginReadTimeout
-* InvalidOriginReadTimeout `object`
-  * Message [string](#string)
+
 
 ### InvalidProtocolSettings
-* InvalidProtocolSettings `object`: You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).
-  * Message [string](#string)
+
 
 ### InvalidQueryStringParameters
-* InvalidQueryStringParameters `object`
-  * Message [string](#string)
+
 
 ### InvalidRelativePath
-* InvalidRelativePath `object`: The relative path is too big, is not URL-encoded, or does not begin with a slash (/).
-  * Message [string](#string)
+
 
 ### InvalidRequiredProtocol
-* InvalidRequiredProtocol `object`: This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.
-  * Message [string](#string)
+
 
 ### InvalidResponseCode
-* InvalidResponseCode `object`
-  * Message [string](#string)
+
 
 ### InvalidTTLOrder
-* InvalidTTLOrder `object`
-  * Message [string](#string)
+
 
 ### InvalidTagging
-* InvalidTagging `object`
-  * Message [string](#string)
+
 
 ### InvalidViewerCertificate
-* InvalidViewerCertificate `object`
-  * Message [string](#string)
+
 
 ### InvalidWebACLId
-* InvalidWebACLId `object`
-  * Message [string](#string)
+
 
 ### Invalidation
 * Invalidation `object`: An invalidation. 
-  * CreateTime **required** [timestamp](#timestamp)
-  * Id **required** [string](#string)
-  * InvalidationBatch **required** [InvalidationBatch](#invalidationbatch)
-  * Status **required** [string](#string)
+  * CreateTime **required**
+  * Id **required**
+  * InvalidationBatch **required**
+    * CallerReference **required**
+    * Paths **required**
+      * Items
+        * items
+      * Quantity **required**
+  * Status **required**
 
 ### InvalidationBatch
 * InvalidationBatch `object`: An invalidation batch.
-  * CallerReference **required** [string](#string)
-  * Paths **required** [Paths](#paths)
+  * CallerReference **required**
+  * Paths **required**
+    * Items
+      * items
+    * Quantity **required**
 
 ### InvalidationList
-* InvalidationList `object`: The <code>InvalidationList</code> complex type describes the list of invalidation objects. For more information about invalidation, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects (Web Distributions Only)</a> in the <i>Amazon CloudFront Developer Guide</i>.
-  * IsTruncated **required** [boolean](#boolean)
-  * Items [InvalidationSummaryList](#invalidationsummarylist)
-  * Marker **required** [string](#string)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+* InvalidationList `object`: The <code>InvalidationList</code> complex type describes the list of invalidation objects. For more information about invalidation, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects (Web Distributions Only)</a> in the <i>Amazon CloudFront Developer Guide</i>.
+  * IsTruncated **required**
+  * Items
+    * items
+      * CreateTime **required**
+      * Id **required**
+      * Status **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### InvalidationSummary
 * InvalidationSummary `object`: A summary of an invalidation request.
-  * CreateTime **required** [timestamp](#timestamp)
-  * Id **required** [string](#string)
-  * Status **required** [string](#string)
+  * CreateTime **required**
+  * Id **required**
+  * Status **required**
 
 ### InvalidationSummaryList
 * InvalidationSummaryList `array`
-  * items [InvalidationSummary](#invalidationsummary)
+  * items
+    * CreateTime **required**
+    * Id **required**
+    * Status **required**
 
 ### ItemSelection
 * ItemSelection `string` (values: none, whitelist, all)
 
+### KGKeyPairIds
+* KGKeyPairIds `object`: A list of identifiers for the public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * KeyGroupId
+  * KeyPairIds [KeyPairIds](#keypairids)
+
+### KGKeyPairIdsList
+* KGKeyPairIdsList `array`
+  * items
+    * KeyGroupId
+    * KeyPairIds [KeyPairIds](#keypairids)
+
+### KeyGroup
+* KeyGroup `object`: <p>A key group.</p> <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+  * Id **required**
+  * KeyGroupConfig **required**
+    * Comment
+    * Items **required**
+      * items
+    * Name **required**
+  * LastModifiedTime **required**
+
+### KeyGroupAlreadyExists
+
+
+### KeyGroupConfig
+* KeyGroupConfig `object`: <p>A key group configuration.</p> <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+  * Comment
+  * Items **required**
+    * items
+  * Name **required**
+
+### KeyGroupList
+* KeyGroupList `object`: A list of key groups.
+  * Items
+    * items
+      * KeyGroup **required**
+        * Id **required**
+        * KeyGroupConfig **required**
+          * Comment
+          * Items **required**
+          * Name **required**
+        * LastModifiedTime **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
+
+### KeyGroupSummary
+* KeyGroupSummary `object`: Contains information about a key group.
+  * KeyGroup **required**
+    * Id **required**
+    * KeyGroupConfig **required**
+      * Comment
+      * Items **required**
+        * items
+      * Name **required**
+    * LastModifiedTime **required**
+
+### KeyGroupSummaryList
+* KeyGroupSummaryList `array`
+  * items
+    * KeyGroup **required**
+      * Id **required**
+      * KeyGroupConfig **required**
+        * Comment
+        * Items **required**
+          * items
+        * Name **required**
+      * LastModifiedTime **required**
+
 ### KeyPairIdList
 * KeyPairIdList `array`
-  * items [string](#string)
+  * items
 
 ### KeyPairIds
-* KeyPairIds `object`: <p>A complex type that lists the active CloudFront key pairs, if any, that are associated with <code>AwsAccountNumber</code>. </p> <p>For more information, see <a>ActiveTrustedSigners</a>.</p>
-  * Items [KeyPairIdList](#keypairidlist)
-  * Quantity **required** [integer](#integer)
+* KeyPairIds `object`: A list of CloudFront key pair identifiers.
+  * Items
+    * items
+  * Quantity **required**
+
+### KinesisStreamConfig
+* KinesisStreamConfig `object`: Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+  * RoleARN **required**
+  * StreamARN **required**
 
 ### LambdaFunctionARN
 * LambdaFunctionARN `string`
 
 ### LambdaFunctionAssociation
 * LambdaFunctionAssociation `object`: A complex type that contains a Lambda function association.
-  * EventType **required** [EventType](#eventtype)
-  * LambdaFunctionARN **required** [LambdaFunctionARN](#lambdafunctionarn)
+  * EventType **required**
+  * IncludeBody
+  * LambdaFunctionARN **required**
 
 ### LambdaFunctionAssociationList
 * LambdaFunctionAssociationList `array`
-  * items [LambdaFunctionAssociation](#lambdafunctionassociation)
+  * items
+    * EventType **required**
+    * IncludeBody
+    * LambdaFunctionARN **required**
 
 ### LambdaFunctionAssociations
 * LambdaFunctionAssociations `object`: <p>A complex type that specifies a list of Lambda functions associations for a cache behavior.</p> <p>If you want to invoke one or more Lambda functions triggered by requests that match the <code>PathPattern</code> of the cache behavior, specify the applicable values for <code>Quantity</code> and <code>Items</code>. Note that there can be up to 4 <code>LambdaFunctionAssociation</code> items in this list (one for each possible value of <code>EventType</code>) and each <code>EventType</code> can be associated with the Lambda function only once.</p> <p>If you don't want to invoke any Lambda functions for the requests that match <code>PathPattern</code>, specify <code>0</code> for <code>Quantity</code> and omit <code>Items</code>. </p>
-  * Items [LambdaFunctionAssociationList](#lambdafunctionassociationlist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * EventType **required**
+      * IncludeBody
+      * LambdaFunctionARN **required**
+  * Quantity **required**
+
+### ListCachePoliciesRequest
+* ListCachePoliciesRequest `object`
+
+### ListCachePoliciesResult
+* ListCachePoliciesResult `object`
+  * CachePolicyList
+    * Items
+      * items
+        * CachePolicy **required**
+          * CachePolicyConfig **required**
+          * Id **required**
+          * LastModifiedTime **required**
+        * Type **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListCloudFrontOriginAccessIdentitiesRequest
 * ListCloudFrontOriginAccessIdentitiesRequest `object`: The request to list origin access identities. 
 
 ### ListCloudFrontOriginAccessIdentitiesResult
 * ListCloudFrontOriginAccessIdentitiesResult `object`: The returned result of the corresponding request. 
-  * CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentityList](#cloudfrontoriginaccessidentitylist)
+  * CloudFrontOriginAccessIdentityList
+    * IsTruncated **required**
+    * Items
+      * items
+        * Comment **required**
+        * Id **required**
+        * S3CanonicalUserId **required**
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListDistributionsByCachePolicyIdRequest
+* ListDistributionsByCachePolicyIdRequest `object`
+
+### ListDistributionsByCachePolicyIdResult
+* ListDistributionsByCachePolicyIdResult `object`
+  * DistributionIdList
+    * IsTruncated **required**
+    * Items
+      * items
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListDistributionsByKeyGroupRequest
+* ListDistributionsByKeyGroupRequest `object`
+
+### ListDistributionsByKeyGroupResult
+* ListDistributionsByKeyGroupResult `object`
+  * DistributionIdList [DistributionIdList](#distributionidlist)
+
+### ListDistributionsByOriginRequestPolicyIdRequest
+* ListDistributionsByOriginRequestPolicyIdRequest `object`
+
+### ListDistributionsByOriginRequestPolicyIdResult
+* ListDistributionsByOriginRequestPolicyIdResult `object`
+  * DistributionIdList
+    * IsTruncated **required**
+    * Items
+      * items
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListDistributionsByRealtimeLogConfigRequest
+* ListDistributionsByRealtimeLogConfigRequest `object`
+  * Marker
+  * MaxItems
+  * RealtimeLogConfigArn
+  * RealtimeLogConfigName
+
+### ListDistributionsByRealtimeLogConfigResult
+* ListDistributionsByRealtimeLogConfigResult `object`
+  * DistributionList [DistributionList](#distributionlist)
 
 ### ListDistributionsByWebACLIdRequest
 * ListDistributionsByWebACLIdRequest `object`: The request to list distributions that are associated with a specified AWS WAF web ACL. 
 
 ### ListDistributionsByWebACLIdResult
 * ListDistributionsByWebACLIdResult `object`: The response to a request to list the distributions that are associated with a specified AWS WAF web ACL. 
-  * DistributionList [DistributionList](#distributionlist)
+  * DistributionList
+    * IsTruncated **required**
+    * Items
+      * items
+        * ARN **required**
+        * AliasICPRecordals
+          * items
+        * Aliases **required**
+          * Items
+          * Quantity **required**
+        * CacheBehaviors **required**
+          * Items
+          * Quantity **required**
+        * Comment **required**
+        * CustomErrorResponses **required**
+          * Items
+          * Quantity **required**
+        * DefaultCacheBehavior **required**
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+        * DomainName **required**
+        * Enabled **required**
+        * HttpVersion **required**
+        * Id **required**
+        * IsIPV6Enabled **required**
+        * LastModifiedTime **required**
+        * OriginGroups
+          * Items
+          * Quantity **required**
+        * Origins **required**
+          * Items **required**
+          * Quantity **required**
+        * PriceClass **required**
+        * Restrictions **required**
+          * GeoRestriction **required**
+        * Status **required**
+        * ViewerCertificate **required**
+          * ACMCertificateArn
+          * Certificate
+          * CertificateSource
+          * CloudFrontDefaultCertificate
+          * IAMCertificateId
+          * MinimumProtocolVersion
+          * SSLSupportMethod
+        * WebACLId **required**
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListDistributionsRequest
 * ListDistributionsRequest `object`: The request to list your distributions. 
 
 ### ListDistributionsResult
 * ListDistributionsResult `object`: The returned result of the corresponding request. 
-  * DistributionList [DistributionList](#distributionlist)
+  * DistributionList
+    * IsTruncated **required**
+    * Items
+      * items
+        * ARN **required**
+        * AliasICPRecordals
+          * items
+        * Aliases **required**
+          * Items
+          * Quantity **required**
+        * CacheBehaviors **required**
+          * Items
+          * Quantity **required**
+        * Comment **required**
+        * CustomErrorResponses **required**
+          * Items
+          * Quantity **required**
+        * DefaultCacheBehavior **required**
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+        * DomainName **required**
+        * Enabled **required**
+        * HttpVersion **required**
+        * Id **required**
+        * IsIPV6Enabled **required**
+        * LastModifiedTime **required**
+        * OriginGroups
+          * Items
+          * Quantity **required**
+        * Origins **required**
+          * Items **required**
+          * Quantity **required**
+        * PriceClass **required**
+        * Restrictions **required**
+          * GeoRestriction **required**
+        * Status **required**
+        * ViewerCertificate **required**
+          * ACMCertificateArn
+          * Certificate
+          * CertificateSource
+          * CloudFrontDefaultCertificate
+          * IAMCertificateId
+          * MinimumProtocolVersion
+          * SSLSupportMethod
+        * WebACLId **required**
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListFieldLevelEncryptionConfigsRequest
 * ListFieldLevelEncryptionConfigsRequest `object`
 
 ### ListFieldLevelEncryptionConfigsResult
 * ListFieldLevelEncryptionConfigsResult `object`
-  * FieldLevelEncryptionList [FieldLevelEncryptionList](#fieldlevelencryptionlist)
+  * FieldLevelEncryptionList
+    * Items
+      * items
+        * Comment
+        * ContentTypeProfileConfig
+          * ContentTypeProfiles
+          * ForwardWhenContentTypeIsUnknown **required**
+        * Id **required**
+        * LastModifiedTime **required**
+        * QueryArgProfileConfig
+          * ForwardWhenQueryArgProfileIsUnknown **required**
+          * QueryArgProfiles
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListFieldLevelEncryptionProfilesRequest
 * ListFieldLevelEncryptionProfilesRequest `object`
 
 ### ListFieldLevelEncryptionProfilesResult
 * ListFieldLevelEncryptionProfilesResult `object`
-  * FieldLevelEncryptionProfileList [FieldLevelEncryptionProfileList](#fieldlevelencryptionprofilelist)
+  * FieldLevelEncryptionProfileList
+    * Items
+      * items
+        * Comment
+        * EncryptionEntities **required**
+          * Items
+          * Quantity **required**
+        * Id **required**
+        * LastModifiedTime **required**
+        * Name **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListInvalidationsRequest
 * ListInvalidationsRequest `object`: The request to list invalidations. 
 
 ### ListInvalidationsResult
 * ListInvalidationsResult `object`: The returned result of the corresponding request. 
-  * InvalidationList [InvalidationList](#invalidationlist)
+  * InvalidationList
+    * IsTruncated **required**
+    * Items
+      * items
+        * CreateTime **required**
+        * Id **required**
+        * Status **required**
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListKeyGroupsRequest
+* ListKeyGroupsRequest `object`
+
+### ListKeyGroupsResult
+* ListKeyGroupsResult `object`
+  * KeyGroupList
+    * Items
+      * items
+        * KeyGroup **required**
+          * Id **required**
+          * KeyGroupConfig **required**
+          * LastModifiedTime **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListOriginRequestPoliciesRequest
+* ListOriginRequestPoliciesRequest `object`
+
+### ListOriginRequestPoliciesResult
+* ListOriginRequestPoliciesResult `object`
+  * OriginRequestPolicyList
+    * Items
+      * items
+        * OriginRequestPolicy **required**
+          * Id **required**
+          * LastModifiedTime **required**
+          * OriginRequestPolicyConfig **required**
+        * Type **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListPublicKeysRequest
 * ListPublicKeysRequest `object`
 
 ### ListPublicKeysResult
 * ListPublicKeysResult `object`
-  * PublicKeyList [PublicKeyList](#publickeylist)
+  * PublicKeyList
+    * Items
+      * items
+        * Comment
+        * CreatedTime **required**
+        * EncodedKey **required**
+        * Id **required**
+        * Name **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
+
+### ListRealtimeLogConfigsRequest
+* ListRealtimeLogConfigsRequest `object`
+
+### ListRealtimeLogConfigsResult
+* ListRealtimeLogConfigsResult `object`
+  * RealtimeLogConfigs
+    * IsTruncated **required**
+    * Items
+      * items [RealtimeLogConfig](#realtimelogconfig)
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
 
 ### ListStreamingDistributionsRequest
 * ListStreamingDistributionsRequest `object`: The request to list your streaming distributions. 
 
 ### ListStreamingDistributionsResult
 * ListStreamingDistributionsResult `object`: The returned result of the corresponding request. 
-  * StreamingDistributionList [StreamingDistributionList](#streamingdistributionlist)
+  * StreamingDistributionList
+    * IsTruncated **required**
+    * Items
+      * items
+        * ARN **required**
+        * Aliases **required**
+          * Items
+          * Quantity **required**
+        * Comment **required**
+        * DomainName **required**
+        * Enabled **required**
+        * Id **required**
+        * LastModifiedTime **required**
+        * PriceClass **required**
+        * S3Origin **required**
+          * DomainName **required**
+          * OriginAccessIdentity **required**
+        * Status **required**
+        * TrustedSigners **required**
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+    * Marker **required**
+    * MaxItems **required**
+    * NextMarker
+    * Quantity **required**
 
 ### ListTagsForResourceRequest
 * ListTagsForResourceRequest `object`:  The request to list tags for a CloudFront resource.
 
 ### ListTagsForResourceResult
 * ListTagsForResourceResult `object`:  The returned result of the corresponding request.
-  * Tags **required** [Tags](#tags)
+  * Tags **required**
+    * Items
+      * items
+        * Key **required**
+        * Value
 
 ### LocationList
 * LocationList `array`
-  * items [string](#string)
+  * items
 
 ### LoggingConfig
 * LoggingConfig `object`: A complex type that controls whether access logs are written for the distribution.
-  * Bucket **required** [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * IncludeCookies **required** [boolean](#boolean)
-  * Prefix **required** [string](#string)
+  * Bucket **required**
+  * Enabled **required**
+  * IncludeCookies **required**
+  * Prefix **required**
 
 ### Method
 * Method `string` (values: GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE)
 
 ### MethodsList
 * MethodsList `array`
-  * items [Method](#method)
+  * items
 
 ### MinimumProtocolVersion
-* MinimumProtocolVersion `string` (values: SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018)
+* MinimumProtocolVersion `string` (values: SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019)
 
 ### MissingBody
-* MissingBody `object`: This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.
-  * Message [string](#string)
+
+
+### MonitoringSubscription
+* MonitoringSubscription `object`: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+  * RealtimeMetricsSubscriptionConfig
+    * RealtimeMetricsSubscriptionStatus **required**
+
+### NoSuchCachePolicy
+
 
 ### NoSuchCloudFrontOriginAccessIdentity
-* NoSuchCloudFrontOriginAccessIdentity `object`: The specified origin access identity does not exist.
-  * Message [string](#string)
+
 
 ### NoSuchDistribution
-* NoSuchDistribution `object`: The specified distribution does not exist.
-  * Message [string](#string)
+
 
 ### NoSuchFieldLevelEncryptionConfig
-* NoSuchFieldLevelEncryptionConfig `object`: The specified configuration for field-level encryption doesn't exist.
-  * Message [string](#string)
+
 
 ### NoSuchFieldLevelEncryptionProfile
-* NoSuchFieldLevelEncryptionProfile `object`: The specified profile for field-level encryption doesn't exist.
-  * Message [string](#string)
+
 
 ### NoSuchInvalidation
-* NoSuchInvalidation `object`: The specified invalidation does not exist.
-  * Message [string](#string)
+
 
 ### NoSuchOrigin
-* NoSuchOrigin `object`: No origin exists with the specified <code>Origin Id</code>. 
-  * Message [string](#string)
+
+
+### NoSuchOriginRequestPolicy
+
 
 ### NoSuchPublicKey
-* NoSuchPublicKey `object`: The specified public key doesn't exist.
-  * Message [string](#string)
+
+
+### NoSuchRealtimeLogConfig
+
 
 ### NoSuchResource
-* NoSuchResource `object`
-  * Message [string](#string)
+
 
 ### NoSuchStreamingDistribution
-* NoSuchStreamingDistribution `object`: The specified streaming distribution does not exist.
-  * Message [string](#string)
+
 
 ### Origin
-* Origin `object`: <p>A complex type that describes the Amazon S3 bucket or the HTTP server (for example, a web server) from which CloudFront gets your files. You must create at least one origin.</p> <p>For the current limit on the number of origins that you can create for a distribution, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront Limits</a> in the <i>AWS General Reference</i>.</p>
-  * CustomHeaders [CustomHeaders](#customheaders)
-  * CustomOriginConfig [CustomOriginConfig](#customoriginconfig)
-  * DomainName **required** [string](#string)
-  * Id **required** [string](#string)
-  * OriginPath [string](#string)
-  * S3OriginConfig [S3OriginConfig](#s3originconfig)
+* Origin `object`: <p>An origin.</p> <p>An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:</p> <ul> <li> <p>Use <code>S3OriginConfig</code> to specify an Amazon S3 bucket that is not configured with static website hosting.</p> </li> <li> <p>Use <code>CustomOriginConfig</code> to specify all other kinds of origins, including:</p> <ul> <li> <p>An Amazon S3 bucket that is configured with static website hosting</p> </li> <li> <p>An Elastic Load Balancing load balancer</p> </li> <li> <p>An AWS Elemental MediaPackage endpoint</p> </li> <li> <p>An AWS Elemental MediaStore container</p> </li> <li> <p>Any other HTTP server, running on an Amazon EC2 instance or any other kind of host</p> </li> </ul> </li> </ul> <p>For the current maximum number of origins that you can specify per distribution, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions">General Quotas on Web Distributions</a> in the <i>Amazon CloudFront Developer Guide</i> (quotas were formerly referred to as limits).</p>
+  * ConnectionAttempts
+  * ConnectionTimeout
+  * CustomHeaders
+    * Items
+      * items
+        * HeaderName **required**
+        * HeaderValue **required**
+    * Quantity **required**
+  * CustomOriginConfig
+    * HTTPPort **required**
+    * HTTPSPort **required**
+    * OriginKeepaliveTimeout
+    * OriginProtocolPolicy **required**
+    * OriginReadTimeout
+    * OriginSslProtocols
+      * Items **required**
+        * items
+      * Quantity **required**
+  * DomainName **required**
+  * Id **required**
+  * OriginPath
+  * OriginShield
+    * Enabled **required**
+    * OriginShieldRegion
+  * S3OriginConfig
+    * OriginAccessIdentity **required**
 
 ### OriginCustomHeader
 * OriginCustomHeader `object`: A complex type that contains <code>HeaderName</code> and <code>HeaderValue</code> elements, if any, for this distribution. 
-  * HeaderName **required** [string](#string)
-  * HeaderValue **required** [string](#string)
+  * HeaderName **required**
+  * HeaderValue **required**
 
 ### OriginCustomHeadersList
 * OriginCustomHeadersList `array`
-  * items [OriginCustomHeader](#origincustomheader)
+  * items
+    * HeaderName **required**
+    * HeaderValue **required**
+
+### OriginGroup
+* OriginGroup `object`: An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specifiy the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+  * FailoverCriteria **required**
+    * StatusCodes **required**
+      * Items **required**
+        * items
+      * Quantity **required**
+  * Id **required**
+  * Members **required**
+    * Items **required**
+      * items
+        * OriginId **required**
+    * Quantity **required**
+
+### OriginGroupFailoverCriteria
+* OriginGroupFailoverCriteria `object`: A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+  * StatusCodes **required**
+    * Items **required**
+      * items
+    * Quantity **required**
+
+### OriginGroupList
+* OriginGroupList `array`: List of origin groups for a distribution.
+  * items
+    * FailoverCriteria **required**
+      * StatusCodes **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+    * Id **required**
+    * Members **required**
+      * Items **required**
+        * items
+          * OriginId **required**
+      * Quantity **required**
+
+### OriginGroupMember
+* OriginGroupMember `object`: An origin in an origin group.
+  * OriginId **required**
+
+### OriginGroupMemberList
+* OriginGroupMemberList `array`: List of origins in an origin group.
+  * items
+    * OriginId **required**
+
+### OriginGroupMembers
+* OriginGroupMembers `object`: A complex data type for the origins included in an origin group.
+  * Items **required**
+    * items
+      * OriginId **required**
+  * Quantity **required**
+
+### OriginGroups
+* OriginGroups `object`: A complex data type for the origin groups specified for a distribution.
+  * Items
+    * items
+      * FailoverCriteria **required**
+        * StatusCodes **required**
+          * Items **required**
+          * Quantity **required**
+      * Id **required**
+      * Members **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+  * Quantity **required**
 
 ### OriginList
 * OriginList `array`
-  * items [Origin](#origin)
+  * items
+    * ConnectionAttempts
+    * ConnectionTimeout
+    * CustomHeaders
+      * Items
+        * items
+          * HeaderName **required**
+          * HeaderValue **required**
+      * Quantity **required**
+    * CustomOriginConfig
+      * HTTPPort **required**
+      * HTTPSPort **required**
+      * OriginKeepaliveTimeout
+      * OriginProtocolPolicy **required**
+      * OriginReadTimeout
+      * OriginSslProtocols
+        * Items **required**
+          * items
+        * Quantity **required**
+    * DomainName **required**
+    * Id **required**
+    * OriginPath
+    * OriginShield
+      * Enabled **required**
+      * OriginShieldRegion
+    * S3OriginConfig
+      * OriginAccessIdentity **required**
 
 ### OriginProtocolPolicy
 * OriginProtocolPolicy `string` (values: http-only, match-viewer, https-only)
 
+### OriginRequestPolicy
+* OriginRequestPolicy `object`: <p>An origin request policy.</p> <p>When it’s attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:</p> <ul> <li> <p>The request body and the URL path (without the domain name) from the viewer request.</p> </li> <li> <p>The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p> </li> <li> <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.</p> </li> </ul> <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</p>
+  * Id **required**
+  * LastModifiedTime **required**
+  * OriginRequestPolicyConfig **required**
+    * Comment
+    * CookiesConfig **required**
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig **required**
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name **required**
+    * QueryStringsConfig **required**
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+### OriginRequestPolicyAlreadyExists
+
+
+### OriginRequestPolicyConfig
+* OriginRequestPolicyConfig `object`: <p>An origin request policy configuration.</p> <p>This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:</p> <ul> <li> <p>The request body and the URL path (without the domain name) from the viewer request.</p> </li> <li> <p>The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p> </li> <li> <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.</p> </li> </ul> <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</p>
+  * Comment
+  * CookiesConfig **required**
+    * CookieBehavior **required**
+    * Cookies [CookieNames](#cookienames)
+  * HeadersConfig **required**
+    * HeaderBehavior **required**
+    * Headers [Headers](#headers)
+  * Name **required**
+  * QueryStringsConfig **required**
+    * QueryStringBehavior **required**
+    * QueryStrings
+      * Items
+        * items
+      * Quantity **required**
+
+### OriginRequestPolicyCookieBehavior
+* OriginRequestPolicyCookieBehavior `string` (values: none, whitelist, all)
+
+### OriginRequestPolicyCookiesConfig
+* OriginRequestPolicyCookiesConfig `object`: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+  * CookieBehavior **required**
+  * Cookies [CookieNames](#cookienames)
+
+### OriginRequestPolicyHeaderBehavior
+* OriginRequestPolicyHeaderBehavior `string` (values: none, whitelist, allViewer, allViewerAndWhitelistCloudFront)
+
+### OriginRequestPolicyHeadersConfig
+* OriginRequestPolicyHeadersConfig `object`: An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+  * HeaderBehavior **required**
+  * Headers [Headers](#headers)
+
+### OriginRequestPolicyInUse
+
+
+### OriginRequestPolicyList
+* OriginRequestPolicyList `object`: A list of origin request policies.
+  * Items
+    * items
+      * OriginRequestPolicy **required**
+        * Id **required**
+        * LastModifiedTime **required**
+        * OriginRequestPolicyConfig **required**
+          * Comment
+          * CookiesConfig **required**
+          * HeadersConfig **required**
+          * Name **required**
+          * QueryStringsConfig **required**
+      * Type **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
+
+### OriginRequestPolicyQueryStringBehavior
+* OriginRequestPolicyQueryStringBehavior `string` (values: none, whitelist, all)
+
+### OriginRequestPolicyQueryStringsConfig
+* OriginRequestPolicyQueryStringsConfig `object`: An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+  * QueryStringBehavior **required**
+  * QueryStrings
+    * Items
+      * items
+    * Quantity **required**
+
+### OriginRequestPolicySummary
+* OriginRequestPolicySummary `object`: Contains an origin request policy.
+  * OriginRequestPolicy **required**
+    * Id **required**
+    * LastModifiedTime **required**
+    * OriginRequestPolicyConfig **required**
+      * Comment
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * Name **required**
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+  * Type **required**
+
+### OriginRequestPolicySummaryList
+* OriginRequestPolicySummaryList `array`
+  * items
+    * OriginRequestPolicy **required**
+      * Id **required**
+      * LastModifiedTime **required**
+      * OriginRequestPolicyConfig **required**
+        * Comment
+        * CookiesConfig **required**
+          * CookieBehavior **required**
+          * Cookies [CookieNames](#cookienames)
+        * HeadersConfig **required**
+          * HeaderBehavior **required**
+          * Headers [Headers](#headers)
+        * Name **required**
+        * QueryStringsConfig **required**
+          * QueryStringBehavior **required**
+          * QueryStrings
+    * Type **required**
+
+### OriginRequestPolicyType
+* OriginRequestPolicyType `string` (values: managed, custom)
+
+### OriginShield
+* OriginShield `object`: <p>CloudFront Origin Shield.</p> <p>Using Origin Shield can help reduce the load on your origin. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html">Using Origin Shield</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+  * Enabled **required**
+  * OriginShieldRegion
+
+### OriginShieldRegion
+* OriginShieldRegion `string`
+
 ### OriginSslProtocols
 * OriginSslProtocols `object`: A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin. 
-  * Items **required** [SslProtocolsList](#sslprotocolslist)
-  * Quantity **required** [integer](#integer)
+  * Items **required**
+    * items
+  * Quantity **required**
 
 ### Origins
-* Origins `object`: A complex type that contains information about origins for this distribution. 
-  * Items [OriginList](#originlist)
-  * Quantity **required** [integer](#integer)
+* Origins `object`: Contains information about the origins for this distribution.
+  * Items **required**
+    * items
+      * ConnectionAttempts
+      * ConnectionTimeout
+      * CustomHeaders
+        * Items
+          * items
+        * Quantity **required**
+      * CustomOriginConfig
+        * HTTPPort **required**
+        * HTTPSPort **required**
+        * OriginKeepaliveTimeout
+        * OriginProtocolPolicy **required**
+        * OriginReadTimeout
+        * OriginSslProtocols
+          * Items **required**
+          * Quantity **required**
+      * DomainName **required**
+      * Id **required**
+      * OriginPath
+      * OriginShield
+        * Enabled **required**
+        * OriginShieldRegion
+      * S3OriginConfig
+        * OriginAccessIdentity **required**
+  * Quantity **required**
+
+### ParametersInCacheKeyAndForwardedToOrigin
+* ParametersInCacheKeyAndForwardedToOrigin `object`: <p>This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> <p>The headers, cookies, and query strings that are included in the cache key are automatically included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t find an object in its cache that matches the request’s cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p>
+  * CookiesConfig **required**
+    * CookieBehavior **required**
+    * Cookies [CookieNames](#cookienames)
+  * EnableAcceptEncodingBrotli
+  * EnableAcceptEncodingGzip **required**
+  * HeadersConfig **required**
+    * HeaderBehavior **required**
+    * Headers [Headers](#headers)
+  * QueryStringsConfig **required**
+    * QueryStringBehavior **required**
+    * QueryStrings
+      * Items
+        * items
+      * Quantity **required**
 
 ### PathList
 * PathList `array`
-  * items [string](#string)
+  * items
 
 ### Paths
-* Paths `object`: A complex type that contains information about the objects that you want to invalidate. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. 
-  * Items [PathList](#pathlist)
-  * Quantity **required** [integer](#integer)
+* Paths `object`: A complex type that contains information about the objects that you want to invalidate. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. 
+  * Items
+    * items
+  * Quantity **required**
 
 ### PreconditionFailed
-* PreconditionFailed `object`: The precondition given in one or more of the request-header fields evaluated to <code>false</code>. 
-  * Message [string](#string)
+
 
 ### PriceClass
 * PriceClass `string` (values: PriceClass_100, PriceClass_200, PriceClass_All)
 
 ### PublicKey
-* PublicKey `object`: A complex data type of public keys you add to CloudFront to use with features like field-level encryption.
-  * CreatedTime **required** [timestamp](#timestamp)
-  * Id **required** [string](#string)
-  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+* PublicKey `object`: A public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.
+  * CreatedTime **required**
+  * Id **required**
+  * PublicKeyConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncodedKey **required**
+    * Name **required**
 
 ### PublicKeyAlreadyExists
-* PublicKeyAlreadyExists `object`: The specified public key already exists.
-  * Message [string](#string)
+
 
 ### PublicKeyConfig
-* PublicKeyConfig `object`: Information about a public key you add to CloudFront to use with features like field-level encryption.
-  * CallerReference **required** [string](#string)
-  * Comment [string](#string)
-  * EncodedKey **required** [string](#string)
-  * Name **required** [string](#string)
+* PublicKeyConfig `object`: Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.
+  * CallerReference **required**
+  * Comment
+  * EncodedKey **required**
+  * Name **required**
+
+### PublicKeyIdList
+* PublicKeyIdList `array`
+  * items
 
 ### PublicKeyInUse
-* PublicKeyInUse `object`: The specified public key is in use. 
-  * Message [string](#string)
+
 
 ### PublicKeyList
-* PublicKeyList `object`: A list of public keys you've added to CloudFront to use with features like field-level encryption.
-  * Items [PublicKeySummaryList](#publickeysummarylist)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+* PublicKeyList `object`: A list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.
+  * Items
+    * items
+      * Comment
+      * CreatedTime **required**
+      * EncodedKey **required**
+      * Id **required**
+      * Name **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### PublicKeySummary
-* PublicKeySummary `object`:  Public key information summary. 
-  * Comment [string](#string)
-  * CreatedTime **required** [timestamp](#timestamp)
-  * EncodedKey **required** [string](#string)
-  * Id **required** [string](#string)
-  * Name **required** [string](#string)
+* PublicKeySummary `object`: Contains information about a public key.
+  * Comment
+  * CreatedTime **required**
+  * EncodedKey **required**
+  * Id **required**
+  * Name **required**
 
 ### PublicKeySummaryList
 * PublicKeySummaryList `array`
-  * items [PublicKeySummary](#publickeysummary)
+  * items
+    * Comment
+    * CreatedTime **required**
+    * EncodedKey **required**
+    * Id **required**
+    * Name **required**
 
 ### QueryArgProfile
 * QueryArgProfile `object`: Query argument-profile mapping for field-level encryption.
-  * ProfileId **required** [string](#string)
-  * QueryArg **required** [string](#string)
+  * ProfileId **required**
+  * QueryArg **required**
 
 ### QueryArgProfileConfig
 * QueryArgProfileConfig `object`: Configuration for query argument-profile mapping for field-level encryption.
-  * ForwardWhenQueryArgProfileIsUnknown **required** [boolean](#boolean)
-  * QueryArgProfiles [QueryArgProfiles](#queryargprofiles)
+  * ForwardWhenQueryArgProfileIsUnknown **required**
+  * QueryArgProfiles
+    * Items
+      * items
+        * ProfileId **required**
+        * QueryArg **required**
+    * Quantity **required**
 
 ### QueryArgProfileEmpty
-* QueryArgProfileEmpty `object`: No profile specified for the field-level encryption query argument.
-  * Message [string](#string)
+
 
 ### QueryArgProfileList
 * QueryArgProfileList `array`
-  * items [QueryArgProfile](#queryargprofile)
+  * items
+    * ProfileId **required**
+    * QueryArg **required**
 
 ### QueryArgProfiles
 * QueryArgProfiles `object`: Query argument-profile mapping for field-level encryption.
-  * Items [QueryArgProfileList](#queryargprofilelist)
-  * Quantity **required** [integer](#integer)
+  * Items
+    * items
+      * ProfileId **required**
+      * QueryArg **required**
+  * Quantity **required**
 
 ### QueryStringCacheKeys
-* QueryStringCacheKeys `object`
-  * Items [QueryStringCacheKeysList](#querystringcachekeyslist)
-  * Quantity **required** [integer](#integer)
+* QueryStringCacheKeys `object`: <p>This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.</p> <p>If you want to include query strings in the cache key, use <code>QueryStringsConfig</code> in a cache policy. See <code>CachePolicy</code>.</p> <p>If you want to send query strings to the origin but not include them in the cache key, use <code>QueryStringsConfig</code> in an origin request policy. See <code>OriginRequestPolicy</code>.</p> <p>A complex type that contains information about the query string parameters that you want CloudFront to use for caching for a cache behavior. </p>
+  * Items
+    * items
+  * Quantity **required**
 
 ### QueryStringCacheKeysList
 * QueryStringCacheKeysList `array`
-  * items [string](#string)
+  * items
+
+### QueryStringNames
+* QueryStringNames `object`: Contains a list of query string names.
+  * Items
+    * items
+  * Quantity **required**
+
+### QueryStringNamesList
+* QueryStringNamesList `array`
+  * items
+
+### RealtimeLogConfig
+* RealtimeLogConfig `object`: A real-time log configuration.
+  * ARN **required**
+  * EndPoints **required**
+    * items [EndPoint](#endpoint)
+  * Fields **required**
+    * items
+  * Name **required**
+  * SamplingRate **required**
+
+### RealtimeLogConfigAlreadyExists
+
+
+### RealtimeLogConfigInUse
+
+
+### RealtimeLogConfigList
+* RealtimeLogConfigList `array`
+  * items [RealtimeLogConfig](#realtimelogconfig)
+
+### RealtimeLogConfigs
+* RealtimeLogConfigs `object`: A list of real-time log configurations.
+  * IsTruncated **required**
+  * Items
+    * items [RealtimeLogConfig](#realtimelogconfig)
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+
+### RealtimeMetricsSubscriptionConfig
+* RealtimeMetricsSubscriptionConfig `object`: A subscription configuration for additional CloudWatch metrics.
+  * RealtimeMetricsSubscriptionStatus **required**
+
+### RealtimeMetricsSubscriptionStatus
+* RealtimeMetricsSubscriptionStatus `string` (values: Enabled, Disabled)
 
 ### ResourceARN
 * ResourceARN `string`
 
 ### ResourceInUse
-* ResourceInUse `object`
-  * Message [string](#string)
+
 
 ### Restrictions
 * Restrictions `object`: A complex type that identifies ways in which you want to restrict distribution of your content.
-  * GeoRestriction **required** [GeoRestriction](#georestriction)
+  * GeoRestriction **required**
+    * Items
+      * items
+    * Quantity **required**
+    * RestrictionType **required**
 
 ### S3Origin
 * S3Origin `object`: A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
-  * DomainName **required** [string](#string)
-  * OriginAccessIdentity **required** [string](#string)
+  * DomainName **required**
+  * OriginAccessIdentity **required**
 
 ### S3OriginConfig
-* S3OriginConfig `object`: A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin, use the <code>CustomOriginConfig</code> element instead.
-  * OriginAccessIdentity **required** [string](#string)
+* S3OriginConfig `object`: A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the <code>CustomOriginConfig</code> element instead.
+  * OriginAccessIdentity **required**
 
 ### SSLSupportMethod
-* SSLSupportMethod `string` (values: sni-only, vip)
+* SSLSupportMethod `string` (values: sni-only, vip, static-ip)
 
 ### Signer
-* Signer `object`: A complex type that lists the AWS accounts that were included in the <code>TrustedSigners</code> complex type, as well as their active CloudFront key pair IDs, if any. 
-  * AwsAccountNumber [string](#string)
-  * KeyPairIds [KeyPairIds](#keypairids)
+* Signer `object`: A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * AwsAccountNumber
+  * KeyPairIds
+    * Items
+      * items
+    * Quantity **required**
 
 ### SignerList
 * SignerList `array`
-  * items [Signer](#signer)
+  * items
+    * AwsAccountNumber
+    * KeyPairIds
+      * Items
+        * items
+      * Quantity **required**
 
 ### SslProtocol
 * SslProtocol `string` (values: SSLv3, TLSv1, TLSv1.1, TLSv1.2)
 
 ### SslProtocolsList
 * SslProtocolsList `array`
-  * items [SslProtocol](#sslprotocol)
+  * items
+
+### StatusCodeList
+* StatusCodeList `array`: List of status codes for origin failover.
+  * items
+
+### StatusCodes
+* StatusCodes `object`: A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+  * Items **required**
+    * items
+  * Quantity **required**
 
 ### StreamingDistribution
-* StreamingDistribution `object`: A streaming distribution. 
-  * ARN **required** [string](#string)
-  * ActiveTrustedSigners **required** [ActiveTrustedSigners](#activetrustedsigners)
-  * DomainName **required** [string](#string)
-  * Id **required** [string](#string)
-  * LastModifiedTime [timestamp](#timestamp)
-  * Status **required** [string](#string)
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+* StreamingDistribution `object`: A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to track and manage content delivery.
+  * ARN **required**
+  * ActiveTrustedSigners **required**
+    * Enabled **required**
+    * Items
+      * items
+        * AwsAccountNumber
+        * KeyPairIds
+          * Items
+          * Quantity **required**
+    * Quantity **required**
+  * DomainName **required**
+  * Id **required**
+  * LastModifiedTime
+  * Status **required**
+  * StreamingDistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * Enabled **required**
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### StreamingDistributionAlreadyExists
-* StreamingDistributionAlreadyExists `object`
-  * Message [string](#string)
+
 
 ### StreamingDistributionConfig
 * StreamingDistributionConfig `object`: The RTMP distribution's configuration information.
-  * Aliases [Aliases](#aliases)
-  * CallerReference **required** [string](#string)
-  * Comment **required** [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * Logging [StreamingLoggingConfig](#streamingloggingconfig)
-  * PriceClass [PriceClass](#priceclass)
-  * S3Origin **required** [S3Origin](#s3origin)
-  * TrustedSigners **required** [TrustedSigners](#trustedsigners)
+  * Aliases
+    * Items
+      * items
+    * Quantity **required**
+  * CallerReference **required**
+  * Comment **required**
+  * Enabled **required**
+  * Logging
+    * Bucket **required**
+    * Enabled **required**
+    * Prefix **required**
+  * PriceClass
+  * S3Origin **required**
+    * DomainName **required**
+    * OriginAccessIdentity **required**
+  * TrustedSigners **required**
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
 
 ### StreamingDistributionConfigWithTags
 * StreamingDistributionConfigWithTags `object`: A streaming distribution Configuration and a list of tags to be associated with the streaming distribution.
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
-  * Tags **required** [Tags](#tags)
+  * StreamingDistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * Enabled **required**
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
+  * Tags **required**
+    * Items
+      * items
+        * Key **required**
+        * Value
 
 ### StreamingDistributionList
 * StreamingDistributionList `object`: A streaming distribution list. 
-  * IsTruncated **required** [boolean](#boolean)
-  * Items [StreamingDistributionSummaryList](#streamingdistributionsummarylist)
-  * Marker **required** [string](#string)
-  * MaxItems **required** [integer](#integer)
-  * NextMarker [string](#string)
-  * Quantity **required** [integer](#integer)
+  * IsTruncated **required**
+  * Items
+    * items
+      * ARN **required**
+      * Aliases **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Comment **required**
+      * DomainName **required**
+      * Enabled **required**
+      * Id **required**
+      * LastModifiedTime **required**
+      * PriceClass **required**
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * Status **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+  * Marker **required**
+  * MaxItems **required**
+  * NextMarker
+  * Quantity **required**
 
 ### StreamingDistributionNotDisabled
-* StreamingDistributionNotDisabled `object`
-  * Message [string](#string)
+
 
 ### StreamingDistributionSummary
-* StreamingDistributionSummary `object`:  A summary of the information for an Amazon CloudFront streaming distribution.
-  * ARN **required** [string](#string)
-  * Aliases **required** [Aliases](#aliases)
-  * Comment **required** [string](#string)
-  * DomainName **required** [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * Id **required** [string](#string)
-  * LastModifiedTime **required** [timestamp](#timestamp)
-  * PriceClass **required** [PriceClass](#priceclass)
-  * S3Origin **required** [S3Origin](#s3origin)
-  * Status **required** [string](#string)
-  * TrustedSigners **required** [TrustedSigners](#trustedsigners)
+* StreamingDistributionSummary `object`:  A summary of the information for a CloudFront streaming distribution.
+  * ARN **required**
+  * Aliases **required**
+    * Items
+      * items
+    * Quantity **required**
+  * Comment **required**
+  * DomainName **required**
+  * Enabled **required**
+  * Id **required**
+  * LastModifiedTime **required**
+  * PriceClass **required**
+  * S3Origin **required**
+    * DomainName **required**
+    * OriginAccessIdentity **required**
+  * Status **required**
+  * TrustedSigners **required**
+    * Enabled **required**
+    * Items
+      * items
+    * Quantity **required**
 
 ### StreamingDistributionSummaryList
 * StreamingDistributionSummaryList `array`
-  * items [StreamingDistributionSummary](#streamingdistributionsummary)
+  * items
+    * ARN **required**
+    * Aliases **required**
+      * Items
+        * items
+      * Quantity **required**
+    * Comment **required**
+    * DomainName **required**
+    * Enabled **required**
+    * Id **required**
+    * LastModifiedTime **required**
+    * PriceClass **required**
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * Status **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### StreamingLoggingConfig
 * StreamingLoggingConfig `object`: A complex type that controls whether access logs are written for this streaming distribution.
-  * Bucket **required** [string](#string)
-  * Enabled **required** [boolean](#boolean)
-  * Prefix **required** [string](#string)
+  * Bucket **required**
+  * Enabled **required**
+  * Prefix **required**
 
 ### Tag
 * Tag `object`:  A complex type that contains <code>Tag</code> key and <code>Tag</code> value.
-  * Key **required** [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * Value
 
 ### TagKey
 * TagKey `string`: <p> A string that contains <code>Tag</code> key.</p> <p>The string length should be between 1 and 128 characters. Valid characters include <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, space, and the special characters <code>_ - . : / = + @</code>.</p>
 
 ### TagKeyList
 * TagKeyList `array`
-  * items [TagKey](#tagkey)
+  * items
 
 ### TagKeys
 * TagKeys `object`:  A complex type that contains zero or more <code>Tag</code> elements.
-  * Items [TagKeyList](#tagkeylist)
+  * Items
+    * items
 
 ### TagList
 * TagList `array`
-  * items [Tag](#tag)
+  * items
+    * Key **required**
+    * Value
 
 ### TagResourceRequest
 * TagResourceRequest `object`:  The request to add tags to a CloudFront resource.
-  * Tags **required** [Tags](#tags)
+  * Tags **required**
+    * Items
+      * items
+        * Key **required**
+        * Value
 
 ### TagValue
 * TagValue `string`
 
 ### Tags
 * Tags `object`:  A complex type that contains zero or more <code>Tag</code> elements.
-  * Items [TagList](#taglist)
+  * Items
+    * items
+      * Key **required**
+      * Value
 
 ### TooManyCacheBehaviors
-* TooManyCacheBehaviors `object`: You cannot create more cache behaviors for the distribution.
-  * Message [string](#string)
+
+
+### TooManyCachePolicies
+
 
 ### TooManyCertificates
-* TooManyCertificates `object`: You cannot create anymore custom SSL/TLS certificates.
-  * Message [string](#string)
+
 
 ### TooManyCloudFrontOriginAccessIdentities
-* TooManyCloudFrontOriginAccessIdentities `object`: Processing your request would cause you to exceed the maximum number of origin access identities allowed.
-  * Message [string](#string)
+
 
 ### TooManyCookieNamesInWhiteList
-* TooManyCookieNamesInWhiteList `object`: Your request contains more cookie names in the whitelist than are allowed per cache behavior.
-  * Message [string](#string)
+
+
+### TooManyCookiesInCachePolicy
+
+
+### TooManyCookiesInOriginRequestPolicy
+
 
 ### TooManyDistributionCNAMEs
-* TooManyDistributionCNAMEs `object`: Your request contains more CNAMEs than are allowed per distribution.
-  * Message [string](#string)
+
 
 ### TooManyDistributions
-* TooManyDistributions `object`: Processing your request would cause you to exceed the maximum number of distributions allowed.
-  * Message [string](#string)
+
+
+### TooManyDistributionsAssociatedToCachePolicy
+
 
 ### TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-* TooManyDistributionsAssociatedToFieldLevelEncryptionConfig `object`: The maximum number of distributions have been associated with the specified configuration for field-level encryption.
-  * Message [string](#string)
+
+
+### TooManyDistributionsAssociatedToKeyGroup
+
+
+### TooManyDistributionsAssociatedToOriginRequestPolicy
+
 
 ### TooManyDistributionsWithLambdaAssociations
-* TooManyDistributionsWithLambdaAssociations `object`: Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.
-  * Message [string](#string)
+
+
+### TooManyDistributionsWithSingleFunctionARN
+
 
 ### TooManyFieldLevelEncryptionConfigs
-* TooManyFieldLevelEncryptionConfigs `object`: The maximum number of configurations for field-level encryption have been created.
-  * Message [string](#string)
+
 
 ### TooManyFieldLevelEncryptionContentTypeProfiles
-* TooManyFieldLevelEncryptionContentTypeProfiles `object`: The maximum number of content type profiles for field-level encryption have been created.
-  * Message [string](#string)
+
 
 ### TooManyFieldLevelEncryptionEncryptionEntities
-* TooManyFieldLevelEncryptionEncryptionEntities `object`: The maximum number of encryption entities for field-level encryption have been created.
-  * Message [string](#string)
+
 
 ### TooManyFieldLevelEncryptionFieldPatterns
-* TooManyFieldLevelEncryptionFieldPatterns `object`: The maximum number of field patterns for field-level encryption have been created.
-  * Message [string](#string)
+
 
 ### TooManyFieldLevelEncryptionProfiles
-* TooManyFieldLevelEncryptionProfiles `object`: The maximum number of profiles for field-level encryption have been created.
-  * Message [string](#string)
+
 
 ### TooManyFieldLevelEncryptionQueryArgProfiles
-* TooManyFieldLevelEncryptionQueryArgProfiles `object`: The maximum number of query arg profiles for field-level encryption have been created.
-  * Message [string](#string)
+
+
+### TooManyHeadersInCachePolicy
+
 
 ### TooManyHeadersInForwardedValues
-* TooManyHeadersInForwardedValues `object`
-  * Message [string](#string)
+
+
+### TooManyHeadersInOriginRequestPolicy
+
 
 ### TooManyInvalidationsInProgress
-* TooManyInvalidationsInProgress `object`: You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
-  * Message [string](#string)
+
+
+### TooManyKeyGroups
+
+
+### TooManyKeyGroupsAssociatedToDistribution
+
 
 ### TooManyLambdaFunctionAssociations
-* TooManyLambdaFunctionAssociations `object`: Your request contains more Lambda function associations than are allowed per distribution.
-  * Message [string](#string)
+
 
 ### TooManyOriginCustomHeaders
-* TooManyOriginCustomHeaders `object`
-  * Message [string](#string)
+
+
+### TooManyOriginGroupsPerDistribution
+
+
+### TooManyOriginRequestPolicies
+
 
 ### TooManyOrigins
-* TooManyOrigins `object`: You cannot create more origins for the distribution.
-  * Message [string](#string)
+
 
 ### TooManyPublicKeys
-* TooManyPublicKeys `object`: The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.
-  * Message [string](#string)
+
+
+### TooManyPublicKeysInKeyGroup
+
 
 ### TooManyQueryStringParameters
-* TooManyQueryStringParameters `object`
-  * Message [string](#string)
+
+
+### TooManyQueryStringsInCachePolicy
+
+
+### TooManyQueryStringsInOriginRequestPolicy
+
+
+### TooManyRealtimeLogConfigs
+
 
 ### TooManyStreamingDistributionCNAMEs
-* TooManyStreamingDistributionCNAMEs `object`
-  * Message [string](#string)
+
 
 ### TooManyStreamingDistributions
-* TooManyStreamingDistributions `object`: Processing your request would cause you to exceed the maximum number of streaming distributions allowed.
-  * Message [string](#string)
+
 
 ### TooManyTrustedSigners
-* TooManyTrustedSigners `object`: Your request contains more trusted signers than are allowed per distribution.
-  * Message [string](#string)
+
+
+### TrustedKeyGroupDoesNotExist
+
+
+### TrustedKeyGroupIdList
+* TrustedKeyGroupIdList `array`
+  * items
+
+### TrustedKeyGroups
+* TrustedKeyGroups `object`: A list of key groups whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * Enabled **required**
+  * Items
+    * items
+  * Quantity **required**
 
 ### TrustedSignerDoesNotExist
-* TrustedSignerDoesNotExist `object`: One or more of your trusted signers don't exist.
-  * Message [string](#string)
+
 
 ### TrustedSigners
-* TrustedSigners `object`: <p>A complex type that specifies the AWS accounts, if any, that you want to allow to create signed URLs for private content.</p> <p>If you want to require signed URLs in requests for objects in the target origin that match the <code>PathPattern</code> for this cache behavior, specify <code>true</code> for <code>Enabled</code>, and specify the applicable values for <code>Quantity</code> and <code>Items</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <i>Amazon Amazon CloudFront Developer Guide</i>.</p> <p>If you don't want to require signed URLs in requests for objects that match <code>PathPattern</code>, specify <code>false</code> for <code>Enabled</code> and <code>0</code> for <code>Quantity</code>. Omit <code>Items</code>.</p> <p>To add, change, or remove one or more trusted signers, change <code>Enabled</code> to <code>true</code> (if it's currently <code>false</code>), change <code>Quantity</code> as applicable, and specify all of the trusted signers that you want to include in the updated distribution.</p> <p>For more information about updating the distribution configuration, see <a>DistributionConfig</a> .</p>
-  * Enabled **required** [boolean](#boolean)
-  * Items [AwsAccountNumberList](#awsaccountnumberlist)
-  * Quantity **required** [integer](#integer)
+* TrustedSigners `object`: A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
+  * Enabled **required**
+  * Items
+    * items
+  * Quantity **required**
 
 ### UntagResourceRequest
 * UntagResourceRequest `object`:  The request to remove tags from a CloudFront resource.
-  * TagKeys **required** [TagKeys](#tagkeys)
+  * TagKeys **required**
+    * Items
+      * items
+
+### UpdateCachePolicyRequest
+* UpdateCachePolicyRequest `object`
+  * CachePolicyConfig **required**
+    * Comment
+    * DefaultTTL
+    * MaxTTL
+    * MinTTL **required**
+    * Name **required**
+    * ParametersInCacheKeyAndForwardedToOrigin
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * EnableAcceptEncodingBrotli
+      * EnableAcceptEncodingGzip **required**
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
+
+### UpdateCachePolicyResult
+* UpdateCachePolicyResult `object`
+  * CachePolicy
+    * CachePolicyConfig **required**
+      * Comment
+      * DefaultTTL
+      * MaxTTL
+      * MinTTL **required**
+      * Name **required**
+      * ParametersInCacheKeyAndForwardedToOrigin
+        * CookiesConfig **required**
+          * CookieBehavior **required**
+          * Cookies [CookieNames](#cookienames)
+        * EnableAcceptEncodingBrotli
+        * EnableAcceptEncodingGzip **required**
+        * HeadersConfig **required**
+          * HeaderBehavior **required**
+          * Headers [Headers](#headers)
+        * QueryStringsConfig **required**
+          * QueryStringBehavior **required**
+          * QueryStrings
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### UpdateCloudFrontOriginAccessIdentityRequest
 * UpdateCloudFrontOriginAccessIdentityRequest `object`: The request to update an origin access identity.
-  * CloudFrontOriginAccessIdentityConfig **required** [CloudFrontOriginAccessIdentityConfig](#cloudfrontoriginaccessidentityconfig)
+  * CloudFrontOriginAccessIdentityConfig **required**
+    * CallerReference **required**
+    * Comment **required**
 
 ### UpdateCloudFrontOriginAccessIdentityResult
 * UpdateCloudFrontOriginAccessIdentityResult `object`: The returned result of the corresponding request.
-  * CloudFrontOriginAccessIdentity [CloudFrontOriginAccessIdentity](#cloudfrontoriginaccessidentity)
+  * CloudFrontOriginAccessIdentity
+    * CloudFrontOriginAccessIdentityConfig
+      * CallerReference **required**
+      * Comment **required**
+    * Id **required**
+    * S3CanonicalUserId **required**
 
 ### UpdateDistributionRequest
 * UpdateDistributionRequest `object`: The request to update a distribution.
-  * DistributionConfig **required** [DistributionConfig](#distributionconfig)
+  * DistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CacheBehaviors
+      * Items
+        * items
+          * AllowedMethods [AllowedMethods](#allowedmethods)
+          * CachePolicyId
+          * Compress
+          * DefaultTTL
+          * FieldLevelEncryptionId
+          * ForwardedValues
+          * LambdaFunctionAssociations
+          * MaxTTL
+          * MinTTL
+          * OriginRequestPolicyId
+          * PathPattern **required**
+          * RealtimeLogConfigArn
+          * SmoothStreaming
+          * TargetOriginId **required**
+          * TrustedKeyGroups
+          * TrustedSigners
+          * ViewerProtocolPolicy **required**
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * CustomErrorResponses
+      * Items
+        * items
+          * ErrorCachingMinTTL
+          * ErrorCode **required**
+          * ResponseCode
+          * ResponsePagePath
+      * Quantity **required**
+    * DefaultCacheBehavior **required**
+      * AllowedMethods [AllowedMethods](#allowedmethods)
+      * CachePolicyId
+      * Compress
+      * DefaultTTL
+      * FieldLevelEncryptionId
+      * ForwardedValues
+        * Cookies **required**
+          * Forward **required**
+          * WhitelistedNames
+        * Headers
+          * Items
+          * Quantity **required**
+        * QueryString **required**
+        * QueryStringCacheKeys
+          * Items
+          * Quantity **required**
+      * LambdaFunctionAssociations
+        * Items
+          * items
+        * Quantity **required**
+      * MaxTTL
+      * MinTTL
+      * OriginRequestPolicyId
+      * RealtimeLogConfigArn
+      * SmoothStreaming
+      * TargetOriginId **required**
+      * TrustedKeyGroups
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * TrustedSigners
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
+      * ViewerProtocolPolicy **required**
+    * DefaultRootObject
+    * Enabled **required**
+    * HttpVersion
+    * IsIPV6Enabled
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * IncludeCookies **required**
+      * Prefix **required**
+    * OriginGroups
+      * Items
+        * items
+          * FailoverCriteria **required**
+          * Id **required**
+          * Members **required**
+      * Quantity **required**
+    * Origins **required**
+      * Items **required**
+        * items
+          * ConnectionAttempts
+          * ConnectionTimeout
+          * CustomHeaders
+          * CustomOriginConfig
+          * DomainName **required**
+          * Id **required**
+          * OriginPath
+          * OriginShield
+          * S3OriginConfig
+      * Quantity **required**
+    * PriceClass
+    * Restrictions
+      * GeoRestriction **required**
+        * Items
+          * items
+        * Quantity **required**
+        * RestrictionType **required**
+    * ViewerCertificate
+      * ACMCertificateArn
+      * Certificate
+      * CertificateSource
+      * CloudFrontDefaultCertificate
+      * IAMCertificateId
+      * MinimumProtocolVersion
+      * SSLSupportMethod
+    * WebACLId
 
 ### UpdateDistributionResult
 * UpdateDistributionResult `object`: The returned result of the corresponding request.
-  * Distribution [Distribution](#distribution)
+  * Distribution
+    * ARN **required**
+    * ActiveTrustedKeyGroups
+      * Enabled **required**
+      * Items
+        * items
+          * KeyGroupId
+          * KeyPairIds [KeyPairIds](#keypairids)
+      * Quantity **required**
+    * ActiveTrustedSigners
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * AliasICPRecordals
+      * items
+        * CNAME
+        * ICPRecordalStatus
+    * DistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CacheBehaviors
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * CustomErrorResponses
+        * Items
+          * items
+        * Quantity **required**
+      * DefaultCacheBehavior **required**
+        * AllowedMethods [AllowedMethods](#allowedmethods)
+        * CachePolicyId
+        * Compress
+        * DefaultTTL
+        * FieldLevelEncryptionId
+        * ForwardedValues
+          * Cookies **required**
+          * Headers
+          * QueryString **required**
+          * QueryStringCacheKeys
+        * LambdaFunctionAssociations
+          * Items
+          * Quantity **required**
+        * MaxTTL
+        * MinTTL
+        * OriginRequestPolicyId
+        * RealtimeLogConfigArn
+        * SmoothStreaming
+        * TargetOriginId **required**
+        * TrustedKeyGroups
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * TrustedSigners
+          * Enabled **required**
+          * Items
+          * Quantity **required**
+        * ViewerProtocolPolicy **required**
+      * DefaultRootObject
+      * Enabled **required**
+      * HttpVersion
+      * IsIPV6Enabled
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * IncludeCookies **required**
+        * Prefix **required**
+      * OriginGroups
+        * Items
+          * items
+        * Quantity **required**
+      * Origins **required**
+        * Items **required**
+          * items
+        * Quantity **required**
+      * PriceClass
+      * Restrictions
+        * GeoRestriction **required**
+          * Items
+          * Quantity **required**
+          * RestrictionType **required**
+      * ViewerCertificate
+        * ACMCertificateArn
+        * Certificate
+        * CertificateSource
+        * CloudFrontDefaultCertificate
+        * IAMCertificateId
+        * MinimumProtocolVersion
+        * SSLSupportMethod
+      * WebACLId
+    * DomainName **required**
+    * Id **required**
+    * InProgressInvalidationBatches **required**
+    * LastModifiedTime **required**
+    * Status **required**
 
 ### UpdateFieldLevelEncryptionConfigRequest
 * UpdateFieldLevelEncryptionConfigRequest `object`
-  * FieldLevelEncryptionConfig **required** [FieldLevelEncryptionConfig](#fieldlevelencryptionconfig)
+  * FieldLevelEncryptionConfig **required**
+    * CallerReference **required**
+    * Comment
+    * ContentTypeProfileConfig
+      * ContentTypeProfiles
+        * Items
+          * items
+        * Quantity **required**
+      * ForwardWhenContentTypeIsUnknown **required**
+    * QueryArgProfileConfig
+      * ForwardWhenQueryArgProfileIsUnknown **required**
+      * QueryArgProfiles
+        * Items
+          * items
+        * Quantity **required**
 
 ### UpdateFieldLevelEncryptionConfigResult
 * UpdateFieldLevelEncryptionConfigResult `object`
-  * FieldLevelEncryption [FieldLevelEncryption](#fieldlevelencryption)
+  * FieldLevelEncryption
+    * FieldLevelEncryptionConfig **required**
+      * CallerReference **required**
+      * Comment
+      * ContentTypeProfileConfig
+        * ContentTypeProfiles
+          * Items
+          * Quantity **required**
+        * ForwardWhenContentTypeIsUnknown **required**
+      * QueryArgProfileConfig
+        * ForwardWhenQueryArgProfileIsUnknown **required**
+        * QueryArgProfiles
+          * Items
+          * Quantity **required**
+    * Id **required**
+    * LastModifiedTime **required**
 
 ### UpdateFieldLevelEncryptionProfileRequest
 * UpdateFieldLevelEncryptionProfileRequest `object`
-  * FieldLevelEncryptionProfileConfig **required** [FieldLevelEncryptionProfileConfig](#fieldlevelencryptionprofileconfig)
+  * FieldLevelEncryptionProfileConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncryptionEntities **required**
+      * Items
+        * items
+          * FieldPatterns **required**
+          * ProviderId **required**
+          * PublicKeyId **required**
+      * Quantity **required**
+    * Name **required**
 
 ### UpdateFieldLevelEncryptionProfileResult
 * UpdateFieldLevelEncryptionProfileResult `object`
-  * FieldLevelEncryptionProfile [FieldLevelEncryptionProfile](#fieldlevelencryptionprofile)
+  * FieldLevelEncryptionProfile
+    * FieldLevelEncryptionProfileConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncryptionEntities **required**
+        * Items
+          * items
+        * Quantity **required**
+      * Name **required**
+    * Id **required**
+    * LastModifiedTime **required**
+
+### UpdateKeyGroupRequest
+* UpdateKeyGroupRequest `object`
+  * KeyGroupConfig **required**
+    * Comment
+    * Items **required**
+      * items
+    * Name **required**
+
+### UpdateKeyGroupResult
+* UpdateKeyGroupResult `object`
+  * KeyGroup
+    * Id **required**
+    * KeyGroupConfig **required**
+      * Comment
+      * Items **required**
+        * items
+      * Name **required**
+    * LastModifiedTime **required**
+
+### UpdateOriginRequestPolicyRequest
+* UpdateOriginRequestPolicyRequest `object`
+  * OriginRequestPolicyConfig **required**
+    * Comment
+    * CookiesConfig **required**
+      * CookieBehavior **required**
+      * Cookies [CookieNames](#cookienames)
+    * HeadersConfig **required**
+      * HeaderBehavior **required**
+      * Headers [Headers](#headers)
+    * Name **required**
+    * QueryStringsConfig **required**
+      * QueryStringBehavior **required**
+      * QueryStrings
+        * Items
+          * items
+        * Quantity **required**
+
+### UpdateOriginRequestPolicyResult
+* UpdateOriginRequestPolicyResult `object`
+  * OriginRequestPolicy
+    * Id **required**
+    * LastModifiedTime **required**
+    * OriginRequestPolicyConfig **required**
+      * Comment
+      * CookiesConfig **required**
+        * CookieBehavior **required**
+        * Cookies [CookieNames](#cookienames)
+      * HeadersConfig **required**
+        * HeaderBehavior **required**
+        * Headers [Headers](#headers)
+      * Name **required**
+      * QueryStringsConfig **required**
+        * QueryStringBehavior **required**
+        * QueryStrings
+          * Items
+          * Quantity **required**
 
 ### UpdatePublicKeyRequest
 * UpdatePublicKeyRequest `object`
-  * PublicKeyConfig **required** [PublicKeyConfig](#publickeyconfig)
+  * PublicKeyConfig **required**
+    * CallerReference **required**
+    * Comment
+    * EncodedKey **required**
+    * Name **required**
 
 ### UpdatePublicKeyResult
 * UpdatePublicKeyResult `object`
-  * PublicKey [PublicKey](#publickey)
+  * PublicKey
+    * CreatedTime **required**
+    * Id **required**
+    * PublicKeyConfig **required**
+      * CallerReference **required**
+      * Comment
+      * EncodedKey **required**
+      * Name **required**
+
+### UpdateRealtimeLogConfigRequest
+* UpdateRealtimeLogConfigRequest `object`
+  * ARN
+  * EndPoints
+    * items [EndPoint](#endpoint)
+  * Fields
+    * items
+  * Name
+  * SamplingRate
+
+### UpdateRealtimeLogConfigResult
+* UpdateRealtimeLogConfigResult `object`
+  * RealtimeLogConfig
+    * ARN **required**
+    * EndPoints **required**
+      * items [EndPoint](#endpoint)
+    * Fields **required**
+      * items
+    * Name **required**
+    * SamplingRate **required**
 
 ### UpdateStreamingDistributionRequest
 * UpdateStreamingDistributionRequest `object`: The request to update a streaming distribution.
-  * StreamingDistributionConfig **required** [StreamingDistributionConfig](#streamingdistributionconfig)
+  * StreamingDistributionConfig **required**
+    * Aliases
+      * Items
+        * items
+      * Quantity **required**
+    * CallerReference **required**
+    * Comment **required**
+    * Enabled **required**
+    * Logging
+      * Bucket **required**
+      * Enabled **required**
+      * Prefix **required**
+    * PriceClass
+    * S3Origin **required**
+      * DomainName **required**
+      * OriginAccessIdentity **required**
+    * TrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+      * Quantity **required**
 
 ### UpdateStreamingDistributionResult
 * UpdateStreamingDistributionResult `object`: The returned result of the corresponding request.
-  * StreamingDistribution [StreamingDistribution](#streamingdistribution)
+  * StreamingDistribution
+    * ARN **required**
+    * ActiveTrustedSigners **required**
+      * Enabled **required**
+      * Items
+        * items
+          * AwsAccountNumber
+          * KeyPairIds
+      * Quantity **required**
+    * DomainName **required**
+    * Id **required**
+    * LastModifiedTime
+    * Status **required**
+    * StreamingDistributionConfig **required**
+      * Aliases
+        * Items
+          * items
+        * Quantity **required**
+      * CallerReference **required**
+      * Comment **required**
+      * Enabled **required**
+      * Logging
+        * Bucket **required**
+        * Enabled **required**
+        * Prefix **required**
+      * PriceClass
+      * S3Origin **required**
+        * DomainName **required**
+        * OriginAccessIdentity **required**
+      * TrustedSigners **required**
+        * Enabled **required**
+        * Items
+          * items
+        * Quantity **required**
 
 ### ViewerCertificate
-* ViewerCertificate `object`: <p>A complex type that specifies the following:</p> <ul> <li> <p>Whether you want viewers to use HTTP or HTTPS to request your objects.</p> </li> <li> <p>If you want viewers to use HTTPS, whether you're using an alternate domain name such as <code>example.com</code> or the CloudFront domain name for your distribution, such as <code>d111111abcdef8.cloudfront.net</code>.</p> </li> <li> <p>If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store.</p> </li> </ul> <p>You must specify only one of the following values: </p> <ul> <li> <p> <a>ViewerCertificate$ACMCertificateArn</a> </p> </li> <li> <p> <a>ViewerCertificate$IAMCertificateId</a> </p> </li> <li> <p> <a>ViewerCertificate$CloudFrontDefaultCertificate</a> </p> </li> </ul> <p>Don't specify <code>false</code> for <code>CloudFrontDefaultCertificate</code>.</p> <p> <b>If you want viewers to use HTTP instead of HTTPS to request your objects</b>: Specify the following value:</p> <p> <code>&lt;CloudFrontDefaultCertificate&gt;true&lt;CloudFrontDefaultCertificate&gt;</code> </p> <p>In addition, specify <code>allow-all</code> for <code>ViewerProtocolPolicy</code> for all of your cache behaviors.</p> <p> <b>If you want viewers to use HTTPS to request your objects</b>: Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:</p> <ul> <li> <p> <b>If you're using an alternate domain name, such as example.com</b>: Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority:</p> <ul> <li> <p> <code>&lt;ACMCertificateArn&gt;<i>ARN for ACM SSL/TLS certificate</i>&lt;ACMCertificateArn&gt;</code> where <code> <i>ARN for ACM SSL/TLS certificate</i> </code> is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution.</p> </li> <li> <p> <code>&lt;IAMCertificateId&gt;<i>IAM certificate ID</i>&lt;IAMCertificateId&gt;</code> where <code> <i>IAM certificate ID</i> </code> is the ID that IAM returned when you added the certificate to the IAM certificate store.</p> </li> </ul> <p>If you specify <code>ACMCertificateArn</code> or <code>IAMCertificateId</code>, you must also specify a value for <code>SSLSupportMethod</code>.</p> <p>If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (<code>https://example.com/logo.jpg</code>). If you use the domain name that is associated with your CloudFront distribution (such as <code>https://d111111abcdef8.cloudfront.net/logo.jpg</code>) and the viewer supports <code>SNI</code>, then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for <code>SSLSupportMethod</code>:</p> <ul> <li> <p> <code>vip</code>: The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate.</p> </li> <li> <p> <code>sni-only</code>: CloudFront drops the connection with the browser without returning the object.</p> </li> </ul> </li> <li> <p> <b>If you're using the CloudFront domain name for your distribution, such as <code>d111111abcdef8.cloudfront.net</code> </b>: Specify the following value:</p> <p> <code>&lt;CloudFrontDefaultCertificate&gt;true&lt;CloudFrontDefaultCertificate&gt; </code> </p> </li> </ul> <p>If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:</p> <ul> <li> <p> <code> &lt;ViewerProtocolPolicy&gt;https-only&lt;ViewerProtocolPolicy&gt;</code> </p> </li> <li> <p> <code>&lt;ViewerProtocolPolicy&gt;redirect-to-https&lt;ViewerProtocolPolicy&gt;</code> </p> </li> </ul> <p>You can also optionally require that CloudFront use HTTPS to communicate with your origin by specifying one of the following values for the applicable origins:</p> <ul> <li> <p> <code>&lt;OriginProtocolPolicy&gt;https-only&lt;OriginProtocolPolicy&gt; </code> </p> </li> <li> <p> <code>&lt;OriginProtocolPolicy&gt;match-viewer&lt;OriginProtocolPolicy&gt; </code> </p> </li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS">Using Alternate Domain Names and HTTPS</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-  * ACMCertificateArn [string](#string)
-  * Certificate [string](#string)
-  * CertificateSource [CertificateSource](#certificatesource)
-  * CloudFrontDefaultCertificate [boolean](#boolean)
-  * IAMCertificateId [string](#string)
-  * MinimumProtocolVersion [MinimumProtocolVersion](#minimumprotocolversion)
-  * SSLSupportMethod [SSLSupportMethod](#sslsupportmethod)
+* ViewerCertificate `object`: <p>A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.</p> <p>If the distribution doesn’t use <code>Aliases</code> (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>—set <code>CloudFrontDefaultCertificate</code> to <code>true</code> and leave all other fields empty.</p> <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:</p> <ul> <li> <p>Which viewers the distribution accepts HTTPS connections from: only viewers that support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server name indication (SNI)</a> (recommended), or all viewers including those that don’t support SNI.</p> <ul> <li> <p>To accept HTTPS connections from only viewers that support SNI, set <code>SSLSupportMethod</code> to <code>sni-only</code>. This is recommended. Most browsers and clients support SNI. </p> </li> <li> <p>To accept HTTPS connections from all viewers, including those that don’t support SNI, set <code>SSLSupportMethod</code> to <code>vip</code>. This is not recommended, and results in additional monthly charges from CloudFront. </p> </li> </ul> </li> <li> <p>The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for <code>MinimumProtocolVersion</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</p> </li> <li> <p>The location of the SSL/TLS certificate, <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS Certificate Manager (ACM)</a> (recommended) or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">AWS Identity and Access Management (AWS IAM)</a>. You specify the location by setting a value in one of the following fields (not both):</p> <ul> <li> <p> <code>ACMCertificateArn</code> </p> </li> <li> <p> <code>IAMCertificateId</code> </p> </li> </ul> </li> </ul> <p>All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use <code>ViewerProtocolPolicy</code> in the <code>CacheBehavior</code> or <code>DefaultCacheBehavior</code>. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use <code>CustomOriginConfig</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html">Using HTTPS with CloudFront</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html"> Using Alternate Domain Names and HTTPS</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+  * ACMCertificateArn
+  * Certificate
+  * CertificateSource
+  * CloudFrontDefaultCertificate
+  * IAMCertificateId
+  * MinimumProtocolVersion
+  * SSLSupportMethod
 
 ### ViewerProtocolPolicy
 * ViewerProtocolPolicy `string` (values: allow-all, https-only, redirect-to-https)

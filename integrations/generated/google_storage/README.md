@@ -1,6 +1,6 @@
 # @datafire/google_storage
 
-Client library for Cloud Storage
+Client library for Cloud Storage JSON API
 
 ## Installation and Usage
 ```bash
@@ -15,7 +15,7 @@ let google_storage = require('@datafire/google_storage').create({
   redirect_uri: ""
 });
 
-google_storage.channels.stop({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -67,23 +67,24 @@ google_storage.oauthRefresh(null, context)
   * scope `string`
   * expiration `string`
 
-### buckets.list
+### storage.buckets.list
 Retrieves a list of buckets for a given project.
 
 
 ```js
-google_storage.buckets.list({
+google_storage.storage.buckets.list({
   "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
+  * project **required** `string`: A valid API project identifier.
   * maxResults `integer`: Maximum number of buckets to return in a single response. The service will use this parameter or 1,000 items, whichever is smaller.
   * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
   * prefix `string`: Filter results to buckets whose names begin with this prefix.
-  * project **required** `string`: A valid API project identifier.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -96,24 +97,25 @@ google_storage.buckets.list({
 #### Output
 * output [Buckets](#buckets)
 
-### buckets.insert
+### storage.buckets.insert
 Creates a new bucket.
 
 
 ```js
-google_storage.buckets.insert({
+google_storage.storage.buckets.insert({
   "project": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Bucket](#bucket)
+  * project **required** `string`: A valid API project identifier.
   * predefinedAcl `string` (values: authenticatedRead, private, projectPrivate, publicRead, publicReadWrite): Apply a predefined set of access controls to this bucket.
   * predefinedDefaultObjectAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of default object access controls to this bucket.
-  * project **required** `string`: A valid API project identifier.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request.
+  * body [Bucket](#bucket)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -125,12 +127,12 @@ google_storage.buckets.insert({
 #### Output
 * output [Bucket](#bucket)
 
-### buckets.delete
+### storage.buckets.delete
 Permanently deletes an empty bucket.
 
 
 ```js
-google_storage.buckets.delete({
+google_storage.storage.buckets.delete({
   "bucket": ""
 }, context)
 ```
@@ -140,6 +142,7 @@ google_storage.buckets.delete({
   * bucket **required** `string`: Name of a bucket.
   * ifMetagenerationMatch `string`: If set, only deletes the bucket if its metageneration matches this value.
   * ifMetagenerationNotMatch `string`: If set, only deletes the bucket if its metageneration does not match this value.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -152,12 +155,12 @@ google_storage.buckets.delete({
 #### Output
 *Output schema unknown*
 
-### buckets.get
+### storage.buckets.get
 Returns metadata for the specified bucket.
 
 
 ```js
-google_storage.buckets.get({
+google_storage.storage.buckets.get({
   "bucket": ""
 }, context)
 ```
@@ -168,6 +171,7 @@ google_storage.buckets.get({
   * ifMetagenerationMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -180,26 +184,27 @@ google_storage.buckets.get({
 #### Output
 * output [Bucket](#bucket)
 
-### buckets.patch
-Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. This method supports patch semantics.
+### storage.buckets.patch
+Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
 
 
 ```js
-google_storage.buckets.patch({
+google_storage.storage.buckets.patch({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Bucket](#bucket)
   * bucket **required** `string`: Name of a bucket.
   * ifMetagenerationMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
   * predefinedAcl `string` (values: authenticatedRead, private, projectPrivate, publicRead, publicReadWrite): Apply a predefined set of access controls to this bucket.
   * predefinedDefaultObjectAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of default object access controls to this bucket.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Bucket](#bucket)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -211,26 +216,27 @@ google_storage.buckets.patch({
 #### Output
 * output [Bucket](#bucket)
 
-### buckets.update
+### storage.buckets.update
 Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
 
 
 ```js
-google_storage.buckets.update({
+google_storage.storage.buckets.update({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Bucket](#bucket)
   * bucket **required** `string`: Name of a bucket.
   * ifMetagenerationMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
   * predefinedAcl `string` (values: authenticatedRead, private, projectPrivate, publicRead, publicReadWrite): Apply a predefined set of access controls to this bucket.
   * predefinedDefaultObjectAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of default object access controls to this bucket.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Bucket](#bucket)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -242,12 +248,12 @@ google_storage.buckets.update({
 #### Output
 * output [Bucket](#bucket)
 
-### bucketAccessControls.list
+### storage.bucketAccessControls.list
 Retrieves ACL entries on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.list({
+google_storage.storage.bucketAccessControls.list({
   "bucket": ""
 }, context)
 ```
@@ -255,6 +261,7 @@ google_storage.bucketAccessControls.list({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a bucket.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -267,21 +274,22 @@ google_storage.bucketAccessControls.list({
 #### Output
 * output [BucketAccessControls](#bucketaccesscontrols)
 
-### bucketAccessControls.insert
+### storage.bucketAccessControls.insert
 Creates a new ACL entry on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.insert({
+google_storage.storage.bucketAccessControls.insert({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [BucketAccessControl](#bucketaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [BucketAccessControl](#bucketaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -293,12 +301,12 @@ google_storage.bucketAccessControls.insert({
 #### Output
 * output [BucketAccessControl](#bucketaccesscontrol)
 
-### bucketAccessControls.delete
+### storage.bucketAccessControls.delete
 Permanently deletes the ACL entry for the specified entity on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.delete({
+google_storage.storage.bucketAccessControls.delete({
   "bucket": "",
   "entity": ""
 }, context)
@@ -308,6 +316,7 @@ google_storage.bucketAccessControls.delete({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -320,12 +329,12 @@ google_storage.bucketAccessControls.delete({
 #### Output
 *Output schema unknown*
 
-### bucketAccessControls.get
+### storage.bucketAccessControls.get
 Returns the ACL entry for the specified entity on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.get({
+google_storage.storage.bucketAccessControls.get({
   "bucket": "",
   "entity": ""
 }, context)
@@ -335,6 +344,7 @@ google_storage.bucketAccessControls.get({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -347,12 +357,12 @@ google_storage.bucketAccessControls.get({
 #### Output
 * output [BucketAccessControl](#bucketaccesscontrol)
 
-### bucketAccessControls.patch
+### storage.bucketAccessControls.patch
 Patches an ACL entry on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.patch({
+google_storage.storage.bucketAccessControls.patch({
   "bucket": "",
   "entity": ""
 }, context)
@@ -360,10 +370,11 @@ google_storage.bucketAccessControls.patch({
 
 #### Input
 * input `object`
-  * body [BucketAccessControl](#bucketaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [BucketAccessControl](#bucketaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -375,12 +386,12 @@ google_storage.bucketAccessControls.patch({
 #### Output
 * output [BucketAccessControl](#bucketaccesscontrol)
 
-### bucketAccessControls.update
+### storage.bucketAccessControls.update
 Updates an ACL entry on the specified bucket.
 
 
 ```js
-google_storage.bucketAccessControls.update({
+google_storage.storage.bucketAccessControls.update({
   "bucket": "",
   "entity": ""
 }, context)
@@ -388,10 +399,11 @@ google_storage.bucketAccessControls.update({
 
 #### Input
 * input `object`
-  * body [BucketAccessControl](#bucketaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [BucketAccessControl](#bucketaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -403,12 +415,12 @@ google_storage.bucketAccessControls.update({
 #### Output
 * output [BucketAccessControl](#bucketaccesscontrol)
 
-### defaultObjectAccessControls.list
+### storage.defaultObjectAccessControls.list
 Retrieves default object ACL entries on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.list({
+google_storage.storage.defaultObjectAccessControls.list({
   "bucket": ""
 }, context)
 ```
@@ -418,6 +430,7 @@ google_storage.defaultObjectAccessControls.list({
   * bucket **required** `string`: Name of a bucket.
   * ifMetagenerationMatch `string`: If present, only return default ACL listing if the bucket's current metageneration matches this value.
   * ifMetagenerationNotMatch `string`: If present, only return default ACL listing if the bucket's current metageneration does not match the given value.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -430,21 +443,22 @@ google_storage.defaultObjectAccessControls.list({
 #### Output
 * output [ObjectAccessControls](#objectaccesscontrols)
 
-### defaultObjectAccessControls.insert
+### storage.defaultObjectAccessControls.insert
 Creates a new default object ACL entry on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.insert({
+google_storage.storage.defaultObjectAccessControls.insert({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -456,12 +470,12 @@ google_storage.defaultObjectAccessControls.insert({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### defaultObjectAccessControls.delete
+### storage.defaultObjectAccessControls.delete
 Permanently deletes the default object ACL entry for the specified entity on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.delete({
+google_storage.storage.defaultObjectAccessControls.delete({
   "bucket": "",
   "entity": ""
 }, context)
@@ -471,6 +485,7 @@ google_storage.defaultObjectAccessControls.delete({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -483,12 +498,12 @@ google_storage.defaultObjectAccessControls.delete({
 #### Output
 *Output schema unknown*
 
-### defaultObjectAccessControls.get
+### storage.defaultObjectAccessControls.get
 Returns the default object ACL entry for the specified entity on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.get({
+google_storage.storage.defaultObjectAccessControls.get({
   "bucket": "",
   "entity": ""
 }, context)
@@ -498,6 +513,7 @@ google_storage.defaultObjectAccessControls.get({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -510,12 +526,12 @@ google_storage.defaultObjectAccessControls.get({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### defaultObjectAccessControls.patch
+### storage.defaultObjectAccessControls.patch
 Patches a default object ACL entry on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.patch({
+google_storage.storage.defaultObjectAccessControls.patch({
   "bucket": "",
   "entity": ""
 }, context)
@@ -523,10 +539,11 @@ google_storage.defaultObjectAccessControls.patch({
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -538,12 +555,12 @@ google_storage.defaultObjectAccessControls.patch({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### defaultObjectAccessControls.update
+### storage.defaultObjectAccessControls.update
 Updates a default object ACL entry on the specified bucket.
 
 
 ```js
-google_storage.defaultObjectAccessControls.update({
+google_storage.storage.defaultObjectAccessControls.update({
   "bucket": "",
   "entity": ""
 }, context)
@@ -551,10 +568,11 @@ google_storage.defaultObjectAccessControls.update({
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -566,12 +584,12 @@ google_storage.defaultObjectAccessControls.update({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### buckets.getIamPolicy
+### storage.buckets.getIamPolicy
 Returns an IAM policy for the specified bucket.
 
 
 ```js
-google_storage.buckets.getIamPolicy({
+google_storage.storage.buckets.getIamPolicy({
   "bucket": ""
 }, context)
 ```
@@ -579,6 +597,8 @@ google_storage.buckets.getIamPolicy({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a bucket.
+  * optionsRequestedPolicyVersion `integer`: The IAM policy format version to be returned. If the optionsRequestedPolicyVersion is for an older version that doesn't support part of the requested IAM policy, the request fails.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -591,21 +611,22 @@ google_storage.buckets.getIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### buckets.setIamPolicy
+### storage.buckets.setIamPolicy
 Updates an IAM policy for the specified bucket.
 
 
 ```js
-google_storage.buckets.setIamPolicy({
+google_storage.storage.buckets.setIamPolicy({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Policy](#policy)
   * bucket **required** `string`: Name of a bucket.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Policy](#policy)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -617,12 +638,12 @@ google_storage.buckets.setIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### buckets.testIamPermissions
+### storage.buckets.testIamPermissions
 Tests a set of permissions on the given bucket to see which, if any, are held by the caller.
 
 
 ```js
-google_storage.buckets.testIamPermissions({
+google_storage.storage.buckets.testIamPermissions({
   "bucket": "",
   "permissions": []
 }, context)
@@ -632,6 +653,7 @@ google_storage.buckets.testIamPermissions({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * permissions **required** `array`: Permissions to test.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -644,12 +666,12 @@ google_storage.buckets.testIamPermissions({
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
 
-### buckets.lockRetentionPolicy
+### storage.buckets.lockRetentionPolicy
 Locks retention policy on a bucket.
 
 
 ```js
-google_storage.buckets.lockRetentionPolicy({
+google_storage.storage.buckets.lockRetentionPolicy({
   "bucket": "",
   "ifMetagenerationMatch": ""
 }, context)
@@ -659,6 +681,7 @@ google_storage.buckets.lockRetentionPolicy({
 * input `object`
   * bucket **required** `string`: Name of a bucket.
   * ifMetagenerationMatch **required** `string`: Makes the operation conditional on whether bucket's current metageneration matches the given value.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -671,12 +694,12 @@ google_storage.buckets.lockRetentionPolicy({
 #### Output
 * output [Bucket](#bucket)
 
-### notifications.list
+### storage.notifications.list
 Retrieves a list of notification subscriptions for a given bucket.
 
 
 ```js
-google_storage.notifications.list({
+google_storage.storage.notifications.list({
   "bucket": ""
 }, context)
 ```
@@ -684,6 +707,7 @@ google_storage.notifications.list({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a Google Cloud Storage bucket.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -696,21 +720,22 @@ google_storage.notifications.list({
 #### Output
 * output [Notifications](#notifications)
 
-### notifications.insert
+### storage.notifications.insert
 Creates a notification subscription for a given bucket.
 
 
 ```js
-google_storage.notifications.insert({
+google_storage.storage.notifications.insert({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Notification](#notification)
   * bucket **required** `string`: The parent bucket of the notification.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Notification](#notification)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -722,12 +747,12 @@ google_storage.notifications.insert({
 #### Output
 * output [Notification](#notification)
 
-### notifications.delete
+### storage.notifications.delete
 Permanently deletes a notification subscription.
 
 
 ```js
-google_storage.notifications.delete({
+google_storage.storage.notifications.delete({
   "bucket": "",
   "notification": ""
 }, context)
@@ -737,6 +762,7 @@ google_storage.notifications.delete({
 * input `object`
   * bucket **required** `string`: The parent bucket of the notification.
   * notification **required** `string`: ID of the notification to delete.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -749,12 +775,12 @@ google_storage.notifications.delete({
 #### Output
 *Output schema unknown*
 
-### notifications.get
+### storage.notifications.get
 View a notification configuration.
 
 
 ```js
-google_storage.notifications.get({
+google_storage.storage.notifications.get({
   "bucket": "",
   "notification": ""
 }, context)
@@ -764,6 +790,7 @@ google_storage.notifications.get({
 * input `object`
   * bucket **required** `string`: The parent bucket of the notification.
   * notification **required** `string`: Notification ID
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -776,12 +803,12 @@ google_storage.notifications.get({
 #### Output
 * output [Notification](#notification)
 
-### objects.list
+### storage.objects.list
 Retrieves a list of objects matching the criteria.
 
 
 ```js
-google_storage.objects.list({
+google_storage.storage.objects.list({
   "bucket": ""
 }, context)
 ```
@@ -790,11 +817,14 @@ google_storage.objects.list({
 * input `object`
   * bucket **required** `string`: Name of the bucket in which to look for objects.
   * delimiter `string`: Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted.
+  * endOffset `string`: Filter results to objects whose names are lexicographically before endOffset. If startOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
   * includeTrailingDelimiter `boolean`: If true, objects that end in exactly one instance of delimiter will have their metadata included in items in addition to prefixes.
   * maxResults `integer`: Maximum number of items plus prefixes to return in a single page of responses. As duplicate prefixes are omitted, fewer total results may be returned than requested. The service will use this parameter or 1,000 items, whichever is smaller.
   * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
   * prefix `string`: Filter results to objects whose names begin with this prefix.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
+  * startOffset `string`: Filter results to objects whose names are lexicographically equal to or after startOffset. If endOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * versions `boolean`: If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
   * alt `string` (values: json): Data format for the response.
@@ -808,30 +838,31 @@ google_storage.objects.list({
 #### Output
 * output [Objects](#objects)
 
-### objects.insert
+### storage.objects.insert
 Stores a new object and metadata.
 
 
 ```js
-google_storage.objects.insert({
+google_storage.storage.objects.insert({
   "bucket": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Object](#object)
   * bucket **required** `string`: Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
   * contentEncoding `string`: If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded.
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * kmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any. Limited availability; usable only by enabled projects.
+  * kmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
   * name `string`: Name of the object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * predefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to this object.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Object](#object)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -843,12 +874,12 @@ google_storage.objects.insert({
 #### Output
 * output [Object](#object)
 
-### objects.watchAll
+### storage.objects.watchAll
 Watch for changes on all objects in a bucket.
 
 
 ```js
-google_storage.objects.watchAll({
+google_storage.storage.objects.watchAll({
   "bucket": ""
 }, context)
 ```
@@ -857,14 +888,17 @@ google_storage.objects.watchAll({
 * input `object`
   * bucket **required** `string`: Name of the bucket in which to look for objects.
   * delimiter `string`: Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted.
+  * endOffset `string`: Filter results to objects whose names are lexicographically before endOffset. If startOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
   * includeTrailingDelimiter `boolean`: If true, objects that end in exactly one instance of delimiter will have their metadata included in items in addition to prefixes.
   * maxResults `integer`: Maximum number of items plus prefixes to return in a single page of responses. As duplicate prefixes are omitted, fewer total results may be returned than requested. The service will use this parameter or 1,000 items, whichever is smaller.
   * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
   * prefix `string`: Filter results to objects whose names begin with this prefix.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl.
-  * resource [Channel](#channel)
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
+  * startOffset `string`: Filter results to objects whose names are lexicographically equal to or after startOffset. If endOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * versions `boolean`: If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -876,12 +910,12 @@ google_storage.objects.watchAll({
 #### Output
 * output [Channel](#channel)
 
-### objects.delete
+### storage.objects.delete
 Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used.
 
 
 ```js
-google_storage.objects.delete({
+google_storage.storage.objects.delete({
   "bucket": "",
   "object": ""
 }, context)
@@ -890,12 +924,13 @@ google_storage.objects.delete({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of the bucket in which the object resides.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * generation `string`: If present, permanently deletes a specific revision of this object (as opposed to the latest version, the default).
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -908,12 +943,12 @@ google_storage.objects.delete({
 #### Output
 *Output schema unknown*
 
-### objects.get
+### storage.objects.get
 Retrieves an object or its metadata.
 
 
 ```js
-google_storage.objects.get({
+google_storage.storage.objects.get({
   "bucket": "",
   "object": ""
 }, context)
@@ -922,13 +957,14 @@ google_storage.objects.get({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of the bucket in which the object resides.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -941,12 +977,12 @@ google_storage.objects.get({
 #### Output
 * output [Object](#object)
 
-### objects.patch
+### storage.objects.patch
 Patches an object's metadata.
 
 
 ```js
-google_storage.objects.patch({
+google_storage.storage.objects.patch({
   "bucket": "",
   "object": ""
 }, context)
@@ -954,17 +990,18 @@ google_storage.objects.patch({
 
 #### Input
 * input `object`
-  * body [Object](#object)
   * bucket **required** `string`: Name of the bucket in which the object resides.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * predefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to this object.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request, for Requester Pays buckets.
+  * body [Object](#object)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -976,12 +1013,12 @@ google_storage.objects.patch({
 #### Output
 * output [Object](#object)
 
-### objects.update
+### storage.objects.update
 Updates an object's metadata.
 
 
 ```js
-google_storage.objects.update({
+google_storage.storage.objects.update({
   "bucket": "",
   "object": ""
 }, context)
@@ -989,17 +1026,18 @@ google_storage.objects.update({
 
 #### Input
 * input `object`
-  * body [Object](#object)
   * bucket **required** `string`: Name of the bucket in which the object resides.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * ifMetagenerationNotMatch `string`: Makes the operation conditional on whether the object's current metageneration does not match the given value.
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * predefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to this object.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Object](#object)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1011,12 +1049,12 @@ google_storage.objects.update({
 #### Output
 * output [Object](#object)
 
-### objectAccessControls.list
+### storage.objectAccessControls.list
 Retrieves ACL entries on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.list({
+google_storage.storage.objectAccessControls.list({
   "bucket": "",
   "object": ""
 }, context)
@@ -1025,8 +1063,9 @@ google_storage.objectAccessControls.list({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a bucket.
-  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1039,12 +1078,12 @@ google_storage.objectAccessControls.list({
 #### Output
 * output [ObjectAccessControls](#objectaccesscontrols)
 
-### objectAccessControls.insert
+### storage.objectAccessControls.insert
 Creates a new ACL entry on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.insert({
+google_storage.storage.objectAccessControls.insert({
   "bucket": "",
   "object": ""
 }, context)
@@ -1052,11 +1091,12 @@ google_storage.objectAccessControls.insert({
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
-  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1068,24 +1108,25 @@ google_storage.objectAccessControls.insert({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### objectAccessControls.delete
+### storage.objectAccessControls.delete
 Permanently deletes the ACL entry for the specified entity on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.delete({
+google_storage.storage.objectAccessControls.delete({
   "bucket": "",
-  "entity": "",
-  "object": ""
+  "object": "",
+  "entity": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a bucket.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1098,24 +1139,25 @@ google_storage.objectAccessControls.delete({
 #### Output
 *Output schema unknown*
 
-### objectAccessControls.get
+### storage.objectAccessControls.get
 Returns the ACL entry for the specified entity on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.get({
+google_storage.storage.objectAccessControls.get({
   "bucket": "",
-  "entity": "",
-  "object": ""
+  "object": "",
+  "entity": ""
 }, context)
 ```
 
 #### Input
 * input `object`
   * bucket **required** `string`: Name of a bucket.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1128,26 +1170,27 @@ google_storage.objectAccessControls.get({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### objectAccessControls.patch
+### storage.objectAccessControls.patch
 Patches an ACL entry on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.patch({
+google_storage.storage.objectAccessControls.patch({
   "bucket": "",
-  "entity": "",
-  "object": ""
+  "object": "",
+  "entity": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1159,26 +1202,27 @@ google_storage.objectAccessControls.patch({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### objectAccessControls.update
+### storage.objectAccessControls.update
 Updates an ACL entry on the specified object.
 
 
 ```js
-google_storage.objectAccessControls.update({
+google_storage.storage.objectAccessControls.update({
   "bucket": "",
-  "entity": "",
-  "object": ""
+  "object": "",
+  "entity": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [ObjectAccessControl](#objectaccesscontrol)
   * bucket **required** `string`: Name of a bucket.
+  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * entity **required** `string`: The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
   * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
-  * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ObjectAccessControl](#objectaccesscontrol)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1190,12 +1234,12 @@ google_storage.objectAccessControls.update({
 #### Output
 * output [ObjectAccessControl](#objectaccesscontrol)
 
-### objects.getIamPolicy
+### storage.objects.getIamPolicy
 Returns an IAM policy for the specified object.
 
 
 ```js
-google_storage.objects.getIamPolicy({
+google_storage.storage.objects.getIamPolicy({
   "bucket": "",
   "object": ""
 }, context)
@@ -1204,8 +1248,9 @@ google_storage.objects.getIamPolicy({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of the bucket in which the object resides.
-  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1218,12 +1263,12 @@ google_storage.objects.getIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### objects.setIamPolicy
+### storage.objects.setIamPolicy
 Updates an IAM policy for the specified object.
 
 
 ```js
-google_storage.objects.setIamPolicy({
+google_storage.storage.objects.setIamPolicy({
   "bucket": "",
   "object": ""
 }, context)
@@ -1231,11 +1276,12 @@ google_storage.objects.setIamPolicy({
 
 #### Input
 * input `object`
-  * body [Policy](#policy)
   * bucket **required** `string`: Name of the bucket in which the object resides.
-  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Policy](#policy)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1247,12 +1293,12 @@ google_storage.objects.setIamPolicy({
 #### Output
 * output [Policy](#policy)
 
-### objects.testIamPermissions
+### storage.objects.testIamPermissions
 Tests a set of permissions on the given object to see which, if any, are held by the caller.
 
 
 ```js
-google_storage.objects.testIamPermissions({
+google_storage.storage.objects.testIamPermissions({
   "bucket": "",
   "object": "",
   "permissions": []
@@ -1262,9 +1308,10 @@ google_storage.objects.testIamPermissions({
 #### Input
 * input `object`
   * bucket **required** `string`: Name of the bucket in which the object resides.
-  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
   * object **required** `string`: Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * permissions **required** `array`: Permissions to test.
+  * generation `string`: If present, selects a specific revision of this object (as opposed to the latest version, the default).
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1277,12 +1324,12 @@ google_storage.objects.testIamPermissions({
 #### Output
 * output [TestIamPermissionsResponse](#testiampermissionsresponse)
 
-### objects.compose
+### storage.objects.compose
 Concatenates a list of existing objects into a new object in the same bucket.
 
 
 ```js
-google_storage.objects.compose({
+google_storage.storage.objects.compose({
   "destinationBucket": "",
   "destinationObject": ""
 }, context)
@@ -1290,14 +1337,15 @@ google_storage.objects.compose({
 
 #### Input
 * input `object`
-  * body [ComposeRequest](#composerequest)
-  * destinationBucket **required** `string`: Name of the bucket in which to store the new object.
+  * destinationBucket **required** `string`: Name of the bucket containing the source objects. The destination object is stored in this bucket.
   * destinationObject **required** `string`: Name of the new object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * destinationPredefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to the destination object.
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifMetagenerationMatch `string`: Makes the operation conditional on whether the object's current metageneration matches the given value.
   * kmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [ComposeRequest](#composerequest)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1309,24 +1357,26 @@ google_storage.objects.compose({
 #### Output
 * output [Object](#object)
 
-### objects.copy
+### storage.objects.copy
 Copies a source object to a destination object. Optionally overrides metadata.
 
 
 ```js
-google_storage.objects.copy({
-  "destinationBucket": "",
-  "destinationObject": "",
+google_storage.storage.objects.copy({
   "sourceBucket": "",
-  "sourceObject": ""
+  "sourceObject": "",
+  "destinationBucket": "",
+  "destinationObject": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Object](#object)
+  * sourceBucket **required** `string`: Name of the bucket in which to find the source object.
+  * sourceObject **required** `string`: Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * destinationBucket **required** `string`: Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * destinationObject **required** `string`: Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any.
+  * destinationKmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
   * destinationPredefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to the destination object.
   * ifGenerationMatch `string`: Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
@@ -1337,10 +1387,10 @@ google_storage.objects.copy({
   * ifSourceMetagenerationMatch `string`: Makes the operation conditional on whether the source object's current metageneration matches the given value.
   * ifSourceMetagenerationNotMatch `string`: Makes the operation conditional on whether the source object's current metageneration does not match the given value.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
-  * sourceBucket **required** `string`: Name of the bucket in which to find the source object.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * sourceGeneration `string`: If present, selects a specific revision of the source object (as opposed to the latest version, the default).
-  * sourceObject **required** `string`: Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Object](#object)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1352,25 +1402,26 @@ google_storage.objects.copy({
 #### Output
 * output [Object](#object)
 
-### objects.rewrite
+### storage.objects.rewrite
 Rewrites a source object to a destination object. Optionally overrides metadata.
 
 
 ```js
-google_storage.objects.rewrite({
-  "destinationBucket": "",
-  "destinationObject": "",
+google_storage.storage.objects.rewrite({
   "sourceBucket": "",
-  "sourceObject": ""
+  "sourceObject": "",
+  "destinationBucket": "",
+  "destinationObject": ""
 }, context)
 ```
 
 #### Input
 * input `object`
-  * body [Object](#object)
+  * sourceBucket **required** `string`: Name of the bucket in which to find the source object.
+  * sourceObject **required** `string`: Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * destinationBucket **required** `string`: Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
-  * destinationKmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
   * destinationObject **required** `string`: Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+  * destinationKmsKeyName `string`: Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
   * destinationPredefinedAcl `string` (values: authenticatedRead, bucketOwnerFullControl, bucketOwnerRead, private, projectPrivate, publicRead): Apply a predefined set of access controls to the destination object.
   * ifGenerationMatch `string`: Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
   * ifGenerationNotMatch `string`: Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
@@ -1382,11 +1433,11 @@ google_storage.objects.rewrite({
   * ifSourceMetagenerationNotMatch `string`: Makes the operation conditional on whether the source object's current metageneration does not match the given value.
   * maxBytesRewrittenPerCall `string`: The maximum number of bytes that will be rewritten per rewrite request. Most callers shouldn't need to specify this parameter - it is primarily in place to support testing. If specified the value must be an integral multiple of 1 MiB (1048576). Also, this only applies to requests where the source and destination span locations and/or storage classes. Finally, this value must not change across rewrite calls else you'll get an error that the rewriteToken is invalid.
   * projection `string` (values: full, noAcl): Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * rewriteToken `string`: Include this field (from the previous rewrite response) on each rewrite request after the first one, until the rewrite response 'done' flag is true. Calls that provide a rewriteToken can omit all other request fields, but if included those fields must match the values provided in the first rewrite request.
-  * sourceBucket **required** `string`: Name of the bucket in which to find the source object.
   * sourceGeneration `string`: If present, selects a specific revision of the source object (as opposed to the latest version, the default).
-  * sourceObject **required** `string`: Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
   * userProject `string`: The project to be billed for this request. Required for Requester Pays buckets.
+  * body [Object](#object)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1398,17 +1449,17 @@ google_storage.objects.rewrite({
 #### Output
 * output [RewriteResponse](#rewriteresponse)
 
-### channels.stop
+### storage.channels.stop
 Stop watching resources through this channel
 
 
 ```js
-google_storage.channels.stop({}, context)
+google_storage.storage.channels.stop({}, context)
 ```
 
 #### Input
 * input `object`
-  * resource [Channel](#channel)
+  * body [Channel](#channel)
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
   * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1420,12 +1471,150 @@ google_storage.channels.stop({}, context)
 #### Output
 *Output schema unknown*
 
-### projects.serviceAccount.get
+### storage.projects.hmacKeys.list
+Retrieves a list of HMAC keys matching the criteria.
+
+
+```js
+google_storage.storage.projects.hmacKeys.list({
+  "projectId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: Name of the project in which to look for HMAC keys.
+  * maxResults `integer`: Maximum number of items to return in a single page of responses. The service uses this parameter or 250 items, whichever is smaller. The max number of items per page will also be limited by the number of distinct service accounts in the response. If the number of service accounts in a single response is too high, the page will truncated and a next page token will be returned.
+  * pageToken `string`: A previously-returned page token representing part of the larger set of results to view.
+  * serviceAccountEmail `string`: If present, only keys for the given service account are returned.
+  * showDeletedKeys `boolean`: Whether or not to show keys in the DELETED state.
+  * userProject `string`: The project to be billed for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [HmacKeysMetadata](#hmackeysmetadata)
+
+### storage.projects.hmacKeys.create
+Creates a new HMAC key for the specified service account.
+
+
+```js
+google_storage.storage.projects.hmacKeys.create({
+  "projectId": "",
+  "serviceAccountEmail": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: Project ID owning the service account.
+  * serviceAccountEmail **required** `string`: Email address of the service account.
+  * userProject `string`: The project to be billed for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [HmacKey](#hmackey)
+
+### storage.projects.hmacKeys.delete
+Deletes an HMAC key.
+
+
+```js
+google_storage.storage.projects.hmacKeys.delete({
+  "projectId": "",
+  "accessId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: Project ID owning the requested key
+  * accessId **required** `string`: Name of the HMAC key to be deleted.
+  * userProject `string`: The project to be billed for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+*Output schema unknown*
+
+### storage.projects.hmacKeys.get
+Retrieves an HMAC key's metadata
+
+
+```js
+google_storage.storage.projects.hmacKeys.get({
+  "projectId": "",
+  "accessId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: Project ID owning the service account of the requested key.
+  * accessId **required** `string`: Name of the HMAC key.
+  * userProject `string`: The project to be billed for this request.
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [HmacKeyMetadata](#hmackeymetadata)
+
+### storage.projects.hmacKeys.update
+Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states.
+
+
+```js
+google_storage.storage.projects.hmacKeys.update({
+  "projectId": "",
+  "accessId": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * projectId **required** `string`: Project ID owning the service account of the updated key.
+  * accessId **required** `string`: Name of the HMAC key being updated.
+  * userProject `string`: The project to be billed for this request.
+  * body [HmacKeyMetadata](#hmackeymetadata)
+  * alt `string` (values: json): Data format for the response.
+  * fields `string`: Selector specifying which fields to include in a partial response.
+  * key `string`: API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+  * oauth_token `string`: OAuth 2.0 token for the current user.
+  * prettyPrint `boolean`: Returns response with indentations and line breaks.
+  * quotaUser `string`: An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  * userIp `string`: Deprecated. Please use quotaUser instead.
+
+#### Output
+* output [HmacKeyMetadata](#hmackeymetadata)
+
+### storage.projects.serviceAccount.get
 Get the email address of this project's Google Cloud Storage service account.
 
 
 ```js
-google_storage.projects.serviceAccount.get({
+google_storage.storage.projects.serviceAccount.get({
   "projectId": ""
 }, context)
 ```
@@ -1433,6 +1622,7 @@ google_storage.projects.serviceAccount.get({
 #### Input
 * input `object`
   * projectId **required** `string`: Project ID
+  * provisionalUserProject `string`: The project to be billed for this request if the target bucket is requester-pays bucket.
   * userProject `string`: The project to be billed for this request.
   * alt `string` (values: json): Data format for the response.
   * fields `string`: Selector specifying which fields to include in a partial response.
@@ -1470,6 +1660,14 @@ google_storage.projects.serviceAccount.get({
   * encryption `object`: Encryption configuration for a bucket.
     * defaultKmsKeyName `string`: A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified.
   * etag `string`: HTTP 1.1 Entity tag for the bucket.
+  * iamConfiguration `object`: The bucket's IAM configuration.
+    * bucketPolicyOnly `object`: The bucket's uniform bucket-level access configuration. The feature was formerly known as Bucket Policy Only. For backward compatibility, this field will be populated with identical information as the uniformBucketLevelAccess field. We recommend using the uniformBucketLevelAccess field to enable and disable the feature.
+      * enabled `boolean`: If set, access is controlled only by bucket-level or above IAM policies.
+      * lockedTime `string`: The deadline for changing iamConfiguration.bucketPolicyOnly.enabled from true to false in RFC 3339 format. iamConfiguration.bucketPolicyOnly.enabled may be changed from true to false until the locked time, after which the field is immutable.
+    * publicAccessPrevention `string`: The bucket's Public Access Prevention configuration. Currently, 'unspecified' and 'enforced' are supported.
+    * uniformBucketLevelAccess `object`: The bucket's uniform bucket-level access configuration.
+      * enabled `boolean`: If set, access is controlled only by bucket-level or above IAM policies.
+      * lockedTime `string`: The deadline for changing iamConfiguration.uniformBucketLevelAccess.enabled from true to false in RFC 3339  format. iamConfiguration.uniformBucketLevelAccess.enabled may be changed from true to false until the locked time, after which the field is immutable.
   * id `string`: The ID of the bucket. For buckets, the id and name properties are the same.
   * kind `string`: The kind of item this is. For buckets, this is always storage#bucket.
   * labels `object`: User-provided labels, in key/value pairs.
@@ -1482,11 +1680,16 @@ google_storage.projects.serviceAccount.get({
         * condition `object`: The condition(s) under which the action will be taken.
           * age `integer`: Age of an object (in days). This condition is satisfied when an object reaches the specified age.
           * createdBefore `string`: A date in RFC 3339 format with only the date part (for instance, "2013-01-15"). This condition is satisfied when an object is created before midnight of the specified date in UTC.
+          * customTimeBefore `string`: A date in RFC 3339 format with only the date part (for instance, "2013-01-15"). This condition is satisfied when the custom time on an object is before this date in UTC.
+          * daysSinceCustomTime `integer`: Number of days elapsed since the user-specified timestamp set on an object. The condition is satisfied if the days elapsed is at least this number. If no custom timestamp is specified on an object, the condition does not apply.
+          * daysSinceNoncurrentTime `integer`: Number of days elapsed since the noncurrent timestamp of an object. The condition is satisfied if the days elapsed is at least this number. This condition is relevant only for versioned objects. The value of the field must be a nonnegative integer. If it's zero, the object version will become eligible for Lifecycle action as soon as it becomes noncurrent.
           * isLive `boolean`: Relevant only for versioned objects. If the value is true, this condition matches live objects; if the value is false, it matches archived objects.
-          * matchesStorageClass `array`: Objects having any of the storage classes specified by this condition will be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
-            * items `string`
+          * matchesPattern `string`: A regular expression that satisfies the RE2 syntax. This condition is satisfied when the name of the object matches the RE2 pattern. Note: This feature is currently in the "Early Access" launch stage and is only available to a whitelisted set of users; that means that this feature may be changed in backward-incompatible ways and that it is not guaranteed to be released.
+          * matchesStorageClass `array`: Objects having any of the storage classes specified by this condition will be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
+          * noncurrentTimeBefore `string`: A date in RFC 3339 format with only the date part (for instance, "2013-01-15"). This condition is satisfied when the noncurrent time on an object is before this date in UTC. This condition is relevant only for versioned objects.
           * numNewerVersions `integer`: Relevant only for versioned objects. If the value is N, this condition is satisfied when there are at least N versions (including the live version) newer than this version of the object.
   * location `string`: The location of the bucket. Object data for objects in the bucket resides in physical storage within this region. Defaults to US. See the developer's guide for the authoritative list.
+  * locationType `string`: The type of the bucket location.
   * logging `object`: The bucket's logging configuration, which defines the destination bucket and optional name prefix for the current bucket's logs.
     * logBucket `string`: The destination bucket where the current bucket's logs should be placed.
     * logObjectPrefix `string`: A prefix for log object names.
@@ -1501,7 +1704,7 @@ google_storage.projects.serviceAccount.get({
     * isLocked `boolean`: Once locked, an object retention policy cannot be modified.
     * retentionPeriod `string`: The duration in seconds that objects need to be retained. Retention duration must be greater than zero and less than 100 years. Note that enforcement of retention periods less than a day is not guaranteed. Such periods should only be used for testing purposes.
   * selfLink `string`: The URI of this bucket.
-  * storageClass `string`: The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, and DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage classes.
+  * storageClass `string`: The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage classes.
   * timeCreated `string`: The creation time of the bucket in RFC 3339 format.
   * updated `string`: The modification time of the bucket in RFC 3339 format.
   * versioning `object`: The bucket's versioning configuration.
@@ -1509,6 +1712,8 @@ google_storage.projects.serviceAccount.get({
   * website `object`: The bucket's website configuration, controlling how the service behaves when accessing bucket contents as a web site. See the Static Website Examples for more information.
     * mainPageSuffix `string`: If the requested object path is missing, the service will ensure the path has a trailing '/', append this suffix, and attempt to retrieve the resulting object. This allows the creation of index.html objects to represent directory pages.
     * notFoundPage `string`: If the requested object path is missing, and any mainPageSuffix object is missing, if applicable, the service will return the named object from this bucket as the content for a 404 Not Found result.
+  * zoneAffinity `array`: The zone or zones from which the bucket is intended to use zonal quota. Requests for data from outside the specified affinities are still allowed but won't be able to use zonal quota. The zone or zones need to be within the bucket location otherwise the requests will fail with a 400 Bad Request response.
+    * items `string`
 
 ### BucketAccessControl
 * BucketAccessControl `object`: An access-control entry.
@@ -1544,7 +1749,7 @@ google_storage.projects.serviceAccount.get({
   * address `string`: The address where notifications are delivered for this channel.
   * expiration `string`: Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.
   * id `string`: A UUID or similar unique string that identifies this channel.
-  * kind `string`: Identifies this as a notification channel used to watch for changes to a resource. Value: the fixed string "api#channel".
+  * kind `string`: Identifies this as a notification channel used to watch for changes to a resource, which is "api#channel".
   * params `object`: Additional parameters controlling delivery channel behavior. Optional.
   * payload `boolean`: A Boolean value to indicate whether payload is wanted. Optional.
   * resourceId `string`: An opaque ID that identifies the resource being watched on this channel. Stable across different API versions.
@@ -1559,9 +1764,42 @@ google_storage.projects.serviceAccount.get({
   * sourceObjects `array`: The list of source objects that will be concatenated into a single object.
     * items `object`
       * generation `string`: The generation of this object to use as the source.
-      * name `string`: The source object's name. The source object's bucket is implicitly the destination bucket.
+      * name `string`: The source object's name. All source objects must reside in the same bucket.
       * objectPreconditions `object`: Conditions that must be met for this operation to execute.
         * ifGenerationMatch `string`: Only perform the composition if the generation of the source object that would be used matches this value. If this value and a generation are both specified, they must be the same value or the call will fail.
+
+### Expr
+* Expr `object`: Represents an expression text. Example: title: "User account presence" description: "Determines whether the request has a user account" expression: "size(request.user) > 0"
+  * description `string`: An optional description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
+  * expression `string`: Textual representation of an expression in Common Expression Language syntax. The application context of the containing message determines which well-known feature set of CEL is supported.
+  * location `string`: An optional string indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
+  * title `string`: An optional title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
+
+### HmacKey
+* HmacKey `object`: JSON template to produce a JSON-style HMAC Key resource for Create responses.
+  * kind `string`: The kind of item this is. For HMAC keys, this is always storage#hmacKey.
+  * metadata [HmacKeyMetadata](#hmackeymetadata)
+  * secret `string`: HMAC secret key material.
+
+### HmacKeyMetadata
+* HmacKeyMetadata `object`: JSON template to produce a JSON-style HMAC Key metadata resource.
+  * accessId `string`: The ID of the HMAC Key.
+  * etag `string`: HTTP 1.1 Entity tag for the HMAC key.
+  * id `string`: The ID of the HMAC key, including the Project ID and the Access ID.
+  * kind `string`: The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata.
+  * projectId `string`: Project ID owning the service account to which the key authenticates.
+  * selfLink `string`: The link to this resource.
+  * serviceAccountEmail `string`: The email address of the key's associated service account.
+  * state `string`: The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED.
+  * timeCreated `string`: The creation time of the HMAC key in RFC 3339 format.
+  * updated `string`: The last modification time of the HMAC key metadata in RFC 3339 format.
+
+### HmacKeysMetadata
+* HmacKeysMetadata `object`: A list of hmacKeys.
+  * items `array`: The list of items.
+    * items [HmacKeyMetadata](#hmackeymetadata)
+  * kind `string`: The kind of item this is. For lists of hmacKeys, this is always storage#hmacKeysMetadata.
+  * nextPageToken `string`: The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results.
 
 ### Notification
 * Notification `object`: A subscription to receive Google PubSub notifications.
@@ -1594,6 +1832,7 @@ google_storage.projects.serviceAccount.get({
   * contentLanguage `string`: Content-Language of the object data.
   * contentType `string`: Content-Type of the object data. If an object is stored without a Content-Type, it is served as application/octet-stream.
   * crc32c `string`: CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64 in big-endian byte order. For more information about using the CRC32c checksum, see Hashes and ETags: Best Practices.
+  * customTime `string`: A timestamp in RFC 3339 format specified by the user for an object.
   * customerEncryption `object`: Metadata of customer-supplied encryption key, if the object is encrypted by such a key.
     * encryptionAlgorithm `string`: The encryption algorithm.
     * keySha256 `string`: SHA256 hash value of the encryption key.
@@ -1602,7 +1841,7 @@ google_storage.projects.serviceAccount.get({
   * generation `string`: The content generation of this object. Used for object versioning.
   * id `string`: The ID of the object, including the bucket name, object name, and generation number.
   * kind `string`: The kind of item this is. For objects, this is always storage#object.
-  * kmsKeyName `string`: Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key. Limited availability; usable only by enabled projects.
+  * kmsKeyName `string`: Not currently supported. Specifying the parameter causes the request to fail with status code 400 - Bad Request.
   * md5Hash `string`: MD5 hash of the data; encoded using base64. For more information about using the MD5 hash, see Hashes and ETags: Best Practices.
   * mediaLink `string`: Media download link.
   * metadata `object`: User-provided metadata, in key/value pairs.
@@ -1658,12 +1897,14 @@ google_storage.projects.serviceAccount.get({
 * Policy `object`: A bucket/object IAM policy.
   * bindings `array`: An association between a role, which comes with a set of permissions, and members who may assume that role.
     * items `object`
+      * condition [Expr](#expr)
       * members `array`: A collection of identifiers for members who may assume the provided role. Recognized identifiers are as follows:  
         * items `string`
       * role `string`: The role to which members belong. Two types of roles are supported: new IAM roles, which grant permissions that do not map directly to those provided by ACLs, and legacy IAM roles, which do map directly to ACL permissions. All roles are of the format roles/storage.specificRole.
   * etag `string`: HTTP 1.1  Entity tag for the policy.
   * kind `string`: The kind of item this is. For policies, this is always storage#policy. This field is ignored on input.
   * resourceId `string`: The ID of the resource to which this policy belongs. Will be of the form projects/_/buckets/bucket for buckets, and projects/_/buckets/bucket/objects/object for objects. A specific generation may be specified by appending #generationNumber to the end of the object name, e.g. projects/_/buckets/my-bucket/objects/data.txt#17. The current generation can be denoted with #0. This field is ignored on input.
+  * version `integer`: The IAM policy format version.
 
 ### RewriteResponse
 * RewriteResponse `object`: A rewrite response.

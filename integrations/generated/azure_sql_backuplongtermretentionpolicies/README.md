@@ -15,13 +15,7 @@ let azure_sql_backuplongtermretentionpolicies = require('@datafire/azure_sql_bac
   redirect_uri: ""
 });
 
-azure_sql_backuplongtermretentionpolicies.BackupLongTermRetentionPolicies_ListByDatabase({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "serverName": "",
-  "databaseName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

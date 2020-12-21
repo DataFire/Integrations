@@ -11,7 +11,7 @@ let wavecell = require('@datafire/wavecell').create({
   BearerTokenHeader: ""
 });
 
-wavecell.SmsV1StatusGet(null).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

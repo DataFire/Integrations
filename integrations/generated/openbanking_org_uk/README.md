@@ -1,6 +1,6 @@
 # @datafire/openbanking_org_uk
 
-Client library for Open Data
+Client library for Open Data API
 
 ## Installation and Usage
 ```bash
@@ -9,7 +9,7 @@ npm install --save @datafire/openbanking_org_uk
 ```js
 let openbanking_org_uk = require('@datafire/openbanking_org_uk').create();
 
-openbanking_org_uk.unsecured_sme_loans.head({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -68,7 +68,6 @@ openbanking_org_uk.atms.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * SiteID `string`: Site identifying code, where ATM is located
       * SiteName `string`: Site identifying name, where ATM is located
       * SupportedLanguages **required** `array`: Languages that the ATM supports
@@ -169,7 +168,6 @@ openbanking_org_uk.branches.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * ParkingLocation `string`: Place where the mobile branch is located, such as between the news agent and the church.
       * PlannedBranchClosure `array`
         * items `object`: Planned branch closure
@@ -223,35 +221,9 @@ openbanking_org_uk.business_current_accounts.get({}, context)
         * Benefit **required** `boolean`: Describe  one or more benefits if they exist
         * BenefitGroup `array`
           * items `object`: Benefit Interest Group
-            * BenefitItem **required** `object`: Benefit Item
-              * BenefitDetail `array`
-                * items `object`: Benefit detail
-                  * BenefitDescription `string`: A textual explanation of what the benefit is
-                  * BenefitID `string`: Unique benefit identifier per organisation
-                  * BenefitName `string`: The name of the benefit
-                  * BenefitType `string`: Type that represents the nature of the benefit
-                  * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-                  * Counter `integer`: Counter for the criteria (e.g. number of DD)
-                  * CriteriaType `array`
-                    * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-                  * DefaultToAccounts `boolean`: Is the benefit part of the default account
-                  * MaximumCriteria `string`: Maximum amount for the criteria
-                  * MinimumCriteria `string`: Minimum amount for the criteria
-                  * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-                  * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * BenefitSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Benefit Subtype Code
       * CAPricing **required** `array`
         * items `object`: Card Price
           * CAPricingItem **required** `object`: Card Pricing
-            * DateOfChange `string`: Date of the change if it refers to future terms
-            * ExchangeRateAdjustment `string`: The margin added, by certain card issuers, to the scheme rate in order to arrive at the exchange rate qouted as the reference exchange rate to the cardholder
-            * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-            * StartPromotionOrFutureTerms `string`: Describes the start date
-            * StopPromotionOrFutureTerms `string`: Describes the end date
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
       * CardNotes `string`: Optional additional notes to supplement the card details
       * CardType **required** `array`: Card Type available
@@ -263,30 +235,6 @@ openbanking_org_uk.business_current_accounts.get({}, context)
         * CreditCharged **required** `boolean`: Is credit paid to the account. The answer will be the condition of all other fields to be filled
         * CreditInterestGroup `array`
           * items `object`: Credit Interest Group
-            * CreditInterestItem **required** `object`: Credit Interest item
-              * CalculationFrequency `string` (values: Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight): How often is interest applied to account
-              * CalculationMethod `string` (values: Banded, Tiered, Whole): Method for interest calculation
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * EndDate `string`: If interest is charged on a specific date range as end date (often used for promotion)
-              * FixedInterestLength `integer`: Fixed interest length in days
-              * InterestNotes `string`: Additional notes to supplement the interest details
-              * InterestRateType `string` (values: Fixed, Variable): Credit Interest Payment Rate Type
-              * InterestTiers `array`
-                * items `object`: Credit Interest Tiers
-                  * APRAERRate `string`: AER or APR Rate for comparison
-                  * DailyChargeForMaximum `string`: Special charge on tiered overdraft
-                  * DailyChargeForMinimum `string`: Special charge on tiered overdraft
-                  * InterestTier `string`: Identifier for the tier
-                  * Rate `string`: Rate being paid by the bank (gross)
-                  * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
-                  * TierValueMaximum `string`: Max Value of interst tier
-                  * TierValueMinimum `string`: Lower value of interest tier
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * PaymentMethod `string` (values: Compound, PayAway, SelfCredit, SimpleInterest): Credit Interest Payment Method Code
-              * StartDate `string`: If interest is charged on a specific date range as start date (often used for promotion)
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * InterestTierSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional, regular or a description of a future state
       * CreditScoringPartOfAccountOpeningForGettingAnAccount **required** `boolean`: Indicates whether a credit check performed on an inquiry to open an account is submitted
       * CreditScoringPartOfAccountOpeningForIDVerification `boolean`: Indicates whether a credit check is used to check the address of a potential new account holder
       * CreditScoringPartOfAccountOpeningIDVerificationIsAHardOrSoftCreditScore `array`
@@ -338,17 +286,6 @@ openbanking_org_uk.business_current_accounts.get({}, context)
           * DateOfChange `string`: Date of the change if it refers to future terms
           * ExistingFeature **required** `boolean`: Indicates whether the account has any feature
           * FeatureDetails `array`: Feature details
-            * items `object`: Feature Details
-              * CriteriaType `string`: Criteria that is required in order to be eligible for the feature
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * FeatureDescription `string`: A textual explanation of what the feature
-              * FeatureName `string`: The name of the feature
-              * FeatureSubType `string` (values: FutureMultipleTerms, Promotional, Regular)
-              * FeatureType `string`: Type that represents the nature of the feature
-              * FeatureValue `string`: The value or values permissible for a specific feature for an individual product representing a product characteristic
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * ProductState `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -356,33 +293,6 @@ openbanking_org_uk.business_current_accounts.get({}, context)
       * FeesAndCharges **required** `array`
         * items `object`: Fees And Charges
           * Fees **required** `object`: Fees
-            * DateOfChange `string`: Date of the change if it refers to future terms
-            * FeeDetails **required** `array`
-              * items `object`: Fee Details
-                * FeeDetail **required** `object`: Fee Detail
-                  * DateOfChange `string`: Date of the change if it refers to future terms
-                  * FeeSubDetails **required** `object`: Fee Sub Details
-                    * FeeAmount `string`: Fee in GBP
-                    * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                    * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                    * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                    * FeeMax `string`: Fee in GBP
-                    * FeeMin `string`: Fee in GBP
-                    * FeeRate `string`: % Rate
-                    * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                    * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                    * RepresentativeRate `string`: Representative Rate
-                  * FeeType **required** `string` (values: Other, ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-                  * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-                  * Other `string`: Describe other fee type
-                  * StartPromotionOrFutureTerms `string`: Describes the start date
-                  * StopPromotionOrFutureTerms `string`: Describes the end date
-                * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
-            * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-            * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
-            * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-            * StartPromotionOrFutureTerms `string`: Describes the start date
-            * StopPromotionOrFutureTerms `string`: Describes the end date
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
       * InternationalPaymentsSupported **required** `boolean`: Indicates that the account supports international payments
       * MaximumMonthlyCharge `string`: The maximum Relevant Charges that could accrue
@@ -396,106 +306,16 @@ openbanking_org_uk.business_current_accounts.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * Overdraft `array`
         * items `object`: Overdraft
           * DateOfChange `string`: Date of the change if it refers to future terms
           * FeeChargeNegotiableIndicator `string` (values: No, Yes): Fee Charge negotiable Indicator
           * FeesAndCharges `array`
-            * items `object`: Overdraft Fees Charges
-              * FeeChargeAmount `string`: Charge applied to tier
-              * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-              * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-              * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeRate `string`: Fee charge rate applied to tier
-              * FeeChargeRateOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-              * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * MaximumMonthlyOverdraftCharge `string`: Maximum Monthly Charge (MMC) for Overdraft fee and charges.
           * Notes `string`: Notes on the overdraft
           * OverdraftProductState `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
           * OverdraftTierBandSet `array`: Overdraft Tier Band Set
-            * items `object`: Tier Bandset
-              * ArrangementOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * ArrangementType **required** `string` (values: Unarranged, Arranged, Other): Defines the arrangement of the overdraft
-              * BufferAmount `string`: Amount on overdraft that is prearranged
-              * CMADefinedIndicator **required** `boolean`: describes that the tiers and bands are set by the CMA order, as opposed to be set by the banks
-              * EAR `string`: EAR of the Overdraft Set
-              * FeesAndCharges `array`: Type of fee or charge
-                * items `object`: Overdraft Fees Charges
-                  * FeeChargeAmount `string`: Charge applied to tier
-                  * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-                  * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-                  * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeOtherType `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeRate `string`: Fee charge rate applied to tier
-                  * FeeChargeRateOtherType `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-                  * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
-              * Notes `string`: Notes on the Overdraft
-              * OverdraftTierBand `array`
-                * items `object`: Tiers
-                  * EAR `string`: EAR of the Tier
-                  * FeesAndCharges `array`
-                    * items `object`: Overdraft Fees Charges
-                      * FeeChargeAmount `string`: Charge applied to tier
-                      * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-                      * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-                      * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeOtherType `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeRate `string`: Fee charge rate applied to tier
-                      * FeeChargeRateOtherType `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-                      * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
-                  * Notes `string`: Notes on the Overdraft
-                  * TierBandIdentification `string`: Identification of the tier or band
-                  * TierValueMaximum **required** `string`: Maximum value of the tier
-                  * TierValueMinimum **required** `string`: Minimum value of the tier
-              * TierBandSetIdentification `string`: Identification of the set of tiers or bands
           * OverdraftType `string` (values: Committed, OnDemand): Defines if the overdraft facility is committed 
           * StartPromotionOrFutureTerms `string`: Describes the start date
           * StopPromotionOrFutureTerms `string`: Describes the end date
@@ -555,27 +375,6 @@ openbanking_org_uk.commercial_credit_cards.get({}, context)
         * Benefit **required** `boolean`: Describe  one or more benefits if they exist
         * BenefitGroup `array`
           * items `object`: Benefit Interest Group
-            * BenefitItem **required** `object`: Benefit Item
-              * BenefitDetail `array`
-                * items `object`: Benefit detail
-                  * BenefitDescription `string`: A textual explanation of what the benefit is
-                  * BenefitID `string`: Unique benefit identifier per organisation
-                  * BenefitName `string`: The name of the benefit
-                  * BenefitType `string`: Type that represents the nature of the benefit
-                  * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-                  * Counter `integer`: Counter for the criteria (e.g. number of DD)
-                  * CriteriaType `array`
-                    * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-                  * DefaultToAccounts `boolean`: Is the benefit part of the default account
-                  * MaximumCriteria `string`: Maximum amount for the criteria
-                  * MinimumCriteria `string`: Minimum amount for the criteria
-                  * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-                  * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * BenefitSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Benefit Subtype Code
       * Description **required** `string`: Product description
       * Details **required** `object`: Commercial Credit Card Group 
         * CCSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): CCC Subtype Code
@@ -671,7 +470,6 @@ openbanking_org_uk.commercial_credit_cards.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * OtherKeyFeatures `string`: Additional Features of the card
       * PaymentHoliday **required** `boolean`: Indicates whether a payment holiday is possible
       * PaymentHolidayDescription `string`: Detailed description on the payment holiday if available
@@ -730,35 +528,9 @@ openbanking_org_uk.personal_current_accounts.get({}, context)
         * Benefit **required** `boolean`: Describe  one or more benefits if they exist
         * BenefitGroup `array`
           * items `object`: Benefit Interest Group
-            * BenefitItem **required** `object`: Benefit Item
-              * BenefitDetail `array`
-                * items `object`: Benefit detail
-                  * BenefitDescription `string`: A textual explanation of what the benefit is
-                  * BenefitID `string`: Unique benefit identifier per organisation
-                  * BenefitName `string`: The name of the benefit
-                  * BenefitType `string`: Type that represents the nature of the benefit
-                  * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-                  * Counter `integer`: Counter for the criteria (e.g. number of DD)
-                  * CriteriaType `array`
-                    * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-                  * DefaultToAccounts `boolean`: Is the benefit part of the default account
-                  * MaximumCriteria `string`: Maximum amount for the criteria
-                  * MinimumCriteria `string`: Minimum amount for the criteria
-                  * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-                  * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * BenefitSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Benefit Subtype Code
       * CAPricing **required** `array`
         * items `object`: Card Price
           * CAPricingItem **required** `object`: Card Pricing
-            * DateOfChange `string`: Date of the change if it refers to future terms
-            * ExchangeRateAdjustment `string`: The margin added, by certain card issuers, to the scheme rate in order to arrive at the exchange rate qouted as the reference exchange rate to the cardholder
-            * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-            * StartPromotionOrFutureTerms `string`: Describes the start date
-            * StopPromotionOrFutureTerms `string`: Describes the end date
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
       * CardNotes `string`: Optional additional notes to supplement the card details
       * CardType **required** `array`: Card Type available
@@ -770,30 +542,6 @@ openbanking_org_uk.personal_current_accounts.get({}, context)
         * CreditCharged **required** `boolean`: Is credit paid to the account. The answer will be the condition of all other fields to be filled
         * CreditInterestGroup `array`
           * items `object`: Credit Interest Group
-            * CreditInterestItem **required** `object`: Credit Interest item
-              * CalculationFrequency `string` (values: Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight): How often is interest applied to account
-              * CalculationMethod `string` (values: Banded, Tiered, Whole): Method for interest calculation
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * EndDate `string`: If interest is charged on a specific date range as end date (often used for promotion)
-              * FixedInterestLength `integer`: Fixed interest length in days
-              * InterestNotes `string`: Additional notes to supplement the interest details
-              * InterestRateType `string` (values: Fixed, Variable): Credit Interest Payment Rate Type
-              * InterestTiers `array`
-                * items `object`: Credit Interest Tiers
-                  * APRAERRate `string`: AER or APR Rate for comparison
-                  * DailyChargeForMaximum `string`: Special charge on tiered overdraft
-                  * DailyChargeForMinimum `string`: Special charge on tiered overdraft
-                  * InterestTier `string`: Identifier for the tier
-                  * Rate `string`: Rate being paid by the bank (gross)
-                  * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
-                  * TierValueMaximum `string`: Max Value of interst tier
-                  * TierValueMinimum `string`: Lower value of interest tier
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * PaymentMethod `string` (values: Compound, PayAway, SelfCredit, SimpleInterest): Credit Interest Payment Method Code
-              * StartDate `string`: If interest is charged on a specific date range as start date (often used for promotion)
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * InterestTierSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional, regular or a description of a future state
       * CreditScoringPartOfAccountOpeningForGettingAnAccount **required** `boolean`: Indicates whether a credit check performed on an inquiry to open an account is submitted
       * CreditScoringPartOfAccountOpeningForIDVerification `boolean`: Indicates whether a credit check is used to check the address of a potential new account holder
       * CreditScoringPartOfAccountOpeningIDVerificationIsAHardOrSoftCreditScore `array`
@@ -845,17 +593,6 @@ openbanking_org_uk.personal_current_accounts.get({}, context)
           * DateOfChange `string`: Date of the change if it refers to future terms
           * ExistingFeature **required** `boolean`: Indicates whether the account has any feature
           * FeatureDetails `array`: Feature details
-            * items `object`: Feature Details
-              * CriteriaType `string`: Criteria that is required in order to be eligible for the feature
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * FeatureDescription `string`: A textual explanation of what the feature
-              * FeatureName `string`: The name of the feature
-              * FeatureSubType `string` (values: FutureMultipleTerms, Promotional, Regular)
-              * FeatureType `string`: Type that represents the nature of the feature
-              * FeatureValue `string`: The value or values permissible for a specific feature for an individual product representing a product characteristic
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * ProductState `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
           * StartPromotionOrFutureTerms `string`: Describes the start date
@@ -863,33 +600,6 @@ openbanking_org_uk.personal_current_accounts.get({}, context)
       * FeesAndCharges **required** `array`
         * items `object`: Fees And Charges
           * Fees **required** `object`: Fees
-            * DateOfChange `string`: Date of the change if it refers to future terms
-            * FeeDetails **required** `array`
-              * items `object`: Fee Details
-                * FeeDetail **required** `object`: Fee Detail
-                  * DateOfChange `string`: Date of the change if it refers to future terms
-                  * FeeSubDetails **required** `object`: Fee Sub Details
-                    * FeeAmount `string`: Fee in GBP
-                    * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                    * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                    * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                    * FeeMax `string`: Fee in GBP
-                    * FeeMin `string`: Fee in GBP
-                    * FeeRate `string`: % Rate
-                    * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                    * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                    * RepresentativeRate `string`: Representative Rate
-                  * FeeType **required** `string` (values: Other, ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-                  * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-                  * Other `string`: Describe other fee type
-                  * StartPromotionOrFutureTerms `string`: Describes the start date
-                  * StopPromotionOrFutureTerms `string`: Describes the end date
-                * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
-            * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-            * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
-            * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-            * StartPromotionOrFutureTerms `string`: Describes the start date
-            * StopPromotionOrFutureTerms `string`: Describes the end date
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
       * InternationalPaymentsSupported **required** `boolean`: Indicates that the account supports international payments
       * MaximumMonthlyCharge `string`: The maximum Relevant Charges that could accrue
@@ -903,106 +613,16 @@ openbanking_org_uk.personal_current_accounts.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * Overdraft `array`
         * items `object`: Overdraft
           * DateOfChange `string`: Date of the change if it refers to future terms
           * FeeChargeNegotiableIndicator `string` (values: No, Yes): Fee Charge negotiable Indicator
           * FeesAndCharges `array`
-            * items `object`: Overdraft Fees Charges
-              * FeeChargeAmount `string`: Charge applied to tier
-              * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-              * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-              * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeRate `string`: Fee charge rate applied to tier
-              * FeeChargeRateOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-              * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
           * MaximumMonthlyOverdraftCharge `string`: Maximum Monthly Charge (MMC) for Overdraft fee and charges.
           * Notes `string`: Notes on the overdraft
           * OverdraftProductState `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
           * OverdraftTierBandSet `array`: Overdraft Tier Band Set
-            * items `object`: Tier Bandset
-              * ArrangementOtherType `object`: Other Code Type
-                * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                * Name `string`: Name of 'Other' code set value applicable to specified attribute
-              * ArrangementType **required** `string` (values: Unarranged, Arranged, Other): Defines the arrangement of the overdraft
-              * BufferAmount `string`: Amount on overdraft that is prearranged
-              * CMADefinedIndicator **required** `boolean`: describes that the tiers and bands are set by the CMA order, as opposed to be set by the banks
-              * EAR `string`: EAR of the Overdraft Set
-              * FeesAndCharges `array`: Type of fee or charge
-                * items `object`: Overdraft Fees Charges
-                  * FeeChargeAmount `string`: Charge applied to tier
-                  * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-                  * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-                  * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeOtherType `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeRate `string`: Fee charge rate applied to tier
-                  * FeeChargeRateOtherType `object`: Other Code Type
-                    * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                    * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                    * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                  * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-                  * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
-              * Notes `string`: Notes on the Overdraft
-              * OverdraftTierBand `array`
-                * items `object`: Tiers
-                  * EAR `string`: EAR of the Tier
-                  * FeesAndCharges `array`
-                    * items `object`: Overdraft Fees Charges
-                      * FeeChargeAmount `string`: Charge applied to tier
-                      * FeeChargeApplicationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is charged
-                      * FeeChargeCalculationFrequency `string` (values: AcademicTerm, Daily, Weekly, Monthly, Quarterly, Half-Yearly, Yearly, Overnight, Other): Frequency with which the rate, or amount is calculated
-                      * FeeChargeOtherApplicationFrequency `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeOtherCalculationFrequency `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeOtherType `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeRate `string`: Fee charge rate applied to tier
-                      * FeeChargeRateOtherType `object`: Other Code Type
-                        * Code `string`: Code mnemonic for 'Other' code set value applicable to specified attribute
-                        * Description `string`: Description for 'Other' code set value applicable to specified attribute
-                        * Name `string`: Name of 'Other' code set value applicable to specified attribute
-                      * FeeChargeRateType `string` (values: Gross, Net, Other): Rate type other than EAR
-                      * FeeChargeType **required** `string` (values: Periodic, Minimum, Maximum, Setup, Review, Renewal, MinimumSetup, MaximumSetup, Total, Item, EmergencyLending, Other): Type of fee or charge
-                  * Notes `string`: Notes on the Overdraft
-                  * TierBandIdentification `string`: Identification of the tier or band
-                  * TierValueMaximum **required** `string`: Maximum value of the tier
-                  * TierValueMinimum **required** `string`: Minimum value of the tier
-              * TierBandSetIdentification `string`: Identification of the set of tiers or bands
           * OverdraftType `string` (values: Committed, OnDemand): Defines if the overdraft facility is committed 
           * StartPromotionOrFutureTerms `string`: Describes the start date
           * StopPromotionOrFutureTerms `string`: Describes the end date
@@ -1063,27 +683,6 @@ openbanking_org_uk.unsecured_sme_loans.get({}, context)
         * Benefit **required** `boolean`: Describe  one or more benefits if they exist
         * BenefitGroup `array`
           * items `object`: Benefit Interest Group
-            * BenefitItem **required** `object`: Benefit Item
-              * BenefitDetail `array`
-                * items `object`: Benefit detail
-                  * BenefitDescription `string`: A textual explanation of what the benefit is
-                  * BenefitID `string`: Unique benefit identifier per organisation
-                  * BenefitName `string`: The name of the benefit
-                  * BenefitType `string`: Type that represents the nature of the benefit
-                  * BenefitValue `string`: The value or values permissible for a specific benefit for an individual product representing a product characteristic
-                  * Counter `integer`: Counter for the criteria (e.g. number of DD)
-                  * CriteriaType `array`
-                    * items `string` (values: CashDeposit, Deposit, DirectDebit, InitialDeposit, InternetLogon, MobileLogon, RegularDeposit): Criteria that is required in order to be eligible for the Benefit
-                  * DefaultToAccounts `boolean`: Is the benefit part of the default account
-                  * MaximumCriteria `string`: Maximum amount for the criteria
-                  * MinimumCriteria `string`: Minimum amount for the criteria
-                  * PromotionEndDate `string`: If the benefit is temporal the end date is when the benefit is no longer applicable
-                  * PromotionStartDate `string`: If the benefit is temporal the start date is when the benefit comes into effect
-              * DateOfChange `string`: Date of the change if it refers to future terms
-              * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
-              * StartPromotionOrFutureTerms `string`: Describes the start date
-              * StopPromotionOrFutureTerms `string`: Describes the end date
-            * BenefitSubType `string` (values: FutureMultipleTerms, Promotional, Regular): Benefit Subtype Code
       * Currency **required** `array`: Currency of the Account. Default to GBP at present
         * items `string`: Active or Historic Currency Code
       * CustomerAccessChannels **required** `array`: Ways to interact with the bank
@@ -1126,33 +725,6 @@ openbanking_org_uk.unsecured_sme_loans.get({}, context)
       * FeesAndCharges **required** `array`
         * items `object`: Fees And Charges
           * Fees **required** `object`: Fees
-            * DateOfChange `string`: Date of the change if it refers to future terms
-            * FeeDetails **required** `array`
-              * items `object`: Fee Details
-                * FeeDetail **required** `object`: Fee Detail
-                  * DateOfChange `string`: Date of the change if it refers to future terms
-                  * FeeSubDetails **required** `object`: Fee Sub Details
-                    * FeeAmount `string`: Fee in GBP
-                    * FeeFrequency **required** `string` (values: AcademicTerm, AccountClosing, AccountOpening, AtTimeOfLoanRepayment, ChargingPeriod, Daily, EveryFiveBusinessDays, Item, Monthly, OnAccountAnniversary, PerHour, PerOccurrence, PerSheet, PerTransactionAmount, PerTransactionPercentage, Quarterly, SixMonthly, StartOfLoan, StatementMonthly, Weekly, Yearly): Triggering frequency of the fee
-                    * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-                    * FeeLowerTier `integer`: Lower occurrence / range boundary e.g. For returned cheques this could be 0, which means the first returned cheque fits into this range
-                    * FeeMax `string`: Fee in GBP
-                    * FeeMin `string`: Fee in GBP
-                    * FeeRate `string`: % Rate
-                    * FeesAndChargesNotes `string`: Supplementary information for fees and charges
-                    * Negotiable **required** `boolean`: Indicates that this Fee Rate or Fee Amount is negotiable based on risk or other factor
-                    * RepresentativeRate `string`: Representative Rate
-                  * FeeType **required** `string` (values: Other, ATMDonation, ATMDeposATMPaidIn, ReportCertBalance, ATMAbroadConVisaCredit, ATMAbroadConVisaDebit, ATMCardnetEnvIn, ATMCashGroupATMCreditCard, ATMCashNonGroupATMCredittcard, ATMCashGroupATMDebitCard, ATMCashNonGroupATMDebitcard, ATMConGroupATM, ATMAbroad, ATMForeignCashDebCard, ATMAbroadGoldVisaDebit, ATMSpainCashCard, ATMSpainDebitCard, ATMSpainConversionDebitCard, ATMSpainConversionCashCard, ATMNonSterlingWithdrawal, ATMAbroadVisaCredit, ATMAbroadVisaDebit, ATMAbroadConVisaGoldDebit, ATMWidthdrawCash, BACSOnLineAncilliary, BACSBatch, BACSOnLineFile, BACSFileItem, BACSOnLineSetup , BACSItem, BACSItemInterbranch, BACSBulkBatch, BACSOnLineOverlimit, BACSOnLinePayment, BACSRecallItem, BACSOnLineService, BACSBulkInternet, BACSTELDirDebSmartCard, BACSTELDirDebWebInit, BACSTELirDebWebInit, BACSTELDirDebOverlimit, BACSTELDirDebPayment, BACSTELDirDebService, BACSTELDirDebAncilliary, BACSDirectItemProfile, BACSTELAncilliary, BACSTELSmartCard, BACSTELFile, BACSTELSetup , BACSTELOverlimit, BACSTELPayment, BACSTELService, CHAPSOutBranch, CHAPSCancellation, CHAPSOutOnlineDepositAcc, CHAPSIn, CHAPSOutInterBank, CHAPSInterBank, CHAPSOutPost, CHAPSOutInterBranch, CHAPSOut, CHAPSOutOnline, CHAPSandForeignPay, CHAPSOutManual, CardCardReplacement, DraftsCounter, DraftsBankers, DraftsIntlPayableAbroad, DraftsLostStolen, CardPersonalisedCard, DraftsIntlStoppedCancelled, EuroChqXLess, EuroChqXPlus, FPSOutFutureDated, FPSOutImmediate, FPSOut, FPSOutOwn, FPSInBranch, FPSUKPayUrgent, LegalArticlesReport, LegalSealing, LegalBondAndGuarantee, LegalCourtOrder, LegalCoSearch, LegalDepositAssignment, LegalGuaranteePrep, LegalLifePolicyPrepCo, LegalLifePolicyPrepPersonal, LegalPriorityPariPassu, LegalSubordinationAgreement, DirDebDirectDebitAdmin, DirDebDirectDebitCancel, IntlPayBIBForeignLimit, IntlPayCreditTransCust, IntlPayCreditTransNonCust, IntlPayUrgentPaymentForeign, IntlPayExpressMoneyMover, IntlPayEEAPayUrgent, IntlPayIrishPayUrgent, IntlPayEEAPay, IntlPayForeignIn1CPlus, IntlPayForeignPaymentInUKAcc, IntlPayForeignCharge, IntlPayForeignCancellation, IntlPayForeignStandardEUEuroBIC, IntlPayFXFeeRate, IntlPayForeignInternet, IntlPayForeign, IntlPayForeignInbound, IntlPayFXPaymentOut, IntlPayForeignInSub1C, IntlPayFXRate, IntlPayForeignStandardEUEuroNoBIC, IntlPayFXPaymentOutIR, IntlPayFXFee, IntlPayPurchaseNonSterling, IntlPayPostPaymentForeign, IntlPayPurchaseRateNonSterling, IntlPayPaymentTracing, IntlPayStandardMoneyMover, IntlPayMT101Transaction, IntlPayTransNonSterling, IntlPayTransRateNonSterling, IntlPayForeignUrgentEUEuroBIC, IntlPayForeignUrgentEUEuroNoBIC, IntlPayUrgentPaymentGroup, IntlPayUrgentPaymentUK, IntlPayUSAPayUrgent, IntlPayCurrencyPurchase, IntlPayWorldpayPayment, IntlPayCurrencyWithdraw, InvPayBankDetailsWrong, InvPayForeignBCNR, InvPayForeignRecall, InvGeneralInq, InvOldInstruction, InvPayPaymentRecall, InvPayReturnDebitXVLess, InvPayReturnDebitXVPlus, InvPayStopPayment, InvPayStandingOrdUnpaid, SafeKeepAccess, SafeKeepDeedMedium, SafeKeepingEnvelope, SafeKeepingInspection, SafeKeepingLargeItem, SafeKeepMultipleItems, SafeKeepingParcel, SafeKeepDeedSmall, SafeKeepOneItem, SafeKeepSafeCustody, LoanArrangementFeePC, LoanArrangement, LoanEarlyRepayment, LoanLatePayment, LoanSMEUnsecuredLoan, LoanTieredArrangement, NightSafeNightSafeBankOpen, NightSafeCreditSub5K, NightSafeNightSafe, NightSafeNightSafePaidIn, OverdraftAnnualReview, OverdraftTempOverdraft, OverdraftUnauthorisedBorrowing, POPostOfficeCounterCredit, POPostOfficeCashCredit, POPostOfficeCashOut, POPostOfficeWithdrawal, ChqBookTheftLossAllStopped, ChqIssuedCurrencyAcc, ChqCopy, ChqDraft, ChqIn, ChqDraftSterling, ChqOutIssued, ChqSpecialChqPresentation, ChqCounterCheque, ChqChequeswithStatement, ChqStopped, ChqTrans, ChqDraftFX, ChqForeignCourier, ChqForeignNegTenThou, ChqForeignNegHundred, ChequeForeignBankDivi, ChqForeignNegFiftyThou, ChqPensionCheque, ChequeForeignOtherDivi, ChqForeignNegFiveThou, ChqForeignNegMax, ChqForeignGBPMMDPlus, ChqGiftCheque, ChqCounterLodgement, ChqCashDropLodgement, ChqChequePhotocopy, ChqPostOfficeCredit, ChqPostOfficeChequeCollected, ChqChequeRetrieval, ChqReconcilliationPerTrans, ChqSpecialPresentationCount, ChqSpecialPresentationPTT, ChqUnpaidCharge, ChqUnpaidTransIn, ChqUnpaidTransOut, ChqUnpaidCheque, ReportAuditLetter, ReportFAXAdviceAdditional, ReportTelAdviceAdditional, ReportCreditHistory, ReportCertInterestDuplicate, ReportCertInterest, ReportCreditHistoryAdditionalInYear, ReportForeignStatusEnqElec, ReportForeignStatusEnq, ReportCashBackorInterestAnal, ReportStatementChqDaily, ReportStatementChqFortnightly, ReportStatementChqMonthly, ReportStatementChqWeekly, ReportStatementAndDiviChq, ReportReference, ReportReferralItem, ReportStatementByATM, ReportStatementByBranch, ReportStatementCopyRegular, ReportStatusEnquiry, ReportStatementFrequent, ReportStatementMonthly, ReportStatementCopy1, ReportStatementToBranch, ReportSMSTextMiniStatementorAlert, ReportStatementFortnightly, ReportSMSTextMiniStatementWoM, ReportSMSTextAlertBalance, ReportSMSTextAlert, ReportTaxCert, ReportWeeklyStatement, ReportTextMessageBanking, SEPACancellation, SEPABranch, SEPACredit, SEPADirectDebit, SEPAIn, SEPAEuro, SEPAOut, SEPAUnpaid, SEPAWinbitsAnnual Service, SEPAWinbitsTransaction, TransBillPaymentBranch, TransBillCollect, TransTelephoneBillPayment, TransBankPayment, TransBillPaymentTelephone, TransCorrespondentBankFee, TransCreditTransferUKDifferent, TransCreditTransferUKSame, TransCredit, TransCreditTransfer, TransBranchCredit, TransDebit, TransDebCardDeb, TransUKDirDeb, TransManualDeb, TransBuyForeignWithGBP, TransGoodValueReq, TransSWIFTOutUKForeign, TransInconpleteInstruction, TransManualEntries, TransManualTrans, TransNonSterling, TransPOSSaleForeign, TransPriPaymentPost, TransPOSSaleUK, TransReturnPayment, TransReconciliationPerTrans, TransStandingOrdAdmin, TransStandingOrd, TransStandingOrdManPay, TransTravellersChqOtherBank, TransTelBusiPriPaymentForeignToUKAcc, TransTeleItem, TransTelBusiPriPaymentToGrpAcc, TransTravellersChqRate, TransTransferExGroup, TransUnauthorisedPaidTrans, TransUrgentPaymentPostal, TransUnpaidTrans, TransTelBusiPriPaymentToNonGrpAcc, TransSWIFTOutNonEEASterling, AutoAutoCredit, AutoAutomatedEntries, AutoAutoCreditPhoneInet, AutoAutomatedTrans, AutoDebitCardCommercial, AutoFPSAutoCredit, VisaConvertAbroadForeign, VisaBureauDeChange, VisaTravellersChqorCurrency, OnlineInternetBillPayment, OnlineBusinessOnlineEuroPayment, OnlineBusinessOnlineUrgentEuroPayment, OnlineBusinessOnlineForeignPayment, OnlineInterbankTransfer, OnlineInterbankPerTransfer, OnlineInterbranchTransfer, OnlineInterbranchPerTransfer, OnlineSubscriptionMonthly, OnlineBankingPayment, OnlineBankingSubscription, OnlinePOSSale, OnlinePersonalCustAncillarys, OnlinePersonalCustService, OnlinePersonalCustOverlimits, OnlineReplacementCardReader, OnlinePersonalCustSetUp, OnlinePersonalCustTransaction, OnlinePaymentinGBPtoUK, OnlineUrgentPayment, OnlinePaymentinUSDtoUS, OnlineBulkDirectDebSterling, ForeignChqSent, ForeignChqSelf, ForeignChqEncashment, ForeignFXInwardsCust, ForeignFXTransfersROI, ForeignFXForwardTrans, ForeignFXTransfersBOI, ForeignExMaintenance, ForeignFXInwardsNonCust, ForeignFXOutwards, ForeignPurchase, ForeignStatusRep, ForeignChqDraft, ForeignChqCLess, ForeignChqMLess, ForeignChqOther, ForeignChqMPlus, ForeignChqCCC, ServiceCAccountFee, ServiceCAccountFeeMonthly, ServiceCAccountFeeQuarterly, ServiceCBalanceHandling, ServiceCFixedTariff, ServiceCBusiDepAccBreakage, ServiceCMonitorDaily, ServiceCManagementFee, ServiceCMinimumMonthlyFee, ServiceCMonitorMonthly, ServiceCMonitorWeekly, ServiceCSecurityFee, ServiceCMT940AccountFirst, ServiceCMT940AccountSubsequent, ServiceCOther, CounterCoinHandling, CounterCashIn, CounterCashInNotUs, CounterCashOut, CounterCashX, CounterForeignCashMax, CounterForeignNoteHandling, CounterForeignCashOut, CounterCashFeeRate, CounterForeignCashOutTx, CounterCounterLodgement, CounterCashDropLodgement, CounterNotesLodged, CounterNotesOut, CounterCashInOwn, CounterPaidTrans, CounterCashFeePercent): A description of the Fee type
-                  * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-                  * Other `string`: Describe other fee type
-                  * StartPromotionOrFutureTerms `string`: Describes the start date
-                  * StopPromotionOrFutureTerms `string`: Describes the end date
-                * FeeSubType **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Fee Sub Type code
-            * FeeHigherTier `integer`: Higher occurrence / range boundary e.g. For returned cheques this could be 10, which means the first 10 returned cheque fits into this range
-            * FeeLowerTier `integer`: Lower occurrence / range boundary e.g.. For returned cheques this could be 0, which means the first returned cheque fits into this range
-            * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date
-            * StartPromotionOrFutureTerms `string`: Describes the start date
-            * StopPromotionOrFutureTerms `string`: Describes the end date
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
       * LoanItem **required** `array`
         * items `object`: Loan Item
@@ -1162,18 +734,6 @@ openbanking_org_uk.unsecured_sme_loans.get({}, context)
           * IsThisAnInterestOnlyLoan **required** `boolean`
           * LengthPromotionalInDays `integer`: Describes the length if only a duration is given instead of a date in days
           * LoanPricing `array`
-            * items `object`: Loan Pricing
-              * IndicativeRate **required** `string`
-              * LoanLengthIncrement **required** `string` (values: 1 year, 2 years, 3 years, 4 years, 5 years): Loan Length Increments
-              * LoanLengthIncrementLower **required** `integer`
-              * LoanLengthIncrementUpper **required** `integer`
-              * LoanSizeBandLower **required** `string`: Monetary amount without currency
-              * LoanSizeBandUpper **required** `string`: Monetary amount without currency
-              * Negotiable **required** `boolean`
-              * RateComparisonType `string` (values: APR, AER, Gross, Net, RepApr): Rate Comparison Type
-              * RepaymentFrequency **required** `array`
-                * items `string` (values: Daily, Flexible, Fortnightly, HalfYearly, Monthly, Quarterly, Weekly, Yearly): Repayment Frequency Code
-              * SizeIncrement **required** `string` (values: £5000, £10000, £15000, £20000, £25000, Other, TierMaximum, TierMinimum): Identifier for tier only where it has been supplied under Part 8 (article 32 or the CMA order), value reflects upper tier value
           * ProductState **required** `string` (values: FutureMultipleTerms, Promotional, Regular): Describes if the offering is promotional or a description of a future state.
           * StartPromotionOrFutureTerms `string`: Describes the start date
           * StopPromotionOrFutureTerms `string`: Describes the end date
@@ -1190,7 +750,6 @@ openbanking_org_uk.unsecured_sme_loans.get({}, context)
           * BIC `string`: The BIC from the organisation
           * LEI `string`: The LEI ID of the organisation
           * OrganisationName **required** `object`: Organisation Name
-            * LegalName **required** `string`: Legal Name of the organisation
       * PaymentHoliday **required** `boolean`: Indicates whether a repayment holiday is allowed
       * ProductDescription **required** `string`: Description of the product provided by the parent Organisation
       * ProductIdentifier **required** `string`: Identifier within the parent organisation for the product. Must be unique in the organisation

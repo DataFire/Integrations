@@ -13,19 +13,33 @@ let amazonaws_a4b = require('@datafire/amazonaws_a4b').create({
   region: ""
 });
 
-amazonaws_a4b.AssociateContactWithAddressBook({
-  "ContactArn": "",
-  "AddressBookArn": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
 
 ## Description
 
-Alexa for Business makes it easy for you to use Alexa in your organization. Alexa for Business gives you the tools you need for managing Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can make also these available as private skills for your organization. Alexa for Business makes it easy to voice-enable your products and services, providing context-aware voice experiences for your customers.
+Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization. 
 
 ## Actions
+
+### ApproveSkill
+
+
+
+```js
+amazonaws_a4b.ApproveSkill({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillId **required**
+
+#### Output
+* output [ApproveSkillResponse](#approveskillresponse)
 
 ### AssociateContactWithAddressBook
 
@@ -33,18 +47,37 @@ Alexa for Business makes it easy for you to use Alexa in your organization. Alex
 
 ```js
 amazonaws_a4b.AssociateContactWithAddressBook({
-  "ContactArn": "",
-  "AddressBookArn": ""
+  "ContactArn": null,
+  "AddressBookArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * ContactArn **required** [Arn](#arn)
+  * AddressBookArn **required**
+  * ContactArn **required**
 
 #### Output
 * output [AssociateContactWithAddressBookResponse](#associatecontactwithaddressbookresponse)
+
+### AssociateDeviceWithNetworkProfile
+
+
+
+```js
+amazonaws_a4b.AssociateDeviceWithNetworkProfile({
+  "DeviceArn": null,
+  "NetworkProfileArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceArn **required**
+  * NetworkProfileArn **required**
+
+#### Output
+* output [AssociateDeviceWithNetworkProfileResponse](#associatedevicewithnetworkprofileresponse)
 
 ### AssociateDeviceWithRoom
 
@@ -56,8 +89,8 @@ amazonaws_a4b.AssociateDeviceWithRoom({}, context)
 
 #### Input
 * input `object`
-  * DeviceArn [Arn](#arn)
-  * RoomArn [Arn](#arn)
+  * DeviceArn
+  * RoomArn
 
 #### Output
 * output [AssociateDeviceWithRoomResponse](#associatedevicewithroomresponse)
@@ -72,11 +105,46 @@ amazonaws_a4b.AssociateSkillGroupWithRoom({}, context)
 
 #### Input
 * input `object`
-  * RoomArn [Arn](#arn)
-  * SkillGroupArn [Arn](#arn)
+  * RoomArn
+  * SkillGroupArn
 
 #### Output
 * output [AssociateSkillGroupWithRoomResponse](#associateskillgroupwithroomresponse)
+
+### AssociateSkillWithSkillGroup
+
+
+
+```js
+amazonaws_a4b.AssociateSkillWithSkillGroup({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillGroupArn
+  * SkillId **required**
+
+#### Output
+* output [AssociateSkillWithSkillGroupResponse](#associateskillwithskillgroupresponse)
+
+### AssociateSkillWithUsers
+
+
+
+```js
+amazonaws_a4b.AssociateSkillWithUsers({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillId **required**
+
+#### Output
+* output [AssociateSkillWithUsersResponse](#associateskillwithusersresponse)
 
 ### CreateAddressBook
 
@@ -84,18 +152,77 @@ amazonaws_a4b.AssociateSkillGroupWithRoom({}, context)
 
 ```js
 amazonaws_a4b.CreateAddressBook({
-  "Name": ""
+  "Name": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name **required** [AddressBookName](#addressbookname)
+  * ClientRequestToken
+  * Description
+  * Name **required**
 
 #### Output
 * output [CreateAddressBookResponse](#createaddressbookresponse)
+
+### CreateBusinessReportSchedule
+
+
+
+```js
+amazonaws_a4b.CreateBusinessReportSchedule({
+  "Format": null,
+  "ContentRange": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken
+  * ContentRange **required**
+    * Interval **required**
+  * Format **required**
+  * Recurrence
+    * StartDate
+  * S3BucketName
+  * S3KeyPrefix
+  * ScheduleName
+  * Tags
+    * items [Tag](#tag)
+
+#### Output
+* output [CreateBusinessReportScheduleResponse](#createbusinessreportscheduleresponse)
+
+### CreateConferenceProvider
+
+
+
+```js
+amazonaws_a4b.CreateConferenceProvider({
+  "ConferenceProviderName": null,
+  "ConferenceProviderType": null,
+  "MeetingSetting": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken
+  * ConferenceProviderName **required**
+  * ConferenceProviderType **required**
+  * IPDialIn
+    * CommsProtocol **required**
+    * Endpoint **required**
+  * MeetingSetting **required**
+    * RequirePin **required**
+  * PSTNDialIn
+    * CountryCode **required**
+    * OneClickIdDelay **required**
+    * OneClickPinDelay **required**
+    * PhoneNumber **required**
+
+#### Output
+* output [CreateConferenceProviderResponse](#createconferenceproviderresponse)
 
 ### CreateContact
 
@@ -103,21 +230,74 @@ amazonaws_a4b.CreateAddressBook({
 
 ```js
 amazonaws_a4b.CreateContact({
-  "FirstName": "",
-  "PhoneNumber": ""
+  "FirstName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * DisplayName [ContactName](#contactname)
-  * FirstName **required** [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber **required** [E164PhoneNumber](#e164phonenumber)
+  * ClientRequestToken
+  * DisplayName
+  * FirstName **required**
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 #### Output
 * output [CreateContactResponse](#createcontactresponse)
+
+### CreateGatewayGroup
+
+
+
+```js
+amazonaws_a4b.CreateGatewayGroup({
+  "Name": null,
+  "ClientRequestToken": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken **required**
+  * Description
+  * Name **required**
+
+#### Output
+* output [CreateGatewayGroupResponse](#creategatewaygroupresponse)
+
+### CreateNetworkProfile
+
+
+
+```js
+amazonaws_a4b.CreateNetworkProfile({
+  "NetworkProfileName": null,
+  "Ssid": null,
+  "SecurityType": null,
+  "ClientRequestToken": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateAuthorityArn
+  * ClientRequestToken **required** [ClientRequestToken](#clientrequesttoken)
+  * CurrentPassword
+  * Description
+  * EapMethod
+  * NetworkProfileName **required**
+  * NextPassword
+  * SecurityType **required**
+  * Ssid **required**
+  * TrustAnchors
+    * items [TrustAnchor](#trustanchor)
+
+#### Output
+* output [CreateNetworkProfileResponse](#createnetworkprofileresponse)
 
 ### CreateProfile
 
@@ -125,27 +305,39 @@ amazonaws_a4b.CreateContact({
 
 ```js
 amazonaws_a4b.CreateProfile({
-  "ProfileName": "",
-  "Timezone": "",
-  "Address": "",
-  "DistanceUnit": "",
-  "TemperatureUnit": "",
-  "WakeWord": ""
+  "ProfileName": null,
+  "Timezone": null,
+  "Address": null,
+  "DistanceUnit": null,
+  "TemperatureUnit": null,
+  "WakeWord": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Address **required** [Address](#address)
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * DistanceUnit **required** [DistanceUnit](#distanceunit)
-  * MaxVolumeLimit [MaxVolumeLimit](#maxvolumelimit)
-  * PSTNEnabled [Boolean](#boolean)
-  * ProfileName **required** [ProfileName](#profilename)
-  * SetupModeDisabled [Boolean](#boolean)
-  * TemperatureUnit **required** [TemperatureUnit](#temperatureunit)
-  * Timezone **required** [Timezone](#timezone)
-  * WakeWord **required** [WakeWord](#wakeword)
+  * Address **required**
+  * ClientRequestToken
+  * DistanceUnit **required**
+  * Locale
+  * MaxVolumeLimit
+  * MeetingRoomConfiguration
+    * EndOfMeetingReminder [CreateEndOfMeetingReminder](#createendofmeetingreminder)
+    * InstantBooking
+      * DurationInMinutes **required**
+      * Enabled **required**
+    * RequireCheckIn
+      * Enabled **required**
+      * ReleaseAfterMinutes **required**
+    * RoomUtilizationMetricsEnabled
+  * PSTNEnabled
+  * ProfileName **required**
+  * SetupModeDisabled
+  * Tags
+    * items [Tag](#tag)
+  * TemperatureUnit **required**
+  * Timezone **required**
+  * WakeWord **required**
 
 #### Output
 * output [CreateProfileResponse](#createprofileresponse)
@@ -156,18 +348,19 @@ amazonaws_a4b.CreateProfile({
 
 ```js
 amazonaws_a4b.CreateRoom({
-  "RoomName": ""
+  "RoomName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomName **required** [RoomName](#roomname)
-  * Tags [TagList](#taglist)
+  * ClientRequestToken
+  * Description
+  * ProfileArn
+  * ProviderCalendarId
+  * RoomName **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateRoomResponse](#createroomresponse)
@@ -178,15 +371,17 @@ amazonaws_a4b.CreateRoom({
 
 ```js
 amazonaws_a4b.CreateSkillGroup({
-  "SkillGroupName": ""
+  "SkillGroupName": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupName **required** [SkillGroupName](#skillgroupname)
+  * ClientRequestToken
+  * Description
+  * SkillGroupName **required**
+  * Tags
+    * items [Tag](#tag)
 
 #### Output
 * output [CreateSkillGroupResponse](#createskillgroupresponse)
@@ -197,18 +392,19 @@ amazonaws_a4b.CreateSkillGroup({
 
 ```js
 amazonaws_a4b.CreateUser({
-  "UserId": ""
+  "UserId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Email [Email](#email)
-  * FirstName [user_FirstName](#user_firstname)
-  * LastName [user_LastName](#user_lastname)
-  * Tags [TagList](#taglist)
-  * UserId **required** [user_UserId](#user_userid)
+  * ClientRequestToken
+  * Email
+  * FirstName
+  * LastName
+  * Tags
+    * items [Tag](#tag)
+  * UserId **required**
 
 #### Output
 * output [CreateUserResponse](#createuserresponse)
@@ -219,16 +415,50 @@ amazonaws_a4b.CreateUser({
 
 ```js
 amazonaws_a4b.DeleteAddressBook({
-  "AddressBookArn": ""
+  "AddressBookArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AddressBookArn **required** [Arn](#arn)
+  * AddressBookArn **required**
 
 #### Output
 * output [DeleteAddressBookResponse](#deleteaddressbookresponse)
+
+### DeleteBusinessReportSchedule
+
+
+
+```js
+amazonaws_a4b.DeleteBusinessReportSchedule({
+  "ScheduleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ScheduleArn **required**
+
+#### Output
+* output [DeleteBusinessReportScheduleResponse](#deletebusinessreportscheduleresponse)
+
+### DeleteConferenceProvider
+
+
+
+```js
+amazonaws_a4b.DeleteConferenceProvider({
+  "ConferenceProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConferenceProviderArn **required**
+
+#### Output
+* output [DeleteConferenceProviderResponse](#deleteconferenceproviderresponse)
 
 ### DeleteContact
 
@@ -236,16 +466,86 @@ amazonaws_a4b.DeleteAddressBook({
 
 ```js
 amazonaws_a4b.DeleteContact({
-  "ContactArn": ""
+  "ContactArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ContactArn **required** [Arn](#arn)
+  * ContactArn **required**
 
 #### Output
 * output [DeleteContactResponse](#deletecontactresponse)
+
+### DeleteDevice
+
+
+
+```js
+amazonaws_a4b.DeleteDevice({
+  "DeviceArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceArn **required**
+
+#### Output
+* output [DeleteDeviceResponse](#deletedeviceresponse)
+
+### DeleteDeviceUsageData
+
+
+
+```js
+amazonaws_a4b.DeleteDeviceUsageData({
+  "DeviceArn": null,
+  "DeviceUsageType": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * DeviceArn **required**
+  * DeviceUsageType **required**
+
+#### Output
+* output [DeleteDeviceUsageDataResponse](#deletedeviceusagedataresponse)
+
+### DeleteGatewayGroup
+
+
+
+```js
+amazonaws_a4b.DeleteGatewayGroup({
+  "GatewayGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayGroupArn **required**
+
+#### Output
+* output [DeleteGatewayGroupResponse](#deletegatewaygroupresponse)
+
+### DeleteNetworkProfile
+
+
+
+```js
+amazonaws_a4b.DeleteNetworkProfile({
+  "NetworkProfileArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NetworkProfileArn **required**
+
+#### Output
+* output [DeleteNetworkProfileResponse](#deletenetworkprofileresponse)
 
 ### DeleteProfile
 
@@ -257,7 +557,7 @@ amazonaws_a4b.DeleteProfile({}, context)
 
 #### Input
 * input `object`
-  * ProfileArn [Arn](#arn)
+  * ProfileArn
 
 #### Output
 * output [DeleteProfileResponse](#deleteprofileresponse)
@@ -272,7 +572,7 @@ amazonaws_a4b.DeleteRoom({}, context)
 
 #### Input
 * input `object`
-  * RoomArn [Arn](#arn)
+  * RoomArn
 
 #### Output
 * output [DeleteRoomResponse](#deleteroomresponse)
@@ -283,19 +583,37 @@ amazonaws_a4b.DeleteRoom({}, context)
 
 ```js
 amazonaws_a4b.DeleteRoomSkillParameter({
-  "SkillId": "",
-  "ParameterKey": ""
+  "SkillId": null,
+  "ParameterKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ParameterKey **required** [RoomSkillParameterKey](#roomskillparameterkey)
-  * RoomArn [Arn](#arn)
-  * SkillId **required** [SkillId](#skillid)
+  * ParameterKey **required**
+  * RoomArn
+  * SkillId **required**
 
 #### Output
 * output [DeleteRoomSkillParameterResponse](#deleteroomskillparameterresponse)
+
+### DeleteSkillAuthorization
+
+
+
+```js
+amazonaws_a4b.DeleteSkillAuthorization({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoomArn
+  * SkillId **required**
+
+#### Output
+* output [DeleteSkillAuthorizationResponse](#deleteskillauthorizationresponse)
 
 ### DeleteSkillGroup
 
@@ -307,7 +625,7 @@ amazonaws_a4b.DeleteSkillGroup({}, context)
 
 #### Input
 * input `object`
-  * SkillGroupArn [Arn](#arn)
+  * SkillGroupArn
 
 #### Output
 * output [DeleteSkillGroupResponse](#deleteskillgroupresponse)
@@ -318,14 +636,14 @@ amazonaws_a4b.DeleteSkillGroup({}, context)
 
 ```js
 amazonaws_a4b.DeleteUser({
-  "EnrollmentId": ""
+  "EnrollmentId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * EnrollmentId **required** [EnrollmentId](#enrollmentid)
-  * UserArn [Arn](#arn)
+  * EnrollmentId **required**
+  * UserArn
 
 #### Output
 * output [DeleteUserResponse](#deleteuserresponse)
@@ -336,15 +654,15 @@ amazonaws_a4b.DeleteUser({
 
 ```js
 amazonaws_a4b.DisassociateContactFromAddressBook({
-  "ContactArn": "",
-  "AddressBookArn": ""
+  "ContactArn": null,
+  "AddressBookArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * ContactArn **required** [Arn](#arn)
+  * AddressBookArn **required**
+  * ContactArn **required**
 
 #### Output
 * output [DisassociateContactFromAddressBookResponse](#disassociatecontactfromaddressbookresponse)
@@ -359,10 +677,45 @@ amazonaws_a4b.DisassociateDeviceFromRoom({}, context)
 
 #### Input
 * input `object`
-  * DeviceArn [Arn](#arn)
+  * DeviceArn
 
 #### Output
 * output [DisassociateDeviceFromRoomResponse](#disassociatedevicefromroomresponse)
+
+### DisassociateSkillFromSkillGroup
+
+
+
+```js
+amazonaws_a4b.DisassociateSkillFromSkillGroup({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillGroupArn
+  * SkillId **required**
+
+#### Output
+* output [DisassociateSkillFromSkillGroupResponse](#disassociateskillfromskillgroupresponse)
+
+### DisassociateSkillFromUsers
+
+
+
+```js
+amazonaws_a4b.DisassociateSkillFromUsers({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillId **required**
+
+#### Output
+* output [DisassociateSkillFromUsersResponse](#disassociateskillfromusersresponse)
 
 ### DisassociateSkillGroupFromRoom
 
@@ -374,11 +727,28 @@ amazonaws_a4b.DisassociateSkillGroupFromRoom({}, context)
 
 #### Input
 * input `object`
-  * RoomArn [Arn](#arn)
-  * SkillGroupArn [Arn](#arn)
+  * RoomArn
+  * SkillGroupArn
 
 #### Output
 * output [DisassociateSkillGroupFromRoomResponse](#disassociateskillgroupfromroomresponse)
+
+### ForgetSmartHomeAppliances
+
+
+
+```js
+amazonaws_a4b.ForgetSmartHomeAppliances({
+  "RoomArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoomArn **required**
+
+#### Output
+* output [ForgetSmartHomeAppliancesResponse](#forgetsmarthomeappliancesresponse)
 
 ### GetAddressBook
 
@@ -386,16 +756,47 @@ amazonaws_a4b.DisassociateSkillGroupFromRoom({}, context)
 
 ```js
 amazonaws_a4b.GetAddressBook({
-  "AddressBookArn": ""
+  "AddressBookArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AddressBookArn **required** [Arn](#arn)
+  * AddressBookArn **required**
 
 #### Output
 * output [GetAddressBookResponse](#getaddressbookresponse)
+
+### GetConferencePreference
+
+
+
+```js
+amazonaws_a4b.GetConferencePreference({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetConferencePreferenceResponse](#getconferencepreferenceresponse)
+
+### GetConferenceProvider
+
+
+
+```js
+amazonaws_a4b.GetConferenceProvider({
+  "ConferenceProviderArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConferenceProviderArn **required**
+
+#### Output
+* output [GetConferenceProviderResponse](#getconferenceproviderresponse)
 
 ### GetContact
 
@@ -403,13 +804,13 @@ amazonaws_a4b.GetAddressBook({
 
 ```js
 amazonaws_a4b.GetContact({
-  "ContactArn": ""
+  "ContactArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ContactArn **required** [Arn](#arn)
+  * ContactArn **required**
 
 #### Output
 * output [GetContactResponse](#getcontactresponse)
@@ -424,10 +825,75 @@ amazonaws_a4b.GetDevice({}, context)
 
 #### Input
 * input `object`
-  * DeviceArn [Arn](#arn)
+  * DeviceArn
 
 #### Output
 * output [GetDeviceResponse](#getdeviceresponse)
+
+### GetGateway
+
+
+
+```js
+amazonaws_a4b.GetGateway({
+  "GatewayArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayArn **required**
+
+#### Output
+* output [GetGatewayResponse](#getgatewayresponse)
+
+### GetGatewayGroup
+
+
+
+```js
+amazonaws_a4b.GetGatewayGroup({
+  "GatewayGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * GatewayGroupArn **required**
+
+#### Output
+* output [GetGatewayGroupResponse](#getgatewaygroupresponse)
+
+### GetInvitationConfiguration
+
+
+
+```js
+amazonaws_a4b.GetInvitationConfiguration({}, context)
+```
+
+#### Input
+* input `object`
+
+#### Output
+* output [GetInvitationConfigurationResponse](#getinvitationconfigurationresponse)
+
+### GetNetworkProfile
+
+
+
+```js
+amazonaws_a4b.GetNetworkProfile({
+  "NetworkProfileArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * NetworkProfileArn **required**
+
+#### Output
+* output [GetNetworkProfileResponse](#getnetworkprofileresponse)
 
 ### GetProfile
 
@@ -439,7 +905,7 @@ amazonaws_a4b.GetProfile({}, context)
 
 #### Input
 * input `object`
-  * ProfileArn [Arn](#arn)
+  * ProfileArn
 
 #### Output
 * output [GetProfileResponse](#getprofileresponse)
@@ -454,7 +920,7 @@ amazonaws_a4b.GetRoom({}, context)
 
 #### Input
 * input `object`
-  * RoomArn [Arn](#arn)
+  * RoomArn
 
 #### Output
 * output [GetRoomResponse](#getroomresponse)
@@ -465,16 +931,16 @@ amazonaws_a4b.GetRoom({}, context)
 
 ```js
 amazonaws_a4b.GetRoomSkillParameter({
-  "SkillId": "",
-  "ParameterKey": ""
+  "SkillId": null,
+  "ParameterKey": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ParameterKey **required** [RoomSkillParameterKey](#roomskillparameterkey)
-  * RoomArn [Arn](#arn)
-  * SkillId **required** [SkillId](#skillid)
+  * ParameterKey **required**
+  * RoomArn
+  * SkillId **required**
 
 #### Output
 * output [GetRoomSkillParameterResponse](#getroomskillparameterresponse)
@@ -489,10 +955,46 @@ amazonaws_a4b.GetSkillGroup({}, context)
 
 #### Input
 * input `object`
-  * SkillGroupArn [Arn](#arn)
+  * SkillGroupArn
 
 #### Output
 * output [GetSkillGroupResponse](#getskillgroupresponse)
+
+### ListBusinessReportSchedules
+
+
+
+```js
+amazonaws_a4b.ListBusinessReportSchedules({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListBusinessReportSchedulesResponse](#listbusinessreportschedulesresponse)
+
+### ListConferenceProviders
+
+
+
+```js
+amazonaws_a4b.ListConferenceProviders({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListConferenceProvidersResponse](#listconferenceprovidersresponse)
 
 ### ListDeviceEvents
 
@@ -500,7 +1002,7 @@ amazonaws_a4b.GetSkillGroup({}, context)
 
 ```js
 amazonaws_a4b.ListDeviceEvents({
-  "DeviceArn": ""
+  "DeviceArn": null
 }, context)
 ```
 
@@ -508,13 +1010,50 @@ amazonaws_a4b.ListDeviceEvents({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * DeviceArn **required** [Arn](#arn)
-  * EventType [DeviceEventType](#deviceeventtype)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * DeviceArn **required**
+  * EventType
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListDeviceEventsResponse](#listdeviceeventsresponse)
+
+### ListGatewayGroups
+
+
+
+```js
+amazonaws_a4b.ListGatewayGroups({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListGatewayGroupsResponse](#listgatewaygroupsresponse)
+
+### ListGateways
+
+
+
+```js
+amazonaws_a4b.ListGateways({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * GatewayGroupArn
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListGatewaysResponse](#listgatewaysresponse)
 
 ### ListSkills
 
@@ -528,20 +1067,40 @@ amazonaws_a4b.ListSkills({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * MaxResults [SkillListMaxResults](#skilllistmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SkillGroupArn [Arn](#arn)
+  * EnablementType
+  * MaxResults
+  * NextToken
+  * SkillGroupArn
+  * SkillType
 
 #### Output
 * output [ListSkillsResponse](#listskillsresponse)
 
-### ListTags
+### ListSkillsStoreCategories
 
 
 
 ```js
-amazonaws_a4b.ListTags({
-  "Arn": ""
+amazonaws_a4b.ListSkillsStoreCategories({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListSkillsStoreCategoriesResponse](#listskillsstorecategoriesresponse)
+
+### ListSkillsStoreSkillsByCategory
+
+
+
+```js
+amazonaws_a4b.ListSkillsStoreSkillsByCategory({
+  "CategoryId": null
 }, context)
 ```
 
@@ -549,12 +1108,92 @@ amazonaws_a4b.ListTags({
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Arn **required** [Arn](#arn)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * CategoryId **required**
+  * MaxResults
+  * NextToken
+
+#### Output
+* output [ListSkillsStoreSkillsByCategoryResponse](#listskillsstoreskillsbycategoryresponse)
+
+### ListSmartHomeAppliances
+
+
+
+```js
+amazonaws_a4b.ListSmartHomeAppliances({
+  "RoomArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * MaxResults
+  * NextToken
+  * RoomArn **required**
+
+#### Output
+* output [ListSmartHomeAppliancesResponse](#listsmarthomeappliancesresponse)
+
+### ListTags
+
+
+
+```js
+amazonaws_a4b.ListTags({
+  "Arn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Arn **required**
+  * MaxResults
+  * NextToken
 
 #### Output
 * output [ListTagsResponse](#listtagsresponse)
+
+### PutConferencePreference
+
+
+
+```js
+amazonaws_a4b.PutConferencePreference({
+  "ConferencePreference": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConferencePreference **required**
+    * DefaultConferenceProviderArn
+
+#### Output
+* output [PutConferencePreferenceResponse](#putconferencepreferenceresponse)
+
+### PutInvitationConfiguration
+
+
+
+```js
+amazonaws_a4b.PutInvitationConfiguration({
+  "OrganizationName": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ContactEmail
+  * OrganizationName **required**
+  * PrivateSkillIds
+    * items [SkillId](#skillid)
+
+#### Output
+* output [PutInvitationConfigurationResponse](#putinvitationconfigurationresponse)
 
 ### PutRoomSkillParameter
 
@@ -562,22 +1201,83 @@ amazonaws_a4b.ListTags({
 
 ```js
 amazonaws_a4b.PutRoomSkillParameter({
-  "SkillId": "",
-  "RoomSkillParameter": {
-    "ParameterKey": "",
-    "ParameterValue": ""
-  }
+  "SkillId": null,
+  "RoomSkillParameter": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * RoomArn [Arn](#arn)
-  * RoomSkillParameter **required** [RoomSkillParameter](#roomskillparameter)
-  * SkillId **required** [SkillId](#skillid)
+  * RoomArn
+  * RoomSkillParameter **required**
+    * ParameterKey **required**
+    * ParameterValue **required**
+  * SkillId **required**
 
 #### Output
 * output [PutRoomSkillParameterResponse](#putroomskillparameterresponse)
+
+### PutSkillAuthorization
+
+
+
+```js
+amazonaws_a4b.PutSkillAuthorization({
+  "AuthorizationResult": null,
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AuthorizationResult **required**
+  * RoomArn
+  * SkillId **required**
+
+#### Output
+* output [PutSkillAuthorizationResponse](#putskillauthorizationresponse)
+
+### RegisterAVSDevice
+
+
+
+```js
+amazonaws_a4b.RegisterAVSDevice({
+  "ClientId": null,
+  "UserCode": null,
+  "ProductId": null,
+  "AmazonId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * AmazonId **required**
+  * ClientId **required**
+  * DeviceSerialNumber
+  * ProductId **required**
+  * RoomArn
+  * UserCode **required**
+
+#### Output
+* output [RegisterAVSDeviceResponse](#registeravsdeviceresponse)
+
+### RejectSkill
+
+
+
+```js
+amazonaws_a4b.RejectSkill({
+  "SkillId": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * SkillId **required**
+
+#### Output
+* output [RejectSkillResponse](#rejectskillresponse)
 
 ### ResolveRoom
 
@@ -585,15 +1285,15 @@ amazonaws_a4b.PutRoomSkillParameter({
 
 ```js
 amazonaws_a4b.ResolveRoom({
-  "UserId": "",
-  "SkillId": ""
+  "UserId": null,
+  "SkillId": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * SkillId **required** [SkillId](#skillid)
-  * UserId **required** [UserId](#userid)
+  * SkillId **required**
+  * UserId **required**
 
 #### Output
 * output [ResolveRoomResponse](#resolveroomresponse)
@@ -608,8 +1308,8 @@ amazonaws_a4b.RevokeInvitation({}, context)
 
 #### Input
 * input `object`
-  * EnrollmentId [EnrollmentId](#enrollmentid)
-  * UserArn [Arn](#arn)
+  * EnrollmentId
+  * UserArn
 
 #### Output
 * output [RevokeInvitationResponse](#revokeinvitationresponse)
@@ -626,10 +1326,12 @@ amazonaws_a4b.SearchAddressBooks({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchAddressBooksResponse](#searchaddressbooksresponse)
@@ -646,10 +1348,12 @@ amazonaws_a4b.SearchContacts({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchContactsResponse](#searchcontactsresponse)
@@ -666,13 +1370,37 @@ amazonaws_a4b.SearchDevices({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchDevicesResponse](#searchdevicesresponse)
+
+### SearchNetworkProfiles
+
+
+
+```js
+amazonaws_a4b.SearchNetworkProfiles({}, context)
+```
+
+#### Input
+* input `object`
+  * MaxResults `string`
+  * NextToken `string`
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
+
+#### Output
+* output [SearchNetworkProfilesResponse](#searchnetworkprofilesresponse)
 
 ### SearchProfiles
 
@@ -686,10 +1414,12 @@ amazonaws_a4b.SearchProfiles({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchProfilesResponse](#searchprofilesresponse)
@@ -706,10 +1436,12 @@ amazonaws_a4b.SearchRooms({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchRoomsResponse](#searchroomsresponse)
@@ -726,10 +1458,12 @@ amazonaws_a4b.SearchSkillGroups({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchSkillGroupsResponse](#searchskillgroupsresponse)
@@ -746,13 +1480,44 @@ amazonaws_a4b.SearchUsers({}, context)
 * input `object`
   * MaxResults `string`
   * NextToken `string`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 #### Output
 * output [SearchUsersResponse](#searchusersresponse)
+
+### SendAnnouncement
+
+
+
+```js
+amazonaws_a4b.SendAnnouncement({
+  "RoomFilters": null,
+  "Content": null,
+  "ClientRequestToken": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ClientRequestToken **required**
+  * Content **required**
+    * AudioList
+      * items [Audio](#audio)
+    * SsmlList
+      * items [Ssml](#ssml)
+    * TextList
+      * items [Text](#text)
+  * RoomFilters **required**
+    * items [Filter](#filter)
+  * TimeToLiveInSeconds
+
+#### Output
+* output [SendAnnouncementResponse](#sendannouncementresponse)
 
 ### SendInvitation
 
@@ -764,7 +1529,7 @@ amazonaws_a4b.SendInvitation({}, context)
 
 #### Input
 * input `object`
-  * UserArn [Arn](#arn)
+  * UserArn
 
 #### Output
 * output [SendInvitationResponse](#sendinvitationresponse)
@@ -775,18 +1540,36 @@ amazonaws_a4b.SendInvitation({}, context)
 
 ```js
 amazonaws_a4b.StartDeviceSync({
-  "Features": []
+  "Features": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * DeviceArn [Arn](#arn)
-  * Features **required** [Features](#features)
-  * RoomArn [Arn](#arn)
+  * DeviceArn
+  * Features **required**
+    * items [Feature](#feature)
+  * RoomArn
 
 #### Output
 * output [StartDeviceSyncResponse](#startdevicesyncresponse)
+
+### StartSmartHomeApplianceDiscovery
+
+
+
+```js
+amazonaws_a4b.StartSmartHomeApplianceDiscovery({
+  "RoomArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * RoomArn **required**
+
+#### Output
+* output [StartSmartHomeApplianceDiscoveryResponse](#startsmarthomeappliancediscoveryresponse)
 
 ### TagResource
 
@@ -794,15 +1577,16 @@ amazonaws_a4b.StartDeviceSync({
 
 ```js
 amazonaws_a4b.TagResource({
-  "Arn": "",
-  "Tags": []
+  "Arn": null,
+  "Tags": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Arn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * Arn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 #### Output
 * output [TagResourceResponse](#tagresourceresponse)
@@ -813,15 +1597,16 @@ amazonaws_a4b.TagResource({
 
 ```js
 amazonaws_a4b.UntagResource({
-  "Arn": "",
-  "TagKeys": []
+  "Arn": null,
+  "TagKeys": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * Arn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * Arn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 #### Output
 * output [UntagResourceResponse](#untagresourceresponse)
@@ -832,18 +1617,71 @@ amazonaws_a4b.UntagResource({
 
 ```js
 amazonaws_a4b.UpdateAddressBook({
-  "AddressBookArn": ""
+  "AddressBookArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name [AddressBookName](#addressbookname)
+  * AddressBookArn **required**
+  * Description
+  * Name
 
 #### Output
 * output [UpdateAddressBookResponse](#updateaddressbookresponse)
+
+### UpdateBusinessReportSchedule
+
+
+
+```js
+amazonaws_a4b.UpdateBusinessReportSchedule({
+  "ScheduleArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Format
+  * Recurrence
+    * StartDate
+  * S3BucketName
+  * S3KeyPrefix
+  * ScheduleArn **required**
+  * ScheduleName
+
+#### Output
+* output [UpdateBusinessReportScheduleResponse](#updatebusinessreportscheduleresponse)
+
+### UpdateConferenceProvider
+
+
+
+```js
+amazonaws_a4b.UpdateConferenceProvider({
+  "ConferenceProviderArn": null,
+  "ConferenceProviderType": null,
+  "MeetingSetting": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * ConferenceProviderArn **required**
+  * ConferenceProviderType **required**
+  * IPDialIn
+    * CommsProtocol **required**
+    * Endpoint **required**
+  * MeetingSetting **required**
+    * RequirePin **required**
+  * PSTNDialIn
+    * CountryCode **required**
+    * OneClickIdDelay **required**
+    * OneClickPinDelay **required**
+    * PhoneNumber **required**
+
+#### Output
+* output [UpdateConferenceProviderResponse](#updateconferenceproviderresponse)
 
 ### UpdateContact
 
@@ -851,17 +1689,21 @@ amazonaws_a4b.UpdateAddressBook({
 
 ```js
 amazonaws_a4b.UpdateContact({
-  "ContactArn": ""
+  "ContactArn": null
 }, context)
 ```
 
 #### Input
 * input `object`
-  * ContactArn **required** [Arn](#arn)
-  * DisplayName [ContactName](#contactname)
-  * FirstName [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+  * ContactArn **required**
+  * DisplayName
+  * FirstName
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 #### Output
 * output [UpdateContactResponse](#updatecontactresponse)
@@ -876,11 +1718,74 @@ amazonaws_a4b.UpdateDevice({}, context)
 
 #### Input
 * input `object`
-  * DeviceArn [Arn](#arn)
-  * DeviceName [DeviceName](#devicename)
+  * DeviceArn
+  * DeviceName
 
 #### Output
 * output [UpdateDeviceResponse](#updatedeviceresponse)
+
+### UpdateGateway
+
+
+
+```js
+amazonaws_a4b.UpdateGateway({
+  "GatewayArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * GatewayArn **required**
+  * Name
+  * SoftwareVersion
+
+#### Output
+* output [UpdateGatewayResponse](#updategatewayresponse)
+
+### UpdateGatewayGroup
+
+
+
+```js
+amazonaws_a4b.UpdateGatewayGroup({
+  "GatewayGroupArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * Description
+  * GatewayGroupArn **required**
+  * Name
+
+#### Output
+* output [UpdateGatewayGroupResponse](#updategatewaygroupresponse)
+
+### UpdateNetworkProfile
+
+
+
+```js
+amazonaws_a4b.UpdateNetworkProfile({
+  "NetworkProfileArn": null
+}, context)
+```
+
+#### Input
+* input `object`
+  * CertificateAuthorityArn
+  * CurrentPassword
+  * Description
+  * NetworkProfileArn **required**
+  * NetworkProfileName
+  * NextPassword
+  * TrustAnchors
+    * items [TrustAnchor](#trustanchor)
+
+#### Output
+* output [UpdateNetworkProfileResponse](#updatenetworkprofileresponse)
 
 ### UpdateProfile
 
@@ -892,16 +1797,31 @@ amazonaws_a4b.UpdateProfile({}, context)
 
 #### Input
 * input `object`
-  * Address [Address](#address)
-  * DistanceUnit [DistanceUnit](#distanceunit)
-  * MaxVolumeLimit [MaxVolumeLimit](#maxvolumelimit)
-  * PSTNEnabled [Boolean](#boolean)
-  * ProfileArn [Arn](#arn)
-  * ProfileName [ProfileName](#profilename)
-  * SetupModeDisabled [Boolean](#boolean)
-  * TemperatureUnit [TemperatureUnit](#temperatureunit)
-  * Timezone [Timezone](#timezone)
-  * WakeWord [WakeWord](#wakeword)
+  * Address
+  * DistanceUnit
+  * IsDefault
+  * Locale
+  * MaxVolumeLimit
+  * MeetingRoomConfiguration
+    * EndOfMeetingReminder
+      * Enabled
+      * ReminderAtMinutes
+        * items [Minutes](#minutes)
+      * ReminderType
+    * InstantBooking
+      * DurationInMinutes
+      * Enabled
+    * RequireCheckIn
+      * Enabled
+      * ReleaseAfterMinutes
+    * RoomUtilizationMetricsEnabled
+  * PSTNEnabled
+  * ProfileArn
+  * ProfileName
+  * SetupModeDisabled
+  * TemperatureUnit
+  * Timezone
+  * WakeWord
 
 #### Output
 * output [UpdateProfileResponse](#updateprofileresponse)
@@ -916,11 +1836,11 @@ amazonaws_a4b.UpdateRoom({}, context)
 
 #### Input
 * input `object`
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
+  * Description
+  * ProfileArn
+  * ProviderCalendarId
+  * RoomArn
+  * RoomName
 
 #### Output
 * output [UpdateRoomResponse](#updateroomresponse)
@@ -935,9 +1855,9 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 #### Input
 * input `object`
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupArn [Arn](#arn)
-  * SkillGroupName [SkillGroupName](#skillgroupname)
+  * Description
+  * SkillGroupArn
+  * SkillGroupName
 
 #### Output
 * output [UpdateSkillGroupResponse](#updateskillgroupresponse)
@@ -951,15 +1871,15 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### AddressBook
 * AddressBook `object`: An address book with attributes.
-  * AddressBookArn [Arn](#arn)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name [AddressBookName](#addressbookname)
+  * AddressBookArn
+  * Description
+  * Name
 
 ### AddressBookData
 * AddressBookData `object`: Information related to an address book.
-  * AddressBookArn [Arn](#arn)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name [AddressBookName](#addressbookname)
+  * AddressBookArn
+  * Description
+  * Name
 
 ### AddressBookDataList
 * AddressBookDataList `array`
@@ -972,60 +1892,262 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * AddressBookName `string`
 
 ### AlreadyExistsException
-* AlreadyExistsException `object`: The resource being created already exists. HTTP Status Code: 400
-  * Message [ErrorMessage](#errormessage)
+
+
+### AmazonId
+* AmazonId `string`
+
+### ApplianceDescription
+* ApplianceDescription `string`
+
+### ApplianceFriendlyName
+* ApplianceFriendlyName `string`
+
+### ApplianceManufacturerName
+* ApplianceManufacturerName `string`
+
+### ApproveSkillRequest
+* ApproveSkillRequest `object`
+  * SkillId **required**
+
+### ApproveSkillResponse
+* ApproveSkillResponse `object`
 
 ### Arn
 * Arn `string`
 
 ### AssociateContactWithAddressBookRequest
 * AssociateContactWithAddressBookRequest `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * ContactArn **required** [Arn](#arn)
+  * AddressBookArn **required**
+  * ContactArn **required**
 
 ### AssociateContactWithAddressBookResponse
 * AssociateContactWithAddressBookResponse `object`
 
+### AssociateDeviceWithNetworkProfileRequest
+* AssociateDeviceWithNetworkProfileRequest `object`
+  * DeviceArn **required**
+  * NetworkProfileArn **required**
+
+### AssociateDeviceWithNetworkProfileResponse
+* AssociateDeviceWithNetworkProfileResponse `object`
+
 ### AssociateDeviceWithRoomRequest
 * AssociateDeviceWithRoomRequest `object`
-  * DeviceArn [Arn](#arn)
-  * RoomArn [Arn](#arn)
+  * DeviceArn
+  * RoomArn
 
 ### AssociateDeviceWithRoomResponse
 * AssociateDeviceWithRoomResponse `object`
 
 ### AssociateSkillGroupWithRoomRequest
 * AssociateSkillGroupWithRoomRequest `object`
-  * RoomArn [Arn](#arn)
-  * SkillGroupArn [Arn](#arn)
+  * RoomArn
+  * SkillGroupArn
 
 ### AssociateSkillGroupWithRoomResponse
 * AssociateSkillGroupWithRoomResponse `object`
 
+### AssociateSkillWithSkillGroupRequest
+* AssociateSkillWithSkillGroupRequest `object`
+  * SkillGroupArn
+  * SkillId **required**
+
+### AssociateSkillWithSkillGroupResponse
+* AssociateSkillWithSkillGroupResponse `object`
+
+### AssociateSkillWithUsersRequest
+* AssociateSkillWithUsersRequest `object`
+  * SkillId **required**
+
+### AssociateSkillWithUsersResponse
+* AssociateSkillWithUsersResponse `object`
+
+### Audio
+* Audio `object`: <p>The audio message. There is a 1 MB limit on the audio file input and the only supported format is MP3. To convert your MP3 audio files to an Alexa-friendly, </p> <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter software. One option for this is a command-line tool, FFmpeg. For more information, see <a href="https://www.ffmpeg.org/">FFmpeg</a>. The following command converts the provided &lt;input-file&gt; to an MP3 file that is played in the announcement:</p> <p> <code>ffmpeg -i &lt;input-file&gt; -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 &lt;output-file.mp3&gt;</code> </p>
+  * Locale **required**
+  * Location **required**
+
+### AudioList
+* AudioList `array`
+  * items [Audio](#audio)
+
+### AudioLocation
+* AudioLocation `string`
+
+### AuthorizationResult
+* AuthorizationResult `object`
+
 ### Boolean
 * Boolean `boolean`
 
+### BulletPoint
+* BulletPoint `string`
+
+### BulletPoints
+* BulletPoints `array`
+  * items [BulletPoint](#bulletpoint)
+
+### BusinessReport
+* BusinessReport `object`: Usage report with specified parameters.
+  * DeliveryTime
+  * DownloadUrl
+  * FailureCode
+  * S3Location
+    * BucketName
+    * Path
+  * Status
+
+### BusinessReportContentRange
+* BusinessReportContentRange `object`: The content range of the report.
+  * Interval **required**
+
+### BusinessReportDeliveryTime
+* BusinessReportDeliveryTime `string`
+
+### BusinessReportDownloadUrl
+* BusinessReportDownloadUrl `string`
+
+### BusinessReportFailureCode
+* BusinessReportFailureCode `string` (values: ACCESS_DENIED, NO_SUCH_BUCKET, INTERNAL_FAILURE)
+
+### BusinessReportFormat
+* BusinessReportFormat `string` (values: CSV, CSV_ZIP)
+
+### BusinessReportInterval
+* BusinessReportInterval `string` (values: ONE_DAY, ONE_WEEK, THIRTY_DAYS)
+
+### BusinessReportRecurrence
+* BusinessReportRecurrence `object`: The recurrence of the reports.
+  * StartDate
+
+### BusinessReportS3Location
+* BusinessReportS3Location `object`: The S3 location of the output reports.
+  * BucketName
+  * Path
+
+### BusinessReportS3Path
+* BusinessReportS3Path `string`
+
+### BusinessReportSchedule
+* BusinessReportSchedule `object`: The schedule of the usage report.
+  * ContentRange
+    * Interval **required**
+  * Format
+  * LastBusinessReport
+    * DeliveryTime
+    * DownloadUrl
+    * FailureCode
+    * S3Location
+      * BucketName
+      * Path
+    * Status
+  * Recurrence
+    * StartDate
+  * S3BucketName
+  * S3KeyPrefix
+  * ScheduleArn
+  * ScheduleName
+
+### BusinessReportScheduleList
+* BusinessReportScheduleList `array`
+  * items [BusinessReportSchedule](#businessreportschedule)
+
+### BusinessReportScheduleName
+* BusinessReportScheduleName `string`
+
+### BusinessReportStatus
+* BusinessReportStatus `string` (values: RUNNING, SUCCEEDED, FAILED)
+
+### Category
+* Category `object`: The skill store category that is shown. Alexa skills are assigned a specific skill category during creation, such as News, Social, and Sports.
+  * CategoryId
+  * CategoryName
+
+### CategoryId
+* CategoryId `integer`
+
+### CategoryList
+* CategoryList `array`
+  * items [Category](#category)
+
+### CategoryName
+* CategoryName `string`
+
+### CertificateTime
+* CertificateTime `string`
+
+### ClientId
+* ClientId `string`
+
 ### ClientRequestToken
-* ClientRequestToken `string`: User specified token that is used to support idempotency during Create Resource
+* ClientRequestToken `string`: A unique, user-specified identifier for the request that ensures idempotency.
+
+### CommsProtocol
+* CommsProtocol `string` (values: SIP, SIPS, H323)
+
+### ConcurrentModificationException
+
+
+### ConferencePreference
+* ConferencePreference `object`: The default conference provider that is used if no other scheduled meetings are detected.
+  * DefaultConferenceProviderArn
+
+### ConferenceProvider
+* ConferenceProvider `object`: An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. 
+  * Arn
+  * IPDialIn
+    * CommsProtocol **required**
+    * Endpoint **required**
+  * MeetingSetting
+    * RequirePin **required**
+  * Name
+  * PSTNDialIn
+    * CountryCode **required**
+    * OneClickIdDelay **required**
+    * OneClickPinDelay **required**
+    * PhoneNumber **required**
+  * Type
+
+### ConferenceProviderName
+* ConferenceProviderName `string`
+
+### ConferenceProviderType
+* ConferenceProviderType `string` (values: CHIME, BLUEJEANS, FUZE, GOOGLE_HANGOUTS, POLYCOM, RINGCENTRAL, SKYPE_FOR_BUSINESS, WEBEX, ZOOM, CUSTOM)
+
+### ConferenceProvidersList
+* ConferenceProvidersList `array`
+  * items [ConferenceProvider](#conferenceprovider)
 
 ### ConnectionStatus
 * ConnectionStatus `string` (values: ONLINE, OFFLINE)
 
+### ConnectionStatusUpdatedTime
+* ConnectionStatusUpdatedTime `string`
+
 ### Contact
 * Contact `object`: A contact with attributes.
-  * ContactArn [Arn](#arn)
-  * DisplayName [ContactName](#contactname)
-  * FirstName [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+  * ContactArn
+  * DisplayName
+  * FirstName
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 ### ContactData
 * ContactData `object`: Information related to a contact.
-  * ContactArn [Arn](#arn)
-  * DisplayName [ContactName](#contactname)
-  * FirstName [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+  * ContactArn
+  * DisplayName
+  * FirstName
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 ### ContactDataList
 * ContactDataList `array`
@@ -1034,157 +2156,371 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### ContactName
 * ContactName `string`
 
+### Content
+* Content `object`: The content definition. This can contain only one text, SSML, or audio list object.
+  * AudioList
+    * items [Audio](#audio)
+  * SsmlList
+    * items [Ssml](#ssml)
+  * TextList
+    * items [Text](#text)
+
+### CountryCode
+* CountryCode `string`
+
 ### CreateAddressBookRequest
 * CreateAddressBookRequest `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name **required** [AddressBookName](#addressbookname)
+  * ClientRequestToken
+  * Description
+  * Name **required**
 
 ### CreateAddressBookResponse
 * CreateAddressBookResponse `object`
-  * AddressBookArn [Arn](#arn)
+  * AddressBookArn
+
+### CreateBusinessReportScheduleRequest
+* CreateBusinessReportScheduleRequest `object`
+  * ClientRequestToken
+  * ContentRange **required**
+    * Interval **required**
+  * Format **required**
+  * Recurrence
+    * StartDate
+  * S3BucketName
+  * S3KeyPrefix
+  * ScheduleName
+  * Tags
+    * items [Tag](#tag)
+
+### CreateBusinessReportScheduleResponse
+* CreateBusinessReportScheduleResponse `object`
+  * ScheduleArn
+
+### CreateConferenceProviderRequest
+* CreateConferenceProviderRequest `object`
+  * ClientRequestToken
+  * ConferenceProviderName **required**
+  * ConferenceProviderType **required**
+  * IPDialIn
+    * CommsProtocol **required**
+    * Endpoint **required**
+  * MeetingSetting **required**
+    * RequirePin **required**
+  * PSTNDialIn
+    * CountryCode **required**
+    * OneClickIdDelay **required**
+    * OneClickPinDelay **required**
+    * PhoneNumber **required**
+
+### CreateConferenceProviderResponse
+* CreateConferenceProviderResponse `object`
+  * ConferenceProviderArn
 
 ### CreateContactRequest
 * CreateContactRequest `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * DisplayName [ContactName](#contactname)
-  * FirstName **required** [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber **required** [E164PhoneNumber](#e164phonenumber)
+  * ClientRequestToken
+  * DisplayName
+  * FirstName **required**
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 ### CreateContactResponse
 * CreateContactResponse `object`
-  * ContactArn [Arn](#arn)
+  * ContactArn
+
+### CreateEndOfMeetingReminder
+* CreateEndOfMeetingReminder `object`: Creates settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
+  * Enabled **required**
+  * ReminderAtMinutes **required**
+    * items [Minutes](#minutes)
+  * ReminderType **required**
+
+### CreateGatewayGroupRequest
+* CreateGatewayGroupRequest `object`
+  * ClientRequestToken **required**
+  * Description
+  * Name **required**
+
+### CreateGatewayGroupResponse
+* CreateGatewayGroupResponse `object`
+  * GatewayGroupArn
+
+### CreateInstantBooking
+* CreateInstantBooking `object`: Creates settings for the instant booking feature that are applied to a room profile. When users start their meeting with Alexa, Alexa automatically books the room for the configured duration if the room is available.
+  * DurationInMinutes **required**
+  * Enabled **required**
+
+### CreateMeetingRoomConfiguration
+* CreateMeetingRoomConfiguration `object`: Creates meeting room settings of a room profile.
+  * EndOfMeetingReminder [CreateEndOfMeetingReminder](#createendofmeetingreminder)
+  * InstantBooking
+    * DurationInMinutes **required**
+    * Enabled **required**
+  * RequireCheckIn
+    * Enabled **required**
+    * ReleaseAfterMinutes **required**
+  * RoomUtilizationMetricsEnabled
+
+### CreateNetworkProfileRequest
+* CreateNetworkProfileRequest `object`
+  * CertificateAuthorityArn
+  * ClientRequestToken **required** [ClientRequestToken](#clientrequesttoken)
+  * CurrentPassword
+  * Description
+  * EapMethod
+  * NetworkProfileName **required**
+  * NextPassword
+  * SecurityType **required**
+  * Ssid **required**
+  * TrustAnchors
+    * items [TrustAnchor](#trustanchor)
+
+### CreateNetworkProfileResponse
+* CreateNetworkProfileResponse `object`
+  * NetworkProfileArn
 
 ### CreateProfileRequest
 * CreateProfileRequest `object`
-  * Address **required** [Address](#address)
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * DistanceUnit **required** [DistanceUnit](#distanceunit)
-  * MaxVolumeLimit [MaxVolumeLimit](#maxvolumelimit)
-  * PSTNEnabled [Boolean](#boolean)
-  * ProfileName **required** [ProfileName](#profilename)
-  * SetupModeDisabled [Boolean](#boolean)
-  * TemperatureUnit **required** [TemperatureUnit](#temperatureunit)
-  * Timezone **required** [Timezone](#timezone)
-  * WakeWord **required** [WakeWord](#wakeword)
+  * Address **required**
+  * ClientRequestToken
+  * DistanceUnit **required**
+  * Locale
+  * MaxVolumeLimit
+  * MeetingRoomConfiguration
+    * EndOfMeetingReminder [CreateEndOfMeetingReminder](#createendofmeetingreminder)
+    * InstantBooking
+      * DurationInMinutes **required**
+      * Enabled **required**
+    * RequireCheckIn
+      * Enabled **required**
+      * ReleaseAfterMinutes **required**
+    * RoomUtilizationMetricsEnabled
+  * PSTNEnabled
+  * ProfileName **required**
+  * SetupModeDisabled
+  * Tags
+    * items [Tag](#tag)
+  * TemperatureUnit **required**
+  * Timezone **required**
+  * WakeWord **required**
 
 ### CreateProfileResponse
 * CreateProfileResponse `object`
-  * ProfileArn [Arn](#arn)
+  * ProfileArn
+
+### CreateRequireCheckIn
+* CreateRequireCheckIn `object`: Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.
+  * Enabled **required**
+  * ReleaseAfterMinutes **required**
 
 ### CreateRoomRequest
 * CreateRoomRequest `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomName **required** [RoomName](#roomname)
-  * Tags [TagList](#taglist)
+  * ClientRequestToken
+  * Description
+  * ProfileArn
+  * ProviderCalendarId
+  * RoomName **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateRoomResponse
 * CreateRoomResponse `object`
-  * RoomArn [Arn](#arn)
+  * RoomArn
 
 ### CreateSkillGroupRequest
 * CreateSkillGroupRequest `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupName **required** [SkillGroupName](#skillgroupname)
+  * ClientRequestToken
+  * Description
+  * SkillGroupName **required**
+  * Tags
+    * items [Tag](#tag)
 
 ### CreateSkillGroupResponse
 * CreateSkillGroupResponse `object`
-  * SkillGroupArn [Arn](#arn)
+  * SkillGroupArn
 
 ### CreateUserRequest
 * CreateUserRequest `object`
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Email [Email](#email)
-  * FirstName [user_FirstName](#user_firstname)
-  * LastName [user_LastName](#user_lastname)
-  * Tags [TagList](#taglist)
-  * UserId **required** [user_UserId](#user_userid)
+  * ClientRequestToken
+  * Email
+  * FirstName
+  * LastName
+  * Tags
+    * items [Tag](#tag)
+  * UserId **required**
 
 ### CreateUserResponse
 * CreateUserResponse `object`
-  * UserArn [Arn](#arn)
+  * UserArn
+
+### CurrentWiFiPassword
+* CurrentWiFiPassword `string`
+
+### CustomerS3BucketName
+* CustomerS3BucketName `string`
+
+### Date
+* Date `string`
 
 ### DeleteAddressBookRequest
 * DeleteAddressBookRequest `object`
-  * AddressBookArn **required** [Arn](#arn)
+  * AddressBookArn **required**
 
 ### DeleteAddressBookResponse
 * DeleteAddressBookResponse `object`
 
+### DeleteBusinessReportScheduleRequest
+* DeleteBusinessReportScheduleRequest `object`
+  * ScheduleArn **required**
+
+### DeleteBusinessReportScheduleResponse
+* DeleteBusinessReportScheduleResponse `object`
+
+### DeleteConferenceProviderRequest
+* DeleteConferenceProviderRequest `object`
+  * ConferenceProviderArn **required**
+
+### DeleteConferenceProviderResponse
+* DeleteConferenceProviderResponse `object`
+
 ### DeleteContactRequest
 * DeleteContactRequest `object`
-  * ContactArn **required** [Arn](#arn)
+  * ContactArn **required**
 
 ### DeleteContactResponse
 * DeleteContactResponse `object`
 
+### DeleteDeviceRequest
+* DeleteDeviceRequest `object`
+  * DeviceArn **required**
+
+### DeleteDeviceResponse
+* DeleteDeviceResponse `object`
+
+### DeleteDeviceUsageDataRequest
+* DeleteDeviceUsageDataRequest `object`
+  * DeviceArn **required**
+  * DeviceUsageType **required**
+
+### DeleteDeviceUsageDataResponse
+* DeleteDeviceUsageDataResponse `object`
+
+### DeleteGatewayGroupRequest
+* DeleteGatewayGroupRequest `object`
+  * GatewayGroupArn **required**
+
+### DeleteGatewayGroupResponse
+* DeleteGatewayGroupResponse `object`
+
+### DeleteNetworkProfileRequest
+* DeleteNetworkProfileRequest `object`
+  * NetworkProfileArn **required**
+
+### DeleteNetworkProfileResponse
+* DeleteNetworkProfileResponse `object`
+
 ### DeleteProfileRequest
 * DeleteProfileRequest `object`
-  * ProfileArn [Arn](#arn)
+  * ProfileArn
 
 ### DeleteProfileResponse
 * DeleteProfileResponse `object`
 
 ### DeleteRoomRequest
 * DeleteRoomRequest `object`
-  * RoomArn [Arn](#arn)
+  * RoomArn
 
 ### DeleteRoomResponse
 * DeleteRoomResponse `object`
 
 ### DeleteRoomSkillParameterRequest
 * DeleteRoomSkillParameterRequest `object`
-  * ParameterKey **required** [RoomSkillParameterKey](#roomskillparameterkey)
-  * RoomArn [Arn](#arn)
-  * SkillId **required** [SkillId](#skillid)
+  * ParameterKey **required**
+  * RoomArn
+  * SkillId **required**
 
 ### DeleteRoomSkillParameterResponse
 * DeleteRoomSkillParameterResponse `object`
 
+### DeleteSkillAuthorizationRequest
+* DeleteSkillAuthorizationRequest `object`
+  * RoomArn
+  * SkillId **required**
+
+### DeleteSkillAuthorizationResponse
+* DeleteSkillAuthorizationResponse `object`
+
 ### DeleteSkillGroupRequest
 * DeleteSkillGroupRequest `object`
-  * SkillGroupArn [Arn](#arn)
+  * SkillGroupArn
 
 ### DeleteSkillGroupResponse
 * DeleteSkillGroupResponse `object`
 
 ### DeleteUserRequest
 * DeleteUserRequest `object`
-  * EnrollmentId **required** [EnrollmentId](#enrollmentid)
-  * UserArn [Arn](#arn)
+  * EnrollmentId **required**
+  * UserArn
 
 ### DeleteUserResponse
 * DeleteUserResponse `object`
 
+### DeveloperInfo
+* DeveloperInfo `object`: The details about the developer that published the skill.
+  * DeveloperName
+  * Email
+  * PrivacyPolicy
+  * Url
+
+### DeveloperName
+* DeveloperName `string`
+
 ### Device
 * Device `object`: A device with attributes.
-  * DeviceArn [Arn](#arn)
-  * DeviceName [DeviceName](#devicename)
-  * DeviceSerialNumber [DeviceSerialNumber](#deviceserialnumber)
-  * DeviceStatus [DeviceStatus](#devicestatus)
-  * DeviceStatusInfo [DeviceStatusInfo](#devicestatusinfo)
-  * DeviceType [DeviceType](#devicetype)
-  * MacAddress [MacAddress](#macaddress)
-  * RoomArn [Arn](#arn)
-  * SoftwareVersion [SoftwareVersion](#softwareversion)
+  * DeviceArn
+  * DeviceName
+  * DeviceSerialNumber
+  * DeviceStatus
+  * DeviceStatusInfo
+    * ConnectionStatus
+    * ConnectionStatusUpdatedTime
+    * DeviceStatusDetails
+      * items [DeviceStatusDetail](#devicestatusdetail)
+  * DeviceType
+  * MacAddress
+  * NetworkProfileInfo
+    * CertificateArn
+    * CertificateExpirationTime
+    * NetworkProfileArn
+  * RoomArn
+  * SoftwareVersion
 
 ### DeviceData
 * DeviceData `object`: Device attributes.
-  * DeviceArn [Arn](#arn)
-  * DeviceName [DeviceName](#devicename)
-  * DeviceSerialNumber [DeviceSerialNumber](#deviceserialnumber)
-  * DeviceStatus [DeviceStatus](#devicestatus)
-  * DeviceStatusInfo [DeviceStatusInfo](#devicestatusinfo)
-  * DeviceType [DeviceType](#devicetype)
-  * MacAddress [MacAddress](#macaddress)
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
-  * SoftwareVersion [SoftwareVersion](#softwareversion)
+  * CreatedTime
+  * DeviceArn
+  * DeviceName
+  * DeviceSerialNumber
+  * DeviceStatus
+  * DeviceStatusInfo
+    * ConnectionStatus
+    * ConnectionStatusUpdatedTime
+    * DeviceStatusDetails
+      * items [DeviceStatusDetail](#devicestatusdetail)
+  * DeviceType
+  * MacAddress
+  * NetworkProfileArn
+  * NetworkProfileName
+  * RoomArn
+  * RoomName
+  * SoftwareVersion
+
+### DeviceDataCreatedTime
+* DeviceDataCreatedTime `string`
 
 ### DeviceDataList
 * DeviceDataList `array`
@@ -1192,13 +2528,16 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### DeviceEvent
 * DeviceEvent `object`: The list of device events.
-  * Timestamp [Timestamp](#timestamp)
-  * Type [DeviceEventType](#deviceeventtype)
-  * Value [DeviceEventValue](#deviceeventvalue)
+  * Timestamp
+  * Type
+  * Value
 
 ### DeviceEventList
 * DeviceEventList `array`
   * items [DeviceEvent](#deviceevent)
+
+### DeviceEventTime
+* DeviceEventTime `string`
 
 ### DeviceEventType
 * DeviceEventType `string` (values: CONNECTION_STATUS, DEVICE_STATUS)
@@ -1206,21 +2545,40 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### DeviceEventValue
 * DeviceEventValue `string`
 
+### DeviceLocale
+* DeviceLocale `string`
+
 ### DeviceName
 * DeviceName `string`
+
+### DeviceNetworkProfileInfo
+* DeviceNetworkProfileInfo `object`: Detailed information about a device's network profile.
+  * CertificateArn
+  * CertificateExpirationTime
+  * NetworkProfileArn
+
+### DeviceNotRegisteredException
+
+
+### DeviceRoomName
+* DeviceRoomName `string`
 
 ### DeviceSerialNumber
 * DeviceSerialNumber `string`
 
+### DeviceSerialNumberForAVS
+* DeviceSerialNumberForAVS `string`
+
 ### DeviceStatus
-* DeviceStatus `string` (values: READY, PENDING, WAS_OFFLINE, DEREGISTERED)
+* DeviceStatus `string` (values: READY, PENDING, WAS_OFFLINE, DEREGISTERED, FAILED)
 
 ### DeviceStatusDetail
 * DeviceStatusDetail `object`: Details of a device’s status.
-  * Code [DeviceStatusDetailCode](#devicestatusdetailcode)
+  * Code
+  * Feature
 
 ### DeviceStatusDetailCode
-* DeviceStatusDetailCode `string` (values: DEVICE_SOFTWARE_UPDATE_NEEDED, DEVICE_WAS_OFFLINE)
+* DeviceStatusDetailCode `string` (values: DEVICE_SOFTWARE_UPDATE_NEEDED, DEVICE_WAS_OFFLINE, CREDENTIALS_ACCESS_FAILURE, TLS_VERSION_MISMATCH, ASSOCIATION_REJECTION, AUTHENTICATION_FAILURE, DHCP_FAILURE, INTERNET_UNAVAILABLE, DNS_FAILURE, UNKNOWN_FAILURE, CERTIFICATE_ISSUING_LIMIT_EXCEEDED, INVALID_CERTIFICATE_AUTHORITY, NETWORK_PROFILE_NOT_FOUND, INVALID_PASSWORD_STATE, PASSWORD_NOT_FOUND, PASSWORD_MANAGER_ACCESS_DENIED, CERTIFICATE_AUTHORITY_ACCESS_DENIED)
 
 ### DeviceStatusDetails
 * DeviceStatusDetails `array`
@@ -1228,31 +2586,51 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### DeviceStatusInfo
 * DeviceStatusInfo `object`: Detailed information about a device's status.
-  * ConnectionStatus [ConnectionStatus](#connectionstatus)
-  * DeviceStatusDetails [DeviceStatusDetails](#devicestatusdetails)
+  * ConnectionStatus
+  * ConnectionStatusUpdatedTime
+  * DeviceStatusDetails
+    * items [DeviceStatusDetail](#devicestatusdetail)
 
 ### DeviceType
 * DeviceType `string`
 
+### DeviceUsageType
+* DeviceUsageType `string` (values: VOICE)
+
 ### DisassociateContactFromAddressBookRequest
 * DisassociateContactFromAddressBookRequest `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * ContactArn **required** [Arn](#arn)
+  * AddressBookArn **required**
+  * ContactArn **required**
 
 ### DisassociateContactFromAddressBookResponse
 * DisassociateContactFromAddressBookResponse `object`
 
 ### DisassociateDeviceFromRoomRequest
 * DisassociateDeviceFromRoomRequest `object`
-  * DeviceArn [Arn](#arn)
+  * DeviceArn
 
 ### DisassociateDeviceFromRoomResponse
 * DisassociateDeviceFromRoomResponse `object`
 
+### DisassociateSkillFromSkillGroupRequest
+* DisassociateSkillFromSkillGroupRequest `object`
+  * SkillGroupArn
+  * SkillId **required**
+
+### DisassociateSkillFromSkillGroupResponse
+* DisassociateSkillFromSkillGroupResponse `object`
+
+### DisassociateSkillFromUsersRequest
+* DisassociateSkillFromUsersRequest `object`
+  * SkillId **required**
+
+### DisassociateSkillFromUsersResponse
+* DisassociateSkillFromUsersResponse `object`
+
 ### DisassociateSkillGroupFromRoomRequest
 * DisassociateSkillGroupFromRoomRequest `object`
-  * RoomArn [Arn](#arn)
-  * SkillGroupArn [Arn](#arn)
+  * RoomArn
+  * SkillGroupArn
 
 ### DisassociateSkillGroupFromRoomResponse
 * DisassociateSkillGroupFromRoomResponse `object`
@@ -1260,11 +2638,34 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### DistanceUnit
 * DistanceUnit `string` (values: METRIC, IMPERIAL)
 
-### E164PhoneNumber
-* E164PhoneNumber `string`
-
 ### Email
 * Email `string`
+
+### EnablementType
+* EnablementType `string` (values: ENABLED, PENDING)
+
+### EnablementTypeFilter
+* EnablementTypeFilter `string` (values: ENABLED, PENDING)
+
+### EndOfMeetingReminder
+* EndOfMeetingReminder `object`: Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending. 
+  * Enabled
+  * ReminderAtMinutes
+    * items [Minutes](#minutes)
+  * ReminderType
+
+### EndOfMeetingReminderMinutesList
+* EndOfMeetingReminderMinutesList `array`
+  * items [Minutes](#minutes)
+
+### EndOfMeetingReminderType
+* EndOfMeetingReminderType `string` (values: ANNOUNCEMENT_TIME_CHECK, ANNOUNCEMENT_VARIABLE_TIME_LEFT, CHIME, KNOCK)
+
+### EndUserLicenseAgreement
+* EndUserLicenseAgreement `string`
+
+### Endpoint
+* Endpoint `string`
 
 ### EnrollmentId
 * EnrollmentId `string`
@@ -1272,11 +2673,8 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### EnrollmentStatus
 * EnrollmentStatus `string` (values: INITIALIZED, PENDING, REGISTERED, DISASSOCIATING, DEREGISTERING)
 
-### ErrorMessage
-* ErrorMessage `string`
-
 ### Feature
-* Feature `string` (values: BLUETOOTH, VOLUME, NOTIFICATIONS, LISTS, SKILLS, ALL)
+* Feature `string` (values: BLUETOOTH, VOLUME, NOTIFICATIONS, LISTS, SKILLS, NETWORK_PROFILE, SETTINGS, ALL)
 
 ### Features
 * Features `array`
@@ -1284,8 +2682,9 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### Filter
 * Filter `object`: A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria.
-  * Key **required** [FilterKey](#filterkey)
-  * Values **required** [FilterValueList](#filtervaluelist)
+  * Key **required**
+  * Values **required**
+    * items [FilterValue](#filtervalue)
 
 ### FilterKey
 * FilterKey `string`
@@ -1301,105 +2700,431 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * FilterValueList `array`
   * items [FilterValue](#filtervalue)
 
+### ForgetSmartHomeAppliancesRequest
+* ForgetSmartHomeAppliancesRequest `object`
+  * RoomArn **required**
+
+### ForgetSmartHomeAppliancesResponse
+* ForgetSmartHomeAppliancesResponse `object`
+
+### Gateway
+* Gateway `object`: The details of the gateway. 
+  * Arn
+  * Description
+  * GatewayGroupArn
+  * Name
+  * SoftwareVersion
+
+### GatewayDescription
+* GatewayDescription `string`
+
+### GatewayGroup
+* GatewayGroup `object`: The details of the gateway group.
+  * Arn
+  * Description
+  * Name
+
+### GatewayGroupDescription
+* GatewayGroupDescription `string`
+
+### GatewayGroupName
+* GatewayGroupName `string`
+
+### GatewayGroupSummaries
+* GatewayGroupSummaries `array`
+  * items [GatewayGroupSummary](#gatewaygroupsummary)
+
+### GatewayGroupSummary
+* GatewayGroupSummary `object`: The summary of a gateway group.
+  * Arn
+  * Description
+  * Name
+
+### GatewayName
+* GatewayName `string`
+
+### GatewaySummaries
+* GatewaySummaries `array`
+  * items [GatewaySummary](#gatewaysummary)
+
+### GatewaySummary
+* GatewaySummary `object`: The summary of a gateway.
+  * Arn
+  * Description
+  * GatewayGroupArn
+  * Name
+  * SoftwareVersion
+
+### GatewayVersion
+* GatewayVersion `string`
+
+### GenericKeyword
+* GenericKeyword `string`
+
+### GenericKeywords
+* GenericKeywords `array`
+  * items [GenericKeyword](#generickeyword)
+
 ### GetAddressBookRequest
 * GetAddressBookRequest `object`
-  * AddressBookArn **required** [Arn](#arn)
+  * AddressBookArn **required**
 
 ### GetAddressBookResponse
 * GetAddressBookResponse `object`
-  * AddressBook [AddressBook](#addressbook)
+  * AddressBook
+    * AddressBookArn
+    * Description
+    * Name
+
+### GetConferencePreferenceRequest
+* GetConferencePreferenceRequest `object`
+
+### GetConferencePreferenceResponse
+* GetConferencePreferenceResponse `object`
+  * Preference
+    * DefaultConferenceProviderArn
+
+### GetConferenceProviderRequest
+* GetConferenceProviderRequest `object`
+  * ConferenceProviderArn **required**
+
+### GetConferenceProviderResponse
+* GetConferenceProviderResponse `object`
+  * ConferenceProvider
+    * Arn
+    * IPDialIn
+      * CommsProtocol **required**
+      * Endpoint **required**
+    * MeetingSetting
+      * RequirePin **required**
+    * Name
+    * PSTNDialIn
+      * CountryCode **required**
+      * OneClickIdDelay **required**
+      * OneClickPinDelay **required**
+      * PhoneNumber **required**
+    * Type
 
 ### GetContactRequest
 * GetContactRequest `object`
-  * ContactArn **required** [Arn](#arn)
+  * ContactArn **required**
 
 ### GetContactResponse
 * GetContactResponse `object`
-  * Contact [Contact](#contact)
+  * Contact
+    * ContactArn
+    * DisplayName
+    * FirstName
+    * LastName
+    * PhoneNumber
+    * PhoneNumbers
+      * items [PhoneNumber](#phonenumber)
+    * SipAddresses
+      * items [SipAddress](#sipaddress)
 
 ### GetDeviceRequest
 * GetDeviceRequest `object`
-  * DeviceArn [Arn](#arn)
+  * DeviceArn
 
 ### GetDeviceResponse
 * GetDeviceResponse `object`
-  * Device [Device](#device)
+  * Device
+    * DeviceArn
+    * DeviceName
+    * DeviceSerialNumber
+    * DeviceStatus
+    * DeviceStatusInfo
+      * ConnectionStatus
+      * ConnectionStatusUpdatedTime
+      * DeviceStatusDetails
+        * items [DeviceStatusDetail](#devicestatusdetail)
+    * DeviceType
+    * MacAddress
+    * NetworkProfileInfo
+      * CertificateArn
+      * CertificateExpirationTime
+      * NetworkProfileArn
+    * RoomArn
+    * SoftwareVersion
+
+### GetGatewayGroupRequest
+* GetGatewayGroupRequest `object`
+  * GatewayGroupArn **required**
+
+### GetGatewayGroupResponse
+* GetGatewayGroupResponse `object`
+  * GatewayGroup [GatewayGroup](#gatewaygroup)
+
+### GetGatewayRequest
+* GetGatewayRequest `object`
+  * GatewayArn **required**
+
+### GetGatewayResponse
+* GetGatewayResponse `object`
+  * Gateway
+    * Arn
+    * Description
+    * GatewayGroupArn
+    * Name
+    * SoftwareVersion
+
+### GetInvitationConfigurationRequest
+* GetInvitationConfigurationRequest `object`
+
+### GetInvitationConfigurationResponse
+* GetInvitationConfigurationResponse `object`
+  * ContactEmail
+  * OrganizationName
+  * PrivateSkillIds
+    * items [SkillId](#skillid)
+
+### GetNetworkProfileRequest
+* GetNetworkProfileRequest `object`
+  * NetworkProfileArn **required**
+
+### GetNetworkProfileResponse
+* GetNetworkProfileResponse `object`
+  * NetworkProfile
+    * CertificateAuthorityArn
+    * CurrentPassword
+    * Description
+    * EapMethod
+    * NetworkProfileArn
+    * NetworkProfileName
+    * NextPassword
+    * SecurityType
+    * Ssid
+    * TrustAnchors
+      * items [TrustAnchor](#trustanchor)
 
 ### GetProfileRequest
 * GetProfileRequest `object`
-  * ProfileArn [Arn](#arn)
+  * ProfileArn
 
 ### GetProfileResponse
 * GetProfileResponse `object`
-  * Profile [Profile](#profile)
+  * Profile
+    * Address
+    * AddressBookArn
+    * DistanceUnit
+    * IsDefault
+    * Locale
+    * MaxVolumeLimit
+    * MeetingRoomConfiguration
+      * EndOfMeetingReminder
+        * Enabled
+        * ReminderAtMinutes
+          * items [Minutes](#minutes)
+        * ReminderType
+      * InstantBooking
+        * DurationInMinutes
+        * Enabled
+      * RequireCheckIn
+        * Enabled
+        * ReleaseAfterMinutes
+      * RoomUtilizationMetricsEnabled
+    * PSTNEnabled
+    * ProfileArn
+    * ProfileName
+    * SetupModeDisabled
+    * TemperatureUnit
+    * Timezone
+    * WakeWord
 
 ### GetRoomRequest
 * GetRoomRequest `object`
-  * RoomArn [Arn](#arn)
+  * RoomArn
 
 ### GetRoomResponse
 * GetRoomResponse `object`
-  * Room [Room](#room)
+  * Room
+    * Description
+    * ProfileArn
+    * ProviderCalendarId
+    * RoomArn
+    * RoomName
 
 ### GetRoomSkillParameterRequest
 * GetRoomSkillParameterRequest `object`
-  * ParameterKey **required** [RoomSkillParameterKey](#roomskillparameterkey)
-  * RoomArn [Arn](#arn)
-  * SkillId **required** [SkillId](#skillid)
+  * ParameterKey **required**
+  * RoomArn
+  * SkillId **required**
 
 ### GetRoomSkillParameterResponse
 * GetRoomSkillParameterResponse `object`
-  * RoomSkillParameter [RoomSkillParameter](#roomskillparameter)
+  * RoomSkillParameter
+    * ParameterKey **required**
+    * ParameterValue **required**
 
 ### GetSkillGroupRequest
 * GetSkillGroupRequest `object`
-  * SkillGroupArn [Arn](#arn)
+  * SkillGroupArn
 
 ### GetSkillGroupResponse
 * GetSkillGroupResponse `object`
-  * SkillGroup [SkillGroup](#skillgroup)
+  * SkillGroup
+    * Description
+    * SkillGroupArn
+    * SkillGroupName
+
+### IPDialIn
+* IPDialIn `object`: The IP endpoint and protocol for calling.
+  * CommsProtocol **required**
+  * Endpoint **required**
+
+### IconUrl
+* IconUrl `string`
+
+### InstantBooking
+* InstantBooking `object`: Settings for the instant booking feature that are applied to a room profile. When users start their meeting with Alexa, Alexa automatically books the room for the configured duration if the room is available.
+  * DurationInMinutes
+  * Enabled
+
+### InvalidCertificateAuthorityException
+
+
+### InvalidDeviceException
+
+
+### InvalidSecretsManagerResourceException
+
+
+### InvalidServiceLinkedRoleStateException
+
 
 ### InvalidUserStatusException
-* InvalidUserStatusException `object`: The attempt to update a user is invalid due to the user's current status. HTTP Status Code: 400
-  * Message [ErrorMessage](#errormessage)
+
+
+### InvocationPhrase
+* InvocationPhrase `string`
+
+### Key
+* Key `string`
 
 ### LimitExceededException
-* LimitExceededException `object`: You are performing an action that would put you beyond your account's limits. HTTP Status Code: 400
-  * Message [ErrorMessage](#errormessage)
+
+
+### ListBusinessReportSchedulesRequest
+* ListBusinessReportSchedulesRequest `object`
+  * MaxResults
+  * NextToken
+
+### ListBusinessReportSchedulesResponse
+* ListBusinessReportSchedulesResponse `object`
+  * BusinessReportSchedules
+    * items [BusinessReportSchedule](#businessreportschedule)
+  * NextToken
+
+### ListConferenceProvidersRequest
+* ListConferenceProvidersRequest `object`
+  * MaxResults
+  * NextToken
+
+### ListConferenceProvidersResponse
+* ListConferenceProvidersResponse `object`
+  * ConferenceProviders
+    * items [ConferenceProvider](#conferenceprovider)
+  * NextToken
 
 ### ListDeviceEventsRequest
 * ListDeviceEventsRequest `object`
-  * DeviceArn **required** [Arn](#arn)
-  * EventType [DeviceEventType](#deviceeventtype)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * DeviceArn **required**
+  * EventType
+  * MaxResults
+  * NextToken
 
 ### ListDeviceEventsResponse
 * ListDeviceEventsResponse `object`
-  * DeviceEvents [DeviceEventList](#deviceeventlist)
-  * NextToken [NextToken](#nexttoken)
+  * DeviceEvents
+    * items [DeviceEvent](#deviceevent)
+  * NextToken
+
+### ListGatewayGroupsRequest
+* ListGatewayGroupsRequest `object`
+  * MaxResults
+  * NextToken
+
+### ListGatewayGroupsResponse
+* ListGatewayGroupsResponse `object`
+  * GatewayGroups
+    * items [GatewayGroupSummary](#gatewaygroupsummary)
+  * NextToken
+
+### ListGatewaysRequest
+* ListGatewaysRequest `object`
+  * GatewayGroupArn
+  * MaxResults
+  * NextToken
+
+### ListGatewaysResponse
+* ListGatewaysResponse `object`
+  * Gateways
+    * items [GatewaySummary](#gatewaysummary)
+  * NextToken
 
 ### ListSkillsRequest
 * ListSkillsRequest `object`
-  * MaxResults [SkillListMaxResults](#skilllistmaxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SkillGroupArn [Arn](#arn)
+  * EnablementType
+  * MaxResults
+  * NextToken
+  * SkillGroupArn
+  * SkillType
 
 ### ListSkillsResponse
 * ListSkillsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * SkillSummaries [SkillSummaryList](#skillsummarylist)
+  * NextToken
+  * SkillSummaries
+    * items [SkillSummary](#skillsummary)
+
+### ListSkillsStoreCategoriesRequest
+* ListSkillsStoreCategoriesRequest `object`
+  * MaxResults
+  * NextToken
+
+### ListSkillsStoreCategoriesResponse
+* ListSkillsStoreCategoriesResponse `object`
+  * CategoryList
+    * items [Category](#category)
+  * NextToken
+
+### ListSkillsStoreSkillsByCategoryRequest
+* ListSkillsStoreSkillsByCategoryRequest `object`
+  * CategoryId **required**
+  * MaxResults
+  * NextToken
+
+### ListSkillsStoreSkillsByCategoryResponse
+* ListSkillsStoreSkillsByCategoryResponse `object`
+  * NextToken
+  * SkillsStoreSkills
+    * items [SkillsStoreSkill](#skillsstoreskill)
+
+### ListSmartHomeAppliancesRequest
+* ListSmartHomeAppliancesRequest `object`
+  * MaxResults
+  * NextToken
+  * RoomArn **required**
+
+### ListSmartHomeAppliancesResponse
+* ListSmartHomeAppliancesResponse `object`
+  * NextToken
+  * SmartHomeAppliances
+    * items [SmartHomeAppliance](#smarthomeappliance)
 
 ### ListTagsRequest
 * ListTagsRequest `object`
-  * Arn **required** [Arn](#arn)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
+  * Arn **required**
+  * MaxResults
+  * NextToken
 
 ### ListTagsResponse
 * ListTagsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Tags [TagList](#taglist)
+  * NextToken
+  * Tags
+    * items [Tag](#tag)
+
+### Locale
+* Locale `string` (values: en-US)
 
 ### MacAddress
 * MacAddress `string`
@@ -1410,39 +3135,167 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### MaxVolumeLimit
 * MaxVolumeLimit `integer`
 
+### MeetingRoomConfiguration
+* MeetingRoomConfiguration `object`: Meeting room settings of a room profile.
+  * EndOfMeetingReminder
+    * Enabled
+    * ReminderAtMinutes
+      * items [Minutes](#minutes)
+    * ReminderType
+  * InstantBooking
+    * DurationInMinutes
+    * Enabled
+  * RequireCheckIn
+    * Enabled
+    * ReleaseAfterMinutes
+  * RoomUtilizationMetricsEnabled
+
+### MeetingSetting
+* MeetingSetting `object`: <p>The values that indicate whether a pin is always required (YES), never required (NO), or OPTIONAL.</p> <ul> <li> <p>If YES, Alexa will always ask for a meeting pin.</p> </li> <li> <p>If NO, Alexa will never ask for a meeting pin.</p> </li> <li> <p>If OPTIONAL, Alexa will ask if you have a meeting pin and if the customer responds with yes, it will ask for the meeting pin.</p> </li> </ul>
+  * RequirePin **required**
+
+### Minutes
+* Minutes `integer`
+
 ### NameInUseException
-* NameInUseException `object`: The name sent in the request is already in use. HTTP Status Code: 400
-  * Message [ErrorMessage](#errormessage)
+
+
+### NetworkEapMethod
+* NetworkEapMethod `string` (values: EAP_TLS)
+
+### NetworkProfile
+* NetworkProfile `object`: The network profile associated with a device.
+  * CertificateAuthorityArn
+  * CurrentPassword
+  * Description
+  * EapMethod
+  * NetworkProfileArn
+  * NetworkProfileName
+  * NextPassword
+  * SecurityType
+  * Ssid
+  * TrustAnchors
+    * items [TrustAnchor](#trustanchor)
+
+### NetworkProfileData
+* NetworkProfileData `object`: The data associated with a network profile.
+  * CertificateAuthorityArn
+  * Description
+  * EapMethod
+  * NetworkProfileArn
+  * NetworkProfileName
+  * SecurityType
+  * Ssid
+
+### NetworkProfileDataList
+* NetworkProfileDataList `array`
+  * items [NetworkProfileData](#networkprofiledata)
+
+### NetworkProfileDescription
+* NetworkProfileDescription `string`
+
+### NetworkProfileName
+* NetworkProfileName `string`
+
+### NetworkSecurityType
+* NetworkSecurityType `string` (values: OPEN, WEP, WPA_PSK, WPA2_PSK, WPA2_ENTERPRISE)
+
+### NetworkSsid
+* NetworkSsid `string`
+
+### NewInThisVersionBulletPoints
+* NewInThisVersionBulletPoints `array`
+  * items [BulletPoint](#bulletpoint)
 
 ### NextToken
 * NextToken `string`
 
+### NextWiFiPassword
+* NextWiFiPassword `string`
+
 ### NotFoundException
-* NotFoundException `object`: The resource is not found. HTTP Status Code: 400
-  * Message [ErrorMessage](#errormessage)
+
+
+### OneClickIdDelay
+* OneClickIdDelay `string`
+
+### OneClickPinDelay
+* OneClickPinDelay `string`
+
+### OrganizationName
+* OrganizationName `string`
+
+### OutboundPhoneNumber
+* OutboundPhoneNumber `string`
+
+### PSTNDialIn
+* PSTNDialIn `object`: The information for public switched telephone network (PSTN) conferencing.
+  * CountryCode **required**
+  * OneClickIdDelay **required**
+  * OneClickPinDelay **required**
+  * PhoneNumber **required**
+
+### PhoneNumber
+* PhoneNumber `object`: The phone number for the contact containing the raw number and phone number type.
+  * Number **required**
+  * Type **required**
+
+### PhoneNumberList
+* PhoneNumberList `array`
+  * items [PhoneNumber](#phonenumber)
+
+### PhoneNumberType
+* PhoneNumberType `string` (values: MOBILE, WORK, HOME)
+
+### PrivacyPolicy
+* PrivacyPolicy `string`
+
+### ProductDescription
+* ProductDescription `string`
+
+### ProductId
+* ProductId `string`
 
 ### Profile
 * Profile `object`: A room profile with attributes.
-  * Address [Address](#address)
-  * DistanceUnit [DistanceUnit](#distanceunit)
-  * MaxVolumeLimit [MaxVolumeLimit](#maxvolumelimit)
-  * PSTNEnabled [Boolean](#boolean)
-  * ProfileArn [Arn](#arn)
-  * ProfileName [ProfileName](#profilename)
-  * SetupModeDisabled [Boolean](#boolean)
-  * TemperatureUnit [TemperatureUnit](#temperatureunit)
-  * Timezone [Timezone](#timezone)
-  * WakeWord [WakeWord](#wakeword)
+  * Address
+  * AddressBookArn
+  * DistanceUnit
+  * IsDefault
+  * Locale
+  * MaxVolumeLimit
+  * MeetingRoomConfiguration
+    * EndOfMeetingReminder
+      * Enabled
+      * ReminderAtMinutes
+        * items [Minutes](#minutes)
+      * ReminderType
+    * InstantBooking
+      * DurationInMinutes
+      * Enabled
+    * RequireCheckIn
+      * Enabled
+      * ReleaseAfterMinutes
+    * RoomUtilizationMetricsEnabled
+  * PSTNEnabled
+  * ProfileArn
+  * ProfileName
+  * SetupModeDisabled
+  * TemperatureUnit
+  * Timezone
+  * WakeWord
 
 ### ProfileData
 * ProfileData `object`: The data of a room profile.
-  * Address [Address](#address)
-  * DistanceUnit [DistanceUnit](#distanceunit)
-  * ProfileArn [Arn](#arn)
-  * ProfileName [ProfileName](#profilename)
-  * TemperatureUnit [TemperatureUnit](#temperatureunit)
-  * Timezone [Timezone](#timezone)
-  * WakeWord [WakeWord](#wakeword)
+  * Address
+  * DistanceUnit
+  * IsDefault
+  * Locale
+  * ProfileArn
+  * ProfileName
+  * TemperatureUnit
+  * Timezone
+  * WakeWord
 
 ### ProfileDataList
 * ProfileDataList `array`
@@ -1454,55 +3307,129 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### ProviderCalendarId
 * ProviderCalendarId `string`
 
+### PutConferencePreferenceRequest
+* PutConferencePreferenceRequest `object`
+  * ConferencePreference **required**
+    * DefaultConferenceProviderArn
+
+### PutConferencePreferenceResponse
+* PutConferencePreferenceResponse `object`
+
+### PutInvitationConfigurationRequest
+* PutInvitationConfigurationRequest `object`
+  * ContactEmail
+  * OrganizationName **required**
+  * PrivateSkillIds
+    * items [SkillId](#skillid)
+
+### PutInvitationConfigurationResponse
+* PutInvitationConfigurationResponse `object`
+
 ### PutRoomSkillParameterRequest
 * PutRoomSkillParameterRequest `object`
-  * RoomArn [Arn](#arn)
-  * RoomSkillParameter **required** [RoomSkillParameter](#roomskillparameter)
-  * SkillId **required** [SkillId](#skillid)
+  * RoomArn
+  * RoomSkillParameter **required**
+    * ParameterKey **required**
+    * ParameterValue **required**
+  * SkillId **required**
 
 ### PutRoomSkillParameterResponse
 * PutRoomSkillParameterResponse `object`
 
+### PutSkillAuthorizationRequest
+* PutSkillAuthorizationRequest `object`
+  * AuthorizationResult **required**
+  * RoomArn
+  * SkillId **required**
+
+### PutSkillAuthorizationResponse
+* PutSkillAuthorizationResponse `object`
+
+### RawPhoneNumber
+* RawPhoneNumber `string`
+
+### RegisterAVSDeviceRequest
+* RegisterAVSDeviceRequest `object`
+  * AmazonId **required**
+  * ClientId **required**
+  * DeviceSerialNumber
+  * ProductId **required**
+  * RoomArn
+  * UserCode **required**
+
+### RegisterAVSDeviceResponse
+* RegisterAVSDeviceResponse `object`
+  * DeviceArn
+
+### RejectSkillRequest
+* RejectSkillRequest `object`
+  * SkillId **required**
+
+### RejectSkillResponse
+* RejectSkillResponse `object`
+
+### ReleaseDate
+* ReleaseDate `string`
+
+### RequireCheckIn
+* RequireCheckIn `object`: Settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. 
+  * Enabled
+  * ReleaseAfterMinutes
+
+### RequirePin
+* RequirePin `string` (values: YES, NO, OPTIONAL)
+
 ### ResolveRoomRequest
 * ResolveRoomRequest `object`
-  * SkillId **required** [SkillId](#skillid)
-  * UserId **required** [UserId](#userid)
+  * SkillId **required**
+  * UserId **required**
 
 ### ResolveRoomResponse
 * ResolveRoomResponse `object`
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
-  * RoomSkillParameters [RoomSkillParameters](#roomskillparameters)
+  * RoomArn
+  * RoomName
+  * RoomSkillParameters
+    * items [RoomSkillParameter](#roomskillparameter)
+
+### ResourceAssociatedException
+
 
 ### ResourceInUseException
-* ResourceInUseException `object`: The resource in the request is already in use. HTTP Status Code: 400
-  * ClientRequestToken [ClientRequestToken](#clientrequesttoken)
-  * Message [ErrorMessage](#errormessage)
+
+
+### ReviewKey
+* ReviewKey `string`
+
+### ReviewValue
+* ReviewValue `string`
+
+### Reviews
+* Reviews `object`
 
 ### RevokeInvitationRequest
 * RevokeInvitationRequest `object`
-  * EnrollmentId [EnrollmentId](#enrollmentid)
-  * UserArn [Arn](#arn)
+  * EnrollmentId
+  * UserArn
 
 ### RevokeInvitationResponse
 * RevokeInvitationResponse `object`
 
 ### Room
 * Room `object`: A room with attributes.
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
+  * Description
+  * ProfileArn
+  * ProviderCalendarId
+  * RoomArn
+  * RoomName
 
 ### RoomData
 * RoomData `object`: The data of a room.
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProfileName [ProfileName](#profilename)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
+  * Description
+  * ProfileArn
+  * ProfileName
+  * ProviderCalendarId
+  * RoomArn
+  * RoomName
 
 ### RoomDataList
 * RoomDataList `array`
@@ -1516,8 +3443,8 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### RoomSkillParameter
 * RoomSkillParameter `object`: A skill parameter associated with a room.
-  * ParameterKey **required** [RoomSkillParameterKey](#roomskillparameterkey)
-  * ParameterValue **required** [RoomSkillParameterValue](#roomskillparametervalue)
+  * ParameterKey **required**
+  * ParameterValue **required**
 
 ### RoomSkillParameterKey
 * RoomSkillParameterKey `string`
@@ -1529,115 +3456,220 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 * RoomSkillParameters `array`
   * items [RoomSkillParameter](#roomskillparameter)
 
+### S3KeyPrefix
+* S3KeyPrefix `string`
+
+### SampleUtterances
+* SampleUtterances `array`
+  * items [Utterance](#utterance)
+
 ### SearchAddressBooksRequest
 * SearchAddressBooksRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchAddressBooksResponse
 * SearchAddressBooksResponse `object`
-  * AddressBooks [AddressBookDataList](#addressbookdatalist)
-  * NextToken [NextToken](#nexttoken)
-  * TotalCount [TotalCount](#totalcount)
+  * AddressBooks
+    * items [AddressBookData](#addressbookdata)
+  * NextToken
+  * TotalCount
 
 ### SearchContactsRequest
 * SearchContactsRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchContactsResponse
 * SearchContactsResponse `object`
-  * Contacts [ContactDataList](#contactdatalist)
-  * NextToken [NextToken](#nexttoken)
-  * TotalCount [TotalCount](#totalcount)
+  * Contacts
+    * items [ContactData](#contactdata)
+  * NextToken
+  * TotalCount
 
 ### SearchDevicesRequest
 * SearchDevicesRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchDevicesResponse
 * SearchDevicesResponse `object`
-  * Devices [DeviceDataList](#devicedatalist)
-  * NextToken [NextToken](#nexttoken)
-  * TotalCount [TotalCount](#totalcount)
+  * Devices
+    * items [DeviceData](#devicedata)
+  * NextToken
+  * TotalCount
+
+### SearchNetworkProfilesRequest
+* SearchNetworkProfilesRequest `object`
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
+
+### SearchNetworkProfilesResponse
+* SearchNetworkProfilesResponse `object`
+  * NetworkProfiles
+    * items [NetworkProfileData](#networkprofiledata)
+  * NextToken
+  * TotalCount
 
 ### SearchProfilesRequest
 * SearchProfilesRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchProfilesResponse
 * SearchProfilesResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Profiles [ProfileDataList](#profiledatalist)
-  * TotalCount [TotalCount](#totalcount)
+  * NextToken
+  * Profiles
+    * items [ProfileData](#profiledata)
+  * TotalCount
 
 ### SearchRoomsRequest
 * SearchRoomsRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchRoomsResponse
 * SearchRoomsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * Rooms [RoomDataList](#roomdatalist)
-  * TotalCount [TotalCount](#totalcount)
+  * NextToken
+  * Rooms
+    * items [RoomData](#roomdata)
+  * TotalCount
 
 ### SearchSkillGroupsRequest
 * SearchSkillGroupsRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchSkillGroupsResponse
 * SearchSkillGroupsResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * SkillGroups [SkillGroupDataList](#skillgroupdatalist)
-  * TotalCount [TotalCount](#totalcount)
+  * NextToken
+  * SkillGroups
+    * items [SkillGroupData](#skillgroupdata)
+  * TotalCount
 
 ### SearchUsersRequest
 * SearchUsersRequest `object`
-  * Filters [FilterList](#filterlist)
-  * MaxResults [MaxResults](#maxresults)
-  * NextToken [NextToken](#nexttoken)
-  * SortCriteria [SortList](#sortlist)
+  * Filters
+    * items [Filter](#filter)
+  * MaxResults
+  * NextToken
+  * SortCriteria
+    * items [Sort](#sort)
 
 ### SearchUsersResponse
 * SearchUsersResponse `object`
-  * NextToken [NextToken](#nexttoken)
-  * TotalCount [TotalCount](#totalcount)
-  * Users [UserDataList](#userdatalist)
+  * NextToken
+  * TotalCount
+  * Users
+    * items [UserData](#userdata)
+
+### SendAnnouncementRequest
+* SendAnnouncementRequest `object`
+  * ClientRequestToken **required**
+  * Content **required**
+    * AudioList
+      * items [Audio](#audio)
+    * SsmlList
+      * items [Ssml](#ssml)
+    * TextList
+      * items [Text](#text)
+  * RoomFilters **required**
+    * items [Filter](#filter)
+  * TimeToLiveInSeconds
+
+### SendAnnouncementResponse
+* SendAnnouncementResponse `object`
+  * AnnouncementArn
 
 ### SendInvitationRequest
 * SendInvitationRequest `object`
-  * UserArn [Arn](#arn)
+  * UserArn
 
 ### SendInvitationResponse
 * SendInvitationResponse `object`
 
+### ShortDescription
+* ShortDescription `string`
+
+### ShortSkillIdList
+* ShortSkillIdList `array`
+  * items [SkillId](#skillid)
+
+### SipAddress
+* SipAddress `object`: The SIP address for the contact containing the URI and SIP address type.
+  * Type **required**
+  * Uri **required**
+
+### SipAddressList
+* SipAddressList `array`
+  * items [SipAddress](#sipaddress)
+
+### SipType
+* SipType `string` (values: WORK)
+
+### SipUri
+* SipUri `string`
+
+### SkillDetails
+* SkillDetails `object`: Granular information about the skill.
+  * BulletPoints
+    * items [BulletPoint](#bulletpoint)
+  * DeveloperInfo
+    * DeveloperName
+    * Email
+    * PrivacyPolicy
+    * Url
+  * EndUserLicenseAgreement
+  * GenericKeywords
+    * items [GenericKeyword](#generickeyword)
+  * InvocationPhrase
+  * NewInThisVersionBulletPoints
+    * items [BulletPoint](#bulletpoint)
+  * ProductDescription
+  * ReleaseDate
+  * Reviews
+  * SkillTypes
+    * items [SkillStoreType](#skillstoretype)
+
 ### SkillGroup
 * SkillGroup `object`: A skill group with attributes.
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupArn [Arn](#arn)
-  * SkillGroupName [SkillGroupName](#skillgroupname)
+  * Description
+  * SkillGroupArn
+  * SkillGroupName
 
 ### SkillGroupData
 * SkillGroupData `object`: The attributes of a skill group.
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupArn [Arn](#arn)
-  * SkillGroupName [SkillGroupName](#skillgroupname)
+  * Description
+  * SkillGroupArn
+  * SkillGroupName
 
 ### SkillGroupDataList
 * SkillGroupDataList `array`
@@ -1658,23 +3690,84 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### SkillName
 * SkillName `string`
 
+### SkillNotLinkedException
+
+
+### SkillStoreType
+* SkillStoreType `string`
+
 ### SkillSummary
 * SkillSummary `object`: The summary of skills.
-  * SkillId [SkillId](#skillid)
-  * SkillName [SkillName](#skillname)
-  * SupportsLinking [boolean](#boolean)
+  * EnablementType
+  * SkillId
+  * SkillName
+  * SkillType
+  * SupportsLinking
 
 ### SkillSummaryList
 * SkillSummaryList `array`
   * items [SkillSummary](#skillsummary)
+
+### SkillType
+* SkillType `string` (values: PUBLIC, PRIVATE)
+
+### SkillTypeFilter
+* SkillTypeFilter `string` (values: PUBLIC, PRIVATE, ALL)
+
+### SkillTypes
+* SkillTypes `array`
+  * items [SkillStoreType](#skillstoretype)
+
+### SkillsStoreSkill
+* SkillsStoreSkill `object`: The detailed information about an Alexa skill.
+  * IconUrl
+  * SampleUtterances
+    * items [Utterance](#utterance)
+  * ShortDescription
+  * SkillDetails
+    * BulletPoints
+      * items [BulletPoint](#bulletpoint)
+    * DeveloperInfo
+      * DeveloperName
+      * Email
+      * PrivacyPolicy
+      * Url
+    * EndUserLicenseAgreement
+    * GenericKeywords
+      * items [GenericKeyword](#generickeyword)
+    * InvocationPhrase
+    * NewInThisVersionBulletPoints
+      * items [BulletPoint](#bulletpoint)
+    * ProductDescription
+    * ReleaseDate
+    * Reviews
+    * SkillTypes
+      * items [SkillStoreType](#skillstoretype)
+  * SkillId
+  * SkillName
+  * SupportsLinking
+
+### SkillsStoreSkillList
+* SkillsStoreSkillList `array`
+  * items [SkillsStoreSkill](#skillsstoreskill)
+
+### SmartHomeAppliance
+* SmartHomeAppliance `object`: A smart home appliance that can connect to a central system. Any domestic device can be a smart appliance. 
+  * Description
+  * FriendlyName
+  * ManufacturerName
+
+### SmartHomeApplianceList
+* SmartHomeApplianceList `array`
+  * items [SmartHomeAppliance](#smarthomeappliance)
 
 ### SoftwareVersion
 * SoftwareVersion `string`
 
 ### Sort
 * Sort `object`: An object representing a sort criteria. 
-  * Key **required** [SortKey](#sortkey)
-  * Value **required** [SortValue](#sortvalue)
+  * Key **required**
+  * Value **required**
 
 ### SortKey
 * SortKey `string`
@@ -1686,19 +3779,39 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### SortValue
 * SortValue `string` (values: ASC, DESC)
 
+### Ssml
+* Ssml `object`: The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.
+  * Locale **required**
+  * Value **required**
+
+### SsmlList
+* SsmlList `array`
+  * items [Ssml](#ssml)
+
+### SsmlValue
+* SsmlValue `string`
+
 ### StartDeviceSyncRequest
 * StartDeviceSyncRequest `object`
-  * DeviceArn [Arn](#arn)
-  * Features **required** [Features](#features)
-  * RoomArn [Arn](#arn)
+  * DeviceArn
+  * Features **required**
+    * items [Feature](#feature)
+  * RoomArn
 
 ### StartDeviceSyncResponse
 * StartDeviceSyncResponse `object`
 
+### StartSmartHomeApplianceDiscoveryRequest
+* StartSmartHomeApplianceDiscoveryRequest `object`
+  * RoomArn **required**
+
+### StartSmartHomeApplianceDiscoveryResponse
+* StartSmartHomeApplianceDiscoveryResponse `object`
+
 ### Tag
 * Tag `object`: A key-value pair that can be associated with a resource. 
-  * Key [TagKey](#tagkey)
-  * Value [TagValue](#tagvalue)
+  * Key **required**
+  * Value **required**
 
 ### TagKey
 * TagKey `string`
@@ -1713,8 +3826,9 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### TagResourceRequest
 * TagResourceRequest `object`
-  * Arn **required** [Arn](#arn)
-  * Tags **required** [TagList](#taglist)
+  * Arn **required**
+  * Tags **required**
+    * items [Tag](#tag)
 
 ### TagResourceResponse
 * TagResourceResponse `object`
@@ -1725,8 +3839,20 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### TemperatureUnit
 * TemperatureUnit `string` (values: FAHRENHEIT, CELSIUS)
 
-### Timestamp
-* Timestamp `string`
+### Text
+* Text `object`: The text message.
+  * Locale **required**
+  * Value **required**
+
+### TextList
+* TextList `array`
+  * items [Text](#text)
+
+### TextValue
+* TextValue `string`
+
+### TimeToLiveInSeconds
+* TimeToLiveInSeconds `integer`
 
 ### Timezone
 * Timezone `string`
@@ -1734,86 +3860,218 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 ### TotalCount
 * TotalCount `integer`
 
+### TrustAnchor
+* TrustAnchor `string`
+
+### TrustAnchorList
+* TrustAnchorList `array`
+  * items [TrustAnchor](#trustanchor)
+
+### UnauthorizedException
+
+
 ### UntagResourceRequest
 * UntagResourceRequest `object`
-  * Arn **required** [Arn](#arn)
-  * TagKeys **required** [TagKeyList](#tagkeylist)
+  * Arn **required**
+  * TagKeys **required**
+    * items [TagKey](#tagkey)
 
 ### UntagResourceResponse
 * UntagResourceResponse `object`
 
 ### UpdateAddressBookRequest
 * UpdateAddressBookRequest `object`
-  * AddressBookArn **required** [Arn](#arn)
-  * Description [AddressBookDescription](#addressbookdescription)
-  * Name [AddressBookName](#addressbookname)
+  * AddressBookArn **required**
+  * Description
+  * Name
 
 ### UpdateAddressBookResponse
 * UpdateAddressBookResponse `object`
 
+### UpdateBusinessReportScheduleRequest
+* UpdateBusinessReportScheduleRequest `object`
+  * Format
+  * Recurrence
+    * StartDate
+  * S3BucketName
+  * S3KeyPrefix
+  * ScheduleArn **required**
+  * ScheduleName
+
+### UpdateBusinessReportScheduleResponse
+* UpdateBusinessReportScheduleResponse `object`
+
+### UpdateConferenceProviderRequest
+* UpdateConferenceProviderRequest `object`
+  * ConferenceProviderArn **required**
+  * ConferenceProviderType **required**
+  * IPDialIn
+    * CommsProtocol **required**
+    * Endpoint **required**
+  * MeetingSetting **required**
+    * RequirePin **required**
+  * PSTNDialIn
+    * CountryCode **required**
+    * OneClickIdDelay **required**
+    * OneClickPinDelay **required**
+    * PhoneNumber **required**
+
+### UpdateConferenceProviderResponse
+* UpdateConferenceProviderResponse `object`
+
 ### UpdateContactRequest
 * UpdateContactRequest `object`
-  * ContactArn **required** [Arn](#arn)
-  * DisplayName [ContactName](#contactname)
-  * FirstName [ContactName](#contactname)
-  * LastName [ContactName](#contactname)
-  * PhoneNumber [E164PhoneNumber](#e164phonenumber)
+  * ContactArn **required**
+  * DisplayName
+  * FirstName
+  * LastName
+  * PhoneNumber
+  * PhoneNumbers
+    * items [PhoneNumber](#phonenumber)
+  * SipAddresses
+    * items [SipAddress](#sipaddress)
 
 ### UpdateContactResponse
 * UpdateContactResponse `object`
 
 ### UpdateDeviceRequest
 * UpdateDeviceRequest `object`
-  * DeviceArn [Arn](#arn)
-  * DeviceName [DeviceName](#devicename)
+  * DeviceArn
+  * DeviceName
 
 ### UpdateDeviceResponse
 * UpdateDeviceResponse `object`
 
+### UpdateEndOfMeetingReminder
+* UpdateEndOfMeetingReminder `object`: Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending. 
+  * Enabled
+  * ReminderAtMinutes
+    * items [Minutes](#minutes)
+  * ReminderType
+
+### UpdateGatewayGroupRequest
+* UpdateGatewayGroupRequest `object`
+  * Description
+  * GatewayGroupArn **required**
+  * Name
+
+### UpdateGatewayGroupResponse
+* UpdateGatewayGroupResponse `object`
+
+### UpdateGatewayRequest
+* UpdateGatewayRequest `object`
+  * Description
+  * GatewayArn **required**
+  * Name
+  * SoftwareVersion
+
+### UpdateGatewayResponse
+* UpdateGatewayResponse `object`
+
+### UpdateInstantBooking
+* UpdateInstantBooking `object`: Updates settings for the instant booking feature that are applied to a room profile. If instant booking is enabled, Alexa automatically reserves a room if it is free when a user joins a meeting with Alexa.
+  * DurationInMinutes
+  * Enabled
+
+### UpdateMeetingRoomConfiguration
+* UpdateMeetingRoomConfiguration `object`: Updates meeting room settings of a room profile.
+  * EndOfMeetingReminder
+    * Enabled
+    * ReminderAtMinutes
+      * items [Minutes](#minutes)
+    * ReminderType
+  * InstantBooking
+    * DurationInMinutes
+    * Enabled
+  * RequireCheckIn
+    * Enabled
+    * ReleaseAfterMinutes
+  * RoomUtilizationMetricsEnabled
+
+### UpdateNetworkProfileRequest
+* UpdateNetworkProfileRequest `object`
+  * CertificateAuthorityArn
+  * CurrentPassword
+  * Description
+  * NetworkProfileArn **required**
+  * NetworkProfileName
+  * NextPassword
+  * TrustAnchors
+    * items [TrustAnchor](#trustanchor)
+
+### UpdateNetworkProfileResponse
+* UpdateNetworkProfileResponse `object`
+
 ### UpdateProfileRequest
 * UpdateProfileRequest `object`
-  * Address [Address](#address)
-  * DistanceUnit [DistanceUnit](#distanceunit)
-  * MaxVolumeLimit [MaxVolumeLimit](#maxvolumelimit)
-  * PSTNEnabled [Boolean](#boolean)
-  * ProfileArn [Arn](#arn)
-  * ProfileName [ProfileName](#profilename)
-  * SetupModeDisabled [Boolean](#boolean)
-  * TemperatureUnit [TemperatureUnit](#temperatureunit)
-  * Timezone [Timezone](#timezone)
-  * WakeWord [WakeWord](#wakeword)
+  * Address
+  * DistanceUnit
+  * IsDefault
+  * Locale
+  * MaxVolumeLimit
+  * MeetingRoomConfiguration
+    * EndOfMeetingReminder
+      * Enabled
+      * ReminderAtMinutes
+        * items [Minutes](#minutes)
+      * ReminderType
+    * InstantBooking
+      * DurationInMinutes
+      * Enabled
+    * RequireCheckIn
+      * Enabled
+      * ReleaseAfterMinutes
+    * RoomUtilizationMetricsEnabled
+  * PSTNEnabled
+  * ProfileArn
+  * ProfileName
+  * SetupModeDisabled
+  * TemperatureUnit
+  * Timezone
+  * WakeWord
 
 ### UpdateProfileResponse
 * UpdateProfileResponse `object`
 
+### UpdateRequireCheckIn
+* UpdateRequireCheckIn `object`: Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. 
+  * Enabled
+  * ReleaseAfterMinutes
+
 ### UpdateRoomRequest
 * UpdateRoomRequest `object`
-  * Description [RoomDescription](#roomdescription)
-  * ProfileArn [Arn](#arn)
-  * ProviderCalendarId [ProviderCalendarId](#providercalendarid)
-  * RoomArn [Arn](#arn)
-  * RoomName [RoomName](#roomname)
+  * Description
+  * ProfileArn
+  * ProviderCalendarId
+  * RoomArn
+  * RoomName
 
 ### UpdateRoomResponse
 * UpdateRoomResponse `object`
 
 ### UpdateSkillGroupRequest
 * UpdateSkillGroupRequest `object`
-  * Description [SkillGroupDescription](#skillgroupdescription)
-  * SkillGroupArn [Arn](#arn)
-  * SkillGroupName [SkillGroupName](#skillgroupname)
+  * Description
+  * SkillGroupArn
+  * SkillGroupName
 
 ### UpdateSkillGroupResponse
 * UpdateSkillGroupResponse `object`
 
+### Url
+* Url `string`
+
+### UserCode
+* UserCode `string`
+
 ### UserData
 * UserData `object`: Information related to a user.
-  * Email [Email](#email)
-  * EnrollmentId [EnrollmentId](#enrollmentid)
-  * EnrollmentStatus [EnrollmentStatus](#enrollmentstatus)
-  * FirstName [user_FirstName](#user_firstname)
-  * LastName [user_LastName](#user_lastname)
-  * UserArn [Arn](#arn)
+  * Email
+  * EnrollmentId
+  * EnrollmentStatus
+  * FirstName
+  * LastName
+  * UserArn
 
 ### UserDataList
 * UserDataList `array`
@@ -1821,6 +4079,12 @@ amazonaws_a4b.UpdateSkillGroup({}, context)
 
 ### UserId
 * UserId `string`
+
+### Utterance
+* Utterance `string`
+
+### Value
+* Value `string`
 
 ### WakeWord
 * WakeWord `string` (values: ALEXA, AMAZON, ECHO, COMPUTER)

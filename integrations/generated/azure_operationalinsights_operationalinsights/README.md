@@ -15,9 +15,7 @@ let azure_operationalinsights_operationalinsights = require('@datafire/azure_ope
   redirect_uri: ""
 });
 
-azure_operationalinsights_operationalinsights.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -636,7 +634,7 @@ azure_operationalinsights_operationalinsights.Workspaces_ListUsages({
 
 ### Sku
 * Sku `object`: The SKU (tier) of a workspace.
-  * name **required** `string` (values: Free, Standard, Premium, Unlimited, PerNode, PerGB2018, Standalone): The name of the SKU.
+  * name **required** `string` (values: Free, Standard, Premium, PerNode, PerGB2018, Standalone): The name of the SKU.
 
 ### UsageMetric
 * UsageMetric `object`: A metric describing the usage of a resource.
@@ -658,7 +656,7 @@ azure_operationalinsights_operationalinsights.Workspaces_ListUsages({
   * type `string`: Resource type
 
 ### WorkspaceListManagementGroupsResult
-* WorkspaceListManagementGroupsResult `object`: The list workspace managmement groups operation response.
+* WorkspaceListManagementGroupsResult `object`: The list workspace management groups operation response.
   * value `array`: Gets or sets a list of management groups attached to the workspace.
     * items [ManagementGroup](#managementgroup)
 
@@ -674,11 +672,11 @@ azure_operationalinsights_operationalinsights.Workspaces_ListUsages({
 
 ### WorkspaceProperties
 * WorkspaceProperties `object`: Workspace properties.
-  * customerId `string`: The ID associated with the workspace.  Setting this value at creation time allows the workspace being created to be linked to an existing workspace.
-  * portalUrl `string`: The URL of the Operational Insights portal for this workspace.  This value is set on the service side and read-only on the client side.
+  * customerId `string`: This is a read-only property. Represents the ID associated with the workspace.
+  * portalUrl `string`: This is a legacy property and is not used anymore. Kept here for backward compatibility.
   * provisioningState `string` (values: Creating, Succeeded, Failed, Canceled, Deleting, ProvisioningAccount): The provisioning state of the workspace.
   * retentionInDays `integer`: The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. 
   * sku [Sku](#sku)
-  * source `string`: The source of the workspace.  Source defines where the workspace was created. 'Azure' implies it was created in Azure.  'External' implies it was created via the Operational Insights Portal. This value is set on the service side and read-only on the client side.
+  * source `string`: This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
 
 

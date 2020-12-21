@@ -15,9 +15,7 @@ let azure_provisioningservices_iotdps = require('@datafire/azure_provisioningser
   redirect_uri: ""
 });
 
-azure_provisioningservices_iotdps.Operations_List({
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

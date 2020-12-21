@@ -1,6 +1,6 @@
 # @datafire/greenpeace
 
-Client library for Greenwire Public
+Client library for Greenwire Public API
 
 ## Installation and Usage
 ```bash
@@ -9,9 +9,7 @@ npm install --save @datafire/greenpeace
 ```js
 let greenpeace = require('@datafire/greenpeace').create();
 
-greenpeace.events.get({
-  "domain": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

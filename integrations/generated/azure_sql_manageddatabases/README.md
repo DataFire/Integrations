@@ -15,15 +15,7 @@ let azure_sql_manageddatabases = require('@datafire/azure_sql_manageddatabases')
   redirect_uri: ""
 });
 
-azure_sql_manageddatabases.ManagedDatabases_CompleteRestore({
-  "locationName": "",
-  "operationId": "",
-  "parameters": {
-    "lastBackupName": ""
-  },
-  "subscriptionId": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -33,33 +25,6 @@ azure_sql_manageddatabases.ManagedDatabases_CompleteRestore({
 The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.
 
 ## Actions
-
-### ManagedDatabases_CompleteRestore
-Completes the restore operation on a managed database.
-
-
-```js
-azure_sql_manageddatabases.ManagedDatabases_CompleteRestore({
-  "locationName": "",
-  "operationId": "",
-  "parameters": {
-    "lastBackupName": ""
-  },
-  "subscriptionId": "",
-  "api-version": ""
-}, context)
-```
-
-#### Input
-* input `object`
-  * locationName **required** `string`: The name of the region where the resource is located.
-  * operationId **required** `string`: Management operation id that this request tries to complete.
-  * parameters **required** [CompleteManagedDatabaseRestoreDefinition](#completemanageddatabaserestoredefinition)
-  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
-  * api-version **required** `string`: The API version to use for the request.
-
-#### Output
-*Output schema unknown*
 
 ### ManagedDatabases_ListByInstance
 Gets a list of managed databases.
@@ -85,7 +50,7 @@ azure_sql_manageddatabases.ManagedDatabases_ListByInstance({
 * output [ManagedDatabaseListResult](#manageddatabaselistresult)
 
 ### ManagedDatabases_Delete
-Deletes the managed database.
+Deletes a managed database.
 
 
 ```js
@@ -190,25 +155,69 @@ azure_sql_manageddatabases.ManagedDatabases_CreateOrUpdate({
 #### Output
 * output [ManagedDatabase](#manageddatabase)
 
+### ManagedDatabases_CompleteRestore
+Completes the restore operation on a managed database.
+
+
+```js
+azure_sql_manageddatabases.ManagedDatabases_CompleteRestore({
+  "resourceGroupName": "",
+  "managedInstanceName": "",
+  "databaseName": "",
+  "parameters": {
+    "lastBackupName": ""
+  },
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * managedInstanceName **required** `string`: The name of the managed instance.
+  * databaseName **required** `string`: The name of the database.
+  * parameters **required** [CompleteDatabaseRestoreDefinition](#completedatabaserestoredefinition)
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+*Output schema unknown*
+
+### ManagedDatabaseRestoreDetails_Get
+Gets managed database restore details.
+
+
+```js
+azure_sql_manageddatabases.ManagedDatabaseRestoreDetails_Get({
+  "resourceGroupName": "",
+  "managedInstanceName": "",
+  "databaseName": "",
+  "restoreDetailsName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
+```
+
+#### Input
+* input `object`
+  * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+  * managedInstanceName **required** `string`: The name of the managed instance.
+  * databaseName **required** `string`: The name of the database.
+  * restoreDetailsName **required** `string` (values: Default): The name of the restore details to retrieve.
+  * subscriptionId **required** `string`: The subscription ID that identifies an Azure subscription.
+  * api-version **required** `string`: The API version to use for the request.
+
+#### Output
+* output [ManagedDatabaseRestoreDetailsResult](#manageddatabaserestoredetailsresult)
+
 
 
 ## Definitions
 
-### CompleteManagedDatabaseRestoreDefinition
-* CompleteManagedDatabaseRestoreDefinition `object`: Contains the information necessary to perform a complete managed database restore operation.
+### CompleteDatabaseRestoreDefinition
+* CompleteDatabaseRestoreDefinition `object`: Contains the information necessary to perform a complete database restore operation.
   * lastBackupName **required** `string`: The last backup name to apply
-
-### Error
-* Error `object`: An error response.
-  * error [ErrorProperties](#errorproperties)
-
-### ErrorProperties
-* ErrorProperties `object`: An error response.
-  * code `string`: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-  * details `array`: A list of additional details about the error.
-    * items [Error](#error)
-  * message `string`: A message describing the error, intended to be suitable for display in a user interface.
-  * target `string`: The target of the particular error. For example, the name of the property in error.
 
 ### ManagedDatabase
 * ManagedDatabase `object`: A managed database resource.
@@ -229,19 +238,50 @@ azure_sql_manageddatabases.ManagedDatabases_CreateOrUpdate({
 * ManagedDatabaseProperties `object`: The managed database's properties.
   * catalogCollation `string` (values: DATABASE_DEFAULT, SQL_Latin1_General_CP1_CI_AS): Collation of the metadata catalog.
   * collation `string`: Collation of the managed database.
-  * createMode `string` (values: Default, RestoreExternalBackup, PointInTimeRestore): Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified.
+  * createMode `string` (values: Default, RestoreExternalBackup, PointInTimeRestore, Recovery): Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
   * creationDate `string`: Creation date of the database.
   * defaultSecondaryLocation `string`: Geo paired region.
+  * earliestRestorePoint `string`: Earliest restore point in time for point in time restore.
+  * failoverGroupId `string`: Instance Failover Group resource identifier that this managed database belongs to.
+  * recoverableDatabaseId `string`: The resource identifier of the recoverable database associated with create operation of this database.
+  * restorableDroppedDatabaseId `string`: The restorable dropped database resource id to restore when creating this database.
   * restorePointInTime `string`: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
   * sourceDatabaseId `string`: The resource identifier of the source database associated with create operation of this database.
-  * status `string` (values: Online, Offline, Shutdown, Creating, Inaccessible): Status for the database.
+  * status `string` (values: Online, Offline, Shutdown, Creating, Inaccessible, Restoring, Updating): Status of the database.
   * storageContainerSasToken `string`: Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
   * storageContainerUri `string`: Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
+
+### ManagedDatabaseRestoreDetailsProperties
+* ManagedDatabaseRestoreDetailsProperties `object`: The managed database's restore details properties.
+  * blockReason `string`: The reason why restore is in Blocked state.
+  * currentRestoringFileName `string`: Current restoring file name.
+  * lastRestoredFileName `string`: Last restored file name.
+  * lastRestoredFileTime `string`: Last restored file time.
+  * lastUploadedFileName `string`: Last uploaded file name.
+  * lastUploadedFileTime `string`: Last uploaded file time.
+  * numberOfFilesDetected `integer`: Number of files detected.
+  * percentCompleted `number`: Percent completed.
+  * status `string`: Restore status.
+  * unrestorableFiles `array`: List of unrestorable files.
+    * items `string`
+
+### ManagedDatabaseRestoreDetailsResult
+* ManagedDatabaseRestoreDetailsResult `object`: A managed database restore details.
+  * properties [ManagedDatabaseRestoreDetailsProperties](#manageddatabaserestoredetailsproperties)
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type.
 
 ### ManagedDatabaseUpdate
 * ManagedDatabaseUpdate `object`: An managed database update.
   * properties [ManagedDatabaseProperties](#manageddatabaseproperties)
   * tags `object`: Resource tags.
+
+### ProxyResource
+* ProxyResource `object`: ARM proxy resource.
+  * id `string`: Resource ID.
+  * name `string`: Resource name.
+  * type `string`: Resource type.
 
 ### Resource
 * Resource `object`: ARM resource.

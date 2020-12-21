@@ -16,7 +16,7 @@ let bungie = require('@datafire/bungie').create({
   redirect_uri: ""
 });
 
-bungie.User.SearchUsers({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

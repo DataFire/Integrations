@@ -1,6 +1,6 @@
 # @datafire/nytimes_community
 
-Client library for Community
+Client library for Community API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let nytimes_community = require('@datafire/nytimes_community').create({
   "api-key": ""
 });
 
-nytimes_community.user_content.user.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -54,7 +54,6 @@ nytimes_community.user_content.by_date.json.get({}, context)
         * createDate `string`
         * editorsSelection `integer`
         * lft `integer`
-        * parentID `null`
         * recommendationCount `integer`
         * replies `array`
           * items `object`
@@ -95,31 +94,15 @@ nytimes_community.user_content.recent.json.get(null, context)
         * approveDate `string`
         * asset `object`
           * all-properties `array`
-            * items `object`
-              * description `string`
-              * name `string`
-              * properties `array`
-                * items `object`
           * assetID `integer`
           * assetTitle `string`
           * assetURL `string`
           * createDate `string`
           * labels `array`
-            * items `object`
           * properties `object`
-            * automoderation-on `object`
-              * groupID `integer`
-              * taxonomyID `integer`
-            * comment-list-sort-editors `object`
-              * groupID `integer`
-              * taxonomyID `integer`
-            * reached-max-com-off `object`
-              * groupID `integer`
-              * taxonomyID `integer`
           * source `string`
           * taxonomy `string`
           * text `array`
-            * items `object`
           * updateDate `string`
           * vendorID `string`
         * assetID `integer`
@@ -132,7 +115,6 @@ nytimes_community.user_content.recent.json.get(null, context)
         * display_name `string`
         * editorsSelection `integer`
         * location `string`
-        * parentID `null`
         * recommendationCount `integer`
         * replies `array`
           * items `object`
@@ -166,7 +148,6 @@ nytimes_community.user_content.url.json.get({}, context)
     * version `number`
   * results `object`
     * api_timestamp `string`
-    * callerID `null`
     * comments `array`
       * items `object`
         * approveDate `string`
@@ -178,16 +159,11 @@ nytimes_community.user_content.url.json.get({}, context)
         * createDate `string`
         * depth `integer`
         * editorsSelection `boolean`
-        * parentID `null`
-        * parentUserDisplayName `null`
         * permID `string`
         * picURL `string`
         * recommendations `integer`
-        * recommendedFlag `null`
         * replies `array`
-
         * replyCount `integer`
-        * reportAbuseFlag `null`
         * sharing `integer`
         * status `string`
         * timespeople `integer`
@@ -196,8 +172,6 @@ nytimes_community.user_content.url.json.get({}, context)
         * userDisplayName `string`
         * userID `integer`
         * userLocation `string`
-        * userTitle `null`
-        * userURL `null`
     * depthLimit `integer`
     * filter `string`
     * page `integer`
@@ -241,33 +215,15 @@ nytimes_community.user_content.user.json.get({}, context)
         * approveDate `string`
         * asset `object`
           * all-properties `array`
-            * items `object`
-              * description `string`
-              * name `string`
-              * properties `array`
-                * items `object`
           * assetID `integer`
           * assetTitle `string`
           * assetURL `string`
           * createDate `string`
           * labels `array`
-            * items `object`
-              * labelID `integer`
-              * labelName `string`
           * properties `object`
-            * automoderation-off `object`
-              * groupID `integer`
-              * taxonomyID `integer`
-            * comment-list-sort-approvedate-desc `object`
-              * groupID `integer`
-              * taxonomyID `integer`
-            * reached-max-com-on `object`
-              * groupID `integer`
-              * taxonomyID `integer`
           * source `string`
           * taxonomy `string`
           * text `array`
-            * items `object`
           * updateDate `string`
           * vendorID `string`
         * commentBody `string`
@@ -279,7 +235,6 @@ nytimes_community.user_content.user.json.get({}, context)
         * editorsSelection `boolean`
         * labels `array`
           * items `object`
-        * parentID `null`
         * permid `integer`
         * picURL `string`
         * recommendations `integer`
@@ -288,15 +243,9 @@ nytimes_community.user_content.user.json.get({}, context)
         * replyCount `integer`
         * status `string`
         * updateDate `string`
-        * userDisplayName `null`
         * userID `integer`
-        * userLocation `null`
         * userSubmittedDisplayName `string`
         * userSubmittedLocation `string`
-        * userSubmittedTitle `null`
-        * userSubmittedURL `null`
-        * userTitle `null`
-        * userURL `null`
     * totalCommentsFound `integer`
     * totalCommentsReturned `integer`
   * status `string`

@@ -1,12 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "host": "datapipeline.amazonaws.com",
-  "basePath": "/",
-  "x-hasEquivalentPaths": true,
   "info": {
     "contact": {
       "email": "mike.ralphson@gmail.com",
@@ -30,7 +23,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png"
     },
     "x-origin": [
       {
@@ -40,7 +33,7 @@
           "version": "1.0.0"
         },
         "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/datapipeline-2012-10-29.normal.json",
-        "x-apisguru-direct": true
+        "x-apisguru-driver": "external"
       }
     ],
     "x-preferred": true,
@@ -52,121 +45,74 @@
       "type": "openapi"
     }
   },
-  "externalDocs": {
-    "description": "Amazon Web Services documentation",
-    "url": "https://aws.amazon.com/datapipeline/"
-  },
-  "consumes": [
-    "application/json"
+  "host": "datapipeline.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "hmac": {
-      "description": "Amazon Signature authorization v4",
-      "in": "header",
-      "name": "Authorization",
-      "type": "apiKey",
-      "x-amazon-apigateway-authtype": "awsSigv4"
-    }
-  },
-  "security": [
-    {
-      "hmac": []
-    }
-  ],
-  "parameters": {
-    "Action": {
-      "in": "header",
-      "name": "Action",
-      "required": true,
-      "type": "string"
-    },
-    "Version": {
-      "in": "header",
-      "name": "Version",
-      "required": true,
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "in": "header",
-      "name": "X-Amz-Algorithm",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "in": "header",
-      "name": "X-Amz-Content-Sha256",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "in": "header",
-      "name": "X-Amz-Credential",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "in": "header",
-      "name": "X-Amz-Date",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "in": "header",
-      "name": "X-Amz-Security-Token",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "in": "header",
-      "name": "X-Amz-Signature",
-      "required": false,
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "in": "header",
-      "name": "X-Amz-SignedHeaders",
-      "required": false,
-      "type": "string"
-    }
-  },
   "paths": {
-    "/": {
+    "/#X-Amz-Target=DataPipeline.ActivatePipeline": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p> <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call <a>DeactivatePipeline</a>.</p> <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>",
-        "operationId": "ActivatePipeline",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.ActivatePipeline"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -211,43 +157,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p> <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call <a>DeactivatePipeline</a>.</p> <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>",
+        "operationId": "ActivatePipeline"
       }
     },
-    "/#AddTags": {
+    "/#X-Amz-Target=DataPipeline.AddTags": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Adds or modifies tags for the specified pipeline.",
-        "operationId": "AddTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.AddTags"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -292,43 +268,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Adds or modifies tags for the specified pipeline.",
+        "operationId": "AddTags"
       }
     },
-    "/#CreatePipeline": {
+    "/#X-Amz-Target=DataPipeline.CreatePipeline": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.",
-        "operationId": "CreatePipeline",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.CreatePipeline"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -359,43 +365,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.",
+        "operationId": "CreatePipeline"
       }
     },
-    "/#DeactivatePipeline": {
+    "/#X-Amz-Target=DataPipeline.DeactivatePipeline": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code> state until the deactivation process completes.</p> <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.</p>",
-        "operationId": "DeactivatePipeline",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.DeactivatePipeline"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -440,43 +476,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code> state until the deactivation process completes.</p> <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.</p>",
+        "operationId": "DeactivatePipeline"
       }
     },
-    "/#DeletePipeline": {
+    "/#X-Amz-Target=DataPipeline.DeletePipeline": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>",
-        "operationId": "DeletePipeline",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.DeletePipeline"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -511,43 +577,80 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p> <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. Components that are paused by <a>SetStatus</a> can be resumed.</p>",
+        "operationId": "DeletePipeline"
       }
     },
-    "/#DescribeObjects": {
+    "/#X-Amz-Target=DataPipeline.DescribeObjects": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.",
-        "operationId": "DescribeObjects",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "DataPipeline.DescribeObjects"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -555,13 +658,6 @@
             "schema": {
               "$ref": "#/definitions/DescribeObjectsInput"
             }
-          },
-          {
-            "description": "Pagination token",
-            "in": "query",
-            "name": "marker",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -599,43 +695,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.",
+        "operationId": "DescribeObjects"
       }
     },
-    "/#DescribePipelines": {
+    "/#X-Amz-Target=DataPipeline.DescribePipelines": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p> <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>",
-        "operationId": "DescribePipelines",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.DescribePipelines"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -680,43 +806,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p> <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>",
+        "operationId": "DescribePipelines"
       }
     },
-    "/#EvaluateExpression": {
+    "/#X-Amz-Target=DataPipeline.EvaluateExpression": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.",
-        "operationId": "EvaluateExpression",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.EvaluateExpression"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -768,43 +924,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.",
+        "operationId": "EvaluateExpression"
       }
     },
-    "/#GetPipelineDefinition": {
+    "/#X-Amz-Target=DataPipeline.GetPipelineDefinition": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.",
-        "operationId": "GetPipelineDefinition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.GetPipelineDefinition"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -849,43 +1035,80 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.",
+        "operationId": "GetPipelineDefinition"
       }
     },
-    "/#ListPipelines": {
+    "/#X-Amz-Target=DataPipeline.ListPipelines": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Lists the pipeline identifiers for all active pipelines that you have permission to access.",
-        "operationId": "ListPipelines",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "marker",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "DataPipeline.ListPipelines"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -893,13 +1116,6 @@
             "schema": {
               "$ref": "#/definitions/ListPipelinesInput"
             }
-          },
-          {
-            "description": "Pagination token",
-            "in": "query",
-            "name": "marker",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
@@ -923,43 +1139,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Lists the pipeline identifiers for all active pipelines that you have permission to access.",
+        "operationId": "ListPipelines"
       }
     },
-    "/#PollForTask": {
+    "/#X-Amz-Target=DataPipeline.PollForTask": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.</p> <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds. </p>",
-        "operationId": "PollForTask",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.PollForTask"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -997,43 +1243,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.</p> <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds. </p>",
+        "operationId": "PollForTask"
       }
     },
-    "/#PutPipelineDefinition": {
+    "/#X-Amz-Target=DataPipeline.PutPipelineDefinition": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p> <p> <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. </p> <ol> <li>An object is missing a name or identifier field.</li> <li>A string or reference field is empty.</li> <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol> <p> Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. </p>",
-        "operationId": "PutPipelineDefinition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.PutPipelineDefinition"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1078,51 +1354,64 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p> <p> <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. </p> <ol> <li>An object is missing a name or identifier field.</li> <li>A string or reference field is empty.</li> <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li> <li>The pipeline is in a FINISHED state.</li> </ol> <p> Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. </p>",
+        "operationId": "PutPipelineDefinition"
       }
     },
-    "/#QueryObjects": {
+    "/#X-Amz-Target=DataPipeline.QueryObjects": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Queries the specified pipeline for the names of objects that match the specified set of conditions.",
-        "operationId": "QueryObjects",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/QueryObjectsInput"
-            }
-          },
           {
             "description": "Pagination limit",
             "in": "query",
@@ -1136,6 +1425,23 @@
             "name": "marker",
             "required": false,
             "type": "string"
+          },
+          {
+            "enum": [
+              "DataPipeline.QueryObjects"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryObjectsInput"
+            }
           }
         ],
         "responses": {
@@ -1173,43 +1479,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Queries the specified pipeline for the names of objects that match the specified set of conditions.",
+        "operationId": "QueryObjects"
       }
     },
-    "/#RemoveTags": {
+    "/#X-Amz-Target=DataPipeline.RemoveTags": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Removes existing tags from the specified pipeline.",
-        "operationId": "RemoveTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.RemoveTags"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1254,43 +1590,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Removes existing tags from the specified pipeline.",
+        "operationId": "RemoveTags"
       }
     },
-    "/#ReportTaskProgress": {
+    "/#X-Amz-Target=DataPipeline.ReportTaskProgress": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "<p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p> <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>",
-        "operationId": "ReportTaskProgress",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.ReportTaskProgress"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1342,43 +1708,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "<p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p> <p>If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to <a>PollForTask</a>. Task runners should call <code>ReportTaskProgress</code> every 60 seconds.</p>",
+        "operationId": "ReportTaskProgress"
       }
     },
-    "/#ReportTaskRunnerHeartbeat": {
+    "/#X-Amz-Target=DataPipeline.ReportTaskRunnerHeartbeat": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.",
-        "operationId": "ReportTaskRunnerHeartbeat",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.ReportTaskRunnerHeartbeat"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1409,43 +1805,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.",
+        "operationId": "ReportTaskRunnerHeartbeat"
       }
     },
-    "/#SetStatus": {
+    "/#X-Amz-Target=DataPipeline.SetStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.",
-        "operationId": "SetStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.SetStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1487,43 +1913,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.",
+        "operationId": "SetStatus"
       }
     },
-    "/#SetTaskStatus": {
+    "/#X-Amz-Target=DataPipeline.SetTaskStatus": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.",
-        "operationId": "SetTaskStatus",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.SetTaskStatus"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1575,43 +2031,73 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.",
+        "operationId": "SetTaskStatus"
       }
     },
-    "/#ValidatePipelineDefinition": {
+    "/#X-Amz-Target=DataPipeline.ValidatePipelineDefinition": {
       "parameters": [
         {
-          "$ref": "#/parameters/Action"
+          "in": "header",
+          "name": "X-Amz-Content-Sha256",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/Version"
+          "in": "header",
+          "name": "X-Amz-Date",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Content-Sha256"
+          "in": "header",
+          "name": "X-Amz-Algorithm",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Date"
+          "in": "header",
+          "name": "X-Amz-Credential",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Algorithm"
+          "in": "header",
+          "name": "X-Amz-Security-Token",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Credential"
+          "in": "header",
+          "name": "X-Amz-Signature",
+          "required": false,
+          "type": "string"
         },
         {
-          "$ref": "#/parameters/X-Amz-Security-Token"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-Signature"
-        },
-        {
-          "$ref": "#/parameters/X-Amz-SignedHeaders"
+          "in": "header",
+          "name": "X-Amz-SignedHeaders",
+          "required": false,
+          "type": "string"
         }
       ],
       "post": {
-        "description": "Validates the specified pipeline definition to ensure that it is well formed and can be run without error.",
-        "operationId": "ValidatePipelineDefinition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
+          {
+            "enum": [
+              "DataPipeline.ValidatePipelineDefinition"
+            ],
+            "in": "header",
+            "name": "X-Amz-Target",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "body",
             "name": "body",
@@ -1656,7 +2142,9 @@
             },
             "x-aws-exception": true
           }
-        }
+        },
+        "description": "Validates the specified pipeline definition to ensure that it is well formed and can be run without error.",
+        "operationId": "ValidatePipelineDefinition"
       }
     }
   },
@@ -1665,21 +2153,40 @@
       "description": "Contains the parameters for ActivatePipeline.",
       "properties": {
         "parameterValues": {
-          "$ref": "#/definitions/ParameterValueList",
-          "description": "A list of parameter values to pass to the pipeline at activation."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterValueList"
+            },
+            {
+              "description": "A list of parameter values to pass to the pipeline at activation."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "startTimestamp": {
-          "$ref": "#/definitions/timestamp",
-          "description": "The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution."
+          "allOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "description": "The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId"
       ],
+      "title": "ActivatePipelineInput",
       "type": "object"
     },
     "ActivatePipelineOutput": {
@@ -1690,19 +2197,32 @@
     "AddTagsInput": {
       "description": "Contains the parameters for AddTags.",
       "properties": {
-        "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
-        },
         "tags": {
-          "$ref": "#/definitions/tagList",
-          "description": "The tags to add, as key/value pairs."
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagList"
+            },
+            {
+              "description": "The tags to add, as key/value pairs."
+            }
+          ]
+        },
+        "pipelineId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "tags"
       ],
+      "title": "AddTagsInput",
       "type": "object"
     },
     "AddTagsOutput": {
@@ -1713,35 +2233,66 @@
     "CreatePipelineInput": {
       "description": "Contains the parameters for CreatePipeline.",
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagList"
+            },
+            {
+              "description": "A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+            }
+          ]
+        },
         "description": {
-          "$ref": "#/definitions/string",
-          "description": "The description for the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The description for the pipeline."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/id",
-          "description": "The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier."
-        },
-        "tags": {
-          "$ref": "#/definitions/tagList",
-          "description": "A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier."
+            }
+          ]
         },
         "uniqueId": {
-          "$ref": "#/definitions/id",
-          "description": "A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials."
+            }
+          ]
         }
       },
       "required": [
         "name",
         "uniqueId"
       ],
+      "title": "CreatePipelineInput",
       "type": "object"
     },
     "CreatePipelineOutput": {
       "description": "Contains the output of CreatePipeline.",
       "properties": {
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>."
+            }
+          ]
         }
       },
       "required": [
@@ -1753,17 +2304,30 @@
       "description": "Contains the parameters for DeactivatePipeline.",
       "properties": {
         "cancelActive": {
-          "$ref": "#/definitions/cancelActive",
-          "description": "Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish."
+          "allOf": [
+            {
+              "$ref": "#/definitions/cancelActive"
+            },
+            {
+              "description": "Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to <code>CANCELED</code>. If this value is false, the pipeline is deactivated after all running objects finish."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId"
       ],
+      "title": "DeactivatePipelineInput",
       "type": "object"
     },
     "DeactivatePipelineOutput": {
@@ -1775,55 +2339,105 @@
       "description": "Contains the parameters for DeletePipeline.",
       "properties": {
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId"
       ],
+      "title": "DeletePipelineInput",
       "type": "object"
     },
     "DescribeObjectsInput": {
       "description": "Contains the parameters for DescribeObjects.",
       "properties": {
         "evaluateExpressions": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether any expressions in the object should be evaluated when the object descriptions are returned."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether any expressions in the object should be evaluated when the object descriptions are returned."
+            }
+          ]
         },
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>DescribeObjects</code> with the marker value from the previous call to retrieve the next set of results."
+            }
+          ]
         },
         "objectIds": {
-          "$ref": "#/definitions/idList",
-          "description": "The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/idList"
+            },
+            {
+              "description": "The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline that contains the object definitions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline that contains the object definitions."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "objectIds"
       ],
+      "title": "DescribeObjectsInput",
       "type": "object"
     },
     "DescribeObjectsOutput": {
       "description": "Contains the output of DescribeObjects.",
       "properties": {
         "hasMoreResults": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether there are more results to return."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether there are more results to return."
+            }
+          ]
         },
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> again with this marker value. If the value is null, there are no more results."
+            }
+          ]
         },
         "pipelineObjects": {
-          "$ref": "#/definitions/PipelineObjectList",
-          "description": "An array of object definitions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineObjectList"
+            },
+            {
+              "description": "An array of object definitions."
+            }
+          ]
         }
       },
       "required": [
@@ -1835,21 +2449,34 @@
       "description": "Contains the parameters for DescribePipelines.",
       "properties": {
         "pipelineIds": {
-          "$ref": "#/definitions/idList",
-          "description": "The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/idList"
+            },
+            {
+              "description": "The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>."
+            }
+          ]
         }
       },
       "required": [
         "pipelineIds"
       ],
+      "title": "DescribePipelinesInput",
       "type": "object"
     },
     "DescribePipelinesOutput": {
       "description": "Contains the output of DescribePipelines.",
       "properties": {
         "pipelineDescriptionList": {
-          "$ref": "#/definitions/PipelineDescriptionList",
-          "description": "An array of descriptions for the specified pipelines."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineDescriptionList"
+            },
+            {
+              "description": "An array of descriptions for the specified pipelines."
+            }
+          ]
         }
       },
       "required": [
@@ -1861,16 +2488,34 @@
       "description": "Contains the parameters for EvaluateExpression.",
       "properties": {
         "expression": {
-          "$ref": "#/definitions/longString",
-          "description": "The expression to evaluate."
+          "allOf": [
+            {
+              "$ref": "#/definitions/longString"
+            },
+            {
+              "description": "The expression to evaluate."
+            }
+          ]
         },
         "objectId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the object."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         }
       },
       "required": [
@@ -1878,14 +2523,21 @@
         "objectId",
         "expression"
       ],
+      "title": "EvaluateExpressionInput",
       "type": "object"
     },
     "EvaluateExpressionOutput": {
       "description": "Contains the output of EvaluateExpression.",
       "properties": {
         "evaluatedExpression": {
-          "$ref": "#/definitions/longString",
-          "description": "The evaluated expression."
+          "allOf": [
+            {
+              "$ref": "#/definitions/longString"
+            },
+            {
+              "description": "The evaluated expression."
+            }
+          ]
         }
       },
       "required": [
@@ -1897,16 +2549,34 @@
       "description": "A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.",
       "properties": {
         "key": {
-          "$ref": "#/definitions/fieldNameString",
-          "description": "The field identifier."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldNameString"
+            },
+            {
+              "description": "The field identifier."
+            }
+          ]
         },
         "refValue": {
-          "$ref": "#/definitions/fieldNameString",
-          "description": "The field value, expressed as the identifier of another object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldNameString"
+            },
+            {
+              "description": "The field value, expressed as the identifier of another object."
+            }
+          ]
         },
         "stringValue": {
-          "$ref": "#/definitions/fieldStringValue",
-          "description": "The field value, expressed as a String."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldStringValue"
+            },
+            {
+              "description": "The field value, expressed as a String."
+            }
+          ]
         }
       },
       "required": [
@@ -1918,33 +2588,64 @@
       "description": "Contains the parameters for GetPipelineDefinition.",
       "properties": {
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "version": {
-          "$ref": "#/definitions/string",
-          "description": "The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) to use the last definition saved to the pipeline or <code>active</code> to use the last definition that was activated."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId"
       ],
+      "title": "GetPipelineDefinitionInput",
       "type": "object"
     },
     "GetPipelineDefinitionOutput": {
       "description": "Contains the output of GetPipelineDefinition.",
       "properties": {
         "parameterObjects": {
-          "$ref": "#/definitions/ParameterObjectList",
-          "description": "The parameter objects used in the pipeline definition."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterObjectList"
+            },
+            {
+              "description": "The parameter objects used in the pipeline definition."
+            }
+          ]
         },
         "parameterValues": {
-          "$ref": "#/definitions/ParameterValueList",
-          "description": "The parameter values used in the pipeline definition."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterValueList"
+            },
+            {
+              "description": "The parameter values used in the pipeline definition."
+            }
+          ]
         },
         "pipelineObjects": {
-          "$ref": "#/definitions/PipelineObjectList",
-          "description": "The objects defined in the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineObjectList"
+            },
+            {
+              "description": "The objects defined in the pipeline."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1953,12 +2654,24 @@
       "description": "<p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>",
       "properties": {
         "document": {
-          "$ref": "#/definitions/string",
-          "description": "A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object."
+            }
+          ]
         },
         "signature": {
-          "$ref": "#/definitions/string",
-          "description": "A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1967,8 +2680,14 @@
       "description": "An internal service error occurred.",
       "properties": {
         "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Description of the error message."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "Description of the error message."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1977,8 +2696,14 @@
       "description": "The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.",
       "properties": {
         "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Description of the error message."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "Description of the error message."
+            }
+          ]
         }
       },
       "type": "object"
@@ -1987,26 +2712,51 @@
       "description": "Contains the parameters for ListPipelines.",
       "properties": {
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>ListPipelines</code> with the marker value from the previous call to retrieve the next set of results."
+            }
+          ]
         }
       },
+      "title": "ListPipelinesInput",
       "type": "object"
     },
     "ListPipelinesOutput": {
       "description": "Contains the output of ListPipelines.",
       "properties": {
         "hasMoreResults": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether there are more results that can be obtained by a subsequent call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether there are more results that can be obtained by a subsequent call."
+            }
+          ]
         },
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> again with this marker value. If the value is null, there are no more results."
+            }
+          ]
         },
         "pipelineIdList": {
-          "$ref": "#/definitions/pipelineList",
-          "description": "The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/pipelineList"
+            },
+            {
+              "description": "The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>."
+            }
+          ]
         }
       },
       "required": [
@@ -2018,12 +2768,24 @@
       "description": "Contains a logical operation for comparing the value of a field with a specified value.",
       "properties": {
         "type": {
-          "$ref": "#/definitions/OperatorType",
-          "description": "<p> The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>"
+          "allOf": [
+            {
+              "$ref": "#/definitions/OperatorType"
+            },
+            {
+              "description": "<p> The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. </p> <p> The comparison operators EQ and REF_EQ act on the following fields: </p> <ul> <li>name</li> <li>@sphere</li> <li>parent</li> <li>@componentParent</li> <li>@instanceParent</li> <li>@status</li> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p> The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields: </p> <ul> <li>@scheduledStartTime</li> <li>@scheduledEndTime</li> <li>@actualStartTime</li> <li>@actualEndTime</li> </ul> <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>"
+            }
+          ]
         },
         "values": {
-          "$ref": "#/definitions/stringList",
-          "description": "The value that the actual field value will be compared with."
+          "allOf": [
+            {
+              "$ref": "#/definitions/stringList"
+            },
+            {
+              "description": "The value that the actual field value will be compared with."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2042,12 +2804,24 @@
       "description": "The attributes allowed or specified with a parameter object.",
       "properties": {
         "key": {
-          "$ref": "#/definitions/attributeNameString",
-          "description": "The field identifier."
+          "allOf": [
+            {
+              "$ref": "#/definitions/attributeNameString"
+            },
+            {
+              "description": "The field identifier."
+            }
+          ]
         },
         "stringValue": {
-          "$ref": "#/definitions/attributeValueString",
-          "description": "The field value, expressed as a String."
+          "allOf": [
+            {
+              "$ref": "#/definitions/attributeValueString"
+            },
+            {
+              "description": "The field value, expressed as a String."
+            }
+          ]
         }
       },
       "required": [
@@ -2066,12 +2840,24 @@
       "description": "Contains information about a parameter object.",
       "properties": {
         "attributes": {
-          "$ref": "#/definitions/ParameterAttributeList",
-          "description": "The attributes of the parameter object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterAttributeList"
+            },
+            {
+              "description": "The attributes of the parameter object."
+            }
+          ]
         },
         "id": {
-          "$ref": "#/definitions/fieldNameString",
-          "description": "The ID of the parameter object. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldNameString"
+            },
+            {
+              "description": "The ID of the parameter object. "
+            }
+          ]
         }
       },
       "required": [
@@ -2090,12 +2876,24 @@
       "description": "A value or list of parameter values. ",
       "properties": {
         "id": {
-          "$ref": "#/definitions/fieldNameString",
-          "description": "The ID of the parameter value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldNameString"
+            },
+            {
+              "description": "The ID of the parameter value."
+            }
+          ]
         },
         "stringValue": {
-          "$ref": "#/definitions/fieldStringValue",
-          "description": "The field value, expressed as a String."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldStringValue"
+            },
+            {
+              "description": "The field value, expressed as a String."
+            }
+          ]
         }
       },
       "required": [
@@ -2114,8 +2912,14 @@
       "description": "The specified pipeline has been deleted.",
       "properties": {
         "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Description of the error message."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "Description of the error message."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2123,25 +2927,55 @@
     "PipelineDescription": {
       "description": "Contains pipeline metadata.",
       "properties": {
+        "tags": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagList"
+            },
+            {
+              "description": "A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+            }
+          ]
+        },
         "description": {
-          "$ref": "#/definitions/string",
-          "description": "Description of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "Description of the pipeline."
+            }
+          ]
         },
         "fields": {
-          "$ref": "#/definitions/fieldList",
-          "description": "A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldList"
+            },
+            {
+              "description": "A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/id",
-          "description": "The name of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The name of the pipeline."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>."
-        },
-        "tags": {
-          "$ref": "#/definitions/tagList",
-          "description": "A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>."
+            }
+          ]
         }
       },
       "required": [
@@ -2161,12 +2995,24 @@
       "description": "Contains the name and identifier of a pipeline.",
       "properties": {
         "id": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/id",
-          "description": "The name of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The name of the pipeline."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2175,8 +3021,14 @@
       "description": "The specified pipeline was not found. Verify that you used the correct user and account identifiers.",
       "properties": {
         "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Description of the error message."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "Description of the error message."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2185,16 +3037,34 @@
       "description": "Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.",
       "properties": {
         "fields": {
-          "$ref": "#/definitions/fieldList",
-          "description": "Key-value pairs that define the properties of the object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldList"
+            },
+            {
+              "description": "Key-value pairs that define the properties of the object."
+            }
+          ]
         },
         "id": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the object."
+            }
+          ]
         },
         "name": {
-          "$ref": "#/definitions/id",
-          "description": "The name of the object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The name of the object."
+            }
+          ]
         }
       },
       "required": [
@@ -2211,46 +3081,63 @@
       "type": "array"
     },
     "PipelineObjectMap": {
-      "items": {
-        "properties": {
-          "key": {
-            "$ref": "#/definitions/id"
-          },
-          "value": {
-            "$ref": "#/definitions/PipelineObject"
-          }
-        },
-        "type": "object"
+      "additionalProperties": {
+        "$ref": "#/definitions/PipelineObject"
       },
-      "type": "array"
+      "type": "object"
     },
     "PollForTaskInput": {
       "description": "Contains the parameters for PollForTask.",
       "properties": {
         "hostname": {
-          "$ref": "#/definitions/id",
-          "description": "The public DNS name of the calling task runner."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The public DNS name of the calling task runner."
+            }
+          ]
         },
         "instanceIdentity": {
-          "$ref": "#/definitions/InstanceIdentity",
-          "description": "Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/InstanceIdentity"
+            },
+            {
+              "description": "Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline."
+            }
+          ]
         },
         "workerGroup": {
-          "$ref": "#/definitions/string",
-          "description": "The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match."
+            }
+          ]
         }
       },
       "required": [
         "workerGroup"
       ],
+      "title": "PollForTaskInput",
       "type": "object"
     },
     "PollForTaskOutput": {
       "description": "Contains the output of PollForTask.",
       "properties": {
         "taskObject": {
-          "$ref": "#/definitions/TaskObject",
-          "description": "The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TaskObject"
+            },
+            {
+              "description": "The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> and <a>SetTaskStatus</a>."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2259,42 +3146,85 @@
       "description": "Contains the parameters for PutPipelineDefinition.",
       "properties": {
         "parameterObjects": {
-          "$ref": "#/definitions/ParameterObjectList",
-          "description": "The parameter objects used with the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterObjectList"
+            },
+            {
+              "description": "The parameter objects used with the pipeline."
+            }
+          ]
         },
         "parameterValues": {
-          "$ref": "#/definitions/ParameterValueList",
-          "description": "The parameter values used with the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterValueList"
+            },
+            {
+              "description": "The parameter values used with the pipeline."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "pipelineObjects": {
-          "$ref": "#/definitions/PipelineObjectList",
-          "description": "The objects that define the pipeline. These objects overwrite the existing pipeline definition."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineObjectList"
+            },
+            {
+              "description": "The objects that define the pipeline. These objects overwrite the existing pipeline definition."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "pipelineObjects"
       ],
+      "title": "PutPipelineDefinitionInput",
       "type": "object"
     },
     "PutPipelineDefinitionOutput": {
       "description": "Contains the output of PutPipelineDefinition.",
       "properties": {
         "errored": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline."
+            }
+          ]
         },
         "validationErrors": {
-          "$ref": "#/definitions/ValidationErrors",
-          "description": "The validation errors that are associated with the objects defined in <code>pipelineObjects</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValidationErrors"
+            },
+            {
+              "description": "The validation errors that are associated with the objects defined in <code>pipelineObjects</code>."
+            }
+          ]
         },
         "validationWarnings": {
-          "$ref": "#/definitions/ValidationWarnings",
-          "description": "The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValidationWarnings"
+            },
+            {
+              "description": "The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>."
+            }
+          ]
         }
       },
       "required": [
@@ -2306,8 +3236,14 @@
       "description": "Defines the query to run against an object.",
       "properties": {
         "selectors": {
-          "$ref": "#/definitions/SelectorList",
-          "description": "List of selectors that define the query. An object must satisfy all of the selectors to match the query."
+          "allOf": [
+            {
+              "$ref": "#/definitions/SelectorList"
+            },
+            {
+              "description": "List of selectors that define the query. An object must satisfy all of the selectors to match the query."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2316,46 +3252,95 @@
       "description": "Contains the parameters for QueryObjects.",
       "properties": {
         "limit": {
-          "$ref": "#/definitions/int",
-          "description": "The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. "
+          "allOf": [
+            {
+              "$ref": "#/definitions/int"
+            },
+            {
+              "description": "The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. "
+            }
+          ]
         },
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call <code>QueryObjects</code> with the marker value from the previous call to retrieve the next set of results."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "query": {
-          "$ref": "#/definitions/Query",
-          "description": "The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts."
+          "allOf": [
+            {
+              "$ref": "#/definitions/Query"
+            },
+            {
+              "description": "The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts."
+            }
+          ]
         },
         "sphere": {
-          "$ref": "#/definitions/string",
-          "description": "Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "Indicates whether the query applies to components or instances. The possible values are: <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "sphere"
       ],
+      "title": "QueryObjectsInput",
       "type": "object"
     },
     "QueryObjectsOutput": {
       "description": "Contains the output of QueryObjects.",
       "properties": {
         "hasMoreResults": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether there are more results that can be obtained by a subsequent call."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether there are more results that can be obtained by a subsequent call."
+            }
+          ]
         },
         "ids": {
-          "$ref": "#/definitions/idList",
-          "description": "The identifiers that match the query selectors."
+          "allOf": [
+            {
+              "$ref": "#/definitions/idList"
+            },
+            {
+              "description": "The identifiers that match the query selectors."
+            }
+          ]
         },
         "marker": {
-          "$ref": "#/definitions/string",
-          "description": "The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> again with this marker value. If the value is null, there are no more results."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2364,18 +3349,31 @@
       "description": "Contains the parameters for RemoveTags.",
       "properties": {
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "tagKeys": {
-          "$ref": "#/definitions/stringList",
-          "description": "The keys of the tags to remove."
+          "allOf": [
+            {
+              "$ref": "#/definitions/stringList"
+            },
+            {
+              "description": "The keys of the tags to remove."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "tagKeys"
       ],
+      "title": "RemoveTagsInput",
       "type": "object"
     },
     "RemoveTagsOutput": {
@@ -2387,25 +3385,44 @@
       "description": "Contains the parameters for ReportTaskProgress.",
       "properties": {
         "fields": {
-          "$ref": "#/definitions/fieldList",
-          "description": "Key-value pairs that define the properties of the ReportTaskProgressInput object."
+          "allOf": [
+            {
+              "$ref": "#/definitions/fieldList"
+            },
+            {
+              "description": "Key-value pairs that define the properties of the ReportTaskProgressInput object."
+            }
+          ]
         },
         "taskId": {
-          "$ref": "#/definitions/taskId",
-          "description": "The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/taskId"
+            },
+            {
+              "description": "The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>."
+            }
+          ]
         }
       },
       "required": [
         "taskId"
       ],
+      "title": "ReportTaskProgressInput",
       "type": "object"
     },
     "ReportTaskProgressOutput": {
       "description": "Contains the output of ReportTaskProgress.",
       "properties": {
         "canceled": {
-          "$ref": "#/definitions/boolean",
-          "description": "If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks."
+            }
+          ]
         }
       },
       "required": [
@@ -2417,29 +3434,54 @@
       "description": "Contains the parameters for ReportTaskRunnerHeartbeat.",
       "properties": {
         "hostname": {
-          "$ref": "#/definitions/id",
-          "description": "The public DNS name of the task runner."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The public DNS name of the task runner."
+            }
+          ]
         },
         "taskrunnerId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner."
+            }
+          ]
         },
         "workerGroup": {
-          "$ref": "#/definitions/string",
-          "description": "The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match."
+            }
+          ]
         }
       },
       "required": [
         "taskrunnerId"
       ],
+      "title": "ReportTaskRunnerHeartbeatInput",
       "type": "object"
     },
     "ReportTaskRunnerHeartbeatOutput": {
       "description": "Contains the output of ReportTaskRunnerHeartbeat.",
       "properties": {
         "terminate": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether the calling task runner should terminate."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether the calling task runner should terminate."
+            }
+          ]
         }
       },
       "required": [
@@ -2451,8 +3493,14 @@
       "description": "A comparision that is used to determine whether a query should return this object.",
       "properties": {
         "fieldName": {
-          "$ref": "#/definitions/string",
-          "description": "The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails."
+            }
+          ]
         },
         "operator": {
           "$ref": "#/definitions/Operator"
@@ -2471,16 +3519,34 @@
       "description": "Contains the parameters for SetStatus.",
       "properties": {
         "objectIds": {
-          "$ref": "#/definitions/idList",
-          "description": "The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types."
+          "allOf": [
+            {
+              "$ref": "#/definitions/idList"
+            },
+            {
+              "description": "The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline that contains the objects."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline that contains the objects."
+            }
+          ]
         },
         "status": {
-          "$ref": "#/definitions/string",
-          "description": "The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>."
+            }
+          ]
         }
       },
       "required": [
@@ -2488,36 +3554,68 @@
         "objectIds",
         "status"
       ],
+      "title": "SetStatusInput",
       "type": "object"
     },
     "SetTaskStatusInput": {
       "description": "Contains the parameters for SetTaskStatus.",
       "properties": {
         "errorId": {
-          "$ref": "#/definitions/string",
-          "description": "If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system."
+            }
+          ]
         },
         "errorMessage": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value."
+            }
+          ]
         },
         "errorStackTrace": {
-          "$ref": "#/definitions/string",
-          "description": "If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value."
+          "allOf": [
+            {
+              "$ref": "#/definitions/string"
+            },
+            {
+              "description": "If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value."
+            }
+          ]
         },
         "taskId": {
-          "$ref": "#/definitions/taskId",
-          "description": "The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/taskId"
+            },
+            {
+              "description": "The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>."
+            }
+          ]
         },
         "taskStatus": {
-          "$ref": "#/definitions/TaskStatus",
-          "description": "If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false."
+          "allOf": [
+            {
+              "$ref": "#/definitions/TaskStatus"
+            },
+            {
+              "description": "If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false."
+            }
+          ]
         }
       },
       "required": [
         "taskId",
         "taskStatus"
       ],
+      "title": "SetTaskStatusInput",
       "type": "object"
     },
     "SetTaskStatusOutput": {
@@ -2529,12 +3627,24 @@
       "description": "Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.",
       "properties": {
         "key": {
-          "$ref": "#/definitions/tagKey",
-          "description": "The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagKey"
+            },
+            {
+              "description": "The key name of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+            }
+          ]
         },
         "value": {
-          "$ref": "#/definitions/tagValue",
-          "description": "The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+          "allOf": [
+            {
+              "$ref": "#/definitions/tagValue"
+            },
+            {
+              "description": "The optional value portion of a tag defined by a user. For more information, see <a href=\"http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>."
+            }
+          ]
         }
       },
       "required": [
@@ -2547,8 +3657,14 @@
       "description": "The specified task was not found. ",
       "properties": {
         "message": {
-          "$ref": "#/definitions/errorMessage",
-          "description": "Description of the error message."
+          "allOf": [
+            {
+              "$ref": "#/definitions/errorMessage"
+            },
+            {
+              "description": "Description of the error message."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2557,20 +3673,44 @@
       "description": "Contains information about a pipeline task that is assigned to a task runner.",
       "properties": {
         "attemptId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted."
+            }
+          ]
         },
         "objects": {
-          "$ref": "#/definitions/PipelineObjectMap",
-          "description": "Connection information for the location where the task runner will publish the output of the task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineObjectMap"
+            },
+            {
+              "description": "Connection information for the location where the task runner will publish the output of the task."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline that provided the task."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline that provided the task."
+            }
+          ]
         },
         "taskId": {
-          "$ref": "#/definitions/taskId",
-          "description": "An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions."
+          "allOf": [
+            {
+              "$ref": "#/definitions/taskId"
+            },
+            {
+              "description": "An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2587,42 +3727,85 @@
       "description": "Contains the parameters for ValidatePipelineDefinition.",
       "properties": {
         "parameterObjects": {
-          "$ref": "#/definitions/ParameterObjectList",
-          "description": "The parameter objects used with the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterObjectList"
+            },
+            {
+              "description": "The parameter objects used with the pipeline."
+            }
+          ]
         },
         "parameterValues": {
-          "$ref": "#/definitions/ParameterValueList",
-          "description": "The parameter values used with the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ParameterValueList"
+            },
+            {
+              "description": "The parameter values used with the pipeline."
+            }
+          ]
         },
         "pipelineId": {
-          "$ref": "#/definitions/id",
-          "description": "The ID of the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The ID of the pipeline."
+            }
+          ]
         },
         "pipelineObjects": {
-          "$ref": "#/definitions/PipelineObjectList",
-          "description": "The objects that define the pipeline changes to validate against the pipeline."
+          "allOf": [
+            {
+              "$ref": "#/definitions/PipelineObjectList"
+            },
+            {
+              "description": "The objects that define the pipeline changes to validate against the pipeline."
+            }
+          ]
         }
       },
       "required": [
         "pipelineId",
         "pipelineObjects"
       ],
+      "title": "ValidatePipelineDefinitionInput",
       "type": "object"
     },
     "ValidatePipelineDefinitionOutput": {
       "description": "Contains the output of ValidatePipelineDefinition.",
       "properties": {
         "errored": {
-          "$ref": "#/definitions/boolean",
-          "description": "Indicates whether there were validation errors."
+          "allOf": [
+            {
+              "$ref": "#/definitions/boolean"
+            },
+            {
+              "description": "Indicates whether there were validation errors."
+            }
+          ]
         },
         "validationErrors": {
-          "$ref": "#/definitions/ValidationErrors",
-          "description": "Any validation errors that were found."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValidationErrors"
+            },
+            {
+              "description": "Any validation errors that were found."
+            }
+          ]
         },
         "validationWarnings": {
-          "$ref": "#/definitions/ValidationWarnings",
-          "description": "Any validation warnings that were found."
+          "allOf": [
+            {
+              "$ref": "#/definitions/ValidationWarnings"
+            },
+            {
+              "description": "Any validation warnings that were found."
+            }
+          ]
         }
       },
       "required": [
@@ -2634,12 +3817,24 @@
       "description": "Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.",
       "properties": {
         "errors": {
-          "$ref": "#/definitions/validationMessages",
-          "description": "A description of the validation error."
+          "allOf": [
+            {
+              "$ref": "#/definitions/validationMessages"
+            },
+            {
+              "description": "A description of the validation error."
+            }
+          ]
         },
         "id": {
-          "$ref": "#/definitions/id",
-          "description": "The identifier of the object that contains the validation error."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The identifier of the object that contains the validation error."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2654,12 +3849,24 @@
       "description": "Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.",
       "properties": {
         "id": {
-          "$ref": "#/definitions/id",
-          "description": "The identifier of the object that contains the validation warning."
+          "allOf": [
+            {
+              "$ref": "#/definitions/id"
+            },
+            {
+              "description": "The identifier of the object that contains the validation warning."
+            }
+          ]
         },
         "warnings": {
-          "$ref": "#/definitions/validationMessages",
-          "description": "A description of the validation warning."
+          "allOf": [
+            {
+              "$ref": "#/definitions/validationMessages"
+            },
+            {
+              "description": "A description of the validation warning."
+            }
+          ]
         }
       },
       "type": "object"
@@ -2788,5 +3995,70 @@
       },
       "type": "array"
     }
-  }
+  },
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://docs.aws.amazon.com/datapipeline/"
+  },
+  "x-components": {
+    "parameters": {
+      "X-Amz-Algorithm": {
+        "in": "header",
+        "name": "X-Amz-Algorithm",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Content-Sha256": {
+        "in": "header",
+        "name": "X-Amz-Content-Sha256",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Credential": {
+        "in": "header",
+        "name": "X-Amz-Credential",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Date": {
+        "in": "header",
+        "name": "X-Amz-Date",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Security-Token": {
+        "in": "header",
+        "name": "X-Amz-Security-Token",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-Signature": {
+        "in": "header",
+        "name": "X-Amz-Signature",
+        "required": false,
+        "type": "string"
+      },
+      "X-Amz-SignedHeaders": {
+        "in": "header",
+        "name": "X-Amz-SignedHeaders",
+        "required": false,
+        "type": "string"
+      }
+    }
+  },
+  "x-hasEquivalentPaths": true
 }

@@ -1,6 +1,6 @@
 # @datafire/nytimes_article_search
 
-Client library for Article Search
+Client library for Article Search API
 
 ## Installation and Usage
 ```bash
@@ -11,7 +11,7 @@ let nytimes_article_search = require('@datafire/nytimes_article_search').create(
   apikey: ""
 });
 
-nytimes_article_search.articlesearch.json.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -65,12 +65,10 @@ nytimes_article_search.articlesearch.json.get({}, context)
   * _id `string`
   * abstract `string`
   * blog `array`
-
   * byline `object`
     * organization `string`
     * original `string`
     * person `array`
-
   * document_type `string`
   * headline `object`
     * kicker `string`
@@ -90,7 +88,7 @@ nytimes_article_search.articlesearch.json.get({}, context)
       * type `string`
       * url `string`
       * width `integer`
-  * news_desK `string`
+  * news_desk `string`
   * print_page `string`
   * pub_date `string`
   * section_name `string`

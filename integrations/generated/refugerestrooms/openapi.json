@@ -1,14 +1,11 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
   "host": "www.refugerestrooms.org",
   "basePath": "/api",
   "info": {
     "description": "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconforming individuals.",
-    "title": "Refuge Restrooms",
-    "version": "v1",
+    "title": "API title",
+    "version": "0.0.1",
     "x-apisguru-categories": [
       "open_data"
     ],
@@ -18,13 +15,9 @@
     },
     "x-origin": [
       {
-        "converter": {
-          "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.6.2"
-        },
         "format": "swagger",
-        "url": "http://www.refugerestrooms.org/api/swagger_doc.json",
-        "version": "1.2"
+        "url": "https://www.refugerestrooms.org/api/swagger_doc.json",
+        "version": "2.0"
       }
     ],
     "x-preferred": true,
@@ -37,35 +30,43 @@
   "produces": [
     "application/xml",
     "application/json",
-    "application/vnd.api+json",
+    "application/octet-stream",
     "text/plain"
   ],
   "tags": [
     {
+      "description": "Operations about restrooms",
       "name": "restrooms"
     }
   ],
   "paths": {
-    "/v1/restrooms.json": {
+    "/v1/restrooms": {
       "get": {
-        "operationId": "v1.restrooms.json.get",
+        "description": "Get all restroom records ordered by date descending.",
+        "operationId": "getV1Restrooms",
         "parameters": [
           {
+            "default": 1,
             "description": "Page offset to fetch.",
+            "format": "int32",
             "in": "query",
             "name": "page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 10,
             "description": "Number of results to return per page.",
+            "format": "int32",
             "in": "query",
             "name": "per_page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Pad a number of results.",
+            "format": "int32",
             "in": "query",
             "name": "offset",
             "required": false,
@@ -86,37 +87,46 @@
             "type": "boolean"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Get all restroom records ordered by date descending."
           }
         },
-        "summary": "Get all restroom records ordered by date descending.",
         "tags": [
           "restrooms"
         ]
       }
     },
-    "/v1/restrooms/by_date.json": {
+    "/v1/restrooms/by_date": {
       "get": {
-        "operationId": "v1.restrooms.by_date.json.get",
+        "description": "Search for restroom records updated or created on or after a given date",
+        "operationId": "getV1RestroomsByDate",
         "parameters": [
           {
+            "default": 1,
             "description": "Page offset to fetch.",
+            "format": "int32",
             "in": "query",
             "name": "page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 10,
             "description": "Number of results to return per page.",
+            "format": "int32",
             "in": "query",
             "name": "per_page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Pad a number of results.",
+            "format": "int32",
             "in": "query",
             "name": "offset",
             "required": false,
@@ -145,6 +155,7 @@
           },
           {
             "description": "Day",
+            "format": "int32",
             "in": "query",
             "name": "day",
             "required": true,
@@ -152,6 +163,7 @@
           },
           {
             "description": "Month",
+            "format": "int32",
             "in": "query",
             "name": "month",
             "required": true,
@@ -159,43 +171,53 @@
           },
           {
             "description": "Year",
+            "format": "int32",
             "in": "query",
             "name": "year",
             "required": true,
             "type": "integer"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Search for restroom records updated or created on or after a given date"
           }
         },
-        "summary": "Search for restroom records updated or created on or after a given date",
         "tags": [
           "restrooms"
         ]
       }
     },
-    "/v1/restrooms/by_location.json": {
+    "/v1/restrooms/by_location": {
       "get": {
-        "operationId": "v1.restrooms.by_location.json.get",
+        "description": "Search by location.",
+        "operationId": "getV1RestroomsByLocation",
         "parameters": [
           {
+            "default": 1,
             "description": "Page offset to fetch.",
+            "format": "int32",
             "in": "query",
             "name": "page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 10,
             "description": "Number of results to return per page.",
+            "format": "int32",
             "in": "query",
             "name": "per_page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Pad a number of results.",
+            "format": "int32",
             "in": "query",
             "name": "offset",
             "required": false,
@@ -232,37 +254,46 @@
             "type": "number"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Search by location."
           }
         },
-        "summary": "Search by location.",
         "tags": [
           "restrooms"
         ]
       }
     },
-    "/v1/restrooms/search.json": {
+    "/v1/restrooms/search": {
       "get": {
-        "operationId": "v1.restrooms.search.json.get",
+        "description": "Perform full-text search of restroom records.",
+        "operationId": "getV1RestroomsSearch",
         "parameters": [
           {
+            "default": 1,
             "description": "Page offset to fetch.",
+            "format": "int32",
             "in": "query",
             "name": "page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 10,
             "description": "Number of results to return per page.",
+            "format": "int32",
             "in": "query",
             "name": "per_page",
             "required": false,
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Pad a number of results.",
+            "format": "int32",
             "in": "query",
             "name": "offset",
             "required": false,
@@ -290,12 +321,14 @@
             "type": "string"
           }
         ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
-            "description": "No response was specified"
+            "description": "Perform full-text search of restroom records."
           }
         },
-        "summary": "Perform full-text search of restroom records.",
         "tags": [
           "restrooms"
         ]

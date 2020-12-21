@@ -9,16 +9,7 @@ npm install --save @datafire/flickr
 ```js
 let flickr = require('@datafire/flickr').create();
 
-flickr.getAccessToken({
-  "oauth_consumer_key": "",
-  "oauth_nonce": "",
-  "oauth_timestamp": "",
-  "oauth_signature_method": "",
-  "oauth_version": "",
-  "oauth_signature": "",
-  "oauth_verifier": "",
-  "oauth_token": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

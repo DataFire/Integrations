@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "api.archive.org",
-  "basePath": "/",
   "info": {
     "contact": {
       "x-twitter": "internetarchive"
@@ -20,9 +15,9 @@
     },
     "x-origin": [
       {
-        "format": "swagger",
+        "format": "openapi",
         "url": "https://raw.githubusercontent.com/ArchiveLabs/api.archive.org/master/swagger/search.yaml",
-        "version": "2.0"
+        "version": "3.0"
       }
     ],
     "x-preferred": true,
@@ -33,78 +28,25 @@
       "type": "openapi"
     }
   },
-  "produces": [
-    "application/json",
-    "application/javascript"
+  "host": "api.archive.org",
+  "basePath": "/",
+  "schemes": [
+    "https"
   ],
-  "parameters": {
-    "callback": {
-      "description": "Specifies a JavaScript function func, for a JSON-P response. When provided, results are wrapped as `callback(data)`, and the returned MIME type is application/javascript. This causes the caller to automatically run the func with the JSON results as its argument.",
-      "in": "query",
-      "name": "callback",
-      "required": false,
-      "type": "string"
-    },
-    "cursor": {
-      "description": "Cursor for scrolling (used for subsequent calls)",
-      "in": "query",
-      "name": "cursor",
-      "required": false,
-      "type": "string"
-    },
-    "field": {
-      "collectionFormat": "multi",
-      "default": "identifier",
-      "description": "Metadata field",
-      "in": "query",
-      "maxLength": 250,
-      "minLength": 1,
-      "name": "field",
-      "required": false,
-      "type": "string"
-    },
-    "query": {
-      "description": "Lucene-type search query",
-      "in": "query",
-      "name": "q",
-      "type": "string"
-    },
-    "size": {
-      "default": 1000,
-      "description": "Number of query results to return",
-      "in": "query",
-      "maximum": 10000,
-      "minimum": 10,
-      "name": "size",
-      "required": false,
-      "type": "integer"
-    },
-    "sort": {
-      "collectionFormat": "multi",
-      "description": "sort collations",
-      "in": "query",
-      "maxLength": 250,
-      "minLength": 5,
-      "name": "sort",
-      "required": false,
-      "type": "string"
-    },
-    "total_only": {
-      "default": false,
-      "description": "Request total only; do not return hits",
-      "in": "query",
-      "name": "total_only",
-      "required": false,
-      "type": "boolean"
-    }
-  },
   "paths": {
     "/search/v1/fields": {
       "get": {
-        "description": "Fields that can be requested",
+        "produces": [
+          "application/javascript",
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/callback"
+            "description": "Specifies a JavaScript function func, for a JSON-P response. When provided, results are wrapped as `callback(data)`, and the returned MIME type is application/javascript. This causes the caller to automatically run the func with the JSON results as its argument.",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -118,27 +60,56 @@
             }
           }
         },
-        "operationId": "search.v1.fields.get"
+        "description": "Fields that can be requested"
       }
     },
     "/search/v1/organic": {
       "get": {
-        "description": "Return relevance-based results from search queries\n",
+        "produces": [
+          "application/javascript",
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/query"
+            "description": "Lucene-type search query",
+            "in": "query",
+            "name": "q",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/field"
+            "default": "identifier",
+            "description": "Metadata field",
+            "in": "query",
+            "maxLength": 250,
+            "minLength": 1,
+            "name": "field",
+            "required": false,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/size"
+            "default": 1000,
+            "description": "Number of query results to return",
+            "in": "query",
+            "maximum": 10000,
+            "minimum": 10,
+            "name": "size",
+            "required": false,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/total_only"
+            "default": false,
+            "description": "Request total only; do not return hits",
+            "in": "query",
+            "name": "total_only",
+            "required": false,
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/callback"
+            "description": "Specifies a JavaScript function func, for a JSON-P response. When provided, results are wrapped as `callback(data)`, and the returned MIME type is application/javascript. This causes the caller to automatically run the func with the JSON results as its argument.",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -155,33 +126,72 @@
             }
           }
         },
-        "operationId": "search.v1.organic.get"
+        "description": "Return relevance-based results from search queries\n"
       }
     },
     "/search/v1/scrape": {
       "get": {
-        "description": "Scrape search results from Internet Archive, allowing a scrolling cursor\n",
+        "produces": [
+          "application/javascript",
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/query"
+            "description": "Lucene-type search query",
+            "in": "query",
+            "name": "q",
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/field"
+            "default": "identifier",
+            "description": "Metadata field",
+            "in": "query",
+            "maxLength": 250,
+            "minLength": 1,
+            "name": "field",
+            "required": false,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/sort"
+            "description": "sort collations",
+            "in": "query",
+            "maxLength": 250,
+            "minLength": 5,
+            "name": "sort",
+            "required": false,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/size"
+            "default": 1000,
+            "description": "Number of query results to return",
+            "in": "query",
+            "maximum": 10000,
+            "minimum": 10,
+            "name": "size",
+            "required": false,
+            "type": "integer"
           },
           {
-            "$ref": "#/parameters/cursor"
+            "description": "Cursor for scrolling (used for subsequent calls)",
+            "in": "query",
+            "name": "cursor",
+            "required": false,
+            "type": "string"
           },
           {
-            "$ref": "#/parameters/total_only"
+            "default": false,
+            "description": "Request total only; do not return hits",
+            "in": "query",
+            "name": "total_only",
+            "required": false,
+            "type": "boolean"
           },
           {
-            "$ref": "#/parameters/callback"
+            "description": "Specifies a JavaScript function func, for a JSON-P response. When provided, results are wrapped as `callback(data)`, and the returned MIME type is application/javascript. This causes the caller to automatically run the func with the JSON results as its argument.",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -198,7 +208,7 @@
             }
           }
         },
-        "operationId": "search.v1.scrape.get"
+        "description": "Scrape search results from Internet Archive, allowing a scrolling cursor\n"
       }
     }
   },
@@ -277,6 +287,67 @@
         }
       },
       "type": "object"
+    }
+  },
+  "x-components": {
+    "parameters": {
+      "callback": {
+        "description": "Specifies a JavaScript function func, for a JSON-P response. When provided, results are wrapped as `callback(data)`, and the returned MIME type is application/javascript. This causes the caller to automatically run the func with the JSON results as its argument.",
+        "in": "query",
+        "name": "callback",
+        "required": false,
+        "type": "string"
+      },
+      "cursor": {
+        "description": "Cursor for scrolling (used for subsequent calls)",
+        "in": "query",
+        "name": "cursor",
+        "required": false,
+        "type": "string"
+      },
+      "field": {
+        "default": "identifier",
+        "description": "Metadata field",
+        "in": "query",
+        "maxLength": 250,
+        "minLength": 1,
+        "name": "field",
+        "required": false,
+        "type": "string"
+      },
+      "query": {
+        "description": "Lucene-type search query",
+        "in": "query",
+        "name": "q",
+        "type": "string"
+      },
+      "size": {
+        "default": 1000,
+        "description": "Number of query results to return",
+        "in": "query",
+        "maximum": 10000,
+        "minimum": 10,
+        "name": "size",
+        "required": false,
+        "type": "integer"
+      },
+      "sort": {
+        "description": "sort collations",
+        "in": "query",
+        "maxLength": 250,
+        "minLength": 5,
+        "name": "sort",
+        "required": false,
+        "type": "string"
+      },
+      "total_only": {
+        "default": false,
+        "description": "Request total only; do not return hits",
+        "in": "query",
+        "name": "total_only",
+        "required": false,
+        "type": "boolean"
+      }
     }
   }
 }

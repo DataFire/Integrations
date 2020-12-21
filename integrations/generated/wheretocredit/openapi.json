@@ -1,0 +1,310 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "x-twitter": "wheretocredit"
+    },
+    "description": "The Where to Credit API provides mileage earning calculations for frequent flyer programs around the world.",
+    "title": "Where to Credit API",
+    "version": "1.0",
+    "x-apisguru-categories": [
+      "transport"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_wheretocredit_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "format": "openapi",
+        "url": "https://www.wheretocredit.com/swagger/v1/swagger.json",
+        "version": "3.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "wheretocredit.com",
+    "x-datafire": {
+      "name": "wheretocredit",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/api/1.0/calculate": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Collection of <code>Itinerary</code> to allow multiple frequent flyer mile or point calculations at once.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "description": "Collection of <code>Itinerary</code> to allow multiple frequent flyer mile or point calculations at once.",
+              "items": {
+                "$ref": "#/definitions/Itinerary"
+              },
+              "type": "array",
+              "x-nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.  However individual <code>CalculateResults</code> in the response could have failed.",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CalculateResult"
+              },
+              "type": "array"
+            }
+          },
+          "429": {
+            "description": "Usage limits exceeded. (Free users only)"
+          }
+        },
+        "tags": [
+          "Calculate"
+        ],
+        "summary": "Calculates the number of miles earned for every frequent flyer program."
+      }
+    },
+    "/api/1.0/programs": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Program"
+              },
+              "type": "array"
+            }
+          },
+          "429": {
+            "description": "Usage limits exceeded. (Free users only)"
+          }
+        },
+        "tags": [
+          "Programs"
+        ],
+        "summary": "Lists all supported frequent flyer programs."
+      }
+    }
+  },
+  "definitions": {
+    "CalculateItineraryProgramResult": {
+      "properties": {
+        "airlines": {
+          "description": "Two-letter IATA carrier codes that are associated with the frequent flyer program.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "id": {
+          "description": "Unique identifier for the frequent flyer program. See <code>Programs</code> API.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "name": {
+          "description": "Frequent flyer program name. See <code>Programs</code> API.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "revenueBased": {
+          "description": "Indicates that the itinerary includes revenue-based miles earnings.",
+          "type": "boolean"
+        },
+        "unpublished": {
+          "description": "Indicates that the itinerary may be missing miles due to unpublished earning rates from the program.",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Total redeemable miles or points earned for the frequent flyer program.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "CalculateItineraryResult": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier provided for this itinerary.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "totals": {
+          "description": "Total miles earned for each frequent flyer program.",
+          "items": {
+            "$ref": "#/definitions/CalculateItineraryProgramResult"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "CalculateResult": {
+      "properties": {
+        "errorMessage": {
+          "description": "Error message if the API call was not successful.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "success": {
+          "description": "Indicates whether the API call was successful.",
+          "type": "boolean"
+        },
+        "value": {
+          "$ref": "#/definitions/CalculateItineraryResult"
+        }
+      },
+      "type": "object"
+    },
+    "Itinerary": {
+      "properties": {
+        "baseFareUSD": {
+          "description": "Amount in USD that will be used to calculate revenue program mileage earning.  This amount should generally include carrier imposed surcharges but exclude other taxes. Default is 0.",
+          "format": "double",
+          "type": "number"
+        },
+        "id": {
+          "description": "Unique identifier for this itinerary that will be passed back to help correlate a result.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "segments": {
+          "description": "Every flight transfer or stopover should be considered a separate segment.",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          },
+          "type": "array"
+        },
+        "ticketingCarrier": {
+          "description": "Two-letter IATA carrier code for the ticketing or plating airline.  This is used for revenue programs (i.e. UA, DL, B6).  Leaving this value blank will exclude revenue programs.",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "required": [
+        "segments"
+      ],
+      "type": "object"
+    },
+    "Program": {
+      "properties": {
+        "airlines": {
+          "description": "Two-letter IATA carrier codes that are associated with the frequent flyer program.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        },
+        "denomination": {
+          "description": "Name of the unit of a mile or point.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "fullName": {
+          "description": "Full name of the frequent flyer program including the airline, if applicable.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "id": {
+          "description": "Unique identifier for the frequent flyer program.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "programName": {
+          "description": "Name of the frequent flyer program.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "tierNames": {
+          "description": "Name of each tier level for the frequent flyer program.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "x-nullable": true
+        }
+      },
+      "type": "object"
+    },
+    "Segment": {
+      "properties": {
+        "bookingClass": {
+          "description": "Single-letter booking class used to determine the earning rate for the flight segment.",
+          "type": "string"
+        },
+        "carrier": {
+          "description": "Two-letter IATA carrier code for the marketing airline.  This is used to determine which earnings chart will be applied for this segment.\r\nNOTE: Frequent flyer programs based on operating carrier, including but not limited to Star Alliance carriers, cannot be reliably mapped to a booking class and will not be accurately reflected in this API.",
+          "type": "string"
+        },
+        "departure": {
+          "description": "The date on the flight will depart from the origin to go to the destination.  This is used to determine which earnings chart will be in effect at time of departure.",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "destination": {
+          "description": "Three-letter IATA airport code to which the flight is going.",
+          "type": "string"
+        },
+        "distance": {
+          "description": "The number of miles for this flight segment.  Otherwise, distance is calculated using the great-circle distance between the origin and destination and may not match other data sources exactly.",
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "flightNumber": {
+          "description": "The airline identifier for the flight segment, most commonly (but not always) a number and is used for earning charts that are restricted to specific flight numbers.",
+          "format": "int32",
+          "type": "integer",
+          "x-nullable": true
+        },
+        "operatingCarrier": {
+          "description": "Two-letter IATA carrier code for the operating airline.  This value is only used when earning is based on marketing carrier but restricted to a specific operating carrier.  Leaving this value blank will assume the flight is operated by the marketing carrier.",
+          "type": "string",
+          "x-nullable": true
+        },
+        "origin": {
+          "description": "Three-letter IATA airport code from which the flight will depart.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bookingClass",
+        "carrier",
+        "destination",
+        "origin"
+      ],
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "api-key": {
+      "description": "Subscribers only",
+      "in": "header",
+      "name": "Authorization-Token",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {},
+    {
+      "api-key": []
+    }
+  ],
+  "x-components": {}
+}

@@ -9,7 +9,7 @@ npm install --save @datafire/deutschebahn_betriebsstellen
 ```js
 let deutschebahn_betriebsstellen = require('@datafire/deutschebahn_betriebsstellen').create();
 
-deutschebahn_betriebsstellen.betriebsstellen.get({}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

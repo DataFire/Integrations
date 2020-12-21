@@ -15,12 +15,7 @@ let azure_policyinsights_policyevents = require('@datafire/azure_policyinsights_
   redirect_uri: ""
 });
 
-azure_policyinsights_policyevents.PolicyEvents_ListQueryResultsForManagementGroup({
-  "policyEventsResource": "",
-  "managementGroupsNamespace": "",
-  "managementGroupName": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -309,7 +304,7 @@ azure_policyinsights_policyevents.PolicyEvents_GetMetadata({
   * @odata.id `string`: OData entity ID; always set to null since policy event records do not have an entity ID.
   * effectiveParameters `string`: Effective parameters for the policy assignment.
   * isCompliant `boolean`: Flag which states whether the resource is compliant against the policy assignment it was evaluated against.
-  * managementGroupIds `string`: Comma seperated list of management group IDs, which represent the hierarchy of the management groups the resource is under.
+  * managementGroupIds `string`: Comma separated list of management group IDs, which represent the hierarchy of the management groups the resource is under.
   * policyAssignmentId `string`: Policy assignment ID.
   * policyAssignmentName `string`: Policy assignment name.
   * policyAssignmentOwner `string`: Policy assignment owner.

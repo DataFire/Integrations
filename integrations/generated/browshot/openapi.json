@@ -13,7 +13,7 @@
     },
     "description": "Take screenshots of any website in real time",
     "termsOfService": "https://browshot.com/terms",
-    "title": "Browshot",
+    "title": "Browshot API",
     "version": "1.17.0",
     "x-apisguru-categories": [
       "tools"

@@ -15,13 +15,7 @@ let azure_azsadmin_operations = require('@datafire/azure_azsadmin_operations').c
   redirect_uri: ""
 });
 
-azure_azsadmin_operations.ComputeFabricOperations_Get({
-  "subscriptionId": "",
-  "location": "",
-  "provider": "",
-  "computeOperationResult": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```

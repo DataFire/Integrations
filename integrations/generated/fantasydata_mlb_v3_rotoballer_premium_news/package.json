@@ -1,6 +1,6 @@
 {
   "name": "@datafire/fantasydata_mlb_v3_rotoballer_premium_news",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for MLB v3 RotoBaller Premium News",
   "repository": {

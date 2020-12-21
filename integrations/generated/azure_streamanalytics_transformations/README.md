@@ -15,13 +15,7 @@ let azure_streamanalytics_transformations = require('@datafire/azure_streamanaly
   redirect_uri: ""
 });
 
-azure_streamanalytics_transformations.Transformations_Get({
-  "api-version": "",
-  "subscriptionId": "",
-  "resourceGroupName": "",
-  "jobName": "",
-  "transformationName": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
@@ -75,7 +69,7 @@ azure_streamanalytics_transformations.Transformations_Update({
 #### Input
 * input `object`
   * transformation **required** [Transformation](#transformation)
-  * If-Match `string`: The ETag of the transformation. Omit this value to always overwrite the current transformation. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the transformation. Omit this value to always overwrite the current transformation. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
   * resourceGroupName **required** `string`: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -103,7 +97,7 @@ azure_streamanalytics_transformations.Transformations_CreateOrReplace({
 #### Input
 * input `object`
   * transformation **required** [Transformation](#transformation)
-  * If-Match `string`: The ETag of the transformation. Omit this value to always overwrite the current transformation. Specify the last-seen ETag value to prevent accidentally overwritting concurrent changes.
+  * If-Match `string`: The ETag of the transformation. Omit this value to always overwrite the current transformation. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
   * If-None-Match `string`: Set to '*' to allow a new transformation to be created, but to prevent updating an existing transformation. Other values will result in a 412 Pre-condition Failed response.
   * api-version **required** `string`: Client Api Version.
   * subscriptionId **required** `string`: GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.

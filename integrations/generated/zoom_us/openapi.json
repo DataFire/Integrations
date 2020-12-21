@@ -17,7 +17,7 @@
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
     },
-    "title": "Zoom",
+    "title": "Zoom API",
     "version": "2.0.0",
     "x-apisguru-categories": [
       "telecom"
@@ -68,6 +68,13 @@
       "description": "The account ID",
       "in": "path",
       "name": "accountId",
+      "required": true,
+      "type": "string"
+    },
+    "DeviceId": {
+      "description": "The device ID",
+      "in": "path",
+      "name": "deviceId",
       "required": true,
       "type": "string"
     },
@@ -124,14 +131,14 @@
       "in": "path",
       "name": "meetingId",
       "required": true,
-      "type": "integer"
+      "type": "string"
     },
     "MeetingId4Recording": {
       "description": "The meeting ID or meeting UUID. If given meeting ID, will take the last meeting instance.",
       "in": "path",
       "name": "meetingId",
       "required": true,
-      "type": "integer"
+      "type": "string"
     },
     "MeetingIdNumber": {
       "description": "The meeting ID or uuid",
@@ -145,14 +152,16 @@
       "description": "The meeting type",
       "enum": [
         "scheduled",
-        "live"
+        "live",
+        "upcoming"
       ],
       "in": "query",
       "name": "type",
       "type": "string",
       "x-enum-descriptions": [
         "all the scheduled meetings",
-        "all the live meetings"
+        "all the live meetings",
+        "all the upcoming meetings"
       ]
     },
     "MeetingTypePast": {
@@ -204,6 +213,13 @@
         "live meeting"
       ]
     },
+    "MeetingUUID": {
+      "description": "The meeting UUID.",
+      "in": "path",
+      "name": "meetingUUID",
+      "required": true,
+      "type": "string"
+    },
     "MemberId": {
       "description": "The member ID",
       "in": "path",
@@ -212,7 +228,7 @@
       "type": "string"
     },
     "NextPageToken": {
-      "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+      "description": "Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.",
       "in": "query",
       "name": "next_page_token",
       "type": "string"
@@ -225,14 +241,14 @@
     },
     "PageNumber": {
       "default": 1,
-      "description": "Current page number of returned records.",
+      "description": "Current page number of returned records",
       "in": "query",
       "name": "page_number",
       "type": "integer"
     },
     "PageSize": {
       "default": 30,
-      "description": "The amount of records returns within a single API call. ",
+      "description": "The number of records returned within a single API call",
       "in": "query",
       "maximum": 300,
       "name": "page_size",
@@ -247,13 +263,13 @@
       "type": "integer"
     },
     "PageToken": {
-      "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+      "description": "Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.",
       "in": "query",
       "name": "next_page_token",
       "type": "string"
     },
     "ParticipantId": {
-      "description": "The participant ID, such as 16778240",
+      "description": "Participant ID",
       "in": "path",
       "name": "participantId",
       "required": true,
@@ -305,6 +321,13 @@
         "registrants status is denied"
       ]
     },
+    "SessionId": {
+      "description": "IM Chat Session ID",
+      "in": "path",
+      "name": "sessionId",
+      "required": true,
+      "type": "string"
+    },
     "TSPId": {
       "description": "TSP account index",
       "in": "path",
@@ -320,8 +343,36 @@
       "required": true,
       "type": "string"
     },
+    "TransferEmail": {
+      "description": "Transfer email",
+      "in": "query",
+      "name": "transfer_email",
+      "required": false,
+      "type": "string"
+    },
+    "TransferMeeting": {
+      "description": "Transfer meeting",
+      "in": "query",
+      "name": "transfer_meeting",
+      "required": false,
+      "type": "boolean"
+    },
+    "TransferRecording": {
+      "description": "Transfer recording",
+      "in": "query",
+      "name": "transfer_recording",
+      "required": false,
+      "type": "boolean"
+    },
+    "TransferWebinar": {
+      "description": "Transfer webinar",
+      "in": "query",
+      "name": "transfer_webinar",
+      "required": false,
+      "type": "boolean"
+    },
     "Trash": {
-      "default": false,
+      "default": "false",
       "description": "Query trash ",
       "in": "query",
       "name": "trash",
@@ -353,21 +404,23 @@
       "in": "path",
       "name": "webinarId",
       "required": true,
-      "type": "integer"
+      "type": "string"
     },
     "WebinarTypePast": {
       "default": "live",
       "description": "The webinar type",
       "enum": [
         "past",
+        "pastOne",
         "live"
       ],
       "in": "query",
       "name": "type",
       "type": "string",
       "x-enum-descriptions": [
-        "past webinars",
-        "live webinars"
+        "past meetings",
+        "past one user meetings",
+        "live meetings"
       ]
     },
     "WebinarTypePast2": {
@@ -390,7 +443,7 @@
       "in": "path",
       "name": "zoomroomId",
       "required": true,
-      "type": "integer"
+      "type": "string"
     }
   },
   "tags": [
@@ -423,6 +476,10 @@
       "name": "IM Groups"
     },
     {
+      "description": "IM Chat operations",
+      "name": "IM Chat"
+    },
+    {
       "description": "Cloud Recording operations",
       "name": "Cloud Recording"
     },
@@ -441,12 +498,24 @@
     {
       "description": "TSP operations",
       "name": "TSP"
+    },
+    {
+      "description": "PAC operations",
+      "name": "PAC"
+    },
+    {
+      "description": "H323 Device operations",
+      "name": "Devices"
+    },
+    {
+      "description": "Tracking Field operations",
+      "name": "TrackingField"
     }
   ],
   "paths": {
     "/accounts": {
       "get": {
-        "description": "List all the sub accounts under the master account.",
+        "description": "List all the sub accounts under the master account",
         "operationId": "accounts",
         "parameters": [
           {
@@ -470,7 +539,7 @@
         ]
       },
       "post": {
-        "description": "Create a sub account under the master account <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assign this privilege to trusted partner. The created user will not receive the confirmation email.</aside>",
+        "description": "Create a sub account under the master account. <aside>Your account must be a master account and have this privilege to create sub account. Zoom only assigns this privilege to trusted partners. The created user will not receive a confirmation email.</aside>.",
         "operationId": "accountCreate",
         "parameters": [
           {
@@ -525,7 +594,7 @@
     },
     "/accounts/{accountId}": {
       "delete": {
-        "description": "Disassociate a sub account from the master account",
+        "description": "Disassociate a sub account from the master account. This will leave the account intact but the sub account will not longer be associated with the master account.",
         "operationId": "accountDisassociate",
         "parameters": [
           {
@@ -546,7 +615,7 @@
         ]
       },
       "get": {
-        "description": "Retrieve a sub account under the master account <aside>Your account must be a master account and have this privilege to get sub account. Zoom only assign this privilege to trusted partner</aside>",
+        "description": "Retrieve a sub account under the master account. <aside>Your account must be a master account and have this privilege to read sub accounts. Zoom only assigns this privilege to trusted partners</aside>.",
         "operationId": "account",
         "parameters": [
           {
@@ -576,6 +645,10 @@
                 },
                 "owner_id": {
                   "description": "Account Owner ID",
+                  "type": "string"
+                },
+                "vanity_url": {
+                  "description": "Account Vanity URL",
                   "type": "string"
                 }
               }
@@ -643,6 +716,32 @@
         "summary": "Update billing information for a sub account",
         "tags": [
           "Billing"
+        ]
+      }
+    },
+    "/accounts/{accountId}/managed_domains": {
+      "get": {
+        "description": "Retrieve a sub account's managed domains under the master account",
+        "operationId": "accountManagedDomain",
+        "parameters": [
+          {
+            "$ref": "#/parameters/AccountId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account managed domains returned",
+            "schema": {
+              "$ref": "#/definitions/DomainsList"
+            }
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        },
+        "summary": "Retrieve a sub account's managed domains",
+        "tags": [
+          "Accounts"
         ]
       }
     },
@@ -888,7 +987,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List of groups returned.",
+            "description": "List of groups returned",
             "schema": {
               "$ref": "#/definitions/GroupList"
             }
@@ -910,7 +1009,7 @@
             "schema": {
               "properties": {
                 "name": {
-                  "description": "Group name.",
+                  "description": "Group name",
                   "type": "string"
                 }
               }
@@ -919,7 +1018,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Group created.",
+            "description": "Group created",
             "headers": {
               "Content-Location": {
                 "description": "Location of created group",
@@ -961,7 +1060,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Group deleted."
+            "description": "Group deleted"
           },
           "404": {
             "description": "Group not found"
@@ -1031,7 +1130,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Group updated."
+            "description": "Group updated"
           },
           "404": {
             "description": "Group not found"
@@ -1096,7 +1195,7 @@
                         "type": "string"
                       },
                       "id": {
-                        "description": "User ID.",
+                        "description": "User ID",
                         "type": "string"
                       }
                     }
@@ -1110,7 +1209,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Member added.",
+            "description": "Member added",
             "schema": {
               "properties": {
                 "added_at": {
@@ -1147,7 +1246,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Group member deleted."
+            "description": "Group member deleted"
           },
           "404": {
             "description": "Group or Group member not found"
@@ -1159,6 +1258,292 @@
         ]
       }
     },
+    "/h323/devices": {
+      "get": {
+        "description": "List H.323/SIP Devices on your Zoom account.",
+        "operationId": "deviceList",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of H.323/SIP Devices returned.",
+            "schema": {
+              "$ref": "#/definitions/DeviceList"
+            }
+          }
+        },
+        "summary": "List H.323/SIP Devices.",
+        "tags": [
+          "Devices"
+        ]
+      },
+      "post": {
+        "description": "Create a H.323/SIP Device on your Zoom account",
+        "operationId": "deviceCreate",
+        "parameters": [
+          {
+            "description": "H.323/SIP Device",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "H.323/SIP Device created",
+            "headers": {
+              "Content-Location": {
+                "description": "Location of created device",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Device ID",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/definitions/Device"
+                }
+              ]
+            }
+          }
+        },
+        "summary": "Create a H.323/SIP Device",
+        "tags": [
+          "Devices"
+        ]
+      }
+    },
+    "/h323/devices/{deviceId}": {
+      "delete": {
+        "description": "Delete a H.323/SIP Device on your Zoom account",
+        "operationId": "deviceDelete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeviceId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "H.323/SIP Device deleted"
+          },
+          "404": {
+            "description": "H.323/SIP Device not found"
+          }
+        },
+        "summary": "Delete a H.323/SIP Device",
+        "tags": [
+          "Devices"
+        ]
+      },
+      "patch": {
+        "description": "Update a H.323/SIP Device on your Zoom account",
+        "operationId": "deviceUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeviceId"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "H.323/SIP Device updated"
+          },
+          "404": {
+            "description": "H.323/SIP Device not found"
+          }
+        },
+        "summary": "Update a H.323/SIP Device",
+        "tags": [
+          "Devices"
+        ]
+      }
+    },
+    "/im/chat/sessions": {
+      "get": {
+        "description": "Retrieve IM Chat sessions for a specified period <aside>This API only supports oauth2.</aside>",
+        "operationId": "imChatSessions",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FromDate"
+          },
+          {
+            "$ref": "#/parameters/ToDate"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/NextPageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Archived IM Chat sessions Returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "from": {
+                      "description": "Start date",
+                      "format": "date",
+                      "type": "string"
+                    },
+                    "to": {
+                      "description": "End date",
+                      "format": "date",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/definitions/PaginationToken4IMChat"
+                },
+                {
+                  "properties": {
+                    "sessions": {
+                      "description": "Array of session objects",
+                      "items": {
+                        "properties": {
+                          "last_message_sent_time": {
+                            "description": "Last message sent time",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Meeting topic",
+                            "type": "string"
+                          },
+                          "session_id": {
+                            "description": "IM Chat session ID",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "IM Chat session type",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "summary": "Retrieve IM Chat sessions",
+        "tags": [
+          "IM Chat"
+        ]
+      }
+    },
+    "/im/chat/sessions/{sessionId}": {
+      "get": {
+        "description": "Retrieve IM Chat messages for a specified period <aside>This API only supports oauth2.</aside>",
+        "operationId": "imChatMessages",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SessionId"
+          },
+          {
+            "$ref": "#/parameters/FromDate"
+          },
+          {
+            "$ref": "#/parameters/ToDate"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/NextPageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Archived IM Chat messages Returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "from": {
+                      "description": "Start date",
+                      "format": "date",
+                      "type": "string"
+                    },
+                    "session_id": {
+                      "description": "IM Chat session ID",
+                      "type": "string"
+                    },
+                    "to": {
+                      "description": "End date",
+                      "format": "date",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/definitions/PaginationToken4IMChat"
+                },
+                {
+                  "properties": {
+                    "messages": {
+                      "description": "Array of session objects",
+                      "items": {
+                        "properties": {
+                          "action": {
+                            "description": "IM Chat message action",
+                            "type": "string"
+                          },
+                          "action_time": {
+                            "description": "Action time",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "date_time": {
+                            "description": "IM Chat message sent time",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "IM Chat message content",
+                            "type": "string"
+                          },
+                          "sender": {
+                            "description": "IM Chat message sender",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "summary": "Retrieve IM Chat messages",
+        "tags": [
+          "IM Chat"
+        ]
+      }
+    },
     "/im/groups": {
       "get": {
         "description": "List IM groups under your account",
@@ -1166,7 +1551,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List of IM Groups returned.",
+            "description": "List of IM Groups returned",
             "schema": {
               "$ref": "#/definitions/IMGroupList"
             }
@@ -1214,7 +1599,7 @@
                   ],
                   "type": "string",
                   "x-enum-descriptions": [
-                    "Only members can see the group automatically. Other people can search members in the group",
+                    "Only members can see the group automatically. Other people can search members in the group.",
                     "All people in the account can see the group and members automatically",
                     "Nobody can see the group or search members except the members in the group"
                   ]
@@ -1225,7 +1610,7 @@
         ],
         "responses": {
           "201": {
-            "description": "IM Group created.",
+            "description": "IM Group created",
             "headers": {
               "Content-Location": {
                 "description": "Location of created IM Group",
@@ -1243,15 +1628,15 @@
                   "type": "string"
                 },
                 "search_by_account": {
-                  "description": "Members can search others under same account.",
+                  "description": "Members can search others under same account",
                   "type": "boolean"
                 },
                 "search_by_domain": {
-                  "description": "Members can search others in the same email domain.",
+                  "description": "Members can search others in the same email domain",
                   "type": "boolean"
                 },
                 "search_by_ma_account": {
-                  "description": "Members can search others under same master account, including all sub accounts.",
+                  "description": "Members can search others under same master account, including all sub accounts",
                   "type": "boolean"
                 },
                 "total_members": {
@@ -1279,7 +1664,7 @@
         ],
         "responses": {
           "204": {
-            "description": "IM Group deleted."
+            "description": "IM Group deleted"
           },
           "404": {
             "description": "IM Group not found"
@@ -1365,7 +1750,7 @@
                   ],
                   "type": "string",
                   "x-enum-descriptions": [
-                    "Only members can see the group automatically. Other people can search members in the group",
+                    "Only members can see the group automatically. Other people can search members in the group.",
                     "All people in the account can see the group and members automatically",
                     "Nobody can see the group or search members except the members in the group"
                   ]
@@ -1376,7 +1761,7 @@
         ],
         "responses": {
           "204": {
-            "description": "IM Group updated."
+            "description": "IM Group updated"
           },
           "404": {
             "description": "IM Group not found"
@@ -1441,7 +1826,7 @@
                         "type": "string"
                       },
                       "id": {
-                        "description": "User ID.",
+                        "description": "User ID",
                         "type": "string"
                       }
                     }
@@ -1455,7 +1840,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Member added.",
+            "description": "Member added",
             "schema": {
               "properties": {
                 "added_at": {
@@ -1492,7 +1877,7 @@
         ],
         "responses": {
           "204": {
-            "description": "IM Group member deleted."
+            "description": "IM Group member deleted"
           },
           "404": {
             "description": "IM Group or IM Group member not found"
@@ -1587,7 +1972,20 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MeetingUpdate"
+              "allOf": [
+                {
+                  "properties": {
+                    "schedule_for": {
+                      "description": "Email or userId if you want to schedule meeting for another user.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/MeetingUpdate"
+                }
+              ]
             }
           }
         ],
@@ -1600,6 +1998,322 @@
           }
         },
         "summary": "Update a meeting",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/invitation": {
+      "get": {
+        "description": "Retrieve a meeting invitation",
+        "operationId": "meetingInvitation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting invitation Returned",
+            "schema": {
+              "$ref": "#/definitions/MeetingInvitation"
+            }
+          }
+        },
+        "summary": "Retrieve meeting invitation",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/livestream": {
+      "patch": {
+        "description": "Update a meeting's live stream",
+        "operationId": "meetingLiveStreamUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "Meeting",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MeetingLiveStream"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Meeting live stream Updated"
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Update a meeting live stream",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/livestream/status": {
+      "patch": {
+        "description": "Update a meeting's live stream status",
+        "operationId": "meetingLiveStreamStatusUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "Meeting",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MeetingLiveStreamStatus"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Meeting live stream Updated"
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Update a meeting live stream status",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/polls": {
+      "get": {
+        "description": "List polls of a meeting",
+        "operationId": "meetingPolls",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List polls of a Meeting  returned",
+            "schema": {
+              "$ref": "#/definitions/PollList"
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "List a meeting's polls ",
+        "tags": [
+          "Meetings"
+        ]
+      },
+      "post": {
+        "description": "Create a poll for a meeting",
+        "operationId": "meetingPollCreate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "Meeting poll object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Meeting Poll Created",
+            "headers": {
+              "Content-Location": {
+                "description": "Location of created Meeting Poll",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Meeting Poll ID",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the Meeting Poll",
+                      "enum": [
+                        "notstart",
+                        "started",
+                        "ended",
+                        "sharing"
+                      ],
+                      "type": "string",
+                      "x-enum-descriptions": [
+                        "Poll not start",
+                        "Poll started",
+                        "Poll ended",
+                        "Poll is sharing"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Create a meeting's poll",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/polls/{pollId}": {
+      "delete": {
+        "description": "Delete a meeting's Poll",
+        "operationId": "meetingPollDelete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Meeting Poll deleted"
+          },
+          "404": {
+            "description": "Meeting Poll not found"
+          }
+        },
+        "summary": "Delete a meeting's Poll",
+        "tags": [
+          "Meetings"
+        ]
+      },
+      "get": {
+        "description": "Retrieve a meeting's poll",
+        "operationId": "meetingPollGet",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting Poll object returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Meeting Poll ID",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the Meeting Poll",
+                      "enum": [
+                        "notstart",
+                        "started",
+                        "ended",
+                        "sharing"
+                      ],
+                      "type": "string",
+                      "x-enum-descriptions": [
+                        "Poll not start",
+                        "Poll started",
+                        "Poll ended",
+                        "Poll is sharing"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Meeting Poll not found"
+          }
+        },
+        "summary": "Retrieve a meeting's poll",
+        "tags": [
+          "Meetings"
+        ]
+      },
+      "put": {
+        "description": "Update a meeting's poll",
+        "operationId": "meetingPollUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Meeting Poll",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Meeting Poll Updated"
+          },
+          "404": {
+            "description": "Meeting Poll not found"
+          }
+        },
+        "summary": "Update a meeting's poll",
         "tags": [
           "Meetings"
         ]
@@ -1644,7 +2358,7 @@
             "schema": {
               "allOf": [
                 {
-                  "$ref": "#/definitions/Recording"
+                  "$ref": "#/definitions/RecordingMeeting"
                 }
               ]
             }
@@ -1654,6 +2368,62 @@
           }
         },
         "summary": "Retrieve a meeting’s all recordings",
+        "tags": [
+          "Cloud Recording"
+        ]
+      }
+    },
+    "/meetings/{meetingId}/recordings/settings": {
+      "get": {
+        "description": "Retrieve a meeting recording's settings",
+        "operationId": "recordingSettingUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId4Recording"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting recording settings returned",
+            "schema": {
+              "$ref": "#/definitions/RecordingSettings"
+            }
+          },
+          "404": {
+            "description": "Meeting recording not found"
+          }
+        },
+        "summary": "Retrieve a meeting recording's settings",
+        "tags": [
+          "Cloud Recording"
+        ]
+      },
+      "patch": {
+        "description": "Update a meeting recording's settings",
+        "operationId": "recordingSettingsUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId4Recording"
+          },
+          {
+            "description": "Meeting recording Settings",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RecordingSettings"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Meeting recording setting's updated"
+          },
+          "404": {
+            "description": "Meeting recording not found"
+          }
+        },
+        "summary": "Update a meeting recording's settings",
         "tags": [
           "Cloud Recording"
         ]
@@ -1731,7 +2501,7 @@
     },
     "/meetings/{meetingId}/recordings/{recordingId}/status": {
       "put": {
-        "description": "Recover a meeting one recording",
+        "description": "Recover a single recording",
         "operationId": "recordingStatusUpdateOne",
         "parameters": [
           {
@@ -1767,7 +2537,7 @@
             "description": "Meeting recording not found"
           }
         },
-        "summary": "Recover a meeting one recording",
+        "summary": "Recover a single recording",
         "tags": [
           "Cloud Recording"
         ]
@@ -1818,7 +2588,7 @@
             "$ref": "#/parameters/MeetingId"
           },
           {
-            "description": "Occurrence IDs, could get this value from Meeting Get API. Multiple value separated by comma.",
+            "description": "Occurrence IDs. You can find these with the meeting get API. Multiple values separated by comma.",
             "in": "query",
             "name": "occurrence_ids",
             "type": "string"
@@ -1949,7 +2719,7 @@
     },
     "/metrics/crc": {
       "get": {
-        "description": "Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if \"from\" is set to \"2017-08-05\" and \"to\" is \"2017-10-10\" we will adjust \"from\" to \"2017-09-10\"</aside>",
+        "description": "Get CRC Port usage hour by hour for a specified time period <aside class='notice'>We will report a maximum of one month. For example, if \"from\" is set to \"2017-08-05\" and \"to\" is \"2017-10-10\" we will adjust \"from\" to \"2017-09-10\"</aside>.",
         "operationId": "dashboardCRC",
         "parameters": [
           {
@@ -2262,6 +3032,14 @@
                       "description": "Array of user objects",
                       "items": {
                         "properties": {
+                          "connection_type": {
+                            "description": "Participant connection type",
+                            "type": "string"
+                          },
+                          "data_center": {
+                            "description": "Participant data center",
+                            "type": "string"
+                          },
                           "device": {
                             "description": "Participant device",
                             "type": "string"
@@ -2301,6 +3079,10 @@
                             "description": "Participant MAC Address",
                             "type": "string"
                           },
+                          "microphone": {
+                            "description": "Participant microphone",
+                            "type": "string"
+                          },
                           "network_type": {
                             "description": "Participant network type",
                             "type": "string"
@@ -2325,9 +3107,12 @@
                             "description": "Did participant share whiteboard",
                             "type": "boolean"
                           },
+                          "speaker": {
+                            "description": "Participant speaker",
+                            "type": "string"
+                          },
                           "user_id": {
                             "description": "Participant ID",
-                            "format": "uuid",
                             "type": "string"
                           },
                           "user_name": {
@@ -2617,6 +3402,14 @@
                       "description": "Array of user objects",
                       "items": {
                         "properties": {
+                          "connection_type": {
+                            "description": "Participant connection type",
+                            "type": "string"
+                          },
+                          "data_center": {
+                            "description": "Participant data center",
+                            "type": "string"
+                          },
                           "device": {
                             "description": "Participant device",
                             "type": "string"
@@ -2656,6 +3449,10 @@
                             "description": "Participant MAC Address",
                             "type": "string"
                           },
+                          "microphone": {
+                            "description": "Participant microphone",
+                            "type": "string"
+                          },
                           "network_type": {
                             "description": "Participant network type",
                             "type": "string"
@@ -2680,9 +3477,12 @@
                             "description": "Did participant share whiteboard",
                             "type": "boolean"
                           },
+                          "speaker": {
+                            "description": "Participant speaker",
+                            "type": "string"
+                          },
                           "user_id": {
                             "description": "Participant ID",
-                            "format": "uuid",
                             "type": "string"
                           },
                           "user_name": {
@@ -2955,9 +3755,265 @@
         ]
       }
     },
+    "/past_meetings/{meetingId}/instances": {
+      "get": {
+        "description": "List of ended meeting instances",
+        "operationId": "pastMeetings",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ended meeting instances",
+            "schema": {
+              "$ref": "#/definitions/MeetingInstances"
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "List of ended meeting instances",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/past_meetings/{meetingUUID}": {
+      "get": {
+        "description": "Retrieve ended meeting details",
+        "operationId": "pastMeetingDetails",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingUUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting detail Returned",
+            "schema": {
+              "properties": {
+                "duration": {
+                  "description": "Meeting duration",
+                  "type": "integer"
+                },
+                "end_time": {
+                  "description": "Meeting end time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "host_id": {
+                  "description": "Host ID",
+                  "type": "integer"
+                },
+                "id": {
+                  "description": "Meeting ID",
+                  "type": "integer"
+                },
+                "participants_count": {
+                  "description": "Number of meeting participants",
+                  "type": "integer"
+                },
+                "start_time": {
+                  "description": "Meeting start time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "topic": {
+                  "description": "Meeting topic",
+                  "type": "string"
+                },
+                "total_minutes": {
+                  "description": "Number of meeting minutes",
+                  "type": "integer"
+                },
+                "type": {
+                  "description": "Meeting type",
+                  "type": "integer"
+                },
+                "user_email": {
+                  "description": "User email",
+                  "type": "string"
+                },
+                "user_name": {
+                  "description": "User display name",
+                  "type": "string"
+                },
+                "uuid": {
+                  "description": "Meeting UUID",
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Retrieve past meeting details",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/past_meetings/{meetingUUID}/participants": {
+      "get": {
+        "description": "Retrieve ended meeting participants",
+        "operationId": "pastMeetingParticipants",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingUUID"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/NextPageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting Participants Report Returned",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/PaginationToken"
+                },
+                {
+                  "properties": {
+                    "participants": {
+                      "description": "Array of meeting participant objects",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "description": "Participant UUID",
+                            "format": "uuid",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Participant display name",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Retrieve past meeting participants",
+        "tags": [
+          "Meetings"
+        ]
+      }
+    },
+    "/past_webinars/{webinarId}/instances": {
+      "get": {
+        "description": "List of ended webinar instances",
+        "operationId": "pastWebinars",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ended webinar instances",
+            "schema": {
+              "$ref": "#/definitions/WebinarInstances"
+            }
+          },
+          "404": {
+            "description": "Webinar not found"
+          }
+        },
+        "summary": "List of ended webinar instances",
+        "tags": [
+          "Webinars"
+        ]
+      }
+    },
+    "/report/cloud_recording": {
+      "get": {
+        "description": "Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for the most recent period of 6 months. The date gap between from and to dates should be smaller or equal to 30 days.",
+        "operationId": "reportCloudRecording",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FromDate"
+          },
+          {
+            "$ref": "#/parameters/ToDate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cloud Recording Report Returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "from": {
+                      "description": "Start date for this report",
+                      "format": "date",
+                      "type": "string"
+                    },
+                    "to": {
+                      "description": "End date for this report",
+                      "format": "date",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "cloud_recording_storage": {
+                      "description": "Array of cloud usage objects",
+                      "items": {
+                        "properties": {
+                          "date": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "free_usage": {
+                            "type": "string"
+                          },
+                          "plan_usage": {
+                            "type": "string"
+                          },
+                          "usage": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "type": "array"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "300": {
+            "description": "Only provide report in recent 6 months"
+          }
+        },
+        "summary": "Retrieve cloud recording usage report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
     "/report/daily": {
       "get": {
-        "description": "Retrieve daily report for one month, can only get daily report for recent 6 months.",
+        "description": "Retrieve daily report for one month, can only get daily report for recent 6 months",
         "operationId": "reportDaily",
         "parameters": [
           {
@@ -3069,6 +4125,22 @@
                   "description": "Number of meeting minutes",
                   "type": "integer"
                 },
+                "tracking_fields": {
+                  "description": "Tracking fields",
+                  "items": {
+                    "properties": {
+                      "field": {
+                        "description": "Tracking fields type",
+                        "type": "string"
+                      },
+                      "value": {
+                        "description": "Tracking fields value",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "description": "Meeting type",
                   "type": "integer"
@@ -3136,6 +4208,11 @@
                             "description": "Participant duration",
                             "type": "integer"
                           },
+                          "id": {
+                            "description": "Participant UUID",
+                            "format": "uuid",
+                            "type": "string"
+                          },
                           "join_time": {
                             "description": "Participant join time",
                             "format": "date-time",
@@ -3152,6 +4229,10 @@
                           },
                           "user_email": {
                             "description": "Participant email",
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "description": "Participant ID",
                             "type": "string"
                           }
                         }
@@ -3173,23 +4254,95 @@
         ]
       }
     },
+    "/report/meetings/{meetingId}/polls": {
+      "get": {
+        "description": "Retrieve ended meeting polls report",
+        "operationId": "reportMeetingPolls",
+        "parameters": [
+          {
+            "$ref": "#/parameters/MeetingId4Metrics"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meeting Polls Report Returned",
+            "schema": {
+              "properties": {
+                "id": {
+                  "description": "Meeting ID",
+                  "type": "integer"
+                },
+                "questions": {
+                  "description": "Array of Meeting question objects",
+                  "items": {
+                    "properties": {
+                      "email": {
+                        "description": "Participant email",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Participant display name",
+                        "type": "string"
+                      },
+                      "question_details": {
+                        "description": "Array of questions from user",
+                        "items": {
+                          "properties": {
+                            "answer": {
+                              "description": "Given answer",
+                              "type": "string"
+                            },
+                            "question": {
+                              "description": "Asked question",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "type": "array"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "start_time": {
+                  "description": "Meeting start time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "uuid": {
+                  "description": "Meeting UUID",
+                  "format": "uuid",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Meeting not found"
+          }
+        },
+        "summary": "Retrieve meeting polls report",
+        "tags": [
+          "Reports"
+        ]
+      }
+    },
     "/report/telephone": {
       "get": {
-        "description": "Retrieve telephone report for a specified period <aside>Toll Report API is provided for enabled 'Toll Report' option.</aside>",
+        "description": "Retrieve telephone report for a specified period <aside>Toll Report option would be removed.</aside>.",
         "operationId": "reportTelephone",
         "parameters": [
           {
+            "default": 1,
             "description": "Audio type",
             "enum": [
-              1,
-              2
+              1
             ],
             "in": "query",
             "name": "type",
             "type": "string",
             "x-enum-descriptions": [
-              "Toll-free Call-in & Call-out",
-              "Toll"
+              "Toll-free Call-in & Call-out"
             ]
           },
           {
@@ -3233,6 +4386,14 @@
                       "description": "Array of telephony objects",
                       "items": {
                         "properties": {
+                          "call_in_number": {
+                            "description": "Call in number",
+                            "type": "string"
+                          },
+                          "country_name": {
+                            "description": "Country Name",
+                            "type": "string"
+                          },
                           "dept": {
                             "description": "User department",
                             "type": "string"
@@ -3257,6 +4418,10 @@
                           "meeting_id": {
                             "description": "Meeting ID",
                             "type": "integer"
+                          },
+                          "meeting_type": {
+                            "description": "Meeting Type",
+                            "type": "string"
                           },
                           "phone_number": {
                             "description": "Telephone Number",
@@ -3567,6 +4732,22 @@
                   "description": "Number of meeting minutes",
                   "type": "integer"
                 },
+                "tracking_fields": {
+                  "description": "Tracking fields",
+                  "items": {
+                    "properties": {
+                      "field": {
+                        "description": "Tracking fields type",
+                        "type": "string"
+                      },
+                      "value": {
+                        "description": "Tracking fields value",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
                 "type": {
                   "description": "Meeting type",
                   "type": "integer"
@@ -3634,6 +4815,11 @@
                             "description": "Participant duration",
                             "type": "integer"
                           },
+                          "id": {
+                            "description": "Participant UUID",
+                            "format": "uuid",
+                            "type": "string"
+                          },
                           "join_time": {
                             "description": "Participant join time",
                             "format": "date-time",
@@ -3650,6 +4836,10 @@
                           },
                           "user_email": {
                             "description": "Participant email",
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "description": "Participant ID",
                             "type": "string"
                           }
                         }
@@ -3819,12 +5009,12 @@
     },
     "/tsp": {
       "get": {
-        "description": "List TSP dial-in numbers under account",
+        "description": "Retrieve TSP information on account level",
         "operationId": "tsp",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "TSP dial-in numbers returned",
+            "description": "TSP account detail returned",
             "schema": {
               "properties": {
                 "dial_in_numbers": {
@@ -3835,7 +5025,7 @@
                         "type": "string"
                       },
                       "number": {
-                        "description": "Dial-in number, length is less than 16.",
+                        "description": "Dial-in number, length is less than 16",
                         "type": "string"
                       },
                       "type": {
@@ -3845,14 +5035,52 @@
                   },
                   "type": "array"
                 },
+                "enable": {
+                  "description": "Enable 3rd party audio conferencing for account users",
+                  "type": "boolean"
+                },
                 "tsp_provider": {
+                  "description": "3rd party audio conferencing provider",
                   "type": "string"
                 }
               }
             }
           }
         },
-        "summary": "List TSP dial-in numbers",
+        "summary": "Retrieve account's TSP information",
+        "tags": [
+          "TSP"
+        ]
+      },
+      "patch": {
+        "description": "Update TSP information on account level",
+        "operationId": "tspUpdate",
+        "parameters": [
+          {
+            "description": "TSP Account",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "enable": {
+                  "description": "Enable 3rd party audio conferencing for account users",
+                  "type": "boolean"
+                },
+                "tsp_provider": {
+                  "description": "3rd party audio conferencing provider",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "TSP Account updated"
+          }
+        },
+        "summary": "Update account's TSP information",
         "tags": [
           "TSP"
         ]
@@ -3912,7 +5140,7 @@
             "schema": {
               "properties": {
                 "action": {
-                  "description": "Action to take for user creation",
+                  "description": "Specify how to create the new user",
                   "enum": [
                     "create",
                     "autoCreate",
@@ -3921,7 +5149,7 @@
                   ],
                   "type": "string",
                   "x-enum-descriptions": [
-                    "User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/>",
+                    "User will get an email sent from Zoom. There is a confirmation link in this email. User will then need to click this link to activate their account to the Zoom service. The user can set or change their password in Zoom. <br/>.",
                     "This action is provided for enterprise customer who has a managed domain. This feature is disabled by default because of the security risk involved in creating a user who does not belong to your domain without notifying the user. <br/>",
                     "This action is provided for API partner only. User created in this way has no password and is not able to log into the Zoom web site or client. <br/>",
                     "This action is provided for enabled \"Pre-provisioning SSO User\" option. User created in this way has no password. If it is not a basic user, will generate a Personal Vanity URL using user name (no domain) of the provisioning email. If user name or pmi is invalid or occupied, will use random number/random personal vanity URL. <br/>"
@@ -3930,7 +5158,8 @@
                 "user_info": {
                   "properties": {
                     "email": {
-                      "description": "User's email address.",
+                      "description": "User's email address",
+                      "maxLength": 128,
                       "type": "string"
                     },
                     "first_name": {
@@ -3945,6 +5174,7 @@
                     },
                     "password": {
                       "description": "User’s password. Only for \"autoCreate\" action.",
+                      "minimum": 8,
                       "type": "string"
                     },
                     "type": {
@@ -3987,11 +5217,11 @@
             "schema": {
               "properties": {
                 "email": {
-                  "description": "User's email address.",
+                  "description": "User's email address",
                   "type": "string"
                 },
                 "first_name": {
-                  "description": "User's first name.",
+                  "description": "User's first name",
                   "maxLength": 64,
                   "type": "string"
                 },
@@ -4000,7 +5230,7 @@
                   "type": "string"
                 },
                 "last_name": {
-                  "description": "User's last name.",
+                  "description": "User's last name",
                   "maxLength": 64,
                   "type": "string"
                 },
@@ -4033,11 +5263,11 @@
     },
     "/users/email": {
       "get": {
-        "description": "Check if the user email exists.",
+        "description": "Check if the user email exists",
         "operationId": "userEmail",
         "parameters": [
           {
-            "description": "User email",
+            "description": "Zoom work email",
             "in": "query",
             "name": "email",
             "required": true,
@@ -4057,6 +5287,37 @@
           }
         },
         "summary": "Check a user's email",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/vanity_name": {
+      "get": {
+        "description": "Check if the user's personal meeting room name exists",
+        "operationId": "userVanityName",
+        "parameters": [
+          {
+            "description": "Personal meeting room name",
+            "in": "query",
+            "name": "vanity_name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "properties": {
+                "existed": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Check a user's personal meeting room name",
         "tags": [
           "Users"
         ]
@@ -4087,7 +5348,7 @@
             }
           }
         },
-        "summary": "Verify a user's zpk",
+        "summary": "Verify a user's zpk (Deprecated",
         "tags": [
           "Users"
         ]
@@ -4115,6 +5376,18 @@
               "Disassociate a user",
               "Permanently delete a user"
             ]
+          },
+          {
+            "$ref": "#/parameters/TransferEmail"
+          },
+          {
+            "$ref": "#/parameters/TransferMeeting"
+          },
+          {
+            "$ref": "#/parameters/TransferWebinar"
+          },
+          {
+            "$ref": "#/parameters/TransferRecording"
           }
         ],
         "responses": {
@@ -4159,8 +5432,38 @@
                 },
                 {
                   "properties": {
+                    "account_id": {
+                      "type": "string"
+                    },
+                    "cms_user_id": {
+                      "type": "string"
+                    },
+                    "group_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "host_key": {
+                      "type": "string"
+                    },
+                    "im_group_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "personal_meeting_url": {
+                      "type": "string"
+                    },
                     "pic_url": {
                       "type": "string"
+                    },
+                    "use_pmi": {
+                      "type": "boolean"
                     },
                     "vanity_url": {
                       "type": "string"
@@ -4224,7 +5527,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Assitants deleted."
+            "description": "Assitants deleted"
           },
           "404": {
             "description": "User not found"
@@ -4326,13 +5629,54 @@
         ],
         "responses": {
           "204": {
-            "description": "Assitant deleted."
+            "description": "Assitant deleted"
           },
           "404": {
             "description": "User or Assistant not found"
           }
         },
         "summary": "Delete a user's assistant",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/{userId}/email": {
+      "put": {
+        "description": "Update a user's email",
+        "operationId": "userEmailUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          },
+          {
+            "description": "User email",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "description": "User’s email. Character length is less than 128.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "email updated"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "summary": "Update a user's email",
         "tags": [
           "Users"
         ]
@@ -4373,7 +5717,7 @@
         ]
       },
       "post": {
-        "description": "Create a meeting for a user",
+        "description": "Create a meeting for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
         "operationId": "meetingCreate",
         "parameters": [
           {
@@ -4385,7 +5729,20 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Meeting"
+              "allOf": [
+                {
+                  "properties": {
+                    "schedule_for": {
+                      "description": "Email or userId if you want to schedule meeting for another user.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/Meeting"
+                }
+              ]
             }
           }
         ],
@@ -4433,6 +5790,39 @@
         ]
       }
     },
+    "/users/{userId}/pac": {
+      "get": {
+        "description": "List user's PAC accounts",
+        "operationId": "userPACs",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PAC Account list returned",
+            "schema": {
+              "properties": {
+                "tsp_accounts": {
+                  "items": {
+                    "$ref": "#/definitions/PAC"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "summary": "List user's PAC accounts",
+        "tags": [
+          "PAC"
+        ]
+      }
+    },
     "/users/{userId}/password": {
       "put": {
         "description": "Update a user's password",
@@ -4449,7 +5839,8 @@
             "schema": {
               "properties": {
                 "password": {
-                  "description": "User’s password. Character length is less than 32.",
+                  "description": "User’s password. Character length is less than 32,",
+                  "minimum": 8,
                   "type": "string"
                 }
               },
@@ -4469,6 +5860,32 @@
           }
         },
         "summary": "Update a user's password",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/{userId}/permissions": {
+      "get": {
+        "description": "Retrieve a user's permissions",
+        "operationId": "userPermission",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User permissions returned",
+            "schema": {
+              "$ref": "#/definitions/UserPermissions"
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "summary": "Retrieve a user's permissions",
         "tags": [
           "Users"
         ]
@@ -4541,7 +5958,7 @@
           "200": {
             "description": "List of Recording objects returned",
             "schema": {
-              "$ref": "#/definitions/RecordingList"
+              "$ref": "#/definitions/RecordingMeetingList"
             }
           },
           "404": {
@@ -4551,6 +5968,83 @@
         "summary": "List all the recordings",
         "tags": [
           "Cloud Recording"
+        ]
+      }
+    },
+    "/users/{userId}/schedulers": {
+      "delete": {
+        "description": "Delete all of a user'schedulers",
+        "operationId": "userSchedulersDelete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Schedulers deleted."
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "summary": "Delete a user's schedulers",
+        "tags": [
+          "Users"
+        ]
+      },
+      "get": {
+        "description": "List a user's schedulers",
+        "operationId": "userSchedulers",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UserSchedulersList"
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        },
+        "summary": "List a user's schedulers",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/users/{userId}/schedulers/{schedulerId}": {
+      "delete": {
+        "description": "Delete one of a user's schedulers",
+        "operationId": "userSchedulerDelete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          },
+          {
+            "description": "Scheduler's ID",
+            "in": "path",
+            "name": "schedulerId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Scheduler deleted."
+          },
+          "404": {
+            "description": "User or Scheduler not found"
+          }
+        },
+        "summary": "Delete a user's scheduler",
+        "tags": [
+          "Users"
         ]
       }
     },
@@ -4595,7 +6089,7 @@
             "name": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserSettings"
+              "$ref": "#/definitions/UserSettingsUpdate"
             }
           }
         ],
@@ -4696,14 +6190,16 @@
             "description": "User token type",
             "enum": [
               "token",
-              "zpk"
+              "zpk",
+              "zak"
             ],
             "in": "query",
             "name": "type",
             "type": "string",
             "x-enum-descriptions": [
               "Used for starting meeting with client SDK.",
-              "Used for generating the start meeting url."
+              "Used for generating the start meeting url. (Deprecated)",
+              "Used for generating the start meeting url. The expiration time is two hours. For API users, the expiration time is 90 days."
             ]
           }
         ],
@@ -4901,7 +6397,7 @@
         ]
       },
       "post": {
-        "description": "Create a webinar for a user",
+        "description": "Create a webinar for a user <aside>The expiration time of start_url is two hours. But for API users, the expiration time is 90 days.</aside>",
         "operationId": "webinarCreate",
         "parameters": [
           {
@@ -4961,6 +6457,170 @@
         ]
       }
     },
+    "/v2/tracking_fields": {
+      "get": {
+        "description": "List Tracking Fields on your Zoom account.",
+        "operationId": "trackingfieldList",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of Tracking Fields returned.",
+            "schema": {
+              "$ref": "#/definitions/TrackingFieldList"
+            }
+          }
+        },
+        "summary": "List Tracking Fields.",
+        "tags": [
+          "TrackingField"
+        ]
+      },
+      "post": {
+        "description": "Create a Tracking Field on your Zoom account",
+        "operationId": "trackingfieldCreate",
+        "parameters": [
+          {
+            "description": "Tracking Field",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TrackingField"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Tracking Field created",
+            "headers": {
+              "Content-Location": {
+                "description": "Location of created tracking field",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Tracking Field ID",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/definitions/TrackingField"
+                }
+              ]
+            }
+          }
+        },
+        "summary": "Create a Tracking Field",
+        "tags": [
+          "TrackingField"
+        ]
+      }
+    },
+    "/v2/tracking_fields/{fieldId}": {
+      "delete": {
+        "description": "Delete a Tracking Field on your Zoom account",
+        "operationId": "trackingfieldDelete",
+        "parameters": [
+          {
+            "description": "The Tracking Field ID",
+            "in": "path",
+            "name": "fieldId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Tracking Field deleted"
+          },
+          "404": {
+            "description": "Tracking Field not found"
+          }
+        },
+        "summary": "Delete a Tracking Field",
+        "tags": [
+          "TrackingField"
+        ]
+      },
+      "get": {
+        "description": "Retrieve a tracking field",
+        "operationId": "trackingfieldGet",
+        "parameters": [
+          {
+            "description": "The Tracking Field ID",
+            "in": "path",
+            "name": "fieldId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tracking Field object returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Tracking Field ID",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/definitions/TrackingField"
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Tracking Field not found"
+          }
+        },
+        "summary": "Retrieve a tracking field",
+        "tags": [
+          "TrackingField"
+        ]
+      },
+      "patch": {
+        "description": "Update a Tracking Field on your Zoom account",
+        "operationId": "trackingfieldUpdate",
+        "parameters": [
+          {
+            "description": "The Tracking Field ID",
+            "in": "path",
+            "name": "fieldId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TrackingField"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Tracking Field updated"
+          },
+          "404": {
+            "description": "Tracking Field not found"
+          }
+        },
+        "summary": "Update a Tracking Field",
+        "tags": [
+          "TrackingField"
+        ]
+      }
+    },
     "/webhooks": {
       "get": {
         "description": "List webhooks for a account",
@@ -5010,7 +6670,7 @@
                 {
                   "properties": {
                     "webhook_id": {
-                      "description": "Webhook Id.",
+                      "description": "Webhook Id",
                       "type": "string"
                     }
                   }
@@ -5121,7 +6781,7 @@
                 {
                   "properties": {
                     "webhook_id": {
-                      "description": "Webhook Id.",
+                      "description": "Webhook Id",
                       "type": "string"
                     }
                   }
@@ -5401,6 +7061,235 @@
         ]
       }
     },
+    "/webinars/{webinarId}/polls": {
+      "get": {
+        "description": "List polls of a webinar",
+        "operationId": "webinarPolls",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List polls of a Webinar  returned",
+            "schema": {
+              "$ref": "#/definitions/PollList"
+            }
+          },
+          "404": {
+            "description": "Webinar not found"
+          }
+        },
+        "summary": "List a webinar's polls ",
+        "tags": [
+          "Webinars"
+        ]
+      },
+      "post": {
+        "description": "Create a poll for a webinar",
+        "operationId": "webinarPollCreate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          },
+          {
+            "description": "Webinar poll object",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Webinar Poll Created",
+            "headers": {
+              "Content-Location": {
+                "description": "Location of created Webinar Poll",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Webinar Poll ID",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the Webinar Poll",
+                      "enum": [
+                        "notstart",
+                        "started",
+                        "ended",
+                        "sharing"
+                      ],
+                      "type": "string",
+                      "x-enum-descriptions": [
+                        "Poll not start",
+                        "Poll started",
+                        "Poll ended",
+                        "Poll is sharing"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Webinar not found"
+          }
+        },
+        "summary": "Create a webinar's poll",
+        "tags": [
+          "Webinars"
+        ]
+      }
+    },
+    "/webinars/{webinarId}/polls/{pollId}": {
+      "delete": {
+        "description": "Delete a webinar's Poll",
+        "operationId": "webinarPollDelete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Webinar Poll deleted"
+          },
+          "404": {
+            "description": "Webinar Poll not found"
+          }
+        },
+        "summary": "Delete a webinar's Poll",
+        "tags": [
+          "Webinars"
+        ]
+      },
+      "get": {
+        "description": "Retrieve a webinar's poll",
+        "operationId": "webinarPollGet",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Webinar Poll object returned",
+            "schema": {
+              "allOf": [
+                {
+                  "properties": {
+                    "id": {
+                      "description": "Webinar Poll ID",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the Webinar Poll",
+                      "enum": [
+                        "notstart",
+                        "started",
+                        "ended",
+                        "sharing"
+                      ],
+                      "type": "string",
+                      "x-enum-descriptions": [
+                        "Poll not start",
+                        "Poll started",
+                        "Poll ended",
+                        "Poll is sharing"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          },
+          "404": {
+            "description": "Webinar Poll not found"
+          }
+        },
+        "summary": "Retrieve a webinar's poll",
+        "tags": [
+          "Webinars"
+        ]
+      },
+      "put": {
+        "description": "Update a webinar's poll",
+        "operationId": "webinarPollUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/WebinarId"
+          },
+          {
+            "description": "The poll ID",
+            "in": "path",
+            "name": "pollId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Webinar Poll",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Poll"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Webinar Poll Updated"
+          },
+          "404": {
+            "description": "Webinar Poll not found"
+          }
+        },
+        "summary": "Update a webinar's poll",
+        "tags": [
+          "Webinars"
+        ]
+      }
+    },
     "/webinars/{webinarId}/registrants": {
       "get": {
         "description": "List registrants for a webinar",
@@ -5580,7 +7469,7 @@
             "required": true,
             "schema": {
               "properties": {
-                "status": {
+                "action": {
                   "enum": [
                     "end"
                   ],
@@ -5610,25 +7499,26 @@
   },
   "definitions": {
     "Account": {
-      "description": "The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the Account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.",
+      "description": "The account object represents an account on zoom. The person who created the account, or who the account was created for, is referred to as the account owner. You can read more about the Zoom account structure <a href='https://developer.zoom.us/blog/a-brief-look-at-zoom-account-structures/' target='_blank'>here</a>.",
       "properties": {
         "email": {
-          "description": "User's email address.",
+          "description": "User's email address",
           "type": "string"
         },
         "first_name": {
-          "description": "User's first name.",
+          "description": "User's first name",
           "type": "string"
         },
         "last_name": {
-          "description": "User's last name.",
+          "description": "User's last name",
           "type": "string"
         },
         "options": {
           "$ref": "#/definitions/AccountOptions"
         },
         "password": {
-          "description": "User's password.",
+          "description": "User's password",
+          "minimum": 8,
           "type": "string"
         }
       },
@@ -5657,7 +7547,7 @@
       "description": "Account object in account list",
       "properties": {
         "accounts": {
-          "description": "List of Account objects.",
+          "description": "List of Account objects",
           "items": {
             "properties": {
               "account_name": {
@@ -5707,7 +7597,7 @@
       "description": "Account options object",
       "properties": {
         "meeting_connectors": {
-          "description": "Meeting Connector, multiple value separated by comma.",
+          "description": "Meeting Connector, multiple values separated by comma",
           "type": "string"
         },
         "pay_mode": {
@@ -5719,22 +7609,22 @@
           ],
           "type": "string",
           "x-enum-descriptions": [
-            "Master Account holder pays",
-            "Sub Account holders pays"
+            "Master account holder pays",
+            "Sub account holder pays"
           ]
         },
         "room_connectors": {
-          "description": "Virtual Room Connector, multiple value separated by comma.",
+          "description": "Virtual Room Connector, multiple value separated by comma",
           "type": "string"
         },
         "share_mc": {
           "default": false,
-          "description": "Enable Share Meeting Connector.",
+          "description": "Enable Share Meeting Connector",
           "type": "boolean"
         },
         "share_rc": {
           "default": false,
-          "description": "Enable Share Virtual Room Connector.",
+          "description": "Enable Share Virtual Room Connector",
           "type": "boolean"
         }
       },
@@ -5748,7 +7638,7 @@
           "type": "integer"
         },
         "type": {
-          "description": "Account plan type",
+          "description": "Account <a href=\"#plans\">plan type</a>",
           "type": "string"
         }
       },
@@ -5762,7 +7652,7 @@
           "type": "integer"
         },
         "type": {
-          "description": "Account base plan type",
+          "description": "Account base <a href=\"#plans\">plan type</a>",
           "type": "string"
         }
       },
@@ -5776,7 +7666,7 @@
       "description": "Account plan object",
       "properties": {
         "hosts": {
-          "description": "Account plan number of hosts.",
+          "description": "Account plan number of hosts",
           "type": "integer"
         },
         "type": {
@@ -5794,7 +7684,7 @@
       "description": "Account Plans object",
       "properties": {
         "plan_audio": {
-          "description": "Additional Audio Conferencing Plan type",
+          "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>",
           "properties": {
             "callout_countries": {
               "description": "Call-out countries, multiple value separated by comma",
@@ -5813,7 +7703,7 @@
               "type": "string"
             },
             "type": {
-              "description": "Additional Audio Conferencing Plan type",
+              "description": "Additional Audio Conferencing <a href=\"#plans\">plan type</a>",
               "type": "string"
             }
           },
@@ -5886,23 +7776,23 @@
       "description": "Account Settings: Notification",
       "properties": {
         "alternative_host_reminder": {
-          "description": "When an alternative host is set or removed from a meeting",
+          "description": "Notify when an alternative host is set or removed from a meeting",
           "type": "boolean"
         },
         "cancel_meeting_reminder": {
-          "description": "When a meeting is cancelled",
+          "description": "Notify host and participants when the meeting is cancelled",
           "type": "boolean"
         },
         "cloud_recording_avaliable_reminder": {
-          "description": "Allow keep recording from being automatically deleted",
+          "description": "Notify host when cloud recording is available",
           "type": "boolean"
         },
         "jbh_reminder": {
-          "description": "When attendees join meeting before host",
+          "description": "Notify host when participants join the meeting before them",
           "type": "boolean"
         },
         "low_host_count_reminder": {
-          "description": "When host licenses are running low",
+          "description": "Notify when host licenses are running low",
           "type": "boolean"
         }
       },
@@ -5913,7 +7803,7 @@
       "properties": {
         "meeting_capacity": {
           "default": 100,
-          "description": "Meeting capacity",
+          "description": "Set the maximum number of participants this user can have in a single meeting",
           "type": "integer"
         }
       },
@@ -5926,12 +7816,16 @@
           "description": "Identify guest participants in the meeting/webinar",
           "type": "boolean"
         },
+        "allow_live_streaming": {
+          "description": "Allow live streaming",
+          "type": "boolean"
+        },
         "allow_show_zoom_windows": {
-          "description": "Allow to share Zoom windows in desktop sharing",
+          "description": "Show Zoom Desktop application when sharing screen",
           "type": "boolean"
         },
         "annotation": {
-          "description": "Annotation",
+          "description": "Allow participants to use annotation tools to add information to shared screens",
           "type": "boolean"
         },
         "anonymous_question_answer": {
@@ -5939,36 +7833,44 @@
           "type": "boolean"
         },
         "attendee_on_hold": {
-          "description": "Allow host to put attendee on hold",
+          "description": "Allow hosts to temporarily remove an attendee from the meeting",
           "type": "boolean"
         },
         "attention_tracking": {
-          "description": "Attention tracking",
+          "description": "Lets the host see an indicator in the participant panel if a meeting/webinar attendee does not have Zoom in focus during screen sharing",
           "type": "boolean"
         },
         "auto_answer": {
-          "description": "Enable Auto Answer Group",
+          "description": "Enable users to see and add contacts to 'auto-answer group' in the contact list on chat. Any call from members of this group will be automatically answered.",
           "type": "boolean"
         },
         "auto_saving_chat": {
-          "description": "Auto Saving Chats",
+          "description": "Automatically save all in-meeting chats so that hosts do not need to manually save the text of the chat after the meeting starts",
           "type": "boolean"
         },
         "breakout_room": {
-          "description": "Breakout room",
+          "description": "Allow host to split meeting participants into separate, smaller rooms",
           "type": "boolean"
         },
         "chat": {
-          "description": "Chat",
+          "description": "Allow meeting participants to send a message visible to all participants",
           "type": "boolean"
         },
         "closed_caption": {
-          "description": "Closed caption",
+          "description": "Allow host to type closed captions or assign a participant/third party device to add closed captions",
           "type": "boolean"
         },
         "co_host": {
-          "description": "Co-Host",
+          "description": "Allow the host to add co-hosts",
           "type": "boolean"
+        },
+        "custom_live_streaming": {
+          "description": "Custom live streaming",
+          "type": "boolean"
+        },
+        "custom_service_instructions": {
+          "description": "Custom service instructions",
+          "type": "string"
         },
         "dscp_audio": {
           "description": "DSCP Audio",
@@ -5987,23 +7889,23 @@
           "type": "integer"
         },
         "e2e_encryption": {
-          "description": "End-to-End Encryption",
+          "description": "Require that all meetings are encrypted using AES",
           "type": "boolean"
         },
         "far_end_camera_control": {
-          "description": "Far end camera control",
+          "description": "Allow another user to take control of your camera during a meeting",
           "type": "boolean"
         },
         "feedback": {
-          "description": "Feedback to Zoom",
+          "description": "Add a Feedback tab to the Windows Settings or Mac Preferences dialog, and also enable users to provide feedback to Zoom at the end of the meeting",
           "type": "boolean"
         },
         "file_transfer": {
-          "description": "File transfer",
+          "description": "Hosts and participants can send files through the in-meeting chat",
           "type": "boolean"
         },
         "group_hd": {
-          "description": "Group HD video",
+          "description": "Activate higher quality video for host and participants. (This will use more bandwidth.)",
           "type": "boolean"
         },
         "original_audio": {
@@ -6011,36 +7913,36 @@
           "type": "boolean"
         },
         "p2p_connetion": {
-          "description": "Peer to Peer connection while only 2 people in a meeting",
+          "description": "Peer to Peer connection while only 2 people are in a meeting",
           "type": "boolean"
         },
         "p2p_ports": {
-          "description": "Listening ports range",
+          "description": "P2P listening ports range",
           "type": "boolean"
         },
         "polling": {
-          "description": "Polling",
+          "description": "Add 'Polls' to the meeting controls.",
           "type": "boolean"
         },
         "ports_range": {
           "default": "",
-          "description": "Listening ports range, separated by comma (ex 55,56). The ports range is between 1 to 65535",
+          "description": "Listening ports range, separated by comma (ex 55,56). The ports range must be between 1 to 65535.",
           "type": "string"
         },
         "post_meeting_feedback": {
-          "description": "Display end-of-meeting experience feedback survey",
+          "description": "Display a thumbs up/down survey at the end of each meeting",
           "type": "boolean"
         },
         "private_chat": {
-          "description": "Private Chat",
+          "description": "Allow meeting participants to send a private 1:1 message to another participants",
           "type": "boolean"
         },
         "remote_control": {
-          "description": "Remote control",
+          "description": "Allow users to request remote control",
           "type": "boolean"
         },
         "screen_sharing": {
-          "description": "Screen sharing",
+          "description": "Allow screen sharing",
           "type": "boolean"
         },
         "sending_default_email_invites": {
@@ -6060,7 +7962,7 @@
           "type": "boolean"
         },
         "virtual_background": {
-          "description": "Virtual background",
+          "description": "Allow users to replace their background with any selected image. Choose or upload an image in the Zoom Desktop application settings.",
           "type": "boolean"
         },
         "watermark": {
@@ -6072,7 +7974,11 @@
           "type": "boolean"
         },
         "whiteboard": {
-          "description": "Whiteboard",
+          "description": "Allow participants to share a whiteboard that includes annotation tools",
+          "type": "boolean"
+        },
+        "workplace_by_facebook": {
+          "description": "Workplace by facebook",
           "type": "boolean"
         }
       },
@@ -6082,27 +7988,27 @@
       "description": "Account Settings: Integration",
       "properties": {
         "box": {
-          "description": "Box",
+          "description": "Enables users who join a meeting from their mobile device to share content from their Box account",
           "type": "boolean"
         },
         "dropbox": {
-          "description": "Dropbox",
+          "description": "Enables users who join a meeting from their mobile device to share content from their Dropbox account",
           "type": "boolean"
         },
         "google_calendar": {
-          "description": "Google Calendar",
+          "description": "Enables meetings to be scheduled using Google Calendars",
           "type": "boolean"
         },
         "google_drive": {
-          "description": "Google Drive",
+          "description": "Enables users who join a meeting from their mobile device to share content from their Google Drive",
           "type": "boolean"
         },
         "kubi": {
-          "description": "Kubi",
+          "description": "Enables users to control a connected Kubi device from within a Zoom meeting",
           "type": "boolean"
         },
         "microsoft_one_drive": {
-          "description": "Microsoft OneDrive",
+          "description": "Enables users who join a meeting from their mobile device to share content from their Microsoft OneDrive account",
           "type": "boolean"
         }
       },
@@ -6112,19 +8018,19 @@
       "description": "Account Settings: Recording",
       "properties": {
         "account_user_access_recording": {
-          "description": "Only users on my account can access cloud recordings",
+          "description": "Cloud recordings are only accessible to account members. People outside of your organization cannot open links that provide access to cloud recordings.",
           "type": "boolean"
         },
         "auto_delete_cmr": {
-          "description": "Auto delete cloud recordings after days",
+          "description": "Allow Zoom to automatically delete recordings permanently after a specified number of days",
           "type": "boolean"
         },
         "auto_delete_cmr_days": {
-          "description": "A specified number of days of auto delete cloud recordings",
+          "description": "When `auto_delete_cmr` is 'true' this value will set the number of days before auto deletion of cloud recordings",
           "type": "integer"
         },
         "auto_recording": {
-          "description": "Automatic recording",
+          "description": "Record meetings automatically as they start",
           "enum": [
             "local",
             "cloud",
@@ -6138,7 +8044,7 @@
           ]
         },
         "cloud_recording": {
-          "description": "Cloud recording",
+          "description": "Allow hosts to record and save the meeting in the cloud",
           "type": "boolean"
         },
         "cloud_recording_download": {
@@ -6150,7 +8056,7 @@
           "type": "boolean"
         },
         "local_recording": {
-          "description": "Local recording",
+          "description": "Allow hosts and participants to record the meeting to a local file",
           "type": "boolean"
         },
         "record_audio_file": {
@@ -6158,15 +8064,15 @@
           "type": "boolean"
         },
         "record_gallery_view": {
-          "description": "Record the gallery view",
+          "description": "Record gallery view with shared screen",
           "type": "boolean"
         },
         "record_speaker_view": {
-          "description": "Record the active speaker view",
+          "description": "Record active speaker with shared screen",
           "type": "boolean"
         },
         "recording_audio_transcript": {
-          "description": "Audio transcript",
+          "description": "Automatically transcribe the audio of the meeting or webinar to the cloud",
           "type": "boolean"
         },
         "save_chat_text": {
@@ -6174,7 +8080,7 @@
           "type": "boolean"
         },
         "show_timestamp": {
-          "description": "Show timestamp on video",
+          "description": "Add a timestamp to the recording",
           "type": "boolean"
         }
       },
@@ -6185,7 +8091,7 @@
       "properties": {
         "audio_type": {
           "default": "both",
-          "description": "Audio Type",
+          "description": "Determine how participants can join the audio portion of the meeting",
           "enum": [
             "both",
             "telephony",
@@ -6201,7 +8107,7 @@
           ]
         },
         "enforce_login": {
-          "description": "Only signed-in users can join meetings",
+          "description": "Only signed-in (Zoom users) users can join meetings",
           "type": "boolean"
         },
         "enforce_login_domains": {
@@ -6209,7 +8115,7 @@
           "type": "string"
         },
         "enforce_login_with_domains": {
-          "description": "Only signed-in users with a specified domains can join meetings",
+          "description": "Only signed-in users with a specific domain can join meetings",
           "type": "boolean"
         },
         "force_pmi_jbh_password": {
@@ -6217,11 +8123,11 @@
           "type": "boolean"
         },
         "host_video": {
-          "description": "Host Video",
+          "description": "Start meetings with host video on",
           "type": "boolean"
         },
         "join_before_host": {
-          "description": "Join Before Host",
+          "description": "Allow participants to join the meeting before the host arrives",
           "type": "boolean"
         },
         "not_store_meeting_topic": {
@@ -6229,7 +8135,7 @@
           "type": "boolean"
         },
         "participant_video": {
-          "description": "Participants Video",
+          "description": "Start meetings with participant video on. Participants can change this during the meeting.",
           "type": "boolean"
         }
       },
@@ -6261,7 +8167,7 @@
           "type": "string"
         },
         "third_party_audio": {
-          "description": "3rd party audio conference",
+          "description": "Users can join the meeting using the existing 3rd party audio configuration",
           "type": "boolean"
         }
       },
@@ -6271,7 +8177,7 @@
       "description": "Account Settings: Zoom Rooms",
       "properties": {
         "auto_start_stop_scheduled_meetings": {
-          "description": "Automatic start/stop scheduled meetings",
+          "description": "Automatic start/stop for scheduled meetings",
           "type": "boolean"
         },
         "cmr_for_instant_meeting": {
@@ -6317,43 +8223,43 @@
       "description": "Billing Contact object",
       "properties": {
         "address": {
-          "description": "Billing Contact's address.",
+          "description": "Billing Contact's address",
           "type": "string"
         },
         "apt": {
-          "description": "Billing Contact's apartment/suite.",
+          "description": "Billing Contact's apartment/suite",
           "type": "string"
         },
         "city": {
-          "description": "Billing Contact's city.",
+          "description": "Billing Contact's city",
           "type": "string"
         },
         "country": {
-          "description": "Billing Contact's country.",
+          "description": "Billing Contact's country",
           "type": "string"
         },
         "email": {
-          "description": "Billing Contact's email address.",
+          "description": "Billing Contact's email address",
           "type": "string"
         },
         "first_name": {
-          "description": "Billing Contact's first name.",
+          "description": "Billing Contact's first name",
           "type": "string"
         },
         "last_name": {
-          "description": "Billing Contact's last name.",
+          "description": "Billing Contact's last name",
           "type": "string"
         },
         "phone_number": {
-          "description": "Billing Contact's phone number.",
+          "description": "Billing Contact's phone number",
           "type": "string"
         },
         "state": {
-          "description": "Billing Contact's state.",
+          "description": "Billing Contact's state",
           "type": "string"
         },
         "zip": {
-          "description": "Billing Contact's zip/postal code.",
+          "description": "Billing Contact's zip/postal code",
           "type": "string"
         }
       },
@@ -6363,43 +8269,43 @@
       "description": "Billing Contact object",
       "properties": {
         "address": {
-          "description": "Billing Contact's address.",
+          "description": "Billing Contact's address",
           "type": "string"
         },
         "apt": {
-          "description": "Billing Contact's apartment/suite.",
+          "description": "Billing Contact's apartment/suite",
           "type": "string"
         },
         "city": {
-          "description": "Billing Contact's city.",
+          "description": "Billing Contact's city",
           "type": "string"
         },
         "country": {
-          "description": "Billing Contact's country.",
+          "description": "Billing Contact's country",
           "type": "string"
         },
         "email": {
-          "description": "Billing Contact's email address.",
+          "description": "Billing Contact's email address",
           "type": "string"
         },
         "first_name": {
-          "description": "Billing Contact's first name.",
+          "description": "Billing Contact's first name",
           "type": "string"
         },
         "last_name": {
-          "description": "Billing Contact's last name.",
+          "description": "Billing Contact's last name",
           "type": "string"
         },
         "phone_number": {
-          "description": "Billing Contact's phone number.",
+          "description": "Billing Contact's phone number",
           "type": "string"
         },
         "state": {
-          "description": "Billing Contact's state.",
+          "description": "Billing Contact's state",
           "type": "string"
         },
         "zip": {
-          "description": "Billing Contact's zip/postal code.",
+          "description": "Billing Contact's zip/postal code",
           "type": "string"
         }
       },
@@ -6444,6 +8350,117 @@
       },
       "type": "object"
     },
+    "Device": {
+      "description": "The H.323/SIP device object.",
+      "properties": {
+        "encryption": {
+          "description": "Device encryption",
+          "enum": [
+            "auto",
+            "yes",
+            "no"
+          ],
+          "type": "string",
+          "x-enum-descriptions": [
+            "auto",
+            "yes",
+            "no"
+          ]
+        },
+        "ip": {
+          "description": "Device Ip",
+          "type": "string"
+        },
+        "name": {
+          "description": "Device name",
+          "maxLength": 64,
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Device protocol",
+          "enum": [
+            "H.323",
+            "SIP"
+          ],
+          "type": "string",
+          "x-enum-descriptions": [
+            "H.323",
+            "SIP"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "protocol",
+        "ip",
+        "encryption"
+      ],
+      "title": "The H.323/SIP device object.",
+      "type": "object"
+    },
+    "DeviceList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Pagination"
+        },
+        {
+          "properties": {
+            "devices": {
+              "description": "List of H.323/SIP Device objects",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "description": "Device ID",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/Device"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "List of H.323/SIP Devices",
+      "title": "H.323/SIP Device List",
+      "type": "object"
+    },
+    "DomainsList": {
+      "description": "List of Managed Domains",
+      "properties": {
+        "domains": {
+          "description": "List of Managed Domains objects",
+          "items": {
+            "allOf": [
+              {
+                "properties": {
+                  "domain": {
+                    "description": "Domain Name",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Domain Status",
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "total_records": {
+          "description": "Total records",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Group": {
       "description": "Group object",
       "properties": {
@@ -6452,7 +8469,7 @@
           "type": "string"
         },
         "total_members": {
-          "description": "Total number of members in this group.",
+          "description": "Total number of members in this group",
           "type": "integer"
         }
       },
@@ -6462,7 +8479,7 @@
       "description": "List of Groups",
       "properties": {
         "groups": {
-          "description": "List of Group objects.",
+          "description": "List of Group objects",
           "items": {
             "allOf": [
               {
@@ -6521,7 +8538,7 @@
         {
           "properties": {
             "members": {
-              "description": "List of Group member objects.",
+              "description": "List of Group member objects",
               "items": {
                 "$ref": "#/definitions/GroupMember"
               },
@@ -6563,7 +8580,7 @@
               ],
               "type": "string",
               "x-enum-descriptions": [
-                "Only members can see the group automatically. Other people can search members in the group",
+                "Only members can see the group automatically. Other people can search members in the group.",
                 "All people in the account can see the group and members automatically",
                 "Nobody can see the group or search members except the members in the group"
               ]
@@ -6582,7 +8599,7 @@
         {
           "properties": {
             "groups": {
-              "description": "List of Group objects.",
+              "description": "List of Group objects",
               "items": {
                 "allOf": [
                   {
@@ -6667,6 +8684,22 @@
           "description": "Meeting topic",
           "type": "string"
         },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        },
         "type": {
           "default": 2,
           "description": "Meeting Type",
@@ -6687,6 +8720,50 @@
       },
       "type": "object"
     },
+    "MeetingInstances": {
+      "allOf": [
+        {
+          "properties": {
+            "meetings": {
+              "description": "List of ended meeting instances.",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "start_time": {
+                        "description": "Start time",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "uuid": {
+                        "description": "MeetingUUID",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "List of Meetings",
+      "title": "Meeting instances",
+      "type": "object"
+    },
+    "MeetingInvitation": {
+      "description": "Meeting invitation details",
+      "properties": {
+        "invitation": {
+          "description": "Meeting invitation",
+          "type": "string"
+        }
+      },
+      "title": "Meeting Invitation",
+      "type": "object"
+    },
     "MeetingList": {
       "allOf": [
         {
@@ -6695,7 +8772,7 @@
         {
           "properties": {
             "meetings": {
-              "description": "List of Meeting objects.",
+              "description": "List of Meeting objects",
               "items": {
                 "allOf": [
                   {
@@ -6766,6 +8843,64 @@
       ],
       "description": "List of Meetings",
       "title": "Group List",
+      "type": "object"
+    },
+    "MeetingLiveStream": {
+      "description": "Meeting Live Stream",
+      "properties": {
+        "page_url": {
+          "description": "View URL.",
+          "maxLength": 1024,
+          "type": "string"
+        },
+        "stream_key": {
+          "description": "Stream name/key.",
+          "maxLength": 512,
+          "type": "string"
+        },
+        "stream_url": {
+          "description": "Server URL.",
+          "maxLength": 1024,
+          "type": "string"
+        }
+      },
+      "required": [
+        "stream_url",
+        "stream_key"
+      ],
+      "type": "object"
+    },
+    "MeetingLiveStreamStatus": {
+      "description": "Meeting Live Stream Status",
+      "properties": {
+        "action": {
+          "description": "Action",
+          "enum": [
+            "start",
+            "stop"
+          ],
+          "type": "string",
+          "x-enum-descriptions": [
+            "Start a meeting live stream.",
+            "Stop a meeting live stream."
+          ]
+        },
+        "settings": {
+          "properties": {
+            "active_speaker_name": {
+              "description": "Live stream active speaker name.",
+              "type": "boolean"
+            },
+            "display_name": {
+              "description": "Live stream display name.",
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
       "type": "object"
     },
     "MeetingMetric": {
@@ -6846,6 +8981,16 @@
       "title": "Meeting Metrics",
       "type": "object"
     },
+    "MeetingRecordingRegistrantList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RecordingRegistrantList"
+        }
+      ],
+      "description": "List of meeting recording registrant",
+      "title": "Registration List",
+      "type": "object"
+    },
     "MeetingRegistrant": {
       "allOf": [
         {
@@ -6888,7 +9033,7 @@
         },
         "audio": {
           "default": "both",
-          "description": "Meeting audio options",
+          "description": "Determine how participants can join the audio portion of the meeting",
           "enum": [
             "both",
             "telephony",
@@ -6915,6 +9060,11 @@
             "No Recording"
           ]
         },
+        "close_registration": {
+          "default": false,
+          "description": "Close registration after event date",
+          "type": "boolean"
+        },
         "cn_meeting": {
           "default": false,
           "description": "Host meeting in China",
@@ -6929,7 +9079,7 @@
           "type": "string"
         },
         "host_video": {
-          "description": "Start video when host join meeting",
+          "description": "Start video when host joins meeting",
           "type": "boolean"
         },
         "in_meeting": {
@@ -6939,7 +9089,7 @@
         },
         "join_before_host": {
           "default": false,
-          "description": "Join meeting before host start the meeting. Only used for scheduled or recurring meetings",
+          "description": "Allow participants to join the meeting before the host starts the meeting. Only used for scheduled or recurring meetings.",
           "type": "boolean"
         },
         "mute_upon_entry": {
@@ -6968,12 +9118,17 @@
         },
         "use_pmi": {
           "default": false,
-          "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time",
+          "description": "Use Personal Meeting ID. Only used for scheduled meetings and recurring meetings with no fixed time.",
+          "type": "boolean"
+        },
+        "waiting_room": {
+          "default": false,
+          "description": "Enable waiting room",
           "type": "boolean"
         },
         "watermark": {
           "default": false,
-          "description": "Enable watermark when viewing the shared screen",
+          "description": "Add watermark when viewing shared screen",
           "type": "boolean"
         }
       },
@@ -7018,26 +9173,85 @@
       },
       "type": "array"
     },
+    "PAC": {
+      "description": "List of PAC Accounts",
+      "properties": {
+        "conference_id": {
+          "description": "Conference ID",
+          "type": "integer"
+        },
+        "dedicated_dial_in_number": {
+          "description": "List of Dedicated Dial In Numbers",
+          "items": {
+            "properties": {
+              "country": {
+                "description": "Country Code",
+                "type": "string"
+              },
+              "number": {
+                "description": "Dial-in number, length is less than 16",
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "number",
+            "country"
+          ],
+          "type": "array"
+        },
+        "global_dial_in_numbers": {
+          "description": "List of Global Dial In Numbers",
+          "items": {
+            "properties": {
+              "country": {
+                "description": "Country Code",
+                "type": "string"
+              },
+              "number": {
+                "description": "Dial-in number, length is less than 16",
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "number",
+            "country"
+          ],
+          "type": "array"
+        },
+        "listen_only_password": {
+          "description": "Listen-Only Password, numeric value, length is less than 6",
+          "type": "string"
+        },
+        "participant_password": {
+          "description": "Participant Password, numeric value, length is less than 6",
+          "type": "string"
+        }
+      },
+      "title": "PAC Accounts List",
+      "type": "object"
+    },
     "Pagination": {
       "description": "Pagination Object",
       "properties": {
         "page_count": {
-          "description": "The number of items returned on this page.",
+          "description": "The number of items returned on this page",
           "type": "integer"
         },
         "page_number": {
           "default": 1,
-          "description": "The page number of current results.",
+          "description": "The page number of current results",
           "type": "integer"
         },
         "page_size": {
           "default": 30,
-          "description": "The amount of records returns within a single API call.",
+          "description": "The number of records returned within a single API call",
           "maximum": 300,
           "type": "integer"
         },
         "total_records": {
-          "description": "The number of all records available across pages.",
+          "description": "The number of all records available across pages",
           "type": "integer"
         }
       },
@@ -7047,21 +9261,37 @@
       "description": "Pagination Object",
       "properties": {
         "next_page_token": {
-          "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+          "description": "Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.",
           "type": "string"
         },
         "page_count": {
-          "description": "The number of items returned on this page.",
+          "description": "The number of items returned on this page",
           "type": "integer"
+        },
+        "page_size": {
+          "default": 30,
+          "description": "The number of records returned within a single API call.",
+          "maximum": 300,
+          "type": "integer"
+        },
+        "total_records": {
+          "description": "The number of all records available across pages",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "PaginationToken4IMChat": {
+      "description": "Pagination Object",
+      "properties": {
+        "next_page_token": {
+          "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+          "type": "string"
         },
         "page_size": {
           "default": 30,
           "description": "The amount of records returns within a single API call. ",
           "maximum": 300,
-          "type": "integer"
-        },
-        "total_records": {
-          "description": "The number of all records available across pages.",
           "type": "integer"
         }
       },
@@ -7071,22 +9301,22 @@
       "description": "Pagination Object",
       "properties": {
         "next_page_token": {
-          "description": "Next page token, used to paginate through large result sets. A next page token will be returned whenever the set of available result list exceeds page size. The expiration period is 15 minutes.",
+          "description": "Next page token is used to paginate through large result sets. A next page token will be returned whenever the set of available results exceed the current page size. The expiration period for this token is 15 minutes.",
           "type": "string"
         },
         "page_count": {
-          "description": "The number of items returned on this page.",
+          "description": "The number of items returned on this page",
           "format": "int64",
           "type": "integer"
         },
         "page_size": {
           "default": 1,
-          "description": "The number of items per page.",
+          "description": "The number of items per page",
           "maximum": 10,
           "type": "integer"
         },
         "total_records": {
-          "description": "The number of all records available across pages.",
+          "description": "The number of all records available across pages",
           "format": "int64",
           "type": "integer"
         }
@@ -7111,7 +9341,7 @@
       "description": "List of Panelist",
       "properties": {
         "panelists": {
-          "description": "List of Panelist objects.",
+          "description": "List of Panelist objects",
           "items": {
             "allOf": [
               {
@@ -7138,11 +9368,103 @@
           "type": "array"
         },
         "total_records": {
-          "description": "Total records.",
+          "description": "Total records",
           "type": "integer"
         }
       },
       "title": "Panelist List",
+      "type": "object"
+    },
+    "Poll": {
+      "description": "Poll",
+      "properties": {
+        "questions": {
+          "description": "Array of Polls",
+          "items": {
+            "properties": {
+              "answers": {
+                "description": "Question answers",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "Question name",
+                "type": "string"
+              },
+              "type": {
+                "description": "Question type",
+                "enum": [
+                  "single",
+                  "multiple"
+                ],
+                "type": "string",
+                "x-enum-descriptions": [
+                  "single answer",
+                  "multiple answer"
+                ]
+              }
+            }
+          },
+          "type": "array"
+        },
+        "title": {
+          "description": "Poll Title",
+          "type": "string"
+        }
+      },
+      "title": "Poll",
+      "type": "object"
+    },
+    "PollList": {
+      "allOf": [
+        {
+          "properties": {
+            "polls": {
+              "description": "Array of Polls",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "description": "ID of Poll",
+                        "type": "string"
+                      },
+                      "status": {
+                        "description": "Status of Poll",
+                        "enum": [
+                          "notstart",
+                          "started",
+                          "ended",
+                          "sharing"
+                        ],
+                        "type": "string",
+                        "x-enum-descriptions": [
+                          "Poll not start",
+                          "Poll started",
+                          "Poll ended",
+                          "Poll is sharing"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/Poll"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            "total_records": {
+              "description": "The number of all records available across pages",
+              "type": "integer"
+            }
+          }
+        }
+      ],
+      "description": "Poll List",
+      "title": "Poll List",
       "type": "object"
     },
     "QOSAudio": {
@@ -7323,6 +9645,79 @@
       "type": "object"
     },
     "Recording": {
+      "description": "Recording file Object",
+      "properties": {
+        "deleted_time": {
+          "description": "The recording delete time. Response in trash query.",
+          "type": "string"
+        },
+        "download_url": {
+          "description": "The recording download url. Response in general query.",
+          "type": "string"
+        },
+        "file_size": {
+          "description": "The recording file size.",
+          "type": "number"
+        },
+        "file_type": {
+          "description": "The recording file type.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The recording file ID.Response in general query.",
+          "type": "string"
+        },
+        "meeting_id": {
+          "description": "The meeting ID. ",
+          "type": "string"
+        },
+        "play_url": {
+          "description": "The recording file play url. Response in general query.",
+          "type": "string"
+        },
+        "recording_end": {
+          "description": "The recording end time. Response in general query.",
+          "type": "string"
+        },
+        "recording_start": {
+          "description": "The recording start time.",
+          "type": "string"
+        },
+        "recording_type": {
+          "description": "The recording file type.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The recording status. Response in general query.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RecordingList": {
+      "allOf": [
+        {
+          "properties": {
+            "recording_files": {
+              "description": "List of Recording file",
+              "items": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/Recording"
+                  }
+                ]
+              },
+              "title": "Recording file List",
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "List of Recording file",
+      "title": "Recording file List",
+      "type": "object"
+    },
+    "RecordingMeeting": {
       "allOf": [
         {
           "properties": {
@@ -7366,82 +9761,13 @@
           }
         },
         {
-          "$ref": "#/definitions/RecordingFileList"
+          "$ref": "#/definitions/RecordingList"
         }
       ],
       "description": "The recording meeting object",
       "type": "object"
     },
-    "RecordingFile": {
-      "description": "RecordingFile Object",
-      "properties": {
-        "deleted_time": {
-          "description": "The recording delete time.Response in trash query",
-          "type": "string"
-        },
-        "download_url": {
-          "description": "The recording download url.Response in general query",
-          "type": "string"
-        },
-        "file_size": {
-          "description": "The recording file size.",
-          "type": "number"
-        },
-        "file_type": {
-          "description": "The recording file type.",
-          "type": "string"
-        },
-        "id": {
-          "description": "The recording file ID.Response in general query",
-          "type": "string"
-        },
-        "meeting_id": {
-          "description": "The meeting ID. ",
-          "type": "string"
-        },
-        "play_url": {
-          "description": "The recording file play url.Response in general query",
-          "type": "string"
-        },
-        "recording_end": {
-          "description": "The recording end time.Response in general query",
-          "type": "string"
-        },
-        "recording_start": {
-          "description": "The recording start time.",
-          "type": "string"
-        },
-        "status": {
-          "description": "The recording status.Response in general query",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "RecordingFileList": {
-      "allOf": [
-        {
-          "properties": {
-            "recording_files": {
-              "description": "List of Recording file",
-              "items": {
-                "allOf": [
-                  {
-                    "$ref": "#/definitions/RecordingFile"
-                  }
-                ]
-              },
-              "title": "Recording file List",
-              "type": "array"
-            }
-          }
-        }
-      ],
-      "description": "List of Recording file",
-      "title": "Recording file List",
-      "type": "object"
-    },
-    "RecordingList": {
+    "RecordingMeetingList": {
       "allOf": [
         {
           "$ref": "#/definitions/DateTime"
@@ -7456,7 +9782,7 @@
               "items": {
                 "allOf": [
                   {
-                    "$ref": "#/definitions/Recording"
+                    "$ref": "#/definitions/RecordingMeeting"
                   }
                 ]
               },
@@ -7470,26 +9796,144 @@
       "title": "Recording List",
       "type": "object"
     },
+    "RecordingRegistrantList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Pagination"
+        },
+        {
+          "properties": {
+            "registrants": {
+              "description": "List of Registrant objects",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/MeetingRegistrant"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "List of Recording Registration",
+      "title": "Recording Registration List",
+      "type": "object"
+    },
+    "RecordingRegistrantStatus": {
+      "description": "Registrant Status",
+      "properties": {
+        "action": {
+          "enum": [
+            "approve",
+            "deny"
+          ],
+          "type": "string",
+          "x-enum-descriptions": [
+            "Approve registrant",
+            "Deny registrant"
+          ]
+        },
+        "registrants": {
+          "description": "List of registrants",
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "maximum": 30,
+          "type": "array"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "type": "object"
+    },
+    "RecordingSettings": {
+      "properties": {
+        "approval_type": {
+          "description": "Approval type",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "type": "integer",
+          "x-enum-descriptions": [
+            "Registrants can watch the recording directly after registration",
+            "Registrants will receive emails then watch the recording after you approve the registration",
+            "Disabled"
+          ]
+        },
+        "on_demand": {
+          "description": "Registration required",
+          "type": "boolean"
+        },
+        "password": {
+          "description": "Password protect",
+          "type": "string"
+        },
+        "send_email_to_host": {
+          "description": "Send an email to host when someone registers",
+          "type": "boolean"
+        },
+        "share_recording": {
+          "description": "Determine if the meeting recording is shared",
+          "enum": [
+            "publicly",
+            "internally",
+            "none"
+          ],
+          "type": "string",
+          "x-enum-descriptions": [
+            "Publicly",
+            "Internally(account members only)",
+            "None"
+          ]
+        },
+        "show_social_share_buttons": {
+          "description": "Show social share buttons on registration page",
+          "type": "boolean"
+        },
+        "viewer_download": {
+          "description": "Host video",
+          "type": "boolean"
+        }
+      },
+      "title": "Recording settings",
+      "type": "object"
+    },
     "Recurrence": {
       "description": "Recurrence object",
       "properties": {
         "end_date_time": {
-          "description": "Recurrence Meeting End Date. Should be UTC time, such as 2017-11-25T12:00:00Z.",
+          "description": "Select a date the meeting will occur before it is canceled.. Should be UTC time, such as 2017-11-25T12:00:00Z. (Cannot be used with \"end_times\".)",
           "format": "date-time",
           "type": "string"
         },
         "end_times": {
           "default": 1,
-          "description": "Recurrence Meeting End occurrences times",
+          "description": "Select how many times the meeting will occur before it is canceled. (Cannot be used with \"end_date_time\".)",
           "maximum": 50,
           "type": "integer"
         },
         "monthly_day": {
-          "description": "Recurrence Meeting Occurs on a month day. The value range is from 1 to 31",
+          "description": "Day of the month for the meeting to be scheduled. The value range is from 1 to 31.",
           "type": "integer"
         },
         "monthly_week": {
-          "description": "Recurrence Meeting Occurs on the week of a month.",
+          "description": "Week for which the meeting should recur each month,",
           "enum": [
             -1,
             1,
@@ -7507,7 +9951,7 @@
           ]
         },
         "monthly_week_day": {
-          "description": "Recurrence Meeting Occurs on the week day of a month",
+          "description": "Day for which the meeting should recur each month",
           "enum": [
             1,
             2,
@@ -7529,7 +9973,7 @@
           ]
         },
         "repeat_interval": {
-          "description": "Recurrence meeting repeat interval. For a Daily Meeting, max of 90. For a Weekly Meeting, max of 12. For a Monthly Meeting, max of 3.",
+          "description": "At which interval should the meeting repeat? For a daily meeting, max of 90 days. For a weekly meeting, max of 12 weeks. For a monthly meeting, max of 3 months.",
           "type": "integer"
         },
         "type": {
@@ -7547,7 +9991,7 @@
           ]
         },
         "weekly_days": {
-          "description": "Recurrence Meeting Occurs on week days, multiple value separated by comma",
+          "description": "Days of the week the meeting should repeat, multiple values separated by comma",
           "enum": [
             1,
             2,
@@ -7679,12 +10123,12 @@
     "RegistrantList": {
       "allOf": [
         {
-          "$ref": "#/definitions/PaginationToken"
+          "$ref": "#/definitions/Pagination"
         },
         {
           "properties": {
             "registrants": {
-              "description": "List of Registrant objects.",
+              "description": "List of Registrant objects",
               "items": {
                 "allOf": [
                   {
@@ -7701,6 +10145,10 @@
                     "properties": {
                       "create_time": {
                         "format": "date-time",
+                        "type": "string"
+                      },
+                      "join_url": {
+                        "format": "string",
                         "type": "string"
                       },
                       "status": {
@@ -7764,7 +10212,7 @@
           "type": "string"
         },
         "duration": {
-          "description": "Meeting duration (minutes). Used for scheduled meeting only.",
+          "description": "Meeting duration (minutes). Used for scheduled meetings only",
           "type": "integer"
         },
         "password": {
@@ -7778,17 +10226,33 @@
           "$ref": "#/definitions/MeetingSettings"
         },
         "start_time": {
-          "description": "Meeting start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.",
+          "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.",
           "format": "date-time",
           "type": "string"
         },
         "timezone": {
-          "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.",
+          "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.",
           "type": "string"
         },
         "topic": {
           "description": "Meeting topic",
           "type": "string"
+        },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
         },
         "type": {
           "default": 2,
@@ -7818,7 +10282,7 @@
           "type": "string"
         },
         "duration": {
-          "description": "Meeting duration (minutes). Used for scheduled meeting only.",
+          "description": "Meeting duration (minutes). Used for scheduled meetings only",
           "type": "integer"
         },
         "password": {
@@ -7844,17 +10308,33 @@
           ]
         },
         "start_time": {
-          "description": "Meeting start time, in the format \"yyyy-MM-dd'T'HH:mm:ss'Z'\", should be GMT time. In the format \"yyyy-MM-dd'T'HH:mm:ss\", should be local time, need to specify the time zone. Only used for scheduled meeting and recurring meeting with fixed time.",
+          "description": "Meeting start time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss'Z'\", always use GMT time. When using a format like \"yyyy-MM-dd'T'HH:mm:ss\", you should use local time and you will need to specify the time zone. Only used for scheduled meetings and recurring meetings with fixed time.",
           "format": "date-time",
           "type": "string"
         },
         "timezone": {
-          "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled meeting only. For this parameter value please refer to the id value in [timezone](#timezones) list.",
+          "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.",
           "type": "string"
         },
         "topic": {
           "description": "Meeting topic",
           "type": "string"
+        },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
         },
         "type": {
           "default": 2,
@@ -7884,7 +10364,7 @@
           "type": "string"
         },
         "duration": {
-          "description": "Webinar duration (minutes). Used for scheduled webinar only.",
+          "description": "Webinar duration (minutes). Used for scheduled webinar only",
           "type": "integer"
         },
         "password": {
@@ -7903,12 +10383,28 @@
           "type": "string"
         },
         "timezone": {
-          "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.",
+          "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.",
           "type": "string"
         },
         "topic": {
           "description": "Webinar topic",
           "type": "string"
+        },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
         },
         "type": {
           "default": 5,
@@ -7936,7 +10432,7 @@
           "type": "string"
         },
         "duration": {
-          "description": "Webinar duration (minutes). Used for scheduled webinar only.",
+          "description": "Webinar duration (minutes). Used for scheduled webinar only",
           "type": "integer"
         },
         "password": {
@@ -7967,12 +10463,28 @@
           "type": "string"
         },
         "timezone": {
-          "description": "Timezone to format start_time, like \"America/Los_Angeles\". For scheduled webinar only. For this parameter value please refer to the id value in [timezone](#timezones) list.",
+          "description": "Timezone to format start_time. For example, \"America/Los_Angeles\". For scheduled meetings only. Please reference our [timezone](#timezones) list for supported timezones and their formats.",
           "type": "string"
         },
         "topic": {
           "description": "Webinar topic",
           "type": "string"
+        },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
         },
         "type": {
           "default": 5,
@@ -7993,32 +10505,59 @@
       "type": "object"
     },
     "TSP": {
-      "description": "TSP Account object",
+      "description": "List of TSP Accounts",
       "properties": {
         "conference_code": {
           "description": "Conference code, numeric value, length is less than 16.",
+          "maxLength": 16,
+          "minLength": 1,
           "type": "string"
         },
         "dial_in_numbers": {
-          "description": "Dial In Numbers object",
-          "properties": {
-            "code": {
-              "description": "Country Code",
-              "type": "string"
-            },
-            "number": {
-              "description": "Dial-in number, length is less than 16.",
-              "type": "string"
+          "description": "List of Dial In Numbers",
+          "items": {
+            "properties": {
+              "code": {
+                "description": "Country Code",
+                "maxLength": 6,
+                "type": "string"
+              },
+              "country_label": {
+                "description": "Country Label, if passed, will display in place of code.",
+                "maxLength": 10,
+                "type": "string"
+              },
+              "number": {
+                "description": "Dial-in number, length is less than 16.",
+                "maxLength": 16,
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": {
+                "description": "Dial-in number type.",
+                "enum": [
+                  "toll",
+                  "tollfree",
+                  "media_link"
+                ],
+                "type": "string",
+                "x-enum-descriptions": [
+                  "Toll number <br/>",
+                  "Toll free number <br/>",
+                  "Media link phone number <br/>"
+                ]
+              }
             }
           },
           "required": [
-            "code",
             "number"
           ],
-          "type": "object"
+          "type": "array"
         },
         "leader_pin": {
           "description": "Leader PIN, numeric value, length is less than 16.",
+          "maxLength": 16,
+          "minLength": 1,
           "type": "string"
         }
       },
@@ -8026,10 +10565,71 @@
         "conference_code",
         "leader_pin"
       ],
+      "title": "TSP Accounts List",
+      "type": "object"
+    },
+    "TrackingField": {
+      "description": "Tracking Field",
+      "properties": {
+        "field": {
+          "description": "Tracking Field Name",
+          "type": "string"
+        },
+        "recommended_values": {
+          "description": "Array of recommended values",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "required": {
+          "description": "Tracking Field Required",
+          "type": "boolean"
+        },
+        "visible": {
+          "description": "Tracking Field Visible",
+          "type": "boolean"
+        }
+      },
+      "title": "Tracking Field",
+      "type": "object"
+    },
+    "TrackingFieldList": {
+      "allOf": [
+        {
+          "properties": {
+            "total_records": {
+              "description": "The number of all records available across pages",
+              "type": "integer"
+            },
+            "tracking_fields": {
+              "description": "Array of Tracking Fields",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "id": {
+                        "description": "ID of Tracking Field",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/TrackingField"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "Tracking Field List",
+      "title": "Tracking Field List",
       "type": "object"
     },
     "User": {
-      "description": "The user object represents a User on Zoom.",
+      "description": "The user object represents a User on Zoom",
       "properties": {
         "created_at": {
           "description": "User create time",
@@ -8041,11 +10641,11 @@
           "type": "string"
         },
         "email": {
-          "description": "User's email address.",
+          "description": "User's email address",
           "type": "string"
         },
         "first_name": {
-          "description": "User's first name.",
+          "description": "User's first name",
           "maxLength": 64,
           "type": "string"
         },
@@ -8059,7 +10659,7 @@
           "type": "string"
         },
         "last_name": {
-          "description": "User's last name.",
+          "description": "User's last name",
           "maxLength": 64,
           "type": "string"
         },
@@ -8096,7 +10696,7 @@
       "description": "List of User's assistants",
       "properties": {
         "assistants": {
-          "description": "List of User's assistants.",
+          "description": "List of User's assistants",
           "items": {
             "properties": {
               "email": {
@@ -8124,7 +10724,7 @@
         {
           "properties": {
             "users": {
-              "description": "List of User objects.",
+              "description": "List of User objects",
               "items": {
                 "allOf": [
                   {
@@ -8137,6 +10737,22 @@
                   },
                   {
                     "$ref": "#/definitions/User"
+                  },
+                  {
+                    "properties": {
+                      "group_ids": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "im_group_ids": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    }
                   }
                 ]
               },
@@ -8147,6 +10763,43 @@
       ],
       "description": "List of Users",
       "title": "User List",
+      "type": "object"
+    },
+    "UserPermissions": {
+      "description": "",
+      "properties": {
+        "permissions": {
+          "description": "List of user permissions",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserSchedulersList": {
+      "description": "List of User's schedulers",
+      "properties": {
+        "assistants": {
+          "description": "List of User's schedulers.",
+          "items": {
+            "properties": {
+              "email": {
+                "description": "User email address.",
+                "type": "string"
+              },
+              "id": {
+                "description": "User ID",
+                "type": "string"
+              }
+            }
+          },
+          "maximum": 30,
+          "type": "array"
+        }
+      },
+      "title": "User schedulers List",
       "type": "object"
     },
     "UserSettings": {
@@ -8163,8 +10816,8 @@
         "recording": {
           "$ref": "#/definitions/UserSettingsRecording"
         },
-        "scheduled_meeting": {
-          "$ref": "#/definitions/UserSettingsScheduledMeeting"
+        "schedule_meeting": {
+          "$ref": "#/definitions/UserSettingsScheduleMeeting"
         },
         "telephony": {
           "$ref": "#/definitions/UserSettingsTelephony"
@@ -8198,16 +10851,24 @@
     "UserSettingsFeature": {
       "description": "",
       "properties": {
+        "cn_meeting": {
+          "description": "CN meeting feature",
+          "type": "boolean"
+        },
+        "in_meeting": {
+          "description": "IN meeting feature",
+          "type": "boolean"
+        },
         "large_meeting": {
           "description": "Large meting feature",
           "type": "boolean"
         },
         "large_meeting_capacity": {
-          "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not.",
+          "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not",
           "type": "integer"
         },
         "meeting_capacity": {
-          "description": "User’s meeting capacity.",
+          "description": "User’s meeting capacity",
           "type": "integer"
         },
         "webinar": {
@@ -8215,7 +10876,34 @@
           "type": "boolean"
         },
         "webinar_capacity": {
-          "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not.",
+          "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not",
+          "type": "integer"
+        }
+      },
+      "title": "User settings: Feature settings",
+      "type": "object"
+    },
+    "UserSettingsFeatureUpdate": {
+      "description": "",
+      "properties": {
+        "large_meeting": {
+          "description": "Large meting feature",
+          "type": "boolean"
+        },
+        "large_meeting_capacity": {
+          "description": "Large meeting capacity, can be 100, 200, 300 or 500, depends on if having related large meeting capacity plan subscription or not",
+          "type": "integer"
+        },
+        "meeting_capacity": {
+          "description": "User’s meeting capacity",
+          "type": "integer"
+        },
+        "webinar": {
+          "description": "Webinar feature",
+          "type": "boolean"
+        },
+        "webinar_capacity": {
+          "description": "Webinar capacity, can be 100, 500, 1000, 3000, 5000 or 10000, depends on if having related webinar capacity plan subscription or not",
           "type": "integer"
         }
       },
@@ -8225,6 +10913,10 @@
     "UserSettingsInMeeting": {
       "description": "",
       "properties": {
+        "allow_live_streaming": {
+          "description": "Allow live streaming",
+          "type": "boolean"
+        },
         "annotation": {
           "default": false,
           "description": "Annotation",
@@ -8265,11 +10957,20 @@
           "description": "Co-host",
           "type": "boolean"
         },
+        "custom_live_streaming": {
+          "description": "Custom live streaming",
+          "type": "boolean"
+        },
+        "custom_service_instructions": {
+          "description": "Custom service instructions",
+          "type": "string"
+        },
         "e2e_encryption": {
           "description": "End-to-end encryption",
           "type": "boolean"
         },
         "entry_exit_chime": {
+          "default": "a''",
           "description": "Play sound on join/leave",
           "enum": [
             "host",
@@ -8334,7 +11035,7 @@
         },
         "share_dual_camera": {
           "default": false,
-          "description": "Share dual camera",
+          "description": "Share dual camera (Deprecated)",
           "type": "boolean"
         },
         "virtual_background": {
@@ -8345,6 +11046,10 @@
         "waiting_room": {
           "default": false,
           "description": "Waiting room",
+          "type": "boolean"
+        },
+        "workplace_by_facebook": {
+          "description": "Workplace by facebook",
           "type": "boolean"
         }
       },
@@ -8360,7 +11065,10 @@
           "type": "boolean"
         },
         "auto_delete_cmr_days": {
+          "default": false,
           "description": "A specified number of days of auto delete cloud recordings",
+          "maximum": 60,
+          "minimum": 1,
           "type": "integer"
         },
         "auto_recording": {
@@ -8420,12 +11128,12 @@
       "title": "User settings: Recording settings",
       "type": "object"
     },
-    "UserSettingsScheduledMeeting": {
+    "UserSettingsScheduleMeeting": {
       "description": "",
       "properties": {
         "audio_type": {
           "default": "voip",
-          "description": "Meeting audio",
+          "description": "Determine how participants can join the audio portion of the meeting",
           "enum": [
             "both",
             "telephony",
@@ -8470,6 +11178,7 @@
         "audio_conference_info": {
           "default": "",
           "description": "3rd party audio conference info",
+          "maxLength": 2048,
           "type": "string"
         },
         "show_international_numbers_link": {
@@ -8484,31 +11193,65 @@
       "title": "User settings: Meeting settings",
       "type": "object"
     },
+    "UserSettingsUpdate": {
+      "properties": {
+        "email_notification": {
+          "$ref": "#/definitions/UserSettingsEmailNotification"
+        },
+        "feature": {
+          "$ref": "#/definitions/UserSettingsFeatureUpdate"
+        },
+        "in_meeting": {
+          "$ref": "#/definitions/UserSettingsInMeeting"
+        },
+        "recording": {
+          "$ref": "#/definitions/UserSettingsRecording"
+        },
+        "schedule_meeting": {
+          "$ref": "#/definitions/UserSettingsScheduleMeeting"
+        },
+        "telephony": {
+          "$ref": "#/definitions/UserSettingsTelephony"
+        }
+      },
+      "title": "User settings",
+      "type": "object"
+    },
     "UserUpdate": {
-      "description": "The user update object represents a User on Zoom.",
+      "description": "The user update object represents a User on Zoom",
       "properties": {
         "cms_user_id": {
-          "description": "Kaltura User Id.",
+          "description": "Kaltura User Id",
           "type": "string"
         },
         "dept": {
-          "description": "Department for user profile, use for report.",
+          "description": "Department for user profile, use for report",
           "type": "string"
         },
         "first_name": {
           "description": "User's first name. Cannot contain more than 5 Chinese words.",
+          "maxLength": 64,
           "type": "string"
         },
         "host_key": {
-          "description": "Host Key, should be 6-digit number.",
+          "description": "Host Key, should be 6-digit number",
+          "maxLength": 6,
+          "minLength": 6,
+          "type": "string"
+        },
+        "language": {
+          "description": "language",
           "type": "string"
         },
         "last_name": {
           "description": "User's last name. Cannot contain more than 5 Chinese words.",
+          "maxLength": 64,
           "type": "string"
         },
         "pmi": {
-          "description": "Personal Meeting ID,length must be 10.",
+          "description": "Personal Meeting ID,length must be 10",
+          "maxLength": 10,
+          "minLength": 10,
           "type": "string"
         },
         "timezone": {
@@ -8530,8 +11273,13 @@
             "corp"
           ]
         },
+        "use_pmi": {
+          "default": false,
+          "description": "Use Personal Meeting ID for instant meetings.",
+          "type": "boolean"
+        },
         "vanity_name": {
-          "description": "Personal meeting room name.",
+          "description": "Personal meeting room name",
           "type": "string"
         }
       },
@@ -8541,12 +11289,12 @@
       "description": "Webhook base object, only available for version 2 webhook",
       "properties": {
         "auth_password": {
-          "description": "Webhook auth password.",
+          "description": "Webhook auth password",
           "maxLength": 64,
           "type": "string"
         },
         "auth_user": {
-          "description": "Webhook auth user name.",
+          "description": "Webhook auth user name",
           "maxLength": 128,
           "type": "string"
         },
@@ -8559,7 +11307,9 @@
             "meeting_join",
             "recording_completed",
             "participant_joined",
-            "participant_left"
+            "participant_left",
+            "meeting_registered",
+            "recording_transcript_completed"
           ],
           "items": {
             "type": "string"
@@ -8572,7 +11322,9 @@
             "Host hasn’t launched the meeting, attendee is waiting.",
             "All the Cloud Recordings have completed processing and is available.",
             "Participant has joined the meeting.",
-            "Participant has leaved the meeting."
+            "Participant has leaved the meeting.",
+            "Attendee registered for a meeting or webinar.",
+            "Recording audio transcript files have processed and are available."
           ]
         },
         "url": {
@@ -8594,23 +11346,32 @@
         {
           "properties": {
             "total_records": {
-              "description": "The number of all records available across pages.",
+              "description": "The number of all records available across pages",
               "type": "integer"
             },
             "webhooks": {
-              "description": "List of Webhook objects.",
+              "description": "List of Webhook objects",
               "items": {
                 "allOf": [
                   {
                     "properties": {
                       "webhook_id": {
-                        "description": "Webhook Id.",
+                        "description": "Webhook Id",
                         "type": "string"
                       }
                     }
                   },
                   {
                     "$ref": "#/definitions/Webhook"
+                  },
+                  {
+                    "properties": {
+                      "created_at": {
+                        "description": "Webhook create time",
+                        "format": "date-time",
+                        "type": "string"
+                      }
+                    }
                   }
                 ]
               },
@@ -8627,17 +11388,17 @@
       "description": "Webhook base object",
       "properties": {
         "auth_password": {
-          "description": "Webhook auth password.",
+          "description": "Webhook auth password",
           "maxLength": 64,
           "type": "string"
         },
         "auth_user": {
-          "description": "Webhook auth user name.",
+          "description": "Webhook auth user name",
           "maxLength": 128,
           "type": "string"
         },
         "events": {
-          "description": "List of events objects.",
+          "description": "List of events objects",
           "enum": [
             "meeting_started",
             "meeting_ended",
@@ -8645,7 +11406,9 @@
             "meeting_join",
             "recording_completed",
             "participant_joined",
-            "participant_left"
+            "participant_left",
+            "meeting_registered",
+            "recording_transcript_completed"
           ],
           "items": {
             "type": "string"
@@ -8658,11 +11421,13 @@
             "Host hasn’t launched the meeting, attendee is waiting.",
             "All the Cloud Recordings has completed processing and is available.",
             "Participant has joined the meeting.",
-            "Participant has leaved the meeting."
+            "Participant has leaved the meeting.",
+            "Attendee registered for a meeting or webinar.",
+            "Recording audio transcript files have processed and are available."
           ]
         },
         "url": {
-          "description": "Webhook endpoint.",
+          "description": "Webhook endpoint",
           "maxLength": 256,
           "type": "string"
         }
@@ -8721,6 +11486,22 @@
           "description": "Webinar topic",
           "type": "string"
         },
+        "tracking_fields": {
+          "description": "Tracking fields",
+          "items": {
+            "properties": {
+              "field": {
+                "description": "Tracking fields type",
+                "type": "string"
+              },
+              "value": {
+                "description": "Tracking fields value",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        },
         "type": {
           "default": 5,
           "description": "Webinar Type",
@@ -8739,6 +11520,39 @@
       },
       "type": "object"
     },
+    "WebinarInstances": {
+      "allOf": [
+        {
+          "properties": {
+            "webinars": {
+              "description": "List of ended webinar instances.",
+              "items": {
+                "allOf": [
+                  {
+                    "properties": {
+                      "start_time": {
+                        "description": "Start time",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "uuid": {
+                        "description": "WebinarUUID",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                ]
+              },
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "List of Webinars",
+      "title": "Webinar instances",
+      "type": "object"
+    },
     "WebinarList": {
       "allOf": [
         {
@@ -8747,7 +11561,7 @@
         {
           "properties": {
             "webinars": {
-              "description": "List of Webinar objects.",
+              "description": "List of Webinar objects",
               "items": {
                 "allOf": [
                   {
@@ -8895,7 +11709,7 @@
       "description": "Webinar panelist",
       "properties": {
         "panelists": {
-          "description": "List of Panelist objects.",
+          "description": "List of Panelist objects",
           "items": {
             "allOf": [
               {
@@ -8903,6 +11717,7 @@
               }
             ]
           },
+          "maximum": 30,
           "type": "array"
         }
       },
@@ -8940,11 +11755,11 @@
       "description": "Webinar Settings",
       "properties": {
         "allow_multiple_devices": {
-          "description": "Allow attendees to join from multiple devices.",
+          "description": "Allow attendees to join from multiple devices",
           "type": "boolean"
         },
         "alternative_hosts": {
-          "description": "Alternative hosts emails or IDs. Multiple value separated by comma.",
+          "description": "Alternative hosts emails or IDs. Multiple values separated by comma.",
           "type": "string"
         },
         "approval_type": {
@@ -8963,7 +11778,7 @@
         },
         "audio": {
           "default": "both",
-          "description": "Meeting audio options",
+          "description": "Determine how participants can join the audio portion of the meeting",
           "enum": [
             "both",
             "telephony",
@@ -8991,7 +11806,7 @@
           ]
         },
         "close_registration": {
-          "description": "Close registration after event date.",
+          "description": "Close registration after event date",
           "type": "boolean"
         },
         "enforce_login": {
@@ -9008,7 +11823,12 @@
           "type": "boolean"
         },
         "host_video": {
-          "description": "Start video when host join webinar",
+          "description": "Start video when host joins webinar",
+          "type": "boolean"
+        },
+        "on_demand": {
+          "default": false,
+          "description": "Make the webinar on-demand",
           "type": "boolean"
         },
         "panelists_video": {
@@ -9036,7 +11856,7 @@
           ]
         },
         "show_share_button": {
-          "description": "Show social share buttons on registration page.",
+          "description": "Show social share buttons on registration page",
           "type": "boolean"
         }
       },
@@ -9056,6 +11876,10 @@
       "properties": {
         "account_type": {
           "description": "Zoom Room email type",
+          "type": "string"
+        },
+        "calender_name": {
+          "description": "Zoom Calendar name",
           "type": "string"
         },
         "camera": {
@@ -9119,5 +11943,6 @@
       "title": "Zoom Room List",
       "type": "object"
     }
-  }
+  },
+  "x-explorer-enabled": false
 }

@@ -15,10 +15,7 @@ let azure_monitor_servicediagnosticssettings_api = require('@datafire/azure_moni
   redirect_uri: ""
 });
 
-azure_monitor_servicediagnosticssettings_api.ServiceDiagnosticSettings_Get({
-  "resourceUri": "",
-  "api-version": ""
-}).then(data => {
+.then(data => {
   console.log(data);
 });
 ```
