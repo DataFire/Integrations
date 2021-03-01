@@ -1,0 +1,756 @@
+{
+  "id": "sms77",
+  "title": "sms77.io API",
+  "description": "sms77.io Swagger API. Get your API-Key now at sms77.io.",
+  "security": {
+    "sms77": {
+      "integration": "sms77",
+      "fields": {
+        "ApiKeyAuth": "API key"
+      }
+    }
+  },
+  "actionCount": 12,
+  "definitions": {
+    "Carrier": {
+      "type": "object",
+      "properties": {
+        "network_code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "network_type": {
+          "type": "string",
+          "enum": [
+            "fixed_line",
+            "fixed_line_or_mobile",
+            "mobile",
+            "pager",
+            "personal_number",
+            "premium_rate",
+            "shared_cost",
+            "toll_free",
+            "uan",
+            "unknown",
+            "voicemail",
+            "voip"
+          ]
+        }
+      }
+    },
+    "Roaming": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "roaming",
+            "not_roaming"
+          ]
+        },
+        "roaming_country_code": {
+          "type": "string"
+        },
+        "roaming_network_code": {
+          "type": "string"
+        },
+        "roaming_network_name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "Analytics",
+      "title": "Analytics",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start date of the statistics in the format YYYY-MM-DD. By default, the date of 30 days ago is set."
+          },
+          "end": {
+            "type": "string",
+            "description": "End date of the statistics in the format YYYY-MM-DD. By default, the current day."
+          },
+          "label": {
+            "type": "string",
+            "description": "Shows only data of a specific label."
+          },
+          "subaccounts": {
+            "type": "string",
+            "description": "Receive the data only for the main account, all your (sub-)accounts or only for specific subaccounts."
+          },
+          "group_by": {
+            "type": "string",
+            "description": "Defines the grouping of the data.",
+            "enum": [
+              "date",
+              "label",
+              "subaccount",
+              "country"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "economy": {
+            "type": "integer"
+          },
+          "direct": {
+            "type": "integer"
+          },
+          "voice": {
+            "type": "integer"
+          },
+          "hlr": {
+            "type": "integer"
+          },
+          "mnp": {
+            "type": "integer"
+          },
+          "inbound": {
+            "type": "integer"
+          },
+          "usage_eur": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Balance",
+      "title": "Balance",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "number",
+        "format": "float",
+        "example": 12.34
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "ContactsGet",
+      "title": "ContactsGet",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "read"
+            ]
+          },
+          "json": {
+            "type": "number",
+            "description": "Defines whether to return the response as JSON or CSV separated by semicolon.",
+            "enum": [
+              0,
+              1
+            ],
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action"
+        ]
+      },
+      "outputSchema": {
+        "example": "\"1\";\"Tommy Tester\";\"0049179876543210\"",
+        "type": "string"
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "ContactsPOST",
+      "title": "ContactsPOST",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "del",
+              "write"
+            ]
+          },
+          "json": {
+            "type": "number",
+            "description": "Defines whether to return the response as JSON or CSV separated by semicolon.",
+            "enum": [
+              0,
+              1
+            ],
+            "default": 0
+          },
+          "id": {
+            "type": "string",
+            "description": "The contact ID for editing/deletion."
+          },
+          "nick": {
+            "type": "string",
+            "description": "The contacts name."
+          },
+          "empfaenger": {
+            "type": "string",
+            "description": "The contacts phone number."
+          },
+          "email": {
+            "type": "string",
+            "description": "The contacts email address."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action"
+        ]
+      },
+      "outputSchema": {
+        "type": "string",
+        "example": 152
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "HooksGet",
+      "title": "HooksGet",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "read"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "hooks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "target_url": {
+                  "type": "string"
+                },
+                "event_type": {
+                  "type": "string"
+                },
+                "request_method": {
+                  "type": "string"
+                },
+                "created": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "HooksPOST",
+      "title": "HooksPOST",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "subscribe",
+              "unsubscribe"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "description": "The Webhook ID you wish to unsubscribe."
+          },
+          "target_url": {
+            "type": "string",
+            "description": "Target URL of your Webhook."
+          },
+          "event_type": {
+            "type": "string",
+            "description": "Type of event for which you would like to receive a webhook.",
+            "enum": [
+              "all",
+              "sms_mo",
+              "dlr",
+              "voice_status"
+            ]
+          },
+          "request_method": {
+            "type": "string",
+            "description": "Request method in which you want to receive the webhook.",
+            "enum": [
+              "POST",
+              "JSON",
+              "GET"
+            ],
+            "default": "POST"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Lookup",
+      "title": "Lookup",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Allowed values are \"cnam\", \"format\", \"hlr\" and \"mnp\"."
+          },
+          "number": {
+            "type": "array",
+            "description": "The phone number to look up."
+          },
+          "json": {
+            "type": "string",
+            "description": "Determines whether the response shall be returned in JSON format. Does not work with type \"format\"."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "number"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Pricing",
+      "title": "Pricing",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "The countries ISO code to get pricings for. Allowed values are de, fr, at. Omit to show pricings for all channels."
+          },
+          "format": {
+            "type": "string",
+            "description": "Determines the response format. Allowed values are json and csv. The default value is json."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Sms",
+      "title": "Sms",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The actual text message to send."
+          },
+          "to": {
+            "type": "string",
+            "description": "The recipient number or group name."
+          },
+          "from": {
+            "type": "string",
+            "description": "Set a custom sender name."
+          },
+          "foreign_id": {
+            "type": "string",
+            "description": "Identifier to return in callbacks.",
+            "pattern": "^[A-Z|a-z|0-9|.|\\-|_|@]+"
+          },
+          "label": {
+            "type": "string",
+            "description": "A custom label.",
+            "pattern": "^[A-Z|a-z|0-9|.|\\-|_|@]+"
+          },
+          "udh": {
+            "type": "string",
+            "description": "A custom User Data Header."
+          },
+          "delay": {
+            "type": "string",
+            "description": "Date/Time for delayed dispatch."
+          },
+          "debug": {
+            "type": "number",
+            "description": "Disable message sending.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "no_reload": {
+            "type": "number",
+            "description": "Enable sending of duplicated messages within 180 seconds.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "unicode": {
+            "type": "number",
+            "description": "Force unicode encoding. Reduces sms length to 70 chars.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "flash": {
+            "type": "number",
+            "description": "Send as flash.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "utf8": {
+            "type": "number",
+            "description": "Force UTF8 encoding.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "details": {
+            "type": "number",
+            "description": "Attach message details to response.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "return_msg_id": {
+            "type": "number",
+            "description": "Attach message ID to second row in a text response.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "json": {
+            "type": "number",
+            "description": "Return a detailed JSON response.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          "performance_tracking": {
+            "type": "number",
+            "description": "Enable performance tracking for found URLs.",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "to"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "debug": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "number",
+            "format": "float"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "encoding": {
+                  "type": "string"
+                },
+                "error": {
+                  "type": "string"
+                },
+                "error_text": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "parts": {
+                  "type": "integer"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "recipient": {
+                  "type": "string"
+                },
+                "sender": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sms_type": {
+            "type": "string",
+            "enum": [
+              "economy",
+              "direct"
+            ]
+          },
+          "success": {
+            "type": "string"
+          },
+          "total_price": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Status",
+      "title": "Status",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "msg_id": {
+            "type": "string",
+            "description": "The ID from the SMS."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "msg_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "string",
+        "example": "DELIVERED\n2020-01-09 15:41:30.656\n"
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "ValidateForVoice",
+      "title": "ValidateForVoice",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "description": "Determines the recipient. Can only be a number, not a contact from your address book."
+          },
+          "callback": {
+            "type": "string",
+            "format": "uri",
+            "description": "The callback URL which gets queried right after validation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    },
+    {
+      "id": "Voice",
+      "title": "Voice",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "Determines the receiver. Must be a valid phone number or contact from the address book."
+          },
+          "text": {
+            "type": "string",
+            "description": "The text to convert to a voice message. Accepts valid XML too.",
+            "maxLength": 10000
+          },
+          "xml": {
+            "type": "number",
+            "description": "Decides whether the parameter \"text\" is plain text or XML. The default value is 0.",
+            "enum": [
+              1,
+              0
+            ]
+          },
+          "from": {
+            "type": "string",
+            "description": "Sets the sender. Must be a verified sender. Use an inbound number of yours or one of ours."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "to",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "type": "string",
+        "example": "100\n123456789\n0\n"
+      },
+      "security": {
+        "sms77": {
+          "integration": "sms77"
+        }
+      }
+    }
+  ]
+}

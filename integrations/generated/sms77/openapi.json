@@ -1,0 +1,1150 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "sms77.io Swagger API. Get your API-Key now at sms77.io.",
+    "version": "1.0.0",
+    "title": "sms77.io API",
+    "termsOfService": "https://sms77.io/en/company/terms/",
+    "contact": {
+      "email": "support@sms77.io",
+      "url": "https://sms77.io/en/company/contact",
+      "name": "Support"
+    },
+    "license": {
+      "name": "Licensed by Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "x-datafire": {
+      "name": "sms77",
+      "type": "openapi"
+    }
+  },
+  "host": "gateway.sms77.io",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "analytics",
+      "externalDocs": {
+        "description": "Retrieve analytics",
+        "url": "https://www.sms77.io/en/docs/gateway/http-api/analytics"
+      }
+    },
+    {
+      "name": "sms",
+      "externalDocs": {
+        "description": "Send one/multiple SMS",
+        "url": "https://sms77.io/en/docs/gateway/http-api/sms-disptach"
+      }
+    },
+    {
+      "name": "balance",
+      "externalDocs": {
+        "description": "Retrieve account balance",
+        "url": "https://sms77.io/en/docs/gateway/http-api/credit-balance"
+      }
+    },
+    {
+      "name": "contacts",
+      "externalDocs": {
+        "description": "Retrieve/edit/delete contact(s)",
+        "url": "https://sms77.io/en/docs/gateway/http-api/contacts"
+      }
+    },
+    {
+      "name": "pricing",
+      "externalDocs": {
+        "description": "Retrieve pricing information",
+        "url": "https://sms77.io/en/docs/gateway/http-api/pricing"
+      }
+    },
+    {
+      "name": "status",
+      "externalDocs": {
+        "description": "Retrieve the status for a sent SMS with the given ID",
+        "url": "https://sms77.io/en/docs/gateway/http-api/status-reports"
+      }
+    },
+    {
+      "name": "validate_for_voice",
+      "externalDocs": {
+        "description": "Validate caller ID for voice Voice API",
+        "url": "https://sms77.io/en/docs/gateway/http-api/caller-ids"
+      }
+    },
+    {
+      "name": "voice",
+      "externalDocs": {
+        "description": "Issue voice call to phone number",
+        "url": "https://sms77.io/en/docs/gateway/http-api/voice"
+      }
+    },
+    {
+      "name": "lookup",
+      "externalDocs": {
+        "description": "Get number format, CNAM,- HLR- or MNP information for given phone number",
+        "url": "https://sms77.io/en/docs/gateway/http-api"
+      }
+    },
+    {
+      "name": "hooks",
+      "externalDocs": {
+        "description": "Create, view and delete webhooks",
+        "url": "https://www.sms77.io/en/docs/gateway/http-api/webhooks/"
+      }
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/analytics": {
+      "get": {
+        "operationId": "Analytics",
+        "tags": [
+          "analytics"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "start",
+            "description": "Start date of the statistics in the format YYYY-MM-DD. By default, the date of 30 days ago is set.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "description": "End date of the statistics in the format YYYY-MM-DD. By default, the current day.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "label",
+            "description": "Shows only data of a specific label.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "subaccounts",
+            "description": "Receive the data only for the main account, all your (sub-)accounts or only for specific subaccounts.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "group_by",
+            "description": "Defines the grouping of the data.",
+            "type": "string",
+            "enum": [
+              "date",
+              "label",
+              "subaccount",
+              "country"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "economy": {
+                  "type": "integer"
+                },
+                "direct": {
+                  "type": "integer"
+                },
+                "voice": {
+                  "type": "integer"
+                },
+                "hlr": {
+                  "type": "integer"
+                },
+                "mnp": {
+                  "type": "integer"
+                },
+                "inbound": {
+                  "type": "integer"
+                },
+                "usage_eur": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/balance": {
+      "get": {
+        "operationId": "Balance",
+        "tags": [
+          "balance"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 12.34
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "operationId": "ContactsGet",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "read"
+            ],
+            "name": "action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "Defines whether to return the response as JSON or CSV separated by semicolon.",
+            "enum": [
+              0,
+              1
+            ],
+            "default": 0,
+            "name": "json",
+            "type": "number"
+          }
+        ],
+        "produces": [
+          "text/csv",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK (CSV)",
+            "schema": {
+              "example": "\"1\";\"Tommy Tester\";\"0049179876543210\"",
+              "type": "string"
+            }
+          }
+        },
+        "tags": [
+          "contacts"
+        ]
+      },
+      "post": {
+        "operationId": "ContactsPOST",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "del",
+              "write"
+            ],
+            "name": "action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "Defines whether to return the response as JSON or CSV separated by semicolon.",
+            "enum": [
+              0,
+              1
+            ],
+            "default": 0,
+            "name": "json",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "description": "The contact ID for editing/deletion.",
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The contacts name.",
+            "name": "nick",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The contacts phone number.",
+            "name": "empfaenger",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The contacts email address.",
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "example": 152
+            }
+          }
+        },
+        "tags": [
+          "contacts"
+        ]
+      }
+    },
+    "/hooks": {
+      "get": {
+        "operationId": "HooksGet",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "read"
+            ],
+            "name": "action",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "hooks"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hooks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "target_url": {
+                        "type": "string"
+                      },
+                      "event_type": {
+                        "type": "string"
+                      },
+                      "request_method": {
+                        "type": "string"
+                      },
+                      "created": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "HooksPOST",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the action to execute.",
+            "enum": [
+              "subscribe",
+              "unsubscribe"
+            ],
+            "name": "action",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The Webhook ID you wish to unsubscribe.",
+            "name": "id",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "description": "Target URL of your Webhook.",
+            "name": "target_url",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "Type of event for which you would like to receive a webhook.",
+            "name": "event_type",
+            "enum": [
+              "all",
+              "sms_mo",
+              "dlr",
+              "voice_status"
+            ],
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "Request method in which you want to receive the webhook.",
+            "name": "request_method",
+            "default": "POST",
+            "enum": [
+              "POST",
+              "JSON",
+              "GET"
+            ],
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "hooks"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Hook subscribed",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup": {
+      "post": {
+        "operationId": "Lookup",
+        "tags": [
+          "lookup"
+        ],
+        "produces": [
+          "application/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Allowed values are \"cnam\", \"format\", \"hlr\" and \"mnp\".",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The phone number to look up.",
+            "items": {
+              "type": "string"
+            },
+            "name": "number",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "in": "query",
+            "description": "Determines whether the response shall be returned in JSON format. Does not work with type \"format\".",
+            "name": "json",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "enum": [
+                        100,
+                        202,
+                        500,
+                        600
+                      ],
+                      "type": "number"
+                    },
+                    "success": {
+                      "description": "Determines if the request was successful.,",
+                      "type": "boolean"
+                    },
+                    "international": {
+                      "description": "The number formatted accordingly to the E.164 standard.",
+                      "type": "string"
+                    },
+                    "international_formatted": {
+                      "description": "The number formatted accordingly to the E.164 standard in a human readable format.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The carrier name",
+                      "type": "string"
+                    },
+                    "number": {
+                      "type": "string",
+                      "description": "The number formatted accordingly to the E.164 standard in a human readable format."
+                    },
+                    "national": {
+                      "type": "string",
+                      "description": "The number in a domestic number format."
+                    },
+                    "country_iso": {
+                      "type": "string",
+                      "description": "The two digit ISO 3166-1 alpha-2 country code."
+                    },
+                    "country_name": {
+                      "type": "string",
+                      "description": "The full english name if the number belonging country."
+                    },
+                    "country_code": {
+                      "type": "string",
+                      "description": "The area code of the number belonging country. This value is numeric."
+                    },
+                    "carrier": {
+                      "type": "string",
+                      "description": "The (former) mobile carrier the number got issued to on initial number release."
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "international_format_number": {
+                      "type": "string"
+                    },
+                    "national_format_number": {
+                      "type": "string"
+                    },
+                    "country_code_iso3": {
+                      "type": "string"
+                    },
+                    "country_prefix": {
+                      "type": "string"
+                    },
+                    "ported": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "ported",
+                        "not_ported",
+                        "assumed_not_ported",
+                        "assumed_ported"
+                      ]
+                    },
+                    "current_carrier": {
+                      "schema": {
+                        "$ref": "#/definitions/Carrier"
+                      }
+                    },
+                    "original_carrier": {
+                      "schema": {
+                        "$ref": "#/definitions/Carrier"
+                      }
+                    },
+                    "lookup_outcome": {
+                      "type": "string"
+                    },
+                    "lookup_outcome_message": {
+                      "type": "string"
+                    },
+                    "valid_number": {
+                      "type": "string"
+                    },
+                    "reachable": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "reachable",
+                        "undeliverable",
+                        "absent",
+                        "bad_number",
+                        "blacklisted"
+                      ]
+                    },
+                    "roaming": {
+                      "schema": {
+                        "$ref": "#/definitions/Roaming"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pricing": {
+      "get": {
+        "operationId": "Pricing",
+        "tags": [
+          "pricing"
+        ],
+        "produces": [
+          "application/json",
+          "text/csv"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "country",
+            "description": "The countries ISO code to get pricings for. Allowed values are de, fr, at. Omit to show pricings for all channels.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "description": "Determines the response format. Allowed values are json and csv. The default value is json.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "text/csv": "countryCode,countryName,countryPrefix,mcc,mncs,networkName,price,features,comment \"DE\";\"Germany\";\"49\";\"262\";\"15\";\" (Airdata)\";\"0.075\";\"\";\"\"\n",
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "countCountries": {
+                      "type": "integer",
+                      "description": "The number if countries in total."
+                    },
+                    "countNetworks": {
+                      "type": "integer",
+                      "description": "The number of total networks."
+                    },
+                    "countries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "countryCode": {
+                            "type": "string",
+                            "description": "The countries ISO code."
+                          },
+                          "countryName": {
+                            "type": "string",
+                            "description": "The countries full name."
+                          },
+                          "countryPrefix": {
+                            "type": "string",
+                            "description": "The countries number prefix."
+                          },
+                          "networks": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "comment": {
+                                  "description": "Any information which might be of interest.",
+                                  "type": "string"
+                                },
+                                "features": {
+                                  "description": "The features supported by this network.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "networkName": {
+                                  "type": "string",
+                                  "description": "The full name of the carrier."
+                                },
+                                "mcc": {
+                                  "type": "string",
+                                  "description": "The mobile country code."
+                                },
+                                "mncs": {
+                                  "description": "The mobile network code(s).",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "format": "float"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sms": {
+      "post": {
+        "operationId": "Sms",
+        "tags": [
+          "sms"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "text",
+            "description": "The actual text message to send.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "description": "The recipient number or group name.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "description": "Set a custom sender name.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "foreign_id",
+            "description": "Identifier to return in callbacks.",
+            "pattern": "^[A-Z|a-z|0-9|.|\\-|_|@]+",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "label",
+            "description": "A custom label.",
+            "pattern": "^[A-Z|a-z|0-9|.|\\-|_|@]+",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "udh",
+            "description": "A custom User Data Header.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "delay",
+            "description": "Date/Time for delayed dispatch.",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "debug",
+            "description": "Disable message sending.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "no_reload",
+            "description": "Enable sending of duplicated messages within 180 seconds.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "unicode",
+            "description": "Force unicode encoding. Reduces sms length to 70 chars.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "flash",
+            "description": "Send as flash.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "utf8",
+            "description": "Force UTF8 encoding.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "details",
+            "description": "Attach message details to response.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "return_msg_id",
+            "description": "Attach message ID to second row in a text response.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "json",
+            "description": "Return a detailed JSON response.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          },
+          {
+            "in": "query",
+            "name": "performance_tracking",
+            "description": "Enable performance tracking for found URLs.",
+            "type": "number",
+            "enum": [
+              1,
+              0
+            ],
+            "default": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "debug": {
+                  "type": "string"
+                },
+                "balance": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "encoding": {
+                        "type": "string"
+                      },
+                      "error": {
+                        "type": "string"
+                      },
+                      "error_text": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "messages": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "parts": {
+                        "type": "integer"
+                      },
+                      "price": {
+                        "type": "integer"
+                      },
+                      "recipient": {
+                        "type": "string"
+                      },
+                      "sender": {
+                        "type": "string"
+                      },
+                      "success": {
+                        "type": "boolean"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "sms_type": {
+                  "type": "string",
+                  "enum": [
+                    "economy",
+                    "direct"
+                  ]
+                },
+                "success": {
+                  "type": "string"
+                },
+                "total_price": {
+                  "type": "number",
+                  "format": "float"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "operationId": "Status",
+        "tags": [
+          "status"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "msg_id",
+            "description": "The ID from the SMS.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "example": "DELIVERED\n2020-01-09 15:41:30.656\n"
+            }
+          }
+        }
+      }
+    },
+    "/validate_for_voice": {
+      "post": {
+        "operationId": "ValidateForVoice",
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the recipient. Can only be a number, not a contact from your address book.",
+            "name": "number",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The callback URL which gets queried right after validation.",
+            "format": "uri",
+            "name": "callback",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "error": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "validate_for_voice"
+        ]
+      }
+    },
+    "/voice": {
+      "post": {
+        "operationId": "Voice",
+        "tags": [
+          "voice"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "description": "Determines the receiver. Must be a valid phone number or contact from the address book.",
+            "name": "to",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "description": "The text to convert to a voice message. Accepts valid XML too.",
+            "maxLength": 10000,
+            "name": "text",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "description": "Decides whether the parameter \"text\" is plain text or XML. The default value is 0.",
+            "enum": [
+              1,
+              0
+            ],
+            "name": "xml",
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "description": "Sets the sender. Must be a verified sender. Use an inbound number of yours or one of ours.",
+            "name": "from",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "example": "100\n123456789\n0\n"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "X-API-Key",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more about the Sms77.io SMS gateway.",
+    "url": "https://sms77.io/en/docs/gateway/http-api"
+  },
+  "definitions": {
+    "Carrier": {
+      "type": "object",
+      "properties": {
+        "network_code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "network_type": {
+          "type": "string",
+          "enum": [
+            "fixed_line",
+            "fixed_line_or_mobile",
+            "mobile",
+            "pager",
+            "personal_number",
+            "premium_rate",
+            "shared_cost",
+            "toll_free",
+            "uan",
+            "unknown",
+            "voicemail",
+            "voip"
+          ]
+        }
+      }
+    },
+    "Roaming": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "roaming",
+            "not_roaming"
+          ]
+        },
+        "roaming_country_code": {
+          "type": "string"
+        },
+        "roaming_network_code": {
+          "type": "string"
+        },
+        "roaming_network_name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
