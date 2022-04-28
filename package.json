@@ -19,7 +19,7 @@
   "devDependencies": {
     "@datafire/fileserver": "^1.0.1",
     "@datafire/http": "^2.1.0",
-    "async": "^2.6.3",
+    "async": "^2.6.4",
     "aws-sdk": "^2.814.0",
     "body-parser": "^1.19.0",
     "chai": "^3.5.0",
