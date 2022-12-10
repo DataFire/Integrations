@@ -24,7 +24,7 @@
     "body-parser": "^1.19.0",
     "chai": "^3.5.0",
     "datafire": "^2.26.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fennel": "git+https://github.com/bobby-brennan/fennel.git",
     "fs-extra": "^5.0.0",
     "hoodiecrow-imap": "^2.1.0",
